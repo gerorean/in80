@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscador de Señas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .result-bar {
+      display: flex;
+      overflow-x: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+      height: 120px;
+      background-color: #f9f9f9;
+    }
+    .result-item {
+      margin-right: 10px;
+      text-align: center;
+    }
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .filters button {
+      padding: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .phrase-box {
+      border: 2px solid #666;
+      min-height: 60px;
+      padding: 10px;
+      background-color: #e6f0ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Buscador de Señas</h1>
+  
+  <div class="result-bar" id="resultBar">
+    <!-- Aquí se mostrarán las señas filtradas -->
+  </div>
+
+  <div class="filters">
+    <button onclick="applyFilter('dedos_1')">1 Dedo</button>
+    <button onclick="applyFilter('dedos_2')">2 Dedos</button>
+    <button onclick="applyFilter('cabeza')">Ubicación: Cabeza</button>
+    <button onclick="applyFilter('pecho')">Ubicación: Pecho</button>
+    <button onclick="applyFilter('flecha_izq')">Movimiento: Izquierda</button>
+    <button onclick="applyFilter('flecha_der')">Movimiento: Derecha</button>
+    <!-- Se pueden añadir más filtros aquí -->
+  </div>
+
+  <div class="phrase-box" id="phraseBox">
+    <!-- Aquí se construye la frase final -->
+  </div>
+
+  <script>
+    const señas = [
+      { id: 1, img: '🖐️', filtros: ['dedos_1', 'cabeza'] },
+      { id: 2, img: '✌️', filtros: ['dedos_2', 'pecho'] },
+      { id: 3, img: '👉', filtros: ['dedos_1', 'flecha_der'] },
+      { id: 4, img: '👈', filtros: ['dedos_1', 'flecha_izq'] }
+    ];
+
+    let filtrosSeleccionados = [];
+
+    function applyFilter(filtro) {
+      if (!filtrosSeleccionados.includes(filtro)) {
+        filtrosSeleccionados.push(filtro);
+      }
+      mostrarSeñasFiltradas();
+    }
+
+    function mostrarSeñasFiltradas() {
+      const resultBar = document.getElementById('resultBar');
+      resultBar.innerHTML = '';
+
+      const filtradas = señas.filter(s =>
+        filtrosSeleccionados.every(f => s.filtros.includes(f))
+      );
+
+      filtradas.forEach(s => {
+        const div = document.createElement('div');
+        div.className = 'result-item';
+        div.innerHTML = `<div style="font-size: 2em; cursor: pointer;" onclick="agregarAFrase('${s.img}')">${s.img}</div>`;
+        resultBar.appendChild(div);
+      });
+    }
+
+    function agregarAFrase(img) {
+      const phraseBox = document.getElementById('phraseBox');
+      phraseBox.innerHTML += `<span style="font-size: 2em; margin-right: 5px;">${img}</span>`;
+    }
+  </script>
+</body>
+</html>

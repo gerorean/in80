@@ -18,16 +18,15 @@ estas funciones están ocultas arriba para activarlas hay que ctivar el interrup
 para activar/desactivar separe/una (con un espacio) el último * de la barra inclinada / , ejemplo * /
 */
 
-/* interruptor 1 * /
+
+
+
+
+
+
+/* inicio interruptor 1 incluye f0128 a f0137* /
 //============================================================
 //PASAR al servidor
-
-
-
-
-
-
-
 const   ext				= 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 var 	hij1 			= [];//array de hijos 1
 var 	hij2 			= [];//array de hijos 2
@@ -566,7 +565,12 @@ function f0137(h)//ENCONTRAR el id padre de un hijo del nivel 10
 
 f0128();//DETERCTAR los hijos de wPAPA
 
-/* */
+/* fin interruptor 1 incluye f0128 a f0137 */
+
+
+
+
+
 
 /*
 //intento 1 convertir r003 en un objeto con Array
@@ -945,6 +949,11 @@ for (var i = 0; i < jsAds.length; i++) {
 	rrr3B[10][i] = jsAds[i].r3B10;
 }
 
+
+
+
+
+
 //============================================================
 // CONSTANTES COMPARTIDAS CON EL SERVIDOR Y EL NAVEGADOR
 
@@ -956,7 +965,13 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 */
 
 //INTERRUPTOR PARA COMPARTIR las constantes ext y el resultado de vPAPA1, vPAPA2 ... vPAPA10 con el navegador
-/* interruptor 2 */
+
+
+
+
+
+
+/* inicio interruptor 2 no incluye f0128 a f0137*/
 const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
 const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
@@ -1034,7 +1049,7 @@ const vPAPA10 = [['2-id:key strings app', 0, '4-IdPapa9', '5-Id color marco', '6
 ]
 
 const rutas = ['/7/7', '/6/10', '/1/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7', '/7/1/4', '/7/1/1', '/2/9/5', '/7/1/8/3', '/7/1/8/4', '/7/1/8/5', '/4/3/6/6', '/7/1/3/7', '/7/1/2/8', '/7/1/8/2/1', '/7/1/8/2/2', '/7/1/8/2/3', '/7/1/8/2/4', '/7/1/8/2/7', '/7/1/8/2/6', '/7/1/8/2/5'];
-/* */
+/*  fin interruptor 2 no incluye f0128 a f0137*/
 
 
 
@@ -4496,7 +4511,7 @@ punto1(){     console.log('_____@- punto1()');
 				}
 				hora();
 				nm[1] = m;console.log('nm[1]='+ nm[1]);
-				min[1] = m + tM;console.log('min[1]='+ min[1]);//EN EL CASO DE 2 y 8 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
+				min[1] = m + cut*2;//m + tM;console.log('min[1]='+ min[1]);//EN EL CASO DE 2 y 8 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
 				if(cycle[1] > 0)
 				{ regX[1][cycle[1]] = nm[1] - mn[1];console.log('regX[1]=' + regX[1]);
 				  cycle[1] += 1;console.log('cycle[1]=' + cycle[1]);
@@ -4516,7 +4531,7 @@ punto2(){     console.log('_____@- punto2()');
               }
               hora();
               nm[2] = m;console.log('nm[2]='+ nm[2]);
-              min[2] = m + tM;console.log('min[2]='+ min[2]);//EN EL CASO DE 2 y 8 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
+              min[2] = m + cut*2;//m + tM;console.log('min[2]='+ min[2]);//EN EL CASO DE 2 y 8 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
               if(cycle[2] > 0)
               { regX[2][cycle[2]] = nm[2] - mn[2];console.log('regX[2]=' + regX[2]);
                 cycle[2] += 1;console.log('cycle[2]=' + cycle[2]);
@@ -4538,7 +4553,7 @@ punto3() {
 			hora();
 			nm[3] = m; console.log('nm[3]=' + nm[3]);
 			//NOTA IMPORTANTE! Si fuera punto0(Editor Morse) min vale m + cut; esto porque si no esta escribiendo morse, todas son teclas especiales que inician minimo con una raya o un sostenido, solo tienen rayas y pueden terminar con o sin un punto, ej --- --· -· ---· , esto permite que se puedan hacer múltiples clics superrápidos ....... y NO se confundan con una función especial!!!
-			min[3] = m + tM; console.log('min[3]=' + min[3]);
+			min[3] = m + cut*2;//m + tM; console.log('min[3]=' + min[3]);
 			if (cycle[3] > 0) {
 				regX[3][cycle[3]] = nm[3] - mn[3]; console.log('regX[3]=' + regX[3]);
 				cycle[3] += 1; console.log('cycle[3]=' + cycle[3]);
@@ -4560,7 +4575,7 @@ punto4(){     console.log('_____@- punto4()');
 			  hora();
 			  nm[4] = m;console.log('nm[4]='+ nm[4]);
 			  //NOTA IMPORTANTE! Si fuera punto0(Editor Morse) min vale m + cut; esto porque si no esta escribiendo morse, todas son teclas especiales que inician minimo con una raya o un sostenido, solo tienen rayas y pueden terminar con o sin un punto, ej --- --· -· ---· , esto permite que se puedan hacer múltiples clics superrápidos ....... y NO se confundan con una función especial!!!
-			  min[4] = m + tM;console.log('min[4]='+ min[4]);
+			  min[4] = m + cut*2;//m + tM;console.log('min[4]='+ min[4]);
 			  if(cycle[4] > 0)
 			  { regX[4][cycle[4]] = nm[4] - mn[4];console.log('regX[4]=' + regX[4]);
 				cycle[4] += 1;console.log('cycle[4]=' + cycle[4]);
@@ -4584,7 +4599,7 @@ punto6() {
 			hora();//Registra la hora actual
 			nm[6] = m; console.log('nm[6]=' + nm[6]);//HORA/DIA InmICIO EN MILISEGUNDOS DESDE EL 1ERO DE ENERO DE 1970
 			//NOTA IMPORTANTE! Si fuera punto0(Editor Morse) min vale m + cut; esto porque si no esta escribiendo morse, todas son teclas especiales que inician minimo con una raya o un sostenido, solo tienen rayas y pueden terminar con o sin un punto, ej --- --· -· ---· , esto permite que se puedan hacer múltiples clics superrápidos ....... y NO se confundan con una función especial!!!
-			min[6] = m + tM; console.log('min[6]=' + min[6]);//RAYA minIMA EN MILISEGUNDOS PERMITIDA
+			min[6] = m + cut*2;//m + tM; console.log('min[6]=' + min[6]);//RAYA minIMA EN MILISEGUNDOS PERMITIDA
 			if (cycle[6] > 0)//Si va 1 ciclo o más..
 			{
 				regX[6][cycle[6]] = nm[6] - mn[6]; console.log('regX[6]=' + regX[6]);//REGISTRO1 5/6 CAMBIOS DE ESTADO TECLA  - diferencia HORA/DIA INICIAL-FINAL EN MILISEGUNDOS DESDE EL 1ERO DE ENERO DE 1970
@@ -4607,7 +4622,7 @@ punto7(){     console.log('_____@- punto7()');
 			  }
 			  hora();
 			  nm[7] = m;console.log('nm[7]='+ nm[7]);
-			  min[7] = m + tM;console.log('min[7]='+ min[7]);//EN EL CASO DE 2 y 8 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
+			  min[7] = m + cut*2;//m + tM;console.log('min[7]='+ min[7]);//EN EL CASO DE 2 y 8 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
 			  if(cycle[7] > 0)
 			  { regX[7][cycle[7]] = nm[7] - mn[7];console.log('regX[7]=' + regX[7]);
 				cycle[7] += 1;console.log('cycle[7]=' + cycle[7]);
@@ -4631,7 +4646,7 @@ punto8(){     console.log('_____@- punto8()');
               }
               hora();
               nm[8] = m;console.log('nm[8]='+ nm[8]);
-              min[8] = m + tM;console.log('min[8]='+ min[8]);//EN EL CASO DE 6 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
+              min[8] = m + cut*2;//m + tM;console.log('min[8]='+ min[8]);//EN EL CASO DE 6 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
               if(cycle[8] > 0)
               { regX[8][cycle[8]] = nm[8] - mn[8];console.log('regX[8]=' + regX[8]);
                 cycle[8] += 1;console.log('cycle[8]=' + cycle[8]);
@@ -4651,7 +4666,7 @@ punto9(){     console.log('_____@- punto9()');
               }
               hora();
               nm[9] = m;console.log('nm[9]='+ nm[9]);
-              min[9] = m + tM;console.log('min[9]='+ min[9]);
+              min[9] = m + cut*2;//m + tM;console.log('min[9]='+ min[9]);
               if(cycle[9] > 0)
               { regX[9][cycle[9]] = nm[9] - mn[9];console.log('regX[9]=' + regX[9]);
                 cycle[9] += 1;console.log('cycle[9]=' + cycle[9]);
