@@ -23,7 +23,8 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 
 
 
-
+//1
+//ext hij# hijos rutas vPAPA# wPapa# f0128 - f0137 objetivo DETERCTAR los hijos de wPAPA, es decir los lugares hijo
 /* inicio interruptor 1 incluye f0128 a f0137* /
 //============================================================
 //PASAR al servidor
@@ -564,8 +565,12 @@ function f0137(h)//ENCONTRAR el id padre de un hijo del nivel 10
 		}
 
 f0128();//DETERCTAR los hijos de wPAPA
-
 /* fin interruptor 1 incluye f0128 a f0137 */
+
+
+
+
+
 
 
 
@@ -598,10 +603,21 @@ const 	o003 	=
 */
 
 
+
+
+
+
+
+
+
+
+//======================================= INICIO DE LA BASE DE DATOS ===============
+//==================================================================================
+// o003* res3* r003* c003* rrr3* jAds jsAds
+
 //LA RUTA 3 ES LA BASE DE DATOS QUE SE DEBE PASAR AL SERVIDOR EN FORMATO JSON Y CUANDO SE SOLICITE DEBE MOSTRARSE EN EL NAVEGADOR
 //RUTA 3 - ANUNCIOS /INFORMACIÓN COMUNITARIA/  pública /Libro comunitario
 //const 	r003A  y r003B ver/buscar aquí al final en MONGODB
-
 
 //GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios..
 const o003A = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
@@ -664,22 +680,16 @@ var c003A = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
 [4, ['', '여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['5월 27일 El Jazmín 스포츠 센터 공원에 있는 Puente Aranda 지역 시장실의 책임에 참여하십시오', '1G번지 41A 39번지 9:00시 시민이 공공경영에 대해 배우고 이에 대해 질문하고 의견을 개진할 수 있는 기회', 'Puente Aranda 지역 시장실에서 수행하는 관리의 참관인으로 참여'], ["당신은 여성 간병인이거나 폭력의 피해자입니까?Manzana del Cuidado de Puente Aranda에서 calle 1 b 번호: 57_51,로 등록하거나 313-8699-260으로 전화하십시오, 이메일: imora@sdmujer.gov.co", "Manzana del Cuidado에서는 SENA와 함께 훈련하고, 자신만의 비즈니스를 만드는 방법을 배우고, 신체 활동 수업, 자전거 학교 등을 즐길 수 있습니다", "당신이 돌보고 있는 노인과 장애인은 시장실에서 돌보고 있습니다"], ['급한 일이 있으신가요? 123번으로 전화하세요', '123은 경찰, 교통, 소방, 위험 관리 및 보건부와 같은 모든 보안 및 비상 전화 번호를 통합하는 전화선입니다'], ['당신은 여성에 대한 폭력의 피해자입니까?, 123, 01-8001-12137, 또는 WhatsApp 300-7551-846, 으로 전화하여 보라색 순찰대 동행을 요청하십시오', '보라색 순찰을 통해 폭력의 피해자인 여성들은 안전, 지도, 도움 및 예방을 받을 수 있습니다'], ['소년, 소녀, 청소년을 음악 교육에 초대', 'National Batuta Foundation과 지역 오케스트라 센터의 일원이 됨'], ['18세에서 28세 사이인 경우 코스, 도시 활동 및 매월 500,000페소를 받을 수 있는 가능성이 포함된 Parceros Por Bogotá 프로그램에 귀하를 초대합니다', '5월 19일 금요일, 장소: Parque Dalias, 4번가 54-01, Galán 지역; 시간: 15:00~17:00'], ['Local Impulse는 지역 비즈니스를 강화하고 성장시키기 위해 100만 ~ 300만 달러의 페소를 제공합니다', '지금 https://bit.ly/ImpulsoLocal에 등록하거나 https://www.bogotalocal.gov.co/bogotaproductiva.html을 방문하세요']]
 ];
 /*
-
-
-																																																																																																																																																																																																																																																																																																																																																																																																								,2													,3																			,4													,5																,6		   			8												,9																	,10																	,11						],
+																																																																																																																																																																																																																																																																																																																																																																																																							,2													,3																			,4													,5																,6		   			8												,9																	,10																	,11						],
 ,'on this website you will find information accessible through seven modes'		,'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom'		,'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back'					,'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward'		,'To enable navigation buttons on a physical keyboard, turn on caps lock button'										,'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab']																			
 ,'en este sitio web encontrará información accesible a través de siete modos'	,'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo'		,'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder'	,'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar'	,'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas'				,'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador']	
 ,"sur ce site vous trouverez des informations accessibles à travers sept modes"	,"Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas"		,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer"		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]							
 ,"이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다"						,"탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다."											,"왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다."																	,"오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다."																	,"실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오."																	,"사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]																																		
 
-
 ,'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces'					,'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand'						 ,''	,''		,''		,''
 ,'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras'	 			,'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda' ,''	,''		,''		,''
 ,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"		 ,''	,''		,''		,''
 ,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"		 ,''	,''		,''		,''
-
-
-
 
 //GUIONES HAY ANUNCIOS 
 const 	c003A		=[	['Casillas'	,1																																																																													,2																																																																												,3																				,4																				,5],
@@ -690,9 +700,6 @@ const 	c003A		=[	['Casillas'	,1																																																	
 						];
 */
 
-
-
-
 //IMAGEN NO hay anuncios..
 const o003Z = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
 [1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['Satellite']],
@@ -700,6 +707,7 @@ const o003Z = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay
 [3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['Satellite']],
 [4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['위성']]
 ];
+
 /*
 //IMAGEN NO hay anuncios..
 const 	o003Z		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
@@ -709,7 +717,6 @@ const 	o003Z		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
 							[4		,['위성']]
 						];
 */
-
 
 //IMAGEN BUSCANDO ANUNCIOS
 const res3Z = [['Casillas', 'Head', 'Others'],
@@ -764,8 +771,6 @@ const 	c003Z		=[	['Casillas'		,1																																																
 							[4			,['산을 오르는 사람'						,'Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature.','Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena.'   ]	,["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre : Devant l'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	]	,['invitation à un événement sportif, activité physique, bla, bla, bla, bla']	,['invitation à l\'Assemblée générale, bla, bla, bla, bla','abece','abece']			,['appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays'	,'Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels.']	]
 						];
 */
-
-
 
 //trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
 //['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
@@ -893,7 +898,6 @@ const 	c003B		=[	['Recursos/ Casillas..'											,1			,2			,3		,4			,5],
 						];
 */
 
-
 /*
 const 	r003C 		=	[	[0		,1		,2		],
 							[1		,1		,2		],
@@ -908,13 +912,9 @@ const 	r003D 		=	[	[0		,1		,2		],
 						];
 */
 
-
-
 var rrr3A = r003A;
 var rrr3B = r003B;
 var rrr3Z = r003Z;
-
-
 
 const jAds = //*colección 7i1i8i4 de los anuncios JSON
 '[{"iads": "7i1i8i4","r3A1": ["participate this Sunday, January 29, in an ecological walk in Ciudad Bolívar, IDRD, invites you"	,"Be part of our ecological walks, and discover places that will help you connect with nature."								,"This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena"	],"r3A2": ["..participa este domingo 29 de enero en una caminata ecológica en Ciudad Bolívar, IDRD, te invita"	,"Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza."				,"Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena"			],"r3A3": ["participez ce dimanche 29 janvier à une promenade écologique à Ciudad Bolívar, IDRD vous invite"	,"Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature."	,"Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena"   	],"r3A4": ["1월 29일 일요일, IDRD의 Ciudad Bolívar에서 열리는 생태 산책에 여러분을 초대합니다."							,"생태 산책에 참여하고 자연과 연결하는 데 도움이 되는 장소를 발견하세요."																		,"이번 일요일 약속은 Ciudad Bolívar, Casona 및 Sierra Morena에 있습니다."   			],"r3Z1":	["person walking up the mountain"			,"person walking up the mountain"	,"person walking up the mountain"	],"r3Z2":	["persona caminando por la montaña"			,"persona caminando por la montaña"	,"persona caminando por la montaña"	],"r3Z3":	["personne qui monte la montagne"			,"personne qui monte la montagne"	,"personne qui monte la montagne"	],"r3Z4": ["산을 오르는 사람"								,"산을 오르는 사람"						,"산을 오르는 사람"						],"r3B1": [3,1,3],"r3B2": [18,16,4],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	,"Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70"		,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],"r3A2": ["..Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],"r3A3": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		,"Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3A4": ["Ciudad Bolívar, Casona 및 Sierra Morena를 하이킹하십시오. 1월 29일 일요일 오전 9시 ~ 오전 11시"			,"만남의 장소: Francisco José de Caldas District University 앞, calle 68 bis A sur #49F-70."						,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3Z1":	["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	," Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70."	,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],"r3Z2":	["Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],"r3Z3":	["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3Z4": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3B1": [2,2,3],"r3B2": [33,35,5],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["invitation to sports event, physical activity, blah, blah, blah, blah"],"r3A2": ["..invitación a evento deportivo, actividad física, bla, bla, bla, bla"],"r3A3": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3A4": ["스포츠 행사 초대, 신체 활동, 어쩌구 저쩌구 어쩌구 저쩌구"],"r3Z1":	["invitation to sports event, physical activity, blah, blah, blah, blah"],"r3Z2":	["invitación a evento deportivo, actividad física, bla, bla, bla, bla"],"r3Z3":	["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3Z4": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3B1": [2],"r3B2": [31],"r3B3": 0,"r3B4": 1,"r3B5": [0],"r3B6": [0],"r3B7": [0],"r3B8": [0],"r3B9": [0],"r3B10": [0]},{"iads": "7i1i8i4","r3A1": ["invitation to General Assembly, blah, blah, blah"	,"abece 1"	,"abece 2"],"r3A2": ["..invitación a Asamblea General, bla, bla, bla" 		,"abece 1"	,"abece 2"],"r3A3": ["invitation à l\'Assemblée générale, bla, bla, bla"	,"abece"	,"abece"],"r3A4": ["총회 초대, 어쩌구 저쩌구"									,"abece"	,"abece"],"r3Z1":	["invitation to General Assembly, blah, blah, blah, blah", "abece 1","abece 2"],"r3Z2":	["invitación a Asamblea General, bla, bla, bla, bla" ,"abece 1","abece 2"],"r3Z3":	["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],"r3Z4": ["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],"r3B1": [2,1,1],"r3B2": [37,15,16],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],"r3A2": ["..convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],"r3A3": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3A4": ["국내 대학생, 교사, 여성, 장애인, 기업 및 기업가를 대상으로 정보통신부가 공개 모집"																												,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3Z1":	["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],"r3Z2":	["convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],"r3Z3":	["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3Z4": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3B1": [3,2],"r3B2": [3,36],"r3B3": 0,"r3B4": 1,"r3B5": [0,0],"r3B6": [0,0],"r3B7": [0,0],"r3B8": [0,0],"r3B9": [0,0],"r3B10": [0,0]}]';
@@ -954,6 +954,15 @@ for (var i = 0; i < jsAds.length; i++) {
 
 
 
+
+
+
+
+
+
+
+
+
 //============================================================
 // CONSTANTES COMPARTIDAS CON EL SERVIDOR Y EL NAVEGADOR
 
@@ -971,6 +980,13 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 
 
 
+
+
+
+
+
+//2
+// ext rutas vPAPA#
 /* inicio interruptor 2 no incluye f0128 a f0137*/
 const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
@@ -1058,11 +1074,16 @@ const rutas = ['/7/7', '/6/10', '/1/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7'
 
 
 
+
+
+
+
+
+
+
+
 //============================================================
 //d0 VARIABLES Y CONSTANTES SENCILLAS
-
-
-
 
 var aafil = 8000;//Tiempo en milisegundo que demora el cambio del texto en la presentacion AV 		
 const aaini 		/**/ = 500;//Sugerido 500 (4mins apróx) :: 115(1min apróx) - 230(2mins apróx) - 345(3mins apróx) - 500(4mins apróx) Cantidad de pulsos que deben superarse para inicar el modo presentación AV sug 500 (4min)
@@ -2384,14 +2405,12 @@ const kTapaA = [[0, 1, 2, 3, 4],
 [4, 'Attention:', 'clavier connecté', 'clavier éteint', 'le sol bouge, votre vie peut être en danger, trouvez un endroit sûr et restez en sécurité']
 ];
 
-
 const kIntro = [[0, 1, 2],
 [1, 'To exit this alert: click on the center of this window, or click the round accept button.', 'To repeat this alert: click on the vertical info button.'],
 [2, 'Para salir de esta alerta: de clic en el centro de esta ventana, o clic en el botón redondo de aceptar.', 'Para repetir esta alerta: clic en el botón vertical de info.'],
 [3, 'Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.', 'Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.'],
 [4, 'Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.', 'Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.']
 ];
-
 
 //Imagen del Visor de Alertas???
 const kTapaB	/**/ = [['Recursos/ Casillas..', 1, 2, 3],
@@ -2438,7 +2457,6 @@ const kControl = [[0, '1hx/0xh', '1LeftToR,0RightTL'],
 [4, 1, 1]
 ];
 
-
 //Glosa de kTapaI:
 //ojo debe ser de solo glosas hay que arreglar a kTapaI para que sea de solo texto quitar valores numericos de las columnas [2] y [4] ya que cuando no hay glosa manual debe quedar un 0 para que lo deletree en señas
 const kTapaITG = [['0senias', 'h', 'LIBRE', 3, 'LIBRE', 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -2476,8 +2494,6 @@ const g02RUTA =/**/[['0idRuta', '1Descrip/(3..)RAMAS+secs>ppal', '2RutaText', '3
 [8, 'Preguntas frecuentes', 4, 20, 0, 0, 70, 8, 4       /**/]
 ];
 
-
-
 //RUTA 1 modo
 /*const 	r001A		= 	[	['Casillas..'	,1					,2				,3					,4					,5					],
 							[1				,'text mode'		,'Morse mode'	,'Braille mode'		,'signs mode'		,'mode tutorial'	],
@@ -2491,6 +2507,10 @@ const 	r001A		= 	[	['Casillas'	,1				,2			,3				,4				,5											,6											
 							[3			,'texte'		,'Morse'	,'Braille'		,'signes'		,'lecteur d\'écran activé, changer'			,'lecteur d\'écran désactivé, changer'			,'gros boutons désactivés, changer'			,'gros boutons activés, changer'			,'loupe désactivée, changer' 		,'loupe activée, changer' 		,'texte noir sur fond clair, changer'			,'texte clair sur fond noir, changer'		,'lumière blanche activée, changer' 	,'lumière jaune activée, changer'  		,'multimédia, tutoriel de mode'	]
 						];
 */
+
+
+
+
 
 
 
@@ -2510,7 +2530,6 @@ const r001Z =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 [4, 'lecteur de fenêtre activé, changer', 'lecteur de fenêtre désactivé, changer', '20', '14', '10', '7', '5', 'texte minimal, changer', 'petit texte, changer', 'texte moyen, changer', 'gros texte, changer', 'texte plus grand, changer', 'énorme texte, changer', 'texte maximum, changer', 'texte noir sur fond jaune, changer', 'texte jaune sur fond noir, changer', 'texte noir sur fond blanc, changer', 'texte blanc sur fond noir, changer', '', 'ampoule', 'ampoule', 'pas d\'image', '', '', '', '', '', 'rangée d\'signe désactivé, changer', 'rangée d\'signe activée, changer', 'signes minimes, changer', 'petits signes, changer', 'signes moyens, changer', 'grands signes, changer', 'signes maximaux, changer', '', 'annuler toutes les modifications', 'reloj de arena']
 ];
 
-
 //trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
 //['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
 //['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
@@ -2527,7 +2546,6 @@ const r001Z =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 							['9 ids Iconos Capa2'							,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
 							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	]
 						];*/
-
 
 //																	                    3>8 4>9 ... 9>14 // 10>17 11>18 ... 29>36    15  16  17  18  19      21  T   23      25      27     29  2   31  4   33  5   35    
 const r001B =/**/[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
@@ -2765,7 +2783,6 @@ const r008A =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7],
 [3, ["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, vibreur, signes, giant, fond noir, braille et gros boutons"], ["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["Quelle est la salle et à quoi sert-elle?", "la salle est le premier bouton du menu, là l\'utilisateur dispose de plusieurs ressources pour sélectionner et accéder aux informations, miniature, vibreur, texte audio, lunettes, géant, fond noir, panneaux, braille et américain", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs"], ['style, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['réglages'], ['activités']],
 [4, ["이 모든 것이 무엇이며 무엇을 위한 것입니까?", "귀하는 특정 정도의 장애가 있거나 없는 사람들에게 지역 정보를 제공하는 웹사이트에 있습니다.", "예를 들어 오디오 텍스트, 진동기, 표지판, 거대한 배경, 검은색 배경, 점자 및 큰 버튼과 같이 정보에 대한 사용 및 액세스를 용이하게 하는 액세스 가능한 요소가 있습니다."], ["탐색하는 방법?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["물리적 키보드를 사용하여 탐색하는 방법은 무엇입니까?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["방은 무엇이며 용도는 무엇입니까?", "방은 메뉴의 첫 번째 버튼이며 사용자는 정보, 썸네일, 진동기, 오디오 텍스트, 안경, 거인, 검정색 배경, 표지판, 점자 및 미국식을 선택하고 액세스할 수 있는 여러 리소스가 있습니다.", "이 9개의 각 버튼을 통해 팀의 리소스를 조정하여 가능한 한 정보에 액세스하고 사용자에게 도달할 수 있습니다."], ['스타일 블라블라블라블라블라블라', 'abece 1', 'abece 2'], ['설정'], ['활동']]
 ];
-
 
 const r008Z =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7],
 [1, ['What is all this and what is it for?', 'You are on a website, which serves to offer local information to people without or with a certain degree of disability', 'it has accessible elements that facilitate the use and access to information, for example, audio text, signs, text maximum, black background, braille and large buttons'], ['How to navigate?', 'to navigate, in the window there are 6 navigation buttons that go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'], ['How to navigate using a physical keyboard?', 'To enable navigation buttons on a physical keyboard turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab.'], ['What is the style and what is it for?', 'the style is the first button of the menu, there the user has 9 styles to select and access the information, minimum text, audio text, maximum text, black background, signs and braille', "Each one of these 9 buttons allow the team's resources to be adapted so that the information is as accessible as possible and reaches the users."], ['style, blah, blah, blah, blah', 'abece 1', 'abece 2'], ['settings'], ['activities']],
@@ -3425,13 +3442,17 @@ const wSug = [	//[4,3],//4,6   españa
 
 
 
-//===========================================
-//INICIO MORSE..
 
 
 
 
 
+
+
+
+//====================================================================
+//===============================================INICIO MORSE=========
+//====================================================================
 //###########################################
 //###########################################
 //###########################################
@@ -4871,18 +4892,17 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0015(1);//Clic sobre el boton 7 [] menu
 					};
 
-
-					//Este va a cambiar a delete 1 boton 8 y este 8 se va a volver 9
-					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-					if (q == 8)//boton / [0] cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 MOSTRAR la interfaz de Salida M que corresponda porque se oprimio [0] (/)
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0 (/)!!!! ');
-						f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0 (/)
-					};
-
-					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-					if (q == 9)//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0 (/)
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0 (/)!!!! ');
-						f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0 (/)
+					if (q == 8)//boton / [0] Espacio Morse
+					{	console.log(' - - - Espacio Morse en el display M');
+						mMod = 4;
+						f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
+						sale += ' ';
+						colSale();
+						//iIntM0.textContent = salo;
+						f0151();// Desplaza hacia el final el Display M
+						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
+    		
+						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 					};
 
 					//+ + +		if(q==1)//EL BOTON 1 GUIA DE SERVICIOS Y..
@@ -5129,19 +5149,23 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0095(1);// arrow down
 					};
 
-					if (q == 7)//boton / [0] cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - Espacio Morse en el display M');
-						mMod = 4;
-						f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
-						sale += ' ';
+					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+						f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
+					};
+
+
+					if (q == 8)//boton / [0] Delete del display M borrar la ultima letra del display 
+					{	mMod = 4;
+						console.log(' - - - borrar la ultima letra del display M');
+						sale = sale.slice(0, -1);
 						colSale();
-						//iIntM0.textContent = salo;
-						f0151();// Desplaza hacia el final el Display M
-						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
-    		
+						//output.textContent = salo;//output.textContent.slice(0, -1);
 						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 					};
 
+
+				
 
 					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
 					/*
@@ -5249,13 +5273,10 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f(1, 1, 3);//Aplicar -5 avances al clic(botón 6) salTO-5
 					}*/
 
-					if (q == 7)//Reset del display M 	
+					if (q == 8)//Reset del display M 	
 					{	mMod = 4;
-						console.log(' - - - borrar la ultima letra del display M');
-						sale = sale.slice(0, -1);
-						colSale();
-						//output.textContent = salo;//output.textContent.slice(0, -1);
-						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+						console.log(' - - - Reset del display M');
+						f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 					};
 					
 				}
@@ -5289,11 +5310,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{
 						f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 6)
 					}*/
-					if (q == 7)//Reset del display M 	
-					{	mMod = 4;
-						console.log(' - - - Reset del display M');
-						f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-					};
+					
 
 					
 				}
