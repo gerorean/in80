@@ -4889,6 +4889,9 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 
 					if (q == 7)// 	
 					{	console.log(' - - - Menu (7) ');
+						if(mMod > 0)//Si el modo no es 0
+						{	f0152();//Termina el conteo y oculta el display de la interfaz M
+						}
 						f0015(1);//Clic sobre el boton 7 [] menu
 					};
 
