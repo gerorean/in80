@@ -7843,12 +7843,20 @@ f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apag
 		};
 
 function
-f0148()//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0 (/)
+f0148(h)//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio raya sobre 7 ([]), si h es 0 o no existe, avanza o cambia el mMod
+		//si h existe y es diferente de 0, mMod no avanza ni cambia porque se hace igual que h. Si h = 9 apaga el display y la interfaz de entrada.
 		{	lOL(148);
 			f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
-    		mMod++;
-			if(mMod>=5)
-			{	mMod = 0;//Reinicia al modo off
+    		if(!h)
+			{	mMod++;
+				if(mMod>=5)
+				{	mMod = 0;//Reinicia al modo off
+				}
+				console.error(' -- 1 mMod=',mMod);
+			}
+			else
+			{	mMod = h;
+				console.error(' -- 2 mMod=',mMod);
 			}
 			if(!mViS)//Si el display esta apagado lo enciende
 			{	iIntM0.classList.remove('cX');
@@ -7884,7 +7892,15 @@ f0148()//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0 (/)
 					//iTaco.style.opacity='0.8';
 					iTaco.classList.remove('cX');
 				break;
-				
+				case 9:
+					//mMod = 4;
+					//f0148(0);
+					iIntM0.classList.add('cX');//Apaga el display de la interfaz M
+					intM.classList.add('cX');
+					//mViS = 0;
+					mCon = 30;//Termina el conteo
+					f0152();//Termina el conteo y oculta el display de la interfaz M
+				break;
 				
 			}
 		};

@@ -3592,13 +3592,21 @@ function		//ACTIVACION O ACTUALIZACION DEL CICLO      --l3866
 					hora();
 					nn[0] = m;//console.log('nn[0]='+ nn[0]);
 					if((libre[0])&&(nn[0] > max[0]))
-					{	morse(0);
+					{	console.error('regY[0][cycle[0]-1]=',regY[0][cycle[0]-1]);
+						console.error('cycle[0]  2=',cycle[0]);
+						//if(regY[0][cycle[0]-1] == 3)
+						//{
+						//}
+						//else
+						{	morse(0);
+						}
 					}
 					if((!libre[0])&&(nn[0] > min[0])&&(!lin[0]))
 					{	lin[0] = true;//console.log('lin[0]=' + lin[0]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
-						regY[0][cycle[0]] = 2;
+						audiRay();//ACTIVA EL SONIDO RAYA - o sostenido
+						regY[0][cycle[0]] = 3;//sostenido
+						console.error('cycle[0]  1=',cycle[0]);
 					}
 					setTimeout(ciclo0, vT);
 				}}//ciclo0()
@@ -4697,7 +4705,9 @@ punto9(){     console.log('_____@- punto9()');
 
 function      //sosTENIDA.. muestra en pantalla la letra mas 'sostenida de' mas el tempo en milisegundos del sostenido
 	sos(s, u) {
-	if (regX[s][u] > tM) { //outX[s] = outX[s].concat(' sostenida de ',regX[s][u],'ms, ');
+	if (regX[s][u] > tM) 
+	{	//console.error(' sostenida de ',regX[s][u],'ms, ');
+		//outX[s] = outX[s].concat(' sostenida de ',regX[s][u],'ms, ');//    --lll
 	}
 }
 
@@ -4719,20 +4729,47 @@ function      //terminacion general de un punto o una raya: RESETEA LOS COLORES 
 	hora();
 	mn[v] = m; console.log('mn[v]=' + mn[v]);//registra el momento que se soltó el botón y actualiza HORA/DIA FINAL EN MILISEGUNDOS DESDE EL 1ERO DE ENERO DE 1970     	
 	regX[v][cycle[v]] = mn[v] - nm[v]; console.log('regX[v]=' + regX[v]);//registra en REGISTRO1 5/6 los CAMBIOS DE ESTADO del botón/TECLA
-	//En las siguientes linea se puede quitar v==0 y v!=0 para que aplique para cualquier botón y quede igual que en la hoja a lapíz..
-	if ((v == 0) && (regX[v][cycle[v]] > tM))//Si es la tecla 0 (recibe sostenidos- con duración muy larga)
+	//REGLA * En las siguientes linea se puede quitar v==0 y v!=0 para que aplique para cualquier botón y quede igual que en la hoja a lapíz..
+	///se aplica la regla * para todos///if ((v == 0) && (regX[v][cycle[v]] > tM))//Si es la tecla 0 (recibe sostenidos- con duración muy larga)
+	
+	
+	
+	
+	
+	
+	/* original 1a * /
+	if (regX[v][cycle[v]] > tM)//Si es la tecla 0 o cualquiera (recibe sostenidos- con duración muy larga)
+	//if ((v == 0) && (regX[v][cycle[v]] > tM))//Si es la tecla 0 (recibe sostenidos- con duración muy larga)
 	{
-		regW[v][cycle[v]] = 3;//REGISTRO3 CAMBIO A ESTADO SOSTENIDO DE LA TECLA, se trata de un sostenido, el 3 lo indica
+		regY[v][cycle[v]] = 3;//REGISTRO3 CAMBIO A ESTADO SOSTENIDO DE LA TECLA, se trata de un sostenido, el 3 lo indica
 		console.log(' --- - - - - superrrrr sostenido!');
 	}
+	/*original 1b */
+
+    /*2a */
+	console.error('regY[v][cycle[v]]=',regW[v][cycle[v]]);
+	if(regY[v][cycle[v]] == 3)//es un sostenido corto o largo
+	{	if (regX[v][cycle[v]] < tM*2)//Si recibe sostenidos cortos tipo raya
+		//if (regX[v][cycle[v]] < tM)//Si es la tecla 0 o cualquiera y recibe sostenidos cortos
+		//if ((v == 0) && (regX[v][cycle[v]] > tM))//Si es la tecla 0 (recibe sostenidos- con duración muy larga)
+		{
+			regY[v][cycle[v]] = 2;//REGISTRO3 CAMBIO A ESTADO RAYA el 2 lo indica
+			console.log(' --- - - - - superrrrr sostenido!');
+		}
+	}
+	/*2b */
+
 	cycle[v] += 1; console.log('cycle[v]=' + cycle[v]);//incrementa en uno el ciclo, quedan números pares 2,4,6.. 
-	if ((v != 0) && (regY[v][(cycle[v] - 1)] == 1))//Si REGISTRO2 RESULTADO DE ESTADO anterior del boton/TECLA (previo) es (1) es se trata de un punto final ---· -· --·
-	{
+	///se aplica la regla * para todos///if ((v != 0) && (regY[v][(cycle[v] - 1)] == 1))//Si REGISTRO2 RESULTADO DE ESTADO anterior del boton/TECLA (previo) es (1) es se trata de un punto final ---· -· --·
+	//if (regY[v][(cycle[v] - 1)] == 1)//Si REGISTRO2 RESULTADO DE ESTADO anterior del boton/TECLA (previo) es (1) es se trata de un punto final ---· -· --·
+	//if ((v != 0) && (regY[v][(cycle[v] - 1)] == 1))//Si REGISTRO2 RESULTADO DE ESTADO anterior del boton/TECLA (previo) es (1) es se trata de un punto final ---· -· --·
+	/*{
 		console.log('camino punto(1 al 9) ---· -· --· y corte');
 		morse(v);
 	}
-	else {
-		console.log('camino normal o de rayas(1 al 9) --- - --');
+	else*/ //Este fue un truco para detectar si se trataba de un punto y cuando ocurriera el primer punto termina el proceso, esto se quito para dar más libertad de atajos.., depronto se puede aplicar este truco a las teclas de subir y bajar para avanzar mas rapido hacia una casilla
+	{
+		console.log('camino normal o de rayas(1 al 9) --- - --');//Nota: al quitar la regla anterior de los puntos para terminar el morse, ya permite el ingreso de varios puntos o rayas
 		max[v] = m + tM; console.log('max[v]=' + max[v]);
 	}
 }
@@ -4771,6 +4808,27 @@ zGuiIn(ltr){	//leeme = ''.concat(kL0[ltr+1][4]);//concatena contenido de la fila
 
 function		//analiza la señal si es del chat comunitario q indica que tecla fue
 	morse(q) {
+
+		if(regY[q][cycle[q]-1] == 3)//si en el ultimo ciclo era un 3 de sostenido, resetee las variables
+		{	//vacio(q)
+			console.error('  --- 3_');
+			switch (q)
+			{	case 0:
+						console.log(' - - - Espacio Morse en el display M');
+						mMod = 4;
+						f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
+						sale += ' ';
+						colSale();
+						//iIntM0.textContent = salo;
+						f0151();// Desplaza hacia el final el Display M
+						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
+				break;
+
+			}
+		}
+		else// si era un 1de punto o un 2 de raya vaya al morse morse
+		{	console.error('  --- 1. o 2- =>',regY[q][cycle[q]-1]);
+			//inicio del morse(q)
 	console.log('_____@- morse(q)');
 	console.log(' - - - rrrrr q=', q);
 	console.log(' - - - rrrrr cycle[q]=', cycle[q])
@@ -4785,39 +4843,39 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{	case 1:
 							//if(regY[0][0]==1){outX[0] = 'E';zGuiIn(5);esTAS = true}
 							if(regY[0][0]==1){if(regY[7][0] != 0){outX[0] = 'E'}else{outX[0] = 'e'}zGuiIn(5);esTAS = true}
-							if(regY[0][0]==2){if(regY[7][0] != 0){outX[0] = 'T'}else{outX[0] = 't'}zGuiIn(21);esTAS = true;sos(q,0)}
+							if(regY[0][0]==2){if(regY[7][0] != 0){outX[0] = 'T'}else{outX[0] = 't'}zGuiIn(21);esTAS = true}//;sos(q,0)}
 						break;
 						case 3:
 							if((regY[0][0]==1)&&(regY[0][2]==1)){if(regY[7][0] != 0){outX[0] = 'I'}else{outX[0] = 'i'}zGuiIn(9);esTAS = true}
-							if((regY[0][0]==1)&&(regY[0][2]==2)){if(regY[7][0] != 0){outX[0] = 'A'}else{outX[0] = 'a'}zGuiIn(1);esTAS = true;sos(q,2)}
+							if((regY[0][0]==1)&&(regY[0][2]==2)){if(regY[7][0] != 0){outX[0] = 'A'}else{outX[0] = 'a'}zGuiIn(1);esTAS = true}//;sos(q,2)}
 							if((regY[0][0]==2)&&(regY[0][2]==1)){if(regY[7][0] != 0){outX[0] = 'N'}else{outX[0] = 'n'}zGuiIn(14);esTAS = true}
-							if((regY[0][0]==2)&&(regY[0][2]==2)){if(regY[7][0] != 0){outX[0] = 'M'}else{outX[0] = 'm'}zGuiIn(13);esTAS = true;sos(q,2)}
+							if((regY[0][0]==2)&&(regY[0][2]==2)){if(regY[7][0] != 0){outX[0] = 'M'}else{outX[0] = 'm'}zGuiIn(13);esTAS = true}//;sos(q,2)}
 						break;
 						case 5:
 							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==1)){if(regY[7][0] != 0){outX[0] = 'S'}else{outX[0] = 's'}zGuiIn(20);esTAS = true}
-							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'U'}else{outX[0] = 'u'}zGuiIn(22);esTAS = true;sos(q,4)}
+							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'U'}else{outX[0] = 'u'}zGuiIn(22);esTAS = true}//;sos(q,4)}
 							if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==1)){if(regY[7][0] != 0){outX[0] = 'R'}else{outX[0] = 'r'}zGuiIn(19);esTAS = true}
-							if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'W'}else{outX[0] = 'w'}zGuiIn(24);esTAS = true;sos(q,4)}
+							if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'W'}else{outX[0] = 'w'}zGuiIn(24);esTAS = true}//;sos(q,4)}
 							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==1)){if(regY[7][0] != 0){outX[0] = 'D'}else{outX[0] = 'd'}zGuiIn(4);esTAS = true}
-							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'K'}else{outX[0] = 'k'}zGuiIn(11);esTAS = true;sos(q,4)}
+							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'K'}else{outX[0] = 'k'}zGuiIn(11);esTAS = true}//;sos(q,4)}
 							if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==1)){if(regY[7][0] != 0){outX[0] = 'G'}else{outX[0] = 'g'}zGuiIn(7);esTAS = true}
-							if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'O'}else{outX[0] = 'o'}zGuiIn(16);esTAS = true;sos(q,4)}
+							if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==2)){if(regY[7][0] != 0){outX[0] = 'O'}else{outX[0] = 'o'}zGuiIn(16);esTAS = true}//;sos(q,4)}
 						break;
 						case 7:
 							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==1)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = 'H'}else{outX[0] = 'h'}zGuiIn(8);esTAS = true}
-							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==1)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'V'}else{outX[0] = 'v'}zGuiIn(23);esTAS = true;sos(q,6)}
+							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==1)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'V'}else{outX[0] = 'v'}zGuiIn(23);esTAS = true}//;sos(q,6)}
 							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==2)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = 'F'}else{outX[0] = 'f'}zGuiIn(6);esTAS = true}
-							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==2)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = ' '}else{outX[0] = ' '}zGuiIn(0);esTAS = true;sos(q,6)}
+							if((regY[0][0]==1)&&(regY[0][2]==1)&&(regY[0][4]==2)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = ' '}else{outX[0] = ' '}zGuiIn(0);esTAS = true}//;sos(q,6)}
 							if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==1)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = 'L'}else{outX[0] = 'l'}zGuiIn(12);esTAS = true}
 							//if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==1)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = '<br>'}else{outX[0] = '<br>'}zGuiIn(0);esTAS = true;sos(q,6)}
 							if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==2)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = 'P'}else{outX[0] = 'p'}zGuiIn(17);esTAS = true}
-							if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==2)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'J'}else{outX[0] = 'j'}zGuiIn(10);esTAS = true;sos(q,6)}
+							if((regY[0][0]==1)&&(regY[0][2]==2)&&(regY[0][4]==2)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'J'}else{outX[0] = 'j'}zGuiIn(10);esTAS = true}//;sos(q,6)}
 							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==1)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = 'B'}else{outX[0] = 'b'}zGuiIn(2);esTAS = true}
-							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==1)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'X'}else{outX[0] = 'x'}zGuiIn(25);esTAS = true;sos(q,6)}
+							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==1)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'X'}else{outX[0] = 'x'}zGuiIn(25);esTAS = true}//;sos(q,6)}
 							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==2)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = 'C'}else{outX[0] = 'c'}zGuiIn(3);esTAS = true}
-							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==2)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'Y'}else{outX[0] = 'y'}zGuiIn(26);esTAS = true;sos(q,6)}
+							if((regY[0][0]==2)&&(regY[0][2]==1)&&(regY[0][4]==2)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'Y'}else{outX[0] = 'y'}zGuiIn(26);esTAS = true}//;sos(q,6)}
 							if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==1)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = 'Z'}else{outX[0] = 'z'}zGuiIn(27);esTAS = true}
-							if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==1)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'Q'}else{outX[0] = 'q'}zGuiIn(18);esTAS = true;sos(q,6)}
+							if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==1)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'Q'}else{outX[0] = 'q'}zGuiIn(18);esTAS = true}//;sos(q,6)}
 							//if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==2)&&(regY[0][6]==1)){if(regY[7][0] != 0){outX[0] = ''}else{outX[0] = ''}esTAS = true}
 							//if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==2)&&(regY[0][6]==2)){if(regY[7][0] != 0){outX[0] = 'CH'}else{outX[0] = 'ch'}esTAS = true;sos(q,6)}
 						break;
@@ -4856,6 +4914,8 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 		switch (cycle[q])//switch que depende del ciclo en que termino/salio la tecla q
 		{
 			case 1://si salio luego del primer ciclo  
+				console.error('  -- una señal');
+				
 				if (regY[q][0] == 1)//MI CLIC 2023 IBOGOTA!!!!!!!!    ###### SI SE RECIBE UN PUNTO EN.. #######
 				{
 					outX[q] = ' *';//ES UN PUNTO..
@@ -4896,7 +4956,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					};
 
 					if (q == 8)//boton / [0] Espacio Morse
-					{	console.log(' - - - Espacio Morse en el display M');
+					{	/*console.log(' - - - Espacio Morse en el display M');
 						mMod = 4;
 						f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 						sale += ' ';
@@ -4904,7 +4964,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						//iIntM0.textContent = salo;
 						f0151();// Desplaza hacia el final el Display M
 						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
-    		
+    					*/
 						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 					};
 
@@ -5135,8 +5195,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					//+ + +		{	infON(9);//info: posición del cursor dentro de la lista 'numero de numero' ej: 1/3
 					//+ + +		}
 				}
-				if ((regY[q][0] == 2)//MI RAYA 2023 IBOGOTA!!!!!!!     &&(true/*t3x3*/)
-				)//SI ESTA ACTIVO T3X3 Y RECIBE UNA RAYA EN..
+				if (regY[q][0] == 2)//MI RAYA 2023 IBOGOTA!!!!!!!  
 				{
 					outX[q] = ' -';//RAYA..
 					//sos(q,0);
@@ -5152,9 +5211,17 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0095(1);// arrow down
 					};
 
-					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-						f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
+					//////if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					//////{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+					//////	f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
+					//////};
+					if (q == 7)// 	
+					{	console.log(' - - - Menu (7) ');
+						if(mMod > 0)//Si el modo no es 0
+						{	f0152();//Termina el conteo y oculta el display de la interfaz M
+						}
+						f0015(1);//Clic o raya sobre el boton 7 [] menu
+						sos(q,7);
 					};
 
 
@@ -5244,8 +5311,21 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					//+ + +			lisT9();
 					//+ + +		}
 				}
+				////       --l//if (regY[q][0] == 3)
+				////       --l//{	console.error('  --raya muy larga--');
+				////       --l//}
 				break;
 			case 3://console.log('caso 3 son dos señales: regY[q]=',regY[q]); 
+				console.error('  -- dos señales');
+				if ((regY[q][0] == 1) && (regY[q][2] == 1))
+				{	console.error('  -- punto punto');
+					outX[q] = ' **';//PUNTO + PUNTO..
+					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+						f0148(1);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
+					};
+				}
+
 				if ((regY[q][0] == 2) && (regY[q][2] == 1)) {
 					outX[q] = ' -*';//RAYA + PUNTO..
 
@@ -5276,6 +5356,11 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f(1, 1, 3);//Aplicar -5 avances al clic(botón 6) salTO-5
 					}*/
 
+					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+						f0148(2);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
+					};
+
 					if (q == 8)//Reset del display M 	
 					{	mMod = 4;
 						console.log(' - - - Reset del display M');
@@ -5298,6 +5383,10 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{
 						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 6)
 					}*/
+					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
+						f0148(3);//MOSTRAR la interfaz de Salida M de señas
+					};
 				}
 				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 2)) {
 					outX[q] = ' ---';//tres rayas..
@@ -5313,8 +5402,16 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{
 						f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 6)
 					}*/
-					
+					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
+						f0148(9);//OCULTAR la interfaz de Salida M de señas
+					};
 
+					if (q == 8)//boton / [8]   morse 8  Espacio Morse	
+					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
+						f0148(9);//OCULTAR la interfaz de Salida M de señas
+					};
+					
 					
 				}
 				break;
@@ -5504,6 +5601,9 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 	//colSale();
 	//output.textContent = salo;//+= outX[0];
 	//iIntM0.textContent = salo;//+= outX[0];
+
+
+	}//fin del morse
 
 	ceros(q);//console.log('ceros de morse');Reinicio de variables
 }
