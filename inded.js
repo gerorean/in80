@@ -4816,11 +4816,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						zGuiIn(0);//GENERAR el guion de la letra ingresada
 				break;
 				case 7:
-						console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
-						sale = sale.slice(0, -1);
-						colSale();//COLOREAR los espacios del display M
-							//output.textContent = salo;//output.textContent.slice(0, -1);
-							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+						f0150();//BORRAR todo el texto de salida actual
 						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 				break;
 				case 8:
@@ -5344,7 +5340,12 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					outX[q] = ' **';//PUNTO + PUNTO..
 
 					if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
-					{	f0150();//BORRAR todo el texto de salida actual
+					{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
+						sale = sale.slice(0, -1);
+						colSale();//COLOREAR los espacios del display M
+							//output.textContent = salo;//output.textContent.slice(0, -1);
+							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 						//mMod = 4;
 						//console.log(' - - - borrar la ultima letra del display M');
 						//sale = sale.slice(0, -1);
@@ -5390,7 +5391,12 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					}*/
 
 					if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
-					{	f0150();//BORRAR todo el texto de salida actual
+					{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
+						sale = sale.slice(0, -1);
+						colSale();//COLOREAR los espacios del display M
+							//output.textContent = salo;//output.textContent.slice(0, -1);
+							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 					};
 
 					if (q == 8)
