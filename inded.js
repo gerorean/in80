@@ -3720,7 +3720,7 @@ ciclo7(){		//console.log('_____@- ciclo7()');
 					{	lin[7] = true;console.log('lin[7]=' + lin[7]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						//audiRay();//ACTIVA EL SONIDO RAYA
-						regY[7][cycle[7]] = 2;
+						regY[7][cycle[7]] = 3;//sostenido
 					}
 					setTimeout(ciclo7, vT);
 				}}//ciclo7()
@@ -3740,7 +3740,7 @@ ciclo8(){		//console.log('_____@- ciclo8()');
 					{	lin[8] = true;console.log('lin[8]=' + lin[8]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						//audiRay();//ACTIVA EL SONIDO RAYA
-						regY[8][cycle[8]] = 2;
+						regY[8][cycle[8]] = 3;//sostenido
 					}
 					setTimeout(ciclo8, vT);
 				}}//ciclo8()//
@@ -4817,9 +4817,19 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
 						zGuiIn(0);
 				break;
+				case 7:
+						//console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
+						//f0148(9);//OCULTAR la interfaz de Salida M de señas
+						//boton / [0] Delete del display M borrar la ultima letra del display 
+							mMod = 4;
+							console.log(' - - - borrar la ultima letra del display M');
+							sale = sale.slice(0, -1);
+							colSale();
+							//output.textContent = salo;//output.textContent.slice(0, -1);
+							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+				break;
 				case 8:
-						console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
-						f0148(9);//OCULTAR la interfaz de Salida M de señas
+					f0148(0);//cambia la interfaz M
 				break;
 
 			}
@@ -5233,17 +5243,18 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						{	f0152();//Termina el conteo y oculta el display de la interfaz M
 						}
 						f0015(1);//Clic o raya sobre el boton 7 [] menu
-						sos(q,7);
+						//sos(q,7);
 					};
 
 
 					if (q == 8)//boton / [0] Delete del display M borrar la ultima letra del display 
-					{	mMod = 4;
+					{	/*mMod = 4;
 						console.log(' - - - borrar la ultima letra del display M');
 						sale = sale.slice(0, -1);
 						colSale();
 						//output.textContent = salo;//output.textContent.slice(0, -1);
 						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+						*/
 					};
 
 
@@ -5332,6 +5343,20 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 				if ((regY[q][0] == 1) && (regY[q][2] == 1))
 				{	console.error('  -- punto punto');
 					outX[q] = ' **';//PUNTO + PUNTO..
+
+					if (q == 7)//boton / [0] Delete del display M borrar la ultima letra del display 
+					{	mMod = 4;
+						console.log(' - - - borrar la ultima letra del display M');
+						sale = sale.slice(0, -1);
+						colSale();
+						//output.textContent = salo;//output.textContent.slice(0, -1);
+						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+					};
+
+					if (q == 8)//ocultar interfaz M
+					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
+						f0148(9);//OCULTAR la interfaz de Salida M de señas
+					}
 				}
 
 				if ((regY[q][0] == 2) && (regY[q][2] == 1)) {
@@ -5364,20 +5389,48 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f(1, 1, 3);//Aplicar -5 avances al clic(botón 6) salTO-5
 					}*/
 
-					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-						f0148(2);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
+					if (q == 7)//boton / [0] Delete del display M borrar la ultima letra del display 
+					{	mMod = 4;
+						console.log(' - - - borrar la ultima letra del display M');
+						sale = sale.slice(0, -1);
+						colSale();
+						//output.textContent = salo;//output.textContent.slice(0, -1);
+						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 					};
 
-					if (q == 8)//Reset del display M 	
-					{	mMod = 4;
-						console.log(' - - - Reset del display M');
-						f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+
+					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
+						f0148(9);//OCULTAR la interfaz de Salida M de señas
 					};
+
+
 					
 				}
 				break;
 			case 5:
+					if ((regY[q][0] == 1) && (regY[q][2] == 1) && (regY[q][4] == 1)) {
+					outX[q] = ' ***';//tres puntos..
+
+					
+					if (q == 3)//avanzar +(2*KTE)
+					{
+						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
+					}
+					if (q == 7)//Reset del display M 	
+					{	mMod = 4;
+						console.log(' - - - Reset del display M');
+						f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+					};
+
+					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
+						//f0148(3);//MOSTRAR la interfaz de Salida M de señas
+						f0148(0);//cambia la interfaz M
+					};
+				}
+
+
 				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) {
 					outX[q] = ' --*';//dos rayas punto..
 
@@ -5391,10 +5444,14 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{
 						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 6)
 					}*/
-					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
-						f0148(3);//MOSTRAR la interfaz de Salida M de señas
+
+					if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+						f0148(2);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
 					};
+
+
+
 				}
 				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 2)) {
 					outX[q] = ' ---';//tres rayas..
@@ -5410,16 +5467,19 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{
 						f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 6)
 					}*/
-					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
-						f0148(9);//OCULTAR la interfaz de Salida M de señas
+
+					
+					if (q == 7)//Reset del display M 	
+					{	mMod = 4;
+						console.log(' - - - Reset del display M');
+						f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 					};
 
-					if (q == 8)//boton / [8]   morse 8  Espacio Morse	
-					{	//console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
-						//f0148(9);//OCULTAR la interfaz de Salida M de señas
+					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
+						//f0148(3);//MOSTRAR la interfaz de Salida M de señas
+						f0148(0);//cambia la interfaz M
 					};
-					
 					
 				}
 				break;

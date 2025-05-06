@@ -5068,7 +5068,7 @@ function f0098(now)//INICIAR una tarea porque se oprimío una tecla del teclado.
 					console.log('[Caps lock is on] - Teclado activado');
 				}
 				else
-				{	console.log('[CapsLock is off] - Teclado está desactivado');
+				{	console.error('[CapsLock is off] - Teclado está desactivado');
 				}
 
 //inicio
@@ -5313,9 +5313,9 @@ function f0100(now)//TERMINAR una tarea porque se soltó una tecla del teclado//
 				/*if(!sonCap)
 				{	sonCap = 1;
 					f0073();//Sonar Pito
-				}
+				}*/
      			console.log('[Caps lock is off] - Teclado desactivado');
-     			if(g00VARS[10][2])
+    /* 			if(g00VARS[10][2])
 				{	numbers.classList.add('cX');
 					g00VARS[10][2] = 0;//registro cambio de estado de CapsLock ON a Off
 				//	f0074(3);//ALERTA 3 ON en pantalla
