@@ -3527,11 +3527,12 @@ function 		//AUDIO Raya
 function		//SIMPLIFICAR ESTO Reinicio de variables
 	ceros(c) {
 	console.log('_____@- ceros(c)');
+	esTAS = false; console.log('esTAS=', esTAS);
 	console.log('esTAS=' + esTAS);
 	switch (c)//RESET DE TODOS LOS REGISTROS
 	{
 		case 0://USO EXCLUSIVO CODIGO MORSE
-			esTAS = false; console.log('esTAS=', esTAS);
+			//esTAS = false; console.log('esTAS=', esTAS);
 			regW[0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			regX[0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			regY[0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -3592,21 +3593,13 @@ function		//ACTIVACION O ACTUALIZACION DEL CICLO      --l3866
 					hora();
 					nn[0] = m;//console.log('nn[0]='+ nn[0]);
 					if((libre[0])&&(nn[0] > max[0]))
-					{	console.error('regY[0][cycle[0]-1]=',regY[0][cycle[0]-1]);
-						console.error('cycle[0]  2=',cycle[0]);
-						//if(regY[0][cycle[0]-1] == 3)
-						//{
-						//}
-						//else
-						{	morse(0);
-						}
+					{	morse(0);
 					}
 					if((!libre[0])&&(nn[0] > min[0])&&(!lin[0]))
 					{	lin[0] = true;//console.log('lin[0]=' + lin[0]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						audiRay();//ACTIVA EL SONIDO RAYA - o sostenido
 						regY[0][cycle[0]] = 3;//sostenido
-						console.error('cycle[0]  1=',cycle[0]);
 					}
 					setTimeout(ciclo0, vT);
 				}}//ciclo0()
@@ -3625,7 +3618,7 @@ ciclo1(){		//console.log('_____@- ciclo2()');
 					if((!libre[1])&&(nn[1] > min[1])&&(!lin[1]))
 					{	lin[1] = true;console.log('lin[1]=' + lin[1]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
+						//audiRay();//ACTIVA EL SONIDO RAYA
 						regY[1][cycle[1]] = 2;
 					}
 					setTimeout(ciclo1, vT);
@@ -3645,7 +3638,7 @@ ciclo2(){		//console.log('_____@- ciclo2()');
 					if((!libre[2])&&(nn[2] > min[2])&&(!lin[2]))
 					{	lin[2] = true;console.log('lin[2]=' + lin[2]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
+						//audiRay();//ACTIVA EL SONIDO RAYA
 						regY[2][cycle[2]] = 2;
 					}
 					setTimeout(ciclo2, vT);
@@ -3688,7 +3681,7 @@ ciclo4(){		//console.log('_____@- ciclo4()');
 					if((!libre[4])&&(nn[4] > min[4])&&(!lin[4]))
 					{	lin[4] = true;console.log('lin[4]=' + lin[4]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
+						//audiRay();//ACTIVA EL SONIDO RAYA
 						regY[4][cycle[4]] = 2;
 					}
 					setTimeout(ciclo4, vT);
@@ -3707,7 +3700,7 @@ ciclo6(){		//console.log('_____@- ciclo6()');
 					if((!libre[6])&&(nn[6] > min[6])&&(!lin[6]))
 					{	lin[6] = true;console.log('lin[6]=' + lin[6]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
+						//audiRay();//ACTIVA EL SONIDO RAYA
 						regY[6][cycle[6]] = 2;
 					}
 					setTimeout(ciclo6, vT);
@@ -3726,7 +3719,7 @@ ciclo7(){		//console.log('_____@- ciclo7()');
 					if((!libre[7])&&(nn[7] > min[7])&&(!lin[7]))
 					{	lin[7] = true;console.log('lin[7]=' + lin[7]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
+						//audiRay();//ACTIVA EL SONIDO RAYA
 						regY[7][cycle[7]] = 2;
 					}
 					setTimeout(ciclo7, vT);
@@ -3746,7 +3739,7 @@ ciclo8(){		//console.log('_____@- ciclo8()');
 					if((!libre[8])&&(nn[8] > min[8])&&(!lin[8]))
 					{	lin[8] = true;console.log('lin[8]=' + lin[8]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
+						//audiRay();//ACTIVA EL SONIDO RAYA
 						regY[8][cycle[8]] = 2;
 					}
 					setTimeout(ciclo8, vT);
@@ -3766,7 +3759,7 @@ ciclo9(){		//console.log('_____@- ciclo9()');
 					if((!libre[9])&&(nn[9] > min[9])&&(!lin[9]))
 					{	lin[9] = true;console.log('lin[9]=' + lin[9]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
-						audiRay();//ACTIVA EL SONIDO RAYA
+						//audiRay();//ACTIVA EL SONIDO RAYA
 						regY[9][cycle[9]] = 2;
 					}
 					setTimeout(ciclo9, vT);
@@ -4822,6 +4815,11 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						//iIntM0.textContent = salo;
 						f0151();// Desplaza hacia el final el Display M
 						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
+						zGuiIn(0);
+				break;
+				case 8:
+						console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
+						f0148(9);//OCULTAR la interfaz de Salida M de señas
 				break;
 
 			}
@@ -4901,10 +4899,19 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 							if((regY[0][0]==2)&&(regY[0][2]==2)&&(regY[0][4]==2)&&(regY[0][6]==1)&&(regY[0][8]==1)&&(regY[0][10]==1)){outX[0] = ':';zGuiIn(41);esTAS = true}
 						break;
 					}
+
+					if(esTAS)
+					{
+
+					
+
+
 					sale += outX[0];
 					colSale();
 					//iIntM0.textContent = salo;
 					f0151();// Desplaza hacia el final el Display M
+
+					}
 	}
 	else//OTROS BOTONES 2023 IBOGOTA!!!!!
 	{		//+ + +		if(!(//(true/*t3x3*/)&&
@@ -4955,7 +4962,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0015(1);//Clic sobre el boton 7 [] menu
 					};
 
-					if (q == 8)//boton / [0] Espacio Morse
+					if (q == 8)//boton / [0] Interfaz M
 					{	/*console.log(' - - - Espacio Morse en el display M');
 						mMod = 4;
 						f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
@@ -4966,6 +4973,11 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
     					*/
 						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+							console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+							f0148(1);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
+					
+					
+					
 					};
 
 					//+ + +		if(q==1)//EL BOTON 1 GUIA DE SERVICIOS Y..
@@ -5320,10 +5332,6 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 				if ((regY[q][0] == 1) && (regY[q][2] == 1))
 				{	console.error('  -- punto punto');
 					outX[q] = ' **';//PUNTO + PUNTO..
-					if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-						f0148(1);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
-					};
 				}
 
 				if ((regY[q][0] == 2) && (regY[q][2] == 1)) {
@@ -5408,8 +5416,8 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					};
 
 					if (q == 8)//boton / [8]   morse 8  Espacio Morse	
-					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
-						f0148(9);//OCULTAR la interfaz de Salida M de señas
+					{	//console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
+						//f0148(9);//OCULTAR la interfaz de Salida M de señas
 					};
 					
 					
