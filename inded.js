@@ -4791,10 +4791,8 @@ function      //termina evento 'primer' interacción
 	}
 }
 
-function		//GENERA EL GUION DE LA LETRA INGRESADA
-zGuiIn(ltr){	//leeme = ''.concat(kL0[ltr+1][4]);//concatena contenido de la fila con ', salida' y vPar
-				//if (t3x3)
-				{	leeme = ''.concat(kL0[ltr+1][4]);//concatena contenido de la fila con ', salida' y vPar
+function		//GENERAR el guion de la letra ingresada
+zGuiIn(ltr){	{	leeme = ''.concat(kL0[ltr+1][4]);//concatena contenido de la fila con ', salida' y vPar
 					decir(leeme);//lee el guión
 					leeme = '';//RESET DEL GUIÓN
 				}}
@@ -4807,29 +4805,27 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 			console.error('  --- 3_');
 			switch (q)
 			{	case 0:
-						console.log(' - - - Espacio Morse en el display M');
-						mMod = 4;
-						f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
+						console.log(' - - - boton - [5] Espacio Morse en el display M');
+						//mMod = 4;
+						f0145(1);//CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 						sale += ' ';
-						colSale();
+						colSale();//COLOREAR los espacios del display M 
 						//iIntM0.textContent = salo;
 						f0151();// Desplaza hacia el final el Display M
 						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
-						zGuiIn(0);
+						zGuiIn(0);//GENERAR el guion de la letra ingresada
 				break;
 				case 7:
-						//console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
-						//f0148(9);//OCULTAR la interfaz de Salida M de señas
-						//boton / [0] Delete del display M borrar la ultima letra del display 
-							mMod = 4;
-							console.log(' - - - borrar la ultima letra del display M');
-							sale = sale.slice(0, -1);
-							colSale();
+						console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
+						sale = sale.slice(0, -1);
+						colSale();//COLOREAR los espacios del display M
 							//output.textContent = salo;//output.textContent.slice(0, -1);
 							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 				break;
 				case 8:
-					f0148(0);//cambia la interfaz M
+						console.log(' - - - boton / [0] Apagar el intecomunicador M');
+						f0148(99);//OCULTAR la interfaz de Salida M
 				break;
 
 			}
@@ -4845,8 +4841,8 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 	console.log(' - - - rrrrr max[q]=', max[q]);
 	regX[q][cycle[q]] = nn[q] - mn[q]; console.log(' - - - rrrrr regX[q]=', regX[q]);
 	if (q == 0)//boton - [5] entrada morse onclick='f0145() morse 0 BOTON MORSE 2023 IBOGOTA!!!!! DESACTIVADO - //boton 5 morse 0 -
-	{				mMod = 4;
-					f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
+	{				//mMod = 4;
+					f0145(1);////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 					switch (cycle[0])
 					{	case 1:
 							//if(regY[0][0]==1){outX[0] = 'E';zGuiIn(5);esTAS = true}
@@ -4931,7 +4927,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 		switch (cycle[q])//switch que depende del ciclo en que termino/salio la tecla q
 		{
 			case 1://si salio luego del primer ciclo  
-				console.error('  -- una señal');
+				//console.error('  -- una señal');
 				
 				if (regY[q][0] == 1)//MI CLIC 2023 IBOGOTA!!!!!!!!    ###### SI SE RECIBE UN PUNTO EN.. #######
 				{
@@ -4966,9 +4962,10 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 
 					if (q == 7)// 	
 					{	console.log(' - - - Menu (7) ');
-						if(mMod > 0)//Si el modo no es 0
-						{	f0152();//Termina el conteo y oculta el display de la interfaz M
-						}
+						//f0148(99);//DESACTIVAR la interfaz de Salida M
+						//if(mMod > 0)//Si el modo no es 0
+						//{	f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
+						//}
 						f0015(1);//Clic sobre el boton 7 [] menu
 					};
 
@@ -4984,7 +4981,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
     					*/
 						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 							console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-							f0148(1);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
+							f0148(98);//MOSTRAR la interfaz de Salida M
 					
 					
 					
@@ -5238,17 +5235,19 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					//////	f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
 					//////};
 					if (q == 7)// 	
-					{	console.log(' - - - Menu (7) ');
-						if(mMod > 0)//Si el modo no es 0
-						{	f0152();//Termina el conteo y oculta el display de la interfaz M
-						}
+					{	//f0148(99);//DESACTIVAR la interfaz de Salida M
+					 	//console.log(' - - - Menu (7) ');
+						//if(mMod > 0)//Si el modo no es 0
+						//{	f0152();//Termina el conteo y oculta el display de la interfaz M
+						//}
 						f0015(1);//Clic o raya sobre el boton 7 [] menu
 						//sos(q,7);
 					};
 
 
-					if (q == 8)//boton / [0] Delete del display M borrar la ultima letra del display 
-					{	/*mMod = 4;
+					if (q == 8)//boton / [0] Activar el display 
+					{	f0148(98);//MOSTRAR la interfaz de Salida M
+						/* mMod = 4;
 						console.log(' - - - borrar la ultima letra del display M');
 						sale = sale.slice(0, -1);
 						colSale();
@@ -5339,23 +5338,23 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 				////       --l//}
 				break;
 			case 3://console.log('caso 3 son dos señales: regY[q]=',regY[q]); 
-				console.error('  -- dos señales');
+				//console.error('  -- dos señales');
 				if ((regY[q][0] == 1) && (regY[q][2] == 1))
-				{	console.error('  -- punto punto');
+				{	//console.error('  -- punto punto');
 					outX[q] = ' **';//PUNTO + PUNTO..
 
-					if (q == 7)//boton / [0] Delete del display M borrar la ultima letra del display 
-					{	mMod = 4;
-						console.log(' - - - borrar la ultima letra del display M');
-						sale = sale.slice(0, -1);
-						colSale();
+					if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
+					{	f0150();//BORRAR todo el texto de salida actual
+						//mMod = 4;
+						//console.log(' - - - borrar la ultima letra del display M');
+						//sale = sale.slice(0, -1);
+						//colSale();
 						//output.textContent = salo;//output.textContent.slice(0, -1);
 						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 					};
 
-					if (q == 8)//ocultar interfaz M
-					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
-						f0148(9);//OCULTAR la interfaz de Salida M de señas
+					if (q == 8)
+					{	f0148(97);//CAMBIAR la interfaz M
 					}
 				}
 
@@ -5364,7 +5363,8 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 
 
 					if (q == 3)//avanzar +(1*KTE) 
-					{	f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 3) salTO5
+					{	f0148(99);//DESACTIVAR la interfaz de Salida M
+						f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 3) salTO5
 					}
 
 					/*
@@ -5379,7 +5379,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 
 					
 					if (q == 3)//regresar -(1*KTE)
-					{
+					{	f0148(99);//DESACTIVAR la interfaz de Salida M
 						f0096(1, 1, 3);//Aplicar -5 avances al clic(botón 3) salTO-5
 					}
 
@@ -5389,23 +5389,13 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f(1, 1, 3);//Aplicar -5 avances al clic(botón 6) salTO-5
 					}*/
 
-					if (q == 7)//boton / [0] Delete del display M borrar la ultima letra del display 
-					{	mMod = 4;
-						console.log(' - - - borrar la ultima letra del display M');
-						sale = sale.slice(0, -1);
-						colSale();
-						//output.textContent = salo;//output.textContent.slice(0, -1);
-						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+					if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
+					{	f0150();//BORRAR todo el texto de salida actual
 					};
 
-
-					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr OCULTAR la interfaz de Salida M!!!! ');
-						f0148(9);//OCULTAR la interfaz de Salida M de señas
-					};
-
-
-					
+					if (q == 8)
+					{	f0148(97);//CAMBIAR la interfaz M
+					}
 				}
 				break;
 			case 5:
@@ -5426,7 +5416,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
 					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
 						//f0148(3);//MOSTRAR la interfaz de Salida M de señas
-						f0148(0);//cambia la interfaz M
+						f0148(97);//cambia la interfaz M
 					};
 				}
 
@@ -5478,7 +5468,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
 					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
 						//f0148(3);//MOSTRAR la interfaz de Salida M de señas
-						f0148(0);//cambia la interfaz M
+						f0148(97);//cambia la interfaz M
 					};
 					
 				}
@@ -5724,8 +5714,8 @@ const 	kL0=[			['Tutorial de puntos y rayas',													'icon far fa-comment-d
 
 
 function 
-	colSale() {		//if (yaColoreado) return; // evita que se ejecute de nuevo
-
+	colSale() {			//COLOREAR los espacios del display M 
+						//if (yaColoreado) return; // evita que se ejecute de nuevo
 						//var pprrafo = document.getElementById("texto-original");
 						//var texto = parrafo.textContent.trim(); // elimina espacios al inicio y final
 						//var pplabras = sale.split(/\s+/); //texto.split(/\s+/); // divide por cualquier espacio en blanco
