@@ -4951,10 +4951,10 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 
 					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
 
-					if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
-					{	console.log(' - - - arrow down! ');
-						f0095(1);// arrow down
-					};
+					///if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+					///{	console.log(' - - - arrow down! ');
+					///	f0095(1);// arrow down
+					///};
 
 					if (q == 7)// 	
 					{	console.log(' - - - Menu (7) ');
@@ -4996,10 +4996,10 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0096(1, 1, 1);//Aplicar reversa al clic(botón 3) salTO -1
 					};
 
-					if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
-					{	console.log(' - - - arrow down! ');
-						f0095(1);// arrow down
-					};
+					/////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+					/////{	console.log(' - - - arrow down! ');
+					/////	f0095(1);// arrow down
+					/////};
 
 					//////if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
 					//////{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
@@ -5055,6 +5055,11 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 				if ((regY[q][0] == 1) && (regY[q][2] == 1))
 				{	//console.error('  -- punto punto');
 					outX[q] = ' **';//PUNTO + PUNTO..
+
+					////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+					////{	console.log(' - - - arrow down x 2! ');
+					////	f0095(1);// arrow down
+					////};
 
 					if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
 					{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
@@ -5134,6 +5139,12 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{
 						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
 					}
+
+					////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+					////{	console.log(' - - - arrow down x 3! ');
+					////	f0095(1);// arrow down
+					////};
+
 					if (q == 7)//Reset del display M 	
 					{	f0150();//BORRAR todo el texto de salida actual
 						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
@@ -5196,6 +5207,13 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 				}
 				break;
 			case 7:
+				////if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
+				////{	outX[q] = ' ****';//cuatro puntos..
+				////	if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+				////	{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+				////		f0148(4);//MOSTRAR la interfaz de Salida M de señas
+				////	};
+				////}
 				/*
 				if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==1))
 				{	outX[q] = ' ---*';//tres rayas punto..
@@ -5210,10 +5228,19 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					}
 				}*/
 				if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
-				{	outX[q] = ' -***';//raya y tres puntoss..
+				{	outX[q] = ' -***';//raya y tres puntos..
 					if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
 					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-						f0148(3);//MOSTRAR la interfaz de Salida M de señas
+						f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
+					};
+				}
+			break;
+			case 9:
+				if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1))
+				{	outX[q] = ' -****';//raya y cuatro puntos..
+					if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+						f0148(4);//MOSTRAR la interfaz de Salida M de señas
 					};
 				}
 			break;
@@ -5400,16 +5427,16 @@ yBot1.addEventListener('touchstart',eTb4);
 */
 //1479 - 5036(0836)
 //boton V [6] avanzar adelante un item (+1) morse 6
-yBot6.addEventListener('mousedown',eMb6);
-yBot6.addEventListener('mouseleave',eMs6);
-yBot6.addEventListener('mouseup',eMs6);
-yBot6.addEventListener('touchend',eTs6);
-yBot6.addEventListener('touchstart',eTb6);
-fBot6.addEventListener('mousedown',eMb6);
-fBot6.addEventListener('mouseleave',eMs6);
-fBot6.addEventListener('mouseup',eMs6);
-fBot6.addEventListener('touchend',eTs6);
-fBot6.addEventListener('touchstart',eTb6);
+//yBot6.addEventListener('mousedown',eMb6);
+//yBot6.addEventListener('mouseleave',eMs6);
+//yBot6.addEventListener('mouseup',eMs6);
+//yBot6.addEventListener('touchend',eTs6);
+//yBot6.addEventListener('touchstart',eTb6);
+//fBot6.addEventListener('mousedown',eMb6);
+//fBot6.addEventListener('mouseleave',eMs6);
+//fBot6.addEventListener('mouseup',eMs6);
+//fBot6.addEventListener('touchend',eTs6);
+//fBot6.addEventListener('touchstart',eTb6);
 
 
 //boton [] [7] menu onclick='f0015(1)' morse 7

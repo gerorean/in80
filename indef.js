@@ -4809,6 +4809,12 @@ function f0095(reg)//Arrow Down
 			{	f0117();//RESETEAR todos los apuntadores
 				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 			}
+			///////if(gFoco < (visOK.length - n))
+			///////{	gFoco += n;
+			///////}
+			///////else
+			///////{	gFoco = (visOK.length - 1);
+			///////}
 			if(gFoco < (visOK.length - 1))
 			{	gFoco += 1;
 			}
@@ -7791,8 +7797,8 @@ function
 f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 		{	lOL(145);
 			if(m)//AJUSTAR el modo Morse en el display M
-			{	if(mMod!=4)
-				{	mMod = 4;//Modo Morse
+			{	if(mMod!=5)//El ultimo modo
+				{	mMod = 5;//Modo Morse
 					f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
 					f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
 					iTaco.classList.remove('cX');
@@ -7887,7 +7893,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 				{	//CAMBIAR el modo del intercomunicador
 					console.error(' -- h= 99');
 					var i = mMod + 1;
-					if(i>=5)
+					if(i>=6)
 					{	i = 1;//Reinicia al modo 1
 					}
 					//console.error(' -- 3 mMod=',mMod);
@@ -7917,9 +7923,18 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 							iKeyB.classList.remove('cX');
 						break;
 						case 3:
-							iKeyS.classList.remove('cX');
+							// Iterar y cambiar el tamaño de la fuente
+							keYs.forEach(button =>
+							{	button.style.fontSize = 'min(15vh,15vw)';
+							});
+							iKeyB.style.height = '300%';//'70vh';
+							iKeyB.style.width = '300vw';
+							iKeyB.classList.remove('cX');
 						break;
 						case 4:
+							iKeyS.classList.remove('cX');
+						break;
+						case 5:
 							//iTaco.style.opacity='0.8';
 							iTaco.classList.remove('cX');
 						break;
