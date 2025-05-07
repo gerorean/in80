@@ -4983,232 +4983,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					
 					};
 
-					//+ + +		if(q==1)//EL BOTON 1 GUIA DE SERVICIOS Y..
-					//+ + +		{	//if(!true/*t3x3*/)
-					//+ + +			//+ + +{	lisT1();//ACTIVA LA LISTA 1 DEPENDIENDO DEL VALOR DE eSqR[0] 
-					//+ + +			//+ + +}
-					//+ + +			//if(true/*t3x3*/)
-					//+ + +			{	infON(1);//INFORMA EN QUE LISTA Y FILA ESTA EL CURSOR, SI HAY MENSAJES NUEVOS SIN LEER Y QUE ESTA MOSTRANDO LA PANTALLA EN ESTE MOMENTO                   
-					//+ + +			}
-					//+ + +		}
-					//+ + +		if((q==2)//&&(true/*t3x3*/)
-					//+ + +				 )//EL BOTON 2 FLECHA ARRIBA.. 
-					//+ + +		{	//if((true/*t3x3*/)&&(!parB))//si T3X3 Y ESTA OCULTO EL TECLADO MORSE EN PANTALLA(PARTB).. 
-					//+ + +			if(!parB)//si T3X3 Y ESTA OCULTO EL TECLADO MORSE EN PANTALLA(PARTB).. 
-					//+ + +			{	aOo(ll[ii],cc[ii]);//OCULTA EL CURSOR
-					//+ + +				if(cc[ii] > 1)
-					//+ + +				{	cc[ii] -= 1;//LLEVA AL CURSOR UN PASO ATRAS
-					//+ + +				}
-					//+ + +				aoO(ll[ii],cc[ii]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-					//+ + +			}
-					//+ + +			if(parB)//SI ESTA VISIBLE EL TECLADO MORSE EN PANTALLA(PARTB).. 
-					//+ + +			{	aOo(llB[iiB],ccB[iiB]);//OCULTA EL CURSORB
-					//+ + +				if(ccB[iiB] > 1)
-					//+ + +				{	ccB[iiB] -= 1;//LLEVA AL CURSORB UN PASO ATRAS
-					//+ + +				}
-					//+ + +				aoO(llB[iiB],ccB[iiB]);//MUESTRA AL CURSORB EN SU NUEVA POSICION
-					//+ + +			}
-					//+ + +		}
-					//+ + +		if(q==3)//EL BOTON 3 DE ACCESIBILIDAD Y..
-					//+ + +		{	//if(!true/*t3x3*/)
-					//+ + +			//+ + +{	lisT3();//ACTIVA LA LISTA 3 DEPENDIENDO DEL VALOR DE eSqR[1]
-					//+ + +			//+ + +}
-					//+ + +			//if(true/*t3x3*/)
-					//+ + +			{	infON(3);//INFORMA QUE HAY EN LA FILA ACTUAL DONDE SE ENCUENTRA EL CURSOR                  
-					//+ + +			}
-					//+ + +		}
-					//+ + +		if((q==4)//&&(true/*t3x3*/)
-					//+ + +			     &&(!parB)&&(ii==1)&&(ll[ii]==903)&&(cc[ii]==1))
-					//+ + +		{	xmorsE();//cerrar entrada de texto con teclado morse
-					//+ + +		}
-					//+ + +		if(q==4)//EL BOTON 4 DE FLECHA IZQUIERDA..
-					//+ + +		{	//CAMBIA AL CANAL DE LA IZQUIERDA
-					//+ + +			//if((ll[0]==102)&&(cc[0]==1)){xOFFM(1)};//reset general de botones, contenidos y activa el canal(x)
-					//+ + +			//if((ll[0]==103)&&(cc[0]==1)){xOFFM(2)};
-					//+ + +			//if((ll[0]==104)&&(cc[0]==1)){xOFFM(3)};
-					//+ + +			//if((ll[0]==105)&&(cc[0]==1)){xOFFM(4)};
-					//+ + +			//if((ll[0]==106)&&(cc[0]==1)){xOFFM(5)};
-					//+ + +			//if((ll[0]==107)&&(cc[0]==1)){xOFFM(6)};           
-					//+ + +			if((!edit)&&(ou5==''))//SI NO ESTA EN EDICION SALGA DEL LISTADO SEGUN EL NIVEL QUE ESTE EL CURSOR..
-					//+ + +			{	//PARA SALIR DEL NIVEL 0..
-					//+ + +				if((ii==0)&&(cc[0]==1)&&(aP[0]==1))//si el cursor esta en la primer posicion del nivel 0
-					//+ + +				{	if(ll[0]==1){exit(1)}//SALGA SI es el listado 1
-					//+ + +					if(ll[0]==3){exit(3)}//SALGA SI es el listado 3
-					//+ + +					if(ll[0]==7){exit(7)}//SALGA SI es el listado 7
-					//+ + +					if(ll[0]==9){exit(9)}//SALGA SI es el listado 9
-					//+ + +				}
-					//+ + +				//PARA SALIR DEL NIVEL 1..
-					//+ + +				if((ii==1)&&(cc[1]==1)&&(aP[ii-1]==3))//SI es el nivel 1, el cursor esta en la primer posición y el nivel de la izquierda es un 3 (salida)..
-					//+ + +				{	if(ll[1]==303)
-					//+ + +					{	ii -= 1;console.log('bajar al nivel ii='+ii);
-					//+ + +						aP[ii] = 4;console.log('aP[ii]='+aP[ii]);//prepara el cambio de aviso ver ### ALL ###
-					//+ + +						xbaJAR(303,3);//pasar de la lista 303 a la lista 3
-					//+ + +					}
-					//+ + +					if(ll[1]==306)
-					//+ + +					{	ii -= 1;console.log('bajar al nivel ii='+ii);
-					//+ + +						aP[ii] = 4;console.log('aP[ii]='+aP[ii]);//prepara el cambio de aviso ver ### ALL ###
-					//+ + +						xbaJAR(306,3);//pasar de la lista 306 a la lista 3
-					//+ + +					}
-					//+ + +					if(ll[1]==308)
-					//+ + +					{	ii -= 1;console.log('bajar al nivel ii='+ii);
-					//+ + +						aP[ii] = 4;console.log('aP[ii]='+aP[ii]);//prepara el cambio de aviso ver ### ALL ###
-					//+ + +						xbaJAR(308,3);//pasar de la lista 308 a la lista 3
-					//+ + +					}
-					//+ + +					if(ll[1]==703)
-					//+ + +					{	ii -= 1;console.log('bajar al nivel ii='+ii);
-					//+ + +						aP[ii] = 4;console.log('aP[ii]='+aP[ii]);//prepara el cambio de aviso ver ### ALL ###
-					//+ + +						xbaJAR(703,7);//pasar de la lista 703 a la lista 7
-					//+ + +					}
-					//+ + +					if(ll[1]==903)
-					//+ + +					{	ii -= 1;console.log('bajar al nivel ii='+ii);
-					//+ + +						aP[ii] = 4;console.log('aP[ii]='+aP[ii]);//prepara el cambio de aviso ver ### ALL ###
-					//+ + +						xbaJAR(903,9);//pasar de la lista 903 a la lista 9
-					//+ + +					}	
-					//+ + +				}
-					//+ + +				//PARA SALIR DEL NIVEL 2..
-					//+ + +				if((ii==2)&&(cc[2]==1)&&(aP[ii-1]==3))//SI es el nivel 2, el cursor esta en la primer posición y el nivel de la izquierda es un 3 (salida)..
-					//+ + +				{
-					//+ + +				}
-					//+ + +				//######## ALL ######### ACTUALIZA LOS AVISOS DE LAS PUERTAS X SUBIR/bajar DE NIVEL
-					//+ + +				if(aP[ii]==4)
-					//+ + +				{	aP[ii]=1;//CAMBIA EL AVISO/NIVEL DE SALIDA POR ENTRADA
-					//+ + +				}
-					//+ + +			}
-					//+ + +			//PARA SALIR DEL NIVEL 1B..
-					//+ + +			if((parB)&&(iiB==0)&&(llB[0]==0)&&(ccB[0]==1)&&(aPB[0]==1))//si el cursor esta en la primer posicion del nivel 0 y a lista 0
-					//+ + +			{	foco = 1;
-					//+ + +				decir1(kModo[1][0]+kModo[1][1]);
-					//+ + +			
-					//+ + +	
-					//+ + +				//***exit(0);//SALE del listado 0
-					//+ + +				//***tecOFF();//DESACTIVA EL TECLADO EN PANTALLA..      
-					//+ + +			}
-					//+ + +		}
-					//+ + +		if(q==6)//EL BOTON 6 DE FLECHA DERECHA..
-					//+ + +		{	//CAMBIA AL CANAL DE LA DERECHA
-					//+ + +			//if((ll[0]==106)&&(cc[0]==1)){xOFFM(7)};
-					//+ + +			//if((ll[0]==105)&&(cc[0]==1)){xOFFM(6)};
-					//+ + +			//if((ll[0]==104)&&(cc[0]==1)){xOFFM(5)};
-					//+ + +			//if((ll[0]==103)&&(cc[0]==1)){xOFFM(4)};            	
-					//+ + +			//if((ll[0]==102)&&(cc[0]==1)){xOFFM(3)};
-					//+ + +			//if((ll[0]==101)&&(cc[0]==1)){xOFFM(2)};
-					//+ + +			//SI EXISTE NUMERO ROJO Y cursor no esta en posicion de salida enronces..
-					//+ + +			if((cc[ii]!=1)&&(ou5!=''))
-					//+ + +			{	xou5();//borra EL NUMERO ROJO
-					//+ + +			}
-					//+ + +			//ES EL LISTADO 1 DE TUS SERVICIOS 
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==2)){xOFFM(1)}//####### 1-2 #######
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==3)){xOFFM(2)}//####### 1-3 #######
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==4)){xOFFM(3)}//####### 1-4 #######
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==5)){xOFFM(4)}//####### 1-5 #######
-					//+ + +			
-					//+ + +			//if((ii==0)&&(ll[0]==1)&&(cc[0]==6)){xOFFM(5)}//####### 1-6 #######
-					//+ + +			
-					//+ + +			//####### 1-5 #######
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==6)&&(aP[0]==1))
-					//+ + +			{	xOFFM(5);
-					//+ + +				aOo(ll[ii],cc[ii]);//quita la huella al subir de donde venia(3,6)
-					//+ + +				ss[1] = kL105.length;//asignación del ssTOP/Lista
-					//+ + +				//ssC[1] = ss[1];//guarda una copia
-					//+ + +				aP[0] = 2;console.log('aP[0]='+aP[0]);//PREPARA CAMBIO EN EL AVISO DE PUERTA
-					//+ + +				//aPC[0] = 2;//GUARDA UNA COPIA
-					//+ + +				xXsubir(105);//HACE EL CABIO DE NIVEL Y DE LISTA
-					//+ + +				aoO(105,1);//HACE VISIBLE EL CURSOR
-					//+ + +			}
-					//+ + +		
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==7)){xOFFM(6)}//####### 1-7 #######
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==8)){xOFFM(7)}//####### 1-8 #######
-					//+ + +			if((ii==0)&&(ll[0]==1)&&(cc[0]==9)){xOFFM(8)}
-					//+ + +		
-					//+ + +			//####### 3-2 #######
-					//+ + +			if((ii==0)&&(ll[0]==3)&&(cc[0]==2))//ACTIVAR/DESACTIVAR T3X3
-					//+ + +			{	x3x3OFP();
-					//+ + +			}
-					//+ + +			//####### 3-3 #######
-					//+ + +			if((ii==0)&&(ll[0]==3)&&(cc[0]==3)&&(aP[0]==1))
-					//+ + +			{	aOo(ll[ii],cc[ii]);//quita la huella al subir de donde venia(3,6)
-					//+ + +				ss[1] = kL303.length;//asignación del ssTOP/Lista
-					//+ + +				aP[0] = 2;console.log('aP[0]='+aP[0]);//PREPARA CAMBIO EN EL AVISO DE PUERTA
-					//+ + +				xXsubir(303);//HACE EL CABIO DE NIVEL Y DE LISTA
-					//+ + +				aoO(303,1);//HACE VISIBLE EL CURSOR
-					//+ + +			}
-					//+ + +			//####### 3-6 #######
-					//+ + +			if((ii==0)&&(ll[0]==3)&&(cc[0]==6)&&(aP[0]==1))
-					//+ + +			{	aOo(ll[ii],cc[ii]);//quita la huella al subir de donde venia(3,6)
-					//+ + +				ss[1] = kL306.length;//asignación del ssTOP/Lista
-					//+ + +				aP[0] = 2;console.log('aP[0]='+aP[0]);//PREPARA CAMBIO EN EL AVISO DE PUERTA
-					//+ + +				xXsubir(306);//HACE EL CABIO DE NIVEL Y DE LISTA
-					//+ + +				aoO(306,1);//HACE VISIBLE EL CURSOR
-					//+ + +			}
-					//+ + +			//####### 3-8 #######
-					//+ + +			if((ii==0)&&(ll[0]==3)&&(cc[0]==8)&&(aP[0]==1))
-					//+ + +			{	aOo(ll[ii],cc[ii]);//quita la huella al subir de donde venia(3,6)
-					//+ + +				ss[1] = kL308.length;//asignación del ssTOP/Lista
-					//+ + +				aP[0] = 2;console.log('aP[0]='+aP[0]);//PREPARA CAMBIO EN EL AVISO DE PUERTA
-					//+ + +				xXsubir(308);//HACE EL CABIO DE NIVEL Y DE LISTA
-					//+ + +				aoO(308,1);//HACE VISIBLE EL CURSOR
-					//+ + +			}
-					//+ + +			//####### 3-9 #######
-					//+ + +			if((ii==0)&&(ll[0]==3)&&(cc[0]==9))
-					//+ + +			{	maXmi();cc[0] = 1;aoO(3,1);//LLEVA EL CURSOR A LA POSICIÓN 1
-					//+ + +			}
-					//+ + +			//####### 7-3 #######
-					//+ + +			if((ii==0)&&(ll[0]==7)&&(cc[0]==3)&&(aP[0]==1))
-					//+ + +			{	aOo(ll[ii],cc[ii]);//quita la huella al subir de donde venia(3,6)
-					//+ + +				ss[1] = kL703.length;//asignación del ssTOP/Lista
-					//+ + +				aP[0] = 2;console.log('aP[0]='+aP[0]);//PREPARA CAMBIO EN EL AVISO DE PUERTA
-					//+ + +				xXsubir(703);//HACE EL CABIO DE NIVEL Y DE LISTA
-					//+ + +				aoO(703,1);//HACE VISIBLE EL CURSOR
-					//+ + +			}
-					//+ + +			//####### 9-2 #######
-					//+ + +			if((ii==0)&&(ll[0]==9)&&(cc[0]==3)&&(aP[0]==1))
-					//+ + +			{	aOo(ll[ii],cc[ii]);//quita la huella al subir de donde venia(9,2)
-					//+ + +				ss[1] = kL903.length;//asignación del ssTOP/Lista
-					//+ + +				aP[0] = 2;console.log('aP[0]='+aP[0]);//PREPARA CAMBIO EN EL AVISO DE PUERTA
-					//+ + +				xXsubir(903);//HACE EL CABIO DE NIVEL Y DE LISTA
-					//+ + +				aoO(903,1);//HACE VISIBLE EL CURSOR
-					//+ + +				xMorse();//ACTIVA EL LECTOR MORSE         
-					//+ + +			}
-					//+ + +			if((parB)&&(iiB==0)&&(llB[0]==0)&&(limiT-cta>0)&&(ccB[0]>1)&&(ccB[0]<45))//parteB, nivel 0B y llista 0  seleccionada (partB)
-					//+ + +			{	xAdd(ccB[0]);//adicione una letra al editor dependiendo de la fila del cursor
-					//+ + +				zGuiIn(ccB[0]-2);//y luego leaa la letra escrita
-					//+ + +			}
-					//+ + +			//######## ALL ######### ACTUALIZA LOS AVISOS DE LAS PUERTAS X SUBIR/bajar DE NIVEL
-					//+ + +			if(aP[ii-1]==2)
-					//+ + +			{ aP[ii-1]=3;//CAMBIA EL AVISO/NIVEL DE ENTRADA POR SALIDA
-					//+ + +			}
-					//+ + +		}
-					//+ + +		//+ + +if((q==7)&&(!true/*t3x3*/))//si el boton de contactos, !3x3 Y RECIBE UN PUNTO..
-					//+ + +		//+ + +{	lisT7();
-					//+ + +		//+ + +}
-					//+ + +		if((q==7)//&&(true/*t3x3*/)
-					//+ + +				 )//si el boton de contactos, !3x3 Y RECIBE UN PUNTO..
-					//+ + +		{	infON(7);//info: lee primero el contenido actual del editor (si existe) y luego lee el contenido del registro id (si existe)
-					//+ + +		}
-					//+ + +		if((q==8)//&&(true/*t3x3*/)
-					//+ + +				 )//SI ES LA FLECHA ABAJO
-					//+ + +		{	if(!parB)//SI NO ESTA EN LA PARTE B..
-					//+ + +			{	aOo(ll[ii],cc[ii]);//OCULTA EL CURSOR
-					//+ + +				if(cc[ii] < ss[ii])
-					//+ + +				{	cc[ii] += 1;//LLEVA AL CURSOR UN PASO ADELANTE
-					//+ + +				}
-					//+ + +				aoO(ll[ii],cc[ii]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-					//+ + +			}
-					//+ + +			if(parB)//SI parteB esta activa Y RECIBE UN PUNTO..
-					//+ + +			{	aOo(llB[iiB],ccB[iiB]);//OCULTA EL CURSOR
-					//+ + +				if(ccB[iiB] < ssB[iiB])
-					//+ + +				{	ccB[iiB] += 1;//LLEVA AL CURSOR UN PASO ADELANTE
-					//+ + +				}
-					//+ + +				aoO(llB[iiB],ccB[iiB]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-					//+ + +			}
-					//+ + +		}
-					//+ + +		//+ + +if((q==9)&&(!true/*t3x3*/))//si el boton de mas opciones, !3x3 Y RECIBE UN PUNTO..
-					//+ + +		//+ + +{	lisT9();
-					//+ + +		//+ + +}
-					//+ + +		if((q==9)//&&(true/*t3x3*/)
-					//+ + +				 )
-					//+ + +		{	infON(9);//info: posición del cursor dentro de la lista 'numero de numero' ej: 1/3
-					//+ + +		}
+		
 				}
 				if (regY[q][0] == 2)//MI RAYA 2023 IBOGOTA!!!!!!!  
 				{
@@ -5269,65 +5044,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					};*/
 
 					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-					
-					//+ + +		//esta[q] = true;
-					//+ + +		sos(q,0);
-					//+ + +		if(q==1)//si el boton de MENU, 3x3 Y RECIBE UNA RAYA..
-					//+ + +		{	if(edit)
-					//+ + +			{	xmorsE();//cerrar el editor
-					//+ + +			}
-					//+ + +			lisT1();
-					//+ + +		}
-					//+ + +		if((q==2)&&(edit)&&(ou5=='')&&(outW[0]!=''))//SI esta en modo editor y no hay numeros id's..
-					//+ + +		{	outW[0] = outW[0].slice(0,(outW[0].length-1));//borra la ultima letra del texto
-					//+ + +			letra();
-					//+ + +		}
-					//+ + +		if(q==3)//si el boton de accesibilidad..
-					//+ + +		{	if(edit)
-					//+ + +			{	xmorsE();//cerrar el editor
-					//+ + +			}
-					//+ + +			lisT3();
-					//+ + +		}
-					//+ + +		if(q==4)//CAMBIA EL FOCO EN LINEA, EDITOR, TUTORIAL
-					//+ + +		{	if(edit)
-					//+ + +			{	switch (foco)
-					//+ + +				{	case 1:foco = 2;decir2(kModo[2][0]+kModo[2][1]);break;
-					//+ + +					case 2:foco = 3;decir3(kModo[3][0]+kModo[3][1]);/*tecPant();*/break;
-					//+ + +					case 3:foco = 1;decir1(kModo[1][0]+kModo[1][1]);/*tecOFF();*/break;
-					//+ + +				}
-					//+ + +			}
-					//+ + +			//else
-					//+ + +			//{	foco = 1;
-					//+ + +			//}
-					//+ + +		}
-					//+ + +		
-					//+ + +		if(q==6)
-					//+ + +		{	//6)-   microfono/avión: enviar mensaje de audio o texto (conmuta automaticamente dependiendo si hay o no algun texto editado)
-					//+ + +		}
-					//+ + +		if((q==7)//&&(true/*t3x3*/)
-					//+ + +				 )//si el boton de contactos..
-					//+ + +		{	if(edit)
-					//+ + +			{ xmorsE();//cerrar el editor
-					//+ + +			}
-					//+ + +			lisT7();
-					//+ + +		}
-					//+ + +		if((q==8)&&(edit)&&(limiT-cta>0))//SI flecha izquierda y esta en modo editor..
-					//+ + +		{	outW[0] = outW[0].concat(' ');//agrega un espacio al final del editor
-					//+ + +			zGuiIn(0);
-					//+ + +			letra();
-					//+ + +		}                     
-					//+ + +		if((q==8)&&(ou5!=''))//SI ES ESTRELLA, esta en modo NO editor..
-					//+ + +		{	quita();
-					//+ + +			//ou5 = ou5.slice(0,(ou5.length-1));//borra el ultimo numero
-					//+ + +			//oU5 = '';
-					//+ + +			//numer();
-					//+ + +		}
-					//+ + +		if(q==9)//si el boton de mas opciones..
-					//+ + +		{	if(edit)
-					//+ + +			{	xmorsE();//cerrar el editor
-					//+ + +			}
-					//+ + +			lisT9();
-					//+ + +		}
+				
 				}
 				////       --l//if (regY[q][0] == 3)
 				////       --l//{	console.error('  --raya muy larga--');
@@ -5359,9 +5076,8 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					}
 				}
 
-				if ((regY[q][0] == 2) && (regY[q][2] == 1)) {
-					outX[q] = ' -*';//RAYA + PUNTO..
-
+				if ((regY[q][0] == 2) && (regY[q][2] == 1))
+				{	outX[q] = ' -*';//RAYA + PUNTO..
 
 					if (q == 3)//avanzar +(1*KTE) 
 					{	f0148(99);//DESACTIVAR la interfaz de Salida M
@@ -5373,6 +5089,11 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					{
 						f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 6) salTO5
 					}*/
+					console.error(' aqui voy 1');
+					if (q == 8)
+					{	f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
+						console.error(' aqui voy 2');
+					}
 				}
 				if ((regY[q][0] == 2) && (regY[q][2] == 2)) {
 					outX[q] = ' --';//DOS RAYAS..
@@ -5414,23 +5135,28 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
 					}
 					if (q == 7)//Reset del display M 	
-					{	mMod = 4;
-						console.log(' - - - Reset del display M');
-						f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+					{	f0150();//BORRAR todo el texto de salida actual
+						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 					};
 
 					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
-						//f0148(3);//MOSTRAR la interfaz de Salida M de señas
-						f0148(97);//cambia la interfaz M
+					{	console.log(' - - - boton / [0] Apagar el intecomunicador M');
+						f0148(99);//OCULTAR la interfaz de Salida M
 					};
 				}
 
+				if ((regY[q][0] == 2) && (regY[q][2] == 1) && (regY[q][4] == 1))
+				{	outX[q] = ' -**';//raya y dos puntos..
 
-				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) {
+					if (q == 8)
+					{	f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
+					}
+				}
+
+				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) 
+				{
 					outX[q] = ' --*';//dos rayas punto..
 
-					
 					if (q == 3)//avanzar +(2*KTE)
 					{
 						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
@@ -5441,19 +5167,11 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 6)
 					}*/
 
-					if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-						f0148(2);//MOSTRAR la interfaz de Salida M de qwerty - teclado normal
-					};
-
-
-
 				}
-				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 2)) {
+				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 2))
+				{
 					outX[q] = ' ---';//tres rayas..
 
-
-					
 					if (q == 3)//regresar -(2*KTE)
 					{
 						f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 3)
@@ -5466,20 +5184,19 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 
 					
 					if (q == 7)//Reset del display M 	
-					{	mMod = 4;
-						console.log(' - - - Reset del display M');
-						f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+					{	f0150();//BORRAR todo el texto de salida actual
+						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 					};
 
 					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M de señas!!!! ');
-						//f0148(3);//MOSTRAR la interfaz de Salida M de señas
-						f0148(97);//cambia la interfaz M
+					{	console.log(' - - - boton / [0] Apagar el intecomunicador M');
+						f0148(99);//OCULTAR la interfaz de Salida M
 					};
 					
 				}
 				break;
-			/*case 7:
+			case 7:
+				/*
 				if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==1))
 				{	outX[q] = ' ---*';//tres rayas punto..
 					if(q==6)//avanzar +(3*KTE)
@@ -5491,160 +5208,16 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					if(q==6)//regresar -(3*KTE)
 					{	f0096(1,1,7);//Aplicar -20 avances al clic(botón 6)
 					}
+				}*/
+				if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
+				{	outX[q] = ' -***';//raya y tres puntoss..
+					if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+						f0148(3);//MOSTRAR la interfaz de Salida M de señas
+					};
 				}
-			break;*/
-			//+ + +		case 3://console.log('caso 3 son dos señales: regY[q]=',regY[q]); 
-			//+ + +			//if((regY[q][0]==1)&&(regY[q][2]==1)){ outX[q] = ' **'}//PUNTOS NO FINALES POR TANTO NO SE PUEDE USAR!!!
-			//+ + +			//if((regY[q][0]==1)&&(regY[q][2]==2)){ outX[q] = ' *-';sos(q,2)}//PUNTOS NO FINALES POR TANTO NO SE PUEDE USAR!!!
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)//&&(true/*t3x3*/)
-			//+ + +											   )
-			//+ + +			{	outX[q] = ' -*';//RAYA + PUNTO..
-			//+ + +				if(q==1){oU5 = 1}//digita el número id 1
-			//+ + +				if(q==2){oU5 = 2}//digita el número id 2
-			//+ + +				if(q==3){oU5 = 3}//digita el número id 3
-			//+ + +				if(q==4){oU5 = 4}//digita el número id 4
-			//+ + +				if(q==6){oU5 = 6}//digita el número id 6
-			//+ + +				if(q==7){oU5 = 7}//digita el número id 7
-			//+ + +				if(q==8){oU5 = 8}//digita el número id 8
-			//+ + +				if(q==9){oU5 = 9}//digita el número id 9
-			//+ + +				numer();//arma el numero
-			//+ + +			}
-			//+ + +			//if((regY[q][0]==2)&&(regY[q][2]==2))
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)//&&(true/*t3x3*/)
-			//+ + +											   )
-			//+ + +			{	outX[q] = ' --';//DOS RAYAS..
-			//+ + +				if(q==1)
-			//+ + +				{	oU5 = 0;//digita el número id 0
-			//+ + +					numer();//arma el numero
-			//+ + +				}
-			//+ + +				if((q==2)&&(edit)&&(outW[0]!='')&&(ou5==''))//SEGUNDA VEZ..
-			//+ + +				{	res = outW[0].split(' ');//CREA UN ARREGLO DE SOLO PALABRAS SIN ESPACIOS
-			//+ + +					outW[0] = res.slice(0,(res.length-1)).join(' ');//QUITA LA ULTIMA PARTE DEL ARREGLO
-			//+ + +					letra();//ACTUALIZA EL TEXTO DE SALIDA
-			//+ + +				}
-			//+ + +				if((q==2)&&(ou5!=''))//SI HAY NUMEROS ID..
-			//+ + +				{	quita();
-			//+ + +					quita();
-			//+ + +				}
-			//+ + +				if(q==4)
-			//+ + +				{	oU5 = 5;//digita el número id 5
-			//+ + +					numer();//arma el numero
-			//+ + +				}
-			//+ + +				if(q==8)
-			//+ + +				{ //CONTESTA O llama por teléfono con o sin usar números id o acepta o activa algo
-			//+ + +				}
-			//+ + +				if(q==9)
-			//+ + +				{ //cuelga llamada telefónica o rechaza o desactiva algo
-			//+ + +				}                  
-			//+ + +			}
-			//+ + +		break;
-			//+ + +		case 5:
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)){outX[q] = ' ***'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==2)){outX[q] = ' **-';sos(q,4)}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==2)&&(regY[q][4]==1)){outX[q] = ' *-*'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==2)&&(regY[q][4]==2)){outX[q] = ' *--';sos(q,4)}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)){outX[q] = ' -**'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==2)){outX[q] = ' -*-';sos(q,4)}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==1))
-			//+ + +			{	outX[q] = ' --*';//dos rayas punto..
-			//+ + +				if((q==1)&&(!parB))//SI ES FLECHA ATRAS, ESTA EN ALGUN LISTADO DE MENU, ACCESIBILIDAD, CONTACTOS O MAS OPCIONES..          
-			//+ + +				{	aOo(ll[ii],cc[ii]);//OCULTA EL CURSOR
-			//+ + +					cc[ii] = 1;//LLEVA AL CURSOR AL inicio DE LA LISTA
-			//+ + +					aoO(ll[ii],cc[ii]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-			//+ + +				}
-			//+ + +				if((q==1)&&(parB))//SI ES FLECHA ATRAS, ESTA EN ALGUN LISTADO DE MENU, ACCESIBILIDAD, CONTACTOS O MAS OPCIONES..          
-			//+ + +				{	aOo(llB[iiB],ccB[iiB]);//OCULTA EL CURSORB
-			//+ + +					ccB[iiB] = 1;//LLEVA AL CURSOR AL inicio DE LA LISTAB
-			//+ + +					aoO(llB[iiB],ccB[iiB]);//MUESTRA AL CURSOR EN SU NUEVA POSICIONB
-			//+ + +				}
-			//+ + +				if((q==2)&&(edit)&&(ou5=='')&&(outW[0]!=''))//SEGUNDA VEZ:SI esta en modo editor Y NO HAY NUMEROS ID..
-			//+ + +				{	outW[0] = '';//borra todo el texto
-			//+ + +					letra();
-			//+ + +				}
-			//+ + +				if((q==2)&&(ou5!=''))//PRIMER VEZ:SI esta en modo editor o no Y HAY NUMEROS ID..
-			//+ + +				{	xou5();//si hay algun numero ROJO (ID) borra todo el numero
-			//+ + +				}
-			//+ + +				if((q==4)&&(ou5=='')&&(!parB))//SI boton 4, no hay ningun numero, ESTA EN ALGUN LISTADO DE MENU, ACCESIBILIDAD, CONTACTOS O MAS OPCIONES..
-			//+ + +				{	aOo(ll[ii],cc[ii]);//OCULTA EL CURSOR
-			//+ + +					cc[ii] = Math.round(ss[ii]/2);console.log('cc[ii]=',cc[ii])//LLEVA AL CURSOR A la mitad DE LA LISTA
-			//+ + +					aoO(ll[ii],cc[ii]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-			//+ + +				}
-			//+ + +				if((q==4)&&(ou5!='')&&(!parB))//SI ES EL BOTON CENTRAL, TIENE UN NUMERO Y RECIBE UNA RAYA..
-			//+ + +				{	if(1<=(Number(ou5))&&(Number(ou5)<=ss[ii]))
-			//+ + +					{	aOo(ll[ii],cc[ii]);//OCULTA EL CURSOR     
-			//+ + +						cc[ii] = Number(ou5);//Actualiza la posiciíon del cursor y BRINCA
-			//+ + +						aoO(ll[ii],cc[ii]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-			//+ + +					}
-			//+ + +					xou5();
-			//+ + +				}
-			//+ + +				if((q==4)&&(ou5=='')&&(parB))//SI es el boton central, no hay ningun numero, ESTA EN ALGUN LISTADO DE MENU, ACCESIBILIDAD, CONTACTOS O MAS OPCIONES..
-			//+ + +				{	aOo(llB[iiB],ccB[iiB]);//OCULTA EL CURSOR
-			//+ + +					ccB[iiB] = Math.round(ssB[iiB]/2);console.log('ccB[iiB]=',ccB[iiB])//LLEVA AL CURSOR A la mitad DE LA LISTA
-			//+ + +					aoO(llB[iiB],ccB[iiB]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-			//+ + +				}
-			//+ + +				if((q==4)&&(ou5!='')&&(parB))//SI ES EL BOTON CENTRAL, TIENE UN NUMERO..
-			//+ + +				{	if(Number(ou5)<=ssB[iiB])
-			//+ + +					{	aOo(llB[iiB],ccB[iiB]);//OCULTA EL CURSOR     
-			//+ + +						ccB[iiB] = Number(ou5);//Actualiza la posiciíon del cursor y BRINCA
-			//+ + +						aoO(llB[iiB],ccB[iiB]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-			//+ + +					}
-			//+ + +					xou5();
-			//+ + +				}
-			//+ + +				if((q==7)&&(!parB))//..
-			//+ + +				{	aOo(ll[ii],cc[ii]);//OCULTA EL CURSOR
-			//+ + +					cc[ii] = ss[ii];//LLEVA AL CURSOR AL FINAL DE LA LISTA
-			//+ + +					aoO(ll[ii],cc[ii]);//MUESTRA AL CURSOR EN SU NUEVA POSICION
-			//+ + +				}
-			//+ + +				if((q==7)&&(parB))//..
-			//+ + +				{	aOo(llB[iiB],ccB[iiB]);//OCULTA EL CURSORB
-			//+ + +					ccB[iiB] = ssB[iiB];//LLEVA AL CURSOR AL FINAL DE LA LISTAB
-			//+ + +					aoO(llB[iiB],ccB[iiB]);//MUESTRA AL CURSOR EN SU NUEVA POSICIONB
-			//+ + +				}
-			//+ + +		
-			//+ + +		
-			//+ + +				//if((q==8)&&(!parB))//hace visible el teclado y lleva el cursor a la parte B
-			//+ + +				//{	tecPant();//ACTIVA EL TECLADO EN PANTALLA si edit
-			//+ + +				//}      
-			//+ + +				//if((q==9)&&(parB))//si se muestra el teclado
-			//+ + +				//{	tecOFF();//DESACTIVA EL TECLADO EN PANTALLA si edit
-			//+ + +				//}
-			//+ + +			}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(limiT-cta>0))
-			//+ + +			{	outX[q] = ' ---';
-			//+ + +				sos(q,4)
-			//+ + +			}
-			//+ + +		break;
-			//+ + +		case 7:
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)){outX[q] = ' ****'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==2)){outX[q] = ' ***-';sos(q,6)}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==2)&&(regY[q][6]==1)){outX[q] = ' **-*'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==2)&&(regY[q][6]==2)){outX[q] = ' **--';sos(q,6)}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==2)&&(regY[q][4]==1)&&(regY[q][6]==1)){outX[q] = ' *-**'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==2)&&(regY[q][4]==1)&&(regY[q][6]==2)){outX[q] = ' *-*-';sos(q,6)}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==1)){outX[q] = ' *--*'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2)){outX[q] = ' *---';sos(q,6)}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)){outX[q] = ' -***'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==2)){outX[q] = ' -**-';sos(q,6)}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==2)&&(regY[q][6]==1)){outX[q] = ' -*-*'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==2)&&(regY[q][6]==2)){outX[q] = ' -*--';sos(q,6)}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==1)&&(regY[q][6]==1)){outX[q] = ' --**'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==1)&&(regY[q][6]==2)){outX[q] = ' --*-';sos(q,6)}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==1)){outX[q] = ' ---*'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2)){outX[q] = ' ----';sos(q,6)}
-			//+ + +		break;
-			//+ + +		case 9:
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2)&&(regY[q][8]==2)){outX[q] = ' *----'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==2)&&(regY[q][6]==2)&&(regY[q][8]==2)){outX[q] = ' **---'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==2)&&(regY[q][8]==2)){outX[q] = ' ***--'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==2)){outX[q] = ' ****-'}
-			//+ + +			if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1)){outX[q] = ' *****'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1)){outX[q] = ' -****'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1)){outX[q] = ' --***'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==1)&&(regY[q][8]==1)){outX[q] = ' ---**'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2)&&(regY[q][8]==1)){outX[q] = ' ----*'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2)&&(regY[q][8]==2)){outX[q] = ' -----'}
-			//+ + +			if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==1)&&(regY[q][6]==2)&&(regY[q][8]==2)){outX[q] = ' -----'}
-			//+ + +		break;
+			break;
+
 		}
 	}
 	//console.log('esta[q]=' + esta[q]);
