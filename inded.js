@@ -24,7 +24,7 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 
 
 //1
-//ext hij# hijos rutas vPAPA# wPapa# f0128 - f0137 objetivo DETERCTAR los hijos de wPAPA, es decir los lugares hijo
+//ext hij# hijos rutas vPAPA# wPapa# f0128 - f0137 objetivo DETECTAR los hijos de wPAPA, es decir los lugares hijo
 /* inicio interruptor 1 incluye f0128 a f0137* /
 //============================================================
 //PASAR al servidor
@@ -52,8 +52,8 @@ var 	vPAPA8 			= [];//Array visible de wPapa8
 var 	vPAPA9 			= [];//Array visible de wPapa9
 var 	vPAPA10 		= [];//Array visible de wPapa10
 
-
-
+//wPapa# listas de cada uno de los subterritorios, en el mismo nivel de subdivisión, ordenados alfabeticamente en la columna 0 (del idioma ingles) puede contener elementos no visibles
+//wPAPA# listas sPapa# sin elementos no visibles
 
 const	wPapa1		= 	[	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-Vacio'		,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE'	,'5/10-Español'		,'6/11-frances'			,'7/12-coreano'],
 							['Africa'							,'af'			,1						,1									,0				,10					,5				,5				,20 		,5 				,'África'			,'Afrique'				,'아프리카'],
@@ -64,7 +64,6 @@ const	wPapa1		= 	[	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key st
 							['Oceania'							,'oc'			,6						,1									,0				,10					,5				,5				,21 		,5 				,'Oceanía'			,'Océanie'				,'오세아니아'],
 							['South America' 					,'sa'			,7						,1									,0				,10					,5				,5				,25 		,5 				,'Sur América'		,'Amérique du Sud'		,'남아메리카'],
 						];
-
 const	wPapa2		= 	[	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa1'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE'	,'5/10-Español'				,'6/11-frances'					,'7/12-coreano'],
 							['Argentina'						,'ar'			,7						,1									,7				,6					,61				,5				,27 		,5 				,'Argentina'				,'Argentine'					,'아르헨티나'],
 							['Australia'						,'au'			,10						,1									,6				,6					,62				,5				,29 		,5 				,'Australia'				,'Australie'					,'호주'],
@@ -77,7 +76,6 @@ const	wPapa2		= 	[	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key st
 							['Trinidad Peninsula'				,'trp'			,9						,1									,2				,6					,69				,5				,42 		,5 				,'Península Trinidad'		,'Péninsule de Trinidad'		,'트리니다드 반도'],
 							['United States of America'			,'us'			,2						,1									,5				,6					,70				,5				,37 		,5 				,'Estados Unidos de América','les états-unis d\'Amérique'	,'아메리카 합중국'],
 						];
-
 const 	wPapa3		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa2'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE'	,'5-Español'			,'6-frances'				,'7-coreano'],
 							['Andalusia'						,'and'			,7						,1									,3				,4					,71				,5				,38 		,5 				,'Andalucía'			,'Andalousie'				,'안달루시아'],
 							['Antioquia'						,'ant'			,3						,1									,1				,4					,72				,5				,39 		,5 				,'Antioquia'			,'Antioche'					,'남극 대륙'],
@@ -88,7 +86,6 @@ const 	wPapa3		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key 
 							['Madrid\'s community'				,'mac'			,6						,1									,3				,9					,77				,5				,43 		,5 				,'Comunidad de Madrid'	,'La communauté de Madrid'	,'마드리드의 커뮤니티'],
 							['Narino'							,'nar'			,2						,1									,1				,12					,78				,5				,44 		,5 				,'Nariño'				,'Nariño'					,'나리노'],
 						];
-
 const 	wPapa4		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa3'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE'	,'5-Español'				,'6-frances'				,'7-coreano'],
 							['Cali'								,'cal'			,1						,0									,0				,4					,60				,5				,5 			,5 				,'Cali'						,'Cali'						,'칼리'],
 							['location Chapinero'				,'cha'			,2						,1									,8				,9					,73				,5				,45 		,5 				,'localidad Chapinero'		,'localité Chapinero'		,'위치 차피네로'],
@@ -99,7 +96,6 @@ const 	wPapa4		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key 
 							['Medellin'							,'med'			,7						,1									,3				,4					,80				,5				,50 		,5 				,'Medellín'					,'Medellín'					,'메델린'],
 							['Pasto'							,'pas'			,8						,1									,2				,12					,81				,5				,51 		,5 				,'Pasto'					,'Pasto'					,'파스토'],	
 						];
-
 const 	wPapa5		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa4'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'				,'6-frances'						,'7-coreano'				],
 							['Catalonia neighborhood'			,'cat'			,1						,1									,2				,3					,73				,5				,52			,5 				,'barrio Cataluña'			,'quartier Catalogne'				,'카탈로니아 인근'				],
 							['Central Chapinero neighborhood'	,'chc'			,2						,1									,2				,3					,73				,5				,53			,5 				,'barrio Chapinero Central'	,'quartier Central de Chapinero'	,'중앙 차피네로 지역'			],
@@ -115,9 +111,7 @@ const 	wPapa5		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key 
 						  //['UPZ Pardo Rubio'					,'par'			,3						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ Pardo Rubio'			,'UPZ Pardo Rubio'			,'UPZ Pardo Rubio'			],
 						  //['UPZ San Isidro Patios'			,'sai'			,2						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ San Isidro Patios'	,'UPZ San Isidro Patios'	,'UPZ San Isidro Patios'	],
 						];
-
-const 	wPapa6		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa5'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'				,'6-frances'				,'7-coreano'				],
-							
+const 	wPapa6		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa5'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'				,'6-frances'				,'7-coreano'				],						
 						//	['barrio Cataluña'					,'cat'			,1						,1									,5				,6					,5				,5				,5 			,5 				,'Cataluña, barrio'			,'Cataluña, barrio'			,'Cataluña, barrio'			],
 						//	['barrio Chapinero Central'			,'chc'			,2						,1									,5				,6					,5				,5				,5 			,5 				,'Chapinero Central, barrio','Chapinero Central, barrio','Chapinero Central, barrio'],
 						//	['barrio Chapinero Norte'			,'chn'			,3						,1									,5				,6					,5				,5				,5 			,5 				,'Chapinero Norte, barrio'	,'Chapinero Norte, barrio'	,'Chapinero Norte, barrio'	],
@@ -125,9 +119,7 @@ const 	wPapa6		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key 
 						//	['barrio Porciúncula'				,'por'			,7						,1									,4				,6					,5				,5				,5 			,5 				,'Porciúncula'				,'Porciúncula'				,'Porciúncula'				],
 						//	['barrio Quinta Camacho'			,'quc'			,6						,1									,4				,6					,5				,5				,5 			,5 				,'Quinta Camacho'			,'Quinta Camacho'			,'Quinta Camacho'			],
 						//	['barrio Sucre'						,'suc'			,5						,1									,5				,6					,5				,5				,5 			,5 				,'Sucre, barrio'			,'Sucre, barrio'			,'Sucre, barrio'			],
-					
 						];
-
 const 	wPapa7		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa6'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'				],
 						//	['calle 51,52 y carrera 13,14'		,'c52k13'		,1						,1									,2				,5					,5				,5				,5 			,5 				,'calle 51,52 y carrera 13,14'	,'calle 51,52 y carrera 13,14'	,'calle 51,52 y carrera 13,14'],
 						//	['calle 52,53 y carrera 13,14'		,'c52k14'		,2						,1									,2				,5					,5				,5				,5 			,5 				,'calle 52,53 y carrera 13,14'	,'calle 52,53 y carrera 13,14'	,'calle 52,53 y carrera 13,14'],						
@@ -135,10 +127,8 @@ const 	wPapa7		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key 
 						//	['calle 53,54 y carrera 10,11'		,'c53k10'		,4						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 10,11'	,'calle 53,54 y carrera 10,11'	,'calle 53,54 y carrera 10,11'],					
 						//	['calle 53,54 y carrera 11,12'		,'c53k11'		,7						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 11,12'	,'calle 53,54 y carrera 11,12'	,'calle 53,54 y carrera 11,12'],						
 						//	['calle 53,54 y carrera 12,13'		,'c53k12'		,6						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 12,13'	,'calle 53,54 y carrera 12,13'	,'calle 53,54 y carrera 12,13'],
-						//	['calle 53,54 y carrera 13,14'		,'c53k13'		,5						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'],
-					
+						//	['calle 53,54 y carrera 13,14'		,'c53k13'		,5						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'],				
 						];
-
 const 	wPapa8		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa7'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'			],
 						//	['Banco de Bogotá'					,'bab'			,6						,1									,4				,3					,5				,5				,5 			,5 				,'Banco de Bogotá'				,'Banco de Bogotá'				,'Banco de Bogotá'		],
 						//	['Banco Caja Social'				,'bac'			,4						,1									,7				,3					,5				,5				,5 			,5 				,'Banco Caja Social'			,'Banco Caja Social'			,'Banco Caja Social'	],
@@ -146,21 +136,16 @@ const 	wPapa8		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key 
 						//	['Exito, almacén'					,'exi'			,3						,1									,2				,3					,5				,5				,5 			,5 				,'Exito, almacén'				,'Exito, almacén'				,'Exito, almacén'		],
 						//	['Rapi CADE'						,'rac'			,7						,1									,4				,3					,5				,5				,5 			,5 				,'Rapi CADE'					,'Rapi CADE'					,'Rapi CADE'			],
 						//	['SENA, calle 52'					,'s52'			,1						,1									,1				,3					,5				,5				,5 			,5 				,'SENA, calle 52'				,'SENA, calle 52'				,'SENA, calle 52'		],
-						//	['TecnoParque Colombia'				,'tec'			,2						,1									,4				,3					,5				,5				,5 			,5 				,'TecnoParque Colombia'			,'TecnoParque Colombia'			,'TecnoParque Colombia'	],
-			
+						//	['TecnoParque Colombia'				,'tec'			,2						,1									,4				,3					,5				,5				,5 			,5 				,'TecnoParque Colombia'			,'TecnoParque Colombia'			,'TecnoParque Colombia'	],		
 						];
-
 const 	wPapa9		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa8'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'				],
 						//	['Biotecnología'					,'bio'			,1						,1									,2				,12					,5				,1				,3		 	,5 				,'Biotecnología'				,'Biotecnología'				,'Biotecnología'			],
 						//	['Electrónica'						,'ele'			,4						,1									,2				,6					,5				,4				,3		 	,5 				,'Electrónica'					,'Electrónica'					,'Electrónica'				],
 						//	['InfoCenter'						,'inc'			,5						,1									,2				,13					,5				,18				,3		 	,5 				,'InfoCenter'					,'InfoCenter'					,'InfoCenter'				],
 						//	['Ingeniería y Diseño'				,'ind'			,3						,1									,2				,3					,5				,16				,3		 	,5 				,'Ingeniería y Diseño'			,'Ingeniería y Diseño'			,'Ingeniería y Diseño'		],
-						//	['Tecnologías Virtuales'			,'tev'			,2						,1									,2				,5					,5				,20				,3		 	,5 				,'Tecnologías Virtuales'		,'Tecnologías Virtuales'		,'Tecnologías Virtuales'	],
-					
+						//	['Tecnologías Virtuales'			,'tev'			,2						,1									,2				,5					,5				,20				,3		 	,5 				,'Tecnologías Virtuales'		,'Tecnologías Virtuales'		,'Tecnologías Virtuales'	],				
 						];
-
-const 	wPapa10		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa9'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'				],
-					
+const 	wPapa10		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa9'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'				],	
 						];
 
 function f0128()//CREAR la lista de rutas del servidor
@@ -564,7 +549,7 @@ function f0137(h)//ENCONTRAR el id padre de un hijo del nivel 10
 			}
 		}
 
-f0128();//DETERCTAR los hijos de wPAPA
+f0128();//DETERCTAR los hijos de wPAPA y quitar los elementos no visibles (desactivados)
 /* fin interruptor 1 incluye f0128 a f0137 */
 
 
@@ -578,7 +563,7 @@ f0128();//DETERCTAR los hijos de wPAPA
 
 
 /*
-//intento 1 convertir r003 en un objeto con Array
+//intento 1 convertir r003 en un objeto con Array    --l 7may025 parece ser un ejemplo de JSON con 3 notas del titular ¿se puede quitar si no se usa mongoDB como BD con JSONs?
 const 	o003 	=
 [	{	r3A1: 	['participate this Sunday, January 29, in an ecological walk in Ciudad Bolívar, IDRD, invites you'	,'Be part of our ecological walks, and discover places that will help you connect with nature.'								,'This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena'	],
 		r3A2: 	['participa este domingo 29 de enero en una caminata ecológica en Ciudad Bolívar, IDRD, te invita'	,'Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza.'				,'Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena'			],
@@ -619,10 +604,10 @@ const 	o003 	=
 //RUTA 3 - ANUNCIOS /INFORMACIÓN COMUNITARIA/  pública /Libro comunitario
 //const 	r003A  y r003B ver/buscar aquí al final en MONGODB
 
-//GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios..
+//const o00#* GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios???  se puede quitar?????..
 const o003A = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
 [1, ['', 'Here you can find out the information published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
-[2, ['', 'Aquí podrás conocer la información publicada por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
+[2, ['', 'Aquí 99 podrás conocer la información publicada por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
 [3, ['', 'Retrouvez ici les informations publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Vacio']],
 [4, ['', '여기에서 지역 지도자들이 게시한 정보를 확인할 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['Vacio']]
 ];
@@ -638,6 +623,7 @@ const 	o003A		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
 */
 
 //GUION BUSCANDO ANUNCIOS..
+//const res#* aquí__podrás GUION ANUNCIO VACIO 1/3 para cuando hay anuncios, ese texto es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios..
 const res3A = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
 [1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
 [2, ['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
@@ -655,10 +641,10 @@ const 	res3A		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
 						];
 */
 
-//GUIONES ANUNCIOS
+//GUIONES ANUNCIOS  -- qué hace?? es sólo para guíon del texto???, se puede quitar??
 var r003A = [['Casillas', 'Head', 'Others'],
 [1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
-[2, ['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
+[2, ['', 'aquí tu podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
 [3, ['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Vacio']],
 [4, ['', '여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['Vacio']]
 ];
@@ -672,7 +658,9 @@ var 	r003A		=[	['Casillas'	],
 						];
 */
 
-//GUIONES HAY ANUNCIOS 
+
+//GUIONES HAY ANUNCIOS
+//const c00#* aquí si .. GUION ANUNCIO VACIO 1/3 para cuando hay anuncios, el "chorizo de todos los contenidos ampliados"  los primeros contenidos de la localidad se puede quitar dado que es el mismo res3A?????..
 var c003A = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
 [1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Participate this May 27 in the Accountability of the Local Mayor of Puente Aranda at the Parque Polideportivo El Jazmín', 'located at 1 G street number 41 A 39, at 9:00, it is an opportunity for citizens to learn about public management and to ask questions and make comments about it', 'and participate as observers of the management carried out by the Local Mayor\'s Office of Puente Aranda'], ['Are you a female caregiver or victim of violence?, we invite you to register at the Manzana del Cuidado de Puente Aranda at calle 1 b number: 57_51, or call the number 313-8699-260, e-mail: imora@sdmujer.gov.co', 'In the Manzana del Cuidado you can train with SENA, learn to create your own business, enjoy physical activity classes, bike school, and more', 'while the elderly and people with disabilities who are under your care are cared for by caregivers from the Mayor\'s Office'], ['Do you have an emergency? Call 123', '123 is the telephone line that gathers all the security and emergency numbers: Police, Mobility, Fire, Risk Management and Ministry of Health'], ['Are you a victim of violence against women?, call 123, 01-8001-12137, or WhatsApp 300-7551-846, and request the accompaniment of the purple patrol', 'With the purple patrol, women who are victims of violence can receive security, guidance, help and prevention'], ['Invitation to boys, girls and young people to musical training', 'with the National Batuta Foundation and being part of the local Orchestral Center'], ['If you are between 18 to 28 years old, we invite you to be part of the Parceros Por Bogotá program, which includes courses, city activities and the possibility of receiving 500,000 pesos per month.', 'We invite you to register on Friday, May 19, place: Parque Dalias, 4th street number 54-01, Galán neighborhood; Time: 15:00 to 17:00'], ['Local Impulse delivers between 1 to 3 million pesos to strengthen and grow local businesses', 'Register now at https://bit.ly/ImpulsoLocal or visit https://www.bogotalocal.gov.co/bogotaproductiva.html']],
 [2, ['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Participa este 27 de mayo en la Rendición de Cuentas de la Alcaldía Local de Puente Aranda en el Parque Polideportivo El Jazmín', 'ubicado en la calle 1 G número 41 A 39, a las 9:00, es una oportunidad para que los ciudadanos conozcan la gestión pública y puedan hacer preguntas y comentarios sobre la misma', 'y participar como veedores de la gestión que realiza la Alcaldía Local de Puente Aranda'], ['¿Eres mujer cuidadora o víctima de la violencia?, te invitamos a incribirte en la Manzana del Cuidado de Puente Aranda en la calle 1 b número: 57_51, o llamar al número 313-8699-260, e-mail: imora@sdmujer.gov.co', 'en la Manzana del Cuidado podrás capacitarse con el SENA, aprender a crear su propio negocio, disfrutar clases de actividad física, escuela de la bici, y más', 'mientras que las personas mayores y las personas con discapacidad que están bajo su cuidado son cuidadas por cuidadoras de la Alcaldía'], ['¿Tienes una emergencia?, llama al 123', 'el 123 es la línea telefónica que reúne todos los números de seguridad y emergencias: Policía, Movilidad, Bomberos, Gestión de Riesgos y Secretaría de Salud'], ['¿Eres víctima de violencia contra las mujeres?, llama al 123, al 01-8001-12137, o al WhatsApp 300-7551-846, y solicita el acompañamiento de la patrulla púrpura', 'con la patrulla púrpura las mujeres que sean víctimas de violencia pueden recibir seguridad, orientación, ayuda y prevención'], ['Invitación a niños, niñas y jóvenes de la localidad a la formación musical', 'con La Fundación Nacional Batuta y ser parte del Centro Orquestal de la localidad'], ['Si tienes entre 18 a 28 años, te invitamos a ser parte del programa Parceros Por Bogotá, incluye cursos,  actividades de ciudad y la posibilidad de recibir 500 mil pesos al mes', 'te invitamos a inscribirte el viernes 19 de mayo, lugar: Parque Dalias, calle 4 número 54-01, barrio Galán; Hora: 15:00 a 17:00'], ['Impulso Local entrega entre 1 a 3 millones de pesos para fortalecer y hacer crecer los emprendimientos locales', 'Regístrate ahora en https://bit.ly/ImpulsoLocal o visita https://www.bogotalocal.gov.co/bogotaproductiva.html']],
@@ -4820,8 +4808,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 				break;
 				case 8:
-						console.log(' - - - boton / [0] Apagar el intecomunicador M');
-						f0148(99);//OCULTAR la interfaz de Salida M
+						f0148(97);//CAMBIAR la interfaz M
 				break;
 
 			}
@@ -5017,7 +5004,8 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 
 
 					if (q == 8)//boton / [0] Activar el display 
-					{	f0148(98);//MOSTRAR la interfaz de Salida M
+					{	
+						f0148(98);//MOSTRAR la interfaz de Salida M
 						/* mMod = 4;
 						console.log(' - - - borrar la ultima letra del display M');
 						sale = sale.slice(0, -1);
@@ -5077,7 +5065,8 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					};
 
 					if (q == 8)
-					{	f0148(97);//CAMBIAR la interfaz M
+					{	console.log(' - - - boton / [0] Apagar el intecomunicador M');
+						f0148(99);//OCULTAR la interfaz de Salida M
 					}
 				}
 
@@ -5126,7 +5115,7 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					};
 
 					if (q == 8)
-					{	f0148(97);//CAMBIAR la interfaz M
+					{	f0148(99);//OCULTAR la interfaz de Salida M
 					}
 				}
 				break;
@@ -5151,8 +5140,9 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					};
 
 					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - boton / [0] Apagar el intecomunicador M');
-						f0148(99);//OCULTAR la interfaz de Salida M
+					{	f0148(97);//CAMBIAR la interfaz M
+						//console.log(' - - - boton / [0] Apagar el intecomunicador M');
+						//f0148(99);//OCULTAR la interfaz de Salida M
 					};
 				}
 
@@ -5200,8 +5190,9 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					};
 
 					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - boton / [0] Apagar el intecomunicador M');
-						f0148(99);//OCULTAR la interfaz de Salida M
+					{	f0148(97);//CAMBIAR la interfaz M
+						//console.log(' - - - boton / [0] Apagar el intecomunicador M');
+						//f0148(99);//OCULTAR la interfaz de Salida M
 					};
 					
 				}
