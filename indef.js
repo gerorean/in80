@@ -7837,9 +7837,9 @@ f0146()//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 			mTim = setInterval(() =>
 			{	mCon++;
 				console.log('mCon=',mCon);
-                if (mCon >= 30) {
+                if (mCon >= 60) {
 					f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
-                    //console.log("30 segundos");
+                    //console.log("60 segundos");
 					//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
                     //clearInterval(mTim); // Detener el temporizador al alcanzar 100 segundos
                 }
@@ -7873,7 +7873,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 				{	iIntM0.classList.add('cX');//Apaga el display de la interfaz M
 					intM.classList.add('cX');
 					mViS = 0;
-					mCon = 30;//Termina el conteo
+					mCon = 60;//Termina el conteo
 					f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
 				}
 				console.error(' -- h= 99');
@@ -7976,7 +7976,7 @@ f0151()// Desplaza hacia el final el Display M
 
 
 function
-f0152()//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
+f0152()//INTERRUMPIR el conteo y DESACTIVAR el display de la interfaz M
 	{	lOL(152);
 		console.log("fin del conteo de 30 segundos");
 		f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display

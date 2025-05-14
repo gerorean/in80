@@ -3587,7 +3587,7 @@ function		//ACTIVACION O ACTUALIZACION DEL CICLO      --l3866
 					{	lin[0] = true;//console.log('lin[0]=' + lin[0]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						audiRay();//ACTIVA EL SONIDO RAYA - o sostenido
-						regY[0][cycle[0]] = 3;//sostenido
+						regY[0][cycle[0]] = 4;//sostenido tipo alerta (4) o de otro tipo (3)
 					}
 					setTimeout(ciclo0, vT);
 				}}//ciclo0()
@@ -3708,7 +3708,7 @@ ciclo7(){		//console.log('_____@- ciclo7()');
 					{	lin[7] = true;console.log('lin[7]=' + lin[7]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						//audiRay();//ACTIVA EL SONIDO RAYA
-						regY[7][cycle[7]] = 3;//sostenido
+						regY[7][cycle[7]] = 4;//3;//sostenido corto o largo
 					}
 					setTimeout(ciclo7, vT);
 				}}//ciclo7()
@@ -3728,7 +3728,7 @@ ciclo8(){		//console.log('_____@- ciclo8()');
 					{	lin[8] = true;console.log('lin[8]=' + lin[8]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						//audiRay();//ACTIVA EL SONIDO RAYA
-						regY[8][cycle[8]] = 3;//sostenido
+						regY[8][cycle[8]] = 4;//3;//sostenido corto o largo
 					}
 					setTimeout(ciclo8, vT);
 				}}//ciclo8()//
@@ -4729,13 +4729,18 @@ function      //terminacion general de un punto o una raya: RESETEA LOS COLORES 
 
     /*2a */
 	console.error('regY[v][cycle[v]]=',regW[v][cycle[v]]);
-	if(regY[v][cycle[v]] == 3)//es un sostenido corto o largo
-	{	if (regX[v][cycle[v]] < tM*2)//Si recibe sostenidos cortos tipo raya
-		//if (regX[v][cycle[v]] < tM)//Si es la tecla 0 o cualquiera y recibe sostenidos cortos
-		//if ((v == 0) && (regX[v][cycle[v]] > tM))//Si es la tecla 0 (recibe sostenidos- con duración muy larga)
-		{
-			regY[v][cycle[v]] = 2;//REGISTRO3 CAMBIO A ESTADO RAYA el 2 lo indica
-			console.log(' --- - - - - superrrrr sostenido!');
+	if(regY[v][cycle[v]] == 4)//es un sostenido corto2, largo3 o muy largo4 lo filtra..
+	{	console.log(' --- - - - - sostenido tipo Alerta SOS!');
+		//mantener o detectar si el sostenido super largo (4)
+		if (regX[v][cycle[v]] < tM*4)//Asignar 3 o 2 si recibe sostenidos largos tipo espacio(3) o raya(2)
+		{	regY[v][cycle[v]] = 3;//REGISTRO3 CAMBIO A ESTADO espacio el 3 lo indica
+			console.log(' --- - - - - sostenido tipo espacio!');
+			if (regX[v][cycle[v]] < tM*2)//Si recibe sostenidos cortos tipo raya
+			//if (regX[v][cycle[v]] < tM)//Si es la tecla 0 o cualquiera y recibe sostenidos cortos
+			//if ((v == 0) && (regX[v][cycle[v]] > tM))//Si es la tecla 0 (recibe sostenidos- con duración muy larga)
+			{	regY[v][cycle[v]] = 2;//REGISTRO3 CAMBIO A ESTADO RAYA el 2 lo indica
+				console.log(' --- - - - - sostenido tipo raya!');
+			}
 		}
 	}
 	/*2b */
@@ -4786,8 +4791,22 @@ zGuiIn(ltr){	{	leeme = ''.concat(kL0[ltr+1][4]);//concatena contenido de la fila
 				}}
 
 function		//analiza la señal si es del chat comunitario q indica que tecla fue
-	morse(q) {
-
+morse(q) {
+	if(regY[q][cycle[q]-1] == 4)//si en el ultimo ciclo era un 4 de sostenido, resetee las variables y envie una señal de SOS!
+	{	//vacio(q)
+			console.error('  --- 4__  S.O.S.');
+			console.log(' - - - boton - [5] Espacio Morse en el display M');
+			//mMod = 4;
+			f0145(1);//CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
+			sale += '.        ¡S.O.S.Alert! ';
+			colSale();//COLOREAR los espacios del display M 
+			//iIntM0.textContent = salo;
+			f0151();// Desplaza hacia el final el Display M
+			f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
+			zGuiIn(q);//GENERAR el guion de la letra ingresada
+	}//se termina el 4 sostenido
+	else
+	{
 		if(regY[q][cycle[q]-1] == 3)//si en el ultimo ciclo era un 3 de sostenido, resetee las variables
 		{	//vacio(q)
 			console.error('  --- 3_');
@@ -4812,19 +4831,19 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 				break;
 
 			}
-		}
+		}// se termina el 3 sostenido
 		else// si era un 1de punto o un 2 de raya vaya al morse morse
 		{	console.error('  --- 1. o 2- =>',regY[q][cycle[q]-1]);
 			//inicio del morse(q)
-	console.log('_____@- morse(q)');
-	console.log(' - - - rrrrr q=', q);
-	console.log(' - - - rrrrr cycle[q]=', cycle[q])
-	console.log(' - - - rrrrr regX[q]=', regX[q]);
-	console.log(' - - - rrrrr ###### #### ###### ### ##### ### ###regY[q]=', regY[q]);
-	console.log(' - - - rrrrr max[q]=', max[q]);
-	regX[q][cycle[q]] = nn[q] - mn[q]; console.log(' - - - rrrrr regX[q]=', regX[q]);
-	if (q == 0)//boton - [5] entrada morse onclick='f0145() morse 0 BOTON MORSE 2023 IBOGOTA!!!!! DESACTIVADO - //boton 5 morse 0 -
-	{				//mMod = 4;
+			console.log('_____@- morse(q)');
+			console.log(' - - - rrrrr q=', q);
+			console.log(' - - - rrrrr cycle[q]=', cycle[q])
+			console.log(' - - - rrrrr regX[q]=', regX[q]);
+			console.log(' - - - rrrrr ###### #### ###### ### ##### ### ###regY[q]=', regY[q]);
+			console.log(' - - - rrrrr max[q]=', max[q]);
+			regX[q][cycle[q]] = nn[q] - mn[q]; console.log(' - - - rrrrr regX[q]=', regX[q]);
+			if (q == 0)//boton - [5] entrada morse onclick='f0145() morse 0 BOTON MORSE 2023 IBOGOTA!!!!! DESACTIVADO - //boton 5 morse 0 -
+			{		//mMod = 4;
 					f0145(1);////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 					switch (cycle[0])
 					{	case 1:
@@ -4901,365 +4920,365 @@ function		//analiza la señal si es del chat comunitario q indica que tecla fue
 					f0151();// Desplaza hacia el final el Display M
 
 					}
-	}
-	else//OTROS BOTONES 2023 IBOGOTA!!!!!
-	{		//+ + +		if(!(//(true/*t3x3*/)&&
-		//+ + +			 (cycle[q]==1)&&(regY[q][0]==1) ))//&&((q==3)||(q==7)||(q==9))))
-		//+ + +		{	//+ + +modivi();//RESET DE sentido, divi y modo, solo cuando no se trata de un click sobre alguno de los botones //*****???3, 7 y 9 en el teclado inclusivo
-		//+ + +		}
-		switch (cycle[q])//switch que depende del ciclo en que termino/salio la tecla q
-		{
-			case 1://si salio luego del primer ciclo  
-				//console.error('  -- una señal');
-				
-				if (regY[q][0] == 1)//MI CLIC 2023 IBOGOTA!!!!!!!!    ###### SI SE RECIBE UN PUNTO EN.. #######
-				{
-					outX[q] = ' *';//ES UN PUNTO..
-
-					if (q == 1)// 	
-					{	console.log(' - - - Salir X (1) ');
-						f0047(1);//Clic sobre el boton 1
-					};
-
-					if (q == 2)// 	
-					{	console.log(' - - - Espacio (2) ');
-						f0096(1, 1);//Clic sobre el boton 2
-					};
-
-					if (q == 3)//boton . [3] clic o enter onclick='f0096(1,1) morse 3 MI CLIC FIJO 2023 IBOGOTA!!!! 	
-					{	console.log(' - - - MI CLIC FIJO 2023 IBOGOTA!!!! ');
-						f0096(1, 1);//Clic sobre el boton 3
-					};
-
-					/*if(q==4)//MI CLIC FIJO 2023 IBOGOTA!!!! 	
-					{	console.log(' - - - MI CLIC FIJO 2023 IBOGOTA!!!! ');
-						f0047(1);//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta secundaria o principal anterior
-					};*/
-
-					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-
-					///if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
-					///{	console.log(' - - - arrow down! ');
-					///	f0095(1);// arrow down
-					///};
-
-					if (q == 7)// 	
-					{	console.log(' - - - Menu (7) ');
-						//f0148(99);//DESACTIVAR la interfaz de Salida M
-						//if(mMod > 0)//Si el modo no es 0
-						//{	f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
-						//}
-						f0015(1);//Clic sobre el boton 7 [] menu
-					};
-
-					if (q == 8)//boton / [0] Interfaz M
-					{	/*console.log(' - - - Espacio Morse en el display M');
-						mMod = 4;
-						f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
-						sale += ' ';
-						colSale();
-						//iIntM0.textContent = salo;
-						f0151();// Desplaza hacia el final el Display M
-						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
-    					*/
-						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-							console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-							f0148(98);//MOSTRAR la interfaz de Salida M
-					
-					
-					
-					};
-
-		
-				}
-				if (regY[q][0] == 2)//MI RAYA 2023 IBOGOTA!!!!!!!  
-				{
-					outX[q] = ' -';//RAYA..
-					//sos(q,0);
-
-					
-					if (q == 3)//boton . [3] raya onclick='f0096(1,1,1) morse 3 MI REVERSA FIJA 2023 IBOGOTA!!!! 	
-					{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
-						f0096(1, 1, 1);//Aplicar reversa al clic(botón 3) salTO -1
-					};
-
-					/////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
-					/////{	console.log(' - - - arrow down! ');
-					/////	f0095(1);// arrow down
-					/////};
-
-					//////if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					//////{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-					//////	f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
-					//////};
-					if (q == 7)// 	
-					{	//f0148(99);//DESACTIVAR la interfaz de Salida M
-					 	//console.log(' - - - Menu (7) ');
-						//if(mMod > 0)//Si el modo no es 0
-						//{	f0152();//Termina el conteo y oculta el display de la interfaz M
-						//}
-						f0015(1);//Clic o raya sobre el boton 7 [] menu
-						//sos(q,7);
-					};
-
-
-					if (q == 8)//boton / [0] Activar el display 
-					{	
-						f0148(98);//MOSTRAR la interfaz de Salida M
-						/* mMod = 4;
-						console.log(' - - - borrar la ultima letra del display M');
-						sale = sale.slice(0, -1);
-						colSale();
-						//output.textContent = salo;//output.textContent.slice(0, -1);
-						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-						*/
-					};
-
-
-				
-
-					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-					/*
-					if (q == 6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
-					{
-						console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
-						f0096(1, 1, 1);//Aplicar reversa al clic(botón 6) salTO -1
-					};*/
-					/*if(q==6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
-					{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
-						console.log('|> Flag  -> F96 ');
-						f0096(1,1,1);//aplicar reversa
-					};*/
-
-					//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-				
-				}
-				////       --l//if (regY[q][0] == 3)
-				////       --l//{	console.error('  --raya muy larga--');
-				////       --l//}
-				break;
-			case 3://console.log('caso 3 son dos señales: regY[q]=',regY[q]); 
-				//console.error('  -- dos señales');
-				if ((regY[q][0] == 1) && (regY[q][2] == 1))
-				{	//console.error('  -- punto punto');
-					outX[q] = ' **';//PUNTO + PUNTO..
-
-					////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
-					////{	console.log(' - - - arrow down x 2! ');
-					////	f0095(1);// arrow down
-					////};
-
-					if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
-					{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
-						sale = sale.slice(0, -1);
-						colSale();//COLOREAR los espacios del display M
-							//output.textContent = salo;//output.textContent.slice(0, -1);
-							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
-						//mMod = 4;
-						//console.log(' - - - borrar la ultima letra del display M');
-						//sale = sale.slice(0, -1);
-						//colSale();
-						//output.textContent = salo;//output.textContent.slice(0, -1);
-						//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-					};
-
-					if (q == 8)
-					{	console.log(' - - - boton / [0] Apagar el intecomunicador M');
-						f0148(99);//OCULTAR la interfaz de Salida M
-					}
-				}
-
-				if ((regY[q][0] == 2) && (regY[q][2] == 1))
-				{	outX[q] = ' -*';//RAYA + PUNTO..
-
-					if (q == 3)//avanzar +(1*KTE) 
-					{	f0148(99);//DESACTIVAR la interfaz de Salida M
-						f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 3) salTO5
-					}
-
-					/*
-					if (q == 6)//avanzar +(1*KTE) 
-					{
-						f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 6) salTO5
-					}*/
-					console.error(' aqui voy 1');
-					if (q == 8)
-					{	f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
-						console.error(' aqui voy 2');
-					}
-				}
-				if ((regY[q][0] == 2) && (regY[q][2] == 2)) {
-					outX[q] = ' --';//DOS RAYAS..
-
-
-					
-					if (q == 3)//regresar -(1*KTE)
-					{	f0148(99);//DESACTIVAR la interfaz de Salida M
-						f0096(1, 1, 3);//Aplicar -5 avances al clic(botón 3) salTO-5
-					}
-
-					/*
-					if (q == 6)//regresar -(1*KTE)
-					{
-						f(1, 1, 3);//Aplicar -5 avances al clic(botón 6) salTO-5
-					}*/
-
-					if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
-					{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
-						sale = sale.slice(0, -1);
-						colSale();//COLOREAR los espacios del display M
-							//output.textContent = salo;//output.textContent.slice(0, -1);
-							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
-					};
-
-					if (q == 8)
-					{	f0148(99);//OCULTAR la interfaz de Salida M
-					}
-				}
-				break;
-			case 5:
-					if ((regY[q][0] == 1) && (regY[q][2] == 1) && (regY[q][4] == 1)) {
-					outX[q] = ' ***';//tres puntos..
-
-					
-					if (q == 3)//avanzar +(2*KTE)
-					{
-						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
-					}
-
-					////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
-					////{	console.log(' - - - arrow down x 3! ');
-					////	f0095(1);// arrow down
-					////};
-
-					if (q == 7)//Reset del display M 	
-					{	f0150();//BORRAR todo el texto de salida actual
-						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
-					};
-
-					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	f0148(97);//CAMBIAR la interfaz M
-						//console.log(' - - - boton / [0] Apagar el intecomunicador M');
-						//f0148(99);//OCULTAR la interfaz de Salida M
-					};
-				}
-
-				if ((regY[q][0] == 2) && (regY[q][2] == 1) && (regY[q][4] == 1))
-				{	outX[q] = ' -**';//raya y dos puntos..
-
-					if (q == 8)
-					{	f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
-					}
-				}
-
-				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) 
-				{
-					outX[q] = ' --*';//dos rayas punto..
-
-					if (q == 3)//avanzar +(2*KTE)
-					{
-						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
-					}
-					/*
-					if (q == 6)//avanzar +(2*KTE)
-					{
-						f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 6)
-					}*/
-
-				}
-				if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 2))
-				{
-					outX[q] = ' ---';//tres rayas..
-
-					if (q == 3)//regresar -(2*KTE)
-					{
-						f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 3)
-					}
-					/*
-					if (q == 6)//regresar -(2*KTE)
-					{
-						f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 6)
-					}*/
-
-					
-					if (q == 7)//Reset del display M 	
-					{	f0150();//BORRAR todo el texto de salida actual
-						f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
-					};
-
-					if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	f0148(97);//CAMBIAR la interfaz M
-						//console.log(' - - - boton / [0] Apagar el intecomunicador M');
-						//f0148(99);//OCULTAR la interfaz de Salida M
-					};
-					
-				}
-				break;
-			case 7:
-				////if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
-				////{	outX[q] = ' ****';//cuatro puntos..
-				////	if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-				////	{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-				////		f0148(4);//MOSTRAR la interfaz de Salida M de señas
-				////	};
-				////}
-				/*
-				if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==1))
-				{	outX[q] = ' ---*';//tres rayas punto..
-					if(q==6)//avanzar +(3*KTE)
-					{	f0096(1,1,6);//Aplicar 20 avances al clic(botón 6)
-					}
-				}
-				if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2))
-				{	outX[q] = ' ----';//cuatro rayas..
-					if(q==6)//regresar -(3*KTE)
-					{	f0096(1,1,7);//Aplicar -20 avances al clic(botón 6)
-					}
-				}*/
-				if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
-				{	outX[q] = ' -***';//raya y tres puntos..
-					if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-						f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
-					};
-				}
-			break;
-			case 9:
-				if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1))
-				{	outX[q] = ' -****';//raya y cuatro puntos..
-					if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-					{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-						f0148(4);//MOSTRAR la interfaz de Salida M de señas
-					};
-				}
-			break;
-
 		}
+		else//OTROS BOTONES 2023 IBOGOTA!!!!!
+		{		//+ + +		if(!(//(true/*t3x3*/)&&
+			//+ + +			 (cycle[q]==1)&&(regY[q][0]==1) ))//&&((q==3)||(q==7)||(q==9))))
+			//+ + +		{	//+ + +modivi();//RESET DE sentido, divi y modo, solo cuando no se trata de un click sobre alguno de los botones //*****???3, 7 y 9 en el teclado inclusivo
+			//+ + +		}
+			switch (cycle[q])//switch que depende del ciclo en que termino/salio la tecla q
+			{
+				case 1://si salio luego del primer ciclo  
+					//console.error('  -- una señal');
+
+					if (regY[q][0] == 1)//MI CLIC 2023 IBOGOTA!!!!!!!!    ###### SI SE RECIBE UN PUNTO EN.. #######
+					{
+						outX[q] = ' *';//ES UN PUNTO..
+
+						if (q == 1)// 	
+						{	console.log(' - - - Salir X (1) ');
+							f0047(1);//Clic sobre el boton 1
+						};
+
+						if (q == 2)// 	
+						{	console.log(' - - - Espacio (2) ');
+							f0096(1, 1);//Clic sobre el boton 2
+						};
+
+						if (q == 3)//boton . [3] clic o enter onclick='f0096(1,1) morse 3 MI CLIC FIJO 2023 IBOGOTA!!!! 	
+						{	console.log(' - - - MI CLIC FIJO 2023 IBOGOTA!!!! ');
+							f0096(1, 1);//Clic sobre el boton 3
+						};
+
+						/*if(q==4)//MI CLIC FIJO 2023 IBOGOTA!!!! 	
+						{	console.log(' - - - MI CLIC FIJO 2023 IBOGOTA!!!! ');
+							f0047(1);//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta secundaria o principal anterior
+						};*/
+
+						//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
+
+						///if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+						///{	console.log(' - - - arrow down! ');
+						///	f0095(1);// arrow down
+						///};
+
+						if (q == 7)// 	
+						{	console.log(' - - - Menu (7) ');
+							//f0148(99);//DESACTIVAR la interfaz de Salida M
+							//if(mMod > 0)//Si el modo no es 0
+							//{	f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
+							//}
+							f0015(1);//Clic sobre el boton 7 [] menu
+						};
+
+						if (q == 8)//boton / [0] Interfaz M
+						{	/*console.log(' - - - Espacio Morse en el display M');
+							mMod = 4;
+							f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
+							sale += ' ';
+							colSale();
+							//iIntM0.textContent = salo;
+							f0151();// Desplaza hacia el final el Display M
+							f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
+	    					*/
+							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+								console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+								f0148(98);//MOSTRAR la interfaz de Salida M
+						
+						
+						
+						};
+
+					
+					}
+					if (regY[q][0] == 2)//MI RAYA 2023 IBOGOTA!!!!!!!  
+					{
+						outX[q] = ' -';//RAYA..
+						//sos(q,0);
+
+
+						if (q == 3)//boton . [3] raya onclick='f0096(1,1,1) morse 3 MI REVERSA FIJA 2023 IBOGOTA!!!! 	
+						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
+							f0096(1, 1, 1);//Aplicar reversa al clic(botón 3) salTO -1
+						};
+
+						/////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+						/////{	console.log(' - - - arrow down! ');
+						/////	f0095(1);// arrow down
+						/////};
+
+						//////if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						//////{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+						//////	f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
+						//////};
+						if (q == 7)// 	
+						{	//f0148(99);//DESACTIVAR la interfaz de Salida M
+						 	//console.log(' - - - Menu (7) ');
+							//if(mMod > 0)//Si el modo no es 0
+							//{	f0152();//Termina el conteo y oculta el display de la interfaz M
+							//}
+							f0015(1);//Clic o raya sobre el boton 7 [] menu
+							//sos(q,7);
+						};
+
+
+						if (q == 8)//boton / [0] Activar el display 
+						{	
+							f0148(98);//MOSTRAR la interfaz de Salida M
+							/* mMod = 4;
+							console.log(' - - - borrar la ultima letra del display M');
+							sale = sale.slice(0, -1);
+							colSale();
+							//output.textContent = salo;//output.textContent.slice(0, -1);
+							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+							*/
+						};
+
+
+					
+
+						//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
+						/*
+						if (q == 6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
+						{
+							console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
+							f0096(1, 1, 1);//Aplicar reversa al clic(botón 6) salTO -1
+						};*/
+						/*if(q==6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
+						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
+							console.log('|> Flag  -> F96 ');
+							f0096(1,1,1);//aplicar reversa
+						};*/
+
+						//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
+					
+					}
+					////       --l//if (regY[q][0] == 3)
+					////       --l//{	console.error('  --raya muy larga--');
+					////       --l//}
+					break;
+				case 3://console.log('caso 3 son dos señales: regY[q]=',regY[q]); 
+					//console.error('  -- dos señales');
+					if ((regY[q][0] == 1) && (regY[q][2] == 1))
+					{	//console.error('  -- punto punto');
+						outX[q] = ' **';//PUNTO + PUNTO..
+
+						////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+						////{	console.log(' - - - arrow down x 2! ');
+						////	f0095(1);// arrow down
+						////};
+
+						if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
+						{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
+							sale = sale.slice(0, -1);
+							colSale();//COLOREAR los espacios del display M
+								//output.textContent = salo;//output.textContent.slice(0, -1);
+								//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+							//mMod = 4;
+							//console.log(' - - - borrar la ultima letra del display M');
+							//sale = sale.slice(0, -1);
+							//colSale();
+							//output.textContent = salo;//output.textContent.slice(0, -1);
+							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+						};
+
+						if (q == 8)
+						{	console.log(' - - - boton / [0] Apagar el intecomunicador M');
+							f0148(99);//OCULTAR la interfaz de Salida M
+						}
+					}
+
+					if ((regY[q][0] == 2) && (regY[q][2] == 1))
+					{	outX[q] = ' -*';//RAYA + PUNTO..
+
+						if (q == 3)//avanzar +(1*KTE) 
+						{	f0148(99);//DESACTIVAR la interfaz de Salida M
+							f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 3) salTO5
+						}
+
+						/*
+						if (q == 6)//avanzar +(1*KTE) 
+						{
+							f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 6) salTO5
+						}*/
+						console.error(' aqui voy 1');
+						if (q == 8)
+						{	f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
+							console.error(' aqui voy 2');
+						}
+					}
+					if ((regY[q][0] == 2) && (regY[q][2] == 2)) {
+						outX[q] = ' --';//DOS RAYAS..
+
+
+
+						if (q == 3)//regresar -(1*KTE)
+						{	f0148(99);//DESACTIVAR la interfaz de Salida M
+							f0096(1, 1, 3);//Aplicar -5 avances al clic(botón 3) salTO-5
+						}
+
+						/*
+						if (q == 6)//regresar -(1*KTE)
+						{
+							f(1, 1, 3);//Aplicar -5 avances al clic(botón 6) salTO-5
+						}*/
+
+						if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
+						{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
+							sale = sale.slice(0, -1);
+							colSale();//COLOREAR los espacios del display M
+								//output.textContent = salo;//output.textContent.slice(0, -1);
+								//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+						};
+
+						if (q == 8)
+						{	f0148(99);//OCULTAR la interfaz de Salida M
+						}
+					}
+					break;
+				case 5:
+						if ((regY[q][0] == 1) && (regY[q][2] == 1) && (regY[q][4] == 1)) {
+						outX[q] = ' ***';//tres puntos..
+
+						
+						if (q == 3)//avanzar +(2*KTE)
+						{
+							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
+						}
+
+						////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
+						////{	console.log(' - - - arrow down x 3! ');
+						////	f0095(1);// arrow down
+						////};
+
+						if (q == 7)//Reset del display M 	
+						{	f0150();//BORRAR todo el texto de salida actual
+							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+						};
+
+						if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						{	f0148(97);//CAMBIAR la interfaz M
+							//console.log(' - - - boton / [0] Apagar el intecomunicador M');
+							//f0148(99);//OCULTAR la interfaz de Salida M
+						};
+					}
+
+					if ((regY[q][0] == 2) && (regY[q][2] == 1) && (regY[q][4] == 1))
+					{	outX[q] = ' -**';//raya y dos puntos..
+
+						if (q == 8)
+						{	f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
+						}
+					}
+
+					if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) 
+					{
+						outX[q] = ' --*';//dos rayas punto..
+
+						if (q == 3)//avanzar +(2*KTE)
+						{
+							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
+						}
+						/*
+						if (q == 6)//avanzar +(2*KTE)
+						{
+							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 6)
+						}*/
+
+					}
+					if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 2))
+					{
+						outX[q] = ' ---';//tres rayas..
+
+						if (q == 3)//regresar -(2*KTE)
+						{
+							f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 3)
+						}
+						/*
+						if (q == 6)//regresar -(2*KTE)
+						{
+							f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 6)
+						}*/
+
+
+						if (q == 7)//Reset del display M 	
+						{	f0150();//BORRAR todo el texto de salida actual
+							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+						};
+
+						if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						{	f0148(97);//CAMBIAR la interfaz M
+							//console.log(' - - - boton / [0] Apagar el intecomunicador M');
+							//f0148(99);//OCULTAR la interfaz de Salida M
+						};
+
+					}
+					break;
+				case 7:
+					////if((regY[q][0]==1)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
+					////{	outX[q] = ' ****';//cuatro puntos..
+					////	if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+					////	{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+					////		f0148(4);//MOSTRAR la interfaz de Salida M de señas
+					////	};
+					////}
+					/*
+					if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==1))
+					{	outX[q] = ' ---*';//tres rayas punto..
+						if(q==6)//avanzar +(3*KTE)
+						{	f0096(1,1,6);//Aplicar 20 avances al clic(botón 6)
+						}
+					}
+					if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2))
+					{	outX[q] = ' ----';//cuatro rayas..
+						if(q==6)//regresar -(3*KTE)
+						{	f0096(1,1,7);//Aplicar -20 avances al clic(botón 6)
+						}
+					}*/
+					if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
+					{	outX[q] = ' -***';//raya y tres puntos..
+						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+							f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
+						};
+					}
+				break;
+				case 9:
+					if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1))
+					{	outX[q] = ' -****';//raya y cuatro puntos..
+						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
+							f0148(4);//MOSTRAR la interfaz de Salida M de señas
+						};
+					}
+				break;
+
+			}
+		}
+		//console.log('esta[q]=' + esta[q]);
+		console.log('outX[q]=' + outX[q] + '(señal obtenida) ');
+		//+ + +		if((edit)&&(q==0)&&(esTAS)&&(limiT-cta>0))//puede ser codigo morse o señal asociada
+		//+ + +		{	outW[q] = outW[q].concat(outX[q]);console.log('outW[q]=' + outW[q] +'señal acumulada');
+		//+ + +			letra();
+		//+ + +		}
+
+
+		//nuevo se quita esto porque no se le ve utilidad e interfiere la salida outX..
+		/*if((edit)&&(q==0)&&(esTAS)&&(limiT-cta>0))//puede ser codigo morse o señal asociada, cta LLEVA EL CONTEO DE LAS LETRAS DEL EDITOR
+		{	outW[q] = outW[q].concat(outX[q]);console.log('outW[q]=' + outW[q] +'señal acumulada');
+			letra();//muestra en pantalla el texto actualizado
+		}*/
+
+		//sale += outX[0];
+		//colSale();
+		//output.textContent = salo;//+= outX[0];
+		//iIntM0.textContent = salo;//+= outX[0];
+
+
+		}//fin del morse
 	}
-	//console.log('esta[q]=' + esta[q]);
-	console.log('outX[q]=' + outX[q] + '(señal obtenida) ');
-	//+ + +		if((edit)&&(q==0)&&(esTAS)&&(limiT-cta>0))//puede ser codigo morse o señal asociada
-	//+ + +		{	outW[q] = outW[q].concat(outX[q]);console.log('outW[q]=' + outW[q] +'señal acumulada');
-	//+ + +			letra();
-	//+ + +		}
-
-
-	//nuevo se quita esto porque no se le ve utilidad e interfiere la salida outX..
-	/*if((edit)&&(q==0)&&(esTAS)&&(limiT-cta>0))//puede ser codigo morse o señal asociada, cta LLEVA EL CONTEO DE LAS LETRAS DEL EDITOR
-	{	outW[q] = outW[q].concat(outX[q]);console.log('outW[q]=' + outW[q] +'señal acumulada');
-		letra();//muestra en pantalla el texto actualizado
-	}*/
-
-	//sale += outX[0];
-	//colSale();
-	//output.textContent = salo;//+= outX[0];
-	//iIntM0.textContent = salo;//+= outX[0];
-
-
-	}//fin del morse
-
 	ceros(q);//console.log('ceros de morse');Reinicio de variables
 }
 
