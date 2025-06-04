@@ -1,86 +1,3 @@
-//mI: matriz Inversa
-
-/*
-plantillas para la mI (matriz Inversa):
-[['Casillas', 1, 2, 3, 4],
-[1, [],[],[],[]],
-[2, [],[],[],[]],
-[3, [],[],[],[]],
-[4, [],[],[],[]],
-[5, [],[],[],[]],
-[6, [],[],[],[]],
-[7, [],[],[],[]],
-[8, [],[],[],[]],
-[9, [],[],[],[]],
-[10,[],[],[],[]],
-[11,[],[],[],[]],
-[12,[],[],[],[]],
-[13,[],[],[],[]],
-[14,[],[],[],[]],
-[15,[],[],[],[]],
-[16,[],[],[],[]],
-[17,[],[],[],[]],
-[18,[],[],[],[]],
-[19,[],[],[],[]],
-[20,[],[],[],[]],
-[21,[],[],[],[]],
-[22,[],[],[],[]],
-[23,[],[],[],[]],
-[24,[],[],[],[]],
-[25,[],[],[],[]],
-[26,[],[],[],[]],
-[27,[],[],[],[]],
-[28,[],[],[],[]],
-[29,[],[],[],[]],
-[30,[],[],[],[]],
-[31,[],[],[],[]],
-[32,[],[],[],[]],
-[33,[],[],[],[]],
-[34,[],[],[],[]],
-[35,[],[],[],[]],
-[36,[],[],[],[]],
-[37,[],[],[],[]]
-
-['Recursos/ Casillas..', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function, vacio=NO PERMITIDA(INFO)', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
-[1, [],[],[],[],[],[],[],[],[],[]],
-[2, [],[],[],[],[],[],[],[],[],[]],
-[3, [],[],[],[],[],[],[],[],[],[]],
-[4, [],[],[],[],[],[],[],[],[],[]],
-[5, [],[],[],[],[],[],[],[],[],[]],
-[6, [],[],[],[],[],[],[],[],[],[]],
-[7, [],[],[],[],[],[],[],[],[],[]],
-[8, [],[],[],[],[],[],[],[],[],[]],
-[9, [],[],[],[],[],[],[],[],[],[]],
-[10,[],[],[],[],[],[],[],[],[],[]],
-[11,[],[],[],[],[],[],[],[],[],[]],
-[12,[],[],[],[],[],[],[],[],[],[]],
-[13,[],[],[],[],[],[],[],[],[],[]],
-[14,[],[],[],[],[],[],[],[],[],[]],
-[15,[],[],[],[],[],[],[],[],[],[]],
-[16,[],[],[],[],[],[],[],[],[],[]],
-[17,[],[],[],[],[],[],[],[],[],[]],
-[18,[],[],[],[],[],[],[],[],[],[]],
-[19,[],[],[],[],[],[],[],[],[],[]],
-[20,[],[],[],[],[],[],[],[],[],[]],
-[21,[],[],[],[],[],[],[],[],[],[]],
-[22,[],[],[],[],[],[],[],[],[],[]],
-[23,[],[],[],[],[],[],[],[],[],[]],
-[24,[],[],[],[],[],[],[],[],[],[]],
-[25,[],[],[],[],[],[],[],[],[],[]],
-[26,[],[],[],[],[],[],[],[],[],[]],
-[27,[],[],[],[],[],[],[],[],[],[]],
-[28,[],[],[],[],[],[],[],[],[],[]],
-[29,[],[],[],[],[],[],[],[],[],[]],
-[30,[],[],[],[],[],[],[],[],[],[]],
-[31,[],[],[],[],[],[],[],[],[],[]],
-[32,[],[],[],[],[],[],[],[],[],[]],
-[33,[],[],[],[],[],[],[],[],[],[]],
-[34,[],[],[],[],[],[],[],[],[],[]],
-[35,[],[],[],[],[],[],[],[],[],[]],
-[36,[],[],[],[],[],[],[],[],[],[]],
-[37,[],[],[],[],[],[],[],[],[],[]]
-*/
-
 //d DATOS: CONSTANTES Y VARIABLES
 /*	constantes ocultas para las rutas "padres" e "hijos".. 
 			  ... hay varias tanto var como const todas del tipo array
@@ -100,6 +17,11 @@ estas funciones están ocultas arriba para activarlas hay que ctivar el interrup
 
 para activar/desactivar separe/una (con un espacio) el último * de la barra inclinada / , ejemplo * /
 */
+
+
+
+
+
 
 //1
 //ext hij# hijos rutas vPAPA# wPapa# f0128 - f0137 objetivo DETECTAR los hijos de wPAPA, es decir los lugares hijo
@@ -683,21 +605,12 @@ const 	o003 	=
 //const 	r003A  y r003B ver/buscar aquí al final en MONGODB
 
 //const o00#* GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios???  se puede quitar?????..
-/* */
 const o003A = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
 [1, ['', 'Here you can find out the information published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
 [2, ['', 'Aquí 99 podrás conocer la información publicada por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
 [3, ['', 'Retrouvez ici les informations publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Vacio']],
 [4, ['', '여기에서 지역 지도자들이 게시한 정보를 확인할 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['Vacio']]
 ];
-/**/
-
-/* * /
-const mIo003A =[['Casillas', 1, 2, 3, 4],
-['Head',['','Here you can find out the information published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'],['','Aquí podrás conocer la información publicada por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'],['','Retrouvez ici les informations publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"],['','여기에서 지역 지도자들이 게시한 정보를 확인할 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]],
-['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']]
-];
-/**/
 
 /*
 //GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios..
