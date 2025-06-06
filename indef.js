@@ -4,13 +4,13 @@
 
 
 
-
+//este indef.js ya esta terminado?  coomparar con inde_f.js
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////  ojo res3A c003A 
 //////////////////////////////////mI AQUI VOY...  	6500-r003A		+programada  -haciendo  .terminada		
-// 1.mIo003A   		2.mIres3A    3.mIr003A     4.mIc003A   	13.mIrrr3A    16.mIr001A    19.mIr002A    22.mIr004A
+// 1*mIo003A   		2*mIres3A    3.mIr003A     4.mIc003A   	13.mIrrr3A    16.mIr001A    19.mIr002A    22.mIr004A
 // 5.mIo003Z   		6.mIres3Z    7.mIr003Z     8.mIc003Z   	14.mIrrr3Z    17.mIr001Z    20.mIr002Z    23.mIr004Z
 // 9.mIo003B  		10.mIres3B   11.mIr003B    12.mIc003B   15.mIrrr3B    18.mIr001B    21.mIr002B    24.mIr004B
 // 25.mIr004ATG
@@ -788,31 +788,22 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				
 
 				//r003B[2][1][0] = bus;
-				r003B[2][1][0] = dExt[3];//53;
-
+				mIr003B[1][2][0] = dExt[3];//53;
 				//v9 = '<img src="'+(kTapa0[bus][2]||'files/chapinero.jpg')+'" class="c1x0">';
 				//console.error('|> Flag  -> hh62');
-				r003A[id][1][0] = kTapaI[id][25] + kComun[id][1];// +', '+ kLugar[id][1];
-				r003A[1][1][0] = kTapaI[1][25] + kComun[1][1];// +', '+ kLugar[id][1];
-				
-					//v0 += kTapaI[id][24] + kComun[id][1];// +', '+ kLugar[id][1];
-					//v1 += kTapaI[id][24] + kComun[id][1];// +', '+ kLugar[id][1];
-				/*if(kControl[1][1])//Control formato hora nacional:   hora 00:00  /  00:00 hora
-				{	r003A[id][1][0] += kTapaI[id][3] + kTapaI[id][1].charAt(0).toUpperCase() + kTapaI[id][1].slice(1) +'<!--span class="cLTR"-->'+ miHora +'<!--/span-->';
-						//v0 += kTapaI[id][3] + kTapaI[id][1].charAt(0).toUpperCase() + kTapaI[id][1].slice(1) +'<!--span class="cLTR"-->'+ miHora +'<!--/span-->';
-						//v1 += kTapaI[id][3] + kTapaI[id][1] + miHora;
-				}*/
+				mIr003A[1][id][0] = mIkTapaI[25][id] + mIkComun[1][id];// +', '+ kLugar[id][1];
+				mIr003A[1][1][0] = mIkTapaI[25][1] + mIkComun[1][1];// +', '+ kLugar[id][1];
 			}
 			visON = '0';//AGREGAR casilla 0 de "arriba"
 			vMul = 0;//Variable de ruta que indica si al menos un elemento es multi
 			//DETECTAR visibilidad o no de cada casilla y HABILITAR lectura en ingles de los limites
 			switch (gRuta)//visibilidad de cada casilla y mirar si es MULTIMEDIA
 			{	case 1:
-				{	le = r001A[1].length;//longitud de las casillas
+				{	le = mIr001A.length;//longitud de las casillas			
 					for (v1 = 1; v1 < le; v1++)
-					{	if(r001B[4][v1])//Es visible
+					{	if(mIr001B[v1][4])//Es visible      
 						{	visON += ','+v1;
-							if(r001B[5][v1])//Es multi
+							if(mIr001B[v1][5])//Es multi      
 							{	vMul += 1;
 							}
 						}
@@ -820,39 +811,39 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				}
 				break;
 				case 2:
-					le = r002A[1].length;//longitud de las casillas
+					le = mIr002A.length;//longitud de las casillas
 					for (v1 = 1; v1 < le; v1++)
-					{	if(r002B[4][v1])//Es visible
+					{	if(mIr002B[v1][4])//Es visible
 						{	visON += ','+v1;
-							if(r002B[5][v1])//Es multi
+							if(mIr002B[v1][5])//Es multi
 							{	vMul += 1;
 							}
 						}	
 					};
 				break;
 				case 3:
-					le = r003A[1].length;//longitud de las casillas
+					le = mIr003A.length;//longitud de las casillas
 					for (v1 = 1; v1 < le; v1++)
-					{	if(r003B[4][v1])//Es visible
+					{	if(mIr003B[v1][4])//Es visible
 						{	visON += ','+v1;
-							if(r003B[5][v1][0][0])//Es multi
+							if(mIr003B[v1][5][0][0])//Es multi
 							{	vMul += 1;
 							}
 						}
 					}
 				break;
 				case 4:
-					le = r004A[1].length;//longitud de las casillas
+					le = mIr004A.length;//longitud de las casillas
 					for (v1 = 1; v1 < le; v1++)
-					{	if(r004B[4][v1])//Es visible
+					{	if(mIr004B[v1][4])//Es visible
 						{	visON += ','+v1;
-							if(r004B[5][v1])//Es multi
+							if(mIr004B[v1][5])//Es multi
 							{	vMul += 1;
 							}
 						}
 					}
 				break;
-				case 5:
+				case 5:/*
 					le = r005A[1].length;//longitud de las casillas
 					for (v1 = 1; v1 < le; v1++)
 					{	if(r005B[4][v1])//Es visible
@@ -861,10 +852,10 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 							{	vMul += 1;
 							}
 						}
-					}
+					}*/
 				break;
 				case 6:
-					le = r006A[1].length;//longitud de las casillas
+					/*le = r006A[1].length;//longitud de las casillas
 					for (v1 = 1; v1 < le; v1++)
 					{	if(r006B[4][v1])//Es visible
 						{	visON += ','+v1;
@@ -872,10 +863,10 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 							{	vMul += 1;
 							}
 						}
-					}
+					}*/
 				break;
 				case 7:
-					le = r007A[1].length;//longitud de las casillas
+					/*le = r007A[1].length;//longitud de las casillas
 					for (v1 = 1; v1 < le; v1++)
 					{	if(v1 > 1)//SI no es la casilla 1..
 						{	if(r007B[4][v1])//Es visible
@@ -893,23 +884,14 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								}
 							}
 						}
-					}
-					/*le = r007A[1].length;//longitud de las casillas
-					for (v1 = 1; v1 < le; v1++)
-					{	if(r007B[4][v1])//Es visible
-						{	visON += ','+v1;
-							if(r007B[5][v1])//Es multi
-							{	vMul += 1;
-							}
-						}
 					}*/
 				break;
 				case 8:
-					le = r008A[1].length;//longitud de las casillas
+					le = mIr008A.length;//longitud de las casillas
 					for (v1 = 1; v1 < le; v1++)
-					{	if(r008B[4][v1])//Es visible
+					{	if(mIr008B[v1][4])//Es visible
 						{	visON += ','+v1;
-							if(r008B[5][v1][0][0])//Es multi
+							if(mIr008B[v1][5][0][0])//Es multi
 							{	vMul += 1;
 							}
 						}
@@ -953,8 +935,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				//INICIAR EL HTML con la primer casilla de "arriba"
 				//PRECARGAR textos
 				//console.log('+ + + + + + + + +!aqui va bien!');
-	  			s00EXIT[1][2] = kTapaI[id][10].charAt(0).toUpperCase() + kTapaI[id][10].slice(1);;//carga el guión local: "arriba"
-				s00EXIT[2][2] = 'i1, '+kTapaI[1][10];//carga el guión internacional: upper limit
+	  			s00EXIT[1][2] = mIkTapaI[10][id].charAt(0).toUpperCase() + mIkTapaI[10][id].slice(1);;//carga el guión local: "arriba"
+				s00EXIT[2][2] = 'i1, '+mIkTapaI[10][1];//carga el guión internacional: upper limit
 				f0046();//CARGAR las variables s00EXIT con los STRINGS HTML INTERNACIONALES y LOCALES que se necesitan
 				//CARGAR el HTML del boton/casilla de "arriba"
 				v02 = '<div class="cNada"><button class="cButton cLUp" onclick="hh6(0)" onfocus="f0029(0)"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon"><div class="c1x1 cZIn"><i class="'+kTapa1[13][2]+' cAjust8"></i></div></div></span>';
@@ -981,33 +963,25 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
-							s00EXIT[1][2] = r001A[id][v4].charAt(0).toUpperCase() + r001A[id][v4].slice(1);//carga el guión local: haz clic para entrar
-							s00EXIT[2][2] = 'i1, '+r001A[1][v4];//carga el guión internacional:click to enter
+							s00EXIT[1][2] = mIr001A[v4][id].charAt(0).toUpperCase() + mIr001A[v4][id].slice(1);//carga el guión local: haz clic para entrar			
+							s00EXIT[2][2] = 'i1, '+mIr001A[v4][1];//carga el guión internacional:click to enter			
 							f0046();//L CARGAR las variables s00EXIT
-							console.log(' - - - rrrr ojo v4=',v4,'; r001B[3][v4]=',r001B[3][v4]);
-							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+r001B[3][v4]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
-							switch(r001B[1][v4])//Tipo de icono/imagen.. 0-3
+							console.log(' - - - rrrr ojo v4=',v4,'; mIr001B[v4][3]=',mIr001B[v4][3]);    
+							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+mIr001B[v4][3]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';				
+							switch(mIr001B[v4][1])//Tipo de icono/imagen.. 0-3			
 							{	case 0://Imagen dinámica
-
-
-
-									f0123(r001B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+									f0123(mIr001B[v4][2]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0			
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r001B[2][v4]][2]+'" class="c1x0"></div>';
 								break;
 								case 1://Icono dinámico
-									v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[r001B[2][v4]][2]+' cAjust8"></i></div>';
+									v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[mIr001B[v4][2]][2]+' cAjust8"></i></div>';			
 								break;
 								case 2://Texto dinámico
-									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r001B[2][v4]][2]+'</div>';
+									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[mIr001B[v4][2]][2]+'</div>';			
 								break;
 								case 3://Imagen estática
-
-
-
-									f0123(r001B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+									f0123(mIr001B[v4][2]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0			
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r001B[2][v4]][2]+'" class="c1x0"></div>';
 								break;
 								case 4://Video estático
 									v02 += '<div class="c1x1 cZIn"></div>';
@@ -1030,33 +1004,27 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
-							s00EXIT[1][2] = r002A[id][v4].charAt(0).toUpperCase() + r002A[id][v4].slice(1);//carga el guión local: haz clic para entrar
+							s00EXIT[1][2] = mIr002A[v4][id].charAt(0).toUpperCase() + mIr002A[v4][id].slice(1);//carga el guión local: haz clic para entrar
 							//s00EXIT[2][2] = 'i1, '+r002A[1][v4];//carga el guión internacional:click to enter
-							s00EXIT[2][2] = 'i1, '+r002A[1][v4];//carga el guión internacional:click to enter
+							s00EXIT[2][2] = 'i1, '+mIr002A[v4][1];//carga el guión internacional:click to enter
 							f0046();//CARGAR las variables s00EXIT
-							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+r002B[3][v4]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
-							switch(r002B[1][v4])//Tipo de icono/imagen.. 0-3
+							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+mIr002B[v4][3]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
+							switch(mIr002B[v4][1])//Tipo de icono/imagen.. 0-3
 							{	case 0://Imagen dinámica
-
-
-
 									//Control id
-									f0123(r002B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+									f0123(mIr002B[v4][2]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r002B[2][v4]][2]+'" class="c1x0"></div>';
 								break;
 								case 1://Icono dinámico
-									v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[r002B[2][v4]][2]+' cAjust8"></i></div>';
+									v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[mIr002B[v4][2]][2]+' cAjust8"></i></div>';
 								break;
 								case 2://Texto dinámico
-									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r002B[2][v4]][2]+'</div>';
+									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[mIr002B[v4][2]][2]+'</div>';
 								break;
 								case 3://Imagen estática
-									
-
-
 									//Control id
-									f0123(r002B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+									f0123(mIr002B[v4][2]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r002B[2][v4]][2]+'" class="c1x0"></div>';
 								break;
@@ -1066,10 +1034,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 							}
 							v02 += '</div></span>';//termina el HTML del area visual
 							if((g00VARS[11][2] == 0)||(g00VARS[11][2] == 4))//todos los modos o señas
-							{	
-
-
-								if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
+							{	if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
 								{	//v02 += '<div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div>';
 									v02 += '<div class="cLR cDer cFlex"><div class="cPic2 sepia"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 								}
@@ -1085,72 +1050,46 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
-							if(r003B[3][v4] < r003B[2][v4].length)
-							{	
-
-
-								s00EXIT[1][2] = '';
+							if(mIr003B[v4][3] < mIr003B[v4][2].length)
+							{	s00EXIT[1][2] = '';
 								s00EXIT[2][2] = 'i1, ';
-								if(( 0 < r003B[3][v4])&&(1 < r003B[2][v4].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-								{	s00EXIT[1][2] += (r003B[3][v4] + 1) + '. ';
-									s00EXIT[2][2] += (r003B[3][v4] + 1) + '. ';
+								if(( 0 < mIr003B[v4][3])&&(1 < mIr003B[v4][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+								{	s00EXIT[1][2] += (mIr003B[v4][3] + 1) + '. ';
+									s00EXIT[2][2] += (mIr003B[v4][3] + 1) + '. ';
 								}
-								s00EXIT[1][2] += r003A[id][v4][r003B[3][v4]].charAt(0).toUpperCase() + r003A[id][v4][r003B[3][v4]].slice(1);// + ', '+ (r003B[3][v4] + 1)+' '+kTapaI[id][18]+' '+  r003B[2][v4].length;//carga el guión local: haz clic para entrar
-								s00EXIT[2][2] += r003A[1][v4][r003B[3][v4]].charAt(0).toUpperCase() + r003A[1][v4][r003B[3][v4]].slice(1);// + ', '+ (r003B[3][v4] + 1) +' '+kTapaI[1][18]+' '+ r003B[2][v4].length;//carga el guión internacional:click to enter
-								if(r003B[3][v4] < r003B[2][v4].length)	
-								{	if(1 < r003B[2][v4].length)//si la lonjitud es mayor que 1
-									{	if(r003B[3][v4] < (r003B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][21];//continuar
-											s00EXIT[2][2] += kTapaI[1][21];//continue
+								s00EXIT[1][2] += mIr003A[v4][id][mIr003B[v4][3]].charAt(0).toUpperCase() + mIr003A[v4][id][mIr003B[v4][3]].slice(1);//carga el guión local: haz clic para entrar
+								s00EXIT[2][2] += mIr003A[v4][1][mIr003B[v4][3]].charAt(0).toUpperCase() + mIr003A[v4][1][mIr003B[v4][3]].slice(1);//carga el guión internacional:click to enter
+								if(mIr003B[v4][3] < mIr003B[v4][2].length)	
+								{	if(1 < mIr003B[v4][2].length)//si la lonjitud es mayor que 1
+									{	if(mIr003B[v4][3] < (mIr003B[v4][2].length - 1))
+										{	s00EXIT[1][2] += mIkTapaI[21][id];//continuar
+											s00EXIT[2][2] += mIkTapaI[21][1];//continue
 										}
-										if(r003B[3][v4] == (r003B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][4];//Fin, reiniciar
-											s00EXIT[2][2] += kTapaI[1][4];//End, restart
+										if(mIr003B[v4][3] == (mIr003B[v4][2].length - 1))
+										{	s00EXIT[1][2] += mIkTapaI[4][id];//Fin, reiniciar
+											s00EXIT[2][2] += mIkTapaI[4][1];//End, restart
 										}
 									}
 								}
-								
-								/*s00EXIT[1][2] = r003A[id][v4][r003B[3][v4]].charAt(0).toUpperCase() + r003A[id][v4][r003B[3][v4]].slice(1);// + ', '+ (r003B[3][v4] + 1)+' '+kTapaI[id][18]+' '+  r003B[2][v4].length;//carga el guión local: haz clic para entrar
-								s00EXIT[2][2] = 'i1, '+r003A[1][v4][r003B[3][v4]].charAt(0).toUpperCase() + r003A[1][v4][r003B[3][v4]].slice(1);// + ', '+ (r003B[3][v4] + 1) +' '+kTapaI[1][18]+' '+ r003B[2][v4].length;//carga el guión internacional:click to enter
-								if(r003B[3][v4] < r003B[2][v4].length)	
-								{	if(1 < r003B[2][v4].length)
-									{	if(r003B[3][v4] < (r003B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][21]  +' '+ (r003B[3][v4] + 1);
-											s00EXIT[2][2] += kTapaI[1][21]  +' '+ (r003B[3][v4] + 1);
-										}
-										if(r003B[3][v4] == (r003B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][4];//Fin, reiniciar
-											s00EXIT[2][2] += kTapaI[1][4];//End, restart
-										}
-									}
-								}*/
 							}
 							f0046();//CARGAR las variables s00EXIT
 							//Esta linea es distinta por ser la ruta de anuncios y siempre llevar a f106()::
 							v02 = '<div class="cNada"><button class="cButton" onclick="hh6('+v4+')" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
-							if(r003B[3][v4] < r003B[2][v4].length)
-							{	switch(r003B[1][v4][r003B[3][v4]])//[0])//Tipo de icono/imagen.. 0-3
+							if(mIr003B[v4][3] < mIr003B[v4][2].length)
+							{	switch(mIr003B[v4][1][mIr003B[v4][3]])//[0])//Tipo de icono/imagen.. 0-3
 								{	case 0://Imagen dinámica
-
-
-
-										f0123(r003B[2][v4][0]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+										f0123(mIr003B[v4][2][0]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 										v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-										//v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r003B[2][v4][0]][2]+'" class="c1x0"></div>';
 									break;
 									case 1://Icono dinámico
-										v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[r003B[2][v4][r003B[3][v4]]][2]+' cAjust8"></i></div>';
+										v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[mIr003B[v4][2][mIr003B[v4][3]]][2]+' cAjust8"></i></div>';
 									break;
 									case 2://Texto dinámico
-										v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r003B[2][v4][r003B[3][v4]]][2]+'</div>';
+										v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[mIr003B[v4][2][mIr003B[v4][3]]][2]+'</div>';
 									break;
 									case 3://Imagen estática
-
-
-
-										f0123(r003B[2][v4][r003B[3][v4]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+										f0123(mIr003B[v4][2][mIr003B[v4][3]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 										v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-									//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r003B[2][v4][r003B[3][v4]]][2]+'" class="c1x0"></div>';
 									break;
 									case 4://Video estático
 										v02 += '<div class="c1x1 cZIn"></div>';
@@ -1172,9 +1111,9 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
-							s00EXIT[1][2] = r004A[id][v4].charAt(0).toUpperCase() + r004A[id][v4].slice(1);//carga el guión local: haz clic para entrar
-							s00EXIT[2][2] = 'i1, '+r004A[1][v4];//carga el guión internacional:click to enter
-							if(r004ATG[2][v4])//este [2] se debe automatizar para que cuadre según la lengua de señas
+							s00EXIT[1][2] = mIr004A[v4][id].charAt(0).toUpperCase() + mIr004A[v4][id].slice(1);//carga el guión local: haz clic para entrar
+							s00EXIT[2][2] = 'i1, '+mIr004A[v4][1];//carga el guión internacional:click to enter
+							if(mIr004ATG[v4][2])//este [2] se debe automatizar para que cuadre según la lengua de señas
 							{	//tiene glosa manual
 								//console.log('SI tiene glosa manual LSC en v4=',v4);
 							}
@@ -1183,34 +1122,27 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								//console.log('NO tiene glosa manual LSC en v4=',v4);
 							}
 							f0046();//CARGAR las variables s00EXIT - esta se debe afectar si tiene glosa manual ej f0046(1) => aquí usar el uno como parámetro 
-							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+r004B[3][v4]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
-							switch(r004B[1][v4])//Tipo de icono/imagen.. 0-3
+							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+mIr004B[v4][3]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
+							switch(mIr004B[v4][1])//Tipo de icono/imagen.. 0-3
 							{	case 0://Imagen dinámica
-
-
-									f0123(r004B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+									f0123(mIr004B[v4][2]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r004B[2][v4]][2]+'" class="c1x0"></div>';
 								break;
 								case 1://Icono dinámico
-									v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[r004B[2][v4]][2]+' cAjust8"></i></div>';
+									v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[mIr004B[v4][2]][2]+' cAjust8"></i></div>';
 								break;
 								case 2://Texto dinámico
-									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r004B[2][v4]][2]+'</div>';
+									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[mIr004B[v4][2]][2]+'</div>';
 								break;
 								case 3://Imagen estática
-
-
-
-									f0123(r004B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+									f0123(mIr004B[v4][2]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r004B[2][v4]][2]+'" class="c1x0"></div>';
 								break;
 								case 4://Video estático
 									v02 += '<div class="c1x1 cZIn"></div>';
 								break;
 								case 6://Icono dinámico + Icono dinámico
-									v02 += '<div class="c1x1 cZIn cAjust8"><i class="'+kTapa1[r004B[2][v4]][2]+' cAjust8"></i><i class="'+kTapa1[r004B[7][v4]][2]+' cAjust8"></i></div>';
+									v02 += '<div class="c1x1 cZIn cAjust8"><i class="'+kTapa1[mIr004B[v4][2]][2]+' cAjust8"></i><i class="'+kTapa1[mIr004B[v4][7]][2]+' cAjust8"></i></div>';
 								break;
 							}
 							v02 += '</div></span>';//termina el HTML del area visual
@@ -1226,6 +1158,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						}
 					break;
 					case 5://Multimedia - contenidos con información GENERAL
+						/*
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
@@ -1235,10 +1168,6 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+r005B[3][v4]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
 							switch(r005B[1][v4])//Tipo de icono/imagen.. 0-3
 							{	case 0://Imagen dinámica
-
-
-
-
 									f0123(r005B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r005B[2][v4]][2]+'" class="c1x0"></div>';
@@ -1250,9 +1179,6 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r005B[2][v4]][2]+'</div>';
 								break;
 								case 3://Imagen estática
-
-
-
 									f0123(r005B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r005B[2][v4]][2]+'" class="c1x0"></div>';
@@ -1271,9 +1197,9 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								v02 += '<div class="cLR cFlex"><div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 							}//Termina los interpretes señas
 							f0072(id);//ADICIONAR HTML para terminar los botones/hojas de la Ruta
-						}
+						}*/
 					break;
-					case 6:
+					case 6:/*
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
@@ -1284,10 +1210,6 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 							v02 = '<div class="cNada"><button class="cButton" onclick="hh'+r006B[3][v4]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
 							switch(r006B[1][v4])//Tipo de icono/imagen.. 0-3
 							{	case 0://Imagen dinámica
-
-
-
-
 									f0123(r006B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r006B[2][v4]][2]+'" class="c1x0"></div>';
@@ -1299,10 +1221,6 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 									v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r006B[2][v4]][2]+'</div>';
 								break;
 								case 3://Imagen estática
-
-
-
-
 									f0123(r006B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 									v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 								//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r006B[2][v4]][2]+'" class="c1x0"></div>';
@@ -1321,31 +1239,20 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								v02 += '<div class="cLR cFlex"><div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 							}//Termina los interpretes señas
 							f0072(id);//ADICIONAR HTML para terminar los botones/hojas de la Ruta
-						}
+						}*/
 					break;
-					case 7:
+					case 7:/*
 						iMenu.innerHTML = '<i class="'+kTapa1[43][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
-							
-
-
-
-
 							if(v1 > 1)//Si no es la casilla 1 entonces..
-							{
-								//PRECARGA de textos:
+							{	//PRECARGA de textos:
 								s00EXIT[1][2] = r007A[id][v4].charAt(0).toUpperCase() + r007A[id][v4].slice(1);//carga el guión local: haz clic para entrar
 								s00EXIT[2][2] = 'i1, '+r007A[1][v4];//carga el guión internacional:click to enter
-								//console.log('46<12H');
 								f0046();//CARGAR las variables s00EXIT
 								v02 = '<div class="cNada"><button class="cButton" onclick="hh'+r007B[3][v4]+'()" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
 								switch(r007B[1][v4])//Tipo de icono/imagen.. 0-3
 								{	case 0://Imagen dinámica
-
-
-
-
 										f0123(r007B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 										v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 									//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r007B[2][v4]][2]+'" class="c1x0"></div>';
@@ -1357,10 +1264,6 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 										v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r007B[2][v4]][2]+'</div>';
 									break;
 									case 3://Imagen estática
-
-
-
-
 										f0123(r007B[2][v4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 										v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 									//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r007B[2][v4]][2]+'" class="c1x0"></div>';
@@ -1385,34 +1288,17 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 									break;						
 								}
 							}
-
-
-
-							
 							else//Si es la casilla 1 entonces..
-							{
-								//v02 = '<div class="cNada"><button class="cButton" onclick="" onfocus="f0029(1)"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
-								
-							
-
-
-
-
-
-								//PRECARGA de textos:
+							{	//PRECARGA de textos:
 								if(r007B[3][v4] < r007B[2][v4].length)
-								{	
-
-
-
-									s00EXIT[1][2] = '';
+								{	s00EXIT[1][2] = '';
 									s00EXIT[2][2] = 'i1, ';
 									if(( 0 < r007B[3][v4])&&(1 < r007B[2][v4].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
 									{	s00EXIT[1][2] += (r007B[3][v4] + 1) + '. ';//r007B[3][v4] + ', ';
 										s00EXIT[2][2] += (r007B[3][v4] + 1) + '. ';//r007B[3][v4] + ', ';
 									}
-									s00EXIT[1][2] += r007A[id][v4][r007B[3][v4]].charAt(0).toUpperCase() + r007A[id][v4][r007B[3][v4]].slice(1);// + ', '+ (r007B[3][v4] + 1)+' '+kTapaI[id][18]+' '+  r007B[2][v4].length;//carga el guión local: haz clic para entrar
-									s00EXIT[2][2] += r007A[1][v4][r007B[3][v4]].charAt(0).toUpperCase() + r007A[1][v4][r007B[3][v4]].slice(1);// + ', '+ (r007B[3][v4] + 1) +' '+kTapaI[1][18]+' '+ r007B[2][v4].length;//carga el guión internacional:click to enter
+									s00EXIT[1][2] += r007A[id][v4][r007B[3][v4]].charAt(0).toUpperCase() + r007A[id][v4][r007B[3][v4]].slice(1);//carga el guión local: haz clic para entrar
+									s00EXIT[2][2] += r007A[1][v4][r007B[3][v4]].charAt(0).toUpperCase() + r007A[1][v4][r007B[3][v4]].slice(1);//carga el guión internacional:click to enter
 									if(r007B[3][v4] < r007B[2][v4].length)	
 									{	if(1 < r007B[2][v4].length)//si la lonjitud es mayor que 1
 										{	if(r007B[3][v4] < (r007B[2][v4].length - 1))
@@ -1425,51 +1311,16 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 											}
 										}
 									}
-
-
-
-
-
-
-									/*
-									s00EXIT[1][2] = r007A[id][v4][r007B[3][v4]].charAt(0).toUpperCase() + r007A[id][v4][r007B[3][v4]].slice(1);// + ', '+ (r007B[3][v4] + 1)+' '+kTapaI[id][18]+' '+  r007B[2][v4].length;//carga el guión local: haz clic para entrar
-									s00EXIT[2][2] = 'i1, '+r007A[1][v4][r007B[3][v4]].charAt(0).toUpperCase() + r007A[1][v4][r007B[3][v4]].slice(1);// + ', '+ (r007B[3][v4] + 1) +' '+kTapaI[1][18]+' '+ r007B[2][v4].length;//carga el guión internacional:click to enter
-									if(r007B[3][v4] < r007B[2][v4].length)	
-									{	if(1 < r007B[2][v4].length)
-										{	if(r007B[3][v4] < (r007B[2][v4].length - 1))
-											{	s00EXIT[1][2] += kTapaI[id][21]  +' '+ (r007B[3][v4] + 1);
-												s00EXIT[2][2] += kTapaI[1][21]  +' '+ (r007B[3][v4] + 1);
-											}
-											if(r007B[3][v4] == (r007B[2][v4].length - 1))
-											{	s00EXIT[1][2] += kTapaI[id][4];//Fin, reiniciar
-												s00EXIT[2][2] += kTapaI[1][4];//End, restart
-											}
-										}
-									}*/
-
-
 								}
-	
-	
 								f0046();//CARGAR las variables s00EXIT
-	
-	
 								//Esta linea es distinta por ser la ruta de anuncios y siempre llevar a f106()::
 								v02 = '<div class="cNada"><button class="cButton" onclick="hh6('+v4+')" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
-	
 								if(r007B[3][v4] < r007B[2][v4].length)
-								{	
-								
-									switch(r007B[1][v4][r007B[3][v4]])//Tipo de icono/imagen.. 0-3
+								{	switch(r007B[1][v4][r007B[3][v4]])//Tipo de icono/imagen.. 0-3
 									{	case 0://Imagen dinámica
-
-
-
-
 											f0123(r007B[2][v4][r007B[3][v4]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 											v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 											//v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r007B[2][v4][r007B[3][v4]]][2]+'" class="c1x0"></div>';
-							
 										break;
 										case 1://Icono dinámico
 											v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[r007B[2][v4][r007B[3][v4]]][2]+' cAjust8"></i></div>';
@@ -1478,10 +1329,6 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 											v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r007B[2][v4][r007B[3][v4]]][2]+'</div>';
 										break;
 										case 3://Imagen estática
-
-
-
-
 											f0123(r007B[2][v4][r007B[3][v4]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 											v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
 											//v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r007B[2][v4][r007B[3][v4]]][2]+'" class="c1x0"></div>';
@@ -1506,33 +1353,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 										break;
 										//AQUI falta desarrollarse case 10 para imagen con icono dinámico similar a case 5						
 									}
-	
 								}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
 							}
-	
-
-
-
 							v02 += '</div></span>';//termina el HTML del area visual
 							if((g00VARS[11][2] == 0)||(g00VARS[11][2] == 4))//todos los modos o señas
 							{	if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
@@ -1543,7 +1365,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								v02 += '<div class="cLR cFlex"><div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 							}//Termina los interpretes señas
 							f0072(id);//ADICIONAR HTML para terminar los botones/hojas de la Ruta
-						}
+						}*/
 					break;
 					case 8://Ayudas - 
 
@@ -1551,138 +1373,93 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							
-
 							/*
-
 							//PRECARGA de textos:
 							s00EXIT[1][2] = r008A[id][v4].charAt(0).toUpperCase() + r008A[id][v4].slice(1);//carga el guión local: haz clic para entrar
 							s00EXIT[2][2] = 'i1, '+r008A[1][v4];//carga el guión internacional:click to enter
 							//console.log('46<12H');
-
 							*/
 
-
 							//PRECARGA de textos:
-							if(r008B[3][v4] < r008B[2][v4].length)
-							{	
-
-
-								s00EXIT[1][2] = '';
+							if(mIr008B[v4][3] < mIr008B[v4][2].length)
+							{	s00EXIT[1][2] = '';
 								s00EXIT[2][2] = 'i1, ';
-								if(( 0 < r008B[3][v4])&&(1 < r008B[2][v4].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-								{	s00EXIT[1][2] += (r008B[3][v4] + 1) + '. ';//r008B[3][v4] + ', ';
-									s00EXIT[2][2] += (r008B[3][v4] + 1) + '. ';//r008B[3][v4] + ', ';
+								if(( 0 < mIr008B[v4][3])&&(1 < mIr008B[v4][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+								{	s00EXIT[1][2] += (mIr008B[v4][3] + 1) + '. ';
+									s00EXIT[2][2] += (mIr008B[v4][3] + 1) + '. ';
 								}
-								s00EXIT[1][2] += r008A[id][v4][r008B[3][v4]].charAt(0).toUpperCase() + r008A[id][v4][r008B[3][v4]].slice(1);// + ', '+ (r008B[3][v4] + 1)+' '+kTapaI[id][18]+' '+  r008B[2][v4].length;//carga el guión local: haz clic para entrar
-								s00EXIT[2][2] += r008A[1][v4][r008B[3][v4]].charAt(0).toUpperCase() + r008A[1][v4][r008B[3][v4]].slice(1);// + ', '+ (r008B[3][v4] + 1) +' '+kTapaI[1][18]+' '+ r008B[2][v4].length;//carga el guión internacional:click to enter
-								if(r008B[3][v4] < r008B[2][v4].length)	
-								{	if(1 < r008B[2][v4].length)//si la lonjitud es mayor que 1
-									{	if(r008B[3][v4] < (r008B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][21];//continuar
-											s00EXIT[2][2] += kTapaI[1][21];//continue
+								s00EXIT[1][2] += mIr008A[v4][id][mIr008B[v4][3]].charAt(0).toUpperCase() + mIr008A[v4][id][mIr008B[v4][3]].slice(1);//carga el guión local: haz clic para entrar
+								s00EXIT[2][2] += mIr008A[v4][1][mIr008B[v4][3]].charAt(0).toUpperCase() + mIr008A[v4][1][mIr008B[v4][3]].slice(1);//carga el guión internacional:click to enter
+								if(mIr008B[v4][3] < mIr008B[v4][2].length)	
+								{	if(1 < mIr008B[v4][2].length)//si la lonjitud es mayor que 1
+									{	if(mIr008B[v4][3] < (mIr008B[v4][2].length - 1))
+										{	s00EXIT[1][2] += mIkTapaI[21][id];//continuar
+											s00EXIT[2][2] += mIkTapaI[21][1];//continue
 										}
-										if(r008B[3][v4] == (r008B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][4];//Fin, reiniciar
-											s00EXIT[2][2] += kTapaI[1][4];//End, restart
+										if(mIr008B[v4][3] == (mIr008B[v4][2].length - 1))
+										{	s00EXIT[1][2] += mIkTapaI[4][id];//Fin, reiniciar
+											s00EXIT[2][2] += mIkTapaI[4][1];//End, restart
 										}
 									}
 								}
-
-
-								/*s00EXIT[1][2] = r008A[id][v4][r008B[3][v4]].charAt(0).toUpperCase() + r008A[id][v4][r008B[3][v4]].slice(1);// + ', '+ (r008B[3][v4] + 1)+' '+kTapaI[id][18]+' '+  r008B[2][v4].length;//carga el guión local: haz clic para entrar
-								s00EXIT[2][2] = 'i1, '+r008A[1][v4][r008B[3][v4]].charAt(0).toUpperCase() + r008A[1][v4][r008B[3][v4]].slice(1);// + ', '+ (r008B[3][v4] + 1) +' '+kTapaI[1][18]+' '+ r008B[2][v4].length;//carga el guión internacional:click to enter
-								if(r008B[3][v4] < r008B[2][v4].length)	
-								{	if(1 < r008B[2][v4].length)
-									{	if(r008B[3][v4] < (r008B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][21]  +' '+ (r008B[3][v4] + 1);
-											s00EXIT[2][2] += kTapaI[1][21] +' '+ (r008B[3][v4] + 1);
-										}
-										if(r008B[3][v4] == (r008B[2][v4].length - 1))
-										{	s00EXIT[1][2] += kTapaI[id][4];//Fin, reiniciar
-											s00EXIT[2][2] += kTapaI[1][4];//End, restart
-										}
-									}
-								}*/
 							}
-
-
 							f0046();//CARGAR las variables s00EXIT
-
-
 							//Esta linea es distinta por ser la ruta de anuncios y siempre llevar a f106()::
 							v02 = '<div class="cNada"><button class="cButton" onclick="hh6('+v4+')" onfocus="f0029('+v1+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon">';
 
-							if(r008B[3][v4] < r008B[2][v4].length)
-							{	
-							
-								switch(r008B[1][v4][r008B[3][v4]])//Tipo de icono/imagen.. 0-3
+							if(mIr008B[v4][3] < mIr008B[v4][2].length)
+							{	switch(mIr008B[v4][1][mIr008B[v4][3]])//Tipo de icono/imagen.. 0-3
 								{	case 0://Imagen dinámica
-
-
-
-
-										f0123(r008B[2][v4][r008B[3][v4]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+										f0123(mIr008B[v4][2][mIr008B[v4][3]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 										v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-									//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r008B[2][v4][r008B[3][v4]]][2]+'" class="c1x0"></div>';
 									break;
 									case 1://Icono dinámico
-										v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[r008B[2][v4][r008B[3][v4]]][2]+' cAjust8"></i></div>';
+										v02 += '<div class="c1x1 cZIn"><i class="'+kTapa1[mIr008B[v4][2][mIr008B[v4][3]]][2]+' cAjust8"></i></div>';
 									break;
 									case 2://Texto dinámico
-										v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r008B[2][v4][r008B[3][v4]]][2]+'</div>';
+										v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[mIr008B[v4][2][mIr008B[v4][3]]][2]+'</div>';
 									break;
 									case 3://Imagen estática
-
-
-
-
-										f0123(r008B[2][v4][r008B[3][v4]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+										f0123(mIr008B[v4][2][mIr008B[v4][3]]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 										v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[bus][2]+'" class="c1x0"></div>';
-									//	v02 += '<div class="c1x1 cZIn"><img src="'+kTapa0[r008B[2][v4][r008B[3][v4]]][2]+'" class="c1x0"></div>';
 									break;
 									case 4://Video estático
 										v02 += '<div class="c1x1 cZIn"></div>';
 									break;
 									case 5://Texto dinámico + Icono dinámico
-										v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[r008B[2][v4][r008B[3][v4]]][2]+'<i class="'+kTapa1[r008B[7][v4][r008B[3][v4]]][2]+' cAjust8"></i></div>';
+										v02 += '<div class="c1x1 cZIn cAjust8">'+kTapa2[mIr008B[v4][2][mIr008B[v4][3]]][2]+'<i class="'+kTapa1[mIr008B[v4][7][mIr008B[v4][3]]][2]+' cAjust8"></i></div>';
 									break;
 									case 6://Icono dinámico + Icono dinámico
-										v02 += '<div class="c1x1 cZIn cAjust8"><i class="'+kTapa1[r008B[2][v4][r008B[3][v4]]][2]+' cAjust8"></i><i class="'+kTapa1[r008B[7][v4][r008B[3][v4]]][2]+' cAjust8"></i></div>';
+										v02 += '<div class="c1x1 cZIn cAjust8"><i class="'+kTapa1[mIr008B[v4][2][mIr008B[v4][3]]][2]+' cAjust8"></i><i class="'+kTapa1[mIr008B[v4][7][mIr008B[v4][3]]][2]+' cAjust8"></i></div>';
 									break;
 									case 7://Icono dinámico + Icono dinámico + Fondo Negro
-										v02 += '<div class="c1x1 cZIn cAjust9"><i class="'+kTapa1[r008B[2][v4][r008B[3][v4]]][2]+' cAjust8"></i><i class="'+kTapa1[r008B[7][v4][r008B[3][v4]]][2]+' cAjust8"></i></div>';
+										v02 += '<div class="c1x1 cZIn cAjust9"><i class="'+kTapa1[mIr008B[v4][2][mIr008B[v4][3]]][2]+' cAjust8"></i><i class="'+kTapa1[mIr008B[v4][7][mIr008B[v4][3]]][2]+' cAjust8"></i></div>';
 									break;
 									case 8://Icono dinámico + Icono dinámico
-										v02 += '<div class="c1x1 cZIn cAma"><i class="'+kTapa1[r008B[2][v4][r008B[3][v4]]][2]+' cAjust8"></i><i class="'+kTapa1[r008B[7][v4][r008B[3][v4]]][2]+' cAjust8"></i></div>';
+										v02 += '<div class="c1x1 cZIn cAma"><i class="'+kTapa1[mIr008B[v4][2][mIr008B[v4][3]]][2]+' cAjust8"></i><i class="'+kTapa1[mIr008B[v4][7][mIr008B[v4][3]]][2]+' cAjust8"></i></div>';
 									break;
 									case 9://Icono dinámico + Icono dinámico
-										v02 += '<div class="c1x1 cZIn cLuz"><i class="'+kTapa1[r008B[2][v4][r008B[3][v4]]][2]+' cAjust8"></i><i class="'+kTapa1[r008B[7][v4][r008B[3][v4]]][2]+' cAjust8"></i></div>';
+										v02 += '<div class="c1x1 cZIn cLuz"><i class="'+kTapa1[mIr008B[v4][2][mIr008B[v4][3]]][2]+' cAjust8"></i><i class="'+kTapa1[mIr008B[v4][7][mIr008B[v4][3]]][2]+' cAjust8"></i></div>';
 									break;
 									//AQUI falta desarrollarse case 10 para imagen con icono dinámico similar a case 5						
 								}
-
 							}
-
-
-
 							v02 += '</div></span>';//termina el HTML del area visual
 							if((g00VARS[11][2] == 0)||(g00VARS[11][2] == 4))//todos los modos o señas
 							{	if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
-								{	//v02 += '<div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div>';
-									v02 += '<div class="cLR cDer cFlex"><div class="cPic2 sepia"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
+								{	v02 += '<div class="cLR cDer cFlex"><div class="cPic2 sepia"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 								}
 								//v02 += '<div class="cPic2 cRigh"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div>';
 								v02 += '<div class="cLR cFlex"><div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 							}//Termina los interpretes señas
 							f0072(id);//ADICIONAR HTML para terminar los botones/hojas de la Ruta
 						}
-
 					break;
 				}
 				//FINALIZAR EL HTML con la última casilla de "abajo"
 				//PRECARGAR textos
-	  			s00EXIT[1][2] = kTapaI[id][11].charAt(0).toUpperCase() + kTapaI[id][11].slice(1);//carga el guión local: abajo
-				s00EXIT[2][2] = 'i1, '+kTapaI[1][11];//carga el guión internacional: down
+	  			s00EXIT[1][2] = mIkTapaI[11][id].charAt(0).toUpperCase() + mIkTapaI[11][id].slice(1);//carga el guión local: abajo
+				s00EXIT[2][2] = 'i1, '+mIkTapaI[11][1];//carga el guión internacional: down
 				//console.log('46<12I');
 				f0046();//CARGAR las variables s00EXIT
 				v02 = '<div class="cNada"><button class="cButton cLDown" onclick="hh6(0)" onfocus="f0029('+(visOK.length - 1)+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon"><div class="c1x1 cZIn"><i class="'+kTapa1[14][2]+' cAjust8"></i></div></div></span>';		
@@ -1742,7 +1519,7 @@ function f0016()//CARGAR los guiones de la tapa
 			var ss = '<img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div>';
 			var v0 = '';//Inicio HTML del guíon local.. CON CÓDIGO HTML
 			//CONTROL SENTIDO DE LECTURA DEPENDIENDO DEL IDIOMA:
-			if(kControl[id][2])//1LeftToR
+			if(mIkControl[2][id])//1LeftToR
 			{	v0 += '<span>';//Inicio del div HTML del guíon local..
 				bTapaA1.style.textAlign = 'left';
 			}
@@ -1753,157 +1530,121 @@ function f0016()//CARGAR los guiones de la tapa
 			var v1 = '';//inicio guion local SIN CÓDIGO HTML
 			var v2;//inicio guion internacional SIN CÓDIGO HTML
 			//,elemento x de y y ayuda de botones:
-			var v3 = kTapaI[id][17]+' '+(gFoco + 1)+' '+kTapaI[id][18]+' '+visOK.length;
+			var v3 = mIkTapaI[17][id]+' '+(gFoco + 1)+' '+mIkTapaI[18][id]+' '+visOK.length;
 			if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
 			{	v2 = 'i1, ';//Inicio del guíon internaional..
 			}
 			f0001();//CONSEGUIR la hora local actual
 			//CARGAR el icono central de la ventana usando la etiqueta i
-			bTapaO.innerHTML = '<i class="'+kTapa1[g02RUTA[gRuta][6]][2]+' cAjust8"></i>';////
-			
-			//Esto es: //Estas en seleccionar
-			//v0 += kTapaI[id][6]+' ';
-			//v1 += kTapaI[id][6]+' ';
+			bTapaO.innerHTML = '<i class="'+kTapa1[g02RUTA[gRuta][6]][2]+' cAjust8"></i>';
 			f0057(id,gRuta);//ALMACENAR en [preTAP] el guíon o guiones de la tapa desde las RUTAS
 			//ADICIONAR El guíon de la casilla actual en lengua Local[vFocoL] más la ruta usando comas y signo +
-			v0 += kTapaI[id][6] + vFocoL + kTapaI[id][3]+'<br>'+kTapaI[id][23]+vFocoLz+kTapaI[id][3]+'<br>'+kTapaI[id][2]+preTAP;//////', ++ 'ruta
-			v1 += kTapaI[id][6] + vFocoL + kTapaI[id][3]+kTapaI[id][23]+vFocoLz+kTapaI[id][3]+kTapaI[id][2]+preTAP;/////
+			v0 += mIkTapaI[6][id] + vFocoL + mIkTapaI[3][id]+'<br>'+mIkTapaI[23][id]+vFocoLz+mIkTapaI[3][id]+'<br>'+mIkTapaI[2][id]+preTAP;//', ++ 'ruta
+			v1 += mIkTapaI[6][id] + vFocoL + mIkTapaI[3][id]+mIkTapaI[23][id]+vFocoLz+mIkTapaI[3][id]+mIkTapaI[2][id]+preTAP;//
 			//SI la ruta es más larga continua hasta completar toda la ruta
 			if(g02RUTA[gRuta].length - 1 > 8)////
 			{	f0057(id,g02RUTA[gRuta][8]);
-				v0 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;/////
-				v1 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;/////
+				v0 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;/////
+				v1 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;/////
 				if(g02RUTA[gRuta].length - 1 > 9)////
 				{	f0057(id,g02RUTA[gRuta][9]);
-					v0 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;/////
-					v1 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;////
+					v0 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;/////
+					v1 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;////
 					if(g02RUTA[gRuta].length - 1 > 10)////
 					{	f0057(id,g02RUTA[gRuta][10]);
-						v0 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;/////
-						v1 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;////
+						v0 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;/////
+						v1 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;////
 						if(g02RUTA[gRuta].length - 1 > 11)////
 						{	f0057(id,g02RUTA[gRuta][11]);
-							v0 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;/////
-							v1 += kTapaI[id][3]+'+'+kTapaI[id][3]+preTAP;////
+							v0 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;/////
+							v1 += mIkTapaI[3][id]+'+'+mIkTapaI[3][id]+preTAP;////
 						}
 					}
 				}
 			}
 			
-			if(kControl[1][1])//Control formato hora nacional:   hora 00:00  /  00:00 hora
-			{	v0 += kTapaI[id][3] + '<br>' + v3 + kTapaI[id][3]+'<br>'+ kTapaI[id][1] +'<span class="cLTR">'+ miHora +'</span>' + kTapaI[id][3] + '<br>'+ kBoton[id][6] + ' ';
-				v1 += kTapaI[id][3] + ' ' + v3 + kTapaI[id][3] + kTapaI[id][1] + miHora  + kTapaI[id][3] + ' ' + kBoton[id][6] + ' ';
-				
+			if(mIkControl[1][1])//Control formato hora nacional:   hora 00:00  /  00:00 hora
+			{	v0 += mIkTapaI[3][id] + '<br>' + v3 + mIkTapaI[3][id]+'<br>'+ mIkTapaI[1][id] +'<span class="cLTR">'+ miHora +'</span>' + mIkTapaI[3][id] + '<br>'+ mIkBoton[6][id] + ' ';
+				v1 += mIkTapaI[3][id] + ' ' + v3 + mIkTapaI[3][id] + mIkTapaI[1][id] + miHora  + mIkTapaI[3][id] + ' ' + mIkBoton[6][id] + ' ';
 				if((!maX)&&((document.fullscreen != false)||(document.fullscreenElement != null)))//Si pantalla no permite ser maximizada desde JS, y está minimizada, la única forma de salir de ese estado es maximizar desde el navegador
-				{	v0 += kBoton[id][7];
-					v1 += kBoton[id][7];
+				{	v0 += mIkBoton[7][id];
+					v1 += mIkBoton[7][id];
 				}
 				else
-				{	v0 += kBoton[id][8];
-					v1 += kBoton[id][8];
+				{	v0 += mIkBoton[8][id];
+					v1 += mIkBoton[8][id];
 				}
-			
-				v0 += '<br>' + kBoton[id][4] + ' ';
-				v1 += ' ' + kBoton[id][4] + ' ';
+				v0 += '<br>' + mIkBoton[4][id] + ' ';
+				v1 += ' ' + mIkBoton[4][id] + ' ';
 				if(g00VARS[59][2])//Si Lector de pantalla esta activo
-				{	v0 += kBoton[id][2];
-					v1 += kBoton[id][2];
+				{	v0 += mIkBoton[2][id];
+					v1 += mIkBoton[2][id];
 				}
 				else
-				{	v0 += kBoton[id][3];
-					v1 += kBoton[id][3];
+				{	v0 += mIkBoton[3][id];
+					v1 += mIkBoton[3][id];
 				}
-				v0 += '<br>' + kBoton[id][5] + ' ';
-				v1 += ' ' + kBoton[id][5] + ' ';
+				v0 += '<br>' + mIkBoton[5][id] + ' ';
+				v1 += ' ' + mIkBoton[5][id] + ' ';
 				if((g00VARS[11][2] == 0)||(g00VARS[11][2] == 2))//Si Vibrador esta activo o no se ha seleccinado
-				{	v0 += kBoton[id][2];
-					v1 += kBoton[id][2];
+				{	v0 += mIkBoton[2][id];
+					v1 += mIkBoton[2][id];
 				}
 				else
-				{	v0 += kBoton[id][3];
-					v1 += kBoton[id][3];
+				{	v0 += mIkBoton[3][id];
+					v1 += mIkBoton[3][id];
 				}
-				v0 +=  '<br>' + kBoton[id][1] + ' ';
-				v1 +=  ' ' + kBoton[id][1] + ' ';
+				v0 +=  '<br>' + mIkBoton[1][id] + ' ';
+				v1 +=  ' ' + mIkBoton[1][id] + ' ';
 				if(g00VARS[10][2])//Si capslock es ON
-				{	v0 += kBoton[id][2];
-					v1 += kBoton[id][2];
+				{	v0 += mIkBoton[2][id];
+					v1 += mIkBoton[2][id];
 				}
 				else
-				{	v0 += kBoton[id][3];
-					v1 += kBoton[id][3];
+				{	v0 += mIkBoton[3][id];
+					v1 += mIkBoton[3][id];
 				}
-				v0 += ' ' +'<br>' + kBoton[id][9];
-				v1 += ' ' + kBoton[id][9];
-				v0 += ' ' + '<br>'+kBoton[id][10];
-				v1 += ' ' + kBoton[id][10];
+				v0 += ' ' +'<br>' + mIkBoton[9][id];
+				v1 += ' ' + mIkBoton[9][id];
+				v0 += ' ' + '<br>'+mIkBoton[10][id];
+				v1 += ' ' + mIkBoton[10][id];
 				v0 += '</span>';
-				//v0 += kTapaI[id][3] + '</span>';
-				//v0 += kTapaI[id][3] + '<br>' + kBoton[id][3] + kTapaI[id][3] + '</span>';
-				//v1 += kTapaI[id][3];
-				//v1 += kTapaI[id][3] + kBoton[id][3] + kTapaI[id][3];
 			}
-
-
-			/*
-			//Ver cómo quitar esta parte de alerta y pasarlas como marquesinas..
-			else//Es una alerta.. Nota si (ale) no es = 0 ale indica el número de la alerta..
-			{	// - - - quitar este bloque???
-				if(ale == 1)//Es la alerta número 1 de pantalla minimizada
-				{	if(kTapaB[1][g00VARS[20][2]] == 1)//es un icono, NOTA!! aquí [2] debería poder cambiar de número por ej [3,4,5..] dependiendo del número de la alerta (ale) que se va a mostrar en pantalla, en este caso [2] es la alerta por defecto de pantalla Minimizada
-					{	bTapaO.innerHTML = '<i class="fas fa-exclamation fah cAjust8"></i><i class="'+kTapa1[kTapaB[2][g00VARS[20][2]]][2]+' cAjust8"></i>';////!+simbolo de la alerta número
-					}
-					v0 += kTapaA[id][g00VARS[20][2]]+kTapaI[id][3]+'<br>'+kIntro[id][1]+'<br>'+kIntro[id][2];//Alerta Número
-					v1 += kTapaA[id][g00VARS[20][2]]+kTapaI[id][3]+kIntro[id][1]+kIntro[id][2];
-				}
-			}*/
-
 
 			//CARGAR EN g00VARS[24] EL GUIÓN LOCAL sin HTML:
 			g00VARS[24][2] = v1;
 			bTapaA1.innerHTML = v0;//COMPLETAR EL HTML CON EL TEXTO LOCAL EN PANTALLA (BRAILLE, MORSE, ETC..)
 			if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1, Tapa informativa en ingles
-			{	v2 += kTapaI[1][6]+' ';//You are in select
+			{	v2 += mIkTapaI[6][1]+' ';//You are in select
 				f0057(1,gRuta);
-				v2 += vFocoT + kTapaI[1][3] +kTapaI[1][23]+vFocoTz+kTapaI[1][3]+ kTapaI[1][2] + preTAP;////', ++ 'ruta
+				v2 += vFocoT + mIkTapaI[3][1] +mIkTapaI[23][1]+vFocoTz+mIkTapaI[3][1]+ mIkTapaI[2][1] + preTAP;////', ++ 'ruta
 				if(g02RUTA[gRuta].length - 1 > 8)////
 				{	f0057(1,g02RUTA[gRuta][8]);
-					v2 += kTapaI[1][3]+'+'+kTapaI[id][3]+preTAP;/////
+					v2 += mIkTapaI[3][1]+'+'+mIkTapaI[3][id]+preTAP;/////
 					if(g02RUTA[gRuta].length - 1 > 9)////
 					{	f0057(1,g02RUTA[gRuta][9]);
-						v2 += kTapaI[1][3]+'+'+kTapaI[id][3]+preTAP;////
+						v2 += mIkTapaI[3][1]+'+'+mIkTapaI[3][id]+preTAP;////
 						if(g02RUTA[gRuta].length - 1 > 10)////
 						{	f0057(1,g02RUTA[gRuta][10]);
-							v2 += kTapaI[1][3]+'+'+kTapaI[id][3]+preTAP;/////
+							v2 += mIkTapaI[3][1]+'+'+mIkTapaI[3][id]+preTAP;/////
 							if(g02RUTA[gRuta].length - 1 > 11)////
 							{	f0057(1,g02RUTA[gRuta][11]);
-								v2 += kTapaI[1][3]+'+'+kTapaI[id][3]+preTAP;////
+								v2 += mIkTapaI[3][1]+'+'+mIkTapaI[3][id]+preTAP;////
 							}
 						}
 					}
 				}
-				v2 += kTapaI[1][3];//.
+				v2 += mIkTapaI[3][1];//.
 				if(g00VARS[10][2])//Si esta capslock on
-				{	v2 += kBoton[1][1];
+				{	v2 += mIkBoton[1][1];
 				}
 				else
-				{	v2 += kBoton[1][2];
+				{	v2 += mIkBoton[2][1];
 				}
-				if(kControl[1][1])//Control formato hora internacional:   hora 00:00  /  00:00 hora
-				{	v2 += kTapaI[1][17]+' '+(gFoco + 1)+' '+kTapaI[1][18]+' '+visOK.length +kTapaI[1][3] + kTapaI[1][1] + miHora +  kTapaI[1][3];
-					//v2 += kTapaI[1][3]+kTapaI[1][17]+' '+(gFoco + 1)+' '+kTapaI[1][18]+' '+visOK.length +kTapaI[1][3] + kTapaI[1][1] + miHora +  kTapaI[1][3] + kBoton[1][3] +  kTapaI[1][3];	
-				//  v2 += kTapaI[1][3]+kTapaI[1][1]+miHora+kTapaI[1][3]+kTapaI[1][17]+' '+(gFoco + 1)+' '+kTapaI[1][18]+' '+visOK.length + kTapaI[1][3] + kBoton[1][3];		
-				//	v1 += kTapaI[id][3] + v3 + kTapaI[id][3] + kTapaI[id][1] + miHora  + kTapaI[id][3] + kBoton[id][3] + kTapaI[id][3];
+				if(mIkControl[1][1])//Control formato hora internacional:   hora 00:00  /  00:00 hora
+				{	v2 += mIkTapaI[17][1]+' '+(gFoco + 1)+' '+mIkTapaI[18][1]+' '+visOK.length +mIkTapaI[3][1] + mIkTapaI[1][1] + miHora +  mIkTapaI[3][1];
 				}
 			
-
-				/*
-				else//alerta en ingles
-				{	// - - - quitar esta línea???
-					v2 += kTapaA[1][g00VARS[20][2]]+kTapaI[1][3]+kIntro[1][1]+kIntro[1][2];//Alert Number
-				}*/
-
-
 				//CARGAR EN g00VARS[25] EL 'GUIÓN INTERNACIONAL':
 				g00VARS[25][2] = v2;
 				//COMPLETAR EL HTML CON EL TEXTO en ingles EN PANTALLA (BRAILLE, MORSE, ETC..)
@@ -2513,104 +2254,60 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 			var v2 = visOK[gFoco];//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
 			//LOCAL..
 			if(gFoco == 0)//ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
-			{	vFocoL = kTapaI[v1][10];//"arriba"
+			{	vFocoL = mIkTapaI[10][v1];//"arriba"
 				vFocoLz = vFocoL;//"arriba"
 			}
 			if((gFoco > 0)&&(gFoco < (visOK.length - 1)))
 			{	switch (gRuta)
-				{	case 1:		
-/*						if(r001B[5][v2])//Celda con multimedia - se abre en 2 strings:
-						{	vFocoLe = r001A[v1][v2];//transfiere el guíon a la variable extra
-							vFocoL = kTapaI[v1][r001B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, etc
-						}
-						else*/
-						{	vFocoL = r001A[v1][v2];
-							vFocoLz = r001Z[v1][v2];
+				{	case 1:
+						{	vFocoL = mIr001A[v2][v1];
+							vFocoLz = mIr001Z[v2][v1];
 						}
 					break;
 					case 2:		
-/*						if(r002B[5][v2])//Celda con multimedia - se abre en 2 strings:
-						{	vFocoLe = r002A[v1][v2];//transfiere el guíon a la variable extra
-							vFocoL = kTapaI[v1][r002B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, etc
-						}
-						else*/
-						{	vFocoL = r002A[v1][v2];
-							vFocoLz = r002Z[v1][v2];
+						{	vFocoL = mIr002A[v2][v1];
+							vFocoLz = mIr002Z[v2][v1];
 						}
 					break;
 					case 3:
-						{	
-
-							vFocoL = '';
-							if(( 0 < r003B[3][v2])&&(1 < r003B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-							{	vFocoL += (r003B[3][v2] + 1) + '. ';//r003B[3][v2] + ', ';
+						{	vFocoL = '';
+							if(( 0 < mIr003B[v2][3])&&(1 < mIr003B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+							{	vFocoL += (mIr003B[v2][3] + 1) + '. ';//r003B[3][v2] + ', ';
 							}
-							vFocoL += r003A[v1][v2][r003B[3][v2]];
-							vFocoLz = r003Z[v1][v2][r003B[3][v2]];
-							if(r003B[3][v2] < r003B[2][v2].length)	
-							{	if(1 < r003B[2][v2].length)//si la lonjitud es mayor que 1
-								{	if(r003B[3][v2] < (r003B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][21];//continuar
+							vFocoL += mIr003A[v2][v1][mIr003B[v2][3]];
+							vFocoLz = mIr003Z[v2][v1][mIr003B[v2][3]];
+							if(mIr003B[v2][3] < mIr003B[v2][2].length)	
+							{	if(1 < mIr003B[v2][2].length)//si la lonjitud es mayor que 1
+								{	if(mIr003B[v2][3] < (mIr003B[v2][2].length - 1))
+									{	vFocoL += mIkTapaI[21][v1];//continuar
 									}
-									if(r003B[3][v2] == (r003B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][4];//Fin, reiniciar
+									if(mIr003B[v2][3] == (mIr003B[v2][2].length - 1))
+									{	vFocoL += mIkTapaI[4][v1];//Fin, reiniciar
 									}
 								}
 							}
-
-
-							/*vFocoL = r003A[v1][v2][r003B[3][v2]];
-							if(1 < r003B[2][v2].length)
-							{	if(1 < r003B[2][v2].length)
-								{	if(r003B[3][v2] < (r003B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][21] +' '+ (r003B[3][v2] + 1);//CONTINUAR 1,2,3
-									}
-									if(r003B[3][v2] == (r003B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][4];//Fin, reiniciar
-									}
-								}
-							}*/
 						}
 					break;
 					case 4:
-/*						if(r004B[5][v2])//Celda con multimedia - se abre en 2 strings:
-						{	vFocoLe = r004A[v1][v2];//transfiere el guíon a la variable extra
-							vFocoL = kTapaI[v1][r004B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, etc
-						}
-						else*/
-						{	vFocoL = r004A[v1][v2];
-							vFocoLz = r004Z[v1][v2];
+						{	vFocoL = mIr004A[v2][v1];
+							vFocoLz = mIr004Z[v2][v1];
 						}							
 					break;
 					case 5:		
-/*						if(r005B[5][v2])//Celda con multimedia - se abre en 2 strings:
-						{	vFocoLe = r005A[v1][v2];//transfiere el guíon a la variable extra
-							vFocoL = kTapaI[v1][r005B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, etc
-						}
-						else*/
+/*						
 						{	vFocoL = r005A[v1][v2];
 							vFocoLz = r005Z[v1][v2];
-						}
+						}*/
 					break;
 					case 6:		
-/*						if(r006B[5][v2])//Celda con multimedia - se abre en 2 strings:
-						{	vFocoLe = r006A[v1][v2];//transfiere el guíon a la variable extra
-							vFocoL = kTapaI[v1][r006B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, etc
-						}
-						else*/
+/*
 						{	vFocoL = r006A[v1][v2];
 							vFocoLz = r006Z[v1][v2];
-						}
+						}*/
 					break;
-					case 7:
-
+					case 7:/*
 						if(gFoco == 1)//Si el foco es 1
-						{
-
-
-
-
-							vFocoL = '';
+						{	vFocoL = '';
 							if(( 0 < r007B[3][v2])&&(1 < r007B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
 							{	vFocoL += (r007B[3][v2] + 1) + '. ';//r007B[3][v2] + ', ';
 							}
@@ -2626,85 +2323,35 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 									}
 								}
 							}
-
-
-
-
-
-							/*
-							vFocoL = r007A[v1][v2][r007B[3][v2]];
-							if(1 < r007B[2][v2].length)
-							{	if(1 < r007B[2][v2].length)
-								{	if(r007B[3][v2] < (r007B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][21] +' '+ (r007B[3][v2] + 1);
-									}
-									if(r007B[3][v2] == (r007B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][4];//Fin, reiniciar
-									}
-								}
-							}*/
-
-
-
-
 						}
 						else//Si el foco no es la primer casilla
 						{	vFocoL = r007A[v1][v2];
 							vFocoLz = r007Z[v1][v2];
-						}
-
-
-
-
-
-
-/*						if(r007B[5][v2])//Celda con multimedia - se abre en 2 strings:
-						{	vFocoLe = r007A[v1][v2];//transfiere el guíon a la variable extra
-							vFocoL = kTapaI[v1][r007B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, etc
-						}
-						else*/
-						//++{	vFocoL = r007A[v1][v2];
-						//++}
+						}*/
 					break;
-
 					case 8:
-						{	
-
-							vFocoL = '';
-							if(( 0 < r008B[3][v2])&&(1 < r008B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-							{	vFocoL += (r008B[3][v2] + 1) + '. ';//r008B[3][v2] + ', ';
+						{	vFocoL = '';
+							if(( 0 < mIr008B[v2][3])&&(1 < mIr008B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+							{	vFocoL += (mIr008B[v2][3] + 1) + '. ';//r008B[3][v2] + ', ';
 							}
-							vFocoL += r008A[v1][v2][r008B[3][v2]];
-							vFocoLz = r008Z[v1][v2][r008B[3][v2]];
-							if(r008B[3][v2] < r008B[2][v2].length)	
-							{	if(1 < r008B[2][v2].length)//si la lonjitud es mayor que 1
-								{	if(r008B[3][v2] < (r008B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][21];//continuar
+							vFocoL += mIr008A[v2][v1][mIr008B[v2][3]];
+							vFocoLz = mIr008Z[v2][v1][mIr008B[v2][3]];
+							if(mIr008B[v2][3] < mIr008B[v2][2].length)	
+							{	if(1 < mIr008B[v2][2].length)//si la lonjitud es mayor que 1
+								{	if(mIr008B[v2][3] < (mIr008B[v2][2].length - 1))
+									{	vFocoL += mIkTapaI[21][v1];//continuar
 									}
-									if(r008B[3][v2] == (r008B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][4];//Fin, reiniciar
+									if(mIr008B[v2][3] == (mIr008B[v2][2].length - 1))
+									{	vFocoL += mIkTapaI[4][v1];//Fin, reiniciar
 									}
 								}
 							}
-
-							/*
-							vFocoL = r008A[v1][v2][r008B[3][v2]];
-							if(1 < r008B[2][v2].length)
-							{	if(1 < r008B[2][v2].length)
-								{	if(r008B[3][v2] < (r008B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][21]  +' '+ (r008B[3][v2] + 1);
-									}
-									if(r008B[3][v2] == (r008B[2][v2].length - 1))
-									{	vFocoL += kTapaI[v1][4];//Fin, reiniciar
-									}
-								}
-							}*/
 						}
 					break;
 				}
 			}
 			if( gFoco == (visOK.length - 1))
-			{	vFocoL = kTapaI[v1][11];//"abajo"
+			{	vFocoL = mIkTapaI[11][v1];//"abajo"
 				vFocoLz = vFocoL;//"abajo"
 			}
 			//2do idioma: INGLES
@@ -2712,161 +2359,103 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 			{	vFocoI = '';
 				vFocoT = '';//String en ingles para la Tapa? 'small picture, access'
 				if(gFoco == 0)
-				{	vFocoT = kTapaI[1][10];
+				{	vFocoT = mIkTapaI[10][1];
 					vFocoTz = vFocoT;
 					if(g00VARS[5][2])//si i1:
-					{	vFocoI = kTapaI[1][10];
+					{	vFocoI = mIkTapaI[10][1];
 						vFocoIz = vFocoI;
 					}
 				}
 				if((gFoco > 0)&&(gFoco < (visOK.length - 1)))
 				{	switch (gRuta)
 					{	case 1:
-/*							if(r001B[5][v2])//Celda con multimedia
-							{	vFocoT = kTapaI[1][r001B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-							}
-							else*/
-							{	vFocoT = r001A[1][v2];
-								vFocoTz = r001Z[1][v2];
+							{	vFocoT = mIr001A[v2][1];
+								vFocoTz = mIr001Z[v2][1];
 							}
 							if(g00VARS[5][2])//Si i1
-							{/*	if(r001B[5][v2])//Celda con multimedia - se abre en 2 strings:
-								{	vFocoIe = r001A[1][v2];//transfiere el guíon a la variable extra
-									vFocoI = kTapaI[1][r001B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-								}
-								else*/
-								{	vFocoI = r001A[1][v2];//v2 ojo si la casilla no es visible seria un error
-									vFocoIz = r001Z[1][v2];//v2 ojo si la casilla no es visible seria un error
-								}
+							{	vFocoI = mIr001A[v2][1];//v2 ojo si la casilla no es visible seria un error
+								vFocoIz = mIr001Z[v2][1];//v2 ojo si la casilla no es visible seria un error
 							}
 						break;
 						case 2:
-							vFocoT = r002A[1][v2];
-							vFocoTz = r002Z[1][v2];
+							vFocoT = mIr002A[v2][1];
+							vFocoTz = mIr002Z[v2][1];
 							if(g00VARS[5][2])//Si i1
-							{	vFocoI = r002A[1][v2];
-								vFocoIz = r002Z[1][v2];
+							{	vFocoI = mIr002A[v2][1];
+								vFocoIz = mIr002Z[v2][1];
 							}
 						break;
 						case 3:
 							{	vFocoT = '';
-								if((0 < r003B[3][v2])&&(1 < r003B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-								{	vFocoT += (r003B[3][v2] + 1) + '. ';//r003B[3][v2] + ', ';
+								if((0 < mIr003B[v2][3])&&(1 < mIr003B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+								{	vFocoT += (mIr003B[v2][3] + 1) + '. ';//mIr003B[v2][3] + ', ';
 								}
-								vFocoT += r003A[1][v2][r003B[3][v2]];
-								vFocoTz = r003Z[1][v2][r003B[3][v2]];
-								if(r003B[3][v2] < r003B[2][v2].length)	
-								{	if(1 < r003B[2][v2].length)//si la lonjitud es mayor que 1
-									{	if(r003B[3][v2] < (r003B[2][v2].length - 1))
-										{	vFocoT += kTapaI[1][21];//continue
+								vFocoT += mIr003A[v2][1][mIr003B[v2][3]];
+								vFocoTz = mIr003Z[v2][1][mIr003B[v2][3]];
+								if(mIr003B[v2][3] < mIr003B[v2][2].length)	
+								{	if(1 < mIr003B[v2][2].length)//si la lonjitud es mayor que 1
+									{	if(mIr003B[v2][3] < (mIr003B[v2][2].length - 1))
+										{	vFocoT += mIkTapaI[21][1];//continue
 										}
-										if(r003B[3][v2] == (r003B[2][v2].length - 1))
-										{	vFocoT += kTapaI[1][4];//END, restart
+										if(mIr003B[v2][3] == (mIr003B[v2][2].length - 1))
+										{	vFocoT += mIkTapaI[4][1];//END, restart
 										}
 									}
 								}
 							}
 							if(g00VARS[5][2])//Si i1
-							{/*	if(r003B[5][v2])//Celda con multimedia - se abre en 2 strings:
-								{	vFocoIe = r003A[1][v2];//transfiere el guíon a la variable extra
-									vFocoI = kTapaI[1][r003B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
+							{	vFocoI = '';
+								if((0 < mIr003B[v2][3])&&(1 < mIr003B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+								{	vFocoI += (mIr003B[v2][3] + 1) + '. ';//r003B[3][v2] + ', ';
 								}
-								else*/
-								vFocoI = '';
-								if((0 < r003B[3][v2])&&(1 < r003B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-								{	vFocoI += (r003B[3][v2] + 1) + '. ';//r003B[3][v2] + ', ';
-								}
-								vFocoI += r003A[1][v2][r003B[3][v2]];
-								vFocoIz = r003Z[1][v2][r003B[3][v2]];
-								if(r003B[3][v2] < r003B[2][v2].length)	
-								{	if(1 < r003B[2][v2].length)//si la lonjitud es mayor que 1
-									{	if(r003B[3][v2] < (r003B[2][v2].length - 1))
-										{	vFocoI += kTapaI[1][21];//continue
+								vFocoI += mIr003A[v2][1][mIr003B[v2][3]];
+								vFocoIz = mIr003Z[v2][1][mIr003B[v2][3]];
+								if(mIr003B[v2][3] < mIr003B[v2][2].length)	
+								{	if(1 < mIr003B[v2][2].length)//si la lonjitud es mayor que 1
+									{	if(mIr003B[v2][3] < (mIr003B[v2][2].length - 1))
+										{	vFocoI += mIkTapaI[21][1];//continue
 										}
-										if(r003B[3][v2] == (r003B[2][v2].length - 1))
-										{	vFocoI += kTapaI[1][4];//END, restart
+										if(mIr003B[v2][3] == (mIr003B[v2][2].length - 1))
+										{	vFocoI += mIkTapaI[4][1];//END, restart
 										}
 									}
 								}
-								/*
-								vFocoI = r003A[1][v2][r003B[3][v2]];// + ', '+ (r003B[3][v2] + 1)+' '+kTapaI[1][18]+' '+  r003B[2][v2].length;//[0];//v2 ojo si la casilla no es visible seria un error
-								if(1 < r003B[2][v2].length)
-								{	if(r003B[3][v2] < (r003B[2][v2].length - 1))
-									{	vFocoI += kTapaI[1][21]  +' '+ (r003B[3][v2] + 1);
-										// += kTapaI[1][21];
-									}
-									if(r003B[3][v2] == (r003B[2][v2].length - 1))
-									{	vFocoI += kTapaI[1][4];//Fin, reiniciar
-										// += kTapaI[1][4];//End, restart
-									}
-								}
-								*/
 							}
 						break;
 						case 4:
-/*							if(r004B[5][v2])//Celda con multimedia
-							{	vFocoT = kTapaI[1][r004B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-							}
-							else*/
-							{	vFocoT = r004A[1][v2];
-								vFocoTz = r004Z[1][v2];
+							{	vFocoT = mIr004A[v2][1];
+								vFocoTz = mIr004Z[v2][1];
 							}
 							if(g00VARS[5][2])//Si i1
-							{/*	if(r004B[5][v2])//Celda con multimedia - se abre en 2 strings:
-								{	vFocoIe = r004A[1][v2];//transfiere el guíon a la variable extra
-									vFocoI = kTapaI[1][r004B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-								}
-								else*/
-								{	vFocoI = r004A[1][v2];//v2 ojo si la casilla no es visible seria un error
-									vFocoIz = r004Z[1][v2];//v2 ojo si la casilla no es visible seria un error
-								}
+							{	vFocoI = mIr004A[v2][1];//v2 ojo si la casilla no es visible seria un error
+								vFocoIz = mIr004Z[v2][1];//v2 ojo si la casilla no es visible seria un error
 							}
 						break;
 						case 5:
-/*							if(r005B[5][v2])//Celda con multimedia
-							{	vFocoT = kTapaI[1][r005B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-							}
-							else*/
-							{	vFocoT = r005A[1][v2];
+/*							{	vFocoT = r005A[1][v2];
 								vFocoTz = r005Z[1][v2];
 							}
 							if(g00VARS[5][2])//Si i1
-							{/*	if(r005B[5][v2])//Celda con multimedia - se abre en 2 strings:
-								{	vFocoIe = r005A[1][v2];//transfiere el guíon a la variable extra
-									vFocoI = kTapaI[1][r005B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-								}
-								else*/
+							{
 								{	vFocoI = r005A[1][v2];//v2 ojo si la casilla no es visible seria un error
 									vFocoIz = r005Z[1][v2];//v2 ojo si la casilla no es visible seria un error
 								}
-							}
+							}*/
 						break;
 						case 6:
-/*							if(r006B[5][v2])//Celda con multimedia
-							{	vFocoT = kTapaI[1][r006B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-							}
-							else*/
-							{	vFocoT = r006A[1][v2];
+/*							{	vFocoT = r006A[1][v2];
 								vFocoTz = r006Z[1][v2];
 							}
 							if(g00VARS[5][2])//Si i1
-							{/*	if(r006B[5][v2])//Celda con multimedia - se abre en 2 strings:
-								{	vFocoIe = r006A[1][v2];//transfiere el guíon a la variable extra
-									vFocoI = kTapaI[1][r006B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-								}
-								else*/
+							{
 								{	vFocoI = r006A[1][v2];//v2 ojo si la casilla no es visible seria un error
 									vFocoIz = r006Z[1][v2];//v2 ojo si la casilla no es visible seria un error
 								}
-							}
+							}*/
 						break;
-						case 7:
-
-
+						case 7:/*
 							if(gFoco == 1)//Si el foco es 1
-							{
-
-								vFocoT = '';
+							{	vFocoT = '';
 								if((0 < r007B[3][v2])&&(1 < r007B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
 								{	vFocoT += (r007B[3][v2] + 1) + '. '; //r007B[3][v2] + ', ';
 								}
@@ -2882,30 +2471,8 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 										}
 									}
 								}
-
-
-
-								/*if(r007B[5][v2])//Celda con multimedia
-								{	vFocoT = kTapaI[1][r007B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-								}
-								else*/
-								/*{	vFocoT = r007A[1][v2][r007B[3][v2]];// + ', '+ (r007B[3][v2] + 1)+' '+kTapaI[1][18]+' '+  r007B[2][v2].length;//[0];
-									if(1 < r007B[2][v2].length)
-									{	if(r007B[3][v2] < (r007B[2][v2].length - 1))
-										{	vFocoT += kTapaI[v1][21]  +' '+ (r007B[3][v2] + 1);
-											// += kTapaI[1][21];
-										}
-										if(r007B[3][v2] == (r007B[2][v2].length - 1))
-										{	vFocoT += kTapaI[v1][4];//Fin, reiniciar
-											// += kTapaI[1][4];//End, restart
-										}
-									}
-								}*/
 								if(g00VARS[5][2])//Si i1
-								{
-
-
-									vFocoI = '';
+								{	vFocoI = '';
 									if((0 < r007B[3][v2])&&(1 < r007B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
 									{	vFocoI += (r007B[3][v2] + 1) + '. '; //r007B[3][v2] + ', ';
 									}
@@ -2921,180 +2488,62 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 											}
 										}
 									}
-
-
-									/*	if(r007B[5][v2])//Celda con multimedia - se abre en 2 strings:
-									{	vFocoIe = r007A[1][v2];//transfiere el guíon a la variable extra
-										vFocoI = kTapaI[1][r007B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-									}
-									else*/
-									/*vFocoI = r007A[1][v2][r007B[3][v2]];// + ', '+ (r007B[3][v2] + 1)+' '+kTapaI[1][18]+' '+  r007B[2][v2].length;//[0];//v2 ojo si la casilla no es visible seria un error
-									if(1 < r007B[2][v2].length)
-									{	if(r007B[3][v2] < (r007B[2][v2].length - 1))
-										{	vFocoI += kTapaI[1][21]  +' '+ (r007B[3][v2] + 1);
-											// += kTapaI[1][21];
-										}
-										if(r007B[3][v2] == (r007B[2][v2].length - 1))
-										{	vFocoI += kTapaI[1][4];//Fin, reiniciar
-											// += kTapaI[1][4];//End, restart
-										}
-									}*/
 								}
-
-
-
-
-								
-
 							}
 							else//Si esl foco no es la casilla 1
-							{
-
-				
-								/*if(r007B[5][v2])//Celda con multimedia
-								{	vFocoT = kTapaI[1][r007B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-								}
-								else*/
-								{	vFocoT = r007A[1][v2];
+							{	{	vFocoT = r007A[1][v2];
 									vFocoTz = r007Z[1][v2];
 								}
 								if(g00VARS[5][2])//Si i1
-								{/*	if(r007B[5][v2])//Celda con multimedia - se abre en 2 strings:
-									{	vFocoIe = r007A[1][v2];//transfiere el guíon a la variable extra
-										vFocoI = kTapaI[1][r007B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-									}
-									else*/
-									{	vFocoI = r007A[1][v2];//v2 ojo si la casilla no es visible seria un error
+								{	{	vFocoI = r007A[1][v2];//v2 ojo si la casilla no es visible seria un error
 										vFocoIz = r007Z[1][v2];//v2 ojo si la casilla no es visible seria un error
 									}
 								}
-
-
-
-							}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*							if(r007B[5][v2])//Celda con multimedia
-							{	vFocoT = kTapaI[1][r007B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-							}
-							else*/
-	//						{	vFocoT = r007A[1][v2];
-	//						}
-	//						if(g00VARS[5][2])//Si i1
-	//						{/*	if(r007B[5][v2])//Celda con multimedia - se abre en 2 strings:
-	//							{	vFocoIe = r007A[1][v2];//transfiere el guíon a la variable extra
-	//								vFocoI = kTapaI[1][r007B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-	//							}
-	//							else*/
-	//							{	vFocoI = r007A[1][v2];//v2 ojo si la casilla no es visible seria un error
-	//							}
-	//						}
-
-
-
-
-						break;
-
-
-						case 8:
-
-
-							vFocoT = '';
-							if((0 < r008B[3][v2])&&(1 < r008B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-							{	vFocoT += (r008B[3][v2] + 1) + '. '; //r008B[3][v2] + ', ';
-							}
-							vFocoT += r008A[1][v2][r008B[3][v2]];
-							vFocoTz = r008Z[1][v2][r008B[3][v2]];
-							if(r008B[3][v2] < r008B[2][v2].length)	
-							{	if(1 < r008B[2][v2].length)//si la lonjitud es mayor que 1
-								{	if(r008B[3][v2] < (r008B[2][v2].length - 1))
-									{	vFocoT += kTapaI[1][21];//continue
-									}
-									if(r008B[3][v2] == (r008B[2][v2].length - 1))
-									{	vFocoT += kTapaI[1][4];//END, restart
-									}
-								}
-							}
-/*							if(r008B[5][v2])//Celda con multimedia
-							{	vFocoT = kTapaI[1][r008B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-							}
-							else*/
-							/*{	vFocoT = r008A[1][v2][r008B[3][v2]];// + ', '+ (r008B[3][v2] + 1)+' '+kTapaI[1][18]+' '+  r008B[2][v2].length;//[0];
-								if(1 < r008B[2][v2].length)
-								{	if(r008B[3][v2] < (r008B[2][v2].length - 1))
-									{	vFocoT += kTapaI[v1][21]  +' '+ (r008B[3][v2] + 1);
-										// += kTapaI[1][21];
-									}
-									if(r008B[3][v2] == (r008B[2][v2].length - 1))
-									{	vFocoT += kTapaI[v1][4];//Fin, reiniciar
-										// += kTapaI[1][4];//End, restart
-									}
-								}
 							}*/
-							if(g00VARS[5][2])//Si i1
-							{	
-								vFocoI = '';
-								if((0 < r008B[3][v2])&&(1 < r008B[2][v2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-								{	vFocoI += (r008B[3][v2] + 1) + '. '; //r008B[3][v2] + ', ';
-								}
-								vFocoI += r008A[1][v2][r008B[3][v2]];
-								vFocoIz = r008Z[1][v2][r008B[3][v2]];
-								if(r008B[3][v2] < r008B[2][v2].length)	
-								{	if(1 < r008B[2][v2].length)//si la lonjitud es mayor que 1
-									{	if(r008B[3][v2] < (r008B[2][v2].length - 1))
-										{	vFocoI += kTapaI[1][21];//continue
-										}
-										if(r008B[3][v2] == (r008B[2][v2].length - 1))
-										{	vFocoI += kTapaI[1][4];//END, restart
-										}
-									}
-								}
-
-								/*	if(r008B[5][v2])//Celda con multimedia - se abre en 2 strings:
-								{	vFocoIe = r008A[1][v2];//transfiere el guíon a la variable extra
-									vFocoI = kTapaI[1][r008B[5][v2]+11];//ASIGNA el tipo de multimedia como guíon a leer ej: video, imagen, fotografía, etc
-								}
-								else*/
-								/*vFocoI = r008A[1][v2][r008B[3][v2]];// + ', '+ (r008B[3][v2] + 1)+' '+kTapaI[1][18]+' '+  r008B[2][v2].length;//[0];//v2 ojo si la casilla no es visible seria un error
-								if(1 < r008B[2][v2].length)
-								{	if(r008B[3][v2] < (r008B[2][v2].length - 1))
-									{	vFocoI += kTapaI[1][21]  +' '+ (r008B[3][v2] + 1);
-										// += kTapaI[1][21];
-									}
-									if(r008B[3][v2] == (r008B[2][v2].length - 1))
-									{	vFocoI += kTapaI[1][4];//Fin, reiniciar
-										// += kTapaI[1][4];//End, restart
-									}
-								}*/
+						break;
+						case 8:
+							vFocoT = '';
+							if((0 < mIr008B[v2][3])&&(1 < mIr008B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+							{	vFocoT += (mIr008B[v2][3] + 1) + '. '; //r008B[3][v2] + ', ';
 							}
-
-
-
+							vFocoT += mIr008A[v2][1][mIr008B[v2][3]];
+							vFocoTz = mIr008Z[v2][1][mIr008B[v2][3]];
+							if(mIr008B[v2][3] < mIr008B[v2][2].length)	
+							{	if(1 < mIr008B[v2][2].length)//si la lonjitud es mayor que 1
+								{	if(mIr008B[v2][3] < (mIr008B[v2][2].length - 1))
+									{	vFocoT += mIkTapaI[21][1];//continue
+									}
+									if(mIr008B[v2][3] == (mIr008B[v2][2].length - 1))
+									{	vFocoT += mIkTapaI[4][1];//END, restart
+									}
+								}
+							}
+							if(g00VARS[5][2])//Si i1
+							{	vFocoI = '';
+								if((0 < mIr008B[v2][3])&&(1 < mIr008B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
+								{	vFocoI += (mIr008B[v2][3] + 1) + '. '; //r008B[3][v2] + ', ';
+								}
+								vFocoI += mIr008A[v2][1][mIr008B[v2][3]];
+								vFocoIz = mIr008Z[v2][1][mIr008B[v2][3]];
+								if(mIr008B[v2][3] < mIr008B[v2][2].length)	
+								{	if(1 < mIr008B[v2][2].length)//si la lonjitud es mayor que 1
+									{	if(mIr008B[v2][3] < (mIr008B[v2][2].length - 1))
+										{	vFocoI += mIkTapaI[21][1];//continue
+										}
+										if(mIr008B[v2][3] == (mIr008B[v2][2].length - 1))
+										{	vFocoI += mIkTapaI[4][1];//END, restart
+										}
+									}
+								}
+							}
 						break;
 					}
 				}
 				if(gFoco == (visOK.length - 1))
-				{	vFocoT = kTapaI[1][11];
+				{	vFocoT = mIkTapaI[11][1];
 					vFocoTz = vFocoT;
 					if(g00VARS[5][2])//si i1:
-					{	vFocoI = kTapaI[1][11];
+					{	vFocoI = mIkTapaI[11][1];
 						vFocoIz = vFocoI;
 					}
 				}
@@ -4088,52 +3537,37 @@ function f0057(id,ruta)//ALMACENAR el guíon o guiones parcial(es) tipo texto, p
 			preTAP = '';
 			switch (g02RUTA[ruta][2])
 			{	case 0://Se usa este caso???? creo que no!
-					preTAP = kTapaI[id][g02RUTA[ruta][3]];
+					preTAP = mIkTapaI[g02RUTA[ruta][3]][id];
 				break;
-				case 1:
-					preTAP = r001A[id][g02RUTA[ruta][3]];
-					//preTAPz = r001Z[id][g02RUTA[ruta][3]];
+				case 1:	
+					preTAP = mIr001A[g02RUTA[ruta][3]][id];
 				break;
 				case 2:
-					preTAP = r002A[id][g02RUTA[ruta][3]];
-					//preTAPz = r002Z[id][g02RUTA[ruta][3]];
+					preTAP = mIr002A[g02RUTA[ruta][3]][id];
 				break;
 				case 3:
-					preTAP = r003A[id][g02RUTA[ruta][3]][0];// [idioma][casilla con el texto][0]
-					//preTAPz = r003Z[id][g02RUTA[ruta][3]][0];// [idioma][casilla con el texto][0]
+					preTAP = mIr003A[g02RUTA[ruta][3]][id][0];// [idioma][casilla con el texto][0]
 				break;
 				case 4:
-					preTAP = r004A[id][g02RUTA[ruta][3]];
-					//preTAPz = r004Z[id][g02RUTA[ruta][3]];
+					preTAP = mIr004A[g02RUTA[ruta][3]][id];
 				break;
 				case 5:
-					preTAP = r005A[id][g02RUTA[ruta][3]];
-					//preTAPz = r005Z[id][g02RUTA[ruta][3]];
+					preTAP = mIr005A[g02RUTA[ruta][3]][id];
 				break;
 				case 6:
-					preTAP = r006A[id][g02RUTA[ruta][3]];
-					//preTAPz = r006Z[id][g02RUTA[ruta][3]];
+					preTAP = mIr006A[g02RUTA[ruta][3]][id];
 				break;
-				case 7:
-
+				case 7:/*
 					if(gFoco == 1)//Si esta en la casilla 1
-					{	preTAP = r007A[id][g02RUTA[ruta][3]][0];
-						//preTAPz = r007Z[id][g02RUTA[ruta][3]][0];
+					{	preTAP = mIr007A[g02RUTA[ruta][3]][id][0];
 					}
 					else
-					{	preTAP = r007A[id][g02RUTA[ruta][3]];
-						//preTAPz = r007Z[id][g02RUTA[ruta][3]];
-					}
-					
-
-					//preTAP = r007A[id][g02RUTA[ruta][3]];
-
+					{	preTAP = mIr007A[g02RUTA[ruta][3]][id];
+					}*/
 				break;
 				case 8:
-					preTAP = r008A[id][g02RUTA[ruta][3]][0];
-					//preTAPz = r008Z[id][g02RUTA[ruta][3]][0];
+					preTAP = mIr008A[g02RUTA[ruta][3]][id][0];
 				break;
-				
 			}
 		}
 
@@ -5598,7 +5032,8 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			}
 			// - - - ASIGNAR STRINGS DE LAS SEÑAS PARA CADA IDIOMA
 			for (var i = wIDI.length - 1; i >= 1; i--)//Recorre el array de idiomas
-			{	r002A[wIDI[i][3]][1]= i +', '+ wIDI[i][1];//toma el idioma de wIDI;
+			{	mIr002A[1][wIDI[i][3]]= i +', '+ wIDI[i][1];//toma el idioma de wIDI;
+				//r002A[wIDI[i][3]][1]= i +', '+ wIDI[i][1];//toma el idioma de wIDI;
 				//console.log(' - - - rrr 10 |> Flag  ->  r002A[wIDI[i][3]][1]=',r002A[wIDI[i][3]][1]);
 				if(wIDI[i][3] == 1)//Bingo es el ingles (ver wIdi)
 				{	orig[0] = i +', '+ wIDI[i][1];//Crea la copia original del idioma ingles
@@ -5608,7 +5043,8 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					{	orig[1] = j +', '+ wSIGN[j][1];//Crea la copia original de la ASL en ingles
 					}
 					if(wSIGN[j][3] == wIDI[i][4])//Si el idApp de la seña es igual a la señaIniPred del idioma wIDI[i]
-					{	r002A[wIDI[i][3]][2]= j +', '+ wSIGN[j][1];//toma la seña de wSIGN;
+					{	mIr002A[2][wIDI[i][3]]= j +', '+ wSIGN[j][1];//toma la seña de wSIGN;
+						//r002A[wIDI[i][3]][2]= j +', '+ wSIGN[j][1];//toma la seña de wSIGN;
 					}
 				}
 				if(g00VARS[27][2] == wIDI[i][3])//id clave de ese idioma = id idioma
@@ -6085,21 +5521,24 @@ function f0117()//RESETEAR todos los apuntadores
 		{	lOG(117);
 			//console.log('+++ Resetea todos los apuntadores');
 			if(gRuta == 3)
-			{	for (var i = r003B[3].length - 1; i >= 1; i--)
-				{	r003B[3][i] = 0;
+			{	console.log('mI... r003B[3].length= r003B[3].length y mIr003B.length=',mIr003B.length);
+				for (var i = mIr003B.length - 1; i >= 1; i--)
+				//for (var i = r003B[3].length - 1; i >= 1; i--)
+				{	mIr003B[i][3] = 0;
+					//r003B[3][i] = 0;
 				}
 			}
 			if(gRuta == 7)
-			{	r007B[3][1] = 0;
+			{	/*r007B[3][1] = 0;*/
 			}
+
 			if(gRuta == 8)
-			{	for (var i = r008B[3].length - 1; i >= 1; i--)
-				{	r008B[3][i] = 0;
+			{	for (var i = mIr008B.length - 1; i >= 1; i--)
+				//for (var i = r008B[3].length - 1; i >= 1; i--)
+				{	mIr008B[i][3] = 0;
+					//r008B[3][i] = 0;
 				}
 			}
-			//console.log('+++ después r003B[3] =',r003B[3]);
-			//console.log('+++ después r007B[3] =',r007B[3]);
-			//console.log('+++ después r008B[3] =',r008B[3]);
 		}
 
 function f0118()//ENCENDER la luz
@@ -6113,13 +5552,17 @@ function f0119(sign)//CONMUTAR el botón seña(1) o idioma visible()
 		{	lOG(119);
 			if(sign)
 			{	f0122(1);//Actualizar la seña (ingles)
-				r002B[4][1] = 0;
-				r002B[4][2] = 1;
+				mIr002B[1][4] = 0;
+				mIr002B[2][4] = 1;
+				//r002B[4][1] = 0;
+				//r002B[4][2] = 1;
 			}
 			else//No sign => Idioma
 			{	f0122();//Actualizar el idioma (ingles)
-				r002B[4][1] = 1;
-				r002B[4][2] = 0;
+				mIr002B[1][4] = 1;
+				mIr002B[2][4] = 0;
+				//r002B[4][1] = 1;
+				//r002B[4][2] = 0;
 			}
 		}
 
@@ -6147,7 +5590,8 @@ function f0121()//ACTUALIZAR el texto del botón señas
 					var ii = wSIGN[i][6]//captura el idioma de esa seña
 					g00VARS[27][2] = ii;//El idioma se hace igual al idioma padre
 					//console.log(' - - - rrr 10A bingo! i=',i,'; ii=',ii);
-					r002A[ii][2]= i +', '+ wSIGN[i][1];//toma la seña local de wSIGN;
+					mIr002A[2][ii]= i +', '+ wSIGN[i][1];//toma la seña local de wSIGN;
+					//r002A[ii][2]= i +', '+ wSIGN[i][1];//toma la seña local de wSIGN;
 					//console.log(' - - - rrr 10B |> Flag  ->  r002A[ii][2]=',r002A[ii][2]);
 				};
 			};
@@ -6165,7 +5609,8 @@ function f0122(sign)//Actualizar el idioma (ingles)
 				{	if((wSIGN[i][3] == ss) && run)//Bingo esa seña tiene el id del key actual, entonces..
 					{	run = 0;//desactiva el permiso de seguir - PARE
 						//Trae la seña ingles a r002A[x][2] donde x debe ser la fila ingles [1]
-						r002A[1][2] = i+', '+wSIGN[i][0];//traduccion al ingles de la seña
+						mIr002A[2][1] = i+', '+wSIGN[i][0];//traduccion al ingles de la seña
+						//r002A[1][2] = i+', '+wSIGN[i][0];//traduccion al ingles de la seña
 						//console.log(' - - - 99 rrr SIGN |> Flag  -> i=',i,'; r002A[1][2]=',r002A[1][2]);
 					}
 				}
@@ -6175,7 +5620,8 @@ function f0122(sign)//Actualizar el idioma (ingles)
 				//console.log(' - - - 99 rrr SIGN |> Flag  -> ss=',ss);
 				if(ss == 1)//Ruta del ingles
 				{	//Trae el idioma original ingles a r002A[x][1] donde x debe ser la fila ingles [1]
-					r002A[1][1] = orig[0];//traduccion original en ingles del idioma ingles
+					mIr002A[1][1] = orig[0];//traduccion original en ingles del idioma ingles
+					//r002A[1][1] = orig[0];//traduccion original en ingles del idioma ingles
 					//console.log(' - - - 99 rrr Ingles |> Flag  ->  r002A[1][1]=',r002A[1][1]);
 				}
 				else//Es otro idioma
@@ -6183,7 +5629,8 @@ function f0122(sign)//Actualizar el idioma (ingles)
 					{	if((wIDI[i][3] == ss) && run)//Bingo ese idioma tiene el id del key actual, entonces..
 						{	run = 0;//desactiva el permiso de seguir - PARE
 							//Trae el idioma ingles a r002A[x][1] donde x debe ser la fila ingles [1]
-							r002A[1][1] = i+', '+wIDI[i][0];//traduccion al ingles del idioma
+							mIr002A[1][1] = i+', '+wIDI[i][0];//traduccion al ingles del idioma
+							//r002A[1][1] = i+', '+wIDI[i][0];//traduccion al ingles del idioma
 							//console.log(' - - - 99 rrr IDI |> Flag  -> i=',i,'; r002A[1][1]=',r002A[1][1]);
 						}
 					}
@@ -6206,7 +5653,8 @@ function f0123(busca)//BUSCAR id/Fila que corresponde a cierto id Buscado en kTa
 function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(124);
 			for (var i = 6 + ini; i <= 14; i++)//5-[12-5]13 - 4 = 9 si ini= 0 los oculta todos
-			{	r002B[4][i]=0;//r002B[4][6-14] Ocultar botones de Ajustes 2 desde el actual (ini)
+			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
+				//r002B[4][i]=0;//r002B[4][6-14] Ocultar botones de Ajustes 2 desde el actual (ini)
 				papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
 			}
 			//CREA un arreglo paralelo aparte con la ruta parcial QUE NO SE MODIFICO más el último cambio
@@ -6557,28 +6005,20 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 
 function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sitios y de la presentación AV desde ini (con ini incluido).
 		{	lOG(125);
-			r003A = res3A;//RESET CONTENIDOS DE r003A
-			//console.error(' - - - r003A=',r003A,'; g00VARS[86][2]=',g00VARS[86][2]);			
+			mIr003A = mIres3A;//RESET CONTENIDOS DE mIr003A
+			//console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS[86][2]);			
 			for (var i = ini; i <= 9; i++)//Recorre el array de papas [0-9] desde ini
 			{	if(papas[i]!=0)//si casilla no es 0 y esta buscando
 				{	var ok = 1;//Buscando los string que se necesitan[1]
-					//console.log(' - - - rrrrr f0125 i=',i,'; ini=',ini);
 					switch(i)//7 1 0 0 0 0 0
 					{	case 0://Papa1
 						{	for (var j = wPAPA1.length - 1; j >= 1; j--)
-							{	//console.log(' - - - rrrrr f0125 j=',j);
-								if(ok&&(papas[0] == wPAPA1[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][10]
-								{	//console.log(' - - - rrrrr f0125 j=',j);
-									ok = 0;//deja de buscar el string, ya lo encontro..
+							{	if(ok&&(papas[0] == wPAPA1[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[10][x]
+								{	ok = 0;//deja de buscar el string, ya lo encontro..
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][5]=kTapaI[k][27]+' '+(i+1)+wPAPA1[j][1]+': '+wPAPA1[j][ext+k+2]+kTapaI[k][5];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][5]=wPAPA1[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										
-										//r002A[k][5]=kTapaI[k][25]+' '+(i+1)+': '+kTapaI[k][27]+wPAPA1[j][1]+', '+wPAPA1[j][ext+k+2]+kTapaI[k][5];//trae el string de los idiomas desde wPAPA2
-										r002B[2][5]=vPAPA1[j][6];//vPAPA1[j][8];
-									//	r002A[k][6] = kTapaI[k][25]+' '+i+': '+wPAPA2[j][1]+', '+wPAPA2[j][ext+k+2]+kTapaI[k][5];//trae el string de los idiomas desde wPAPA2
-											
-
+									{	mIr002A[5][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA1[j][1]+': '+wPAPA1[j][ext+k+2]+mIkTapaI[5][k];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[5][k]=wPAPA1[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[5][2]=vPAPA1[j][6];//vPAPA1[j][8];
 									}
 								}
 							}
@@ -6586,55 +6026,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 1://Papa2
 							for (var j = wPAPA2.length - 1; j >= 1; j--)
-							{	r002B[4][6]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA2[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[6][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA2[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;//deja de buscar el string, ya lo encontro..
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][6]=kTapaI[k][27]+' '+(i+1)+wPAPA2[j][1]+': '+wPAPA2[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][6]=wPAPA2[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][6]=wPAPA2[j][6];
+									{	mIr002A[6][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA2[j][1]+': '+wPAPA2[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[6][k]=wPAPA2[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[6][2]=wPAPA2[j][6];
 										if(wPAPA2.length > 2)
-										{ 	r002A[k][6]+=kTapaI[k][5]; 
+										{ 	mIr002A[6][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA2[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA2[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA2[j][l];
-											}
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA2[j][ext+k+2]+kTapaI[k][29];
-											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
+											}switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													
-													//r003B[2][1][0] = 53;
-													
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA2[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA2[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
-											/*if(g00VARS[86][2])//Estado de los anuncios 0:hay anuncios 1:No hay anuncios/ satelite 2:Buscando anuncios
-											{	if(g00VARS[86][2] == 2)//Buscando
-												{	r003A[k][1][0] =kTapaI[k][28]+wPAPA2[j][ext+k+2]+kTapaI[k][31];
-													r003Z = res3Z;
-												}
-												else//1 No hay anuncios
-												{	r003A[k][1][0] =kTapaI[k][28]+wPAPA2[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-												}
-											}*/
 										}
 									}
 								}
@@ -6642,41 +6064,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 2://Papa3
 							for (var j = wPAPA3.length - 1; j >= 1; j--)
-							{	r002B[4][7]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA3[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[7][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA3[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][7]=kTapaI[k][27]+' '+(i+1)+wPAPA3[j][1]+': '+wPAPA3[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][7]=wPAPA3[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][7]=wPAPA3[j][6];
+									{	mIr002A[7][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA3[j][1]+': '+wPAPA3[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[7][k]=wPAPA3[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[7][2]=wPAPA3[j][6];
 										if(wPAPA3.length > 2)
-										{ 	r002A[k][7]+=kTapaI[k][5]; 
+										{ 	mIr002A[7][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA3[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA3[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA3[j][l];
 											}
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA3[j][ext+k+2]+kTapaI[k][29];
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA3[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA3[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
 										}
 									}
@@ -6685,42 +6103,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 3://Papa4
 							for (var j = wPAPA4.length - 1; j >= 1; j--)
-							{	r002B[4][8]=1;//muestra el sitio
-								//console.log(' - - - rrrrrr ok=',ok,'; papas[i]=',papas[i],'; wPAPA4[j][0]=',wPAPA4[j][0],'; i=',i,'; j=',j)
-								if(ok&&(papas[i] == wPAPA4[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[8][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA4[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][8]=kTapaI[k][27]+' '+(i+1)+wPAPA4[j][1]+': '+wPAPA4[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][8]=wPAPA4[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][8]=wPAPA4[j][6];
+									{	mIr002A[8][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA4[j][1]+': '+wPAPA4[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[8][k]=wPAPA4[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[8][2]=wPAPA4[j][6];
 										if(wPAPA4.length > 2)
-										{ 	r002A[k][8]+=kTapaI[k][5]; 
+										{ 	mIr002A[8][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA4[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA4[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA4[j][l];
 											}
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA4[j][ext+k+2]+kTapaI[k][29];
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA4[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA4[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
 										}
 									}
@@ -6729,41 +6142,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 4://Papa5
 							for (var j = wPAPA5.length - 1; j >= 1; j--)
-							{	r002B[4][9]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA5[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[9][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA5[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][9]=kTapaI[k][27]+' '+(i+1)+wPAPA5[j][1]+': '+wPAPA5[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][9]=wPAPA5[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][9]=wPAPA5[j][6];
+									{	mIr002A[9][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA5[j][1]+': '+wPAPA5[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[9][k]=wPAPA5[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[9][2]=wPAPA5[j][6];
 										if(wPAPA5.length > 2)
-										{ 	r002A[k][9]+=kTapaI[k][5]; 
+										{ 	mIr002A[9][k]+=mIkTapaI[5][k]; 
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA5[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA5[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA5[j][l];
 											}
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA5[j][ext+k+2]+kTapaI[k][29];
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA5[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA5[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
 										}
 									}
@@ -6772,41 +6181,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 5://Papa6 -Chap
 							for (var j = wPAPA6.length - 1; j >= 1; j--)
-							{	r002B[4][10]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA6[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[10][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA6[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][10]=kTapaI[k][27]+' '+(i+1)+wPAPA6[j][1]+': '+wPAPA6[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][10]=wPAPA6[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][10]=wPAPA6[j][6];
+									{	mIr002A[10][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA6[j][1]+': '+wPAPA6[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[10][k]=wPAPA6[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[10][2]=wPAPA6[j][6];
 										if(wPAPA6.length > 2)
-										{ 	r002A[k][10]+=kTapaI[k][5]; 
+										{ 	mIr002A[10][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA6[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA6[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA6[j][l];
 											}
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA6[j][ext+k+2]+kTapaI[k][29];
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA6[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA6[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
 										}
 									}
@@ -6815,41 +6220,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 6://Papa7  -Chap Cent Barr
 							for (var j = wPAPA7.length - 1; j >= 1; j--)
-							{	r002B[4][11]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA7[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[11][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA7[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][11]=kTapaI[k][27]+' '+(i+1)+wPAPA7[j][1]+': '+wPAPA7[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][11]=wPAPA7[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][11]=wPAPA7[j][6];
+									{	mIr002A[11][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA7[j][1]+': '+wPAPA7[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[11][k]=wPAPA7[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[11][2]=wPAPA7[j][6];
 										if(wPAPA7.length > 2)
-										{ r002A[k][11]+=kTapaI[k][5]; 
+										{ 	mIr002A[11][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA7[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA7[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA7[j][l];
 											}
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA7[j][ext+k+2]+kTapaI[k][29];
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA7[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA7[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
 										}
 									}
@@ -6858,41 +6259,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 7://Papa8
 							for (var j = wPAPA8.length - 1; j >= 1; j--)
-							{	r002B[4][12]=1;//muestra el sitio	
-								if(ok&&(papas[i] == wPAPA8[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[12][4]=1;//muestra el sitio	
+								if(ok&&(papas[i] == wPAPA8[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][12]=kTapaI[k][27]+' '+(i+1)+wPAPA8[j][1]+': '+wPAPA8[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][12]=wPAPA8[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][12]=wPAPA8[j][6];
+									{	mIr002A[12][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA8[j][1]+': '+wPAPA8[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[12][k]=wPAPA8[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[12][2]=wPAPA8[j][6];
 										if(wPAPA8.length > 2)
-										{ r002A[k][12]+=kTapaI[k][5]; 
+										{ 	mIr002A[12][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA8[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA8[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA8[j][l];
 											}
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA8[j][ext+k+2]+kTapaI[k][29];
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA8[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA8[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
 										}
 									}
@@ -6901,42 +6298,37 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 8://Papa9
 							for (var j = wPAPA9.length - 1; j >= 1; j--)
-							{	r002B[4][13]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA9[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[13][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA9[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][13]=kTapaI[k][27]+' '+(i+1)+wPAPA9[j][1]+': '+wPAPA9[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002Z[k][13]=wPAPA9[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
-										r002B[2][13]=wPAPA9[j][6];
+									{	mIr002A[13][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA9[j][1]+': '+wPAPA9[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002Z[13][k]=wPAPA9[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
+										mIr002B[13][2]=wPAPA9[j][6];
 										if(wPAPA9.length > 2)
-										{ r002A[k][13]+=kTapaI[k][5]; 
+										{ 	mIr002A[13][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	kComun[k][1]=wPAPA9[j][ext+k+2];
+										{	mIkComun[1][k]=wPAPA9[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA9[j][l];
 											}
-
-											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-											//r004A[k][10]=kTapaI[k][28]+wPAPA9[j][ext+k+2]+kTapaI[k][29];
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
-													r003A = c003A; 
-													r003Z = c003Z;
-													r003B = c003B; 
+													mIr003A = mIc003A; 
+													mIr003Z = mIc003Z;
+													mIr003B = mIc003B;
 												break;
 												case 1:
-													r003A[k][2][0] =kTapaI[k][30];
-													//r003A[k][1][0] =kTapaI[k][28]+wPAPA9[j][ext+k+2]+kTapaI[k][30];
-													r003Z = o003Z;
-													r003B = o003B; 
+													mIr003A[2][k][0] =mIkTapaI[30][k];
+													mIr003Z = mIo003Z;
+													mIr003B = mIo003B;
 												break;
-											 	case 2: 
-											 		r003A[k][2][0] =kTapaI[k][31];
-											 		//r003A[k][1][0] =kTapaI[k][28]+wPAPA9[j][ext+k+2]+kTapaI[k][31];
-											 		r003Z = res3Z;
-											 		r003B = res3B; 
-											 	break;
+												case 2: 
+													mIr003A[2][k][0] =mIkTapaI[31][k];
+													mIr003Z = mIres3Z;
+													mIr003B = mIres3B;
+												break;
 											}
 										}
 									}
@@ -6945,40 +6337,35 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 						break;
 						case 9://Papa10
 							for (var j = wPAPA10.length - 1; j >= 1; j--)
-							{	r002B[4][14]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA10[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de r002A[x][9]
+							{	mIr002B[14][4]=1;//muestra el sitio
+								if(ok&&(papas[i] == wPAPA10[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
-									{	r002A[k][14]=kTapaI[k][27]+' '+(i+1)+wPAPA10[j][1]+': '+wPAPA10[j][ext+k+2];//trae el string de los idiomas desde wPAPA10
-										r002Z[k][14]=wPAPA10[j][ext+k+2];//trae el string de los idiomas desde wPAPA10
-										r002B[2][14]=wPAPA10[j][6];
+									{	mIr002A[14][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA10[j][1]+': '+wPAPA10[j][ext+k+2];//trae el string de los idiomas desde wPAPA10
+										mIr002Z[14][k]=wPAPA10[j][ext+k+2];//trae el string de los idiomas desde wPAPA10
+										mIr002B[14][2]=wPAPA10[j][6];
 										if(wPAPA10.length > 2)
-										{ 	r002A[k][14]+=kTapaI[k][5]; 
+										{ 	mIr002A[14][k]+=mIkTapaI[5][k];
 										}
-										kComun[k][1]=wPAPA10[j][ext+k+2];
+										mIkComun[1][k]=wPAPA10[j][ext+k+2];
 										for(var l = 3; l < ext + 3; l++)
 										{	dExt[l-3] = wPAPA10[j][l];
 										}
-
-										//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
-										//r004A[k][10]=kTapaI[k][28]+wPAPA10[j][ext+k+2]+kTapaI[k][29];
 										switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 										{	case 0:
-												r003A = c003A; 
-												r003Z = c003Z;
-												r003B = c003B; 
+												mIr003A = mIc003A; 
+												mIr003Z = mIc003Z;
+												mIr003B = mIc003B;
 											break;
 											case 1:
-												r003A[k][2][0] =kTapaI[k][30];
-												//r003A[k][1][0] =kTapaI[k][28]+wPAPA10[j][ext+k+2]+kTapaI[k][30];
-												r003Z = o003Z;
-												r003B = o003B; 
+												mIr003A[2][k][0] =mIkTapaI[30][k];
+												mIr003Z = mIo003Z;
+												mIr003B = mIo003B;
 											break;
 											case 2: 
-												r003A[k][2][0] =kTapaI[k][31];
-												//r003A[k][1][0] =kTapaI[k][28]+wPAPA10[j][ext+k+2]+kTapaI[k][31];
-												r003Z = res3Z;
-												r003B = res3B; 
+												mIr003A[2][k][0] =mIkTapaI[31][k];
+												mIr003Z = mIres3Z;
+												mIr003B = mIres3B;
 											break;					
 										}
 									}
@@ -6991,11 +6378,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 				{	i = 10;//Termina el for
 				}
 			};
-
-
-			r003B[2][1][0] = 53;
-
-			//console.log(' - - - rrr7 r003A[2][1]',r003A[2][1]);
+			mIr003B[1][2][0] = 53;
 			console.log('|> Flag  125 -> 126');
 			f0126();//ACTUALIZAR la ruta
 		}
@@ -7029,31 +6412,38 @@ function f0127()//REGRESAR al tamaño de texto previo
 			switch(g00VARS[33][2])
 			{	case 1:
 					g00VARS[33][2] = 7;
-					r001B[4][14] = 1;
+					mIr001B[14][4] = 1;			
+					//r001B[4][14] = 1;
 				break;
 				case 2:
 					g00VARS[33][2] = 1;
-					r001B[4][8] = 1;
+					mIr001B[8][4] = 1;			
+					//r001B[4][8] = 1;
 				break;
 				case 3:
 					g00VARS[33][2] = 2;
-					r001B[4][9] = 1;
+					mIr001B[9][4] = 1;			
+					//r001B[4][9] = 1;
 				break;
 				case 4:
 					g00VARS[33][2] = 3;
-					r001B[4][10] = 1;
+					mIr001B[10][4] = 1;			
+					//r001B[4][10] = 1;
 				break;
 				case 5:
 					g00VARS[33][2] = 4;
-					r001B[4][11] = 1;
+					mIr001B[11][4] = 1;			
+					//r001B[4][11] = 1;
 				break;
 				case 6:
 					g00VARS[33][2] = 5;
-					r001B[4][12] = 1;
+					mIr001B[12][4] = 1;			
+					//r001B[4][12] = 1;
 				break;
 				case 7:
 					g00VARS[33][2] = 6;
-					r001B[4][13] = 1;
+					mIr001B[13][4] = 1;			
+					//r001B[4][13] = 1;
 				break;
 			}
 		}
@@ -7075,7 +6465,8 @@ function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo des
 
 			//console.log(' - - - rrr7 A papas=',papas);
 			for (var i = 6; i <= 14; i++)//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
-			{	r002B[4][i]=0;//r002B[4][6-14] Ocultar botones de Ajustes 2 desde el actual (ini)
+			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
+				//r002B[4][i]=0;//r002B[4][6-14] Ocultar botones de Ajustes 2 desde el actual (ini)
 				papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
 			}
 
@@ -7398,20 +6789,20 @@ function f0139()//CARGAR el anuncio vacio en r003
 /*
 function f0139()//CARGAR el anuncio vacio en r003
 		{	lOG(139);
-			r003A = o003A;
-			console.error(' r003A=',r003A);
-			r003Z = o003Z;
-			r003B = o003B;
+			mIr003A = mIo003A;
+			console.error(' mIr003A=',mIr003A);
+			mIr003Z = mIo003Z;
+			mIr003B = mIo003B;
 			g00VARS[86][2]=1;
 			//g00VARS[86][2]=2;
 		}
 
 function f0140()//CARGAR anuncios en r003
 		{	lOG(140);
-			r003A = c003A;
-			console.error(' r003A=',r003A);
-			r003Z = c003Z;
-			r003B = c003B;
+			mIr003A = mIc003A;
+			console.error(' mIr003A=',mIr003A);
+			mIr003Z = mIc003Z;
+			mIr003B = mIc003B;
 			g00VARS[86][2]=0;
 		}
 
@@ -7449,12 +6840,12 @@ function f0141()//ENRUTAR al usuario con rutas validas y TRAER anuncios de la ru
 function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 		{	lOG(142);
 			//BUSCANDO DATOS
-			r003A = res3A;
-			r003Z = res3Z;
-			r003B = res3B;
+			mIr003A = mIres3A;
+			mIr003Z = mIres3Z;
+			mIr003B = mIres3B;
 			g00VARS[86][2]=2;//Buscando anuncios
 
-			//Aquí falta actualizar los strings de r003A y de tambien de los botones si esta en menu o ruta!!!
+			//Aquí falta actualizar los strings de mIr003A y de tambien de los botones si esta en menu o ruta!!!
 			//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios y debe quedar esperando por la llegada de los anuncios
 
 			rumbi = '';
@@ -7507,7 +6898,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 							{	data = xhr.response;//*colección xixixixix de los anuncios JSON
 								console.log('-- ready! status=',xhr.status,' and readyState=',xhr.readyState);//s2
 								console.log('-- server response (data) =',data);
-								r003A		=[	['Casillas'	,'Head'	,'Others'],
+								mIr003A		=[	['Casillas'	,'Head'	,'Others'],
 												[1		,['','here you can see the announcements published by local leaders, contact us: ilifebogota@gmail.com'				,'on this website you will find information accessible through seven modes'		,'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom'		,'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back'					,'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward'		,'To enable navigation buttons on a physical keyboard, turn on caps lock button'										,'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab']																				,['Vacio']],
 												[2		,['','aquí podrás conocer los anuncios publicados por los líderes locales, contáctanos: ilifebogota@gmail.com'		,'en este sitio web encontrará información accesible a través de siete modos'	,'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo'		,'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder'	,'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar'	,'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas'				,'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador']		,['Vacio']],
 												[3		,['','ici vous pouvez voir les annonces publiées par les dirigeants locaux, contactez-nous: ilifebogota@gmail.com'	,"sur ce site vous trouverez des informations accessibles à travers sept modes"	,"Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas"		,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer"		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]								,['Vacio']],
@@ -7537,24 +6928,24 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 								console.log(' typeof jsData =', typeof jsData);//object
 								console.log(' .. jsData.length =', jsData.length);//234
 								for (var i = 0; i < jsData.length; i++)//Convertir el objeto JS en 3 arrays de r003
-								{	r003A[1][i+2]= jsData[i].r3A1;
-									r003A[2][i+2]= jsData[i].r3A2;
-									r003A[3][i+2]= jsData[i].r3A3;
-									r003A[4][i+2]= jsData[i].r3A4;
-									r003Z[1][i+2]= jsData[i].r3Z1;
-									r003Z[2][i+2]= jsData[i].r3Z2;
-									r003Z[3][i+2]= jsData[i].r3Z3;
-									r003Z[4][i+2]= jsData[i].r3Z4;
-									r003B[1][i+2]= jsData[i].r3B1;
-									r003B[2][i+2]= jsData[i].r3B2;
-									r003B[3][i+2]= jsData[i].r3B3;
-									r003B[4][i+2]= jsData[i].r3B4;
-									r003B[5][i+2]= jsData[i].r3B5;
-									r003B[6][i+2]= jsData[i].r3B6;
-									r003B[7][i+2]= jsData[i].r3B7;
-									r003B[8][i+2]= jsData[i].r3B8;
-									r003B[9][i+2]= jsData[i].r3B9;
-									r003B[10][i+2]= jsData[i].r3B10;
+								{	mIr003A[i+2][1]= jsData[i].r3A1;
+									mIr003A[i+2][2]= jsData[i].r3A2;
+									mIr003A[i+2][3]= jsData[i].r3A3;
+									mIr003A[i+2][4]= jsData[i].r3A4;
+									mIr003Z[i+2][1]= jsData[i].r3Z1;
+									mIr003Z[i+2][2]= jsData[i].r3Z2;
+									mIr003Z[i+2][3]= jsData[i].r3Z3;
+									mIr003Z[i+2][4]= jsData[i].r3Z4;
+									mIr003B[i+2][1]= jsData[i].r3B1;
+									mIr003B[i+2][2]= jsData[i].r3B2;
+									mIr003B[i+2][3]= jsData[i].r3B3;
+									mIr003B[i+2][4]= jsData[i].r3B4;
+									mIr003B[i+2][5]= jsData[i].r3B5;
+									mIr003B[i+2][6]= jsData[i].r3B6;
+									mIr003B[i+2][7]= jsData[i].r3B7;
+									mIr003B[i+2][8]= jsData[i].r3B8;
+									mIr003B[i+2][9]= jsData[i].r3B9;
+									mIr003B[i+2][10]= jsData[i].r3B10;
 								}
 								c003A = r003A;
 								c003Z = r003Z;
@@ -7643,16 +7034,16 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 		{	lOG(142);
 			//BUSCANDO DATOS
-			r003A = res3A;
-			//console.error(' r003A=',r003A);
-			r003Z = res3Z;
-			r003B = res3B;
+			mIr003A = mIres3A;
+			//console.error(' mIr003A=',mIr003A);
+			mIr003Z = mIres3Z;
+			mIr003B = mIres3B;
+			
 			g00VARS[86][2]=2;//Buscando anuncios
 
 
 			
-
-			//Aquí falta actualizar los strings de r003A y de tambien de los botones si esta en menu o ruta!!!
+			//Aquí falta actualizar los strings de mIr003A y de tambien de los botones si esta en menu o ruta!!!
 			//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios y debe quedar esperando por la llegada de los anuncios
 					
 
@@ -8244,44 +7635,12 @@ function hh5(get,rev)//CAMBIAR o TRAER el modo actual
 				case 7:hh59();break;
 				//case 9:hh60();break;
 			}
-
-
-	
-
-			//for (var i = 1; i < 9; i++)
-			//{	if(wColor[i][2]==g00VARS[45][2])//Si el id del color es igual al de la memoria, bingo!!
-			//	{	
-					/*
-					if(g00VARS[45][2] == 11)//color del borde igual al texto
-					{	f0120();//HACER color del borde igual al color del texto
-						iBody.style.setProperty('--cYel','transparent');
-					}
-					else
-					{	iBody.style.setProperty('--cBeige',wColor[i][0]);
-						iBody.style.setProperty('--cYel',wColor[i][1]);
-					}
-					*/
-
-					/*for (var j = 1; j <= 4; j++)
-					{	r001A[j][19]=wColor[i][1+(j * 2)]+kTapaI[j][5];
-						r001Z[j][19]=wColor[i][2+(j * 2)];
-					}*/
-
-					for (var j = 1; j <= 4; j++)
-					{	r004A[j][1]=wModeA[j][i]+kTapaI[j][5];
-						//r004Z[j][1]=wModeZ[j][i];
-					}
-
-
-				//	i = wColor.length;//termina el for
-				//}
-			//}
+			for (var j = 1; j <= 4; j++)
+			{	mIr004A[1][j]=mIwModeA[i][j]+mIkTapaI[5][j];
+				//r004A[j][1]=wModeA[j][i]+kTapaI[j][5];
+				//r004Z[j][1]=wModeZ[j][i];
+			}
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
-		
-
-
-
-
 		}
 
 function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actual y (id)CONTROLAR el cambio de páginas, se trata de una casilla informativa
@@ -8296,65 +7655,52 @@ function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actu
 				//(Si el id es igual al id anterior no hace nada deja que los apuntadores coninuen como están)
 				memAnt = id;//actualiza el valor de la memoria del id del aviso anterior
 				if(gRuta == 3)
-				{	tam = r003B[2][id].length;
+				{	tam = mIr003B[id][2].length;
+					//tam = r003B[2][id].length;
 					if(tam>1)
 					{	if(salTO<0)//salTO's negativos (quitar rev?? sobra??)
-						{	if(r003B[3][id]>0)//Si apuntador no es el inicio de la lectura
-							{	if((salTO*-1)>=r003B[3][id])//Si tamaño del salto es mayor o igual que el apuntador
-								{ 	r003B[3][id]=0;//Salta al inicio de la lectura
+						{	if(mIr003B[id][3]>0)//Si apuntador no es el inicio de la lectura
+							//if(r003B[3][id]>0)//Si apuntador no es el inicio de la lectura
+							{	if((salTO*-1)>=mIr003B[id][3])//Si tamaño del salto es mayor o igual que el apuntador
+								//if((salTO*-1)>=r003B[3][id])//Si tamaño del salto es mayor o igual que el apuntador
+								{ 	mIr003B[id][3]=0;//Salta al inicio de la lectura
+									//r003B[3][id]=0;//Salta al inicio de la lectura
 								}
 								else
-								{	r003B[3][id]=r003B[3][id]+salTO;//Salta atrás tantas lecturas
+								{	mIr003B[id][3]=mIr003B[id][3]+salTO;//Salta atrás tantas lecturas
+									//r003B[3][id]=r003B[3][id]+salTO;//Salta atrás tantas lecturas
 								}
 							}
 							else//0 Si apuntador es el inicio de la lectura
-							{	r003B[3][id]=tam - 1;//Salta a LA última lectura
+							{	mIr003B[id][3]=tam - 1;//Salta a LA última lectura
+								//r003B[3][id]=tam - 1;//Salta a LA última lectura
 							}
 						}
 						else//salTO's positivos
-						{	if(r003B[3][id]<tam - 1)
-							{	if(salTO>=(tam - 1 - r003B[3][id]))//Si tamaño del salto es mayor o igual que lo que falta por leer
-								{ 	r003B[3][id]=tam - 1;//Salta a la última lectura
+						{	if(mIr003B[id][3]<tam - 1)
+							//if(r003B[3][id]<tam - 1)
+							{	if(salTO>=(tam - 1 - mIr003B[id][3]))//Si tamaño del salto es mayor o igual que lo que falta por leer
+								//if(salTO>=(tam - 1 - r003B[3][id]))//Si tamaño del salto es mayor o igual que lo que falta por leer
+								{ 	mIr003B[id][3]=tam - 1;//Salta a la última lectura
+									//r003B[3][id]=tam - 1;//Salta a la última lectura
 								}
 								else//Salta adelante
-								{	r003B[3][id]=r003B[3][id]+salTO;//salta tantas lecturas
+								{	mIr003B[id][3]=mIr003B[id][3]+salTO;//salta tantas lecturas
+									//r003B[3][id]=r003B[3][id]+salTO;//salta tantas lecturas
 								}
 							}
-							else//r003A[1][id].length - 1 Si apuntador es el final de la lectura
-							{	r003B[3][id]=0;//salta al inicio de la lectura
+							else//mIr003A[id][1].length - 1 Si apuntador es el final de la lectura
+							{	mIr003B[id][3]=0;//salta al inicio de la lectura
+								//r003B[3][id]=0;//salta al inicio de la lectura
 							}
 						}
-						//console.log('+++ r003B[3][id]=',r003B[3][id]);
 					}
 					else
 					{	//console.log('+++ sólo tiene un elemento');
 					}
 				}
 				if(gRuta == 7 && gFoco == 1)
-				{	/*if(r007B[2][id].length>1)
-					{	console.log('+++ tiene varios, longitud='+r007B[2][id].length);
-						if(rev)
-						{	if(r007B[3][id]>0)
-							{	r007B[3][id] -= 1;//Cambio el valor del apuntador
-							}
-							else//=0
-							{	r007B[3][id] = r007B[2][id].length - 1;//Cambio del valor del apuntador
-							}
-						}
-						else
-						{	if(r007B[3][id] < r007B[2][id].length - 1)
-							{	r007B[3][id] += 1;//Cambio el valor del apuntador
-							}
-							else
-							{	r007B[3][id] = 0;//Cambio del valor del apuntador
-							}
-						}
-						console.log('+++ r007B[3][id]=',r007B[3][id]);
-					}
-					else
-					{	console.log('+++ sólo tiene un elemento');
-					}*/
-					tam = r007B[2][id].length;
+				{	/*tam = r007B[2][id].length;
 					if(tam>1)
 					{	if(salTO<0)//salTO's negativos (quitar rev?? sobra??)
 						{	if(r007B[3][id]>0)//Si apuntador no es el inicio de la lectura
@@ -8386,61 +7732,48 @@ function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actu
 					}
 					else
 					{	//console.log('+++ sólo tiene un elemento');
-					}
+					}*/
 				}
 				if(gRuta == 8)
-				{	/*if(r008B[2][id].length>1)
-					{	console.log('+++ tiene varios, longitud='+r008B[2][id].length);
-						if(rev)
-						{	if(r008B[3][id]>0)
-							{	r008B[3][id] -= 1;//Cambio el valor del apuntador
-							}
-							else//=0
-							{	r008B[3][id] = r008B[2][id].length - 1;//Cambio del valor del apuntador
-							}
-						}
-						else
-						{	if(r008B[3][id] < r008B[2][id].length - 1)
-							{	r008B[3][id] += 1;//Cambio el valor del apuntador
-							}
-							else
-							{	r008B[3][id] = 0;//Cambio del valor del apuntador
-							}
-						}
-						console.log('+++ r008B[3][id]=',r008B[3][id]);
-					}
-					else
-					{	console.log('+++ sólo tiene un elemento');
-					}*/
-					tam = r008B[2][id].length;
+				{	tam = mIr008B[id][2].length;
+					//tam = r008B[2][id].length;
 					if(tam>1)
 					{	if(salTO<0)//salTO's negativos (quitar rev?? sobra??)
-						{	if(r008B[3][id]>0)//Si apuntador no es el inicio de la lectura
-							{	if((salTO*-1)>=r008B[3][id])//Si tamaño del salto es mayor o igual que el apuntador
-								{ 	r008B[3][id]=0;//Salta al inicio de la lectura
+						{	if(mIr008B[id][3]>0)//Si apuntador no es el inicio de la lectura
+							//if(r008B[3][id]>0)//Si apuntador no es el inicio de la lectura
+							{	if((salTO*-1)>=mIr008B[id][3])//Si tamaño del salto es mayor o igual que el apuntador
+								//if((salTO*-1)>=r008B[3][id])//Si tamaño del salto es mayor o igual que el apuntador
+								{ 	mIr008B[id][3]=0;//Salta al inicio de la lectura
+									//r008B[3][id]=0;//Salta al inicio de la lectura
 								}
 								else
-								{	r008B[3][id]=r008B[3][id]+salTO;//Salta atrás tantas lecturas
+								{	mIr008B[id][3]=mIr008B[id][3]+salTO;//Salta atrás tantas lecturas
+									//r008B[3][id]=r008B[3][id]+salTO;//Salta atrás tantas lecturas
 								}
 							}
 							else//0 Si apuntador es el inicio de la lectura
-							{	r008B[3][id]=tam - 1;//Salta a LA última lectura
+							{	mIr008B[id][3]=tam - 1;//Salta a LA última lectura
+								//r008B[3][id]=tam - 1;//Salta a LA última lectura
 							}
 						}
 						else//salTO's positivos
-						{	if(r008B[3][id]<tam - 1)
-							{	if(salTO>=(tam - 1 - r008B[3][id]))//Si tamaño del salto es mayor o igual que lo que falta por leer
-								{ 	r008B[3][id]=tam - 1;//Salta a la última lectura
+						{	if(mIr008B[id][3]<tam - 1)
+							//if(r008B[3][id]<tam - 1)
+							{	if(salTO>=(tam - 1 - mIr008B[id][3]))//Si tamaño del salto es mayor o igual que lo que falta por leer
+								//if(salTO>=(tam - 1 - r008B[3][id]))//Si tamaño del salto es mayor o igual que lo que falta por leer
+								{ 	mIr008B[id][3]=tam - 1;//Salta a la última lectura
+									//r008B[3][id]=tam - 1;//Salta a la última lectura
 								}
 								else//Salta adelante
-								{	r008B[3][id]=r008B[3][id]+salTO;//salta tantas lecturas
+								{	mIr008B[id][3]=mIr008B[id][3]+salTO;//salta tantas lecturas
+									//r008B[3][id]=r008B[3][id]+salTO;//salta tantas lecturas
 								}
 							}
 							else//r008A[1][id].length - 1 Si apuntador es el final de la lectura
-							{	r008B[3][id]=0;//salta al inicio de la lectura
+							{	mIr008B[id][3]=0;//salta al inicio de la lectura
+								//r008B[3][id]=0;//salta al inicio de la lectura
 							}
 						}
-						//console.log('+++ r008B[3][id]=',r008B[3][id]);
 					}
 					else
 					{	//console.log('+++ sólo tiene un elemento');
@@ -8514,7 +7847,8 @@ function hh19(rev)//HABILITAR tamaño 2
 			}
 			else
 			{	g00VARS[33][2] = 2;
-				r001B[4][9] = 1;//8***2->4 -- 4>9
+				mIr001B[9][4] = 1;//8***2->4 -- 4>9			
+				//r001B[4][9] = 1;//8***2->4 -- 4>9
 			}
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
@@ -8527,7 +7861,8 @@ function hh20(rev)//HABILITAR tamaño 1
 			}
 			else
 			{	g00VARS[33][2] = 1;
-				r001B[4][8] = 1;//7   3>8
+				mIr001B[8][4] = 1;//7   3>8			
+				//r001B[4][8] = 1;//7   3>8
 			}
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
@@ -8576,8 +7911,10 @@ function hh21(get,rev)//CAMBIAR o TRAER el color actual
 						iBody.style.setProperty('--cYel',wColor[i][1]);
 					}
 					for (var j = 1; j <= 4; j++)
-					{	r001A[j][19]=wColor[i][1+(j * 2)]+kTapaI[j][5];
-						r001Z[j][19]=wColor[i][2+(j * 2)];
+					{	mIr001A[19][j]=wColor[i][1+(j * 2)]+mIkTapaI[5][j];
+						//r001A[j][19]=wColor[i][1+(j * 2)]+kTapaI[j][5];
+						mIr001Z[19][j]=wColor[i][2+(j * 2)];
+						//r001Z[j][19]=wColor[i][2+(j * 2)];
 					}
 					i = wColor.length;//termina el for
 				}
@@ -8593,8 +7930,10 @@ function hh23()//DESHABILITAR lector de pantalla (mudo)
 		{	hOG(23);//mIS(23);
 			if(g00VARS[59][2])//lector on
 			{	g00VARS[59][2] = 0;
-				r001B[4][1] = 0;//r002B[4][6] = 0;
-				r001B[4][2] = 1;//r002B[4][7] = 1;
+				mIr001B[1][4] = 0;//mIr002B[6][4] = 0;			
+				//r001B[4][1] = 0;//r002B[4][6] = 0;
+				mIr001B[2][4] = 1;//mIr002B[7][4] = 1;			
+				//r001B[4][2] = 1;//r002B[4][7] = 1;
 			 	f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 			}
 		}
@@ -8603,8 +7942,10 @@ function hh24()//HABILITAR lector de pantalla (sonido)
 		{	hOU(24);//mIS(24);
 			if(!g00VARS[59][2])//lector off
 			{	g00VARS[59][2] = 1;
-				r001B[4][1] = 1;//r002B[4][6] = 1;
-				r001B[4][2] = 0;//r002B[4][7] = 0;
+				mIr001B[1][4] = 1;//mIr002B[6][4] = 1;			
+				//r001B[4][1] = 1;//r002B[4][6] = 1;
+				mIr001B[2][4] = 0;//mIr002B[7][4] = 0;			
+				//r001B[4][2] = 0;//r002B[4][7] = 0;
 				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 			}
 		}
@@ -8617,8 +7958,10 @@ function hh25()//DESHABILITAR i1 (sin Ingles de apoyo)
 				//////pendiente html tapa y habilitar estas lineas/////seniasUS.classList.add('cX');
 				//////pendiente html tapa y habilitar estas lineas/////bTapaC2.classList.add('cX');
 				//////pendiente html tapa y habilitar estas lineas/////bTapaD2.classList.add('cX');
-				r002B[4][3] = 0;
-				r002B[4][4] = 1;
+				mIr002B[3][4] = 0;
+				mIr002B[4][4] = 1;
+				//r002B[4][3] = 0;
+				//r002B[4][4] = 1;
 				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 			}
 		}
@@ -8631,8 +7974,10 @@ function hh26()//HABILITAR i1 (con Ingles de apoyo)
 				//////pendiente html tapa y habilitar estas lineas/////seniasUS.classList.remove('cX');
 				//////pendiente html tapa y habilitar estas lineas/////bTapaC2.classList.remove('cX');
 				//////pendiente html tapa y habilitar estas lineas/////bTapaD2.classList.remove('cX');
-				r002B[4][3] = 1;
-				r002B[4][4] = 0;
+				mIr002B[3][4] = 1;
+				mIr002B[4][4] = 0;
+				//r002B[4][3] = 1;
+				//r002B[4][4] = 0;
 				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 			}
 		}
@@ -8647,7 +7992,8 @@ function hh27(rev)//HABILITAR texto claro boton negro - b0027()	//HABILITAR text
 				{	g00VARS[34][2] = 0;//Texto blanco fondo negro
 					hh36();//L ESTILIZAR: texto blanco, botón negro, fondo claro	
 					hh85();//OCULTAR los botones de color de texto/fondo
-					r001B[4][18] = 1;//15     11>18
+					mIr001B[18][4] = 1;//15     11>18			
+					//r001B[4][18] = 1;//15     11>18
 					f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 				}
 			}
@@ -8664,7 +8010,8 @@ function hh28(rev)//HABILITAR texto negro, botón amarillo //b0028()	//HABILITAR
 					hh35();//L ESTILIZAR: texto negro, botón blanco, fondo oscuro
 					iBody.style.setProperty('--cblwh2','yellow');
 					hh85();//OCULTAR los botones de color de texto/fondo
-					r001B[4][15] = 1;//14     10>17  - - [17] = 1
+					mIr001B[15][4] = 1;//14     10>17  - - [17] = 1			
+					//r001B[4][15] = 1;//14     10>17  - - [17] = 1
 					f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 				}
 			}
@@ -8678,7 +8025,8 @@ function hh29(rev)//HABILITAR tamaño 3
 			}
 			else
 			{	g00VARS[33][2] = 3;
-				r001B[4][10] = 1;//9      5>10
+				mIr001B[10][4] = 1;//9      5>10			
+				//r001B[4][10] = 1;//9      5>10
 			}
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
@@ -8691,7 +8039,8 @@ function hh30(rev)//HABILITAR tamaño 4
 			}
 			else
 			{	g00VARS[33][2] = 4;
-				r001B[4][11] = 1;//10      6>11
+				mIr001B[11][4] = 1;//10      6>11			
+				//r001B[4][11] = 1;//10      6>11
 			}
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
@@ -8704,7 +8053,8 @@ function hh31(rev)//HABILITAR tamaño 5
 			}
 			else
 			{	g00VARS[33][2] = 5;
-				r001B[4][12] = 1;//11    7>12
+				mIr001B[12][4] = 1;//11    7>12			
+				//r001B[4][12] = 1;//11    7>12
 			}
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
@@ -8717,7 +8067,8 @@ function hh32(rev)//HABILITAR tamaño 6
 			}
 			else
 			{	g00VARS[33][2] = 6;   
-				r001B[4][13] = 1;//12    8>13
+				mIr001B[13][4] = 1;//12    8>13			
+				//r001B[4][13] = 1;//12    8>13
 			}
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
@@ -8730,7 +8081,8 @@ function hh33(rev)//HABILITAR tamaño 7
 			}
 			else
 			{	g00VARS[33][2] = 7;
-				r001B[4][14] = 1;//13    9>14
+				mIr001B[14][4] = 1;//13    9>14			
+				//r001B[4][14] = 1;//13    9>14
 			}
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
@@ -8768,8 +8120,10 @@ function hh36()//L ESTILIZAR: texto blanco, botón negro, fondo claro
 
 function hh45()//ACTIVAR fila de señas 
 		{	hOU(45);
-			r001B[4][28] = 0;//38
-			r001B[4][29] = 1;//39			
+			mIr001B[28][4] = 0;//38			
+			//r001B[4][28] = 0;//38
+			mIr001B[29][4] = 1;//39			
+			//r001B[4][29] = 1;//39			
 			g00VARS[19][2] = 1;
 			//iBody.style.setProperty('--altO','calc(var(--a)*0.7)');
 			//iBody.style.setProperty('--altS','calc(var(--a)*9.3)');
@@ -8779,8 +8133,10 @@ function hh45()//ACTIVAR fila de señas
 
 function hh46()//DESACTIVAR fila de señas		
 		{	hOU(46);
-			r001B[4][29] = 0;//39 
-			r001B[4][28] = 1;//38
+			mIr001B[29][4] = 0;//39			
+			//r001B[4][29] = 0;//39 
+			mIr001B[28][4] = 1;//38			
+			//r001B[4][28] = 1;//38
 			g00VARS[19][2] = 0;
 			//iBody.style.setProperty('--altO','4.9vh');
 			//iBody.style.setProperty('--altS','65.1vh');
@@ -8792,17 +8148,23 @@ function hh47()//DESACTIVAR o MOSTRAR el botón/hoja fila de señas//b0047()
 		{	hOL(47);//mIS(47);
 			if((g00VARS[11][2] == 0)||(g00VARS[11][2] == 4))//todos los modos o señas, mostrar botón fila de señas
 			{	if(g00VARS[19][2])//fila activada
-				{	r001B[4][29] = 1;//39
-					r001B[4][28] = 0;//38
+				{	mIr001B[29][4] = 1;//39			
+					//r001B[4][29] = 1;//39
+					mIr001B[28][4] = 0;//38			
+					//r001B[4][28] = 0;//38
 				}
 				else
-				{	r001B[4][29] = 0;//39
-					r001B[4][28] = 1;//38
+				{	mIr001B[29][4] = 0;//39			
+					//r001B[4][29] = 0;//39
+					mIr001B[28][4] = 1;//38			
+					//r001B[4][28] = 1;//38
 				}
 			}
 			else//ocultar botón fila de señas
-			{	r001B[4][29] = 0;//39
-				r001B[4][28] = 0;//38
+			{	mIr001B[29][4] = 0;//39			
+				//r001B[4][29] = 0;//39
+				mIr001B[28][4] = 0;//38			
+				//r001B[4][28] = 0;//38
 			}
 		}
 
@@ -8925,13 +8287,20 @@ function hh54()//AJUSTAR estilo audio
 
 function hh55()//b0055()	//OCULTAR todos los botones de tamaño
 		{	hOG(55);//mIS(55);
-			r001B[4][8] = 0;//7		3>8
-			r001B[4][9] = 0;//8		4>9
-			r001B[4][10] = 0;//9	5>10
-			r001B[4][11] = 0;//10	6>11
-			r001B[4][12] = 0;//11	7>12
-			r001B[4][13] = 0;//12	8>13
-			r001B[4][14] = 0;//13	9>14
+			mIr001B[8][4] = 0;// 7	3> 8			
+			//r001B[4][8]  = 0;// 7	3> 8
+			mIr001B[9][4] = 0;// 8	4> 9			
+			//r001B[4][9]  = 0;// 8	4> 9
+			mIr001B[10][4] = 0;// 9	5>10			
+			//r001B[4][10] = 0;// 9	5>10
+			mIr001B[11][4] = 0;//10	6>11			
+			//r001B[4][11] = 0;//10	6>11
+			mIr001B[12][4] = 0;//11	7>12			
+			//r001B[4][12] = 0;//11	7>12
+			mIr001B[13][4] = 0;//12	8>13			
+			//r001B[4][13] = 0;//12	8>13
+			mIr001B[14][4] = 0;//13	9>14			
+			//r001B[4][14] = 0;//13	9>14
 		}
 
 function hh56()//AJUSTAR estilo texto máximo
@@ -9129,82 +8498,50 @@ function hh62(anun)//CARGAR los guiones de la presentación AV Audio Visual es s
 			{	
 
 				var v10 = vis3[anun];//[1-2-3-etc...]v4 de HYHY
-				switch(r003B[1][v10][0])//El [0] indica que es el titular de ese anuncio, Tipo de ilet v10 = icono/imagen.. 0-3 TOMADO DE function f0012()
+				switch(mIr003B[v10][1][0])//El [0] indica que es el titular de ese anuncio, Tipo de ilet v10 = icono/imagen.. 0-3 TOMADO DE function f0012()
 				{	case 0://Imagen dinámicalet v10 = 
-
-
-						f0123(r003B[2][v10][0]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+						f0123(mIr003B[v10][2][0]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 						v9 = '<img src="'+kTapa0[bus][2]+'" class="c1x0">';
-					//	v9 = '<img src="'+kTapa0[r003B[2][v10][0]][2]+'" class="c1x0">';
 					break;
 					case 1://Icono dinámico
-						v9 = '<i class="'+kTapa1[r003B[2][v10][0]][2]+' cAjust8"></i>';
+						v9 = '<i class="'+kTapa1[mIr003B[v10][2][0]][2]+' cAjust8"></i>';
 					break;
 					case 2://Texto dinámico
-						v9 = '<div class="cAjust8">'+kTapa2[r003B[2][v10][0]][2]+'</div>';
+						v9 = '<div class="cAjust8">'+kTapa2[mIr003B[v10][2][0]][2]+'</div>';
 					break;
 					case 3://Imagen estática
-
-
-
-
-						f0123(r003B[2][v10][0]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+						f0123(mIr003B[v10][2][0]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 						v9 = '<img src="'+kTapa0[bus][2]+'" class="c1x0">';
-						//v9 = '<img src="'+kTapa0[r003B[2][v10][0]][2]+'" class="c1x0">';
 					break;
 					case 4://Video estático
 						v9 = '<div class=" "></div>';
 					break;
 				}
-				v0 += r003A[id][anun][0].charAt(0).toUpperCase() + r003A[id][anun][0].slice(1);//.toUpperCase();//AVISO local Carga el anuncio en mayusculas y local
-				v1 += r003A[id][anun][0];//.toUpperCase();//AVISO local Carga el anuncio en mayusculas y local
-				//v0 += r003A[2][anun][0].charAt(0).toUpperCase() + r003A[2][anun][0].slice(1);//.toUpperCase();//AVISO local Carga el anuncio en mayusculas y local
-				//v1 += r003A[2][anun][0];//.toUpperCase();//AVISO local Carga el anuncio en mayusculas y local
+				v0 += mIr003A[anun][id][0].charAt(0).toUpperCase() + mIr003A[anun][id][0].slice(1);//.toUpperCase();//AVISO local Carga el anuncio en mayusculas y local
+				v1 += mIr003A[anun][id][0];//.toUpperCase();//AVISO local Carga el anuncio en mayusculas y local
 			}
 			else//Se trata de la portada "bienvenido a NOMBRE DE LA COMUNIDAD"
 			{	f0001();//CONSEGUIR la hora local actual
-				
-				//v9 = '<i class="'+kTapa1[85][2]+' cAjust8"></i>';
 				f0123(dExt[3]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 				v9 = '<i class="'+kTapa1[83][2]+' cAjust8"></i>';//kTapa1[51][2] '<img src="'+''+'" class="c1x0">';
-			
-				//+++v9 = '<img src="files/chapinero.jpg" class="c1x0">';//FOTO DE TECNOPARQUE
-				//v0 += kTapaI[id][24] + r004A[id][7] +', '+ kLugar[id][1];
-				//v1 += kTapaI[id][24] + r004A[id][7] +', '+ kLugar[id][1];
-				
-				//v0 += kTapaI[id][24] + kComun[id][1];// +', '+ kLugar[id][1];
-				//v1 += kTapaI[id][24] + kComun[id][1];// +', '+ kLugar[id][1];
-				if(kControl[1][1])//Control formato hora nacional:   hora 00:00  /  00:00 hora
-				{	v0 += kTapaI[id][1].charAt(0).toUpperCase() + kTapaI[id][1].slice(1) +'<!--span class="cLTR"-->'+ miHora +'<!--/span-->';
-					v1 += kTapaI[id][1] + miHora;
-					//v0 += kTapaI[id][3] + kTapaI[id][1].charAt(0).toUpperCase() + kTapaI[id][1].slice(1) +'<!--span class="cLTR"-->'+ miHora +'<!--/span-->';
-					//v1 += kTapaI[id][3] + kTapaI[id][1] + miHora;
+				if(mIkControl[1][1])//Control formato hora nacional:   hora 00:00  /  00:00 hora
+				{	v0 += mIkTapaI[1][id].charAt(0).toUpperCase() + mIkTapaI[1][id].slice(1) +'<!--span class="cLTR"-->'+ miHora +'<!--/span-->';
+					v1 += mIkTapaI[1][id] + miHora;
 				}
 			}
 			
-
-
-
-
-
-
-
-
 			//aqui pasa la segunda vez..
 			iPreAV.innerHTML = v9;
 			g00VARS[24][2] = v1;//CARGAR EN g00VARS[24] EL GUIÓN LOCAL sin HTML
 			iNoti.innerHTML = '<div id="tNoti" class="cMarqu inner"><p id="tNopi" class="cIwhi"></p></div>';//Carga el anuncio de la marquesina en mayusculas
-			//iNoti.innerHTML = '<marquee id="tNoti" class="cMarqu" direction="left" scrollamount="'+ velo*speed*speed +'"></marquee>';//Carga el anuncio de la marquesina en mayusculas
 			tNopi.innerHTML = v0;
 			if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
 			{	if(anun > 0)//si anun <= 1 entonces..
-				{	v2 += r003A[1][anun][0].charAt(0).toUpperCase() + r003A[1][anun][0].slice(1)/*.toUpperCase()*/;//Carga el anuncio en mayusculas e ingles
+				{	v2 += mIr003A[anun][1][0].charAt(0).toUpperCase() + mIr003A[anun][1][0].slice(1)/*.toUpperCase()*/;//Carga el anuncio en mayusculas e ingles
 				}
 				else//Se trata de la portada EN INGLES "welcome to NOMBRE DE LA COMUNIDAD"
-				{	//v2 += kTapaI[1][24] + r004A[1][7] +', '+ kLugar[1][1];
-					//..v2 += kTapaI[1][24] + kComun[1][1];// +', '+ kLugar[1][1];
-					if(kControl[1][1])//Control formato hora internacional:   hora 00:00  /  00:00 hora
-					{	v2 += kTapaI[1][1].charAt(0).toUpperCase() + kTapaI[1][1].slice(1)/*.toUpperCase()*/+miHora;
+				{	if(mIkControl[1][1])//Control formato hora internacional:   hora 00:00  /  00:00 hora
+					{	v2 += mIkTapaI[1][1].charAt(0).toUpperCase() + mIkTapaI[1][1].slice(1)/*.toUpperCase()*/+miHora;
 					}
 				}
 				g00VARS[25][2] = v2;//CARGAR EN g00VARS[25] EL 'GUIÓN INTERNACIONAL':
@@ -9237,6 +8574,7 @@ function hh62(anun)//CARGAR los guiones de la presentación AV Audio Visual es s
 			{	f0026(v1,v2);//DECIR el anuncio uno (local) y darle el paso al anuncio dos de la TAPA
 			}			
 		}
+
 /*
 function hh63()//ACTUALIZAR la velocidad de la(s) marquesina(s)
 		{	hOG(63);//mIS(62);
@@ -9311,19 +8649,24 @@ function hh64(tam,rev)//REALIZAR acción o cambio de tamaño DEL VISOR
 			}
 			switch (g00VARS[64][2])
 			{	case 1:
-					r001B[4][30] = 1;
+					mIr001B[30][4] = 1;			
+					//r001B[4][30] = 1;
 				break;
 				case 2:
-					r001B[4][31] = 1;
+					mIr001B[31][4] = 1;			
+					//r001B[4][31] = 1;
 				break;
 				case 3:
-					r001B[4][32] = 1;
+					mIr001B[32][4] = 1;			
+					//r001B[4][32] = 1;
 				break;
 				case 4:
-					r001B[4][33] = 1;
+					mIr001B[33][4] = 1;			
+					//r001B[4][33] = 1;
 				break;
 				case 5:
-					r001B[4][34] = 1;
+					mIr001B[34][4] = 1;			
+					//r001B[4][34] = 1;
 				break;
 			}
 			hh70();//ajusta el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
@@ -9367,11 +8710,11 @@ function hh68()//HABILITAR visor tamaño 5
 */
 function hh69()//OCULTAR todos los botones de tamaño visor
 		{	hOG(69);
-			r001B[4][30] = 0;//40
-			r001B[4][31] = 0;//41
-			r001B[4][32] = 0;//42
-			r001B[4][33] = 0;//43
-			r001B[4][34] = 0;//44
+			mIr001B[30][4] = 0;//40			
+			mIr001B[31][4] = 0;//41			
+			mIr001B[32][4] = 0;//42			
+			mIr001B[33][4] = 0;//43			
+			mIr001B[34][4] = 0;//44			
 		}
 
 function hh70()//AJUSTAR el tamaño del visor, CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
@@ -9461,79 +8804,79 @@ function hh75()//ACTUALIZAR pasado de mAX
 
 function hh76()//OCULTAR velocidades del reproductor
 		{	hOG(76);
-			r001B[4][3] = 0;
-			r001B[4][4] = 0;
-			r001B[4][5] = 0;
-			r001B[4][6] = 0;
-			r001B[4][7] = 0;
+			mIr001B[3][4] = 0;			
+			mIr001B[4][4] = 0;			
+			mIr001B[5][4] = 0;			
+			mIr001B[6][4] = 0;			
+			mIr001B[7][4] = 0;			
 		}
 
 function hh77(rev)//AJUSTAR Velocidad lenta
 		{	hOG(77);
-			r001B[4][5] = 0;//ocultar 1.0
+			mIr001B[5][4] = 0;//ocultar 1.0			
 			if(rev)
 			{	g00VARS[44][2] = 1.5;
-				r001B[4][4] = 1;
+				mIr001B[4][4] = 1;			
 			}
 			else
 			{	g00VARS[44][2] = 0.75;//0.73 velocidad 0 - 3.6
-				r001B[4][6] = 1;
+				mIr001B[6][4] = 1;			
 			}
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
 function hh78(rev)//AJUSTAR Velocidad muy lenta
 		{	hOG(78);
-			r001B[4][6] = 0;//ocultar 0.75
+			mIr001B[6][4] = 0;//ocultar 0.75			
 			if(rev)
 			{	g00VARS[44][2] = 1;
-				r001B[4][5] = 1;
+				mIr001B[5][4] = 1;			
 			}
 			else
 			{	g00VARS[44][2] = 0.6;//0.46 velocidad 0 - 3.6
-				r001B[4][7] = 1;
+				mIr001B[7][4] = 1;			
 			}
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
 function hh79(rev)//AJUSTAR Velocidad muy rápida
 		{	hOG(79);
-			r001B[4][7] = 0;//ocultar 0.6
+			mIr001B[7][4] = 0;//ocultar 0.6			
 			if(rev)
 			{	g00VARS[44][2] = 0.75;
-				r001B[4][6] = 1;
+				mIr001B[6][4] = 1;			
 			}
 			else
 			{	g00VARS[44][2] = 2;//2.3 velocidad 0 - 3.6
-				r001B[4][3] = 1;
+				mIr001B[3][4] = 1;			
 			}
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
 function hh80(rev)//AJUSTAR Velocidad rápida
 		{	hOG(80);
-			r001B[4][3] = 0;//ocultar 2.0
+			mIr001B[3][4] = 0;//ocultar 2.0			
 			if(rev)
 			{	g00VARS[44][2] = 0.6;//0.6 velocidad 0 - 3.6
-				r001B[4][7] = 1;
+				mIr001B[7][4] = 1;			
 			}
 			else
 			{	g00VARS[44][2] = 1.5;//1.55 velocidad 0 - 3.6
-				r001B[4][4] = 1;
+				mIr001B[4][4] = 1;			
 			}
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
 function hh81(rev)//AJUSTAR Velocidad normal
 		{	hOG(81);
-			r001B[4][4] = 0;//ocultar 1.5
+			mIr001B[4][4] = 0;//ocultar 1.5			
 			if(rev)
 			{	g00VARS[44][2] = 2;//0.6 velocidad 0 - 3.6
-				r001B[4][3] = 1;
+				mIr001B[3][4] = 1;			
 			}
 			else
 			{	g00VARS[44][2] = 1;//velocidad 0 - 3.6
-				r001B[4][5] = 1;
+				mIr001B[5][4] = 1;			
 			}
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
@@ -9565,7 +8908,7 @@ function hh83(rev)//HABILITAR texto amarillo boton negro simil hh27()
 					hh36();//L ESTILIZAR: texto blanco, botón negro, fondo claro	
 					iBody.style.setProperty('--cblwh1','yellow');
 				 	hh85();//OCULTAR los botones de color de texto/fondo
-					r001B[4][16] = 1;//15     11>18
+					mIr001B[16][4] = 1;//15     11>18			
 					f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 				}
 			}
@@ -9581,7 +8924,7 @@ function hh84(rev)//HABILITAR texto negro botón blanco simil hh28()
 				{	g00VARS[34][2] = 3;
 					hh35();//Oscurecer el color del fondo/boton			
 					hh85();//OCULTAR los botones de color de texto/fondo
-					r001B[4][17] = 1;//14     10>17
+					mIr001B[17][4] = 1;//14     10>17			
 					f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 				}
 			}
@@ -9589,10 +8932,10 @@ function hh84(rev)//HABILITAR texto negro botón blanco simil hh28()
 
 function hh85()//OCULTAR botones de color de texto/botón
 		{	hOG(85);
-			r001B[4][15] = 0;
-			r001B[4][16] = 0;
-			r001B[4][17] = 0;
-			r001B[4][18] = 0;
+			mIr001B[15][4] = 0;			
+			mIr001B[16][4] = 0;			
+			mIr001B[17][4] = 0;			
+			mIr001B[18][4] = 0;			
 		}
 
 function hh86()//OCULTAR todos los marcos de color
@@ -9662,7 +9005,7 @@ function hh88(cod,rev)//REALIZAR acción o cambio de luz
 			}
 			else//0||undefined  Cambio de luz:
 			{	for (var i = 22; i >= 20; i--)
-				{	r001B[4][i] = 0;//ocultar todos los botones de luz
+				{	mIr001B[i][4] = 0;//ocultar todos los botones de luz			
 				}
 				if(rev)//Regresar
 				{	switch(g00VARS[32][2])
@@ -9693,13 +9036,13 @@ function hh88(cod,rev)//REALIZAR acción o cambio de luz
 				nUm = g00VARS[32][2];
 				switch(nUm)
 				{	case 1:
-						r001B[4][20] = 1;
+						mIr001B[20][4] = 1;			
 					break;
 					case 2:
-						r001B[4][21] = 1;
+						mIr001B[21][4] = 1;			
 					break;
 					case 3:
-						r001B[4][22] = 1;
+						mIr001B[22][4] = 1;			
 					break;
 				}
 				nUm = g00VARS[32][2];
@@ -9728,7 +9071,7 @@ function hh99()//VOLVER A CARGAR la página
 
 function hh100(rev)//CAMBIAR el idioma
 		{	hOU(100);
-			r002A[1][1] = orig[0];//CREO QUE NO HACE NADA!!! Recupera el string original del idioma ingles
+			mIr002A[1][1] = orig[0];//CREO QUE NO HACE NADA!!! Recupera el string original del idioma ingles
 			for (var i = 1; i < wIDI.length; i++)//Recorre el array de idiomas
 			{	if((wIDI[i][3] == g00VARS[27][2]))//Si ese idioma tiene el id del key actual, BINGO!! entonces..
 				{	if(rev)
@@ -9736,12 +9079,12 @@ function hh100(rev)//CAMBIAR el idioma
 						if(i == 1)//Si es la primer fila
 						{	g00VARS[27][2] = wIDI[wIDI.length - 1][3];//idi key de la última fila
 							g00VARS[67][2] = wIDI[wIDI.length - 1][4];//idi key de la última  fila				
-							r002A[1][1] = (wIDI.length - 1)+', '+wIDI[wIDI.length - 1][0];//traduccion al ingles del idioma
+							mIr002A[1][1] = (wIDI.length - 1)+', '+wIDI[wIDI.length - 1][0];//traduccion al ingles del idioma
 						}
 						else//No es la última fila
 						{	g00VARS[27][2] = wIDI[i - 1][3];//idi key de la siguiente fila
 							g00VARS[67][2] = wIDI[i - 1][4];//idi key de la siguiente fila
-							r002A[1][1] = (i - 1) +', '+wIDI[i - 1][0];//traduccion al ingles del idioma 
+							mIr002A[1][1] = (i - 1) +', '+wIDI[i - 1][0];//traduccion al ingles del idioma 
 						}
 					}
 					else
@@ -9749,12 +9092,12 @@ function hh100(rev)//CAMBIAR el idioma
 						if(i == wIDI.length - 1)//Si es la ultima fila
 						{	g00VARS[27][2] = wIDI[1][3];//idi key de la primera fila
 							g00VARS[67][2] = wIDI[1][4];//idi key de la primera fila				
-							r002A[1][1] = '1, '+wIDI[1][0];//traduccion al ingles del idioma
+							mIr002A[1][1] = '1, '+wIDI[1][0];//traduccion al ingles del idioma
 						}
 						else//No es la última fila
 						{	g00VARS[27][2] = wIDI[i + 1][3];//idi key de la siguiente fila
 							g00VARS[67][2] = wIDI[i + 1][4];//idi key de la siguiente fila
-							r002A[1][1] = (i + 1) +', '+wIDI[i + 1][0];//traduccion al ingles del idioma 
+							mIr002A[1][1] = (i + 1) +', '+wIDI[i + 1][0];//traduccion al ingles del idioma 
 						}
 					}
 					i = wIDI.length;//Termina el for: desactiva el permiso de seguir - PARE
@@ -9765,29 +9108,29 @@ function hh100(rev)//CAMBIAR el idioma
 
 function hh101(rev)//CAMBIAR la seña
 		{	hOU(101);
-			r002A[1][2] = orig[1];//Recupera el string original de la ASL (r002A[1][2])
+			mIr002A[2][1] = orig[1];//Recupera el string original de la ASL (mIr002A[2][1])
 			for (var i = 1; i < wSIGN.length; i++)//Recorre el array de señas
 			{	if((wSIGN[i][3] == g00VARS[67][2]))//Si esa seña tiene el id de la seña, entonces..
 				{	if(rev)
 					{	//regresar idApp en g00VARS[67][2]
 						if(i == 1)//Si es la primer fila
 						{	g00VARS[67][2] = wSIGN[wSIGN.length - 1][3];//idi key seña de la última fila
-							r002A[1][2] = (wSIGN.length - 1)+', '+wSIGN[wSIGN.length - 1][0];//traducción al ingles de la seña
+							mIr002A[2][1] = (wSIGN.length - 1)+', '+wSIGN[wSIGN.length - 1][0];//traducción al ingles de la seña
 						}
 						else//No es la primer fila
 						{	g00VARS[67][2] = wSIGN[i - 1][3];//idi key seña de la siguiente fila
-							r002A[1][2] = (i - 1) +', '+wSIGN[i - 1][0];//traducción al ingles de la seña
+							mIr002A[2][1] = (i - 1) +', '+wSIGN[i - 1][0];//traducción al ingles de la seña
 						}
 					}
 					else
 					{	//avanzar idApp en g00VARS[67][2]
 						if(i == wSIGN.length - 1)//Si es la ultima fila
 						{	g00VARS[67][2] = wSIGN[1][3];//idi key seña de la primera fila
-							r002A[1][2] = '1, '+wSIGN[1][0];//traducción al ingles de la seña
+							mIr002A[2][1] = '1, '+wSIGN[1][0];//traducción al ingles de la seña
 						}
 						else//No es la última fila
 						{	g00VARS[67][2] = wSIGN[i + 1][3];//idi key seña de la siguiente fila
-							r002A[1][2] = (i + 1) +', '+wSIGN[i + 1][0];//traducción al ingles de la seña
+							mIr002A[2][1] = (i + 1) +', '+wSIGN[i + 1][0];//traducción al ingles de la seña
 						}
 					}
 					i = wSIGN.length;//Termina el for: desactiva el permiso de seguir - PARE	

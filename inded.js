@@ -670,279 +670,372 @@ const 	o003 	=
 
 
 
-
-
-
-
 //======================================= INICIO DE LA BASE DE DATOS ===============
 //==================================================================================
-// o003* res3* r003* c003* rrr3* jAds jsAds
 
-//LA RUTA 3 ES LA BASE DE DATOS QUE SE DEBE PASAR AL SERVIDOR EN FORMATO JSON Y CUANDO SE SOLICITE DEBE MOSTRARSE EN EL NAVEGADOR
-//RUTA 3 - ANUNCIOS /INFORMACIÓN COMUNITARIA/  pública /Libro comunitario
-//const 	r003A  y r003B ver/buscar aquí al final en MONGODB
 
-//const o00#* GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios???  se puede quitar?????..
-/* */
-const o003A = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
-[1, ['', 'Here you can find out the information published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
-[2, ['', 'Aquí 99 podrás conocer la información publicada por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
-[3, ['', 'Retrouvez ici les informations publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Vacio']],
-[4, ['', '여기에서 지역 지도자들이 게시한 정보를 확인할 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['Vacio']]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Inicio mI:
+
+//RUTA 1 AJUSTES
+//RUTA 1 Ajustes1 SONIDO VELOVIDAD TAMAÑO COLOR Ajustar la sala
+//RUTA 1 modo???
+//AJUSTAR SONIDO VELOCIDAD TAMAÑO COLOR..
+const mIr001A =/**/[['Casillas', 1, 2, 3, 4],
+[1, 'window reader enabled, change','lector de ventana habilitado, cambiar','lecteur de fenêtre activé, changer','창 판독기 사용, 변경'],
+[2, 'window reader disabled, change','lector de ventana deshabilitado, cambiar','lecteur de fenêtre désactivé, changer','윈도우 리더 비활성화, 변경'],
+[3, '20, very fast speed, change','20, velocidad muy rápida, cambiar','20, vitesse très rapide, changer','20, 매우 빠른 속도, 변화'],
+[4, '14, fast speed, change','14, velocidad rápida, cambiar','14, vitesse rapide, changer','14, 빠른 속도 스위치'],
+[5, '10, normal speed, change','10, velocidad normal, cambiar','10, vitesse normale, changer','10, 정상 속도, 변경'],
+[6, '7, slow speed, change','7, velocidad lenta, cambiar','7, vitesse lent, changer','7, 느린 속도, 변화'],
+[7, '5, very slow speed, change','5, velocidad muy lenta, cambiar','5, vitesse très lente, changer','5, 매우 느린 속도, 변화'],
+[8, 'minimal letter, change','letra mínima, cambiar','lettre minimale, changer','최소 문자, 변경'],
+[9, 'small letter, change','letra pequeña, cambiar','petite lettre, changer','작은 글씨, 변경'],
+[10,'medium letter, change','letra mediana, cambiar','lettre moyenne, changer','중간 문자, 변경'],
+[11,'large letter, change','letra grande, cambiar','grande lettre, changer','큰 활자, 변화'],
+[12,'larger letter, change','letra más grande, cambiar','plus grande lettre, changer','더 큰 글꼴, 변경'],
+[13,'huge letter, change','letra enorme, cambiar','énorme lettre, changer','엄청난 글꼴, 변경'],
+[14,'max letter, change','letra máxima, cambiar','lettre maximale, changer','최대 문자, 변경'],
+[15,'black text on yellow background, change','texto negro sobre fondo amarillo, cambiar','texte noir sur fond jaune, changer','노란색 배경에 검정색 텍스트, 변경'],
+[16,'yellow text on black background, change','texto amarillo sobre fondo negro, cambiar','texte jaune sur fond noir, changer','검정색 배경에 노란색 텍스트, 변경'],
+[17,'black text on white background, change','texto negro sobre fondo blanco, cambiar','texte noir sur fond blanc, changer','흰색 배경에 검정색 텍스트, 변경'],
+[18,'white text on black background, change','texto blanco sobre fondo negro, cambiar','texte blanc sur fond noir, changer','검정색 배경에 흰색 텍스트, 변경'],
+[19,'','','',''],
+[20,'with light, change','con luz, cambiar','avec la lumière, changer','빛으로, 변경'],
+[21,'dark light, change','luz oscura, cambiar','lumiere obscure, changer','어두운 빛, 변경'],
+[22,'no light, change','sin luz, cambiar','lumière éteinte, changer','빛 없이, 변경'],
+[23,'','','',''],
+[24,'','','',''],
+[25,'','','',''],
+[26,'','','',''],
+[27,'','','',''],
+[28,'sign row disabled, change','fila de señas deshabilitada, cambiar','rangée d\'signe désactivé, changer','비콘 행 비활성화, 변경'],
+[29,'sign row enabled, change','fila de señas habilitada, cambiar','rangée d\'signe activée, changer','비콘 행 활성화, 변경'],
+[30,'very small images, change','imágenes muy pequeñas, cambiar','très petites images, changer','아주 작은 이미지, 변화'],
+[31,'small images, change','imágenes pequeñas, cambiar','petites images, changer','작은 이미지, 변화'],
+[32,'medium images, change','imágenes medianas, cambiar','images moyenne, changer','중간 이미지, 변경'],
+[33,'big images, change','imágenes grandes, cambiar','grandes images, changer','큰 이미지, 변경'],
+[34,'maximum images, change','imágenes máximas, cambiar','maximaux images, changer','최대 이미지, 변경'],
+[35,'','','',''],
+[36,'action, undo all adjustments made','acción, deshacer todos los ajustes realizados','action, annuler tous les ajustements effectués','작업, 모든 조정 실행 취소'],
+[37,'acción, recuperar los ajustes','acción, recuperar los ajustes','acción, recuperar los ajustes','acción, recuperar los ajustes']
 ];
-/**/
-
-/* * /
-const mIo003A =[['Casillas', 1, 2, 3, 4],
-['Head',['','Here you can find out the information published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'],['','Aquí podrás conocer la información publicada por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'],['','Retrouvez ici les informations publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"],['','여기에서 지역 지도자들이 게시한 정보를 확인할 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]],
-['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']]
-];
-/**/
-
+/*const 	r001A		= 	[	['Casillas..'	,1					,2				,3					,4					,5					],
+							[1				,'text mode'		,'Morse mode'	,'Braille mode'		,'signs mode'		,'mode tutorial'	],
+							[2				,'modo texto'		,'modo Morse'	,'modo Braille'		,'modo señas'		,'tutoríal de modo'	],
+							[3				,'mode texte'		,'mode Morse'	,'mode Braille'		,'mode signes'		,'tutoriel de mode'	]
+						];*/
 /*
-//GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios..
-const 	o003A		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
-							[1		,['Vacio']],
-							[2		,['Vacio']],
-							[3		,['Vacio']],
-							[4		,['Vacio']]
+const 	r001A		= 	[	['Casillas'	,1				,2			,3				,4				,5											,6												,7											,8											,9  								,10								,9												,10											,9										,10										,11								],
+							[1			,'text'			,'Morse'	,'Braille'		,'signs'		,'screen reader enabled, change'			,'screen reader disabled, change'				,'big buttons disabled, change'				,'big buttons enabled, change'				,'magnifier disabled, change' 		,'magnifier enabled, change' 	,'black text on light background, change'		,'light text on black background,'			,'white light enabled, change'  		,'yellow light enabled, change'  		,'multimedia, mode tutorial'	],
+							[2			,'texto'		,'Morse'	,'Braille'		,'señas'		,'lector de pantalla habilitado, cambiar'	,'lector de pantalla deshabilitado, cambiar'	,'botones grandes deshabilitados, cambiar'	,'botones grandes habilitados, cambiar'		,'lupa deshabilitada, cambiar' 		,'lupa habilitada, cambiar' 	,'texto negro sobre fondo claro, cambiar'		,'texto claro sobre fondo negro, cambiar'	,'luz blanca habilitada, cambiar'   	,'luz amarilla habilitada, cambiar' 	,'multimedia, tutoríal de modo'	],
+							[3			,'texte'		,'Morse'	,'Braille'		,'signes'		,'lecteur d\'écran activé, changer'			,'lecteur d\'écran désactivé, changer'			,'gros boutons désactivés, changer'			,'gros boutons activés, changer'			,'loupe désactivée, changer' 		,'loupe activée, changer' 		,'texte noir sur fond clair, changer'			,'texte clair sur fond noir, changer'		,'lumière blanche activée, changer' 	,'lumière jaune activée, changer'  		,'multimédia, tutoriel de mode'	]
 						];
 */
-
-//GUION BUSCANDO ANUNCIOS..
-//const res#* aquí__podrás GUION ANUNCIO VACIO 1/3 para cuando hay anuncios, ese texto es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios..
-const res3A = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
-[1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
-[2, ['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
-[3, ['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Vacio']],
-[4, ['', '여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['Vacio']]
-];
-
 /*
-//GUION BUSCANDO ANUNCIOS..
-const 	res3A		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
-							[1		,['Vacio']],
-							[2		,['Vacio']],
-							[3		,['Vacio']],
-							[4		,['Vacio']]
-						];
-*/
-
-//GUIONES ANUNCIOS  -- qué hace?? es sólo para guíon del texto???, se puede quitar??
-var r003A = [['Casillas', 'Head', 'Others'],
-[1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
-[2, ['', 'aquí tu podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
-[3, ['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Vacio']],
-[4, ['', '여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['Vacio']]
+const r001A =[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
+[1, 'window reader enabled, change', 'window reader disabled, change', '20, very fast speed, change', '14, fast speed, change', '10, normal speed, change', '7, slow speed, change', '5, very slow speed, change', 'minimal letter, change', 'small letter, change', 'medium letter, change', 'large letter, change', 'larger letter, change', 'huge letter, change', 'max letter, change', 'black text on yellow background, change', 'yellow text on black background, change', 'black text on white background, change', 'white text on black background, change', '', 'with light, change', 'dark light, change', 'no light, change', '', '', '', '', '', 'sign row disabled, change', 'sign row enabled, change', 'very small images, change', 'small images, change', 'medium images, change', 'big images, change', 'maximum images, change', '', 'action, undo all adjustments made', 'acción, recuperar los ajustes'],
+[2, 'lector de ventana habilitado, cambiar', 'lector de ventana deshabilitado, cambiar', '20, velocidad muy rápida, cambiar', '14, velocidad rápida, cambiar', '10, velocidad normal, cambiar', '7, velocidad lenta, cambiar', '5, velocidad muy lenta, cambiar', 'letra mínima, cambiar', 'letra pequeña, cambiar', 'letra mediana, cambiar', 'letra grande, cambiar', 'letra más grande, cambiar', 'letra enorme, cambiar', 'letra máxima, cambiar', 'texto negro sobre fondo amarillo, cambiar', 'texto amarillo sobre fondo negro, cambiar', 'texto negro sobre fondo blanco, cambiar', 'texto blanco sobre fondo negro, cambiar', '', 'con luz, cambiar', 'luz oscura, cambiar', 'sin luz, cambiar', '', '', '', '', '', 'fila de señas deshabilitada, cambiar', 'fila de señas habilitada, cambiar', 'imágenes muy pequeñas, cambiar', 'imágenes pequeñas, cambiar', 'imágenes medianas, cambiar', 'imágenes grandes, cambiar', 'imágenes máximas, cambiar', '', 'acción, deshacer todos los ajustes realizados', 'acción, recuperar los ajustes'],
+[3, 'lecteur de fenêtre activé, changer', 'lecteur de fenêtre désactivé, changer', '20, vitesse très rapide, changer', '14, vitesse rapide, changer', '10, vitesse normale, changer', '7, vitesse lent, changer', '5, vitesse très lente, changer', 'lettre minimale, changer', 'petite lettre, changer', 'lettre moyenne, changer', 'grande lettre, changer', 'plus grande lettre, changer', 'énorme lettre, changer', 'lettre maximale, changer', 'texte noir sur fond jaune, changer', 'texte jaune sur fond noir, changer', 'texte noir sur fond blanc, changer', 'texte blanc sur fond noir, changer', '', 'avec la lumière, changer', 'lumiere obscure, changer', 'lumière éteinte, changer', '', '', '', '', '', 'rangée d\'signe désactivé, changer', 'rangée d\'signe activée, changer', 'très petites images, changer', 'petites images, changer', 'images moyenne, changer', 'grandes images, changer', 'maximaux images, changer', '', 'action, annuler tous les ajustements effectués', 'acción, recuperar los ajustes'],
+[4, '창 판독기 사용, 변경', '윈도우 리더 비활성화, 변경', '20, 매우 빠른 속도, 변화', '14, 빠른 속도 스위치', '10, 정상 속도, 변경', '7, 느린 속도, 변화', '5, 매우 느린 속도, 변화', '최소 문자, 변경', '작은 글씨, 변경', '중간 문자, 변경', '큰 활자, 변화', '더 큰 글꼴, 변경', '엄청난 글꼴, 변경', '최대 문자, 변경', '노란색 배경에 검정색 텍스트, 변경', '검정색 배경에 노란색 텍스트, 변경', '흰색 배경에 검정색 텍스트, 변경', '검정색 배경에 흰색 텍스트, 변경', '', '빛으로, 변경', '어두운 빛, 변경', '빛 없이, 변경', '', '', '', '', '', '비콘 행 비활성화, 변경', '비콘 행 활성화, 변경', '아주 작은 이미지, 변화', '작은 이미지, 변화', '중간 이미지, 변경', '큰 이미지, 변경', '최대 이미지, 변경', '', '작업, 모든 조정 실행 취소', 'acción, recuperar los ajustes']
 ];
-
-/*
-var 	r003A		=[	['Casillas'	],
-							[1		,['Vacio']],
-							[2		,['Vacio']],
-							[3		,['Vacio']],
-							[4		,['Vacio']]
-						];
 */
-
-
-//GUIONES HAY ANUNCIOS
-//const c00#* aquí si .. GUION ANUNCIO VACIO 1/3 para cuando hay anuncios, el "chorizo de todos los contenidos ampliados"  los primeros contenidos de la localidad se puede quitar dado que es el mismo res3A?????..
-var c003A = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
-[1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Participate this May 27 in the Accountability of the Local Mayor of Puente Aranda at the Parque Polideportivo El Jazmín', 'located at 1 G street number 41 A 39, at 9:00, it is an opportunity for citizens to learn about public management and to ask questions and make comments about it', 'and participate as observers of the management carried out by the Local Mayor\'s Office of Puente Aranda'], ['Are you a female caregiver or victim of violence?, we invite you to register at the Manzana del Cuidado de Puente Aranda at calle 1 b number: 57_51, or call the number 313-8699-260, e-mail: imora@sdmujer.gov.co', 'In the Manzana del Cuidado you can train with SENA, learn to create your own business, enjoy physical activity classes, bike school, and more', 'while the elderly and people with disabilities who are under your care are cared for by caregivers from the Mayor\'s Office'], ['Do you have an emergency? Call 123', '123 is the telephone line that gathers all the security and emergency numbers: Police, Mobility, Fire, Risk Management and Ministry of Health'], ['Are you a victim of violence against women?, call 123, 01-8001-12137, or WhatsApp 300-7551-846, and request the accompaniment of the purple patrol', 'With the purple patrol, women who are victims of violence can receive security, guidance, help and prevention'], ['Invitation to boys, girls and young people to musical training', 'with the National Batuta Foundation and being part of the local Orchestral Center'], ['If you are between 18 to 28 years old, we invite you to be part of the Parceros Por Bogotá program, which includes courses, city activities and the possibility of receiving 500,000 pesos per month.', 'We invite you to register on Friday, May 19, place: Parque Dalias, 4th street number 54-01, Galán neighborhood; Time: 15:00 to 17:00'], ['Local Impulse delivers between 1 to 3 million pesos to strengthen and grow local businesses', 'Register now at https://bit.ly/ImpulsoLocal or visit https://www.bogotalocal.gov.co/bogotaproductiva.html']],
-[2, ['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Participa este 27 de mayo en la Rendición de Cuentas de la Alcaldía Local de Puente Aranda en el Parque Polideportivo El Jazmín', 'ubicado en la calle 1 G número 41 A 39, a las 9:00, es una oportunidad para que los ciudadanos conozcan la gestión pública y puedan hacer preguntas y comentarios sobre la misma', 'y participar como veedores de la gestión que realiza la Alcaldía Local de Puente Aranda'], ['¿Eres mujer cuidadora o víctima de la violencia?, te invitamos a incribirte en la Manzana del Cuidado de Puente Aranda en la calle 1 b número: 57_51, o llamar al número 313-8699-260, e-mail: imora@sdmujer.gov.co', 'en la Manzana del Cuidado podrás capacitarse con el SENA, aprender a crear su propio negocio, disfrutar clases de actividad física, escuela de la bici, y más', 'mientras que las personas mayores y las personas con discapacidad que están bajo su cuidado son cuidadas por cuidadoras de la Alcaldía'], ['¿Tienes una emergencia?, llama al 123', 'el 123 es la línea telefónica que reúne todos los números de seguridad y emergencias: Policía, Movilidad, Bomberos, Gestión de Riesgos y Secretaría de Salud'], ['¿Eres víctima de violencia contra las mujeres?, llama al 123, al 01-8001-12137, o al WhatsApp 300-7551-846, y solicita el acompañamiento de la patrulla púrpura', 'con la patrulla púrpura las mujeres que sean víctimas de violencia pueden recibir seguridad, orientación, ayuda y prevención'], ['Invitación a niños, niñas y jóvenes de la localidad a la formación musical', 'con La Fundación Nacional Batuta y ser parte del Centro Orquestal de la localidad'], ['Si tienes entre 18 a 28 años, te invitamos a ser parte del programa Parceros Por Bogotá, incluye cursos,  actividades de ciudad y la posibilidad de recibir 500 mil pesos al mes', 'te invitamos a inscribirte el viernes 19 de mayo, lugar: Parque Dalias, calle 4 número 54-01, barrio Galán; Hora: 15:00 a 17:00'], ['Impulso Local entrega entre 1 a 3 millones de pesos para fortalecer y hacer crecer los emprendimientos locales', 'Regístrate ahora en https://bit.ly/ImpulsoLocal o visita https://www.bogotalocal.gov.co/bogotaproductiva.html']],
-[3, ['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Participez ce 27 mai à la Responsabilité du maire local de Puente Aranda au Parque Polideportivo El Jazmín', 'situé au numéro de rue 1 G 41 A 39, à 9h00, c\'est l\'occasion pour les citoyens de s\'informer sur la gestion publique, de poser des questions et de faire des commentaires à son sujet', 'et participer en tant qu\'observateurs de la gestion effectuée par le bureau du maire local de Puente Aranda'], ["Êtes-vous une femme aidante ou victime de violence?, nous vous invitons à vous inscrire à la Manzana del Cuidado de Puente Aranda à calle 1 b numéro: 57_51, ou appelez le numéro 313-8699-260, e-mail: imora@sdmujer.gov.co", "Dans la Manzana del Cuidado, vous pouvez vous entraîner avec SENA, apprendre à créer votre propre entreprise, profiter de cours d'activité physique, d'une école de vélo, et plus encore", "tandis que les personnes âgées et les personnes handicapées dont vous avez la charge sont pris en charge par les soignants de la mairie"], ['Vous avez une urgence, appelez le 123', 'Le 123 est la ligne téléphonique qui regroupe tous les numéros de sécurité et d\'urgence : Police, Mobilité, Pompiers, Gestion des Risques et Ministère de la Santé'], ['Êtes-vous victime de violence faite aux femmes?, appelez le 123, 01-8001-12137, ou WhatsApp 300-7551-846, et demandez l\'accompagnement de la patrouille violette', 'Avec la patrouille violette, les femmes victimes de violence peuvent recevoir sécurité, accompagnement, aide et prévention'], ['Invitation aux garçons, filles et jeunes à la formation musicale', 'avec la Fondation Nationale Batuta et faisant partie du Centre Orchestral local'], ['Si vous avez entre 18 et 28 ans, nous vous invitons à faire partie du programme Parceros Por Bogotá, qui comprend des cours, des activités de la ville et la possibilité de recevoir 500 000 pesos par mois,', 'Nous vous invitons à vous inscrire le vendredi 19 mai, lieu : Parque Dalias, 4e rue numéro 54-01, quartier Galán ; Heure : 15h00 à 17h00'], ['Local Impulse fournit entre 1 et 3 millions de pesos pour renforcer et développer les entreprises locales', 'Inscrivez-vous maintenant sur https://bit.ly/ImpulsoLocal ou visitez https://www.bogotalocal.gov.co/bogotaproductiva.html']],
-[4, ['', '여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"], ['5월 27일 El Jazmín 스포츠 센터 공원에 있는 Puente Aranda 지역 시장실의 책임에 참여하십시오', '1G번지 41A 39번지 9:00시 시민이 공공경영에 대해 배우고 이에 대해 질문하고 의견을 개진할 수 있는 기회', 'Puente Aranda 지역 시장실에서 수행하는 관리의 참관인으로 참여'], ["당신은 여성 간병인이거나 폭력의 피해자입니까?Manzana del Cuidado de Puente Aranda에서 calle 1 b 번호: 57_51,로 등록하거나 313-8699-260으로 전화하십시오, 이메일: imora@sdmujer.gov.co", "Manzana del Cuidado에서는 SENA와 함께 훈련하고, 자신만의 비즈니스를 만드는 방법을 배우고, 신체 활동 수업, 자전거 학교 등을 즐길 수 있습니다", "당신이 돌보고 있는 노인과 장애인은 시장실에서 돌보고 있습니다"], ['급한 일이 있으신가요? 123번으로 전화하세요', '123은 경찰, 교통, 소방, 위험 관리 및 보건부와 같은 모든 보안 및 비상 전화 번호를 통합하는 전화선입니다'], ['당신은 여성에 대한 폭력의 피해자입니까?, 123, 01-8001-12137, 또는 WhatsApp 300-7551-846, 으로 전화하여 보라색 순찰대 동행을 요청하십시오', '보라색 순찰을 통해 폭력의 피해자인 여성들은 안전, 지도, 도움 및 예방을 받을 수 있습니다'], ['소년, 소녀, 청소년을 음악 교육에 초대', 'National Batuta Foundation과 지역 오케스트라 센터의 일원이 됨'], ['18세에서 28세 사이인 경우 코스, 도시 활동 및 매월 500,000페소를 받을 수 있는 가능성이 포함된 Parceros Por Bogotá 프로그램에 귀하를 초대합니다', '5월 19일 금요일, 장소: Parque Dalias, 4번가 54-01, Galán 지역; 시간: 15:00~17:00'], ['Local Impulse는 지역 비즈니스를 강화하고 성장시키기 위해 100만 ~ 300만 달러의 페소를 제공합니다', '지금 https://bit.ly/ImpulsoLocal에 등록하거나 https://www.bogotalocal.gov.co/bogotaproductiva.html을 방문하세요']]
+//CONTROLAR ajustes
+const mIr001B =/**/[['Recursos/ Casillas..', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function, vacio=NO PERMITIDA(INFO)', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+[1, 1,37,23,1,0,0,0,0,0,0],
+[2, 1,38,24,0,0,0,0,0,0,1],
+[3, 2,20,80,0,0,0,0,0,0,0],
+[4, 2,19,81,0,0,0,0,0,0,0],
+[5, 2,18,77,1,0,0,0,0,0,0],
+[6, 2,17,78,0,0,0,0,0,0,0],
+[7, 2,16,79,0,0,0,0,0,0,0],
+[8, 1,47,19,1,0,0,0,0,0,0],
+[9, 1,47,29,0,0,0,0,0,0,0],
+[10,1,47,30,0,0,0,0,0,0,0],
+[11,1,47,31,0,0,0,0,0,0,0],
+[12,1,47,32,0,0,0,0,0,0,0],
+[13,1,47,33,0,0,0,0,0,0,0],
+[14,1,47,20,0,0,0,0,0,0,0],
+[15,1,29,83,0,0,0,0,0,0,0],
+[16,1,29,84,0,0,0,0,0,0,0],
+[17,1,29,27,1,0,0,0,0,0,0],
+[18,1,29,28,0,0,0,0,0,0,0],
+[19,1,65,21,1,0,0,0,0,0,0],
+[20,1,30,88,1,0,0,0,0,0,0],
+[21,1,30,88,0,0,0,0,0,0,0],
+[22,1,30,88,0,0,0,0,0,0,0],
+[23,0,0 ,0 ,0,0,0,0,0,0,0],
+[24,0,0 ,0 ,0,0,0,0,0,0,0],
+[25,0,0 ,0 ,0,0,0,0,0,0,0],
+[26,0,0 ,0 ,0,0,0,0,0,0,0],
+[27,0,0 ,0 ,0,0,0,0,0,0,0],
+[28,2,22,45,1,0,0,0,0,0,0],
+[29,1,41,46,0,0,0,0,0,0,0],
+[30,1,60,64,0,0,0,0,0,0,0],
+[31,1,60,64,0,0,0,0,0,0,0],
+[32,1,60,64,0,0,0,0,0,0,0],
+[33,1,60,64,1,0,0,0,0,0,0],
+[34,1,60,64,0,0,0,0,0,0,0],
+[35,1,0 ,0 ,0,0,0,0,0,0,0],
+[36,1,67,87,1,0,0,0,0,0,0],
+[37,1,15,6 ,0,0,0,0,0,0,0]
 ];
-/*
-																																																																																																																																																																																																																																																																																																																																																																																																							,2													,3																			,4													,5																,6		   			8												,9																	,10																	,11						],
-,'on this website you will find information accessible through seven modes'		,'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom'		,'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back'					,'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward'		,'To enable navigation buttons on a physical keyboard, turn on caps lock button'										,'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab']																			
-,'en este sitio web encontrará información accesible a través de siete modos'	,'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo'		,'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder'	,'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar'	,'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas'				,'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador']	
-,"sur ce site vous trouverez des informations accessibles à travers sept modes"	,"Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas"		,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer"		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]							
-,"이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다"						,"탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다."											,"왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다."																	,"오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다."																	,"실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오."																	,"사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]																																		
-
-,'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces'					,'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand'						 ,''	,''		,''		,''
-,'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras'	 			,'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda' ,''	,''		,''		,''
-,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"		 ,''	,''		,''		,''
-,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"		 ,''	,''		,''		,''
-
-//GUIONES HAY ANUNCIOS 
-const 	c003A		=[	['Casillas'	,1																																																																													,2																																																																												,3																				,4																				,5],
-							[1			,['participate this Sunday, January 29, in an ecological walk in Ciudad Bolívar, IDRD, invites you'	,'Be part of our ecological walks, and discover places that will help you connect with nature.'							,'This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena'	]	,['Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m.'	,'Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70'		,'Free registration, more information at www.idrd.gov.co and on our social networks' 		]	,['invitation to sports event, physical activity, blah, blah, blah, blah']		,['invitation to General Assembly, blah, blah, blah'	,'abece 1'	,'abece 2']	,['open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country'								,'Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls.']					],
-							[2			,['participa este domingo 29 de enero en una caminata ecológica en Ciudad Bolívar, IDRD, te invita'	,'Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza.'			,'Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena'			]	,['Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m.'		,'Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70'	,'Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales'	] 	,['invitación a evento deportivo, actividad física, bla, bla, bla, bla']		,['invitación a Asamblea General, bla, bla, bla' 		,'abece 1'	,'abece 2']	,['convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país'									,'Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias.']	],
-							[3			,['participez ce dimanche 29 janvier à une promenade écologique à Ciudad Bolívar, IDRD vous invite'	,'Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature.','Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena'   	]	,["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		,"Point de rencontre : Devant l'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscription gratuite, plus d'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	]	,['invitation à un événement sportif, activité physique, bla, bla, bla, bla']	,['invitation à l\'Assemblée générale, bla, bla, bla'	,'abece'	,'abece']	,['appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays'	,'Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels.']	],
-							[4			,['1월 29일 일요일, IDRD의 Ciudad Bolívar에서 열리는 생태 산책에 여러분을 초대합니다.'							,'생태 산책에 참여하고 자연과 연결하는 데 도움이 되는 장소를 발견하세요.'																,'이번 일요일 약속은 Ciudad Bolívar, Casona 및 Sierra Morena에 있습니다.'   			]	,["Ciudad Bolívar, Casona 및 Sierra Morena를 하이킹하십시오. 1월 29일 일요일 오전 9시 ~ 오전 11시"			,"만남의 장소: Francisco José de Caldas District University 앞, calle 68 bis A sur #49F-70."						,"Inscription gratuite, plus d'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	]	,['스포츠 행사 초대, 신체 활동, 어쩌구 저쩌구 어쩌구 저쩌구']								,['총회 초대, 어쩌구 저쩌구'									,'abece'	,'abece']	,['국내 대학생, 교사, 여성, 장애인, 기업 및 기업가를 대상으로 정보통신부가 공개 모집'																												,'Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels.']	]
-						];
-*/
-
-//IMAGEN NO hay anuncios..
-const o003Z = [['Casillas', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
-[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['Satellite']],
-[2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['Satelite']],
-[3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['Satellite']],
-[4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['위성']]
-];
-
-/*
-//IMAGEN NO hay anuncios..
-const 	o003Z		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
-							[1		,['Satellite']],
-							[2		,['Satelite']],
-							[3		,['Satellite']],
-							[4		,['위성']]
-						];
-*/
-
-//IMAGEN BUSCANDO ANUNCIOS
-const res3Z = [['Casillas', 'Head', 'Others'],
-[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['Moving satellite']],
-[2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['Satélite en movimiento']],
-[3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['satellite en mouvement']],
-[4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['움직이는 위성']]
-];
-
-/*
-//IMAGEN BUSCANDO ANUNCIOS
-const 	res3Z		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
-							[1		,['Moving satellite']],
-							[2		,['Satélite en movimiento']],
-							[3		,['Satellite en mouvement']],
-							[4		,['움직이는 위성']]
-						];
-*/
-
-//IMAGENES DE ANUNCIOS
-var r003Z = [['Casillas', 'Head', 'Others'],
-[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['Moving satellite']],
-[2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['Satélite en movimiento']],
-[3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['satellite en mouvement']],
-[4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['움직이는 위성']]
-];
-
-/*
-//IMAGENES DE ANUNCIOS
-var 	r003Z		=[	['Casillas'	],
-							[1		,['Moving points']],
-							[2		,['Satélite en movimiento']],
-							[3		,['satellite en mouvement']],
-							[4		,['움직이는 위성']]
-						];
-*/
-
-//IMAGENES HAY ANUNCIOS
-var c003Z = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
-[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['smiling woman', 'smiling woman', 'smiling woman'], ['Hike Ciud', 'Meeting ', 'Free '], ['logo 123', 'logo 123'], ['purple patrol drawing', 'purple patrol drawing'], ['invitation ', 'abece 1'], ['young man smiling', 'young man smiling'], ['emprendimiento', 'empre2']],
-[2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['mujer sonriente', 'mujer sonriente', 'mujer sonriente'], ['Bus de la alcaldía', 'Actividad física', 'Mujer cuidando una niña'], ['logo 123', 'logo 123'], ['dibujo de la patrulla púrpura', 'dibujo de la patrulla púrpura'], ['niños y jovenes tocando música', 'niños y jovenes tocando música'], ['Joven sonriendo', 'Joven sonriendo'], ['emprendedora', 'emprendedora']],
-[3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['femme souriante', 'femme souriante', 'femme souriante'], ["Randonnée ", "Point de", "Inscr"], ['logo 123', 'logo 123'], ['dessin de patrouille violette', 'dessin de patrouille violette'], ['invitation ', 'abece'], ['jeune homme souriant', 'jeune homme souriant'], ['emprendimiento', 'empre2']],
-[4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['웃는 여자', '웃는 여자', '웃는 여자'], ["Ciudad ", "만남의 장소", "Inscr"], ['로고 123', '로고 123'], ['보라색 순찰 그림', '보라색 순찰 그림'], ['총회 초대,   ', 'abece'], ['웃는 청년', '웃는 청년'], ['emprendimiento', 'empre2']]
-];
-
-/*
-//IMAGENES HAY ANUNCIOS
-const 	c003Z		=[	['Casillas'		,1																																																													,2																																																																												,3																				,4																					,5],
-							[1			,['person walking up the mountain'		,'Be part of our ecological walks, and discover places that will help you connect with nature.'							,' This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena.'	]	,['Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m.'	,' Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70.'	,'Free registration, more information at www.idrd.gov.co and on our social networks' 		]	,['invitation to sports event, physical activity, blah, blah, blah, blah']		,['invitation to General Assembly, blah, blah, blah, blah', 'abece 1','abece 2']	,['open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country'								,'Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls.']					],
-							[2			,['persona caminando por la montaña'	,'Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza.'			,'Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena.'			]	,['Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m.'		,'Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70.'	,'Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales'	] 	,['invitación a evento deportivo, actividad física, bla, bla, bla, bla']		,['invitación a Asamblea General, bla, bla, bla, bla' ,'abece 1','abece 2']			,['convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país'									,'Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias.']	],
-							[3			,['personne qui monte la montagne'		,'Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature.','Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena.'   ]	,["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre : Devant l'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	]	,['invitation à un événement sportif, activité physique, bla, bla, bla, bla']	,['invitation à l\'Assemblée générale, bla, bla, bla, bla','abece','abece']			,['appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays'	,'Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels.']	],
-							[4			,['산을 오르는 사람'						,'Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature.','Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena.'   ]	,["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre : Devant l'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	]	,['invitation à un événement sportif, activité physique, bla, bla, bla, bla']	,['invitation à l\'Assemblée générale, bla, bla, bla, bla','abece','abece']			,['appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays'	,'Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels.']	]
-						];
-*/
-
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
+/*const r001B =[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
+['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+['2 id de la Imag, Icon o Texto', 37, 38, 20, 19, 18, 17, 16, 47, 47, 47, 47, 47, 47, 47, 29, 29, 29, 29, 65, 30, 30, 30, 0, 0, 0, 0, 0, 22, 41, 60, 60, 60, 60, 60, 0, 67, 15],
+['3 onclick function, vacio=NO PERMITIDA(INFO)', 23, 24, 80, 81, 77, 78, 79, 19, 29, 30, 31, 32, 33, 20, 83, 84, 27, 28, 21, 88, 88, 88, 0, 0, 0, 0, 0, 45, 46, 64, 64, 64, 64, 64, 0, 87, 6],
+['4 Visible 1:SI 0:no', 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['6 id Video([5]1) o id foto([5]0/2)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['7 id Texto Icono', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['8 ids Iconos Capa1', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['9 ids Iconos Capa2', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];*/
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
 //['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
 //['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
 //['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
-
-//CONTROL ANUNCIO VACIO 3/3 para cuando no hay anuncios..
-const o003B = [['Recursos/ Casillas..', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
-['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [1]],
-['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [82]],//82 83 54
-['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0],
-['4 Visible 1:SI 0:no', 1, 1],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['7 id Texto Icono', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['8 ids Iconos Capa1', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['9 ids Iconos Capa2', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0]]
-];
-
 /*
-//CONTROL ANUNCIO VACIO 3/3 para cuando no hay anuncios..
-const 	o003B		=[		['Recursos/ Casillas..'										],//la D es de default cuando no hay ningun anuncio
-							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[1]],
-							['2 id de la Imag, Icon o Texto'							,[82]],//82 83 54
-							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0],
-							['4 Visible 1:SI 0:no'										,1],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0]],
-							['6 id Video([5]1) o id foto([5]0/2)'						,[0]],
-							['7 id Texto Icono'											,[0]],
-							['8 ids Iconos Capa1'										,[0]],
-							['9 ids Iconos Capa2'										,[0]],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
+ANTESconst 	r001B	=[	['Recursos/ Casillas..'							,1	,2	,3	,4	,5	,6	,7  ,8 	,9 	,10 ,11 ,12 ,13 ,14	,15	,16	,17	,18	,19	,20	,21	,22	,23	,24	,25	,26	,27	,28	,29	],
+							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'		,1	,1	,1  ,1  ,1  ,1  ,1  ,1  ,1  ,1	,1	,1	,1	,1	,1	,1	,1	,1	,1	,1	,1	,2	,1	,1	,1	,1	,1	,1	,1	],
+							['2 id de la Imag, Icon o Texto'				,37	,38	,47 ,47 ,47 ,47 ,47 ,47 ,47 ,29	,29	,39	,39	,39	,39	,39	,39	,39	,39	,30	,30	,22	,41	,60	,60	,60	,60	,60	,9	],//35-31,34-36
+							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,23	,24	,19 ,29 ,30 ,31 ,32 ,33 ,20 ,27	,28	,37	,38	,39	,40	,41	,42	,43	,44	,21	,22	,45	,46	,65	,66	,67	,68	,64	,11	],
+							['4 Visible 1:SI 0:no'							,1	,0	,1  ,0  ,0  ,0  ,0  ,0  ,0  ,1	,0	,0	,0	,0	,0	,1	,0	,0	,0	,1	,0	,1	,0	,1	,0	,0	,0	,0	,0	],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,0	,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
+							['6 id Video([5]1) o id foto([5]0/2)'			,0	,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
+							['7 id Texto Icono'								,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
+							['8 ids Iconos Capa1'							,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
+							['9 ids Iconos Capa2'							,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	]
 						];
 */
-
-//CONTROL BUSCANDO ANUNCIOS..
-const res3B = [['Recursos/ Casillas..', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
-['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [1]],
-['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [84]],//82 83 54
-['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0],
-['4 Visible 1:SI 0:no', 1, 1],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['7 id Texto Icono', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['8 ids Iconos Capa1', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['9 ids Iconos Capa2', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0]]
-];
-
 /*
-//CONTROL BUSCANDO ANUNCIOS..
-const 	res3B		=[		['Recursos/ Casillas..'										],//la D es de default cuando no hay ningun anuncio
-							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[1]],
-							['2 id de la Imag, Icon o Texto'							,[84]],//82 83 54
-							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0],
-							['4 Visible 1:SI 0:no'										,1],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0]],
-							['6 id Video([5]1) o id foto([5]0/2)'						,[0]],
-							['7 id Texto Icono'											,[0]],
-							['8 ids Iconos Capa1'										,[0]],
-							['9 ids Iconos Capa2'										,[0]],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
-						];
+const r001C = [['idLangSign', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+[1, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]],
+[2, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]],
+[3, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]],
+[4, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]]
+];
+*/
+//DESCRIBIR ajustes texto alternativo para imagen
+//texto alternativo para imagen
+const mIr001Z =/**/[['Casillas', 1, 2, 3, 4],
+[1, 'window reader enabled, change','icono de parlante sonando','lecteur de fenêtre activé, changer','lecteur de fenêtre activé, changer'],
+[2, 'window reader disabled, change','icono de parlante deshabilitado','lecteur de fenêtre désactivé, changer','lecteur de fenêtre désactivé, changer'],
+[3, '20','20','20','20'],
+[4, '14','14','14','14'],
+[5, '10','10','10','10'],
+[6, '7','7','7','7'],
+[7, '5','5','5','5'],
+[8, 'minimal text, change','icono altura del texto','texte minimal, changer','texte minimal, changer'],
+[9, 'small text, change','icono altura del texto','petit texte, changer','petit texte, changer'],
+[10,'medium text, change','icono altura del texto','texte moyen, changer','texte moyen, changer'],
+[11,'large text, change','icono altura del texto','gros texte, changer','gros texte, changer'],
+[12,'larger text, change','icono altura del texto','texte plus grand, changer','texte plus grand, changer'],
+[13,'huge text, change','icono altura del texto','énorme texte, changer','énorme texte, changer'],
+[14,'max text, change','icono altura del texto','texte maximum, changer','texte maximum, changer'],
+[15,'black text on yellow background, change','texto negro sobre fondo amarillo','texte noir sur fond jaune, changer','texte noir sur fond jaune, changer'],
+[16,'yellow text on black background, change','texto amarillo sobre fondo negro','texte jaune sur fond noir, changer','texte jaune sur fond noir, changer'],
+[17,'black text on white background, change','texto negro sobre fondo blanco','texte noir sur fond blanc, changer','texte noir sur fond blanc, changer'],
+[18,'white text on black background, change','texto blanco sobre fondo negro','texte blanc sur fond noir, changer','texte blanc sur fond noir, changer'],
+[19,'','','',''],
+[20,'light bulb','bombillo','ampoule','ampoule'],
+[21,'light bulb','bombillo','ampoule','ampoule'],
+[22,'no image','sin imagen','pas d\'image','pas d\'image'],
+[23,'','','',''],
+[24,'','','',''],
+[25,'','','',''],
+[26,'','','',''],
+[27,'','','',''],
+[28,'sign row disabled, change','serie interrumpida','rangée d\'signe désactivé, changer','rangée d\'signe désactivé, changer'],
+[29,'sign row enabled, change','icono rollo de pelicula','rangée d\'signe activée, changer','rangée d\'signe activée, changer'],
+[30,'minimal signs, change','icono de imagen','signes minimes, changer','signes minimes, changer'],
+[31,'small signs, change','icono de imagen','petits signes, changer','petits signes, changer'],
+[32,'medium signs, change','icono de imagen','signes moyens, changer','signes moyens, changer'],
+[33,'big signs, change','icono de imagen','grands signes, changer','grands signes, changer'],
+[34,'maximum signs, change','icono de imagen','signes maximaux, changer','signes maximaux, changer'],
+[35,'','','',''],
+[36,'undo all changes','icono de borrador','annuler toutes les modifications','annuler toutes les modifications'],
+[37,'reloj de arena','reloj de arena','reloj de arena','reloj de arena']
+];
+/*const r001Z =[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
+[1, 'window reader enabled, change', 'window reader disabled, change', '20', '14', '10', '7', '5', 'minimal text, change', 'small text, change', 'medium text, change', 'large text, change', 'larger text, change', 'huge text, change', 'max text, change', 'black text on yellow background, change', 'yellow text on black background, change', 'black text on white background, change', 'white text on black background, change', '', 'light bulb', 'light bulb', 'no image', '', '', '', '', '', 'sign row disabled, change', 'sign row enabled, change', 'minimal signs, change', 'small signs, change', 'medium signs, change', 'big signs, change', 'maximum signs, change', '', 'undo all changes', 'reloj de arena'],
+[2, 'icono de parlante sonando', 'icono de parlante deshabilitado', '20', '14', '10', '7', '5', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'texto negro sobre fondo amarillo', 'texto amarillo sobre fondo negro', 'texto negro sobre fondo blanco', 'texto blanco sobre fondo negro', '', 'bombillo', 'bombillo', 'sin imagen', '', '', '', '', '', 'serie interrumpida', 'icono rollo de pelicula', 'icono de imagen', 'icono de imagen', 'icono de imagen', 'icono de imagen', 'icono de imagen', '', 'icono de borrador', 'reloj de arena'],
+[3, 'lecteur de fenêtre activé, changer', 'lecteur de fenêtre désactivé, changer', '20', '14', '10', '7', '5', 'texte minimal, changer', 'petit texte, changer', 'texte moyen, changer', 'gros texte, changer', 'texte plus grand, changer', 'énorme texte, changer', 'texte maximum, changer', 'texte noir sur fond jaune, changer', 'texte jaune sur fond noir, changer', 'texte noir sur fond blanc, changer', 'texte blanc sur fond noir, changer', '', 'ampoule', 'ampoule', 'pas d\'image', '', '', '', '', '', 'rangée d\'signe désactivé, changer', 'rangée d\'signe activée, changer', 'signes minimes, changer', 'petits signes, changer', 'signes moyens, changer', 'grands signes, changer', 'signes maximaux, changer', '', 'annuler toutes les modifications', 'reloj de arena'],
+[4, 'lecteur de fenêtre activé, changer', 'lecteur de fenêtre désactivé, changer', '20', '14', '10', '7', '5', 'texte minimal, changer', 'petit texte, changer', 'texte moyen, changer', 'gros texte, changer', 'texte plus grand, changer', 'énorme texte, changer', 'texte maximum, changer', 'texte noir sur fond jaune, changer', 'texte jaune sur fond noir, changer', 'texte noir sur fond blanc, changer', 'texte blanc sur fond noir, changer', '', 'ampoule', 'ampoule', 'pas d\'image', '', '', '', '', '', 'rangée d\'signe désactivé, changer', 'rangée d\'signe activée, changer', 'signes minimes, changer', 'petits signes, changer', 'signes moyens, changer', 'grands signes, changer', 'signes maximaux, changer', '', 'annuler toutes les modifications', 'reloj de arena']
+];*/
+
+
+
+//RUTA 2 IDIOMA Y LUGAR
+//AJUSTAR IDIOMA, SEÑA Y LUGAR
+//RUTA 2 AJUSTES2 CAMBIAR IDIOMA, SEÑA Y LUGAR informacion /control
+const mIr002A =/**/[['Casillas', 1, 2, 3, 4],
+[1, '','','',''],
+[2, '','','',''],
+[3, 'i1, information in english enabled, change','i1, información en ingles habilitada, cambiar','i1, informations en anglais activées, changer','i1, 영문 안내 가능, 변경'],
+[4, 'i0, information in english disabled, change','i0, información en ingles deshabilitada, cambiar','i0, informations en anglais désactivées, changer','i0, 영문 안내 불가, 변경'],
+[5, '','','',''],
+[6, '','','',''],
+[7, '','','',''],
+[8, '','','',''],
+[9, '','','',''],
+[10,'','','',''],
+[11,'','','',''],
+[12,'','','',''],
+[13,'','','',''],
+[14,'','','',''],
+[15,'','','',''],
+[16,'','','',''],
+[17,'write lines','escribir líneas','écrire des lignes','라인 쓰기'],
+[18,'braille keyboard','teclado Braille','clavier braille','점자 키보드']
+];
+/*
+const r002A =[['Casillas', '1languagelist', '2SignList', 3, 4, '5-Papa1', '6-Papa2', '7-Papa3', '8-Papa4', '9-Papa5', '10-Papa6', '11-Papa7', '12-Papa8', '13-Papa9', '14-Papa10', 15, 16, 17, 18],
+[1, '', '', 'i1, information in english enabled, change', 'i0, information in english disabled, change', '', '', '', '', '', '', '', '', '', '', '', '', 'write lines', 'braille keyboard'],
+[2, '', '', 'i1, información en ingles habilitada, cambiar', 'i0, información en ingles deshabilitada, cambiar', '', '', '', '', '', '', '', '', '', '', '', '', 'escribir líneas', 'teclado Braille'],
+[3, '', '', 'i1, informations en anglais activées, changer', 'i0, informations en anglais désactivées, changer', '', '', '', '', '', '', '', '', '', '', '', '', 'écrire des lignes', 'clavier braille'],
+[4, '', '', 'i1, 영문 안내 가능, 변경', 'i0, 영문 안내 불가, 변경', '', '', '', '', '', '', '', '', '', '', '', '', '라인 쓰기', '점자 키보드'],
+];
+*/
+//CONTROLAR idioma, seña y lugar
+const mIr002B =/**/[['Recursos/ Casillas..', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function, vacio=NO PERMITIDA(INFO)', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+[1, 1,25,100,1,0,0,0,0,0,0],
+[2, 1,26,101,1,0,0,0,0,0,0],
+[3, 2,13,25 ,0,0,0,0,0,0,0],
+[4, 2,14,26 ,1,0,0,0,0,0,0],
+[5, 0,35,102,1,0,0,0,0,0,0],
+[6, 0,77,103,0,0,0,0,0,0,0],
+[7, 0,77,104,0,0,0,0,0,0,0],
+[8, 0,77,105,0,0,0,0,0,0,0],
+[9, 0,77,106,0,0,0,0,0,0,0],
+[10,0,77,107,0,0,0,0,0,0,0],
+[11,0,77,108,0,0,0,0,0,0,0],
+[12,0,77,109,0,0,0,0,0,0,0],
+[13,0,77,110,0,0,0,0,0,0,0],
+[14,0,77,111,0,0,0,0,0,0,0],
+[15,0,0 ,0  ,0,0,0,0,0,0,0],
+[16,0,0 ,0  ,0,0,0,0,0,0,0],
+[17,2,12,6  ,0,0,0,0,0,0,0],
+[18,2,20,6  ,0,0,0,0,0,0,0]
+];
+/*
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
+//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
+//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
+//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio
+const r002B =[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2],
+['2 id de la Imag, Icon o Texto', 25, 26, 13, 14, 35, 77, 77, 77, 77, 77, 77, 77, 77, 77, 0, 0, 12, 20],
+['3 onclick function, vacio=NO PERMITIDA(INFO)', 100, 101, 25, 26, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 0, 0, 6, 6],
+['4 Visible 1:SI 0:no', 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['6 id Video([5]1) o id foto([5]0/2)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['7 id Texto Icono', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['8 ids Iconos Capa1', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['9 ids Iconos Capa2', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
 */
 
-//CONTROL ANUNCIOS
-var r003B = [['Recursos/ Casillas..', 'Head', 'Others'],
-['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [1]],
-['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [84]],
-['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0],
-['4 Visible 1:SI 0:no', 1, 1],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['7 id Texto Icono', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['8 ids Iconos Capa1', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['9 ids Iconos Capa2', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0]]
+/*DESCRIBIR IDIOMA, SEÑA Y LUGAR texto alternativo para imagen*/
+const mIr002Z =/**/[['Casillas', 1, 2, 3, 4],
+[1, 'language icon','icono de idioma','icône de la langue','언어 아이콘'],
+[2, 'sign language','icono de lengua de señas','langue des signes','수화 아이콘'],
+[3, '','texto de i1','',''],
+[4, '','texto de i0','',''],
+[5, 'world','mundo','monde','세계'],
+[7, 'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[6, 'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[8, 'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[9, 'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[10,'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[11,'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[12,'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[13,'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[14,'person in a place','persona en un lugar','personne dans un lieu','장소에 있는 사람'],
+[15,'','','',''],
+[16,'','','',''],
+[17,'write lines','escribir líneas','écrire des lignes','écrire des lignes'],
+[18,'braille keyboard','teclado Braille','clavier braille','clavier braille']
 ];
-
 /*
-//CONTROL ANUNCIOS
-var 	r003B		=[		['Recursos/ Casillas..'										],
-							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[1]],
-							['2 id de la Imag, Icon o Texto'							,[84]],
-							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0],
-							['4 Visible 1:SI 0:no'										,1],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0]],
-							['6 id Video([5]1) o id foto([5]0/2)'						,[0]],
-							['7 id Texto Icono'											,[0]],
-							['8 ids Iconos Capa1'										,[0]],
-							['9 ids Iconos Capa2'										,[0]],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
-						];
+const r002Z =[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+[1, 'language icon', 'sign language', '', '', 'world', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', '', '', 'write lines', 'braille keyboard'],
+[2, 'icono de idioma', 'icono de lengua de señas', 'texto de i1', 'texto de i0', 'mundo', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', '', '', 'escribir líneas', 'teclado Braille'],
+[3, 'icône de la langue', 'langue des signes', '', '', 'monde', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', '', '', 'écrire des lignes', 'clavier braille'],
+[4, '언어 아이콘', '수화 아이콘', '', '', '세계', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '', '', 'écrire des lignes', 'clavier braille'],
+];
 */
 
+
+//NOTA LA RUTA 3 
+//CON LAS CONSTANTES (const) r003A r003B r003C r003D y r003Z
+//NO APARECEN AQUI PORQUE SE VAN A PASAR AL SERVIDOR EN FORMATO JSON
+//POR ELLO SE TRANSLADARON AL COMIENZO DE ESTE ARCHIVO
+
+//RUTA 3 TITULARES E INFORMACION LOCAL, las mIr003's no salen en pantalla, hay que quitarlas???
+//LA RUTA 3 ES LA BASE DE DATOS QUE SE DEBE PASAR AL SERVIDOR EN FORMATO JSON Y CUANDO SE SOLICITE DEBE MOSTRARSE EN EL NAVEGADOR
+//RUTA 3 - ANUNCIOS /INFORMACIÓN COMUNITARIA/  pública /Libro comunitario
+// o003* res3* r003* c003* rrr3* jAds jsAds
+//const 	r003A  y r003B ver/buscar aquí al final en MONGODB
+//mIc003A - B - Z es la variable clave del frontend debido al código r003* = c003*, es decir r003 es una variable provisional para manejar los ejemplos con JSON
+
+//INFORMAR ANUNCIOS
+//GUIONES HAY ANUNCIOS
+//const c00#* aquí si .. GUION ANUNCIO VACIO 1/3 para cuando hay anuncios, el "chorizo de todos los contenidos ampliados"  los primeros contenidos de la localidad se puede quitar dado que es el mismo res3A?????..
+
+//PRIMER ERROR!!! - liZtAObject is not defined  -- INVERTIR el interruptor? estará llamando los datos desde el servidor hasta la BD en google sheets?
+/**A1 * /
+var mIc003A = liZtAObject;
+/**A2 */
+/**A3 */
+var mIc003A =[['Casillas', 1, 2, 3, 4],
+[1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'],['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'],['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"],['', '여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]],
+[2, ['Participate this May 27 in the Accountability of the Local Mayor of Puente Aranda at the Parque Polideportivo El Jazmín', 'located at 1 G street number 41 A 39, at 9:00, it is an opportunity for citizens to learn about public management and to ask questions and make comments about it', 'and participate as observers of the management carried out by the Local Mayor\'s Office of Puente Aranda'],['Participa este 27 de mayo en la Rendición de Cuentas de la Alcaldía Local de Puente Aranda en el Parque Polideportivo El Jazmín', 'ubicado en la calle 1 G número 41 A 39, a las 9:00, es una oportunidad para que los ciudadanos conozcan la gestión pública y puedan hacer preguntas y comentarios sobre la misma', 'y participar como veedores de la gestión que realiza la Alcaldía Local de Puente Aranda'],['Participez ce 27 mai à la Responsabilité du maire local de Puente Aranda au Parque Polideportivo El Jazmín', 'situé au numéro de rue 1 G 41 A 39, à 9h00, c\'est l\'occasion pour les citoyens de s\'informer sur la gestion publique, de poser des questions et de faire des commentaires à son sujet', 'et participer en tant qu\'observateurs de la gestion effectuée par le bureau du maire local de Puente Aranda'],['5월 27일 El Jazmín 스포츠 센터 공원에 있는 Puente Aranda 지역 시장실의 책임에 참여하십시오', '1G번지 41A 39번지 9:00시 시민이 공공경영에 대해 배우고 이에 대해 질문하고 의견을 개진할 수 있는 기회', 'Puente Aranda 지역 시장실에서 수행하는 관리의 참관인으로 참여']],
+[3, ['Are you a female caregiver or victim of violence?, we invite you to register at the Manzana del Cuidado de Puente Aranda at calle 1 b number: 57_51, or call the number 313-8699-260, e-mail: imora@sdmujer.gov.co', 'In the Manzana del Cuidado you can train with SENA, learn to create your own business, enjoy physical activity classes, bike school, and more', 'while the elderly and people with disabilities who are under your care are cared for by caregivers from the Mayor\'s Office'],['¿Eres mujer cuidadora o víctima de la violencia?, te invitamos a incribirte en la Manzana del Cuidado de Puente Aranda en la calle 1 b número: 57_51, o llamar al número 313-8699-260, e-mail: imora@sdmujer.gov.co', 'en la Manzana del Cuidado podrás capacitarse con el SENA, aprender a crear su propio negocio, disfrutar clases de actividad física, escuela de la bici, y más', 'mientras que las personas mayores y las personas con discapacidad que están bajo su cuidado son cuidadas por cuidadoras de la Alcaldía'],["Êtes-vous une femme aidante ou victime de violence?, nous vous invitons à vous inscrire à la Manzana del Cuidado de Puente Aranda à calle 1 b numéro: 57_51, ou appelez le numéro 313-8699-260, e-mail: imora@sdmujer.gov.co", "Dans la Manzana del Cuidado, vous pouvez vous entraîner avec SENA, apprendre à créer votre propre entreprise, profiter de cours d'activité physique, d'une école de vélo, et plus encore", "tandis que les personnes âgées et les personnes handicapées dont vous avez la charge sont pris en charge par les soignants de la mairie"],["당신은 여성 간병인이거나 폭력의 피해자입니까?Manzana del Cuidado de Puente Aranda에서 calle 1 b 번호: 57_51,로 등록하거나 313-8699-260으로 전화하십시오, 이메일: imora@sdmujer.gov.co", "Manzana del Cuidado에서는 SENA와 함께 훈련하고, 자신만의 비즈니스를 만드는 방법을 배우고, 신체 활동 수업, 자전거 학교 등을 즐길 수 있습니다", "당신이 돌보고 있는 노인과 장애인은 시장실에서 돌보고 있습니다"]],
+[4, ['Do you have an emergency? Call 123', '123 is the telephone line that gathers all the security and emergency numbers: Police, Mobility, Fire, Risk Management and Ministry of Health'],																																	['¿Tienes una emergencia?, llama al 123', 'el 123 es la línea telefónica que reúne todos los números de seguridad y emergencias: Policía, Movilidad, Bomberos, Gestión de Riesgos y Secretaría de Salud'],																													['Vous avez une urgence, appelez le 123', 'Le 123 est la ligne téléphonique qui regroupe tous les numéros de sécurité et d\'urgence : Police, Mobilité, Pompiers, Gestion des Risques et Ministère de la Santé'],																																				['급한 일이 있으신가요? 123번으로 전화하세요', '123은 경찰, 교통, 소방, 위험 관리 및 보건부와 같은 모든 보안 및 비상 전화 번호를 통합하는 전화선입니다']],
+[5, ['Are you a victim of violence against women?, call 123, 01-8001-12137, or WhatsApp 300-7551-846, and request the accompaniment of the purple patrol', 'With the purple patrol, women who are victims of violence can receive security, guidance, help and prevention'],													['¿Eres víctima de violencia contra las mujeres?, llama al 123, al 01-8001-12137, o al WhatsApp 300-7551-846, y solicita el acompañamiento de la patrulla púrpura', 'con la patrulla púrpura las mujeres que sean víctimas de violencia pueden recibir seguridad, orientación, ayuda y prevención'],						['Êtes-vous victime de violence faite aux femmes?, appelez le 123, 01-8001-12137, ou WhatsApp 300-7551-846, et demandez l\'accompagnement de la patrouille violette', 'Avec la patrouille violette, les femmes victimes de violence peuvent recevoir sécurité, accompagnement, aide et prévention'],															['당신은 여성에 대한 폭력의 피해자입니까?, 123, 01-8001-12137, 또는 WhatsApp 300-7551-846, 으로 전화하여 보라색 순찰대 동행을 요청하십시오', '보라색 순찰을 통해 폭력의 피해자인 여성들은 안전, 지도, 도움 및 예방을 받을 수 있습니다']],
+[6, ['Invitation to boys, girls and young people to musical training', 'with the National Batuta Foundation and being part of the local Orchestral Center'],																																									['Invitación a niños, niñas y jóvenes de la localidad a la formación musical', 'con La Fundación Nacional Batuta y ser parte del Centro Orquestal de la localidad'],																																						['Invitation aux garçons, filles et jeunes à la formation musicale', 'avec la Fondation Nationale Batuta et faisant partie du Centre Orchestral local'],																																																		['소년, 소녀, 청소년을 음악 교육에 초대', 'National Batuta Foundation과 지역 오케스트라 센터의 일원이 됨']],
+[7, ['Si tienes entre 18 a 28 años, te invitamos a ser parte del programa Parceros Por Bogotá, incluye cursos,  actividades de ciudad y la posibilidad de recibir 500 mil pesos al mes', 'te invitamos a inscribirte el viernes 19 de mayo, lugar: Parque Dalias, calle 4 número 54-01, barrio Galán; Hora: 15:00 a 17:00'],	['Si tienes entre 18 a 28 años, te invitamos a ser parte del programa Parceros Por Bogotá, incluye cursos,  actividades de ciudad y la posibilidad de recibir 500 mil pesos al mes', 'te invitamos a inscribirte el viernes 19 de mayo, lugar: Parque Dalias, calle 4 número 54-01, barrio Galán; Hora: 15:00 a 17:00'],	['Si vous avez entre 18 et 28 ans, nous vous invitons à faire partie du programme Parceros Por Bogotá, qui comprend des cours, des activités de la ville et la possibilité de recevoir 500 000 pesos par mois,', 'Nous vous invitons à vous inscrire le vendredi 19 mai, lieu : Parque Dalias, 4e rue numéro 54-01, quartier Galán ; Heure : 15h00 à 17h00'],	['18세에서 28세 사이인 경우 코스, 도시 활동 및 매월 500,000페소를 받을 수 있는 가능성이 포함된 Parceros Por Bogotá 프로그램에 귀하를 초대합니다', '5월 19일 금요일, 장소: Parque Dalias, 4번가 54-01, Galán 지역; 시간: 15:00~17:00']],
+[8, ['Local Impulse delivers between 1 to 3 million pesos to strengthen and grow local businesses', 'Register now at https://bit.ly/ImpulsoLocal or visit https://www.bogotalocal.gov.co/bogotaproductiva.html'],																												['Impulso Local entrega entre 1 a 3 millones de pesos para fortalecer y hacer crecer los emprendimientos locales', 'Regístrate ahora en https://bit.ly/ImpulsoLocal o visita https://www.bogotalocal.gov.co/bogotaproductiva.html'],																						['Local Impulse fournit entre 1 et 3 millions de pesos pour renforcer et développer les entreprises locales', 'Inscrivez-vous maintenant sur https://bit.ly/ImpulsoLocal ou visitez https://www.bogotalocal.gov.co/bogotaproductiva.html'],																														['Local Impulse는 지역 비즈니스를 강화하고 성장시키기 위해 100만 ~ 300만 달러의 페소를 제공합니다', '지금 https://bit.ly/ImpulsoLocal에 등록하거나 https://www.bogotalocal.gov.co/bogotaproductiva.html을 방문하세요']],
+];
+/**A4 */
+
+
+//CONTROLAR anuncios
 //CONTROL HAY ANUNCIOS
+/**B1 * /
+var mIc003B = liZtBObject;
+/**B2 * /
+/**B3 */
+var mIc003B =[['Recursos/Casillas', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+[1 	,[3, 1, 3, 3, 3, 3, 3, 3],[31, 3, 16, 12, 13, 8, 9, 10],0,1,[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0]],
+[2 	,[3, 3, 3],[82, 82, 82],0,1,[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]],
+[3 	,[3, 3, 3],[90, 91, 92],0,1,[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]],
+[4 	,[3, 3],[88, 88],0,1,[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]],
+[5 	,[3, 3],[84, 84],0,1,[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]],
+[6 	,[3, 3],[85, 85],0,1,[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]],
+[7 	,[3, 3],[89, 89],0,1,[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]],
+[8 	,[3, 3],[93, 93],0,1,[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]]
+]
+/**B4 */
+/*
 var c003B = [['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8],
 ['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3]],
 ['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [82, 82, 82], [90, 91, 92], [88, 88], [84, 84], [85, 85], [89, 89], [93, 93]],
@@ -955,10 +1048,8 @@ var c003B = [['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8],
 ['9 ids Iconos Capa2', [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
 ['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
 ];
-//16,12,13,8 ,9 ,10
-
+*/
 /*
-//CONTROL HAY ANUNCIOS
 const 	c003B		=[	['Recursos/ Casillas..'											,1			,2			,3		,4			,5],
 							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[3,1,3]	,[2,2,3] 	,[2]	,[2,1,1]	,[3,2]],
 							['2 id de la Imag, Icon o Texto'							,[18,16,4]	,[33,35,5] 	,[31]	,[37,15,16]	,[3,36]],
@@ -973,6 +1064,166 @@ const 	c003B		=[	['Recursos/ Casillas..'											,1			,2			,3		,4			,5],
 						];
 */
 
+//DESCRIBIR TITULARES E INFO LOCAL texto alternativo para imagen
+//IMAGENES HAY ANUNCIOS
+/**C1 * /
+var mIc003Z = liZtZObject;
+/**C2 * /
+/**C3 */
+var mIc003Z =[['Casillas', 1, 2, 3, 4],
+[1,['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''],['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''],['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''],['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', '']],
+[2,['smiling woman', 'smiling woman', 'smiling woman'],['mujer sonriente', 'mujer sonriente', 'mujer sonriente'],['femme souriante', 'femme souriante', 'femme souriante'],['웃는 여자', '웃는 여자', '웃는 여자']],
+[3,['Hike Ciud', 'Meeting ', 'Free '],['Bus de la alcaldía', 'Actividad física', 'Mujer cuidando una niña'],["Randonnée ", "Point de", "Inscr"],["Ciudad ", "만남의 장소", "Inscr"]],
+[4,['logo 123', 'logo 123'],['logo 123', 'logo 123'],['logo 123', 'logo 123'],['로고 123', '로고 123']],
+[5,['purple patrol drawing', 'purple patrol drawing'],['dibujo de la patrulla púrpura', 'dibujo de la patrulla púrpura'],['dessin de patrouille violette', 'dessin de patrouille violette'],['보라색 순찰 그림', '보라색 순찰 그림']],
+[6,['invitation ', 'abece 1'],['niños y jovenes tocando música', 'niños y jovenes tocando música'],['invitation ', 'abece'],['총회 초대,   ', 'abece']],
+[7,['young man smiling', 'young man smiling'],['Joven sonriendo', 'Joven sonriendo'],['jeune homme souriant', 'jeune homme souriant'],['웃는 청년', '웃는 청년']],
+[8,['emprendimiento', 'empre2'],['emprendedora', 'emprendedora'],['emprendimiento', 'empre2'],['emprendimiento', 'empre2']]
+];
+/**C4 */
+/*
+var c003Z = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
+[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['smiling woman', 'smiling woman', 'smiling woman'], ['Hike Ciud', 'Meeting ', 'Free '], ['logo 123', 'logo 123'], ['purple patrol drawing', 'purple patrol drawing'], ['invitation ', 'abece 1'], ['young man smiling', 'young man smiling'], ['emprendimiento', 'empre2']],
+[2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['mujer sonriente', 'mujer sonriente', 'mujer sonriente'], ['Bus de la alcaldía', 'Actividad física', 'Mujer cuidando una niña'], ['logo 123', 'logo 123'], ['dibujo de la patrulla púrpura', 'dibujo de la patrulla púrpura'], ['niños y jovenes tocando música', 'niños y jovenes tocando música'], ['Joven sonriendo', 'Joven sonriendo'], ['emprendedora', 'emprendedora']],
+[3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['femme souriante', 'femme souriante', 'femme souriante'], ["Randonnée ", "Point de", "Inscr"], ['logo 123', 'logo 123'], ['dessin de patrouille violette', 'dessin de patrouille violette'], ['invitation ', 'abece'], ['jeune homme souriant', 'jeune homme souriant'], ['emprendimiento', 'empre2']],
+[4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['웃는 여자', '웃는 여자', '웃는 여자'], ["Ciudad ", "만남의 장소", "Inscr"], ['로고 123', '로고 123'], ['보라색 순찰 그림', '보라색 순찰 그림'], ['총회 초대,   ', 'abece'], ['웃는 청년', '웃는 청년'], ['emprendimiento', 'empre2']]
+];
+*/
+/*
+const 	c003Z		=[	['Casillas'		,1																																																													,2																																																																												,3																				,4																					,5],
+							[1			,['person walking up the mountain'		,'Be part of our ecological walks, and discover places that will help you connect with nature.'							,' This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena.'	]	,['Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m.'	,' Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70.'	,'Free registration, more information at www.idrd.gov.co and on our social networks' 		]	,['invitation to sports event, physical activity, blah, blah, blah, blah']		,['invitation to General Assembly, blah, blah, blah, blah', 'abece 1','abece 2']	,['open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country'								,'Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls.']					],
+							[2			,['persona caminando por la montaña'	,'Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza.'			,'Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena.'			]	,['Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m.'		,'Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70.'	,'Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales'	] 	,['invitación a evento deportivo, actividad física, bla, bla, bla, bla']		,['invitación a Asamblea General, bla, bla, bla, bla' ,'abece 1','abece 2']			,['convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país'									,'Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias.']	],
+							[3			,['personne qui monte la montagne'		,'Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature.','Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena.'   ]	,["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre : Devant l'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	]	,['invitation à un événement sportif, activité physique, bla, bla, bla, bla']	,['invitation à l\'Assemblée générale, bla, bla, bla, bla','abece','abece']			,['appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays'	,'Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels.']	],
+							[4			,['산을 오르는 사람'						,'Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature.','Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena.'   ]	,["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre : Devant l'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	]	,['invitation à un événement sportif, activité physique, bla, bla, bla, bla']	,['invitation à l\'Assemblée générale, bla, bla, bla, bla','abece','abece']			,['appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays'	,'Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels.']	]
+						];
+*/
+
+
+//INFORMAR CABEZOTE ANUNCIOS Y no hay anuncios para publicar
+//GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios..
+//const mIo00#* GUION ANUNCIO VACIO 1/3 para cuando no hay anuncios???  se puede quitar?????..
+const mIo003A =/**/[['Casillas', 1, 2, 3, 4],//la D es de default cuando no hay ningun anuncio
+['Head',['','Here you can find out the information published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'],['','Aquí podrás conocer la información publicada por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'],['','Retrouvez ici les informations publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"],['','여기에서 지역 지도자들이 게시한 정보를 확인할 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]],
+['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']]
+];
+
+//CONTROLAR CABEZOTE ANUNCIOS Y no hay anuncios para publicar
+//CONTROL ANUNCIO VACIO 3/3 para cuando no hay anuncios..
+const mIo003B = [['Recursos/Casillas', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+['Head',	[3, 1, 3, 3, 3, 3, 3, 3],[31, 3, 16, 12, 13, 8, 9, 10],0,1,[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0]],
+['Others',	[1],[82],0,1,[0],[0],[0],[0],[0],[0]]
+]
+
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
+//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
+//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
+//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
+/*
+const o003B = [['Recursos/ Casillas..', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
+['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [1]],
+['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [82]],//82 83 54
+['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0],
+['4 Visible 1:SI 0:no', 1, 1],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['7 id Texto Icono', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['8 ids Iconos Capa1', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['9 ids Iconos Capa2', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0]]
+];
+*/
+/*
+const 	o003B		=[		['Recursos/ Casillas..'										],//la D es de default cuando no hay ningun anuncio
+							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[1]],
+							['2 id de la Imag, Icon o Texto'							,[82]],//82 83 54
+							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0],
+							['4 Visible 1:SI 0:no'										,1],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0]],
+							['6 id Video([5]1) o id foto([5]0/2)'						,[0]],
+							['7 id Texto Icono'											,[0]],
+							['8 ids Iconos Capa1'										,[0]],
+							['9 ids Iconos Capa2'										,[0]],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
+						];
+*/
+
+//IMAGEN NO hay anuncios..
+//DESCRIBIR CABEZOTE ANUNCIOS Y no hay anuncios para publicar - texto alternativo para imagen
+const mIo003Z =/**/[['Casillas', 1, 2, 3, 4],
+[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''],['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''],['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''],['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', '']],
+[2, ['Satellite'],['Satelite'],['Satellite'],['위성']]
+];
+/*
+const 	o003Z		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
+							[1		,['Satellite']],
+							[2		,['Satelite']],
+							[3		,['Satellite']],
+							[4		,['위성']]
+						];
+*/
+//INFORMAR ANUNCIOS..
+//GUIONES ANUNCIOS  -- qué hace?? es sólo para guíon del texto???, se puede quitar??
+var mIr003A =/**/[['Casillas', 1, 2, 3, 4],//la D es de default cuando no hay ningun anuncio
+['Head',['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'],['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'],['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"],['','여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]],
+['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']],
+['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']],
+['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']],
+['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']]
+];
+
+//CONTROL ANUNCIOS
+//CONTROLAR anuncios
+var mIr003B =/**/[['Recursos/Casillas', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+['Head' 	,[3, 1, 3, 3, 3, 3, 3, 3],[31, 3, 16, 12, 13, 8, 9, 10],0,1,[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0]],
+['Others' 	,[1],[84],0,1,[0],[0],[0],[0],[0],[0]],
+['' 		,[0],[0],0,0,[0],[0],[0],[0],[0],[0]],
+['' 		,[0],[0],0,0,[0],[0],[0],[0],[0],[0]],
+['' 		,[0],[0],0,0,[0],[0],[0],[0],[0],[0]]
+]
+/*
+var r003B = [['Recursos/ Casillas..', 'Head', 'Others'],
+['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [1]],
+['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [84]],
+['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0],
+['4 Visible 1:SI 0:no', 1, 1],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['7 id Texto Icono', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['8 ids Iconos Capa1', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['9 ids Iconos Capa2', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0]]
+];
+*/
+/*
+const 	r003B		=[	['Recursos/ Casillas..'										,1			,2			,3		,4			,5],
+							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[3,1,3]	,[3,1,3] 	,[1]	,[1,1,1]	,[3]],
+							['2 id de la Imag, Icon o Texto'							,[6,16,4]	,[7,15,5] 	,[11]	,[12,15,16]	,[3]],
+							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0			,0 			,0		,0			,0],
+							['4 Visible 1:SI 0:no'										,1			,1 			,1		,1			,1],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
+							['6 id Video([5]1) o id foto([5]0/2)'						,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
+							['7 id Texto Icono'											,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
+							['8 ids Iconos Capa1'										,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
+							['9 ids Iconos Capa2'										,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]]
+						];
+*/
+/*
+var 	r003B		=[		['Recursos/ Casillas..'										],
+							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[1]],
+							['2 id de la Imag, Icon o Texto'							,[84]],
+							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0],
+							['4 Visible 1:SI 0:no'										,1],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0]],
+							['6 id Video([5]1) o id foto([5]0/2)'						,[0]],
+							['7 id Texto Icono'											,[0]],
+							['8 ids Iconos Capa1'										,[0]],
+							['9 ids Iconos Capa2'										,[0]],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
+						];
+*/
+//QUITAR?? QUE ES PARA LOS TIEMPOS, SI NO SERIA PARA EL/LOS ID'S∫ DE LAS IMAGENES QUE INTERVIENEN
+//VER r003C y r003D
 /*
 const 	r003C 		=	[	[0		,1		,2		],
 							[1		,1		,2		],
@@ -986,23 +1237,249 @@ const 	r003D 		=	[	[0		,1		,2		],
 							[3		,1		,2		]
 						];
 */
+/*DESCRIBIR TITULARES E INFO LOCAL texto alternativo para imagen*/
+//IMAGENES DE ANUNCIOS
+var mIr003Z =/**/[['Casillas', 1, 2, 3, 4],
+[1,['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''],['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''],['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''],['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', '']],
+[2,['Moving satellite'],['Satélite en movimiento'],['satellite en mouvement'],['움직이는 위성']],
+[3,['1'],[''],[''],['']],
+[4,['2'],[''],[''],['']],
+[5,['3'],[''],[''],['']]
+];
+/*
+var r003Z = [['Casillas', 'Head', 'Others'],
+[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['Moving satellite']],
+[2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['Satélite en movimiento']],
+[3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['satellite en mouvement']],
+[4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['움직이는 위성']]
+];
+*/
+/*
+//IMAGENES DE ANUNCIOS
+var 	r003Z		=[	['Casillas'	],
+							[1		,['Moving points']],
+							[2		,['Satélite en movimiento']],
+							[3		,['satellite en mouvement']],
+							[4		,['움직이는 위성']]
+						];
+*/
 
-var rrr3A = r003A;
-var rrr3B = r003B;
-var rrr3Z = r003Z;
+//INFORMAR CABEZOTE ANUNCIOS Y BUSCANDO ANUNCIOS..
+//GUION BUSCANDO ANUNCIOS..
+//const res#* aquí__podrás GUION ANUNCIO VACIO 1/3 para cuando hay anuncios, ese texto es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios..
+const mIres3A =/**/[['Casillas', 1, 2, 3, 4],//la D es de default cuando no hay ningun anuncio
+['Head',['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'],['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'],['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"],['','여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]],
+['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']]
+];
 
+//CONTROLAR CABEZOTE ANUNCIOS Y BUSCANDO ANUNCIOS
+//CONTROL BUSCANDO ANUNCIOS..
+const mIres3B =/**/[['Recursos/Casillas', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+['Head' 	,[3, 1, 3, 3, 3, 3, 3, 3],[31, 3, 16, 12, 13, 8, 9, 10],0,1,[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0]],
+['Others' 	,[1],[84],0,1,[0],[0],[0],[0],[0],[0]]
+];
+/*
+const res3B = [['Recursos/ Casillas..', 'Head', 'Others'],//la D es de default cuando no hay ningun anuncio
+['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [1]],
+['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [84]],//82 83 54
+['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0],
+['4 Visible 1:SI 0:no', 1, 1],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['7 id Texto Icono', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['8 ids Iconos Capa1', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['9 ids Iconos Capa2', [0, 0, 0, 0, 0, 0, 0, 0], [0]],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0]]
+];
+*/
+/*
+const 	res3B		=[		['Recursos/ Casillas..'										],//la D es de default cuando no hay ningun anuncio
+							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[1]],
+							['2 id de la Imag, Icon o Texto'							,[84]],//82 83 54
+							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0],
+							['4 Visible 1:SI 0:no'										,1],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0]],
+							['6 id Video([5]1) o id foto([5]0/2)'						,[0]],
+							['7 id Texto Icono'											,[0]],
+							['8 ids Iconos Capa1'										,[0]],
+							['9 ids Iconos Capa2'										,[0]],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
+						];
+*/
+//DESCRIBIR CABEZOTE ANUNCIOS Y BUSCANDO ANUNCIOS - texto alternativo para imagen
+//IMAGEN BUSCANDO ANUNCIOS
+const mIres3Z =/**/[['Casillas', 1, 2, 3, 4],
+[1,['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''],['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''],['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''],['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', '']],
+[2,['Moving satellite'],['Satélite en movimiento'],['satellite en mouvement'],['움직이는 위성']]
+];
+/*
+const res3Z = [['Casillas', 'Head', 'Others'],
+[1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['Moving satellite']],
+[2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['Satélite en movimiento']],
+[3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['satellite en mouvement']],
+[4, ['장소의 사진', '읽는 사람 아이콘', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['움직이는 위성']]
+];
+*/
+/*
+//IMAGEN BUSCANDO ANUNCIOS
+const 	res3Z		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
+							[1		,['Moving satellite']],
+							[2		,['Satélite en movimiento']],
+							[3		,['Satellite en mouvement']],
+							[4		,['움직이는 위성']]
+						];
+*/
+//ANUNCIOS CON JSON.. usando rrr3* y mIrrr3* desde r003* y mIr003*
+var mIrrr3A = mIr003A;
+var mIrrr3B = mIr003B;
+var mIrrr3Z = mIr003Z;
+
+//RUTA 3 BASE DE DATOS PARA PASAR AL SERVIDOR EN FORMATO JSON Y CUANDO SE SOLICITE DEBE MOSTRARSE EN EL NAVEGADOR
+//ANUNCIOS, INFORMACIÓN INCLUYENTE Y LOCALIZADA, INFO COMUNITARIA, pública, Libro comunitario
+//const 	mIr003A  y r003B ver/buscar aquí al final en MONGODB
+//NOTA LA RUTA 3 
+//CON LAS CONSTANTES (const) mIr003A r003B r003C r003D y r003Z
+//NO APARECEN AQUI PORQUE SE VAN A PASAR AL SERVIDOR EN FORMATO JSON
+//POR ELLO SE TRANSLADARON AL COMIENZO DE ESTE ARCHIVO
+//const jAds = //*colección 7i1i8i4 de los anuncios JSON
+//'[{"iads": "7i1i8i4","r3A1": ["participate this Sunday, January 29, in an ecological walk in Ciudad Bolívar, IDRD, invites you"	,"Be part of our ecological walks, and discover places that will help you connect with nature."								,"This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena"	],"r3A2": ["..participa este domingo 29 de enero en una caminata ecológica en Ciudad Bolívar, IDRD, te invita"	,"Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza."				,"Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena"			],"r3A3": ["participez ce dimanche 29 janvier à une promenade écologique à Ciudad Bolívar, IDRD vous invite"	,"Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature."	,"Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena"   	],"r3A4": ["1월 29일 일요일, IDRD의 Ciudad Bolívar에서 열리는 생태 산책에 여러분을 초대합니다."							,"생태 산책에 참여하고 자연과 연결하는 데 도움이 되는 장소를 발견하세요."																		,"이번 일요일 약속은 Ciudad Bolívar, Casona 및 Sierra Morena에 있습니다."   			],"r3Z1":	["person walking up the mountain"			,"person walking up the mountain"	,"person walking up the mountain"	],"r3Z2":	["persona caminando por la montaña"			,"persona caminando por la montaña"	,"persona caminando por la montaña"	],"r3Z3":	["personne qui monte la montagne"			,"personne qui monte la montagne"	,"personne qui monte la montagne"	],"r3Z4": ["산을 오르는 사람"								,"산을 오르는 사람"						,"산을 오르는 사람"						],"r3B1": [3,1,3],"r3B2": [18,16,4],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	,"Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70"		,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],"r3A2": ["..Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],"r3A3": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		,"Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3A4": ["Ciudad Bolívar, Casona 및 Sierra Morena를 하이킹하십시오. 1월 29일 일요일 오전 9시 ~ 오전 11시"			,"만남의 장소: Francisco José de Caldas District University 앞, calle 68 bis A sur #49F-70."						,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3Z1":	["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	," Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70."	,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],"r3Z2":	["Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],"r3Z3":	["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3Z4": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3B1": [2,2,3],"r3B2": [33,35,5],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["invitation to sports event, physical activity, blah, blah, blah, blah"],"r3A2": ["..invitación a evento deportivo, actividad física, bla, bla, bla, bla"],"r3A3": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3A4": ["스포츠 행사 초대, 신체 활동, 어쩌구 저쩌구 어쩌구 저쩌구"],"r3Z1":	["invitation to sports event, physical activity, blah, blah, blah, blah"],"r3Z2":	["invitación a evento deportivo, actividad física, bla, bla, bla, bla"],"r3Z3":	["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3Z4": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3B1": [2],"r3B2": [31],"r3B3": 0,"r3B4": 1,"r3B5": [0],"r3B6": [0],"r3B7": [0],"r3B8": [0],"r3B9": [0],"r3B10": [0]},{"iads": "7i1i8i4","r3A1": ["invitation to General Assembly, blah, blah, blah"	,"abece 1"	,"abece 2"],"r3A2": ["..invitación a Asamblea General, bla, bla, bla" 		,"abece 1"	,"abece 2"],"r3A3": ["invitation à l\'Assemblée générale, bla, bla, bla"	,"abece"	,"abece"],"r3A4": ["총회 초대, 어쩌구 저쩌구"									,"abece"	,"abece"],"r3Z1":	["invitation to General Assembly, blah, blah, blah, blah", "abece 1","abece 2"],"r3Z2":	["invitación a Asamblea General, bla, bla, bla, bla" ,"abece 1","abece 2"],"r3Z3":	["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],"r3Z4": ["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],"r3B1": [2,1,1],"r3B2": [37,15,16],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],"r3A2": ["..convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],"r3A3": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3A4": ["국내 대학생, 교사, 여성, 장애인, 기업 및 기업가를 대상으로 정보통신부가 공개 모집"																												,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3Z1":	["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],"r3Z2":	["convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],"r3Z3":	["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3Z4": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3B1": [3,2],"r3B2": [3,36],"r3B3": 0,"r3B4": 1,"r3B5": [0,0],"r3B6": [0,0],"r3B7": [0,0],"r3B8": [0,0],"r3B9": [0,0],"r3B10": [0,0]}]';
 const jAds = //*colección 7i1i8i4 de los anuncios JSON
-'[{"iads": "7i1i8i4","r3A1": ["participate this Sunday, January 29, in an ecological walk in Ciudad Bolívar, IDRD, invites you"	,"Be part of our ecological walks, and discover places that will help you connect with nature."								,"This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena"	],"r3A2": ["..participa este domingo 29 de enero en una caminata ecológica en Ciudad Bolívar, IDRD, te invita"	,"Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza."				,"Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena"			],"r3A3": ["participez ce dimanche 29 janvier à une promenade écologique à Ciudad Bolívar, IDRD vous invite"	,"Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature."	,"Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena"   	],"r3A4": ["1월 29일 일요일, IDRD의 Ciudad Bolívar에서 열리는 생태 산책에 여러분을 초대합니다."							,"생태 산책에 참여하고 자연과 연결하는 데 도움이 되는 장소를 발견하세요."																		,"이번 일요일 약속은 Ciudad Bolívar, Casona 및 Sierra Morena에 있습니다."   			],"r3Z1":	["person walking up the mountain"			,"person walking up the mountain"	,"person walking up the mountain"	],"r3Z2":	["persona caminando por la montaña"			,"persona caminando por la montaña"	,"persona caminando por la montaña"	],"r3Z3":	["personne qui monte la montagne"			,"personne qui monte la montagne"	,"personne qui monte la montagne"	],"r3Z4": ["산을 오르는 사람"								,"산을 오르는 사람"						,"산을 오르는 사람"						],"r3B1": [3,1,3],"r3B2": [18,16,4],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	,"Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70"		,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],"r3A2": ["..Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],"r3A3": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		,"Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3A4": ["Ciudad Bolívar, Casona 및 Sierra Morena를 하이킹하십시오. 1월 29일 일요일 오전 9시 ~ 오전 11시"			,"만남의 장소: Francisco José de Caldas District University 앞, calle 68 bis A sur #49F-70."						,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3Z1":	["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	," Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70."	,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],"r3Z2":	["Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],"r3Z3":	["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3Z4": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],"r3B1": [2,2,3],"r3B2": [33,35,5],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["invitation to sports event, physical activity, blah, blah, blah, blah"],"r3A2": ["..invitación a evento deportivo, actividad física, bla, bla, bla, bla"],"r3A3": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3A4": ["스포츠 행사 초대, 신체 활동, 어쩌구 저쩌구 어쩌구 저쩌구"],"r3Z1":	["invitation to sports event, physical activity, blah, blah, blah, blah"],"r3Z2":	["invitación a evento deportivo, actividad física, bla, bla, bla, bla"],"r3Z3":	["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3Z4": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],"r3B1": [2],"r3B2": [31],"r3B3": 0,"r3B4": 1,"r3B5": [0],"r3B6": [0],"r3B7": [0],"r3B8": [0],"r3B9": [0],"r3B10": [0]},{"iads": "7i1i8i4","r3A1": ["invitation to General Assembly, blah, blah, blah"	,"abece 1"	,"abece 2"],"r3A2": ["..invitación a Asamblea General, bla, bla, bla" 		,"abece 1"	,"abece 2"],"r3A3": ["invitation à l\'Assemblée générale, bla, bla, bla"	,"abece"	,"abece"],"r3A4": ["총회 초대, 어쩌구 저쩌구"									,"abece"	,"abece"],"r3Z1":	["invitation to General Assembly, blah, blah, blah, blah", "abece 1","abece 2"],"r3Z2":	["invitación a Asamblea General, bla, bla, bla, bla" ,"abece 1","abece 2"],"r3Z3":	["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],"r3Z4": ["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],"r3B1": [2,1,1],"r3B2": [37,15,16],"r3B3": 0,"r3B4": 1,"r3B5": [0,0,0],"r3B6": [0,0,0],"r3B7": [0,0,0],"r3B8": [0,0,0],"r3B9": [0,0,0],"r3B10": [0,0,0]},{"iads": "7i1i8i4","r3A1": ["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],"r3A2": ["..convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],"r3A3": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3A4": ["국내 대학생, 교사, 여성, 장애인, 기업 및 기업가를 대상으로 정보통신부가 공개 모집"																												,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3Z1":	["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],"r3Z2":	["convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],"r3Z3":	["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3Z4": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],"r3B1": [3,2],"r3B2": [3,36],"r3B3": 0,"r3B4": 1,"r3B5": [0,0],"r3B6": [0,0],"r3B7": [0,0],"r3B8": [0,0],"r3B9": [0,0],"r3B10": [0,0]}]';
-
+	`[ 	
+	{
+		"iads": "7i1i8i4",
+		"r3A1": ["participate this Sunday, January 29, in an ecological walk in Ciudad Bolívar, IDRD, invites you"	,"Be part of our ecological walks, and discover places that will help you connect with nature."								,"This Sunday the appointment is in Ciudad Bolívar, Casona and Sierra Morena"	],
+		"r3A2": ["..participa este domingo 29 de enero en una caminata ecológica en Ciudad Bolívar, IDRD, te invita"	,"Sé parte de nuestras caminatas ecológicas, y conoce lugares que te ayudarán a conectarte con la naturaleza."				,"Este domingo la cita es en Ciudad Bolívar, Casona y Sierra Morena"			],
+		"r3A3": ["participez ce dimanche 29 janvier à une promenade écologique à Ciudad Bolívar, IDRD vous invite"	,"Faites partie de nos promenades écologiques et découvrez des lieux qui vous aideront à vous connecter avec la nature."	,"Ce dimanche, le rendez-vous est à Ciudad Bolívar, Casona et Sierra Morena"   	],
+		"r3A4": ["1월 29일 일요일, IDRD의 Ciudad Bolívar에서 열리는 생태 산책에 여러분을 초대합니다."							,"생태 산책에 참여하고 자연과 연결하는 데 도움이 되는 장소를 발견하세요."																		,"이번 일요일 약속은 Ciudad Bolívar, Casona 및 Sierra Morena에 있습니다."   			],
+		"r3Z1":	["person walking up the mountain"			,"person walking up the mountain"	,"person walking up the mountain"	],
+		"r3Z2":	["persona caminando por la montaña"			,"persona caminando por la montaña"	,"persona caminando por la montaña"	],
+		"r3Z3":	["personne qui monte la montagne"			,"personne qui monte la montagne"	,"personne qui monte la montagne"	],
+		"r3Z4": ["산을 오르는 사람"								,"산을 오르는 사람"						,"산을 오르는 사람"						],
+		"r3B1": [3,1,3],
+		"r3B2": [18,16,4],
+		"r3B3": 0,
+		"r3B4": 1,
+		"r3B5": [0,0,0],
+		"r3B6": [0,0,0],
+		"r3B7": [0,0,0],
+		"r3B8": [0,0,0],
+		"r3B9": [0,0,0],
+		"r3B10": [0,0,0]
+	},
+	{
+		"iads": "7i1i8i4",
+		"r3A1": ["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	,"Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70"		,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],
+		"r3A2": ["..Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],
+		"r3A3": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		,"Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70"	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],
+		"r3A4": ["Ciudad Bolívar, Casona 및 Sierra Morena를 하이킹하십시오. 1월 29일 일요일 오전 9시 ~ 오전 11시"			,"만남의 장소: Francisco José de Caldas District University 앞, calle 68 bis A sur #49F-70."						,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],
+		"r3Z1":	["Hike Ciudad Bolívar, Casona and Sierra Morena. Sunday, January 29, 9:00 a.m. to 11:00 a.m."	," Meeting point: In front of the Francisco José de Caldas District University, calle 68 bis A sur #49F-70."	,"Free registration, more information at www.idrd.gov.co and on our social networks" 		],
+		"r3Z2":	["Caminata Ciudad Bolívar, Casona y Sierra Morena. Domingo 29 de enero, 9:00 a 11:00 a.m."		,"Punto de encuentro: Frente a la Universidad Distrital Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscripción gratuita, mayor información en www.idrd.gov.co y en nuestras redes sociales"	],
+		"r3Z3":	["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],
+		"r3Z4": ["Randonnée Ciudad Bolívar, Casona et Sierra Morena. Dimanche 29 janvier de 9h00 à 11h00"		," Point de rencontre: Devant l\'Université du district Francisco José de Caldas, calle 68 bis A sur #49F-70."	,"Inscription gratuite, plus d\'informations sur www.idrd.gov.co et sur nos réseaux sociaux"	],
+		"r3B1": [2,2,3],
+		"r3B2": [33,35,5],
+		"r3B3": 0,
+		"r3B4": 1,
+		"r3B5": [0,0,0],
+		"r3B6": [0,0,0],
+		"r3B7": [0,0,0],
+		"r3B8": [0,0,0],
+		"r3B9": [0,0,0],
+		"r3B10": [0,0,0] 
+	},
+	{
+		"iads": "7i1i8i4",
+		"r3A1": ["invitation to sports event, physical activity, blah, blah, blah, blah"],
+		"r3A2": ["..invitación a evento deportivo, actividad física, bla, bla, bla, bla"],
+		"r3A3": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],
+		"r3A4": ["스포츠 행사 초대, 신체 활동, 어쩌구 저쩌구 어쩌구 저쩌구"],
+		"r3Z1":	["invitation to sports event, physical activity, blah, blah, blah, blah"],
+		"r3Z2":	["invitación a evento deportivo, actividad física, bla, bla, bla, bla"],
+		"r3Z3":	["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],
+		"r3Z4": ["invitation à un événement sportif, activité physique, bla, bla, bla, bla"],
+		"r3B1": [2],
+		"r3B2": [31],
+		"r3B3": 0,
+		"r3B4": 1,
+		"r3B5": [0],
+		"r3B6": [0],
+		"r3B7": [0],
+		"r3B8": [0],
+		"r3B9": [0],
+		"r3B10": [0]
+	},
+	{
+		"iads": "7i1i8i4",
+		"r3A1": ["invitation to General Assembly, blah, blah, blah"	,"abece 1"	,"abece 2"],
+		"r3A2": ["..invitación a Asamblea General, bla, bla, bla" 		,"abece 1"	,"abece 2"],
+		"r3A3": ["invitation à l\'Assemblée générale, bla, bla, bla"	,"abece"	,"abece"],
+		"r3A4": ["총회 초대, 어쩌구 저쩌구"									,"abece"	,"abece"],
+		"r3Z1":	["invitation to General Assembly, blah, blah, blah, blah", "abece 1","abece 2"],
+		"r3Z2":	["invitación a Asamblea General, bla, bla, bla, bla" ,"abece 1","abece 2"],
+		"r3Z3":	["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],
+		"r3Z4": ["invitation à l\'Assemblée générale, bla, bla, bla, bla","abece","abece"],
+		"r3B1": [2,1,1],
+		"r3B2": [37,15,16],
+		"r3B3": 0,
+		"r3B4": 1,
+		"r3B5": [0,0,0],
+		"r3B6": [0,0,0],
+		"r3B7": [0,0,0],
+		"r3B8": [0,0,0],
+		"r3B9": [0,0,0],
+		"r3B10": [0,0,0]
+	},
+	{
+		"iads": "7i1i8i4",
+		"r3A1": ["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],
+		"r3A2": ["..convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],
+		"r3A3": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],
+		"r3A4": ["국내 대학생, 교사, 여성, 장애인, 기업 및 기업가를 대상으로 정보통신부가 공개 모집"																												,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],
+		"r3Z1":	["open calls by the ICT Ministry for university students, teachers, women, people with disabilities, companies and entrepreneurs in the country"								,"Those interested should enter the ministry\'s website www.mintic.gov.co to consult the details of each project and the closing of the calls."],
+		"r3Z2":	["convocatorias abiertas por el MinTIC para universitarios, docentes, mujeres, personas con discapacidad, empresas y emprendedores del país"									,"Los interesados deberán ingresar a la página web del ministerio www.mintic.gov.co a consultar los detalles de cada proyecto y los cierres de las convocatorias."],
+		"r3Z3":	["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],
+		"r3Z4": ["appels ouverts du ministère des TIC pour les étudiants universitaires, les enseignants, les femmes, les personnes handicapées, les entreprises et les entrepreneurs du pays"	,"Les personnes intéressées doivent entrer sur le site Web du ministère www.mintic.gov.co pour consulter les détails de chaque projet et la clôture des appels."],
+		"r3B1": [3,2],
+		"r3B2": [3,36],
+		"r3B3": 0,
+		"r3B4": 1,
+		"r3B5": [0,0],
+		"r3B6": [0,0],
+		"r3B7": [0,0],
+		"r3B8": [0,0],
+		"r3B9": [0,0],
+		"r3B10": [0,0]
+	}
+]`;
 //Detectar el tipo de dato y su tamaño
 console.log(' typeof iads =', typeof jAds);//string
-
 //Convertir una cadena del JSON en un objeto, para ello se usa el metodo parse: 
-const jsAds = JSON.parse(jAds);
+const jsAds = JSON.parse(jAds); 
 console.log(' typeof iadsJS =', typeof jsAds);//object
 console.log(' .. typeof iadsJS.length =', jsAds.length);//234
-
+console.log('jsAds.length===',jsAds.length);
 //Convertir el objeto JS en 3 arrays
+for (var i = 0; i < jsAds.length; i++) {
+	mIrrr3A[i+1][1] = jsAds[i].r3A1;
+	mIrrr3A[i+1][2] = jsAds[i].r3A2;
+	mIrrr3A[i+1][3] = jsAds[i].r3A3;
+	mIrrr3A[i+1][4] = jsAds[i].r3A4;
+	mIrrr3Z[i+1][1] = jsAds[i].r3Z1;
+	mIrrr3Z[i+1][2] = jsAds[i].r3Z2;
+	mIrrr3Z[i+1][3] = jsAds[i].r3Z3;
+	mIrrr3Z[i+1][4] = jsAds[i].r3Z4;
+	mIrrr3B[i+1][1] = jsAds[i].r3B1;
+	mIrrr3B[i+1][2] = jsAds[i].r3B2;
+	mIrrr3B[i+1][3] = jsAds[i].r3B3;
+	mIrrr3B[i+1][4] = jsAds[i].r3B4;
+	mIrrr3B[i+1][5] = jsAds[i].r3B5;
+	mIrrr3B[i+1][6] = jsAds[i].r3B6;
+	mIrrr3B[i+1][7] = jsAds[i].r3B7;
+	mIrrr3B[i+1][8] = jsAds[i].r3B8;
+	mIrrr3B[i+1][9] = jsAds[i].r3B9;
+	mIrrr3B[i+1][10] = jsAds[i].r3B10;
+}
+/** /
 for (var i = 0; i < jsAds.length; i++) {
 	rrr3A[1][i] = jsAds[i].r3A1;
 	rrr3A[2][i] = jsAds[i].r3A2;
@@ -1023,6 +1500,580 @@ for (var i = 0; i < jsAds.length; i++) {
 	rrr3B[9][i] = jsAds[i].r3B9;
 	rrr3B[10][i] = jsAds[i].r3B10;
 }
+/**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///inicio traidos desde _
+
+
+/////////////////////////////////////
+//OTROS
+
+/*LISTA DE IDIOMAS "DISPONIBLES"
+1-Ingles,2-Español,3-Francés,4-Portugués,5-Alemán,6-Árabe,7-Chino,8-Coreano,9-Japonés,10-Ruso,11-Turco
+1-ASL,2-LSC,3-
+*/
+
+const mIkBoton =/**/[['Casillas', 1, 2, 3, 4],//Nota: si usa un teclado físico y habilita el bloqueo de mayúsculas, puede usar la tecla 1 o la tecla coma, para subir, la tecla 3 o la tecla ce, para bajar, la tecla 4 o la tecla eme, para el menú, la tecla 6 o la tecla ve pequeña, para aceptar, la tecla 7 o la tecla ene, para cancelar y la tecla 9 o la tecla be grande, para información
+[1, 'Caps lock:','Bloque de mayúsculas:','Verrouillage des majuscules:','캡 블록:'],
+[2, 'enabled.','habilitado.','activée.','가능합니다.'],
+[3, 'disabled.','deshabilitado.','désactivé.','장애가 있는.'],
+[4, 'Window reader:','Lector de ventana:','Lecteur de fenêtre:','윈도우 리더:'],
+[5, 'Vibrator:','Vibrador:','Vibreur:','진동기:'],
+[6, 'Window:','Ventana:','Fenêtre:','창문:'],
+[7, 'minimized.','minimizada.','minimisée.','최소화.'],
+[8, 'maximized.','maximizada.','maximisée.','최대화.'],
+[9, '','','',''],
+[10,'','','','']
+];
+/*
+const kBoton =[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],//Nota: si usa un teclado físico y habilita el bloqueo de mayúsculas, puede usar la tecla 1 o la tecla coma, para subir, la tecla 3 o la tecla ce, para bajar, la tecla 4 o la tecla eme, para el menú, la tecla 6 o la tecla ve pequeña, para aceptar, la tecla 7 o la tecla ene, para cancelar y la tecla 9 o la tecla be grande, para información
+[1, 'Caps lock:', 'enabled.', 'disabled.', 'Window reader:', 'Vibrator:', 'Window:', 'minimized.', 'maximized.', '', ''],
+[2, 'Bloque de mayúsculas:', 'habilitado.', 'deshabilitado.', 'Lector de ventana:', 'Vibrador:', 'Ventana:', 'minimizada.', 'maximizada.', '', ''],
+[3, 'Verrouillage des majuscules:', 'activée.', 'désactivé.', 'Lecteur de fenêtre:', 'Vibreur:', 'Fenêtre:', 'minimisée.', 'maximisée.', '', ''],
+[4, '캡 블록:', '가능합니다.', '장애가 있는.', '윈도우 리더:', '진동기:', '창문:', '최소화.', '최대화.', '', ''],
+[5, '', '', ''],
+];
+*/
+
+const mIkComun =/**/[[0, 1, 2, 3, 4],
+['Comunidades', 'the localidad of Chapinero','la localidad de Chapinero','la localidad de Chapinero','차피네로 마을'],
+[2, 			'TecnoParque Colombia','TecnoParque Colombia','TecnoParque Colombia','TecnoParque Colombia'],
+[3, 			'Sena from Calle 52','Sena de la Calle 52','Sena de Calle 52','Sena de Calle 52']
+];
+/*
+const kComun =[[0, 'Comunidades', 2, 3],
+[1, 'the localidad of Chapinero', 'TecnoParque Colombia', 'Sena from Calle 52'],
+[2, 'la Localidad de Chapinero', 'TecnoParque Colombia', 'Sena de la Calle 52'],
+[3, 'la localidad de Chapinero', 'TecnoParque Colombia', 'Sena de Calle 52'],
+[4, '차피네로 마을', 'TecnoParque Colombia', 'Sena de Calle 52']
+];
+*/
+
+//CONTROL DE kTapaI
+const mIkControl =/**/[[0, 1, 2, 3, 4],
+['1hx/0xh', 			1,1,1,1],
+['1LeftToR,0RightTL', 	1,1,1,1]
+];
+/*
+const kControl =[[0, '1hx/0xh', '1LeftToR,0RightTL'],
+[1, 1, 1],
+[2, 1, 1],
+[3, 1, 1],
+[4, 1, 1]
+];
+*/
+
+/*
+const kIntro =[[0, 1, 2],
+[1, 'To exit this alert: click on the center of this window, or click the round accept button.', 'To repeat this alert: click on the vertical info button.'],
+[2, 'Para salir de esta alerta: de clic en el centro de esta ventana, o clic en el botón redondo de aceptar.', 'Para repetir esta alerta: clic en el botón vertical de info.'],
+[3, 'Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.', 'Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.'],
+[4, 'Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.', 'Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.']
+];
+const mIkIntro =[[0, 1, 2, 3, 4],
+[1, 'To exit this alert: click on the center of this window, or click the round accept button.','Para salir de esta alerta: de clic en el centro de esta ventana, o clic en el botón redondo de aceptar.','Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.','Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.'],
+[2, 'To repeat this alert: click on the vertical info button.','Para repetir esta alerta: clic en el botón vertical de info.','Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.','Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.']
+];
+*/
+
+/*
+const kLugar = [[0, 'lugares'],
+[1, 'Bogota, Cundinamarca, Colombia'],
+[2, 'Bogotá, Cundinamarca, Colombia'],
+[3, 'Bogota, Cundinamarca, Colombia'],
+[4, 'B보고타, 쿤디나마르카, 콜롬비아']
+];
+*/
+
+/*
+//alertas
+const mIkTapaA =[['Casillas', 1, 2, 3, 4],
+[1, 'Attention:','Atención:','Attention:','Attention:'],
+[2, 'keyboard connected','teclado conectado','clavier connecté','clavier connecté'],
+[3, 'keyboard off','teclado desconectado','clavier éteint','clavier éteint'],
+[4, 'the ground moves, your life may be in danger, find a safe place and stay safe','el suelo se mueve, su vida puede estar en peligro, busque un lugar seguro y pongase a salvo','le sol bouge, votre vie peut être en danger, trouvez un endroit sûr et restez en sécurité','le sol bouge, votre vie peut être en danger, trouvez un endroit sûr et restez en sécurité']
+];
+const kTapaA =[[0, 1, 2, 3, 4],
+[1, 'Attention:', 'keyboard connected', 'keyboard off', 'the ground moves, your life may be in danger, find a safe place and stay safe'],
+[2, 'Atención:', 'teclado conectado', 'teclado desconectado', 'el suelo se mueve, su vida puede estar en peligro, busque un lugar seguro y pongase a salvo'],
+[3, 'Attention:', 'clavier connecté', 'clavier éteint', 'le sol bouge, votre vie peut être en danger, trouvez un endroit sûr et restez en sécurité'],
+[4, 'Attention:', 'clavier connecté', 'clavier éteint', 'le sol bouge, votre vie peut être en danger, trouvez un endroit sûr et restez en sécurité']
+];
+*/
+
+/*
+//Imagen del Visor de Alertas???
+const kTapaB = [['Recursos/ Casillas..', 1, 2, 3],
+['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 1, 1, 1],
+['2 id de la Imag, Icon o Texto', 55, 58, 59],
+['3', 0, 0, 0]
+];
+*/
+
+//Se controla desde kControl la glosa se encuentra en kTapaITG  -- Nota - Párrafo - Texto
+const mIkTapaI =/**/[['Casillas', 1, 2, 3, 4],
+[1, 'Hour: ', 'Hora: ', 'Heure: ', '시간: '],
+[2, 'Parent path: ', 'Ruta padre: ', 'Chemin parent: ', '상위 경로: '],
+[3, '. ', '. ', '. ', '. '],
+[4, ', go back', ', regresar', ', retourner', ', 돌아가다'],
+[5, ', change', ', cambiar', ', changer', ', 변경'],
+[6, 'You are on: ', 'Estás en: ', 'Vous êtes dans:', '너는 ~에있다:'],
+[7, 'selected', 'seleccionado', 'choisi', 'choisi'],
+[8, 'with out select', 'sin seleccionar', 'sans choisir', 'sans choisir'],
+[9, '', '', '', ''],
+[10, 'up', 'arriba', 'en haut', '~ 위에'],
+[11, 'down', 'abajo', 'vers le bas', '아래에'],
+[12, 'video', 'vídeo', 'vidéo', 'vidéo'],
+[13, 'image', 'imagén', 'image', 'image'],
+[14, 'writing', 'escrito', 'écriture', '쓴'],
+[15, 'input', 'entrada', 'entrée', 'entrée'],
+[16, 'exit', 'salida', 'sortie', 'sortie'],
+[17, 'Element:','Elemento:','Élément:','요소:'],
+[18, 'of', 'de', 'sur', '~의'],
+[19, 'menu', 'menú', 'menu', '메뉴'],
+[20, 'attention, maximize the window', 'atención, maximizar la ventana', 'attention, maximiser la fenêtre', 'attention, maximiser la fenêtre'],
+[21, ', continue', ', continuar', ', continuer', ', 계속하다'],
+[22, 'Reading ', 'Lectura ', 'Lecture ', '독서 '],
+[23, 'In the picture: ', 'En la imagen: ', 'Dans l\'image: ', '사진 속에: '],
+[24, 'welcome to ', 'Bienvenidos a ', 'Bienvenue à', '에 오신 것을 환영합니다 '],
+[25, 'Information: ', 'Información: ', 'Information: ', '정보: '],
+[26, 'Offers: to find out about local offers', 'Ofertas: para conocer las ofertas locales', 'Offres : pour connaître les offres locales', '제안: 지역 제안에 대해 알아보기'],
+[27, 'Place', 'Lugar', 'Lieu', '장소'],
+[28, 'announcements, place ', 'anuncios, lugar ', 'annonces, lieu ', '광고, 장소 '],
+[29, ': To know the local announcements', ': Para conocer los anuncios locales', ': Pour connaître les annonces locales', ': 지역 공지 사항에 대해 알고 싶습니다.'],
+[30, 'Here, there are no notes to publish', 'Aquí, no hay notas para publicar', "Ici, il n'y a aucune note à poster", '여기에는 게시할 메모가 없습니다.'],
+[31, 'Looking for information...', 'Buscando información...', "À la recherche d'informations...", '정보를 찾는 중...']
+];
+/*
+const kTapaI =[[0, 'h', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+[1, 'Hour: ', 'Parent path: ', '. ', ', go back', ', change'		, 'You are on: ', 'selected', 'with out select', '', 'up', 'down', 'video', 'image', 'writing', 'input', 'exit', 'Element:', 'of', 'menu', 'attention, maximize the window', ', continue', 'Reading ', 'In the picture: ', 'welcome to '								, 'Information: ', 'Offers: to find out about local offers', 'Place', 'announcements, place ', ': To know the local announcements', 'Here, there are no notes to publish', 'Looking for information...'],
+[2, 'Hora: ', 'Ruta padre: ', '. ', ', regresar', ', cambiar'		, 'Estás en: ', 'seleccionado', 'sin seleccionar', '', 'arriba', 'abajo', 'vídeo', 'imagén', 'escrito', 'entrada', 'salida', 'Elemento:', 'de', 'menú', 'atención, maximizar la ventana', ', continuar', 'Lectura ', 'En la imagen: ', 'Bienvenidos a '				, 'Información: ', 'Ofertas: para conocer las ofertas locales', 'Lugar', 'anuncios, lugar ', ': Para conocer los anuncios locales', 'Aquí, no hay notas para publicar', 'Buscando información...'],
+[3, 'Heure: ', 'Chemin parent: ', '. ', ', retourner', ', changer'	, 'Vous êtes dans:', 'choisi', 'sans choisir', ''	, 'en haut'	 , 'vers le bas', 'vidéo', 'image', 'écriture', 'entrée', 'sortie', 'Élément:', 'sur', 'menu', 'attention, maximiser la fenêtre', ', continuer', 'Lecture ', 'Dans l\'image: ', 'Bienvenue à'        , 'Information: ', 'Offres : pour connaître les offres locales', 'Lieu', 'annonces, lieu ', ': Pour connaître les annonces locales', "Ici, il n'y a aucune note à poster", "À la recherche d'informations..."],
+[4, '시간: ', '상위 경로: '		, '. '	, ', 돌아가다' , ', 변경'		, '너는 ~에있다:'	, 'choisi', 'sans choisir', ''	, '~ 위에'		, '아래에', 'vidéo'      , 'image', '쓴'      , 'entrée', 'sortie', '요소:', '~의', '메뉴', 'attention, maximiser la fenêtre', ', 계속하다'	, '독서 '	, '사진 속에: '		  , '에 오신 것을 환영합니다 ', '정보: '     , '제안: 지역 제안에 대해 알아보기'                   , '장소', '광고, 장소 '        , ': 지역 공지 사항에 대해 알고 싶습니다.'       , '여기에는 게시할 메모가 없습니다.', '정보를 찾는 중...'],
+];
+*/
+
+
+//RUTA 4 MENÚ PRINCIPAL
+//INFORMAR MENÚ
+const mIr004A =/**/[['Casillas', 1, 2, 3, 4],
+[1, '','','',''],
+[2, 'settings: to adjust the mode','ajustes: para ajustar el modo','réglages: pour ajuster le mode','설정: 모드 조정'],
+[3, 'maximized window, change','ventana maximizada, cambiar','fenêtre maximisée, changer','korean'],
+[4, 'minimized window, change','ventana minimizada, cambiar','fenêtre réduite, changer','korean'],
+[5, 'user account','cuenta de usuario','compte d\'utilisateur','compte d\'utilisateur'],
+[6, 'language and place: to adjust the site','idioma y lugar: para ajustar el sitio','langue et lieu: pour ajuster le site','언어와 장소: 사이트 조정'],
+[7, 'Chapinero community, change','comunidad Chapinero, cambiar','communauté Chapinero, changement','Chapinero 커뮤니티, 변화'],
+[8, 'settings 3: To filter the information','ajustes 3: Para filtrar la información','réglages 3 : Pour filtrer les informations','설정 3: 정보를 필터링하려면'],
+[9, 'help','ayuda','aider','지원'],
+[10,'Information: To find out about local activities and offers','Información: Para conocer las actividades y ofertas locales','Information: Pour connaître les activités et les offres locales','정보: 활동 및 제공되는 로케일에 대한 정보'],
+[11,'offers: to find out about local offers','ofertas: para conocer las ofertas locales','offres : pour connaître les offres locales','제안: 지역 제안에 대해 알아보기'],
+[12,'local contacts','contactos locales','contacts locaux','contacts locaux'],
+[13,'post an invite','publicar una invitación','publier une invitation','publier une invitation'],
+[14,'posts','mensajes','des postes','des postes'],
+[15,'personal contacts','contactos personales','contacts personnels','contacts personnels'],
+[16,'seeker','buscador','chercheur','korean'],
+[17,'advice request, deactivated, change','solicitud de asesoría, desactivado, cambiar','demande de conseil, désactivé, changer','korean'],
+[18,'menu rating good, change','calificación del menú buena, cambiar','bonne note de menu, changer' ,'korean'],
+[19,'headlines: to see or listen to the audiovisual summary of the information','titulares: para ver o escuchar el resumen audiovisual de la información','titres : pour voir ou écouter le résumé audiovisuel de l\'information','헤드라인: 정보의 시청각 요약을 보거나 듣는 것'],
+[20,'i bogota QR code','código QR de i bogota','i bogota QR code','i 스캔할 보고타 QR'],
+[21,'frequently asked questions: to find answers','preguntas frecuentes: para encontrar respuestas','Questions fréquemment posées: pour trouver des réponses','자주 묻는 질문: 답변 찾기'],
+[22,'action, restart to exit and reload the application','acción, reiniciar para salir y volver a cargar la aplicación','action, redémarrer pour quitter et recharger l\'application','작업, 다시 시작 응용 프로그램을 종료하고 다시 로드합니다.']
+];
+/*
+const r004A =[['Casillas', 1,    2,                          3,                          4,              5,                                        6,                              7,                                      8,      9,                                                                 10,                                      11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+[1, '', 'settings: to adjust the mode', 'maximized window, change', 'minimized window, change', 'user account', 'language and place: to adjust the site', 'Chapinero community, change', 'settings 3: To filter the information', 'help', 'Information: To find out about local activities and offers', 'offers: to find out about local offers', 'local contacts', 'post an invite', 'posts', 'personal contacts', 'seeker', 'advice request, deactivated, change', 'menu rating good, change'																			, 'headlines: to see or listen to the audiovisual summary of the information', 'i bogota QR code', 'frequently asked questions: to find answers', 'action, restart to exit and reload the application'],
+[2, '', 'ajustes: para ajustar el modo', 'ventana maximizada, cambiar', 'ventana minimizada, cambiar', 'cuenta de usuario', 'idioma y lugar: para ajustar el sitio', 'comunidad Chapinero, cambiar', 'ajustes 3: Para filtrar la información', 'ayuda', 'Información: Para conocer las actividades y ofertas locales'             , 'ofertas: para conocer las ofertas locales', 'contactos locales', 'publicar una invitación', 'mensajes', 'contactos personales', 'buscador', 'solicitud de asesoría, desactivado, cambiar', 'calificación del menú buena, cambiar'	, 'titulares: para ver o escuchar el resumen audiovisual de la información', 'código QR de i bogota', 'preguntas frecuentes: para encontrar respuestas', 'acción, reiniciar para salir y volver a cargar la aplicación'],
+[3, '', 'réglages: pour ajuster le mode', 'fenêtre maximisée, changer', 'fenêtre réduite, changer', 'compte d\'utilisateur', 'langue et lieu: pour ajuster le site', 'communauté Chapinero, changement', 'réglages 3 : Pour filtrer les informations', 'aider', 'Information: Pour connaître les activités et les offres locales', 'offres : pour connaître les offres locales', 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'chercheur', 'demande de conseil, désactivé, changer', 'bonne note de menu, changer' 	   			, 'titres : pour voir ou écouter le résumé audiovisuel de l\'information', 'i bogota QR code', 'Questions fréquemment posées: pour trouver des réponses', 'action, redémarrer pour quitter et recharger l\'application'],
+[4, '', '설정: 모드 조정'					, 'korean'					, 'korean'					, 'compte d\'utilisateur', '언어와 장소: 사이트 조정'				    , 'Chapinero 커뮤니티, 변화'           , '설정 3: 정보를 필터링하려면'                      , '지원'  , '정보: 활동 및 제공되는 로케일에 대한 정보'                                    , '제안: 지역 제안에 대해 알아보기'                  , 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'korean'   , 'korean'                                , 'korean'                      	         , '헤드라인: 정보의 시청각 요약을 보거나 듣는 것'    								, 'i 스캔할 보고타 QR'	, '자주 묻는 질문: 답변 찾기'									, '작업, 다시 시작 응용 프로그램을 종료하고 다시 로드합니다.']
+];
+*/
+/*
+const 	r004A		=	[	['Casillas'	,1											,2										,3								,4								,5							,6											,7									,8												,9				,10													,11						,12								,13				,14							,15				,16												,17											,18																				,19							,20																,21																],
+							[1			,'hall: to receive the information'			,'settings: to adjust the mode'			,'maximized window, change'		,'minimized window, change'		,'user account'				,'language and place: to adjust the site'	,'Chapinero community, change'		,'settings 3: To filter the information'		,'help'			,'announcements: to know the local announcements'	,'local contacts'		,'post an invite'				,'posts'		,'personal contacts'		,'seeker'		,'advice request, deactivated, change'			,'menu rating good, change'					,'headlines: to see or listen to the audiovisual summary of the announcements'	,'i bogota QR code'			,'frequently asked questions: to find answers'					,'action, restart to exit and reload the application'			],
+							[2			,'sala: para recibir la información'		,'ajustes: para ajustar el modo'		,'ventana maximizada, cambiar'	,'ventana minimizada, cambiar'	,'cuenta de usuario'		,'idioma y lugar: para ajustar el sitio'	,'comunidad Chapinero, cambiar'		,'ajustes 3: Para filtrar la información'		,'ayuda'		,'anuncios: Para conocer los anuncios locales'		,'contactos locales'	,'publicar una invitación'		,'mensajes'		,'contactos personales'		,'buscador'		,'solicitud de asesoría, desactivado, cambiar'	,'calificación del menú buena, cambiar'		,'titulares: para ver o escuchar el resumen audiovisual de los anuncios'		,'código QR de i bogota'	,'preguntas frecuentes: para encontrar respuestas'				,'acción, reiniciar para salir y volver a cargar la aplicación'	],
+							[3			,'salle: pour recevoir les informations'	,'réglages: pour ajuster le mode'		,'fenêtre maximisée, changer'	,'fenêtre réduite, changer'		,'compte d\'utilisateur'	,'langue et lieu: pour ajuster le site'		,'communauté Chapinero, changement'	,'réglages 3 : Pour filtrer les informations'	,'aider'		,'annonces: pour connaître les annonces locales'	,'contacts locaux'		,'publier une invitation'		,'des postes'	,'contacts personnels'		,'chercheur'	,'demande de conseil, désactivé, changer'		,'bonne note de menu, changer'				,'titres : pour voir ou écouter le résumé audiovisuel des annonces'				,'i bogota QR code'			,'Questions fréquemment posées: pour trouver des réponses'		,'action, redémarrer pour quitter et recharger l\'application'	],
+							[4			,'입구: 정보를 받기 위해'						,'설정: 모드 조정'							,'korean'						,'korean'						,'compte d\'utilisateur'	,'언어와 장소: 사이트 조정'						,'Chapinero 커뮤니티, 변화'				,'설정 3: 정보를 필터링하려면'							,'지원'			,'광고: 지역 공지 사항에 대해 알고 싶습니다.'					,'contacts locaux'		,'publier une invitation'		,'des postes'	,'contacts personnels'		,'korean'		,'korean'										,'korean'									,'헤드라인: 공지 사항의 시청각 요약을 보거나 듣기 위해'										,'i 스캔할 보고타 QR'			,'자주 묻는 질문: 답변 찾기'											,'작업, 다시 시작 응용 프로그램을 종료하고 다시 로드합니다.']
+						];
+*/
+//TRADUCCION A GLOSA MANUAL DE r004A
+const mIr004ATG =/**/[['0senias','1UNIVER','2LSC','3ASL'],
+[1, 0,0,0],
+[2, 0,0,0],
+[3, 0,0,0],
+[4, 0,0,0],
+[5, 0,0,0],
+[6, 0,'ajustes',0],
+[7, 0,0,0],
+[8, 0,0,0],
+[9, 0,0,0],
+[10,0,0,0],
+[11,0,0,0],
+[12,0,0,0],
+[13,0,0,0],
+[14,0,0,0],
+[15,0,0,0],
+[16,0,0,0],
+[17,0,0,0],
+[18,0,0,0],
+[19,0,0,0],
+[20,0,0,0],
+[21,0,0,0],
+[22,0,0,0]
+];
+/*
+const r004ATG =[['0senias', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+['1UNIVER', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//	['2LSC'		,'acceso'	,'estilo'	,0								,0								,0							,'ajustes'	,'Chapinero comunidad'				,0				,'anuncios'			,0						,0								,0					,0				,0							,0				,0							,0												,0											,'reiniciar'	,'i bogota QR capturar'	,''],
+['2LSC', 0, 0, 0, 0, 0, 'ajustes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['3ASL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+*/
+
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
+//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
+//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
+//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio
+
+//CONTROLAR menu
+const mIr004B =/**/[['Recursos/ Casillas..', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function, vacio=NO PERMITIDA(INFO)', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+[1, 1,56,5,1,0,0,0,0,0,0],
+[2, 1,2,9,1,0,0,0,0,0,0],
+[3, 1,28,36,0,0,0,0,0,0,0],
+[4, 1,27,35,0,0,0,0,0,0,0],
+[5, 1,19,6,0,0,0,0,0,0,0],
+[6, 1,50,7,1,0,0,0,0,0,0],
+[7, 1,77,112,0,0,0,0,0,0,0],
+[8, 1,76,6,0,0,0,0,0,0,0],
+[9, 1,10,6,0,0,0,0,0,0,0],
+[10,1,3,8,1,0,0,0,0,0,0],
+[11,1,86,8,0,0,0,0,0,0,0],
+[12,1,18,6,0,0,0,0,0,0,0],
+[13,1,16,6,0,0,0,0,0,0,0],
+[14,1,17,6,0,0,0,0,0,0,0],
+[15,1,7,6,0,0,0,0,0,0,0],
+[16,1,20,6,0,0,0,0,0,0,0],
+[17,1,22,6,0,0,0,0,0,0,0],
+[18,1,23,6,0,0,0,0,0,0,0],
+[19,1,69,71,1,0,0,0,0,0,0],
+[20,0,5,6,1,0,0,0,0,0,0],
+[21,1,74,98,1,0,0,0,0,0,0],
+[22,1,24,99,1,0,0,0,0,0,0]
+];
+/*
+const r004B =[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
+['2 id de la Imag, Icon o Texto', 56, 2, 28, 27, 19, 50, 77, 76, 10, 3, 86, 18, 16, 17, 7, 20, 22, 23, 69, 5, 74, 24],
+['3 onclick function, vacio=NO PERMITIDA(INFO)', 5, 9, 36, 35, 6, 7, 112, 6, 6, 8, 8, 6, 6, 6, 6, 6, 6, 6, 71, 6, 98, 99],
+['4 Visible 1:SI 0:no', 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['6 id Video([5]1) o id foto([5]0/2)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['7 id Texto Icono', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['8 ids Iconos Capa1', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['9 ids Iconos Capa2', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+*/
+
+/*texto alternativo para imagen de menu*/
+const mIr004Z =/**/[['Casillas', 1, 2, 3, 4],
+[1, 'icon of a person next to a gear','icono de una persona junto a un engranaje','icône d\'une personne à côté d\'un engrenage','기어 옆에 있는 사람 아이콘'],
+[2, 'gear','engranaje','engrenage','기어'],
+[3, 'maximized window, change','ventana maximizada, cambiar','fenêtre maximisée, changer','korean'],
+[4, 'minimized window, change','ventana minimizada, cambiar','fenêtre réduite, changer','korean'],
+[5, 'user account','cuenta de usuario','compte d\'utilisateur','compte d\'utilisateur'],
+[6, 'tourist sign','señal turística','signe touristique','관광 표지판'],
+[7, 'flag','bandera','drapeau','깃발'],
+[8, 'funnel','embudo','entonnoir','깔때기'],
+[9, 'help','ayuda','aider','aider'],
+[10,'ads: to know the local news','icono persona leyendo','annonces: pour connaître l\'actualité locale','annonces'],
+[11,'ads: to know the local news','icono apretón de manos','annonces: pour connaître l\'actualité locale','annonces'],
+[12,'local contacts','contactos locales','contacts locaux','contacts locaux'],
+[13,'post an invite','publicar una invitación','publier une invitation','publier une invitation'],
+[14,'posts','mensajes','des postes','des postes'],
+[15,'personal contacts','contactos personales','contacts personnels','contacts personnels'],
+[16,'seeker','buscador','chercheur','korean'],
+[17,'advice request, deactivated, change','solicitud de asesoría, desactivado, cambiar','demande de conseil, désactivé, changer','korean'],
+[18,'menu rating good, change','calificación del menú buena, cambiar','bonne note de menu, changer','korean'],
+[19,'headlines: to see the audiovisual summary of the news','icono pantalla de monitor','titres: pour voir le résumé audiovisuel de l\'actualité','헤드라인: 뉴스의 시청각 요약 보기'],
+[20,'i bogota QR code','código QR de i bogota','i bogota QR code','i 스캔할 보고타 QR'],
+[21,'frequently asked questions: to find answers','icono de pregunta','Questions fréquemment posées: pour trouver des réponses','자주 묻는 질문: 답변 찾기'],
+[22,'restart: to exit and reload the application','icono de reiniciar','redémarrer: pour quitter et recharger l\'application','다시 시작: 응용 프로그램을 종료하고 다시 로드합니다.']
+];
+/*
+const r004Z = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+[1, 'icon of a person next to a gear', 'gear', 'maximized window, change', 'minimized window, change', 'user account', 'tourist sign', 'flag', 'funnel', 'help', 'ads: to know the local news', 'ads: to know the local news', 'local contacts', 'post an invite', 'posts', 'personal contacts', 'seeker', 'advice request, deactivated, change', 'menu rating good, change', 'headlines: to see the audiovisual summary of the news', 'i bogota QR code', 'frequently asked questions: to find answers', 'restart: to exit and reload the application'],
+[2, 'icono de una persona junto a un engranaje', 'engranaje', 'ventana maximizada, cambiar', 'ventana minimizada, cambiar', 'cuenta de usuario', 'señal turística', 'bandera', 'embudo', 'ayuda', 'icono persona leyendo', 'icono apretón de manos', 'contactos locales', 'publicar una invitación', 'mensajes', 'contactos personales', 'buscador', 'solicitud de asesoría, desactivado, cambiar', 'calificación del menú buena, cambiar', 'icono pantalla de monitor', 'código QR de i bogota', 'icono de pregunta', 'icono de reiniciar'],
+[3, 'icône d\'une personne à côté d\'un engrenage', 'engrenage', 'fenêtre maximisée, changer', 'fenêtre réduite, changer', 'compte d\'utilisateur', 'signe touristique', 'drapeau', 'entonnoir', 'aider', 'annonces: pour connaître l\'actualité locale', 'annonces: pour connaître l\'actualité locale', 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'chercheur', 'demande de conseil, désactivé, changer', 'bonne note de menu, changer', 'titres: pour voir le résumé audiovisuel de l\'actualité', 'i bogota QR code', 'Questions fréquemment posées: pour trouver des réponses', 'redémarrer: pour quitter et recharger l\'application'],
+[4, '기어 옆에 있는 사람 아이콘', '기어', 'korean', 'korean', 'compte d\'utilisateur', '관광 표지판', '깃발', '깔때기', 'aider', 'annonces', 'annonces', 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'korean', 'korean', 'korean', '헤드라인: 뉴스의 시청각 요약 보기', 'i 스캔할 보고타 QR', '자주 묻는 질문: 답변 찾기', '다시 시작: 응용 프로그램을 종료하고 다시 로드합니다.']
+];
+*/
+
+/*
+//RUTA 5 MULTIMEDIA: DESCRIPCION DE IMAGENES, GUÍONES DE VIDEO O INFOGRAMAS
+//const 	r005A y r005B ver/buscar aquí al final en MONGODB
+//RUTA 5 MULTIMEDIA: DESCRIPCION DE IMAGENES, GUÍONES DE VIDEO O INFOGRAMAS
+const r005A =[['Casillas', 1, 2, 3],
+[1, '', 'in the image Greta Thunberg, a young girl, with white skin, light eyes, long blonde hair with a braid, blue short-sleeved cotton shirt', 'a tutorial is a method of knowledge transfer or an instructional system of short duration and based on self-learning, and can be part of a larger learning process.'],
+[2, '', 'en la imagen Greta Thunberg, una chica joven, de piel blanca, ojos claros, el cabello largo y rubio con una trenza, camiza azúl de manga corta en algodón', 'un tutorial es un método de transferencia de conocimiento o un sistema instructivo de corta duración y basado en el autoaprendizaje, pudiendo ser parte de un proceso de aprendizaje mayor.'],
+[3, '', 'dans l\'image Greta Thunberg, une jeune fille, à la peau blanche, aux yeux clairs, aux longs cheveux blonds avec une tresse, chemise bleue en coton à manches courtes', 'un tutoriel est une méthode de transfert de connaissances ou un système d\'enseignement de courte durée et basé sur l\'auto-apprentissage, et peut faire partie d\'un processus d\'apprentissage plus large.']
+];
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
+//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
+//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
+//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
+const r005B =[['Recursos/ Casillas..', 1, 2, 3],
+['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 0, 0, 0],
+['2 id de la Imag, Icon o Texto', 1, 1, 1],
+['3 onclick function, vacio=NO PERMITIDA(INFO)', 17, 12, 12],
+['4 Visible 1:SI 0:no', 1, 1, 1],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 1, 1, 1],//,1 	,2 	,3 	],  - 0k 0,0,0
+['6 id Video([5]1) o id foto([5]0/2)', 1, 2, 0],
+['7 id Texto Icono', 0, 0, 0],
+['8 ids Iconos Capa1', 0, 0, 0],
+['9 ids Iconos Capa2', 0, 0, 0],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 0, 0]
+];
+//NOTA COMO LA RUTA 5 NUNCA SE LLAMA LA r005Z no se creo Y no se generan errores por consola
+*/
+
+/*
+//RUTA 6 LIBRE accesibilidad999 ??
+const 	r006A		=  [	['Casillas'	,1				,2			,3				,4				,5		,6		,7		   		,8						,9				,10											],
+							[1			,'text'			,'Morse'	,'Braille'		,'signs'		,''		,''		,'language'		,'sign language'		,'community'	,'multimedia, accessibility tutorial'		],
+							[2			,'texto'		,'Morse'	,'Braille'		,'señas'		,''		,''		,'idioma'		,'lengua de señas'		,'comunidad'	,'multimedia, tutoríal de accesibilidad'	],
+							[3			,'texte'		,'Morse'	,'Braille'		,'signes'		,''		,''		,'langue'		,'langue des signes'	,'communauté'	,'multimédia, tutoriel de accessibilité'	]
+						];
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
+//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
+//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
+//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
+const 	r006B		=  [	['Recursos/ Casillas..'							,1	,2	,3	,4	,5	,6	,7	,8	,9	,10	],
+							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'		,2 	,2	,2	,1	,1	,1	,1 	,1	,1	,1	],
+							['2 id de la Imag, Icon o Texto'				,3 	,1	,2	,6	,0	,0	,25 ,26	,15	,9	],//35-31,34-36
+							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,1 	,2	,3	,4	,0	,0	,6 	,6	,6	,6	],
+							['4 Visible 1:SI 0:no'							,1 	,1	,1	,1	,0	,0	,1 	,1	,0	,0	],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
+							['6 id Video([5]1) o id foto([5]0/2)'			,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
+							['7 id Texto Icono'								,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
+							['8 ids Iconos Capa1'							,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
+							['9 ids Iconos Capa2'							,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ]
+						];
+*/
+//Hola! vas a recibir anunciós locales, estás en el menú de entrada, abajo encontrarás 9 botones con diferentes recursos: texto mínimo, vibración, audio texto, texto, y hay otras 5 más, selecciona el recurso más apropiado para recibir los anunciós 
+//Hello! You are going to receive local announcements, you are in the technology menu, below you will find 9 buttons with different technologies: minimal text, vibration, audio text, text, and there are 5 more, select the most appropriate technology to receive the announcements and that's it
+
+/*
+//LAS siguientes lineas funcionaban biien pero se ocultan por prueba.. y gRuta 7 desaparece
+
+//RUTA 7 FORMATO - ACCESO - PRESENTACIÓN
+const 	r007A		=[	['Casillas'	,1																																																																																																																																																																																																																																																																																																																																																																																																									,2													,3																			,4													,5																,6		   											,7																,8												,9																	,10																	,11						],
+							[1			,['Hello! you are going to receive local ads, you are at the hall, below this reading you will find several resources, select the most appropriate resource to receive the ads'										,'on this website you will find accessible information through several resources'			,'the resources are miniature, vibrator, audio text, glasses, giant, black background, signs, braille and american'			,'To access the information, select the resource of your preference by clicking on the element, if that element has the focus, you can also click the round button, or the 6 key. For more information on the round button or the 6 key, keep reading...'								,'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom'		,'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back'					,'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward'		,'To enable navigation buttons on a physical keyboard, turn on caps lock button'										,'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab']																					,'miniature: to see everything smaller, choose'		,'vibrator: to receive vibrations of dots and dashes, choose'				,'audio text: to listen to the texts, choose'		,'glasses: for large print and no audio, choose'				,'giant:to see everything bigger, choose'			,'black background: to see the text in yellow, choose'			,'signs: to see the interpreter, choose'		,'braille: to display braille and activate audio, choose'			,'American: for English and Sign Language, choose'					,'count, choose'		],
+							[2			,['¡Hola! vas a recibir anuncios locales, estás en la sala, debajo de esta lectura encontrarás varios recursos, selecciona el recurso más adecuado para recibir los anuncios'										,'en esta web encontrarás información accesible a través de varios recursos'				,'los recursos son miniatura, vibrador, audio texto, lentes, gigante, fondo negro, señas, braille y americano'	 			,'Para acceder a la información, seleccione el recurso de su preferencia haciendo clic en el elemento, si ese elemento tiene el foco, también puede hacer clic en el botón redondo, o en la tecla 6. Para más información sobre el botón redondo o la tecla 6, sigue leyendo...'		,'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo'		,'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder'	,'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar'	,'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas'				,'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador']			,'miniatura: para ver todo más pequeño, elegir'		,'vibrador: para recibir vibraciones de puntos y rayas, elegir'				,'audio texto: para escuchar los textos, elegir'	,'lentes: para letra grande y sin audio, elegir'				,'gigante: para ver todo más grande, elegir'		,'fondo negro: para ver el texto en color amarillo, elegir'		,'señas: para ver el interprete, elegir'		,'braille: para mostrar el braille y activar audio, elegir'			,'Americano: para inglés y lengua de señas, elegir'					,'cuenta, elegir'		],
+							[3			,['Salut! vous allez recevoir des annonces locales, vous êtes à la salle, en dessous de cette lecture vous trouverez plusieurs ressources, sélectionnez la ressource la plus appropriée pour recevoir les annonces'	,"Sur ce site, vous trouverez des informations accessibles à travers plusieurs ressources"	,"les ressources sont miniature, vibreur, texte audio, lunettes, géant, fond noir, signes, braille et américain"			,"Pour accéder aux informations, sélectionnez la ressource de votre choix en cliquant sur l'élément, si cet élément a le focus, vous pouvez également cliquer sur le bouton rond, ou sur la touche 6. Pour plus d'informations sur le bouton rond ou la touche 6, continue de lire..."	,"Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas"		,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer"		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]									,'miniature: pour tout voir plus petit, choisir'	,'vibreur: pour recevoir des vibrations de points et de tirets, choisir'	,'texte audio: pour écouter les textes, choisir'	,'lunettes: pour les gros caractères et pas de son, choisir'	,'géant: pour tout voir en plus grand, choisir'		,'fond noir: pour voir le texte en jaune, choisir'				,'signes: pour voir l\'interprète, choisir'		,'braille: pour afficher le braille et activer le son, choisir'		,'Américain: pour l\'anglais et la langue des signes, choisir'		,'compte, choisir'		],
+							[4			,['안녕하세요! 지역 공지사항을 수신할 예정입니다. 방에 있습니다. 이 판독값 아래에 여러 리소스가 있습니다. 공지사항을 수신할 가장 적절한 리소스를 선택하세요.'																								,"이 웹 사이트에서 다양한 리소스를 통해 액세스할 수 있는 정보를 찾을 수 있습니다."								,"리소스는 미니어처, 진동기, 오디오 텍스트, 안경, 거인, 검정색 배경, 표지판, 점자 및 미국식입니다."												,"정보에 액세스하려면 요소를 클릭하여 원하는 리소스를 선택하고 해당 요소에 포커스가 있는 경우 둥근 버튼 또는 6 키를 클릭할 수도 있습니다. 둥근 버튼 또는 6 키에 대한 자세한 내용은 계속 읽으세요..."																																,"탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다."											,"왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다."																,"오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다."																	,"실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오."																,"사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]																																			,'세밀화: 모든 것을 더 작게 보려면, 선택하다'					,'진동기: 도트 및 대시 진동을 수신하려면, 선택하다'										,'오디오 텍스트: 텍스트를 들으려면, 선택하다'					,'안경: 큰 활자 및 오디오 없음의 경우 선택, 선택하다'						,'거대한: 전체를 더 크게 보려면, 선택하다'					,'검은색 배경: 텍스트를 노란색으로 보려면, 선택하다'						,'징후: 통역사를 보려면 다음을 선택하십시오, 선택하다'		,'점자: 점자를 표시하고 오디오를 활성화하려면, 선택하다'							,'미국: 영어 및 수화용, 선택하다'											,'경쟁, 선택하다'			]
+						];
+
+const 	r007Z		=[	['Casillas'	,1																																																																																																																																																																																																																																																																																																																,2															,3																,4																		,5															,6		   		,7																,8																	,9													,10																		,11																			],
+							[1			,['Young woman in white sweater, headphones and microphone.'	,'Blind young woman with hearing aids, using her cell phone'							,'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces'					,'In front of a woman in a wheelchair, there is a man who holds her hands'			,'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand'								,'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back'					,'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'			,'To enable navigation buttons on a physical keyboard, turn on caps lock button'										,'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab']																			,'minimun height: to see everything smaller, select'			,'to receive vibrations of dots and dashes, select'						,'audio text: to listen to the texts, select'			,'glasses'		,'max text:to see everything bigger, select'					,'black background: to see the text in yellow, select'				,'signs: to see the interpreter, select'			,'braille: to display braille and hear the text, select'				,'to see the english translation, select'			,'count, select'		],
+							[2			,['Mujer joven con sueter blanco, auriculares y micrófono'		,'Mujer joven ciega con audífonos, usando su teléfono celular'							,'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras'	 			,'Frente a una mujer en silla de ruedas, hay un hombre que le toma las manos'		,'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda'		,'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder'	,'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'		,'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas'				,'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador']	,'altura mínima: para ver todo más pequeño, seleccionar'		,'icono de un corazón con pulsaciones'									,'audio texto: para escuchar los textos, seleccionar'	,'lentes'		,'altura máxima: para ver todo más grande, seleccionar'			,'fondo negro: para ver el texto en color amarillo, seleccionar'	,'señas: para ver el interprete, seleccionar'		,'braille: para mostrar el braille y escuchar el texto, seleccionar'	,'para ver la traducción al ingles, seleccionar'	,'cuenta, seleccionar'	],
+							[3			,['Jeune femme en pull blanc, casque et microphone.'			,"Jeune femme aveugle avec des prothèses auditives, à l'aide de son téléphone portable"	,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant une femme en fauteuil roulant, il y a un homme qui lui tient les mains"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"				,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]							,'hauteur minimale: pour tout voir plus petit, sélectionner'	,'pour recevoir des vibrations de points et de tirets, sélectionner'	,'texte audio: pour écouter les textes, sélectionner'	,'lunettes'		,'hauteur maximale: pour tout voir en plus grand, sélectionner'	,'fond noir: pour voir le texte en jaune, sélectionner'				,'signes: pour voir l\'interprète, sélectionner'	,'braille: pour afficher le braille et entendre le texte, sélectionner'	,'pour voir la traduction en anglais, sélectionner'	,'compte, sélectionner'	],
+							[4			,['흰색 스웨터, 헤드폰 및 마이크를 가진 젊은 여자'							,"Jeune femme aveugle avec des prothèses auditives, à l'aide de son téléphone portable"	,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant une femme en fauteuil roulant, il y a un homme qui lui tient les mains"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"				,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]							,'hauteur minimale: pour tout voir plus petit, sélectionner'	,'pour recevoir des vibrations de points et de tirets, sélectionner'	,'texte audio: pour écouter les textes, sélectionner'	,'안경'			,'hauteur maximale: pour tout voir en plus grand, sélectionner'	,'fond noir: pour voir le texte en jaune, sélectionner'				,'signes: pour voir l\'interprète, sélectionner'	,'braille: pour afficher le braille et entendre le texte, sélectionner'	,'pour voir la traduction en anglais, sélectionner'	,'compte, sélectionner'	]
+						];
+
+//Do you want to receive local and accessible news?
+//¿Quieres recibir noticias locales y accesibles?
+						//hola, estás en el sitio web que hace que la información sea accesible para la mayoría de las personas. Para ello los usuarios cuentan con 9 estilos: 
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
+//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
+//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
+//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
+const 	r007B		=[	['Recursos/ Casillas..'							,1								,2	,3	,4	,5	,6	,7	,8	,9	,10	,11	],
+							['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II'	,[3	,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ]	,6 	,6	,9	,9	,8	,7	,6 	,6	,6	,6	],
+							['2 id de la Imag, Icon o Texto'				,[15,11,16,17,12,13,8 ,9 ,10]	,27 ,46	,52	,64	,57	,61	,6  ,49 ,79	,53	],//64  48
+							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,0								,50 ,51	,54	,53	,56	,57	,58 ,59	,60	,60	],
+							['4 Visible 1:SI 0:no'							,1								,1 	,1	,1	,1	,1	,1	,1 	,1	,1	,0	],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
+							['6 id Video([5]1) o id foto([5]0/2)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
+							['7 id Texto Icono (cuando es 5 en 1)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ],
+							['8 ids Iconos Capa1'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
+							['9 ids Iconos Capa2'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ]
+						];
+
+const 	r007B		=[	['Recursos/ Casillas..'								,1								,2	,3	,4	,5	,6	,7	,8	,9	,10	,11	],
+							['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II'	,[3	,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ]	,6 	,6	,9	,9	,8	,7	,6 	,6	,6	,6	],
+							['2 id de la Imag, Icon o Texto'				,[15,11,16,17,12,13,8 ,9 ,10]	,27 ,46	,52	,64	,57	,61	,6  ,49 ,79	,53	],//64  48
+							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,0								,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
+							['4 Visible 1:SI 0:no'							,1								,1 	,1	,1	,1	,1	,1	,1 	,1	,1	,0	],
+							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
+							['6 id Video([5]1) o id foto([5]0/2)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
+							['7 id Texto Icono (cuando es 5 en 1)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ],
+							['8 ids Iconos Capa1'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
+							['9 ids Iconos Capa2'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
+							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ]
+						];
+
+*/
+
+//RUTA 8 AYUDAS ver 1969 mIr003A - DOCUMENTOS - TUTORIAL Guía de servicios - Recursos - Documentación - Documentos
+const mIr008A =/**/[['Casillas', 1, 2, 3, 4],
+[1, ['What is all this and what is it for?', 'You are on a website, which serves to offer local information to people without or with a certain degree of disability', 'it has accessible elements that facilitate the use and access to information, for example, audio text, vibrator, signs, géant, black background, braille and large buttons'],['¿Qué es todo esto y para qué sirve?', 'Estás en un sitio web, que sirve para ofrecer información local a personas sin o con cierto grado de discapacidad', 'cuenta con elementos accesibles que facilitan el uso y acceso a la información, por ejemplo, audio texto, vibrador, señas, gigante, fondo negro, braille y botones grandes'],["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, vibreur, signes, giant, fond noir, braille et gros boutons"],["이 모든 것이 무엇이며 무엇을 위한 것입니까?", "귀하는 특정 정도의 장애가 있거나 없는 사람들에게 지역 정보를 제공하는 웹사이트에 있습니다.", "예를 들어 오디오 텍스트, 진동기, 표지판, 거대한 배경, 검은색 배경, 점자 및 큰 버튼과 같이 정보에 대한 사용 및 액세스를 용이하게 하는 액세스 가능한 요소가 있습니다."]],
+[2, ['How to navigate?', 'to navigate, in the window there are 6 navigation buttons that go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'],['¿Cómo navegar?', 'para navegar, en la ventana hay 6 botones de navegación que van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'],["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."],["탐색하는 방법?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."]],
+[3, ['How to navigate using a physical keyboard?', 'To enable navigation buttons on a physical keyboard turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab.'],['¿Cómo navegar usando un teclado físico?', 'Para habilitar los botones de navegación en un teclado físico active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador.'],["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."],["물리적 키보드를 사용하여 탐색하는 방법은 무엇입니까?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."]],
+[4, ['What is the hall and what is it for?', 'the hall is the first button on the menu, there the user has several resources to select and access the information, miniature, vibrator, audio text, glasses, giant, black background, signs, braille and american', "Each one of these 9 buttons allow the team's resources to be adapted so that the information is as accessible as possible and reaches the users"],['¿Qué es la sala y para qué sirve?', 'la sala es el primer botón del menú, allí el usuario cuenta con varios recursos para seleccionar y acceder a la información, miniatura, vibrador, audio texto, lentes, gigante, fondo negro, señas, braille y americano', 'cada uno de estos 9 botones permiten adaptar los recursos del equipo para que la informacíon sea lo más accesible posible y llegue hasta los usuarios'],["Quelle est la salle et à quoi sert-elle?", "la salle est le premier bouton du menu, là l\'utilisateur dispose de plusieurs ressources pour sélectionner et accéder aux informations, miniature, vibreur, texte audio, lunettes, géant, fond noir, panneaux, braille et américain", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs"],["물리적 키보드를 사용하여 탐색하는 방법은 무엇입니까?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."]],
+[5, ['style, blah, blah, blah, blah', 'abece 1', 'abece 2'],['estilo, bla, bla, bla, bla', 'abece 1', 'abece 2'],['style, bla, bla, bla, bla', 'abece 1', 'abece 2'],['스타일 블라블라블라블라블라블라', 'abece 1', 'abece 2']],
+[6, ['settings'],['ajustes'],['réglages'],['설정']],
+[7, ['activities'],['actividades'],['activités'],['활동']]
+];
+/*
+const r008A =[['Casillas', 1, 2, 3, 4, 5, 6, 7],
+[1, ['What is all this and what is it for?', 'You are on a website, which serves to offer local information to people without or with a certain degree of disability', 'it has accessible elements that facilitate the use and access to information, for example, audio text, vibrator, signs, géant, black background, braille and large buttons'], ['How to navigate?', 'to navigate, in the window there are 6 navigation buttons that go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'], ['How to navigate using a physical keyboard?', 'To enable navigation buttons on a physical keyboard turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab.'], ['What is the hall and what is it for?', 'the hall is the first button on the menu, there the user has several resources to select and access the information, miniature, vibrator, audio text, glasses, giant, black background, signs, braille and american', "Each one of these 9 buttons allow the team's resources to be adapted so that the information is as accessible as possible and reaches the users"], ['style, blah, blah, blah, blah', 'abece 1', 'abece 2'], ['settings'], ['activities']],
+[2, ['¿Qué es todo esto y para qué sirve?', 'Estás en un sitio web, que sirve para ofrecer información local a personas sin o con cierto grado de discapacidad', 'cuenta con elementos accesibles que facilitan el uso y acceso a la información, por ejemplo, audio texto, vibrador, señas, gigante, fondo negro, braille y botones grandes'], ['¿Cómo navegar?', 'para navegar, en la ventana hay 6 botones de navegación que van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'], ['¿Cómo navegar usando un teclado físico?', 'Para habilitar los botones de navegación en un teclado físico active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador.'], ['¿Qué es la sala y para qué sirve?', 'la sala es el primer botón del menú, allí el usuario cuenta con varios recursos para seleccionar y acceder a la información, miniatura, vibrador, audio texto, lentes, gigante, fondo negro, señas, braille y americano', 'cada uno de estos 9 botones permiten adaptar los recursos del equipo para que la informacíon sea lo más accesible posible y llegue hasta los usuarios'], ['estilo, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['ajustes'], ['actividades']],
+[3, ["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, vibreur, signes, giant, fond noir, braille et gros boutons"], ["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["Quelle est la salle et à quoi sert-elle?", "la salle est le premier bouton du menu, là l\'utilisateur dispose de plusieurs ressources pour sélectionner et accéder aux informations, miniature, vibreur, texte audio, lunettes, géant, fond noir, panneaux, braille et américain", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs"], ['style, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['réglages'], ['activités']],
+[4, ["이 모든 것이 무엇이며 무엇을 위한 것입니까?", "귀하는 특정 정도의 장애가 있거나 없는 사람들에게 지역 정보를 제공하는 웹사이트에 있습니다.", "예를 들어 오디오 텍스트, 진동기, 표지판, 거대한 배경, 검은색 배경, 점자 및 큰 버튼과 같이 정보에 대한 사용 및 액세스를 용이하게 하는 액세스 가능한 요소가 있습니다."], ["탐색하는 방법?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["물리적 키보드를 사용하여 탐색하는 방법은 무엇입니까?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["방은 무엇이며 용도는 무엇입니까?", "방은 메뉴의 첫 번째 버튼이며 사용자는 정보, 썸네일, 진동기, 오디오 텍스트, 안경, 거인, 검정색 배경, 표지판, 점자 및 미국식을 선택하고 액세스할 수 있는 여러 리소스가 있습니다.", "이 9개의 각 버튼을 통해 팀의 리소스를 조정하여 가능한 한 정보에 액세스하고 사용자에게 도달할 수 있습니다."], ['스타일 블라블라블라블라블라블라', 'abece 1', 'abece 2'], ['설정'], ['활동']]
+];
+*/
+
+//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
+//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
+//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
+//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
+
+//Controlador de ayuda
+const mIr008B =/**/[['Recursos/ Casillas..', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', '2 id de la Imag, Icon o Texto', '3 onclick function, vacio=NO PERMITIDA(INFO)', '4 Visible 1:SI 0:no', '5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', '6 id Video([5]1) o id foto([5]0/2)', '7 id Texto Icono', '8 ids Iconos Capa1', '9 ids Iconos Capa2', '10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'],
+[1, [6, 2, 2],[51, 32, 42],0,1,[0, 0, 0],[0, 0, 0],[71, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]],
+[2, [6, 0, 1, 1],[72, 8, 72, 72],0,1,[0, 0, 0, 0],[0, 0, 0, 0],[71, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]],
+[3, [6, 2, 1],[58, 38, 58],0,1,[0, 0, 0],[0, 0, 0],[71, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]],
+[4, [6, 2, 2],[56, 42, 33],0,0,[0, 0, 0],[0, 0, 0],[71, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]],
+[5, [6, 2, 1],[2, 39, 2],0,0,[0, 0, 0],[0, 0, 0],[71, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]],
+[6, [6],[5],0,0,[0],[0],[71],[0],[0],[0]],
+[7, [5],[38],0,0,[0],[0],[71],[0],[0],[0]]
+];
+/*
+const r008B =[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7],
+['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II', [6, 2, 2], [6, 0, 1, 1], [6, 2, 1], [6, 2, 2], [6, 2, 1], [6], [5]],
+['2 id de la Imag, Icon o Texto', [51, 32, 42], [72, 8, 72, 72], [58, 38, 58], [56, 42, 33], [2, 39, 2], [5], [38]],
+['3 onclick function, vacio=NO PERMITIDA(INFO)', 0, 0, 0, 0, 0, 0, 0],
+['4 Visible 1:SI 0:no', 1, 1, 1, 0, 0, 0, 0],
+['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
+['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
+['7 id Texto Icono (cuando es 5 en 1)', [71, 0, 0], [71, 0, 0, 0], [71, 0, 0], [71, 0, 0], [71, 0, 0], [71], [71]],
+['8 ids Iconos Capa1', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
+['9 ids Iconos Capa2', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
+['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]]
+];
+*/
+
+/*texto alternativo para imagen de ayuda*/
+const mIr008Z =/**/[['Casillas', 1, 2, 3, 4],
+[1, ['What is all this and what is it for?', 'You are on a website, which serves to offer local information to people without or with a certain degree of disability', 'it has accessible elements that facilitate the use and access to information, for example, audio text, signs, text maximum, black background, braille and large buttons'],['letra i con signo de pregunta', 'Estás en un sitio web, que sirve para ofrecer información local a personas sin o con cierto grado de discapacidad', 'cuenta con elementos accesibles que facilitan el uso y acceso a la información, por ejemplo, audio texto, señas, altura máxima, fondo negro, braille y botones grandes'],["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, signes, hauteur maximale, fond noir, braille et gros boutons"],["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, signes, hauteur maximale, fond noir, braille et gros boutons"]],
+[2, ['How to navigate?', 'to navigate, in the window there are 6 navigation buttons that go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'],['¿Cómo navegar?', 'para navegar, en la ventana hay 6 botones de navegación que van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'],["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."],["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."]],
+[3, ['How to navigate using a physical keyboard?', 'To enable navigation buttons on a physical keyboard turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab.'],['¿Cómo navegar usando un teclado físico?', 'Para habilitar los botones de navegación en un teclado físico active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador.'],["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."],["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."]],
+[4, ['What is the style and what is it for?', 'the style is the first button of the menu, there the user has 9 styles to select and access the information, minimum text, audio text, maximum text, black background, signs and braille', "Each one of these 9 buttons allow the team's resources to be adapted so that the information is as accessible as possible and reaches the users."],['¿Qué es el estilo y para qué sirve?', 'el estilo es el primer botón del menú, allí el usuario cuenta con 9 estilos para seleccionar y acceder a la información, altura mínima, audio texto, altura máxima, fondo negro, señas y braille ', 'cada uno de estos 9 botones permiten adaptar los recursos del equipo para que la informacíon sea lo más accesible posible y llegue hasta los usuarios.'],["Quelles sont les ressources et à quoi ça sert?", "le style est le premier bouton du menu, là l\'utilisateur dispose de 9 styles pour sélectionner et accéder aux informations, texte minimum, texte audio, hauteur maximale, fond noir, panneaux, braille et ", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs."],["Quelles sont les ressources et à quoi ça sert?", "le style est le premier bouton du menu, là l\'utilisateur dispose de 9 styles pour sélectionner et accéder aux informations, texte minimum, texte audio, hauteur maximale, fond noir, panneaux, braille et ", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs."]],
+[5, ['style, blah, blah, blah, blah', 'abece 1', 'abece 2'],['estilo, bla, bla, bla, bla', 'abece 1', 'abece 2'],['style, bla, bla, bla, bla', 'abece 1', 'abece 2'],['style, bla, bla, bla, bla', 'abece 1', 'abece 2']],
+[6, ['settings'],['ajustes'],['réglages'],['réglages']],
+[7, ['activities'],['actividades'],['activités'],['활동']]
+];
+/*
+const r008Z =[['Casillas', 1, 2, 3, 4, 5, 6, 7],
+[1, ['What is all this and what is it for?', 'You are on a website, which serves to offer local information to people without or with a certain degree of disability', 'it has accessible elements that facilitate the use and access to information, for example, audio text, signs, text maximum, black background, braille and large buttons'], ['How to navigate?', 'to navigate, in the window there are 6 navigation buttons that go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'], ['How to navigate using a physical keyboard?', 'To enable navigation buttons on a physical keyboard turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab.'], ['What is the style and what is it for?', 'the style is the first button of the menu, there the user has 9 styles to select and access the information, minimum text, audio text, maximum text, black background, signs and braille', "Each one of these 9 buttons allow the team's resources to be adapted so that the information is as accessible as possible and reaches the users."], ['style, blah, blah, blah, blah', 'abece 1', 'abece 2'], ['settings'], ['activities']],
+[2, ['letra i con signo de pregunta', 'Estás en un sitio web, que sirve para ofrecer información local a personas sin o con cierto grado de discapacidad', 'cuenta con elementos accesibles que facilitan el uso y acceso a la información, por ejemplo, audio texto, señas, altura máxima, fondo negro, braille y botones grandes'], ['¿Cómo navegar?', 'para navegar, en la ventana hay 6 botones de navegación que van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'], ['¿Cómo navegar usando un teclado físico?', 'Para habilitar los botones de navegación en un teclado físico active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador.'], ['¿Qué es el estilo y para qué sirve?', 'el estilo es el primer botón del menú, allí el usuario cuenta con 9 estilos para seleccionar y acceder a la información, altura mínima, audio texto, altura máxima, fondo negro, señas y braille ', 'cada uno de estos 9 botones permiten adaptar los recursos del equipo para que la informacíon sea lo más accesible posible y llegue hasta los usuarios.'], ['estilo, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['ajustes'], ['actividades']],
+[3, ["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, signes, hauteur maximale, fond noir, braille et gros boutons"], ["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["Quelles sont les ressources et à quoi ça sert?", "le style est le premier bouton du menu, là l\'utilisateur dispose de 9 styles pour sélectionner et accéder aux informations, texte minimum, texte audio, hauteur maximale, fond noir, panneaux, braille et ", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs."], ['style, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['réglages'], ['activités']],
+[4, ["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, signes, hauteur maximale, fond noir, braille et gros boutons"], ["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["Quelles sont les ressources et à quoi ça sert?", "le style est le premier bouton du menu, là l\'utilisateur dispose de 9 styles pour sélectionner et accéder aux informations, texte minimum, texte audio, hauteur maximale, fond noir, panneaux, braille et ", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs."], ['style, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['réglages'], ['활동']]
+];
+*/
+
+const mIwModeA =/**/[['Casillas', 1, 2, 3, 4],
+[1, 'mode 1: to see everything smaller','modo 1: para ver todo más pequeño','mode 1: pour tout voir plus petit','모드 1: 모든 것을 더 작게 보려면'],
+[2, 'mode 2: to receive vibrations of dots and dashes','modo 2: para recibir vibraciones de puntos y rayas','mode 2: pour recevoir des vibrations de points et de tirets','모드 2: 도트 및 대시 진동을 수신하려면'],
+[3, 'mode 3: for large print','modo 3: para letra grande','mode 3: pour les gros caractères','모드 3: 큰 활자용'],
+[4, 'mode 4: to see everything bigger','modo 4: para ver todo más grande','mode 4: pour tout voir en plus grand','모드 4: 전체를 더 크게 보려면'],
+[5, 'mode 5: to see the text in yellow','modo 5: para ver el texto en color amarillo','mode 5: pour voir le texte en jaune','모드 5: 텍스트를 노란색으로 보려면'],
+[6, 'mode 6: To see the interpreter and disable the audio','modo 6: para ver el intérprete y deshabilitar el audio','mode 6: Pour voir l\'interprète et désactiver l\'audio','모드 6: 통역사를 보고 오디오를 비활성화하려면'],
+[7, 'mode 7: to display braille','modo 7: para mostrar el braille','mode 7: pour afficher le braille','모드 7: 점자 표시'],
+[8, 'count, change','cuenta, cambiar','compte, changer','경쟁, 변화']
+];
+/*
+const wModeA =[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
+[1, 'mode 1: to see everything smaller', 'mode 2: to receive vibrations of dots and dashes', 'mode 3: for large print', 'mode 4: to see everything bigger', 'mode 5: to see the text in yellow', 'mode 6: To see the interpreter and disable the audio', 'mode 7: to display braille', 'count, change'],
+[2, 'modo 1: para ver todo más pequeño', 'modo 2: para recibir vibraciones de puntos y rayas', 'modo 3: para letra grande', 'modo 4: para ver todo más grande', 'modo 5: para ver el texto en color amarillo', 'modo 6: para ver el intérprete y deshabilitar el audio', 'modo 7: para mostrar el braille', 'cuenta, cambiar'],
+[3, 'mode 1: pour tout voir plus petit', 'mode 2: pour recevoir des vibrations de points et de tirets', 'mode 3: pour les gros caractères', 'mode 4: pour tout voir en plus grand', 'mode 5: pour voir le texte en jaune', 'mode 6: Pour voir l\'interprète et désactiver l\'audio', 'mode 7: pour afficher le braille', 'compte, changer'],
+[4, '모드 1: 모든 것을 더 작게 보려면', '모드 2: 도트 및 대시 진동을 수신하려면', '모드 3: 큰 활자용', '모드 4: 전체를 더 크게 보려면', '모드 5: 텍스트를 노란색으로 보려면', '모드 6: 통역사를 보고 오디오를 비활성화하려면', '모드 7: 점자 표시', '경쟁, 변화']
+];
+*/
+
+///Final traidos desde _
+
+
+//Estas no tienen mI...  verificar si algo las llama y reubicarlas arriba junto con las otras:
+//Glosa de kTapaI:
+//ojo debe ser de solo glosas hay que arreglar a kTapaI para que sea de solo texto quitar valores numericos de las columnas [2] y [4] ya que cuando no hay glosa manual debe quedar un 0 para que lo deletree en señas
+const kTapaITG = [['0senias', 'h', 'LIBRE', 3, 'LIBRE', 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+['1UNIVER', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['2LSC', 0, 0, 0, 0, 'cambiar', 0, 0, 0, 0, 'arriba', 'abajo', 0, 0, 0, 0, 0, 0, 0, 0, 0],
+['3ASL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
+//QUITAR?? sin uso idea lista de señas que intervienen, cuando son varias van entre []
+const kTapaC = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, [41, 38, 14, 38, 23, 34, 93, 22, 24, 18, 34, 47, 38, 17, 47], [41, 38, 14, 38, 23, 34, 93, 38, 15, 6, 34, 47, 38, 17, 47], 0, 0, 0, 0, 0, 0, 0, 0],
+[3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
+//QUITAR?? sin uso idea lista de glosas que intervienen, cuando son varias van entre []
+const kTapaD = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+[1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+[2, 1, 2, 3, 4, 5, 6, 7, 8, 9, ['L', 'Í', 'M', 'I', 'T', 'E', ' ', 'S', 'U', 'P', 'E', 'R', 'I', 'O', 'R'], ['L', 'Í', 'M', 'I', 'T', 'E', ' ', 'I', 'N', 'F', 'E', 'R', 'I', 'O', 'R'], 12, 13, 14, 15, 16, 17, 18, 19],
+[3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+[4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2451,6 +3502,20 @@ const s00morseG =/**/[[0, '1', '2PESOS', '3ArraysValores', '4SIMBOLO(S) QUE LA U
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //============================================================
 //d5 OTROS
 
@@ -2473,88 +3538,12 @@ const 	k002O		= 	[	[ 0, ''],
 							[ 5, '']
 						];*/
 //alertas
-const kTapaA = [[0, 1, 2, 3, 4],
-[1, 'Attention:', 'keyboard connected', 'keyboard off', 'the ground moves, your life may be in danger, find a safe place and stay safe'],
-[2, 'Atención:', 'teclado conectado', 'teclado desconectado', 'el suelo se mueve, su vida puede estar en peligro, busque un lugar seguro y pongase a salvo'],
-[3, 'Attention:', 'clavier connecté', 'clavier éteint', 'le sol bouge, votre vie peut être en danger, trouvez un endroit sûr et restez en sécurité'],
-[4, 'Attention:', 'clavier connecté', 'clavier éteint', 'le sol bouge, votre vie peut être en danger, trouvez un endroit sûr et restez en sécurité']
-];
 
-const kIntro = [[0, 1, 2],
-[1, 'To exit this alert: click on the center of this window, or click the round accept button.', 'To repeat this alert: click on the vertical info button.'],
-[2, 'Para salir de esta alerta: de clic en el centro de esta ventana, o clic en el botón redondo de aceptar.', 'Para repetir esta alerta: clic en el botón vertical de info.'],
-[3, 'Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.', 'Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.'],
-[4, 'Pour sortir de cette alerte : cliquez au centre de cette fenêtre, ou cliquez sur le bouton rond accepter.', 'Pour répéter cette alerte : cliquez sur le bouton d\'information verticale.']
-];
 
-//Imagen del Visor de Alertas???
-const kTapaB	/**/ = [['Recursos/ Casillas..', 1, 2, 3],
-['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 1, 1, 1],
-['2 id de la Imag, Icon o Texto', 55, 58, 59],
-['3', 0, 0, 0]
-];
 
-//Se controla desde kControl la glosa se encuentra en kTapaITG  -- Nota - Párrafo - Texto
-const kTapaI =/**/[[0, 'h', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-[1, 'Hour: ', 'Parent path: ', '. ', ', go back', ', change'		, 'You are on: ', 'selected', 'with out select', '', 'up', 'down', 'video', 'image', 'writing', 'input', 'exit', 'Element:'/*button point step'*/, 'of', 'menu', 'attention, maximize the window', ', continue', 'Reading ', 'In the picture: ', 'welcome to '								, 'Information: ', 'Offers: to find out about local offers', 'Place', 'announcements, place ', ': To know the local announcements', 'Here, there are no notes to publish', 'Looking for information...'],
-[2, 'Hora: ', 'Ruta padre: ', '. ', ', regresar', ', cambiar'		, 'Estás en: ', 'seleccionado', 'sin seleccionar', '', 'arriba', 'abajo', 'vídeo', 'imagén', 'escrito', 'entrada', 'salida', 'Elemento:'/*botón punto paso'*/, 'de', 'menú', 'atención, maximizar la ventana', ', continuar', 'Lectura ', 'En la imagen: ', 'Bienvenidos a '				, 'Información: ', 'Ofertas: para conocer las ofertas locales', 'Lugar', 'anuncios, lugar ', ': Para conocer los anuncios locales', 'Aquí, no hay notas para publicar', 'Buscando información...'],
-[3, 'Heure: ', 'Chemin parent: ', '. ', ', retourner', ', changer'	, 'Vous êtes dans:', 'choisi', 'sans choisir', ''	, 'en haut'	 , 'vers le bas', 'vidéo', 'image', 'écriture', 'entrée', 'sortie', 'Élément:'/*bouton point étape'*/, 'sur', 'menu', 'attention, maximiser la fenêtre', ', continuer', 'Lecture ', 'Dans l\'image: ', 'Bienvenue à'        , 'Information: ', 'Offres : pour connaître les offres locales', 'Lieu', 'annonces, lieu ', ': Pour connaître les annonces locales', "Ici, il n'y a aucune note à poster", "À la recherche d'informations..."],
-[4, '시간: '	, '상위 경로: '		, '. '	, ', 돌아가다' , ', 변경'		, '너는 ~에있다:'	, 'choisi', 'sans choisir', ''	, '~ 위에'		, '아래에', 'vidéo'      , 'image', '쓴'      , 'entrée', 'sortie', '요소:'/*bouton point étape'*/		, '~의', '메뉴', 'attention, maximiser la fenêtre', ', 계속하다'	, '독서 '	, '사진 속에: '		  , '에 오신 것을 환영합니다 ', '정보: '     , '제안: 지역 제안에 대해 알아보기'                   , '장소', '광고, 장소 '        , ': 지역 공지 사항에 대해 알고 싶습니다.'       , '여기에는 게시할 메모가 없습니다.', '정보를 찾는 중...'],
-];
 
-const kComun = [[0, 'Comunidades', 2, 3],
-[1, 'the localidad of Chapinero', 'TecnoParque Colombia', 'Sena from Calle 52'],
-[2, 'la Localidad de Chapinero', 'TecnoParque Colombia', 'Sena de la Calle 52'],
-[3, 'la localidad de Chapinero', 'TecnoParque Colombia', 'Sena de Calle 52'],
-[4, '차피네로 마을', 'TecnoParque Colombia', 'Sena de Calle 52']
-];
 
-const kLugar = [[0, 'lugares'],
-[1, 'Bogota, Cundinamarca, Colombia'],
-[2, 'Bogotá, Cundinamarca, Colombia'],
-[3, 'Bogota, Cundinamarca, Colombia'],
-[4, 'B보고타, 쿤디나마르카, 콜롬비아']
-];
 
-const kBoton = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-[1, 'Caps lock:', 'enabled.', 'disabled.', 'Window reader:', 'Vibrator:', 'Window:', 'minimized.', 'maximized.', '', ''],
-[2, 'Bloque de mayúsculas:', 'habilitado.', 'deshabilitado.', 'Lector de ventana:', 'Vibrador:', 'Ventana:', 'minimizada.', 'maximizada.', '', ''],//Nota: si usa un teclado físico y habilita el bloqueo de mayúsculas, puede usar la tecla 1 o la tecla coma, para subir, la tecla 3 o la tecla ce, para bajar, la tecla 4 o la tecla eme, para el menú, la tecla 6 o la tecla ve pequeña, para aceptar, la tecla 7 o la tecla ene, para cancelar y la tecla 9 o la tecla be grande, para información
-[3, 'Verrouillage des majuscules:', 'activée.', 'désactivé.', 'Lecteur de fenêtre:', 'Vibreur:', 'Fenêtre:', 'minimisée.', 'maximisée.', '', ''],
-[4, '캡 블록:', '가능합니다.', '장애가 있는.', '윈도우 리더:', '진동기:', '창문:', '최소화.', '최대화.', '', ''],
-[5, '', '', ''],
-]
-
-//CONTROL DE kTapaI
-const kControl = [[0, '1hx/0xh', '1LeftToR,0RightTL'],
-[1, 1, 1],
-[2, 1, 1],
-[3, 1, 1],
-[4, 1, 1]
-];
-
-//Glosa de kTapaI:
-//ojo debe ser de solo glosas hay que arreglar a kTapaI para que sea de solo texto quitar valores numericos de las columnas [2] y [4] ya que cuando no hay glosa manual debe quedar un 0 para que lo deletree en señas
-const kTapaITG = [['0senias', 'h', 'LIBRE', 3, 'LIBRE', 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-['1UNIVER', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['2LSC', 0, 0, 0, 0, 'cambiar', 0, 0, 0, 0, 'arriba', 'abajo', 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['3ASL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-//QUITAR?? sin uso idea lista de señas que intervienen, cuando son varias van entre []
-const kTapaC = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, [41, 38, 14, 38, 23, 34, 93, 22, 24, 18, 34, 47, 38, 17, 47], [41, 38, 14, 38, 23, 34, 93, 38, 15, 6, 34, 47, 38, 17, 47], 0, 0, 0, 0, 0, 0, 0, 0],
-[3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-//QUITAR?? sin uso idea lista de glosas que intervienen, cuando son varias van entre []
-const kTapaD = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-[1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-[2, 1, 2, 3, 4, 5, 6, 7, 8, 9, ['L', 'Í', 'M', 'I', 'T', 'E', ' ', 'S', 'U', 'P', 'E', 'R', 'I', 'O', 'R'], ['L', 'Í', 'M', 'I', 'T', 'E', ' ', 'I', 'N', 'F', 'E', 'R', 'I', 'O', 'R'], 12, 13, 14, 15, 16, 17, 18, 19],
-[3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-[4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-];
 
 //===============
 //NOTA: en g02RUTA la columna '6idLOGO' puede ser que sobre si se ponen los iconos directamente desde el boton donde este el cursor, Las RutaText y ColumTex direccionan a la ruta y la columna respectivamente donde esta el STRING que debe cargar la tapa	
@@ -2568,337 +3557,6 @@ const g02RUTA =/**/[['0idRuta', '1Descrip/(3..)RAMAS+secs>ppal', '2RutaText', '3
 [7, 'Formato/ACCESO/PRESENTACIÓN', 4, 1, 0, 0, 56, 7],
 [8, 'Preguntas frecuentes', 4, 20, 0, 0, 70, 8, 4       /**/]
 ];
-
-//RUTA 1 modo
-/*const 	r001A		= 	[	['Casillas..'	,1					,2				,3					,4					,5					],
-							[1				,'text mode'		,'Morse mode'	,'Braille mode'		,'signs mode'		,'mode tutorial'	],
-							[2				,'modo texto'		,'modo Morse'	,'modo Braille'		,'modo señas'		,'tutoríal de modo'	],
-							[3				,'mode texte'		,'mode Morse'	,'mode Braille'		,'mode signes'		,'tutoriel de mode'	]
-						];*/
-/*
-const 	r001A		= 	[	['Casillas'	,1				,2			,3				,4				,5											,6												,7											,8											,9  								,10								,9												,10											,9										,10										,11								],
-							[1			,'text'			,'Morse'	,'Braille'		,'signs'		,'screen reader enabled, change'			,'screen reader disabled, change'				,'big buttons disabled, change'				,'big buttons enabled, change'				,'magnifier disabled, change' 		,'magnifier enabled, change' 	,'black text on light background, change'		,'light text on black background,'			,'white light enabled, change'  		,'yellow light enabled, change'  		,'multimedia, mode tutorial'	],
-							[2			,'texto'		,'Morse'	,'Braille'		,'señas'		,'lector de pantalla habilitado, cambiar'	,'lector de pantalla deshabilitado, cambiar'	,'botones grandes deshabilitados, cambiar'	,'botones grandes habilitados, cambiar'		,'lupa deshabilitada, cambiar' 		,'lupa habilitada, cambiar' 	,'texto negro sobre fondo claro, cambiar'		,'texto claro sobre fondo negro, cambiar'	,'luz blanca habilitada, cambiar'   	,'luz amarilla habilitada, cambiar' 	,'multimedia, tutoríal de modo'	],
-							[3			,'texte'		,'Morse'	,'Braille'		,'signes'		,'lecteur d\'écran activé, changer'			,'lecteur d\'écran désactivé, changer'			,'gros boutons désactivés, changer'			,'gros boutons activés, changer'			,'loupe désactivée, changer' 		,'loupe activée, changer' 		,'texte noir sur fond clair, changer'			,'texte clair sur fond noir, changer'		,'lumière blanche activée, changer' 	,'lumière jaune activée, changer'  		,'multimédia, tutoriel de mode'	]
-						];
-*/
-
-
-
-
-
-
-
-//RUTA 1 Ajustes1 SONIDO VELOVIDAD TAMAÑO COLOR Ajustar la sala
-const r001A =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
-[1, 'window reader enabled, change', 'window reader disabled, change', '20, very fast speed, change', '14, fast speed, change', '10, normal speed, change', '7, slow speed, change', '5, very slow speed, change', 'minimal letter, change', 'small letter, change', 'medium letter, change', 'large letter, change', 'larger letter, change', 'huge letter, change', 'max letter, change', 'black text on yellow background, change', 'yellow text on black background, change', 'black text on white background, change', 'white text on black background, change', '', 'with light, change', 'dark light, change', 'no light, change', '', '', '', '', '', 'sign row disabled, change', 'sign row enabled, change', 'very small images, change', 'small images, change', 'medium images, change', 'big images, change', 'maximum images, change', '', 'action, undo all adjustments made', 'acción, recuperar los ajustes'],
-[2, 'lector de ventana habilitado, cambiar', 'lector de ventana deshabilitado, cambiar', '20, velocidad muy rápida, cambiar', '14, velocidad rápida, cambiar', '10, velocidad normal, cambiar', '7, velocidad lenta, cambiar', '5, velocidad muy lenta, cambiar', 'letra mínima, cambiar', 'letra pequeña, cambiar', 'letra mediana, cambiar', 'letra grande, cambiar', 'letra más grande, cambiar', 'letra enorme, cambiar', 'letra máxima, cambiar', 'texto negro sobre fondo amarillo, cambiar', 'texto amarillo sobre fondo negro, cambiar', 'texto negro sobre fondo blanco, cambiar', 'texto blanco sobre fondo negro, cambiar', '', 'con luz, cambiar', 'luz oscura, cambiar', 'sin luz, cambiar', '', '', '', '', '', 'fila de señas deshabilitada, cambiar', 'fila de señas habilitada, cambiar', 'imágenes muy pequeñas, cambiar', 'imágenes pequeñas, cambiar', 'imágenes medianas, cambiar', 'imágenes grandes, cambiar', 'imágenes máximas, cambiar', '', 'acción, deshacer todos los ajustes realizados', 'acción, recuperar los ajustes'],
-[3, 'lecteur de fenêtre activé, changer', 'lecteur de fenêtre désactivé, changer', '20, vitesse très rapide, changer', '14, vitesse rapide, changer', '10, vitesse normale, changer', '7, vitesse lent, changer', '5, vitesse très lente, changer', 'lettre minimale, changer', 'petite lettre, changer', 'lettre moyenne, changer', 'grande lettre, changer', 'plus grande lettre, changer', 'énorme lettre, changer', 'lettre maximale, changer', 'texte noir sur fond jaune, changer', 'texte jaune sur fond noir, changer', 'texte noir sur fond blanc, changer', 'texte blanc sur fond noir, changer', '', 'avec la lumière, changer', 'lumiere obscure, changer', 'lumière éteinte, changer', '', '', '', '', '', 'rangée d\'signe désactivé, changer', 'rangée d\'signe activée, changer', 'très petites images, changer', 'petites images, changer', 'images moyenne, changer', 'grandes images, changer', 'maximaux images, changer', '', 'action, annuler tous les ajustements effectués', 'acción, recuperar los ajustes'],
-[4, '창 판독기 사용, 변경', '윈도우 리더 비활성화, 변경', '20, 매우 빠른 속도, 변화', '14, 빠른 속도 스위치', '10, 정상 속도, 변경', '7, 느린 속도, 변화', '5, 매우 느린 속도, 변화', '최소 문자, 변경', '작은 글씨, 변경', '중간 문자, 변경', '큰 활자, 변화', '더 큰 글꼴, 변경', '엄청난 글꼴, 변경', '최대 문자, 변경', '노란색 배경에 검정색 텍스트, 변경', '검정색 배경에 노란색 텍스트, 변경', '흰색 배경에 검정색 텍스트, 변경', '검정색 배경에 흰색 텍스트, 변경', '', '빛으로, 변경', '어두운 빛, 변경', '빛 없이, 변경', '', '', '', '', '', '비콘 행 비활성화, 변경', '비콘 행 활성화, 변경', '아주 작은 이미지, 변화', '작은 이미지, 변화', '중간 이미지, 변경', '큰 이미지, 변경', '최대 이미지, 변경', '', '작업, 모든 조정 실행 취소', 'acción, recuperar los ajustes']
-];
-
-/*texto alternativo para imagen*/
-const r001Z =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
-[1, 'window reader enabled, change', 'window reader disabled, change', '20', '14', '10', '7', '5', 'minimal text, change', 'small text, change', 'medium text, change', 'large text, change', 'larger text, change', 'huge text, change', 'max text, change', 'black text on yellow background, change', 'yellow text on black background, change', 'black text on white background, change', 'white text on black background, change', '', 'light bulb', 'light bulb', 'no image', '', '', '', '', '', 'sign row disabled, change', 'sign row enabled, change', 'minimal signs, change', 'small signs, change', 'medium signs, change', 'big signs, change', 'maximum signs, change', '', 'undo all changes', 'reloj de arena'],
-[2, 'icono de parlante sonando', 'icono de parlante deshabilitado', '20', '14', '10', '7', '5', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'icono altura del texto', 'texto negro sobre fondo amarillo', 'texto amarillo sobre fondo negro', 'texto negro sobre fondo blanco', 'texto blanco sobre fondo negro', '', 'bombillo', 'bombillo', 'sin imagen', '', '', '', '', '', 'serie interrumpida', 'icono rollo de pelicula', 'icono de imagen', 'icono de imagen', 'icono de imagen', 'icono de imagen', 'icono de imagen', '', 'icono de borrador', 'reloj de arena'],
-[3, 'lecteur de fenêtre activé, changer', 'lecteur de fenêtre désactivé, changer', '20', '14', '10', '7', '5', 'texte minimal, changer', 'petit texte, changer', 'texte moyen, changer', 'gros texte, changer', 'texte plus grand, changer', 'énorme texte, changer', 'texte maximum, changer', 'texte noir sur fond jaune, changer', 'texte jaune sur fond noir, changer', 'texte noir sur fond blanc, changer', 'texte blanc sur fond noir, changer', '', 'ampoule', 'ampoule', 'pas d\'image', '', '', '', '', '', 'rangée d\'signe désactivé, changer', 'rangée d\'signe activée, changer', 'signes minimes, changer', 'petits signes, changer', 'signes moyens, changer', 'grands signes, changer', 'signes maximaux, changer', '', 'annuler toutes les modifications', 'reloj de arena'],
-[4, 'lecteur de fenêtre activé, changer', 'lecteur de fenêtre désactivé, changer', '20', '14', '10', '7', '5', 'texte minimal, changer', 'petit texte, changer', 'texte moyen, changer', 'gros texte, changer', 'texte plus grand, changer', 'énorme texte, changer', 'texte maximum, changer', 'texte noir sur fond jaune, changer', 'texte jaune sur fond noir, changer', 'texte noir sur fond blanc, changer', 'texte blanc sur fond noir, changer', '', 'ampoule', 'ampoule', 'pas d\'image', '', '', '', '', '', 'rangée d\'signe désactivé, changer', 'rangée d\'signe activée, changer', 'signes minimes, changer', 'petits signes, changer', 'signes moyens, changer', 'grands signes, changer', 'signes maximaux, changer', '', 'annuler toutes les modifications', 'reloj de arena']
-];
-
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
-//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
-//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
-//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
-/*ANTESconst 	r001B	=[	['Recursos/ Casillas..'							,1	,2	,3	,4	,5	,6	,7  ,8 	,9 	,10 ,11 ,12 ,13 ,14	,15	,16	,17	,18	,19	,20	,21	,22	,23	,24	,25	,26	,27	,28	,29	],
-							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'		,1	,1	,1  ,1  ,1  ,1  ,1  ,1  ,1  ,1	,1	,1	,1	,1	,1	,1	,1	,1	,1	,1	,1	,2	,1	,1	,1	,1	,1	,1	,1	],
-							['2 id de la Imag, Icon o Texto'				,37	,38	,47 ,47 ,47 ,47 ,47 ,47 ,47 ,29	,29	,39	,39	,39	,39	,39	,39	,39	,39	,30	,30	,22	,41	,60	,60	,60	,60	,60	,9	],//35-31,34-36
-							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,23	,24	,19 ,29 ,30 ,31 ,32 ,33 ,20 ,27	,28	,37	,38	,39	,40	,41	,42	,43	,44	,21	,22	,45	,46	,65	,66	,67	,68	,64	,11	],
-							['4 Visible 1:SI 0:no'							,1	,0	,1  ,0  ,0  ,0  ,0  ,0  ,0  ,1	,0	,0	,0	,0	,0	,1	,0	,0	,0	,1	,0	,1	,0	,1	,0	,0	,0	,0	,0	],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,0	,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
-							['6 id Video([5]1) o id foto([5]0/2)'			,0	,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
-							['7 id Texto Icono'								,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
-							['8 ids Iconos Capa1'							,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
-							['9 ids Iconos Capa2'							,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,0	,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	,0	]
-						];*/
-
-//																	                    3>8 4>9 ... 9>14 // 10>17 11>18 ... 29>36    15  16  17  18  19      21  T   23      25      27     29  2   31  4   33  5   35    
-const r001B =/**/[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
-['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-['2 id de la Imag, Icon o Texto', 37, 38, 20, 19, 18, 17, 16, 47, 47, 47, 47, 47, 47, 47, 29, 29, 29, 29, 65, 30, 30, 30, 0, 0, 0, 0, 0, 22, 41, 60, 60, 60, 60, 60, 0, 67, 15],
-['3 onclick function, vacio=NO PERMITIDA(INFO)', 23, 24, 80, 81, 77, 78, 79, 19, 29, 30, 31, 32, 33, 20, 83, 84, 27, 28, 21, 88, 88, 88, 0, 0, 0, 0, 0, 45, 46, 64, 64, 64, 64, 64, 0, 87, 6],
-['4 Visible 1:SI 0:no', 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['6 id Video([5]1) o id foto([5]0/2)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['7 id Texto Icono', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['8 ids Iconos Capa1', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['9 ids Iconos Capa2', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-//QUITAR?? QUE ES PARA LOS TIEMPOS, SI NO SERIA PARA EL/LOS ID'S∫ DE LAS IMAGENES QUE INTERVIENEN
-//VER r003C y r003D
-const r001C = [['idLangSign', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
-[1, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]],
-[2, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]],
-[3, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]],
-[4, [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]]
-];
-
-//RUTA 2 AJUSTES2 CAMBIAR IDIOMA, SEÑA Y LUGAR informacion /control
-const r002A =/**/[['Casillas', '1languagelist', '2SignList', 3, 4, '5-Papa1', '6-Papa2', '7-Papa3', '8-Papa4', '9-Papa5', '10-Papa6', '11-Papa7', '12-Papa8', '13-Papa9', '14-Papa10', 15, 16, 17, 18],
-[1, '', '', 'i1, information in english enabled, change', 'i0, information in english disabled, change', '', '', '', '', '', '', '', '', '', '', '', '', 'write lines', 'braille keyboard'],
-[2, '', '', 'i1, información en ingles habilitada, cambiar', 'i0, información en ingles deshabilitada, cambiar', '', '', '', '', '', '', '', '', '', '', '', '', 'escribir líneas', 'teclado Braille'],
-[3, '', '', 'i1, informations en anglais activées, changer', 'i0, informations en anglais désactivées, changer', '', '', '', '', '', '', '', '', '', '', '', '', 'écrire des lignes', 'clavier braille'],
-[4, '', '', 'i1, 영문 안내 가능, 변경', 'i0, 영문 안내 불가, 변경', '', '', '', '', '', '', '', '', '', '', '', '', '라인 쓰기', '점자 키보드'],
-];
-
-const r002Z =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-[1, 'language icon', 'sign language', '', '', 'world', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', 'person in a place', '', '', 'write lines', 'braille keyboard'],
-[2, 'icono de idioma', 'icono de lengua de señas', 'texto de i1', 'texto de i0', 'mundo', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', 'persona en un lugar', '', '', 'escribir líneas', 'teclado Braille'],
-[3, 'icône de la langue', 'langue des signes', '', '', 'monde', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', 'personne dans un lieu', '', '', 'écrire des lignes', 'clavier braille'],
-[4, '언어 아이콘', '수화 아이콘', '', '', '세계', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '장소에 있는 사람', '', '', 'écrire des lignes', 'clavier braille'],
-];
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
-//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
-//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
-//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
-const r002B =/**/[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2],
-['2 id de la Imag, Icon o Texto', 25, 26, 13, 14, 35, 77, 77, 77, 77, 77, 77, 77, 77, 77, 0, 0, 12, 20],
-['3 onclick function, vacio=NO PERMITIDA(INFO)', 100, 101, 25, 26, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 0, 0, 6, 6],
-['4 Visible 1:SI 0:no', 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['6 id Video([5]1) o id foto([5]0/2)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['7 id Texto Icono', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['8 ids Iconos Capa1', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['9 ids Iconos Capa2', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-
-
-//NOTA LA RUTA 3 
-//CON LAS CONSTANTES (const) r003A r003B r003C r003D y r003Z
-//NO APARECEN AQUI PORQUE SE VAN A PASAR AL SERVIDOR EN FORMATO JSON
-//POR ELLO SE TRANSLADARON AL COMIENZO DE ESTE ARCHIVO
-
-
-
-
-//RUTA 4 MENÚ PRINCIPAL
-const r004A =/**/[['Casillas' ,1	,2							,3								,4								,5							,6											,7										,8												,9																			,                                                                 10,                                      11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-					[1, '', 'settings: to adjust the mode'		,'maximized window, change'		,'minimized window, change'		,'user account'				,'language and place: to adjust the site'	,'Chapinero community, change'			,'settings 3: To filter the information'		,'help', 'Information: To find out about local activities and offers', 'offers: to find out about local offers', 'local contacts', 'post an invite', 'posts', 'personal contacts', 'seeker', 'advice request, deactivated, change', 'menu rating good, change'																			, 'headlines: to see or listen to the audiovisual summary of the information', 'i bogota QR code', 'frequently asked questions: to find answers', 'action, restart to exit and reload the application'],/*bulletin board'],*/
-					[2, '', 'ajustes: para ajustar el modo'		,'ventana maximizada, cambiar'	,'ventana minimizada, cambiar'	,'cuenta de usuario'		,'idioma y lugar: para ajustar el sitio'	,'comunidad Chapinero, cambiar'			,'ajustes 3: Para filtrar la información'		,'ayuda', 'Información: Para conocer las actividades y ofertas locales'             , 'ofertas: para conocer las ofertas locales', 'contactos locales', 'publicar una invitación', 'mensajes', 'contactos personales', 'buscador', 'solicitud de asesoría, desactivado, cambiar', 'calificación del menú buena, cambiar'	, 'titulares: para ver o escuchar el resumen audiovisual de la información', 'código QR de i bogota', 'preguntas frecuentes: para encontrar respuestas', 'acción, reiniciar para salir y volver a cargar la aplicación'],/*tablón de anuncios*/
-					[3, '', 'réglages: pour ajuster le mode'	,'fenêtre maximisée, changer'	,'fenêtre réduite, changer'		,'compte d\'utilisateur'	,'langue et lieu: pour ajuster le site'		,'communauté Chapinero, changement'		,'réglages 3 : Pour filtrer les informations'	,'aider', 'Information: Pour connaître les activités et les offres locales', 'offres : pour connaître les offres locales', 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'chercheur', 'demande de conseil, désactivé, changer', 'bonne note de menu, changer' 	   			, 'titres : pour voir ou écouter le résumé audiovisuel de l\'information', 'i bogota QR code', 'Questions fréquemment posées: pour trouver des réponses', 'action, redémarrer pour quitter et recharger l\'application'],/*tableau d\'affichage']*/
-					[4, '', '설정: 모드 조정'						,'korean'						,'korean'						,'compte d\'utilisateur'	,'언어와 장소: 사이트 조정'				    	,'Chapinero 커뮤니티, 변화'           		, '설정 3: 정보를 필터링하려면'                      	,'지원'  , '정보: 활동 및 제공되는 로케일에 대한 정보'                                    , '제안: 지역 제안에 대해 알아보기'                  , 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'korean'   , 'korean'                                , 'korean'                      	         , '헤드라인: 정보의 시청각 요약을 보거나 듣는 것'    								, 'i 스캔할 보고타 QR'	, '자주 묻는 질문: 답변 찾기'									, '작업, 다시 시작 응용 프로그램을 종료하고 다시 로드합니다.']/*tableau d\'affichage']*/
-];
-
-/*
-const 	r004A		=	[	['Casillas'	,1											,2										,3								,4								,5							,6											,7									,8												,9				,10													,11						,12								,13				,14							,15				,16												,17											,18																				,19							,20																,21																],
-							[1			,'hall: to receive the information'			,'settings: to adjust the mode'			,'maximized window, change'		,'minimized window, change'		,'user account'				,'language and place: to adjust the site'	,'Chapinero community, change'		,'settings 3: To filter the information'		,'help'			,'announcements: to know the local announcements'	,'local contacts'		,'post an invite'				,'posts'		,'personal contacts'		,'seeker'		,'advice request, deactivated, change'			,'menu rating good, change'					,'headlines: to see or listen to the audiovisual summary of the announcements'	,'i bogota QR code'			,'frequently asked questions: to find answers'					,'action, restart to exit and reload the application'			],
-							[2			,'sala: para recibir la información'		,'ajustes: para ajustar el modo'		,'ventana maximizada, cambiar'	,'ventana minimizada, cambiar'	,'cuenta de usuario'		,'idioma y lugar: para ajustar el sitio'	,'comunidad Chapinero, cambiar'		,'ajustes 3: Para filtrar la información'		,'ayuda'		,'anuncios: Para conocer los anuncios locales'		,'contactos locales'	,'publicar una invitación'		,'mensajes'		,'contactos personales'		,'buscador'		,'solicitud de asesoría, desactivado, cambiar'	,'calificación del menú buena, cambiar'		,'titulares: para ver o escuchar el resumen audiovisual de los anuncios'		,'código QR de i bogota'	,'preguntas frecuentes: para encontrar respuestas'				,'acción, reiniciar para salir y volver a cargar la aplicación'	],
-							[3			,'salle: pour recevoir les informations'	,'réglages: pour ajuster le mode'		,'fenêtre maximisée, changer'	,'fenêtre réduite, changer'		,'compte d\'utilisateur'	,'langue et lieu: pour ajuster le site'		,'communauté Chapinero, changement'	,'réglages 3 : Pour filtrer les informations'	,'aider'		,'annonces: pour connaître les annonces locales'	,'contacts locaux'		,'publier une invitation'		,'des postes'	,'contacts personnels'		,'chercheur'	,'demande de conseil, désactivé, changer'		,'bonne note de menu, changer'				,'titres : pour voir ou écouter le résumé audiovisuel des annonces'				,'i bogota QR code'			,'Questions fréquemment posées: pour trouver des réponses'		,'action, redémarrer pour quitter et recharger l\'application'	],
-							[4			,'입구: 정보를 받기 위해'						,'설정: 모드 조정'							,'korean'						,'korean'						,'compte d\'utilisateur'	,'언어와 장소: 사이트 조정'						,'Chapinero 커뮤니티, 변화'				,'설정 3: 정보를 필터링하려면'							,'지원'			,'광고: 지역 공지 사항에 대해 알고 싶습니다.'					,'contacts locaux'		,'publier une invitation'		,'des postes'	,'contacts personnels'		,'korean'		,'korean'										,'korean'									,'헤드라인: 공지 사항의 시청각 요약을 보거나 듣기 위해'										,'i 스캔할 보고타 QR'			,'자주 묻는 질문: 답변 찾기'											,'작업, 다시 시작 응용 프로그램을 종료하고 다시 로드합니다.']
-						];
-*/
-const r004Z =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-[1, 'icon of a person next to a gear', 'gear', 'maximized window, change', 'minimized window, change', 'user account', 'tourist sign', 'flag', 'funnel', 'help', 'ads: to know the local news', 'ads: to know the local news', 'local contacts', 'post an invite', 'posts', 'personal contacts', 'seeker', 'advice request, deactivated, change', 'menu rating good, change', 'headlines: to see the audiovisual summary of the news', 'i bogota QR code', 'frequently asked questions: to find answers', 'restart: to exit and reload the application'],/*bulletin board'],*/
-[2, 'icono de una persona junto a un engranaje', 'engranaje', 'ventana maximizada, cambiar', 'ventana minimizada, cambiar', 'cuenta de usuario', 'señal turística', 'bandera', 'embudo', 'ayuda', 'icono persona leyendo', 'icono apretón de manos', 'contactos locales', 'publicar una invitación', 'mensajes', 'contactos personales', 'buscador', 'solicitud de asesoría, desactivado, cambiar', 'calificación del menú buena, cambiar', 'icono pantalla de monitor', 'código QR de i bogota', 'icono de pregunta', 'icono de reiniciar'],/*tablón de anuncios*/
-[3, 'icône d\'une personne à côté d\'un engrenage', 'engrenage', 'fenêtre maximisée, changer', 'fenêtre réduite, changer', 'compte d\'utilisateur', 'signe touristique', 'drapeau', 'entonnoir', 'aider', 'annonces: pour connaître l\'actualité locale', 'annonces: pour connaître l\'actualité locale', 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'chercheur', 'demande de conseil, désactivé, changer', 'bonne note de menu, changer', 'titres: pour voir le résumé audiovisuel de l\'actualité', 'i bogota QR code', 'Questions fréquemment posées: pour trouver des réponses', 'redémarrer: pour quitter et recharger l\'application'],/*tableau d\'affichage']*/
-[4, '기어 옆에 있는 사람 아이콘', '기어', 'korean', 'korean', 'compte d\'utilisateur', '관광 표지판', '깃발', '깔때기', 'aider', 'annonces', 'annonces', 'contacts locaux', 'publier une invitation', 'des postes', 'contacts personnels', 'korean', 'korean', 'korean', '헤드라인: 뉴스의 시청각 요약 보기', 'i 스캔할 보고타 QR', '자주 묻는 질문: 답변 찾기', '다시 시작: 응용 프로그램을 종료하고 다시 로드합니다.']/*tableau d\'affichage']*/
-];
-
-//TRADUCCION A GLOSA MANUAL DE r004A
-const r004ATG = [['0senias', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-['1UNIVER', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//	['2LSC'		,'acceso'	,'estilo'	,0								,0								,0							,'ajustes'	,'Chapinero comunidad'				,0				,'anuncios'			,0						,0								,0					,0				,0							,0				,0							,0												,0											,'reiniciar'	,'i bogota QR capturar'	,''],
-['2LSC', 0, 0, 0, 0, 0, 'ajustes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['3ASL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
-//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
-//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
-//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio
-const r004B =/**/[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-['2 id de la Imag, Icon o Texto', 56, 2, 28, 27, 19, 50, 77, 76, 10, 3, 86, 18, 16, 17, 7, 20, 22, 23, 69, 5, 74, 24],
-['3 onclick function, vacio=NO PERMITIDA(INFO)', 5, 9, 36, 35, 6, 7, 112, 6, 6, 8, 8, 6, 6, 6, 6, 6, 6, 6, 71, 6, 98, 99],
-['4 Visible 1:SI 0:no', 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['6 id Video([5]1) o id foto([5]0/2)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['7 id Texto Icono', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['8 ids Iconos Capa1', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['9 ids Iconos Capa2', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-
-
-
-
-//RUTA 5 MULTIMEDIA: DESCRIPCION DE IMAGENES, GUÍONES DE VIDEO O INFOGRAMAS
-//const 	r005A y r005B ver/buscar aquí al final en MONGODB
-
-
-//RUTA 5 MULTIMEDIA: DESCRIPCION DE IMAGENES, GUÍONES DE VIDEO O INFOGRAMAS
-const r005A =/**/[['Casillas', 1, 2, 3],
-[1, '', 'in the image Greta Thunberg, a young girl, with white skin, light eyes, long blonde hair with a braid, blue short-sleeved cotton shirt', 'a tutorial is a method of knowledge transfer or an instructional system of short duration and based on self-learning, and can be part of a larger learning process.'],
-[2, '', 'en la imagen Greta Thunberg, una chica joven, de piel blanca, ojos claros, el cabello largo y rubio con una trenza, camiza azúl de manga corta en algodón', 'un tutorial es un método de transferencia de conocimiento o un sistema instructivo de corta duración y basado en el autoaprendizaje, pudiendo ser parte de un proceso de aprendizaje mayor.'],
-[3, '', 'dans l\'image Greta Thunberg, une jeune fille, à la peau blanche, aux yeux clairs, aux longs cheveux blonds avec une tresse, chemise bleue en coton à manches courtes', 'un tutoriel est une méthode de transfert de connaissances ou un système d\'enseignement de courte durée et basé sur l\'auto-apprentissage, et peut faire partie d\'un processus d\'apprentissage plus large.']
-];
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas
-//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
-//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
-//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
-const r005B =/**/[['Recursos/ Casillas..', 1, 2, 3],
-['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', 0, 0, 0],
-['2 id de la Imag, Icon o Texto', 1, 1, 1],
-['3 onclick function, vacio=NO PERMITIDA(INFO)', 17, 12, 12],
-['4 Visible 1:SI 0:no', 1, 1, 1],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', 1, 1, 1],//,1 	,2 	,3 	],  - 0k 0,0,0
-['6 id Video([5]1) o id foto([5]0/2)', 1, 2, 0],
-['7 id Texto Icono', 0, 0, 0],
-['8 ids Iconos Capa1', 0, 0, 0],
-['9 ids Iconos Capa2', 0, 0, 0],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', 0, 0, 0]
-];
-
-
-
-
-
-/*
-//RUTA 6 LIBRE accesibilidad999 ??
-const 	r006A		=  [	['Casillas'	,1				,2			,3				,4				,5		,6		,7		   		,8						,9				,10											],
-							[1			,'text'			,'Morse'	,'Braille'		,'signs'		,''		,''		,'language'		,'sign language'		,'community'	,'multimedia, accessibility tutorial'		],
-							[2			,'texto'		,'Morse'	,'Braille'		,'señas'		,''		,''		,'idioma'		,'lengua de señas'		,'comunidad'	,'multimedia, tutoríal de accesibilidad'	],
-							[3			,'texte'		,'Morse'	,'Braille'		,'signes'		,''		,''		,'langue'		,'langue des signes'	,'communauté'	,'multimédia, tutoriel de accessibilité'	]
-						];
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
-//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
-//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
-//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
-const 	r006B		=  [	['Recursos/ Casillas..'							,1	,2	,3	,4	,5	,6	,7	,8	,9	,10	],
-							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'		,2 	,2	,2	,1	,1	,1	,1 	,1	,1	,1	],
-							['2 id de la Imag, Icon o Texto'				,3 	,1	,2	,6	,0	,0	,25 ,26	,15	,9	],//35-31,34-36
-							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,1 	,2	,3	,4	,0	,0	,6 	,6	,6	,6	],
-							['4 Visible 1:SI 0:no'							,1 	,1	,1	,1	,0	,0	,1 	,1	,0	,0	],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
-							['6 id Video([5]1) o id foto([5]0/2)'			,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
-							['7 id Texto Icono'								,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
-							['8 ids Iconos Capa1'							,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
-							['9 ids Iconos Capa2'							,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ]
-						];
-*/
-//Hola! vas a recibir anunciós locales, estás en el menú de entrada, abajo encontrarás 9 botones con diferentes recursos: texto mínimo, vibración, audio texto, texto, y hay otras 5 más, selecciona el recurso más apropiado para recibir los anunciós 
-//Hello! You are going to receive local announcements, you are in the technology menu, below you will find 9 buttons with different technologies: minimal text, vibration, audio text, text, and there are 5 more, select the most appropriate technology to receive the announcements and that's it
-
-/*
-//LAS siguientes lineas funcionaban biien pero se ocultan por prueba.. y gRuta 7 desaparece
-
-//RUTA 7 FORMATO - ACCESO - PRESENTACIÓN
-const 	r007A		=[	['Casillas'	,1																																																																																																																																																																																																																																																																																																																																																																																																									,2													,3																			,4													,5																,6		   											,7																,8												,9																	,10																	,11						],
-							[1			,['Hello! you are going to receive local ads, you are at the hall, below this reading you will find several resources, select the most appropriate resource to receive the ads'										,'on this website you will find accessible information through several resources'			,'the resources are miniature, vibrator, audio text, glasses, giant, black background, signs, braille and american'			,'To access the information, select the resource of your preference by clicking on the element, if that element has the focus, you can also click the round button, or the 6 key. For more information on the round button or the 6 key, keep reading...'								,'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom'		,'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back'					,'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward'		,'To enable navigation buttons on a physical keyboard, turn on caps lock button'										,'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab']																					,'miniature: to see everything smaller, choose'		,'vibrator: to receive vibrations of dots and dashes, choose'				,'audio text: to listen to the texts, choose'		,'glasses: for large print and no audio, choose'				,'giant:to see everything bigger, choose'			,'black background: to see the text in yellow, choose'			,'signs: to see the interpreter, choose'		,'braille: to display braille and activate audio, choose'			,'American: for English and Sign Language, choose'					,'count, choose'		],
-							[2			,['¡Hola! vas a recibir anuncios locales, estás en la sala, debajo de esta lectura encontrarás varios recursos, selecciona el recurso más adecuado para recibir los anuncios'										,'en esta web encontrarás información accesible a través de varios recursos'				,'los recursos son miniatura, vibrador, audio texto, lentes, gigante, fondo negro, señas, braille y americano'	 			,'Para acceder a la información, seleccione el recurso de su preferencia haciendo clic en el elemento, si ese elemento tiene el foco, también puede hacer clic en el botón redondo, o en la tecla 6. Para más información sobre el botón redondo o la tecla 6, sigue leyendo...'		,'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo'		,'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder'	,'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar'	,'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas'				,'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador']			,'miniatura: para ver todo más pequeño, elegir'		,'vibrador: para recibir vibraciones de puntos y rayas, elegir'				,'audio texto: para escuchar los textos, elegir'	,'lentes: para letra grande y sin audio, elegir'				,'gigante: para ver todo más grande, elegir'		,'fondo negro: para ver el texto en color amarillo, elegir'		,'señas: para ver el interprete, elegir'		,'braille: para mostrar el braille y activar audio, elegir'			,'Americano: para inglés y lengua de señas, elegir'					,'cuenta, elegir'		],
-							[3			,['Salut! vous allez recevoir des annonces locales, vous êtes à la salle, en dessous de cette lecture vous trouverez plusieurs ressources, sélectionnez la ressource la plus appropriée pour recevoir les annonces'	,"Sur ce site, vous trouverez des informations accessibles à travers plusieurs ressources"	,"les ressources sont miniature, vibreur, texte audio, lunettes, géant, fond noir, signes, braille et américain"			,"Pour accéder aux informations, sélectionnez la ressource de votre choix en cliquant sur l'élément, si cet élément a le focus, vous pouvez également cliquer sur le bouton rond, ou sur la touche 6. Pour plus d'informations sur le bouton rond ou la touche 6, continue de lire..."	,"Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas"		,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer"		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]									,'miniature: pour tout voir plus petit, choisir'	,'vibreur: pour recevoir des vibrations de points et de tirets, choisir'	,'texte audio: pour écouter les textes, choisir'	,'lunettes: pour les gros caractères et pas de son, choisir'	,'géant: pour tout voir en plus grand, choisir'		,'fond noir: pour voir le texte en jaune, choisir'				,'signes: pour voir l\'interprète, choisir'		,'braille: pour afficher le braille et activer le son, choisir'		,'Américain: pour l\'anglais et la langue des signes, choisir'		,'compte, choisir'		],
-							[4			,['안녕하세요! 지역 공지사항을 수신할 예정입니다. 방에 있습니다. 이 판독값 아래에 여러 리소스가 있습니다. 공지사항을 수신할 가장 적절한 리소스를 선택하세요.'																								,"이 웹 사이트에서 다양한 리소스를 통해 액세스할 수 있는 정보를 찾을 수 있습니다."								,"리소스는 미니어처, 진동기, 오디오 텍스트, 안경, 거인, 검정색 배경, 표지판, 점자 및 미국식입니다."												,"정보에 액세스하려면 요소를 클릭하여 원하는 리소스를 선택하고 해당 요소에 포커스가 있는 경우 둥근 버튼 또는 6 키를 클릭할 수도 있습니다. 둥근 버튼 또는 6 키에 대한 자세한 내용은 계속 읽으세요..."																																,"탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다."											,"왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다."																,"오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다."																	,"실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오."																,"사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]																																			,'세밀화: 모든 것을 더 작게 보려면, 선택하다'					,'진동기: 도트 및 대시 진동을 수신하려면, 선택하다'										,'오디오 텍스트: 텍스트를 들으려면, 선택하다'					,'안경: 큰 활자 및 오디오 없음의 경우 선택, 선택하다'						,'거대한: 전체를 더 크게 보려면, 선택하다'					,'검은색 배경: 텍스트를 노란색으로 보려면, 선택하다'						,'징후: 통역사를 보려면 다음을 선택하십시오, 선택하다'		,'점자: 점자를 표시하고 오디오를 활성화하려면, 선택하다'							,'미국: 영어 및 수화용, 선택하다'											,'경쟁, 선택하다'			]
-						];
-
-const 	r007Z		=[	['Casillas'	,1																																																																																																																																																																																																																																																																																																																,2															,3																,4																		,5															,6		   		,7																,8																	,9													,10																		,11																			],
-							[1			,['Young woman in white sweater, headphones and microphone.'	,'Blind young woman with hearing aids, using her cell phone'							,'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces'					,'In front of a woman in a wheelchair, there is a man who holds her hands'			,'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand'								,'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back'					,'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'			,'To enable navigation buttons on a physical keyboard, turn on caps lock button'										,'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab']																			,'minimun height: to see everything smaller, select'			,'to receive vibrations of dots and dashes, select'						,'audio text: to listen to the texts, select'			,'glasses'		,'max text:to see everything bigger, select'					,'black background: to see the text in yellow, select'				,'signs: to see the interpreter, select'			,'braille: to display braille and hear the text, select'				,'to see the english translation, select'			,'count, select'		],
-							[2			,['Mujer joven con sueter blanco, auriculares y micrófono'		,'Mujer joven ciega con audífonos, usando su teléfono celular'							,'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras'	 			,'Frente a una mujer en silla de ruedas, hay un hombre que le toma las manos'		,'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda'		,'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder'	,'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'		,'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas'				,'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador']	,'altura mínima: para ver todo más pequeño, seleccionar'		,'icono de un corazón con pulsaciones'									,'audio texto: para escuchar los textos, seleccionar'	,'lentes'		,'altura máxima: para ver todo más grande, seleccionar'			,'fondo negro: para ver el texto en color amarillo, seleccionar'	,'señas: para ver el interprete, seleccionar'		,'braille: para mostrar el braille y escuchar el texto, seleccionar'	,'para ver la traducción al ingles, seleccionar'	,'cuenta, seleccionar'	],
-							[3			,['Jeune femme en pull blanc, casque et microphone.'			,"Jeune femme aveugle avec des prothèses auditives, à l'aide de son téléphone portable"	,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant une femme en fauteuil roulant, il y a un homme qui lui tient les mains"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"				,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]							,'hauteur minimale: pour tout voir plus petit, sélectionner'	,'pour recevoir des vibrations de points et de tirets, sélectionner'	,'texte audio: pour écouter les textes, sélectionner'	,'lunettes'		,'hauteur maximale: pour tout voir en plus grand, sélectionner'	,'fond noir: pour voir le texte en jaune, sélectionner'				,'signes: pour voir l\'interprète, sélectionner'	,'braille: pour afficher le braille et entendre le texte, sélectionner'	,'pour voir la traduction en anglais, sélectionner'	,'compte, sélectionner'	],
-							[4			,['흰색 스웨터, 헤드폰 및 마이크를 가진 젊은 여자'							,"Jeune femme aveugle avec des prothèses auditives, à l'aide de son téléphone portable"	,"Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages"	,"Devant une femme en fauteuil roulant, il y a un homme qui lui tient les mains"	,"Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche"				,"il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos"				,"et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."		,"Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules"		,"le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"]							,'hauteur minimale: pour tout voir plus petit, sélectionner'	,'pour recevoir des vibrations de points et de tirets, sélectionner'	,'texte audio: pour écouter les textes, sélectionner'	,'안경'			,'hauteur maximale: pour tout voir en plus grand, sélectionner'	,'fond noir: pour voir le texte en jaune, sélectionner'				,'signes: pour voir l\'interprète, sélectionner'	,'braille: pour afficher le braille et entendre le texte, sélectionner'	,'pour voir la traduction en anglais, sélectionner'	,'compte, sélectionner'	]
-						];
-
-//Do you want to receive local and accessible news?
-//¿Quieres recibir noticias locales y accesibles?
-						//hola, estás en el sitio web que hace que la información sea accesible para la mayoría de las personas. Para ello los usuarios cuentan con 9 estilos: 
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
-//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
-//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
-//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
-const 	r007B		=[	['Recursos/ Casillas..'							,1								,2	,3	,4	,5	,6	,7	,8	,9	,10	,11	],
-							['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II'	,[3	,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ]	,6 	,6	,9	,9	,8	,7	,6 	,6	,6	,6	],
-							['2 id de la Imag, Icon o Texto'				,[15,11,16,17,12,13,8 ,9 ,10]	,27 ,46	,52	,64	,57	,61	,6  ,49 ,79	,53	],//64  48
-							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,0								,50 ,51	,54	,53	,56	,57	,58 ,59	,60	,60	],
-							['4 Visible 1:SI 0:no'							,1								,1 	,1	,1	,1	,1	,1	,1 	,1	,1	,0	],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
-							['6 id Video([5]1) o id foto([5]0/2)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
-							['7 id Texto Icono (cuando es 5 en 1)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ],
-							['8 ids Iconos Capa1'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
-							['9 ids Iconos Capa2'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ]
-						];
-
-
-
-
-const 	r007B		=[	['Recursos/ Casillas..'								,1								,2	,3	,4	,5	,6	,7	,8	,9	,10	,11	],
-							['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II'	,[3	,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ]	,6 	,6	,9	,9	,8	,7	,6 	,6	,6	,6	],
-							['2 id de la Imag, Icon o Texto'				,[15,11,16,17,12,13,8 ,9 ,10]	,27 ,46	,52	,64	,57	,61	,6  ,49 ,79	,53	],//64  48
-							['3 onclick function, vacio=NO PERMITIDA(INFO)'	,0								,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
-							['4 Visible 1:SI 0:no'							,1								,1 	,1	,1	,1	,1	,1	,1 	,1	,1	,0	],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'		,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
-							['6 id Video([5]1) o id foto([5]0/2)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0 	,0	,0	,0	],
-							['7 id Texto Icono (cuando es 5 en 1)'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ,66 ],
-							['8 ids Iconos Capa1'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
-							['9 ids Iconos Capa2'							,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'			,[0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ]	,0 	,0	,0	,0	,0	,0	,0  ,0  ,0  ,0  ]
-						];
-
-/***/
-
-//RUTA 8 AYUDAS ver 1969 r003A - DOCUMENTOS - TUTORIAL Guía de servicios - Recursos - Documentación - Documentos
-const r008A =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7],
-[1, ['What is all this and what is it for?', 'You are on a website, which serves to offer local information to people without or with a certain degree of disability', 'it has accessible elements that facilitate the use and access to information, for example, audio text, vibrator, signs, géant, black background, braille and large buttons'], ['How to navigate?', 'to navigate, in the window there are 6 navigation buttons that go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'], ['How to navigate using a physical keyboard?', 'To enable navigation buttons on a physical keyboard turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab.'], ['What is the hall and what is it for?', 'the hall is the first button on the menu, there the user has several resources to select and access the information, miniature, vibrator, audio text, glasses, giant, black background, signs, braille and american', "Each one of these 9 buttons allow the team's resources to be adapted so that the information is as accessible as possible and reaches the users"], ['style, blah, blah, blah, blah', 'abece 1', 'abece 2'], ['settings'], ['activities']],
-[2, ['¿Qué es todo esto y para qué sirve?', 'Estás en un sitio web, que sirve para ofrecer información local a personas sin o con cierto grado de discapacidad', 'cuenta con elementos accesibles que facilitan el uso y acceso a la información, por ejemplo, audio texto, vibrador, señas, gigante, fondo negro, braille y botones grandes'], ['¿Cómo navegar?', 'para navegar, en la ventana hay 6 botones de navegación que van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'], ['¿Cómo navegar usando un teclado físico?', 'Para habilitar los botones de navegación en un teclado físico active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador.'], ['¿Qué es la sala y para qué sirve?', 'la sala es el primer botón del menú, allí el usuario cuenta con varios recursos para seleccionar y acceder a la información, miniatura, vibrador, audio texto, lentes, gigante, fondo negro, señas, braille y americano', 'cada uno de estos 9 botones permiten adaptar los recursos del equipo para que la informacíon sea lo más accesible posible y llegue hasta los usuarios'], ['estilo, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['ajustes'], ['actividades']],
-[3, ["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, vibreur, signes, giant, fond noir, braille et gros boutons"], ["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["Quelle est la salle et à quoi sert-elle?", "la salle est le premier bouton du menu, là l\'utilisateur dispose de plusieurs ressources pour sélectionner et accéder aux informations, miniature, vibreur, texte audio, lunettes, géant, fond noir, panneaux, braille et américain", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs"], ['style, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['réglages'], ['activités']],
-[4, ["이 모든 것이 무엇이며 무엇을 위한 것입니까?", "귀하는 특정 정도의 장애가 있거나 없는 사람들에게 지역 정보를 제공하는 웹사이트에 있습니다.", "예를 들어 오디오 텍스트, 진동기, 표지판, 거대한 배경, 검은색 배경, 점자 및 큰 버튼과 같이 정보에 대한 사용 및 액세스를 용이하게 하는 액세스 가능한 요소가 있습니다."], ["탐색하는 방법?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["물리적 키보드를 사용하여 탐색하는 방법은 무엇입니까?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["방은 무엇이며 용도는 무엇입니까?", "방은 메뉴의 첫 번째 버튼이며 사용자는 정보, 썸네일, 진동기, 오디오 텍스트, 안경, 거인, 검정색 배경, 표지판, 점자 및 미국식을 선택하고 액세스할 수 있는 여러 리소스가 있습니다.", "이 9개의 각 버튼을 통해 팀의 리소스를 조정하여 가능한 한 정보에 액세스하고 사용자에게 도달할 수 있습니다."], ['스타일 블라블라블라블라블라블라', 'abece 1', 'abece 2'], ['설정'], ['활동']]
-];
-
-const r008Z =/**/[['Casillas', 1, 2, 3, 4, 5, 6, 7],
-[1, ['What is all this and what is it for?', 'You are on a website, which serves to offer local information to people without or with a certain degree of disability', 'it has accessible elements that facilitate the use and access to information, for example, audio text, signs, text maximum, black background, braille and large buttons'], ['How to navigate?', 'to navigate, in the window there are 6 navigation buttons that go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward.'], ['How to navigate using a physical keyboard?', 'To enable navigation buttons on a physical keyboard turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab.'], ['What is the style and what is it for?', 'the style is the first button of the menu, there the user has 9 styles to select and access the information, minimum text, audio text, maximum text, black background, signs and braille', "Each one of these 9 buttons allow the team's resources to be adapted so that the information is as accessible as possible and reaches the users."], ['style, blah, blah, blah, blah', 'abece 1', 'abece 2'], ['settings'], ['activities']],
-[2, ['letra i con signo de pregunta', 'Estás en un sitio web, que sirve para ofrecer información local a personas sin o con cierto grado de discapacidad', 'cuenta con elementos accesibles que facilitan el uso y acceso a la información, por ejemplo, audio texto, señas, altura máxima, fondo negro, braille y botones grandes'], ['¿Cómo navegar?', 'para navegar, en la ventana hay 6 botones de navegación que van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar.'], ['¿Cómo navegar usando un teclado físico?', 'Para habilitar los botones de navegación en un teclado físico active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador.'], ['¿Qué es el estilo y para qué sirve?', 'el estilo es el primer botón del menú, allí el usuario cuenta con 9 estilos para seleccionar y acceder a la información, altura mínima, audio texto, altura máxima, fondo negro, señas y braille ', 'cada uno de estos 9 botones permiten adaptar los recursos del equipo para que la informacíon sea lo más accesible posible y llegue hasta los usuarios.'], ['estilo, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['ajustes'], ['actividades']],
-[3, ["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, signes, hauteur maximale, fond noir, braille et gros boutons"], ["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["Quelles sont les ressources et à quoi ça sert?", "le style est le premier bouton du menu, là l\'utilisateur dispose de 9 styles pour sélectionner et accéder aux informations, texte minimum, texte audio, hauteur maximale, fond noir, panneaux, braille et ", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs."], ['style, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['réglages'], ['activités']],
-[4, ["C'est quoi tout ça et à quoi ça sert ?", "Vous êtes sur un site Web, qui sert à offrir des informations locales aux personnes sans ou avec un certain degré de handicap", "il a des éléments accessibles qui facilitent l'utilisation et l'accès à l'information, par exemple, texte audio, signes, hauteur maximale, fond noir, braille et gros boutons"], ["Comment naviguer?", "pour naviguer, dans la fenêtre il y a 6 boutons de navigation qui vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer."], ["Comment naviguer à l'aide d'un clavier physique?", "Pour activer les boutons de navigation sur un clavier physique activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation."], ["Quelles sont les ressources et à quoi ça sert?", "le style est le premier bouton du menu, là l\'utilisateur dispose de 9 styles pour sélectionner et accéder aux informations, texte minimum, texte audio, hauteur maximale, fond noir, panneaux, braille et ", "chacun de ces 9 boutons permet d'adapter les ressources de l'équipe pour que l'information soit accessible et parvienne aux utilisateurs."], ['style, bla, bla, bla, bla', 'abece 1', 'abece 2'], ['réglages'], ['활동']]
-];
-
-//trabajar de la mano con g00VARS[11][2]::LÍNEA(S)DeLectura:0TodasLasLíneas,1Texto,2Morse,3Braille,4Señas,5Tuto
-//['1 0:Imagen,1:Icono,2:Texto,3ImagenAlta,4VideoAlto,5Texto+Icono,6Icono+Icono serie
-//['5 0:FotoIcono 1:VideoMulti 2:FotoMulti 3:TextoMulti 4:InEntrada 5:OutSalida
-//['10 0:Normal sin nada, 1:Deshabilitado o Deseleccionado /slash, 2:Campo Vacio obligatorio ?pregunta, 3:Campo con info o Respuesta _RayaInferior, 4:Campo vacio opcional -GuionMedio 	
-const r008B =/**/[['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7],
-['1 0:Imag,1:Icon,2:Texto,3Image,4Vid,5TI,6II', [6, 2, 2], [6, 0, 1, 1], [6, 2, 1], [6, 2, 2], [6, 2, 1], [6], [5]],
-['2 id de la Imag, Icon o Texto', [51, 32, 42], [72, 8, 72, 72], [58, 38, 58], [56, 42, 33], [2, 39, 2], [5], [38]],
-['3 onclick function, vacio=NO PERMITIDA(INFO)', 0, 0, 0, 0, 0, 0, 0],
-['4 Visible 1:SI 0:no', 1, 1, 1, 0, 0, 0, 0],
-['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
-['6 id Video([5]1) o id foto([5]0/2)', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
-['7 id Texto Icono (cuando es 5 en 1)', [71, 0, 0], [71, 0, 0, 0], [71, 0, 0], [71, 0, 0], [71, 0, 0], [71], [71]],
-['8 ids Iconos Capa1', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
-['9 ids Iconos Capa2', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]],
-['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0], [0]]
-];
-
-
-/*
-const 	r003B		=[	['Recursos/ Casillas..'										,1			,2			,3		,4			,5],
-							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[3,1,3]	,[3,1,3] 	,[1]	,[1,1,1]	,[3]],
-							['2 id de la Imag, Icon o Texto'							,[6,16,4]	,[7,15,5] 	,[11]	,[12,15,16]	,[3]],
-							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0			,0 			,0		,0			,0],
-							['4 Visible 1:SI 0:no'										,1			,1 			,1		,1			,1],
-							['5 0:FotI 1:Vide 2:FotM 3:Text 4:In 5:Out'					,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
-							['6 id Video([5]1) o id foto([5]0/2)'						,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
-							['7 id Texto Icono'											,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
-							['8 ids Iconos Capa1'										,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
-							['9 ids Iconos Capa2'										,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]],
-							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0,0,0]	,[0,0,0] 	,[0]	,[0,0,0]	,[0]]
-						];
-*/
-
 
 
 //1Permitir,0Bloquear teclas del teclado [2]1B,[3]3C,[4]4,[5]6,[6]7,[7]9,[8]0,[9]ZXNM+ESPACIO
