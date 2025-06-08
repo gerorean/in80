@@ -3910,7 +3910,7 @@ const kTapa0 =/**/[['idImagen', 'Nombre', 'LISTA imagenes', 'fuente /marca o aut
 [2, 'Fotografía Greta Thumberg', 'files/greta2.jpeg'],
 [3, 'Fotografía Convocatoria MinTic', 'files/convocatoria.jpg'],
 [4, 'Bienvenido', 'files/bienvenido.jpg'],
-[5, 'qr code ilife2', 'files/qrcode.png'],
+[5, 'qr code ilife2', 'files/71-8-4.png'],//Este es el logo que sale en menu, hacerlo dinamico - interactivo!!
 [6, 'caminata', 'files/caminata.jpg'],
 [7, 'caminata2', 'files/caminata2.jpeg'],
 [8, 'botonesder', 'https://lh3.googleusercontent.com/d/1ESFRCMOaaijR6K4WXxlqfXdjZsGF5My1', ''],//COMPARTIDO DESDE DRIVE PUBLICO:: https://drive.google.com/file/d/1ESFRCMOaaijR6K4WXxlqfXdjZsGF5My1/view?usp=sharing

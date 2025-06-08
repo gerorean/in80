@@ -7033,6 +7033,32 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 								    break;
 								}
 							};
+							switch (nruta) {
+							  	case '7/1/8/4':
+									iCodQ.innerHTML = "<img src='files/71-8-4.png' class='cBox'>";
+								break;
+								case '7/1/8/2/1':
+									iCodQ.innerHTML = "<img src='files/71-8-2-1.png' class='cBox'>";
+							  	break;
+							 	case '7/1/8/2/2':
+									iCodQ.innerHTML = "<img src='files/71-8-2-2.png' class='cBox'>";
+							  	break;
+								case '7/1/8/2/3':
+									iCodQ.innerHTML = "<img src='files/71-8-2-3.png' class='cBox'>";
+							  	break;
+								case '7/1/8/2/4':
+									iCodQ.innerHTML = "<img src='files/71-8-2-4.png' class='cBox'>";
+							  	break;
+								case '7/1/8/2/5':
+									iCodQ.innerHTML = "<img src='files/71-8-2-5.png' class='cBox'>";
+							  	break;
+								case '7/1/8/2/6':
+									iCodQ.innerHTML = "<img src='files/71-8-2-6.png' class='cBox'>";
+							  	break;
+								case '7/1/8/2/7':
+									iCodQ.innerHTML = "<img src='files/71-8-2-7.png' class='cBox'>";
+							  	break;
+							}
 							g00VARS[86][2]=0;
 							//f0140();//CARGAR anuncios en r003
 							console.error('  - 0 rta SI hay anuncios -');
@@ -8812,7 +8838,33 @@ function hh72()//COLOREAR borde de la presentación AV, cargar el codigo QR, el 
 
 
 			f0123(dExt[4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
-			iCodQ.innerHTML = "<img src='"+(kTapa0[bus][2]||'files/qrcode.png')+"' class='cBox'>";
+			switch (nruta) {
+			  	case '7/1/8/4':
+					iCodQ.innerHTML = "<img src='files/71-8-4.png' class='cBox'>";
+				break;
+				case '7/1/8/2/1':
+					iCodQ.innerHTML = "<img src='files/71-8-2-1.png' class='cBox'>";
+			  	break;
+			 	case '7/1/8/2/2':
+					iCodQ.innerHTML = "<img src='files/71-8-2-2.png' class='cBox'>";
+			  	break;
+				case '7/1/8/2/3':
+					iCodQ.innerHTML = "<img src='files/71-8-2-3.png' class='cBox'>";
+			  	break;
+				case '7/1/8/2/4':
+					iCodQ.innerHTML = "<img src='files/71-8-2-4.png' class='cBox'>";
+			  	break;
+				case '7/1/8/2/5':
+					iCodQ.innerHTML = "<img src='files/71-8-2-5.png' class='cBox'>";
+			  	break;
+				case '7/1/8/2/6':
+					iCodQ.innerHTML = "<img src='files/71-8-2-6.png' class='cBox'>";
+			  	break;
+				case '7/1/8/2/7':
+					iCodQ.innerHTML = "<img src='files/71-8-2-7.png' class='cBox'>";
+			  	break;
+			}
+			//iCodQ.innerHTML = "<img src='"+(kTapa0[bus][2]||'files/71-8-2-1.png')+"' class='cBox'>";
 			//iCodQ.innerHTML = "<img src='"+(kTapa0[dExt[4]][2]||'files/qrcode.png')+"' class='cBox'>";
 		}
 
