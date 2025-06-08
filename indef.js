@@ -1,11 +1,26 @@
+///7/1/8/2/2  (1-7)barrio de chapinero
+///7/1/8/4 loc puente aranda
+//papas
+// (11) [7, 1, 8, 2, 1, 0, 0, 0, 0, 0, '']
 
+//mIc003A - B - Z es la variable clave del frontend debido al código r003* = c003*, es decir 
+// r003 es una variable provisional para manejar los ejemplos con JSON
 
-
-
+//function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,gRuta 
+//function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sitios y 
+// de la presentación AV desde ini (con ini incluido).
 
 
 //este indef.js ya esta terminado?  coomparar con inde_f.js
+//dExt
+// (5) [3, 73, 5, 52, 5]
 
+
+// NOTA:  para adicionar datos a nuevos lugares, ya sea de forma manual
+// o usando JSON la funcion f0142 es clave, junto con sus interruptores, f0125(ini) y mIc003**
+// /* - - - USANDO MONGO - - - */
+// function f0142()//CONSULTAR a la base de datos por cierta collección Valida
+//function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sitios y de la presentación AV desde ini (con ini incluido).
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////  ojo res3A c003A 
@@ -2252,6 +2267,7 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 		{	lOC(30);
 			var v1 = g00VARS[27][2];//idioma
 			var v2 = visOK[gFoco];//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
+			console.log(' - - - - - - -_________________ v2=',v2);
 			//LOCAL..
 			if(gFoco == 0)//ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
 			{	vFocoL = mIkTapaI[10][v1];//"arriba"
@@ -2271,10 +2287,12 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 					break;
 					case 3:
 						{	vFocoL = '';
+							console.log(' - - - - - - mIr003B=',mIr003B);
 							if(( 0 < mIr003B[v2][3])&&(1 < mIr003B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
 							{	vFocoL += (mIr003B[v2][3] + 1) + '. ';//r003B[3][v2] + ', ';
 							}
 							vFocoL += mIr003A[v2][v1][mIr003B[v2][3]];
+							console.log(' - - - - - - mIr003Z=',mIr003Z,'; - - - - - - v2=',v2);
 							vFocoLz = mIr003Z[v2][v1][mIr003B[v2][3]];
 							if(mIr003B[v2][3] < mIr003B[v2][2].length)	
 							{	if(1 < mIr003B[v2][2].length)//si la lonjitud es mayor que 1
@@ -6040,7 +6058,8 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										{	mIkComun[1][k]=wPAPA2[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA2[j][l];
-											}switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
+											}
+											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
 													mIr003Z = mIc003Z;
@@ -6989,8 +7008,32 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 
 						/* SWITCH SIN LA BASE DE DATOS MONGO mongo*/
 						//if(nruta == '7/1/8/2/2')//Bingo!
-						if(nruta == '7/1/8/4')//Bingo!
-						{	g00VARS[86][2]=0;
+						if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+						//if(nruta == '7/1/8/4')//Bingo!
+						{	mIc003A = [];
+							mIc003B = [];
+							mIc003Z = [];
+							if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+							//if(nruta == '7/1/8/4')//Bingo!
+							{	switch (nruta) {
+								  case '7/1/8/4':
+								    console.log('Ruta A');
+									mIc003A = mIc003A0; 
+									mIc003Z = mIc003Z0;
+									mIc003B = mIc003B0;
+								    break;
+								  //case '7/1/8/2/200':
+								  //  console.log('Ruta desconocida');
+								  //  break;
+								  default:
+								    console.log('Ruta chapineruda');
+									mIc003A = mIc003A1; 
+									mIc003Z = mIc003Z1;
+									mIc003B = mIc003B1;
+								    break;
+								}
+							};
+							g00VARS[86][2]=0;
 							//f0140();//CARGAR anuncios en r003
 							console.error('  - 0 rta SI hay anuncios -');
 						}
