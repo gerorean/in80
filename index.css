@@ -250,7 +250,7 @@
  .cAma
 ,.cLuz{			border-radius:var(--rmin) var(--rmin) 0 0}
 
- .cLDown{		border-radius:var(--rmin) var(--rmin) var(--chico) var(--chico)!important} /*var(--radio) var(--radio)!important}*/
+ .cLDown{		border-radius:var(--rmin) var(--rmin) calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) !important} /*var(--radio) var(--radio)!important}*/
 
  .c1570
 ,.cButton
@@ -260,7 +260,7 @@
 
  .z70{			border-radius:var(--rmin) var(--rmin) 0 0}/*calc(var(--cHGlo)*1px) calc(var(--cHGlo)*1px) 0 0}*/
 
- .cLUp{			border-radius:var(--chico) var(--chico) var(--rmin) var(--rmin)!important}/*border-radius:var(--radio) var(--radio) var(--rmin) var(--rmin)!important}*/
+ .cLUp{			border-radius:calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) var(--rmin) var(--rmin)!important}/*border-radius:var(--radio) var(--radio) var(--rmin) var(--rmin)!important}*/
 
  .cBott
 ,.cChico

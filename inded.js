@@ -2821,7 +2821,7 @@ const s00Senias =/**/[['id', '0Est/1Mov', 'canti', 'repetis', 'signs/0.png', 'si
 [103, 1, 2, 0, 'signs/103arribaLSC1.jpg', 'signs/103arribaLSC2.jpg'],
 [104, 1, 2, 0, 'signs/104continuarLSC1.jpg', 'signs/104continuarLSC2.jpg'],
 [105, 1, 2, 1, 'signs/105horaLSC1.jpg', 'signs/105horaLSC2.jpg'],
-[106, 1, 2, 0, 'signs/106idiomaLSC1.jpg', 'signs/106idiomaLSC2.jpg'],
+[106, 1, 2, 1, 'signs/106idiomaLSC1.jpg', 'signs/106idiomaLSC2.jpg'],
 [107, 1, 2, 0, 'signs/107invitacionLSC1.jpg', 'signs/107invitacionLSC2.jpg'],
 [108, 1, 5, 0, 'signs/108localidaLSC1.jpg', 'signs/108localidaLSC2.jpg', 'signs/108localidaLSC3.jpg', 'signs/108localidaLSC4.jpg', 'signs/108localidaLSC5.jpg'],
 [109, 1, 5, 0, 'signs/109modoLSC1.jpg', 'signs/109modoLSC2.jpg', 'signs/109modoLSC3.jpg', 'signs/109modoLSC4.jpg', 'signs/109modoLSC5.jpg'],
