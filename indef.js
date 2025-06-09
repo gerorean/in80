@@ -2267,7 +2267,7 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 		{	lOC(30);
 			var v1 = g00VARS[27][2];//idioma
 			var v2 = visOK[gFoco];//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
-			console.log(' - - - - - - -_________________ v2=',v2);
+			//console.log(' - - - - - - -_________________ v2=',v2);
 			//LOCAL..
 			if(gFoco == 0)//ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
 			{	vFocoL = mIkTapaI[10][v1];//"arriba"
@@ -4040,16 +4040,17 @@ function f0082(par)//GENERAR html para una seña(imagen) tipo letra o palabra, d
 			{	//console.log('***  SEÑA (par=',par,' ,vSub(String glosa)=',vSub,')');
 				//REVISAR BIEN LAS SALIDAS POR CONSOLA
 				//var j = 0;//sub contador para señas en movimiento
-				if(s00Senias[par][1])//si la seña contiene secuencias de movimiento
-				{  	for (var h = 0; h <= s00Senias[par][3]; h++)//RECORRE LAS REPETICIONES PARA ESA SECUENCIA
-					{	for (var j = 1; j <= s00Senias[par][2]; j++)//RECORRE TODAS LAS SECUENCIAS DEL MOVIMIENTO DE LA "SEÑA"
-						{	f0091(v9,par,vSub,j);
+				if(s00Senias[par][1])//s00Senias[par][1] = 1 .. si la seña contiene secuencias de movimiento por ejemplo la S
+				{  	for (var h = 0; h <= s00Senias[par][3]; h++)//h 0 -2  RECORRE LAS REPETICIONES PARA ESA SECUENCIA
+					{	for (var j = 1; j <= s00Senias[par][2]; j++)//j 1 -5 RECORRE TODAS LAS SECUENCIAS DEL MOVIMIENTO DE LA "SEÑA"
+						{	//console.log(' - - -________v9=',v9,'; j=',j);
+							f0091(v9,par,vSub,j);
 						}
 					}
 				}
-				else//la seña contiene repeticiones
-				{	copia0 = par;//1A- Actualizar el id de la seña actual
-					copia1 = s00Senias[par][2];//1B- Actualzar la capacidad de repeticiones de la seña actual
+				else//s00Senias[par][1] = 0 .. la seña contiene repeticiones, es una letra estatica como la r (r - rr - rrr - rrrr?) 
+				{	copia0 = par;//1A- Actualizar el id de la seña actual 
+					copia1 = s00Senias[par][2];//1B- Actualzar la capacidad de repeticiones de la seña actual, por ejemplo 2 para la r o 5
 					if(copia0 == copia2)//2 Si la seña actual es igual a la seña anterior
 					{	if(copia3 < copia1)//2 Si la repetición anterior es menor que la capacidad de repeticiones de la seña actual
 						{ 	copia3 += 1;//avanza a la siguiente repetición
@@ -4061,7 +4062,7 @@ function f0082(par)//GENERAR html para una seña(imagen) tipo letra o palabra, d
 					else//2 Si la seña actual NO es igual a la seña anterior
 					{	copia3 = 1;//Reinicia la repeticion de señas
 					}
-					f0091(v9,par,vSub,copia3);
+					f0091(v9,par,vSub,copia3);//este "ciclo estatico" se usa para poner una imagen estatica diferente en el espacio por presentarsen repeticiones de la misma posición, por ejemplo r con otra r seguida o otras r más segidas rrrrr, esto no se necesita si hay movimiento
 					copia2 = copia0;//Actualiza el valor de la seña anterior para usarse en el siguiente ciclo
 				}	
 			}
@@ -4101,6 +4102,24 @@ function f0085()//ANIMAR el interprete (i) con cada pulso mediante una serie de 
 						break;
 						case (3):
 							naSenia = s00Senias[g00VARS[1][i][casi]][6];//(sen)nombre del archivo de la tercer imagen de la seña
+						break;
+						case (4):
+							naSenia = s00Senias[g00VARS[1][i][casi]][7];//(SEN)nombre del archivo de la cuarta imagen de la seña
+						break;
+						case (5):
+							naSenia = s00Senias[g00VARS[1][i][casi]][8];//(sen)nombre del archivo de la quinta imagen de la seña
+						break;
+						case (6):
+							naSenia = s00Senias[g00VARS[1][i][casi]][9];//(sen)nombre del archivo de la sexta imagen de la seña
+						break;
+						case (7):
+							naSenia = s00Senias[g00VARS[1][i][casi]][10];//(SEN)nombre del archivo de la septima imagen de la seña
+						break;
+						case (8):
+							naSenia = s00Senias[g00VARS[1][i][casi]][11];//(sen)nombre del archivo de la octava imagen de la seña
+						break;
+						case (9):
+							naSenia = s00Senias[g00VARS[1][i][casi]][12];//(sen)nombre del archivo de la novena imagen de la seña
 						break;
 					}
 					colLife7[i].setAttribute('src',naSenia);//num
@@ -4209,10 +4228,13 @@ function s011()//REINICIAR animación //f0069()
 */
 function f0091(v9,par,glo,j)//AÑADIR código HTML(SERIES DE NUMEROS DE SEÑAS Y TEXTOS GLOSA PARA LA ANIMACION) para la seña//s012(v9,par,glo,j)
 		{   lOL(91);//lOUs(12);
-			g00HTML[26][2] += par[v9]+',';//Número de la seña
-			g00HTML[36][2] += j+',';//Número de la imagen de esa seña (secuencia/repeticion)
-			g00HTML[31][2] += glo+'\',\'';//Glosa de esa seña
-			if (g00VARS[19][2])//si fila de señas LIBRO
+			//console.log(' - - -________v9=',v9,'; par=',par,'; par[v9]=',par[v9],'; glo=',glo,'; j=',j);
+			g00HTML[26][2] += par[v9]+',';//Número de la seña - - Serie NÚMEROS SEÑAS ANIMADAS de un guion 5,76,28 PARA LA ANIMACION', ''],
+			g00HTML[36][2] += j+',';//Número de la imagen de esa seña (secuencia/repeticion) - - Serie NÚMEROS de IMAGEN/SEÑA repetida(s) o escena(s) de un guion 1,1,2,1 PARA LA ANIMACION', ''],
+			g00HTML[31][2] += glo+'\',\'';//Glosa de esa seña - - Serie TEXTOS GLOSAS de las señas ANIMADAS de un guion "I","L","I" PARA LA ANIMACION', ''],
+			//console.log(' - - -________g00HTML[26][2]=',g00HTML[26][2],'; g00HTML[36][2]=',g00HTML[36][2],'; g00HTML[31][2]=',g00HTML[31][2]);
+			//console.log(' - - - - __________g00VARS[19][2]= ',g00VARS[19][2]);
+			if (g00VARS[19][2])//si fila de señas LIBRO -- es decir se van a imprimir en serie las señas, una al lado de la otra
 			{	g00VARS[22][2] += '<span class="cCero cAltu"><img src='+ s00Senias[par[v9]][j+3] +' alt="seña" class="y70x">';
 				g00VARS[22][2] += '<span class="yProsaL">'+glo+'</span><span class="cFs0">-</span></span>';
 			}
