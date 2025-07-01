@@ -1,8 +1,11 @@
 Pendientes
 
 2025
-Adicionar opcion de ruta 0 con un icono que impida desplegar los hijos de esa ruta, por ejemplo que en colombia, el departamento 0 sea 
-el icono por ejemplo 'i' que idique que no le interesan la division por departamento sino ver que publico el presidente o los ministros de Colombia
+Adicionar opcion de ruta 0 con un icono que impida desplegar los hijos de esa ruta, ver ejemplo:
+[icono: Tigeras] Sin lugar 1-9i, cambiar
+
+o que en colombia, el departamento 0 sea el icono por ejemplo 'i' que idique que no le interesan
+ la division por departamento sino ver que publico el presidente o los ministros de Colombia
 para ello hay que trabajar en la ruta 2 y tener cuidado con las siguientes funciones, variables o datos:
 gRuta<2>
 hh7
@@ -16,8 +19,7 @@ f00107
 f0121
 f0122
 f0125    (*)
-(*)son funciones/variables importates que afectan la ruta 2
-
+(*)son funciones/variables importantes que afectan la ruta 2
 
 
 
