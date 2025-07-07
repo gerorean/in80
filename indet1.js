@@ -23,7 +23,7 @@ const		g00LOGS = [	[  	  0		,0/*0 1[1*/	,0			,0			,'I ACTIVAR ambiente: 0-blanco
 						[	  9		,1/*0 1[0*/	,0			,0			,'G CONVERTIR puntos y rayas Morse a tiempo Morse (milisegundos) y ACTUALIZAR cada constante de tiempo Morse según la constante de velocidad morse actual'],
 						[	 10		,1/*0 0[0*/	,0			,0			,'L CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y -s DEL HTML -> off: los tiempos DEL VIBRADOR'],
 						[	 11		,0/*0 0[0*/	,0			,0			,'L0ASIGNAR número representativo a cada caracter g00VARS[23] para luego pasarlo a morse'],
-						[	 12		,1/*0 0[1*/	,0			,0			,'L CARGAR HTML desde 0 de cada ruta'],
+						[	 12		,1/*0 0[1*/	,0			,0			,'L CARGAR HTML desde 0 de cada ruta - - carga el html definitivo que va a salir publicado, lo toma de mIr00#A dependiendo de lo que diga visOK'],
 						[	 13		,1/*0 1[1*/	,0/*???*/	,0			,' OCULTAR logo y mostrar la ruta 1 porque ocurrio el primer click'],
 						[	 14		,1/*0 1[1*/	,0			,0			,'LIbre??'],//-CARGAR guiones de las tapas y posicionar el cursor'],
 						[	 15		,1/*0 1[1*/	,0			,1			,'G CARGAR ruta 4 en pantalla'],

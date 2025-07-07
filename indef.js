@@ -784,7 +784,7 @@ function f0011(let)//ASIGNAR número representativo a cada caracter g00VARS[23] 
 			}		
 		}
 
-function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,gRuta 
+function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,gRuta .. carga el html definitivo que va a salir publicado, lo toma de mIr00#A dependiendo de lo que diga visOK
 		{	lOL(12);
 			f0090();//L BORRAR memoria de animación: señas y glosas
 			var le = 0;//length del array
@@ -953,7 +953,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 	  			s00EXIT[1][2] = mIkTapaI[10][id].charAt(0).toUpperCase() + mIkTapaI[10][id].slice(1);;//carga el guión local: "arriba"
 				s00EXIT[2][2] = 'i1, '+mIkTapaI[10][1];//carga el guión internacional: upper limit
 				f0046();//CARGAR las variables s00EXIT con los STRINGS HTML INTERNACIONALES y LOCALES que se necesitan
-				//CARGAR el HTML del boton/casilla de "arriba"
+				//CARGAR el HTML del boton/casilla de "arriba":
 				v02 = '<div class="cNada"><button class="cButton cLUp" onclick="hh6(0)" onfocus="f0029(0)"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon"><div class="c1x1 cZIn"><i class="'+kTapa1[13][2]+' cAjust8"></i></div></div></span>';
 				if((g00VARS[11][2] == 0)||(g00VARS[11][2] == 4))//Si todos los modos o señas.. adiciona interprete(s) Local(Internacional) ..
 				{	if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles, esta i1,.. adiciona el interprete Internacopnal de la izquierda..
@@ -974,6 +974,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 							
 				switch (gRuta)
 				{	case 1://
+						//cambiar el mini-icono de la ruta:
 						iMenu.innerHTML = '<i class="'+kTapa1[2][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
@@ -1015,9 +1016,10 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						}
 					break;
 					case 2://AJUSTES información palanca - idioma i1 etc
+						//cambiar el mini-icono de la ruta:
 						iMenu.innerHTML = '<i class="'+kTapa1[50][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue.. visOK es el ARREGLO con las casillas visibles, entre limite superior e inferior
 							//PRECARGA de textos:
 							s00EXIT[1][2] = mIr002A[v4][id].charAt(0).toUpperCase() + mIr002A[v4][id].slice(1);//carga el guión local: haz clic para entrar
 							//s00EXIT[2][2] = 'i1, '+r002A[1][v4];//carga el guión internacional:click to enter
@@ -1060,6 +1062,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						}
 					break;
 					case 3://Anuncios - Información comunitaria
+						//cambiar el mini-icono de la ruta:
 						iMenu.innerHTML = '<i class="'+kTapa1[3][2]+'"></i>';
 						vis3 = visOK;//ESTA LINEA ES POR LA PRESENTACION AV: CREAR copia del arreglo de las casillas visibles de los anuncios comunitarios
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
@@ -1122,6 +1125,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						}
 					break;
 					case 4:
+						//cambiar el mini-icono de la ruta:
 						iMenu.innerHTML = '<i class="'+kTapa1[4][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
@@ -1383,7 +1387,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						}*/
 					break;
 					case 8://Ayudas - 
-
+						//cambiar el mini-icono de la ruta:
 						iMenu.innerHTML = '<i class="'+kTapa1[73][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
 						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
@@ -4415,11 +4419,11 @@ function f0096(reg,scr,rev)//Click sobre el boton actual que tiene el "foco"
 							break;
 							case 2://AJUSTES 2 ajustes de info	
 								switch (visOK[gFoco])//switch (gFoco)
-								{	case 1:hh100(rev);break;
-									case 2:hh101(rev);break;
-									case 3:hh25(0,rev);break;
-									case 4:hh26(0,rev);break;
-									case 5:hh102(rev);break;
+								{	case 1:hh100(rev);break;//CAMBIAR el idioma
+									case 2:hh101(rev);break;//CAMBIAR la seña
+									case 3:hh25(0,rev);break;//DESHABILITAR i1 (sin Ingles de apoyo)
+									case 4:hh26(0,rev);break;//HABILITAR i1 (con Ingles de apoyo)
+									case 5:hh102(rev);break;//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se deben recalcular las listas 2-10 (wMAPA)
 									case 6:hh103(rev);break;
 									case 7:hh104(rev);break;
 									case 8:hh105(rev);break;
@@ -4428,7 +4432,7 @@ function f0096(reg,scr,rev)//Click sobre el boton actual que tiene el "foco"
 									case 11:hh108(rev);break;
 									case 12:hh109(rev);break;
 								  	case 13:hh110(rev);break;
-									case 14:hh111(rev);break;
+									case 14:hh111(rev);break;//CAMBIAR de lugar 9  sitio(9-9)
 									case 15:hh6(0,rev);break;
 								}
 							break;
@@ -5094,25 +5098,24 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			f0121();//ACTUALIZAR el texto del botón señas			
 			// - - - LISTA FIJA visible 1 (wPAPA1): 
 			wPAPA1 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2		
-			wPAPA1[0]=[0];
+			wPAPA1[0]=[0, 0, 0, 10, 5, 5, 96, 5, 'Without dividing the territory', 'Sin dividir el territorio', 'Sans diviser le territoire', '영토를 나누지 않고'];
 			ee = 1;
+			//ee = 0;
 			for (var i = 1; i < vPAPA1.length; i++)//Recorre el array de continentes
-			//for (var i = 1; i < wPapa1.length; i++)//Recorre el array de continentes
+			//for (var i = 0; i < wPapa1.length; i++)//Recorre el array de continentes
 			{	//if(wPapa1[i][3] == 1)//si es visible
 				//{	
 
 					wPAPA1[ee] = [];
-
 					for (var k = 0; k < vPAPA1[i].length; k++)
 					{	wPAPA1[ee][k] = vPAPA1[i][k];
 					}
-					wPAPA1[ee][1] = ee;
-								
+					wPAPA1[ee][1] = ee;				
 					//wPAPA1[ee] = [wPapa1[i][2],ee,wPapa1[i][4],'','','','','',wPapa1[i][0],wPapa1[i][ext+5],wPapa1[i][ext+6],wPapa1[i][ext+7]];
 					//           [wPapa2[i][2],ff+1,wPapa2[i][4],'','','','','',wPapa2[i][0],wPapa2[i][ext+5],wPapa2[i][ext+6],wPapa2[i][ext+7]];
 					
 					//  original  wPAPA1[ee] = [wPapa1[i][2],wPapa1[i][1],ee+', '+wPapa1[i][0]+kTapaI[1][5],ee+', '+wPapa1[i][5]+kTapaI[2][5],ee+', '+wPapa1[i][6]+kTapaI[3][5],ee+', '+wPapa1[i][7]+kTapaI[4][5]];
-					
+
 					ee++;
 				//}
 			}
@@ -5717,7 +5720,7 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 					}
 					if(oks == papas0.length)//tantos de tantos son iguales!
 					{	siga = 0;//Parar, no siga buscando más
-						//console.log(' - - - rrr BIIIIIIIINNNGOOOOO la ruta sugerida i=',i);
+						//console.log(' -  - - rrr BIIIIIIIINNNGOOOOO la ruta sugerida i=',i);
 						//DEBE completar / actualizar la ruta con la ruta sugerida encontrada, con la ultima coinsidencia hasta donde pueda y si quedan hijos sueltos, luego completarla con numeros auto del resto de la ruta 
 						for (var j = ini+1; j < wSug[i].length; j++)
 						{	papas1[j] = wSug[i][j];//arreglo con el faltante de ruta sugerido
@@ -5729,7 +5732,7 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 
 					}
 					else//no encontro sugerencias, debe poner los numeros auto del resto de la ruta
-					{	//actualizar las listas desde aqui poniendo por defecto el primer elemento que encuentre
+					{	//actualizar las listas desde aqui poniendo por defecto el primer elemento que encuentre  
 						//console.log(' - - - rrr debe iniciar la actualización de la ruta desde wPAPA',ini + 2);	
 					}
 				}
@@ -5775,7 +5778,14 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			{	
 				switch(j)
 				{	case 1:
+
+
+
 						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos *
+						// wPAPA2[0] = wPAPA1[0];
+
+
+
 						//wPAPA2[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento sugerido
 						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo
@@ -6043,12 +6053,13 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 
 		}
 
-function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sitios y de la presentación AV desde ini (con ini incluido).
+function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (sitios 1i1, 3i2, etc) y por ende debería ACTUALIZAR de la presentación AV (ruta 3) desde ini (con ini incluido).
 		{	lOG(125);
-			mIr003A = mIres3A;//RESET CONTENIDOS DE mIr003A
+			mIr003A = mIres3A;//RESET CONTENIDOS DE mIr003A con el texto que es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios
 			//console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS[86][2]);			
 			for (var i = ini; i <= 9; i++)//Recorre el array de papas [0-9] desde ini
 			{	if(papas[i]!=0)//si casilla no es 0 y esta buscando
+				//papas[7,1,8,4,0,0,0,0,0,0,''] Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 				{	var ok = 1;//Buscando los string que se necesitan[1]
 					switch(i)//7 1 0 0 0 0 0
 					{	case 0://Papa1
@@ -6568,7 +6579,8 @@ quitar???
 			{	switch(j)
 				{	case 1:
 						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos *
-					/*	go = 1;//Buscando un elemento sugerido
+						wPAPA2[0] = wPAPA1[0];
+						/*	go = 1;//Buscando un elemento sugerido
 						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo
 						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1]))
 							{	go = 0;//el elemento sugerido existe y cumple go=1
@@ -6592,7 +6604,8 @@ quitar???
 						}
 					break;
 					case 2:
-						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3		
+						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
+						wPAPA3[0] = wPAPA1[0];		
 						//wPAPA3[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3
@@ -6620,7 +6633,7 @@ quitar???
 					case 3:
 						//console.log(' - - - rrrrr case 3 j=',j,'; ini=',ini);	
 						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4		
-						
+						wPAPA4[0] = wPAPA1[0];
 						//Cargar los titulos de wPAPA4..
 						//wPAPA4[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						//wPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
@@ -6653,7 +6666,8 @@ quitar???
 						}
 					break;
 					case 4:
-						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5		
+						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5	
+						wPAPA5[0] = wPAPA1[0];	
 						//wPAPA5[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5
@@ -6679,7 +6693,8 @@ quitar???
 						}
 					break;
 					case 5:
-						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6		
+						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
+						wPAPA6[0] = wPAPA1[0];		
 						//wPAPA6[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6
@@ -6705,7 +6720,8 @@ quitar???
 						}
 					break;
 					case 6:
-						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7		
+						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
+						wPAPA7[0] = wPAPA1[0];		
 						//wPAPA7[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7
@@ -6731,7 +6747,8 @@ quitar???
 						}
 					break;
 					case 7:
-						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8		
+						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
+						wPAPA8[0] = wPAPA1[0];		
 						//wPAPA8[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8
@@ -6757,7 +6774,8 @@ quitar???
 						}
 					break;
 					case 8:
-						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9		
+						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
+						wPAPA9[0] = wPAPA1[0];		
 						//wPAPA9[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9
@@ -6783,7 +6801,8 @@ quitar???
 						}
 					break;
 					case 9:
-						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10		
+						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
+						wPAPA10[0] = wPAPA1[0];		
 						//wPAPA10[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10
@@ -9259,22 +9278,72 @@ function hh101(rev)//CAMBIAR la seña
 
 function hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se deben recalcular las listas 2-10 (wMAPA)
 		{	hOU(102);
-			if(rev)
-			{	if(papas[0]==1)//Si dato actual de papas [0] es el PRIMERO del arreglo de wPAPA1..
-				{	papas[0]=wPAPA1.length - 1;//El dato papas[0] cambia al final del arreglo de wPAPA1 para iniciar de nuevo
-				}
-				else//Si no es el primer dato de papas[0] 
-				{	papas[0]--;//El dato papas[0] se decrementa en uno
-				}
-			}
-			else
-			{	if(papas[0]<wPAPA1.length - 1)//Si dato actual de papas [0] no es el final del arreglo de wPAPA1..
-				{	papas[0]++;//El dato papas[0] se incrementa en uno
-				}
-				else//Si no el dato papas[0] se hace igual a 1 para que inicie un nuevo ciclo
-				{	papas[0]=1;//Reinicia conteo desde 1 porque no tiene recepción(fila padre)
+
+
+
+
+			var pos;
+			for (var i = 1; i < wPAPA1.length; i++)//Recorrer wPAPA2
+			//for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
+			{	if(wPAPA1[i][0]==papas[0])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2
+				{	pos = i;
+					//guarda en pos cuál es la fila dónde está esa sub-ruta
+					i = wPAPA1.length;
+					//termina el ciclo for porque ya encontro la sub-ruta
 				}
 			}
+			if(salTO<0)//rev:5-9 salTO's negativos
+			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
+				//if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
+				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
+					{ 	papas[0]=wPAPA1[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+						//papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					}
+					else
+					{	papas[0]=wPAPA1[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					}
+				}
+				else//1 Si fila [i] es la PRIMER fila de wPAPA10
+				{	papas[0]=wPAPA1[wPAPA1.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				}
+			}
+			else//rev:0-4 salTO's positivos
+			{	if(pos<wPAPA1.length - 1)
+				{	if(salTO>=(wPAPA1.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
+					{ 	papas[0]=wPAPA1[wPAPA1.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					}
+					else//Salta adelante
+					{	papas[0]=wPAPA1[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					}
+				}
+				else
+				{	papas[0]=wPAPA1[1][0];//toma el nuevo id del primer elemento de la lista
+					//papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
+				}
+			}
+
+
+
+
+
+			////////if(rev)//si rev - (atajo para ir atras/ retroceder por una raya sobre el botón, SIN clic sencillo)
+			////////{	if(papas[0]==1)//Si dato actual de papas [0] es el PRIMERO del arreglo de wPAPA1..
+			////////	{	papas[0]=wPAPA1.length - 1;//El dato papas[0] cambia al final del arreglo de wPAPA1 para iniciar de nuevo
+			////////	}
+			////////	else//Si no es el primer dato de papas[0] 
+			////////	{	papas[0]--;//El dato papas[0] se decrementa en uno
+			////////	}
+			////////}
+			////////else//si NO hay rev - (SIN atajo para ir atras/ retroceder por una raya sobre el botón, clic sencillo)
+			////////{	if(papas[0]<wPAPA1.length - 1)//Si dato actual de papas [0] no es el final del arreglo de wPAPA1..
+			////////	{	papas[0]++;//El dato papas[0] se incrementa en uno
+			////////	}
+			////////	else//Si no el dato papas[0] se hace igual a 1 para que inicie un nuevo ciclo
+			////////	{	papas[0]=1;//Reinicia conteo desde 1 porque no tiene recepción(fila padre)
+			////////	}
+			////////}
+
+
 			f0124(0);//ACTUALIZAR tablas siguientes a wPAPA1 de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag hh102 -> 125');
 			f0125(0);//ACTUALIZAR string de los botones de sitios
@@ -9284,16 +9353,37 @@ function hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click 
 function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 		{	hOU(103);
 			var pos;
+			
+			
+			
+			
+			
+			
 			for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
+			//for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
 			{	if(wPAPA2[i][0]==papas[1])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2
 				{	pos = i;
-					i = wPAPA2.length;//termina el for
+					//guarda en pos cuál es la fila dónde está esa sub-ruta
+					i = wPAPA2.length;
+					//termina el ciclo for porque ya encontro la sub-ruta
 				}
 			}
 			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
+			{	
+				 
+				
+				
+				   
+				
+				if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
+				//if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	
+						
+						
+						
+						papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+						//papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
 					}
 					else
 					{	papas[1]=wPAPA2[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
@@ -9313,7 +9403,13 @@ function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 					}
 				}
 				else
-				{	papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
+				{	
+					
+					
+					
+					
+					papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
+					//papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
 				}
 			}
 			f0124(1);//ACTUALIZAR tablas siguientes a wPAPA1 osea extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 

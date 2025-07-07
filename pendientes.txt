@@ -12,16 +12,26 @@ hh7
 hh100
 hh101
 mIr002A,B,Z   (*)
-f0012   (*)
+f0012   (*)  carga el html definitivo que va a salir publicado, lo toma de mIr002A dependiendo de lo que diga visOK
 f0030
 f0057
-f00107
+
+f0107   (*)  
+
 f0121
 f0122
-f0125    (*)
+f0125    (*)   Esta parece ser la función clave de todo para generar el cambio que se necesita de la ruta 0 o el corte de las rutas
 (*)son funciones/variables importantes que afectan la ruta 2
 
+hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se deben recalcular las listas 2-10 (wMAPA)
 
+
+trabajar en hh103(rev) hasta lograr que colombia y argentina permitan conmutar con "sin dividir el territorio" y mostrarlo
+
+9269 indef
+vPAPA1
+wPAPA1
+f0124(ini)  (*)   //ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 
 
 conectar el celu por USB

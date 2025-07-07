@@ -134,7 +134,7 @@ var 	vPAPA10 		= [];//Array visible de wPapa10
 //wPAPA# listas sPapa# sin elementos no visibles
 
 const	wPapa1		= 	[	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-Vacio'		,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE'	,'5/10-Español'		,'6/11-frances'			,'7/12-coreano'],
-							['Africa'							,'af'			,1						,1									,0				,10					,5				,5				,20 		,5 				,'África'			,'Afrique'				,'아프리카'],
+							['Africa'							,'af'			,8						,1									,0				,10					,5				,5				,20 		,5 				,'África'			,'Afrique'				,'아프리카'],
 							['Antarctica' 						,'an'			,2						,1									,0				,10					,5				,5				,26 		,5 				,'Antártica'		,'Antarctique'			,'남극 대륙'],
 							['Asia'								,'as'			,3						,1									,0				,10					,5				,5				,22 		,5 				,'Asia'				,'Asie'					,'아시아'],
 							['Europe'							,'eu'			,4						,1									,0				,10					,5				,5				,23 		,5 				,'Europa'			,"L'Europe"				,'유럽'],
@@ -145,7 +145,7 @@ const	wPapa1		= 	[	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key st
 const	wPapa2		= 	[	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa1'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE'	,'5/10-Español'				,'6/11-frances'					,'7/12-coreano'],
 							['Argentina'						,'ar'			,7						,1									,7				,6					,61				,5				,27 		,5 				,'Argentina'				,'Argentine'					,'아르헨티나'],
 							['Australia'						,'au'			,10						,1									,6				,6					,62				,5				,29 		,5 				,'Australia'				,'Australie'					,'호주'],
-							['Colombia'							,'co'			,1						,1									,7				,9					,63				,5				,30 		,5 				,'Colombia'					,'Colombie'						,'콜롬비아'],
+							['Colombia'							,'co'			,11						,1									,7				,9					,63				,5				,30 		,5 				,'Colombia'					,'Colombie'						,'콜롬비아'],
 							['Equatorial Guinea'				,'gq'			,8						,1									,1				,4					,64				,5				,31 		,5 				,'Guinea Ecuatorial'		,'Guinée équatoriale'			,'적도 기니'],
 							['France'							,'fr'			,6						,1									,4				,6					,65				,5				,32 		,5 				,'Francia'					,'France'						,'프랑스'],
 							['Mexico'							,'mx'			,4						,1									,5				,4					,66				,5				,33 		,5 				,'México'					,'Mexique'						,'멕시코'],
@@ -159,13 +159,13 @@ const 	wPapa3		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key 
 							['Antioquia'						,'ant'			,3						,1									,1				,4					,72				,5				,39 		,5 				,'Antioquia'			,'Antioche'					,'남극 대륙'],
 							['Bogota'							,'bog'			,8						,1									,1				,9					,73				,5				,28 		,5 				,'Bogotá'				,'Bogota'					,'보고타'],
 							['Boyaca'							,'boy'			,4						,1									,1				,4					,74				,5				,40			,5 				,'Boyacá'				,'Boyaca'					,'보야카'],
-							['Cundinamarca'						,'cun'			,1						,1									,1				,3					,75				,5				,41			,5 				,'Cundinamarca'			,'Cundinamarca'				,'쿤디나마르카'],
+							['Cundinamarca'						,'cun'			,9						,1									,1				,3					,75				,5				,41			,5 				,'Cundinamarca'			,'Cundinamarca'				,'쿤디나마르카'],
 							['Hope Bay'							,'hob'			,5						,1									,9				,6					,76				,5				,36			,5 				,'Bahía Esperanza'		,"Baie de l'Espoir"			,'호프 베이'],
 							['Madrid\'s community'				,'mac'			,6						,1									,3				,9					,77				,5				,43 		,5 				,'Comunidad de Madrid'	,'La communauté de Madrid'	,'마드리드의 커뮤니티'],
 							['Narino'							,'nar'			,2						,1									,1				,12					,78				,5				,44 		,5 				,'Nariño'				,'Nariño'					,'나리노'],
 						];
 const 	wPapa4		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa3'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE'	,'5-Español'				,'6-frances'				,'7-coreano'],
-							['Cali'								,'cal'			,1						,0									,0				,4					,60				,5				,5 			,5 				,'Cali'						,'Cali'						,'칼리'],
+							['Cali'								,'cal'			,9						,0									,0				,4					,60				,5				,5 			,5 				,'Cali'						,'Cali'						,'칼리'],
 							['location Chapinero'				,'cha'			,2						,1									,8				,9					,73				,5				,45 		,5 				,'localidad Chapinero'		,'localité Chapinero'		,'위치 차피네로'],
 							['location Kenedy'					,'ken'			,3						,1									,8				,9					,73				,5				,46 		,5 				,'localidad Kenedy'			,'localité Kenedy'			,'위치 케네디'],
 							['location Puente Aranda'			,'pua'			,4						,1									,8				,9					,73				,5				,47 		,5 				,'localidad Puente Aranda'	,'localité Puente Aranda'	,'위치 푸엔테 아란다'],
@@ -175,53 +175,53 @@ const 	wPapa4		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key 
 							['Pasto'							,'pas'			,8						,1									,2				,12					,81				,5				,51 		,5 				,'Pasto'					,'Pasto'					,'파스토'],	
 						];
 const 	wPapa5		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa4'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'				,'6-frances'						,'7-coreano'				],
-							['Catalonia neighborhood'			,'cat'			,1						,1									,2				,3					,73				,5				,52			,5 				,'barrio Cataluña'			,'quartier Catalogne'				,'카탈로니아 인근'				],
+							['Catalonia neighborhood'			,'cat'			,8						,1									,2				,3					,73				,5				,52			,5 				,'barrio Cataluña'			,'quartier Catalogne'				,'카탈로니아 인근'				],
 							['Central Chapinero neighborhood'	,'chc'			,2						,1									,2				,3					,73				,5				,53			,5 				,'barrio Chapinero Central'	,'quartier Central de Chapinero'	,'중앙 차피네로 지역'			],
 							['North Chapinero neighborhood'		,'chn'			,3						,1									,2				,3					,73				,5				,54			,5 				,'barrio Chapinero Norte'	,'quartier Nord de Chapinero'		,'노스 차피네로 인근'			],
 							['Marly neighborhood'				,'mar'			,4						,1									,2				,3					,73				,5				,55			,5 				,'barrio Marly'				,'quartier Marneux'					,'말리 동네'					],
 							['Porciuncula neighborhood'			,'por'			,7						,1									,2				,3					,73				,5				,56			,5 				,'barrio Porciúncula'		,'quartier Porciuncula'				,'포르시운쿨라 인근'				],
 							['Quinta Camacho neighborhood'		,'quc'			,6						,1									,2				,3					,73				,5				,57			,5 				,'barrio Quinta Camacho'	,'quartier Quinta Camacho'			,'퀸타 카마초 인근'				],
 							['Sucre neighborhood'				,'suc'			,5						,1									,2				,3					,73				,5				,58			,5 				,'barrio Sucre'				,'quartier Sucré'					,'수크레 동네'					],
-						  //['UPZ Chapinero Centro'				,'chc'			,5						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ Chapinero Centro'		,'UPZ Chapinero Centro'		,'UPZ Chapinero Centro'		],
-						  //['UPZ Chicó Lago'					,'chl'			,4						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ Chicó Lago'			,'UPZ Chicó Lago'			,'UPZ Chicó Lago'			],
-						  //['UPZ El Refugio'					,'elr'			,1						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ El Refugio'			,'UPZ El Refugio'			,'UPZ El Refugio'			],
-						  //['UPZ El Verjón Bajo'				,'elv'			,6						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ El Verjón Bajo'		,'UPZ El Verjón Bajo'		,'UPZ El Verjón Bajo'		],
-						  //['UPZ Pardo Rubio'					,'par'			,3						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ Pardo Rubio'			,'UPZ Pardo Rubio'			,'UPZ Pardo Rubio'			],
-						  //['UPZ San Isidro Patios'			,'sai'			,2						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ San Isidro Patios'	,'UPZ San Isidro Patios'	,'UPZ San Isidro Patios'	],
+						  //['UPZ Chapinero Centro'				,'chc'			,5*						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ Chapinero Centro'		,'UPZ Chapinero Centro'		,'UPZ Chapinero Centro'		],
+						  //['UPZ Chicó Lago'					,'chl'			,4*						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ Chicó Lago'			,'UPZ Chicó Lago'			,'UPZ Chicó Lago'			],
+						  //['UPZ El Refugio'					,'elr'			,1*						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ El Refugio'			,'UPZ El Refugio'			,'UPZ El Refugio'			],
+						  //['UPZ El Verjón Bajo'				,'elv'			,6* 					,1									,2				,11					,5				,5				,5 			,5 				,'UPZ El Verjón Bajo'		,'UPZ El Verjón Bajo'		,'UPZ El Verjón Bajo'		],
+						  //['UPZ Pardo Rubio'					,'par'			,3*						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ Pardo Rubio'			,'UPZ Pardo Rubio'			,'UPZ Pardo Rubio'			],
+						  //['UPZ San Isidro Patios'			,'sai'			,2*						,1									,2				,11					,5				,5				,5 			,5 				,'UPZ San Isidro Patios'	,'UPZ San Isidro Patios'	,'UPZ San Isidro Patios'	],
 						];
 const 	wPapa6		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa5'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'				,'6-frances'				,'7-coreano'				],						
-						//	['barrio Cataluña'					,'cat'			,1						,1									,5				,6					,5				,5				,5 			,5 				,'Cataluña, barrio'			,'Cataluña, barrio'			,'Cataluña, barrio'			],
-						//	['barrio Chapinero Central'			,'chc'			,2						,1									,5				,6					,5				,5				,5 			,5 				,'Chapinero Central, barrio','Chapinero Central, barrio','Chapinero Central, barrio'],
-						//	['barrio Chapinero Norte'			,'chn'			,3						,1									,5				,6					,5				,5				,5 			,5 				,'Chapinero Norte, barrio'	,'Chapinero Norte, barrio'	,'Chapinero Norte, barrio'	],
-						//	['barrio Marly'						,'mar'			,4						,1									,5				,6					,5				,5				,5 			,5 				,'Marly, barrio'			,'Marly, barrio'			,'Marly, barrio'			],
-						//	['barrio Porciúncula'				,'por'			,7						,1									,4				,6					,5				,5				,5 			,5 				,'Porciúncula'				,'Porciúncula'				,'Porciúncula'				],
-						//	['barrio Quinta Camacho'			,'quc'			,6						,1									,4				,6					,5				,5				,5 			,5 				,'Quinta Camacho'			,'Quinta Camacho'			,'Quinta Camacho'			],
-						//	['barrio Sucre'						,'suc'			,5						,1									,5				,6					,5				,5				,5 			,5 				,'Sucre, barrio'			,'Sucre, barrio'			,'Sucre, barrio'			],
+						//	['barrio Cataluña'					,'cat'			,8*						,1									,5				,6					,5				,5				,5 			,5 				,'Cataluña, barrio'			,'Cataluña, barrio'			,'Cataluña, barrio'			],
+						//	['barrio Chapinero Central'			,'chc'			,2*						,1									,5				,6					,5				,5				,5 			,5 				,'Chapinero Central, barrio','Chapinero Central, barrio','Chapinero Central, barrio'],
+						//	['barrio Chapinero Norte'			,'chn'			,3*						,1									,5				,6					,5				,5				,5 			,5 				,'Chapinero Norte, barrio'	,'Chapinero Norte, barrio'	,'Chapinero Norte, barrio'	],
+						//	['barrio Marly'						,'mar'			,4*						,1									,5				,6					,5				,5				,5 			,5 				,'Marly, barrio'			,'Marly, barrio'			,'Marly, barrio'			],
+						//	['barrio Porciúncula'				,'por'			,7*						,1									,4				,6					,5				,5				,5 			,5 				,'Porciúncula'				,'Porciúncula'				,'Porciúncula'				],
+						//	['barrio Quinta Camacho'			,'quc'			,6*						,1									,4				,6					,5				,5				,5 			,5 				,'Quinta Camacho'			,'Quinta Camacho'			,'Quinta Camacho'			],
+						//	['barrio Sucre'						,'suc'			,5*						,1									,5				,6					,5				,5				,5 			,5 				,'Sucre, barrio'			,'Sucre, barrio'			,'Sucre, barrio'			],
 						];
 const 	wPapa7		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.app.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa6'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'				],
-						//	['calle 51,52 y carrera 13,14'		,'c52k13'		,1						,1									,2				,5					,5				,5				,5 			,5 				,'calle 51,52 y carrera 13,14'	,'calle 51,52 y carrera 13,14'	,'calle 51,52 y carrera 13,14'],
-						//	['calle 52,53 y carrera 13,14'		,'c52k14'		,2						,1									,2				,5					,5				,5				,5 			,5 				,'calle 52,53 y carrera 13,14'	,'calle 52,53 y carrera 13,14'	,'calle 52,53 y carrera 13,14'],						
-						//	['calle 52,53 y carrera 15,16'		,'c52k15'		,3						,1									,2				,5					,5				,5				,5 			,5 				,'calle 52,53 y carrera 15,16'	,'calle 52,53 y carrera 15,16'	,'calle 52,53 y carrera 15,16'],									
-						//	['calle 53,54 y carrera 10,11'		,'c53k10'		,4						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 10,11'	,'calle 53,54 y carrera 10,11'	,'calle 53,54 y carrera 10,11'],					
-						//	['calle 53,54 y carrera 11,12'		,'c53k11'		,7						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 11,12'	,'calle 53,54 y carrera 11,12'	,'calle 53,54 y carrera 11,12'],						
-						//	['calle 53,54 y carrera 12,13'		,'c53k12'		,6						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 12,13'	,'calle 53,54 y carrera 12,13'	,'calle 53,54 y carrera 12,13'],
-						//	['calle 53,54 y carrera 13,14'		,'c53k13'		,5						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'],				
+						//	['calle 51,52 y carrera 13,14'		,'c52k13'		,8*						,1									,2				,5					,5				,5				,5 			,5 				,'calle 51,52 y carrera 13,14'	,'calle 51,52 y carrera 13,14'	,'calle 51,52 y carrera 13,14'],
+						//	['calle 52,53 y carrera 13,14'		,'c52k14'		,2*						,1									,2				,5					,5				,5				,5 			,5 				,'calle 52,53 y carrera 13,14'	,'calle 52,53 y carrera 13,14'	,'calle 52,53 y carrera 13,14'],						
+						//	['calle 52,53 y carrera 15,16'		,'c52k15'		,3*						,1									,2				,5					,5				,5				,5 			,5 				,'calle 52,53 y carrera 15,16'	,'calle 52,53 y carrera 15,16'	,'calle 52,53 y carrera 15,16'],									
+						//	['calle 53,54 y carrera 10,11'		,'c53k10'		,4*						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 10,11'	,'calle 53,54 y carrera 10,11'	,'calle 53,54 y carrera 10,11'],					
+						//	['calle 53,54 y carrera 11,12'		,'c53k11'		,7*						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 11,12'	,'calle 53,54 y carrera 11,12'	,'calle 53,54 y carrera 11,12'],						
+						//	['calle 53,54 y carrera 12,13'		,'c53k12'		,6*						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 12,13'	,'calle 53,54 y carrera 12,13'	,'calle 53,54 y carrera 12,13'],
+						//	['calle 53,54 y carrera 13,14'		,'c53k13'		,5*						,1									,2				,5					,5				,5				,5 			,5 				,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'	,'calle 53,54 y carrera 13,14'],				
 						];
 const 	wPapa8		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa7'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'			],
-						//	['Banco de Bogotá'					,'bab'			,6						,1									,4				,3					,5				,5				,5 			,5 				,'Banco de Bogotá'				,'Banco de Bogotá'				,'Banco de Bogotá'		],
-						//	['Banco Caja Social'				,'bac'			,4						,1									,7				,3					,5				,5				,5 			,5 				,'Banco Caja Social'			,'Banco Caja Social'			,'Banco Caja Social'	],
-						//	['Banco Davivienda'					,'bad'			,5						,1									,7				,3					,5				,5				,5 			,5 				,'Banco Davivienda'				,'Banco Davivienda'				,'Banco Davivienda'		],			
-						//	['Exito, almacén'					,'exi'			,3						,1									,2				,3					,5				,5				,5 			,5 				,'Exito, almacén'				,'Exito, almacén'				,'Exito, almacén'		],
-						//	['Rapi CADE'						,'rac'			,7						,1									,4				,3					,5				,5				,5 			,5 				,'Rapi CADE'					,'Rapi CADE'					,'Rapi CADE'			],
-						//	['SENA, calle 52'					,'s52'			,1						,1									,1				,3					,5				,5				,5 			,5 				,'SENA, calle 52'				,'SENA, calle 52'				,'SENA, calle 52'		],
-						//	['TecnoParque Colombia'				,'tec'			,2						,1									,4				,3					,5				,5				,5 			,5 				,'TecnoParque Colombia'			,'TecnoParque Colombia'			,'TecnoParque Colombia'	],		
+						//	['Banco de Bogotá'					,'bab'			,6*						,1									,4				,3					,5				,5				,5 			,5 				,'Banco de Bogotá'				,'Banco de Bogotá'				,'Banco de Bogotá'		],
+						//	['Banco Caja Social'				,'bac'			,4*						,1									,7				,3					,5				,5				,5 			,5 				,'Banco Caja Social'			,'Banco Caja Social'			,'Banco Caja Social'	],
+						//	['Banco Davivienda'					,'bad'			,5*						,1									,7				,3					,5				,5				,5 			,5 				,'Banco Davivienda'				,'Banco Davivienda'				,'Banco Davivienda'		],			
+						//	['Exito, almacén'					,'exi'			,3*						,1									,2				,3					,5				,5				,5 			,5 				,'Exito, almacén'				,'Exito, almacén'				,'Exito, almacén'		],
+						//	['Rapi CADE'						,'rac'			,7*						,1									,4				,3					,5				,5				,5 			,5 				,'Rapi CADE'					,'Rapi CADE'					,'Rapi CADE'			],
+						//	['SENA, calle 52'					,'s52'			,8*						,1									,1				,3					,5				,5				,5 			,5 				,'SENA, calle 52'				,'SENA, calle 52'				,'SENA, calle 52'		],
+						//	['TecnoParque Colombia'				,'tec'			,2*						,1									,4				,3					,5				,5				,5 			,5 				,'TecnoParque Colombia'			,'TecnoParque Colombia'			,'TecnoParque Colombia'	],		
 						];
 const 	wPapa9		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa8'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'				],
-						//	['Biotecnología'					,'bio'			,1						,1									,2				,12					,5				,1				,3		 	,5 				,'Biotecnología'				,'Biotecnología'				,'Biotecnología'			],
-						//	['Electrónica'						,'ele'			,4						,1									,2				,6					,5				,4				,3		 	,5 				,'Electrónica'					,'Electrónica'					,'Electrónica'				],
-						//	['InfoCenter'						,'inc'			,5						,1									,2				,13					,5				,18				,3		 	,5 				,'InfoCenter'					,'InfoCenter'					,'InfoCenter'				],
-						//	['Ingeniería y Diseño'				,'ind'			,3						,1									,2				,3					,5				,16				,3		 	,5 				,'Ingeniería y Diseño'			,'Ingeniería y Diseño'			,'Ingeniería y Diseño'		],
-						//	['Tecnologías Virtuales'			,'tev'			,2						,1									,2				,5					,5				,20				,3		 	,5 				,'Tecnologías Virtuales'		,'Tecnologías Virtuales'		,'Tecnologías Virtuales'	],				
+						//	['Biotecnología'					,'bio'			,6*						,1									,2				,12					,5				,1				,3		 	,5 				,'Biotecnología'				,'Biotecnología'				,'Biotecnología'			],
+						//	['Electrónica'						,'ele'			,4*						,1									,2				,6					,5				,4				,3		 	,5 				,'Electrónica'					,'Electrónica'					,'Electrónica'				],
+						//	['InfoCenter'						,'inc'			,5*						,1									,2				,13					,5				,18				,3		 	,5 				,'InfoCenter'					,'InfoCenter'					,'InfoCenter'				],
+						//	['Ingeniería y Diseño'				,'ind'			,3*						,1									,2				,3					,5				,16				,3		 	,5 				,'Ingeniería y Diseño'			,'Ingeniería y Diseño'			,'Ingeniería y Diseño'		],
+						//	['Tecnologías Virtuales'			,'tev'			,2*						,1									,2				,5					,5				,20				,3		 	,5 				,'Tecnologías Virtuales'		,'Tecnologías Virtuales'		,'Tecnologías Virtuales'	],				
 						];
 const 	wPapa10		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key strings app'	,'3-Estado:Visible1 off0(Ocultar)'	,'4-IdPapa9'	,'5-Id color marco'	,'6-id logo'	,'7-idImagen'	,'8-idMapa' ,'9-ID QR CODE' ,'5-Español'					,'6-frances'					,'7-coreano'				],	
 						];
@@ -2163,6 +2163,19 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 /* inicio interruptor 2 no incluye f0128 a f0137*/
 const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
+//const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
+const vPAPA1 = [
+[0, 0, 0, 10, 5, 5, 96, 5, 'Without dividing the territory', 'Sin dividir el territorio', 'Sans diviser le territoire', '영토를 나누지 않고'],
+[8, 1, 0, 10, 5, 5, 20, 5, 'Africa', 'África', 'Afrique', '아프리카'],//1 ->8
+[2, 2, 0, 10, 5, 5, 26, 5, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
+[3, 3, 0, 10, 5, 5, 22, 5, 'Asia', 'Asia', 'Asie', '아시아'],
+[4, 4, 0, 10, 5, 5, 23, 5, 'Europe', 'Europa', "L'Europe", '유럽'],
+[5, 5, 0, 10, 5, 5, 24, 5, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
+[6, 6, 0, 10, 5, 5, 21, 5, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
+[7, 7, 0, 10, 5, 5, 25, 5, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
+]
+
+/*
 const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 [1, 1, 0, 10, 5, 5, 20, 5, 'Africa', 'África', 'Afrique', '아프리카'],
 [2, 2, 0, 10, 5, 5, 26, 5, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
@@ -2172,12 +2185,13 @@ const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id
 [6, 6, 0, 10, 5, 5, 21, 5, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
 [7, 7, 0, 10, 5, 5, 25, 5, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
 ]
+*/
 
 const vPAPA2 = [['2-id:key strings app', 0, '4-IdPapa1', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 [7, 1, 7, 6, 61, 5, 27, 5, 'Argentina', 'Argentina', 'Argentine', '아르헨티나'],
 [10, 2, 6, 6, 62, 5, 29, 5, 'Australia', 'Australia', 'Australie', '호주'],
-[1, 3, 7, 9, 63, 5, 30, 5, 'Colombia', 'Colombia', 'Colombie', '콜롬비아'],
-[8, 4, 1, 4, 64, 5, 31, 5, 'Equatorial Guinea', 'Guinea Ecuatorial', 'Guinée équatoriale', '적도 기니'],
+[11, 3, 7, 9, 63, 5, 30, 5, 'Colombia', 'Colombia', 'Colombie', '콜롬비아'],//1 ->11
+[8, 4, 8, 4, 64, 5, 31, 5, 'Equatorial Guinea', 'Guinea Ecuatorial', 'Guinée équatoriale', '적도 기니'],
 [6, 5, 4, 6, 65, 5, 32, 5, 'France', 'Francia', 'France', '프랑스'],
 [4, 6, 5, 4, 66, 5, 33, 5, 'Mexico', 'México', 'Mexique', '멕시코'],
 [5, 7, 3, 6, 67, 5, 34, 5, 'South Korea', 'Corea del Sur', 'Corée du Sud', '대한민국'],
@@ -2188,13 +2202,13 @@ const vPAPA2 = [['2-id:key strings app', 0, '4-IdPapa1', '5-Id color marco', '6-
 
 const vPAPA3 = [['2-id:key strings app', 0, '4-IdPapa2', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 [7, 1, 3, 4, 71, 5, 38, 5, 'Andalusia', 'Andalucía', 'Andalousie', '안달루시아'],
-[3, 2, 1, 4, 72, 5, 39, 5, 'Antioquia', 'Antioquia', 'Antioche', '남극 대륙'],
-[8, 3, 1, 9, 73, 5, 28, 5, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
-[4, 4, 1, 4, 74, 5, 40, 5, 'Boyaca', 'Boyacá', 'Boyaca', '보야카'],
-[1, 5, 1, 3, 75, 5, 41, 5, 'Cundinamarca', 'Cundinamarca', 'Cundinamarca', '쿤디나마르카'],
+[3, 2, 11, 4, 72, 5, 39, 5, 'Antioquia', 'Antioquia', 'Antioche', '남극 대륙'],
+[8, 3, 11, 9, 73, 5, 28, 5, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
+[4, 4, 11, 4, 74, 5, 40, 5, 'Boyaca', 'Boyacá', 'Boyaca', '보야카'],
+[9, 5, 11, 3, 75, 5, 41, 5, 'Cundinamarca', 'Cundinamarca', 'Cundinamarca', '쿤디나마르카'],//1 ->9
 [5, 6, 9, 6, 76, 5, 36, 5, 'Hope Bay', 'Bahía Esperanza', "Baie de l'Espoir", '호프 베이'],
 [6, 7, 3, 9, 77, 5, 43, 5, "Madrid's community", 'Comunidad de Madrid', 'La communauté de Madrid', '마드리드의 커뮤니티'],
-[2, 8, 1, 12, 78, 5, 44, 5, 'Narino', 'Nariño', 'Nariño', '나리노']
+[2, 8, 11, 12, 78, 5, 44, 5, 'Narino', 'Nariño', 'Nariño', '나리노']
 ]
 
 const vPAPA4 = [['2-id:key strings app', 0, '4-IdPapa3', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
@@ -2208,7 +2222,7 @@ const vPAPA4 = [['2-id:key strings app', 0, '4-IdPapa3', '5-Id color marco', '6-
 ]
 
 const vPAPA5 = [['2-id:key strings app', 0, '4-IdPapa4', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
-[1, 1, 2, 3, 73, 5, 52, 5, 'Catalonia neighborhood', 'barrio Cataluña', 'quartier Catalogne', '카탈로니아 인근'],
+[8, 1, 2, 3, 73, 5, 52, 5, 'Catalonia neighborhood', 'barrio Cataluña', 'quartier Catalogne', '카탈로니아 인근'],//1 ->8
 [2, 2, 2, 3, 73, 5, 53, 5, 'Central Chapinero neighborhood', 'barrio Chapinero Central', 'quartier Central de Chapinero', '중앙 차피네로 지역'],
 [3, 3, 2, 3, 73, 5, 54, 5, 'North Chapinero neighborhood', 'barrio Chapinero Norte', 'quartier Nord de Chapinero', '노스 차피네로 인근'],
 [4, 4, 2, 3, 73, 5, 55, 5, 'Marly neighborhood', 'barrio Marly', 'quartier Marneux', '말리 동네'],
@@ -2237,7 +2251,8 @@ const vPAPA10 = [['2-id:key strings app', 0, '4-IdPapa9', '5-Id color marco', '6
 []
 ]
 
-const rutas = ['/7/7', '/6/10', '/1/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7', '/7/1/4', '/7/1/1', '/2/9/5', '/7/1/8/3', '/7/1/8/4', '/7/1/8/5', '/4/3/6/6', '/7/1/3/7', '/7/1/2/8', '/7/1/8/2/1', '/7/1/8/2/2', '/7/1/8/2/3', '/7/1/8/2/4', '/7/1/8/2/7', '/7/1/8/2/6', '/7/1/8/2/5'];
+  const rutas = ['/7/7', '/6/10', '/8/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7', '/7/11/4', '/7/11/9', '/2/9/5', '/7/11/8/3', '/7/11/8/4', '/7/11/8/5', '/4/3/6/6', '/7/11/3/7', '/7/11/2/8', '/7/11/8/2/8', '/7/11/8/2/2', '/7/11/8/2/3', '/7/11/8/2/4', '/7/11/8/2/7', '/7/11/8/2/6', '/7/11/8/2/5'];
+//const rutas = ['/7/7', '/6/10', '/1/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7', '/7/1/4', '/7/1/1', '/2/9/5', '/7/1/8/3', '/7/1/8/4', '/7/1/8/5', '/4/3/6/6', '/7/1/3/7', '/7/1/2/8', '/7/1/8/2/1', '/7/1/8/2/2', '/7/1/8/2/3', '/7/1/8/2/4', '/7/1/8/2/7', '/7/1/8/2/6', '/7/1/8/2/5'];
 /*  fin interruptor 2 no incluye f0128 a f0137*/
 
 
@@ -5137,7 +5152,7 @@ const kTapa0 =/**/[['idImagen', 'Nombre', 'LISTA imagenes', 'fuente /marca o aut
 [93, 'Impulso Local', 'files/wifi11.jpg'],//,'https://lh3.googleusercontent.com/d/1igOvmaALBD2c261HGQe5MEK6ZlkHBcNo'	,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],//'https://bogota.gov.co/sites/default/files/styles/1050px/public/2023-04/impulso-local-nota_0.jpg'			,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [94, 'Taller residuos chapinero', 'files/chapiResid.png'],
 [95, 'Taller baile chapinero', 'files/bailechapi.png'],
-[96, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
+[96, 'Sin dividir el territotio fas fa-street-view', 'files/sin-divi-terr.png'],
 [97, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [98, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [99, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
@@ -5326,15 +5341,15 @@ const wSign = [['0-En ingles(lista ordenada)', '1-Escrito Local(desordenada)', '
 //wPAPAx					 1 2 3 4 5 6 7 8 9 10
 //Rutas sugeridas			 0 1 2 3 4 5 6 7 8 9  (EL TOPE ES 8 O 9?)
 const wSug = [	//[4,3],//4,6   españa
-	[7, 1, 8, 2, 1],//Barrio cataluña en chapinero
-	[7, 1, 8, 4],//Alcaldía puente aranda
-	[7, 1, 8, 2, 2],//Barrio chapinero central
+	[7, 11, 8, 2, 8],//Barrio cataluña en chapinero
+	[7, 11, 8, 4],//Alcaldía puente aranda
+	[7, 11, 8, 2, 2],//Barrio chapinero central
 	//	[7,1,1,1,2,5,2,4,2,2],
 	[4, 3, 6, 5],//4,6   madrid españa
-	//	[7,1,7,1,2,5,2,4,2,3],
-	//	[7,1,1,7,2,5,2,4,2,4],
-	//	[7,1,1,1,2,5,2,4,2],
-	//	[7,1,1,1,2,5,2,4,8],
+	//	[7,11,7,1*,2,5,2,4,2,3],
+	//	[7,11,9,7,2,5,2,4,2,4],
+	//	[7,11,9,1*,2,5,2,4,2],
+	//	[7,11,9,1*,2,5,2,4,8],
 	[2, 9, 5],
 ];
 
