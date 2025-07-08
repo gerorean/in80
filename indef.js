@@ -5788,6 +5788,26 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1]))
 							{	go = 0;//el elemento sugerido existe y cumple go=1
 								papas[j]=papas1[j];
+
+
+
+
+								
+
+
+
+
+								///////////////////////////console.error(' - ----------------- papas[j-1]=',papas[j-1]);
+								///////////////////////////for (var a = 1; a < vPAPA1.length; a++)
+								///////////////////////////{ 	if(vPAPA1[a][0] == papas[j-1])
+								///////////////////////////	{	console.error(' - ----------------- a=',a,'; vPAPA1[a][8]=',vPAPA1[a][8]);
+								///////////////////////////		for (var b = 8; b < vPAPA1[1].length; b++)
+								///////////////////////////		{	wPAPA2[1][b] = 'i,'+vPAPA1[a][b];
+								///////////////////////////		}
+								///////////////////////////		wPAPA2[1][8] = 'i '+vPAPA1[a][8];
+								///////////////////////////		
+								///////////////////////////	}
+								///////////////////////////}
 							}
 						}
 						ff = 2;
