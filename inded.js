@@ -2165,7 +2165,7 @@ const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se 
 
 //const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 const vPAPA1 = [
-[0, 0, 0, 10, 5, 5, 96, 5, 'Without dividing the territory', 'Sin dividir el territorio', 'Sans diviser le territoire', '영토를 나누지 않고'],
+[1, 1, 0, 10, 5, 5, 96, 5, 'Entire territory', 'Todo el territorio', 'Territoire entier', '전체 영토'],
 [8, 1, 0, 10, 5, 5, 20, 5, 'Africa', 'África', 'Afrique', '아프리카'],//1 ->8
 [2, 2, 0, 10, 5, 5, 26, 5, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
 [3, 3, 0, 10, 5, 5, 22, 5, 'Asia', 'Asia', 'Asie', '아시아'],
@@ -2251,7 +2251,7 @@ const vPAPA10 = [['2-id:key strings app', 0, '4-IdPapa9', '5-Id color marco', '6
 []
 ]
 
-  const rutas = ['/7/7', '/6/10', '/8/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7', '/7/11/4', '/7/11/9', '/2/9/5', '/7/11/8/3', '/7/11/8/4', '/7/11/8/5', '/4/3/6/6', '/7/11/3/7', '/7/11/2/8', '/7/11/8/2/8', '/7/11/8/2/2', '/7/11/8/2/3', '/7/11/8/2/4', '/7/11/8/2/7', '/7/11/8/2/6', '/7/11/8/2/5'];
+  const rutas = ['/2/1', '/2/9/1', '/2/9/5', '/3/1', '/3/5', '/4/1', '/4/3/1', '/4/3/6/1', '/4/3/6/6', '/4/3/7', '/4/6', '/5/1', '/5/2', '/5/4', '/6/1', '/6/10', '/7/1', '/7/7', '/7/11/1', '/7/11/2/1', '/7/11/2/8', '/7/11/3/1', '/7/11/3/7', '/7/11/4', '/7/11/8/1', '/7/11/8/2/1', '/7/11/8/2/2', '/7/11/8/2/3', '/7/11/8/2/4', '/7/11/8/2/5', '/7/11/8/2/6', '/7/11/8/2/7', '/7/11/8/2/8', '/7/11/8/3', '/7/11/8/4', '/7/11/8/5', '/7/11/9', '/8/1', '/8/8'];
 //const rutas = ['/7/7', '/6/10', '/1/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7', '/7/1/4', '/7/1/1', '/2/9/5', '/7/1/8/3', '/7/1/8/4', '/7/1/8/5', '/4/3/6/6', '/7/1/3/7', '/7/1/2/8', '/7/1/8/2/1', '/7/1/8/2/2', '/7/1/8/2/3', '/7/1/8/2/4', '/7/1/8/2/7', '/7/1/8/2/6', '/7/1/8/2/5'];
 /*  fin interruptor 2 no incluye f0128 a f0137*/
 
@@ -5060,7 +5060,7 @@ const kTapa0 =/**/[['idImagen', 'Nombre', 'LISTA imagenes', 'fuente /marca o aut
 [2, 'Fotografía Greta Thumberg', 'files/greta2.jpeg'],
 [3, 'Fotografía Convocatoria MinTic', 'files/convocatoria.jpg'],
 [4, 'Bienvenido', 'files/bienvenido.jpg'],
-[5, 'qr code ilife2', 'files/71-8-4.png'],//Este es el logo que sale en menu, hacerlo dinamico - interactivo!!
+[5, 'qr code ilife2', 'files/711-8-4.png'],//Este es el logo que sale en menu, hacerlo dinamico - interactivo!!
 [6, 'caminata', 'files/caminata.jpg'],
 [7, 'caminata2', 'files/caminata2.jpeg'],
 [8, 'botonesder', 'https://lh3.googleusercontent.com/d/1ESFRCMOaaijR6K4WXxlqfXdjZsGF5My1', ''],//COMPARTIDO DESDE DRIVE PUBLICO:: https://drive.google.com/file/d/1ESFRCMOaaijR6K4WXxlqfXdjZsGF5My1/view?usp=sharing
@@ -5152,7 +5152,7 @@ const kTapa0 =/**/[['idImagen', 'Nombre', 'LISTA imagenes', 'fuente /marca o aut
 [93, 'Impulso Local', 'files/wifi11.jpg'],//,'https://lh3.googleusercontent.com/d/1igOvmaALBD2c261HGQe5MEK6ZlkHBcNo'	,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],//'https://bogota.gov.co/sites/default/files/styles/1050px/public/2023-04/impulso-local-nota_0.jpg'			,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [94, 'Taller residuos chapinero', 'files/chapiResid.png'],
 [95, 'Taller baile chapinero', 'files/bailechapi.png'],
-[96, 'Sin dividir el territotio fas fa-street-view', 'files/sin-divi-terr.png'],
+[96, 'Todo el territotio fas fa-street-view', 'files/sin-divi-terr.png'],
 [97, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [98, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [99, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],

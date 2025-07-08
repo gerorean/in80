@@ -1,5 +1,24 @@
 Pendientes
 
+
+
+
+0124 y 0138, repeti 2 cambios, hacen lo mismo???
+
+
+						wPAPA2[1] = wPAPA1[0];
+
+            ......
+
+						ff = 2;
+						//ff = 1;
+
+
+
+Pendiente!!! la const rutas = cuando se automatice debe poder crear en todas que tengan hijos las rutas la ruta 1 como hijo/padre,
+el 1 es un indicador de que esa "ruta" tiene "hermanos" en ese nivel
+
+
 2025
 Adicionar opcion de ruta 0 con un icono que impida desplegar los hijos de esa ruta, ver ejemplo:
 [icono: Tigeras] Sin lugar 1-9i, cambiar

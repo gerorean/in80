@@ -5098,7 +5098,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			f0121();//ACTUALIZAR el texto del botón señas			
 			// - - - LISTA FIJA visible 1 (wPAPA1): 
 			wPAPA1 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2		
-			wPAPA1[0]=[0, 0, 0, 10, 5, 5, 96, 5, 'Without dividing the territory', 'Sin dividir el territorio', 'Sans diviser le territoire', '영토를 나누지 않고'];
+			wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'Entire territory', 'Todo el territorio', 'Territoire entier', '전체 영토'];
 			ee = 1;
 			//ee = 0;
 			for (var i = 1; i < vPAPA1.length; i++)//Recorre el array de continentes
@@ -5778,14 +5778,10 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			{	
 				switch(j)
 				{	case 1:
-
-
-
 						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos *
 						// wPAPA2[0] = wPAPA1[0];
-
-
-
+						wPAPA2[1] = wPAPA1[0];
+						//wPAPA2[0] = wPAPA1[0];
 						//wPAPA2[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento sugerido
 						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo
@@ -5794,7 +5790,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA2[i][2] == papas[j-1])//si esa fila es un hijo de wPAPA1
 							{	wPAPA2[ff] = [];
@@ -5811,7 +5808,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						}
 					break;
 					case 2:
-						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3		
+						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
+						wPAPA3[1] = wPAPA1[0];		
 						//wPAPA3[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3
@@ -5820,7 +5818,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA3[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA3[ff] = [];
@@ -5840,15 +5839,13 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 					case 3:
 						//console.log(' - - - rrrrr case 3 j=',j,'; ini=',ini);	
 						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4		
-						
+						wPAPA4[1] = wPAPA1[0];	
 						//Cargar los titulos de wPAPA4..
 						//wPAPA4[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						//wPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
 						//for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 						//{	wPAPA4[0][m] = wPapa4[0][m+2];
 						//}
-
-
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA4.length; i++)//recorre las filas de vPAPA4
 						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j-1]))
@@ -5856,7 +5853,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA4[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA3
 							{	wPAPA4[ff] = [];
@@ -5874,7 +5872,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						}
 					break;
 					case 4:
-						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5		
+						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5
+						wPAPA5[1] = wPAPA1[0];			
 						//wPAPA5[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5
@@ -5883,7 +5882,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA5[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA5[ff] = [];
@@ -5901,7 +5901,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						}
 					break;
 					case 5:
-						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6		
+						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
+						wPAPA6[1] = wPAPA1[0];			
 						//wPAPA6[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6
@@ -5910,7 +5911,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA6[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA6[ff] = [];
@@ -5928,7 +5930,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						}
 					break;
 					case 6:
-						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7		
+						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
+						wPAPA7[1] = wPAPA1[0];			
 						//wPAPA7[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7
@@ -5937,7 +5940,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA7[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA7[ff] = [];
@@ -5955,7 +5959,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						}
 					break;
 					case 7:
-						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8		
+						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
+						wPAPA8[1] = wPAPA1[0];			
 						//wPAPA8[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8
@@ -5964,7 +5969,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA8[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA8[ff] = [];
@@ -5982,7 +5988,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						}
 					break;
 					case 8:
-						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9		
+						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
+						wPAPA9[1] = wPAPA1[0];		
 						//wPAPA9[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9
@@ -5991,7 +5998,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA9[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA9[ff] = [];
@@ -6009,7 +6017,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						}
 					break;
 					case 9:
-						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10		
+						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
+						wPAPA10[1] = wPAPA1[0];		
 						//wPAPA10[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10
@@ -6018,7 +6027,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 								papas[j]=papas1[j];
 							}
 						}
-						ff = 1;
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA10[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA10[ff] = [];
@@ -6579,7 +6589,13 @@ quitar???
 			{	switch(j)
 				{	case 1:
 						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos *
-						wPAPA2[0] = wPAPA1[0];
+						
+						
+						
+						
+						
+						wPAPA2[1] = wPAPA1[0];
+						//wPAPA2[0] = wPAPA1[0];
 						/*	go = 1;//Buscando un elemento sugerido
 						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo
 						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1]))
@@ -6587,7 +6603,13 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+
+
+
+
+
+						ff = 2;
+						//ff = 1;
 						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA2[i][2] == papas[j-1])//si esa fila es un hijo de wPAPA1
 							{	wPAPA2[ff] = [];
@@ -6605,7 +6627,7 @@ quitar???
 					break;
 					case 2:
 						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
-						wPAPA3[0] = wPAPA1[0];		
+						wPAPA3[1] = wPAPA1[0];		
 						//wPAPA3[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3
@@ -6614,7 +6636,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA3[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA3[ff] = [];
@@ -6633,7 +6655,7 @@ quitar???
 					case 3:
 						//console.log(' - - - rrrrr case 3 j=',j,'; ini=',ini);	
 						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4		
-						wPAPA4[0] = wPAPA1[0];
+						wPAPA4[1] = wPAPA1[0];
 						//Cargar los titulos de wPAPA4..
 						//wPAPA4[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						//wPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
@@ -6649,7 +6671,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA4[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA4[ff] = [];
@@ -6667,7 +6689,7 @@ quitar???
 					break;
 					case 4:
 						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5	
-						wPAPA5[0] = wPAPA1[0];	
+						wPAPA5[1] = wPAPA1[0];	
 						//wPAPA5[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5
@@ -6676,7 +6698,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA5[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA5[ff] = [];
@@ -6694,7 +6716,7 @@ quitar???
 					break;
 					case 5:
 						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
-						wPAPA6[0] = wPAPA1[0];		
+						wPAPA6[1] = wPAPA1[0];		
 						//wPAPA6[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6
@@ -6703,7 +6725,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA6[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA6[ff] = [];
@@ -6721,7 +6743,7 @@ quitar???
 					break;
 					case 6:
 						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
-						wPAPA7[0] = wPAPA1[0];		
+						wPAPA7[1] = wPAPA1[0];		
 						//wPAPA7[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7
@@ -6730,7 +6752,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA7[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA7[ff] = [];
@@ -6748,7 +6770,7 @@ quitar???
 					break;
 					case 7:
 						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
-						wPAPA8[0] = wPAPA1[0];		
+						wPAPA8[1] = wPAPA1[0];		
 						//wPAPA8[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8
@@ -6757,7 +6779,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA8[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA8[ff] = [];
@@ -6775,7 +6797,7 @@ quitar???
 					break;
 					case 8:
 						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
-						wPAPA9[0] = wPAPA1[0];		
+						wPAPA9[1] = wPAPA1[0];		
 						//wPAPA9[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9
@@ -6784,7 +6806,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA9[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA9[ff] = [];
@@ -6802,7 +6824,7 @@ quitar???
 					break;
 					case 9:
 						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
-						wPAPA10[0] = wPAPA1[0];		
+						wPAPA10[1] = wPAPA1[0];		
 						//wPAPA10[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 					/*	go = 1;//Buscando un elemento
 						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10
@@ -6811,7 +6833,7 @@ quitar???
 								papas[j]=papas1[j];
 							}
 						}*/
-						ff = 1;
+						ff = 2;
 						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
 						{	if(vPAPA10[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
 							{	wPAPA10[ff] = [];
@@ -6885,13 +6907,24 @@ function f0141()//ENRUTAR al usuario con rutas validas y TRAER anuncios de la ru
 					bin = 1;
 				}
 			}		
+			
+			
+			
 			if(bin)//Si la ruta existe debe actualizar los lugares automaticamente
+			//if(bin)//Si la ruta existe debe actualizar los lugares automaticamente
 			{	console.log('|> Flag  141 -> 142 * * *');
 				f0142();//CONSULTAR a la base de datos por cierta collección Valida
 			}
+			
+			
+			
 			else
+			//else
 			{	console.error(' -> La ruta=',ruta,' NO existe; Error 404! cancelando el cambio de rumbo');
+				
+				
 				window.location = loC;//Reestablece la última ruta valida
+				//window.location = loC;//Reestablece la última ruta valida
 			}
 			loC = window.location.hash;//Actualiza la ruta valida
 		}
@@ -7049,15 +7082,19 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 
 						/* SWITCH SIN LA BASE DE DATOS MONGO mongo*/
 						//if(nruta == '7/1/8/2/2')//Bingo!
-						if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+						//'/7/11/8/2/1','/7/11/8/2/2','/7/11/8/2/3','/7/11/8/2/4','/7/11/8/2/5','/7/11/8/2/6','/7/11/8/2/7','/7/11/8/2/8','/7/11/8/4'
+						if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+						//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
 						//if(nruta == '7/1/8/4')//Bingo!
 						{	mIc003A = [];
 							mIc003B = [];
 							mIc003Z = [];
-							if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+							if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+							//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
 							//if(nruta == '7/1/8/4')//Bingo!
 							{	switch (nruta) {
-								  case '7/1/8/4':
+								  case '7/11/8/4':
+								  //case '7/1/8/4':
 								    console.log('Ruta A');
 									mIc003A = mIc003A0; 
 									mIc003Z = mIc003Z0;
@@ -7075,29 +7112,29 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 								}
 							};
 							switch (nruta) {
-							  	case '7/1/8/4':
-									iCodQ.innerHTML = "<img src='files/71-8-4.png' class='cBox'>";
+							  	case '/7/11/8/4':
+									iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
 								break;
-								case '7/1/8/2/1':
-									iCodQ.innerHTML = "<img src='files/71-8-2-1.png' class='cBox'>";
+							 	case '7/11/8/2/2':
+									iCodQ.innerHTML = "<img src='files/711-8-2-2.png' class='cBox'>";
 							  	break;
-							 	case '7/1/8/2/2':
-									iCodQ.innerHTML = "<img src='files/71-8-2-2.png' class='cBox'>";
+								case '7/11/8/2/3':
+									iCodQ.innerHTML = "<img src='files/711-8-2-3.png' class='cBox'>";
 							  	break;
-								case '7/1/8/2/3':
-									iCodQ.innerHTML = "<img src='files/71-8-2-3.png' class='cBox'>";
+								case '7/11/8/2/4':
+									iCodQ.innerHTML = "<img src='files/711-8-2-4.png' class='cBox'>";
 							  	break;
-								case '7/1/8/2/4':
-									iCodQ.innerHTML = "<img src='files/71-8-2-4.png' class='cBox'>";
+								case '7/11/8/2/5':
+									iCodQ.innerHTML = "<img src='files/711-8-2-5.png' class='cBox'>";
 							  	break;
-								case '7/1/8/2/5':
-									iCodQ.innerHTML = "<img src='files/71-8-2-5.png' class='cBox'>";
+								case '7/11/8/2/6':
+									iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
 							  	break;
-								case '7/1/8/2/6':
-									iCodQ.innerHTML = "<img src='files/71-8-2-6.png' class='cBox'>";
+								case '7/11/8/2/7':
+									iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
 							  	break;
-								case '7/1/8/2/7':
-									iCodQ.innerHTML = "<img src='files/71-8-2-7.png' class='cBox'>";
+								case '7/11/8/2/8':
+									iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
 							  	break;
 							}
 							g00VARS[86][2]=0;
@@ -8880,29 +8917,29 @@ function hh72()//COLOREAR borde de la presentación AV, cargar el codigo QR, el 
 
 			f0123(dExt[4]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 			switch (nruta) {
-			  	case '7/1/8/4':
-					iCodQ.innerHTML = "<img src='files/71-8-4.png' class='cBox'>";
+			  	case '7/11/8/4':
+					iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
 				break;
-				case '7/1/8/2/1':
-					iCodQ.innerHTML = "<img src='files/71-8-2-1.png' class='cBox'>";
+			 	case '7/11/8/2/2':
+					iCodQ.innerHTML = "<img src='files/711-8-2-2.png' class='cBox'>";
 			  	break;
-			 	case '7/1/8/2/2':
-					iCodQ.innerHTML = "<img src='files/71-8-2-2.png' class='cBox'>";
+				case '7/11/8/2/3':
+					iCodQ.innerHTML = "<img src='files/711-8-2-3.png' class='cBox'>";
 			  	break;
-				case '7/1/8/2/3':
-					iCodQ.innerHTML = "<img src='files/71-8-2-3.png' class='cBox'>";
+				case '7/11/8/2/4':
+					iCodQ.innerHTML = "<img src='files/711-8-2-4.png' class='cBox'>";
 			  	break;
-				case '7/1/8/2/4':
-					iCodQ.innerHTML = "<img src='files/71-8-2-4.png' class='cBox'>";
+				case '7/11/8/2/5':
+					iCodQ.innerHTML = "<img src='files/711-8-2-5.png' class='cBox'>";
 			  	break;
-				case '7/1/8/2/5':
-					iCodQ.innerHTML = "<img src='files/71-8-2-5.png' class='cBox'>";
+				case '7/11/8/2/6':
+					iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
 			  	break;
-				case '7/1/8/2/6':
-					iCodQ.innerHTML = "<img src='files/71-8-2-6.png' class='cBox'>";
+				case '7/11/8/2/7':
+					iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
 			  	break;
-				case '7/1/8/2/7':
-					iCodQ.innerHTML = "<img src='files/71-8-2-7.png' class='cBox'>";
+				case '7/11/8/2/8':
+					iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
 			  	break;
 			}
 			//iCodQ.innerHTML = "<img src='"+(kTapa0[bus][2]||'files/71-8-2-1.png')+"' class='cBox'>";
