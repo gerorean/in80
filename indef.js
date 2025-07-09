@@ -5695,11 +5695,24 @@ function f0123(busca)//BUSCAR id/Fila que corresponde a cierto id Buscado en kTa
 
 function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(124);
+			//ini no aparece en f0138
 			for (var i = 6 + ini; i <= 14; i++)//5-[12-5]13 - 4 = 9 si ini= 0 los oculta todos
 			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-				//r002B[4][i]=0;//r002B[4][6-14] Ocultar botones de Ajustes 2 desde el actual (ini)
 				papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
 			}
+
+
+
+
+			//Aqui va codigo diferente en f0138:
+			/*			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
+			{	papas[i]=parseInt(rumbo[i]);
+			}
+			*/
+
+
+
+			//Este bloque no aparece en f0138 (esta oculto):
 			//CREA un arreglo paralelo aparte con la ruta parcial QUE NO SE MODIFICO más el último cambio
 			papas0 = [];//Reset
 			papas1 = [];//Reset
@@ -5737,6 +5750,16 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 					}
 				}
 			}
+			//Fin del bloque que no aparece en f0138 (esta oculto)
+			
+
+
+
+
+
+
+
+
 
 			/*
 			//ruta sugerida: 7,1,1,1,2,5,2,4,2,2
@@ -5772,300 +5795,10 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			}
 			*/
 			//Cargar/actualizar los wPAPAS hijos o dependientes desde ini[0-8]
-			var ff;
-			var go;
-			for (var j = ini+1; j < 11; j++)//ini[0-8]  j[1-10]Recorre los wPAPAx restantes y los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
-			{	
-				switch(j)
-				{	case 1:
-						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos *
-						// wPAPA2[0] = wPAPA1[0];
-						wPAPA2[1] = wPAPA1[0];
-						//wPAPA2[0] = wPAPA1[0];
-						//wPAPA2[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento sugerido
-						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo
-						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-
-
-
-
-								
-
-
-
-
-								///////////////////////////console.error(' - ----------------- papas[j-1]=',papas[j-1]);
-								///////////////////////////for (var a = 1; a < vPAPA1.length; a++)
-								///////////////////////////{ 	if(vPAPA1[a][0] == papas[j-1])
-								///////////////////////////	{	console.error(' - ----------------- a=',a,'; vPAPA1[a][8]=',vPAPA1[a][8]);
-								///////////////////////////		for (var b = 8; b < vPAPA1[1].length; b++)
-								///////////////////////////		{	wPAPA2[1][b] = 'i,'+vPAPA1[a][b];
-								///////////////////////////		}
-								///////////////////////////		wPAPA2[1][8] = 'i '+vPAPA1[a][8];
-								///////////////////////////		
-								///////////////////////////	}
-								///////////////////////////}
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA2[i][2] == papas[j-1])//si esa fila es un hijo de wPAPA1
-							{	wPAPA2[ff] = [];
-								for (var k = 0; k < vPAPA2[i].length; k++)
-								{	wPAPA2[ff][k] = vPAPA2[i][k];
-								}
-								wPAPA2[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA2[i][0];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 2:
-						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
-						wPAPA3[1] = wPAPA1[0];		
-						//wPAPA3[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3
-						{ 	if((vPAPA3[i][0] == papas1[j])&&(vPAPA3[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA3[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA3[ff] = [];
-								for (var k = 0; k < vPAPA3[i].length; k++)
-								{	wPAPA3[ff][k] = vPAPA3[i][k];
-								}
-								wPAPA3[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA3[i][0];//Toma el primer id del string del elemento de la app que encuentre
-									//papas[j] = vPAPA3[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 3:
-						//console.log(' - - - rrrrr case 3 j=',j,'; ini=',ini);	
-						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4		
-						wPAPA4[1] = wPAPA1[0];	
-						//Cargar los titulos de wPAPA4..
-						//wPAPA4[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						//wPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
-						//for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
-						//{	wPAPA4[0][m] = wPapa4[0][m+2];
-						//}
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA4.length; i++)//recorre las filas de vPAPA4
-						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA4[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA3
-							{	wPAPA4[ff] = [];
-								for (var k = 0; k < vPAPA4[i].length; k++)
-								{	wPAPA4[ff][k] = vPAPA4[i][k];
-								}
-								wPAPA4[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									//papas[j] = vPAPA4[i][2];//Toma el primer id del string del elemento de la app que encuentre
-									papas[j] = vPAPA4[i][0];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 4:
-						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5
-						wPAPA5[1] = wPAPA1[0];			
-						//wPAPA5[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5
-						{ 	if((vPAPA5[i][0] == papas1[j])&&(vPAPA5[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA5[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA5[ff] = [];
-								for (var k = 0; k < vPAPA5[i].length; k++)
-								{	wPAPA5[ff][k] = vPAPA5[i][k];
-								}
-								wPAPA5[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA5[i][0];//Toma el primer id del string del elemento de la app que encuentre
-									//papas[j] = vPAPA5[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 5:
-						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
-						wPAPA6[1] = wPAPA1[0];			
-						//wPAPA6[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6
-						{ 	if((vPAPA6[i][0] == papas1[j])&&(vPAPA6[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA6[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA6[ff] = [];
-								for (var k = 0; k < vPAPA6[i].length; k++)
-								{	wPAPA6[ff][k] = vPAPA6[i][k];
-								}
-								wPAPA6[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA6[i][0];//Toma el primer id del string del elemento de la app que encuentre
-									//papas[j] = vPAPA6[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 6:
-						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
-						wPAPA7[1] = wPAPA1[0];			
-						//wPAPA7[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7
-						{ 	if((vPAPA7[i][0] == papas1[j])&&(vPAPA7[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA7[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA7[ff] = [];
-								for (var k = 0; k < vPAPA7[i].length; k++)
-								{	wPAPA7[ff][k] = vPAPA7[i][k];
-								}
-								wPAPA7[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA7[i][0];//Toma el primer id del string del elemento de la app que encuentre
-									//papas[j] = vPAPA7[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 7:
-						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
-						wPAPA8[1] = wPAPA1[0];			
-						//wPAPA8[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8
-						{ 	if((vPAPA8[i][0] == papas1[j])&&(vPAPA8[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA8[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA8[ff] = [];
-								for (var k = 0; k < vPAPA8[i].length; k++)
-								{	wPAPA8[ff][k] = vPAPA8[i][k];
-								}
-								wPAPA8[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA8[i][0];//Toma el primer id del string del elemento de la app que encuentre
-								//	papas[j] = vPAPA8[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 8:
-						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
-						wPAPA9[1] = wPAPA1[0];		
-						//wPAPA9[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9
-						{ 	if((vPAPA9[i][0] == papas1[j])&&(vPAPA9[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA9[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA9[ff] = [];
-								for (var k = 0; k < vPAPA9[i].length; k++)
-								{	wPAPA9[ff][k] = vPAPA9[i][k];
-								}
-								wPAPA9[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA9[i][0];//Toma el primer id del string del elemento de la app que encuentre
-								//	papas[j] = vPAPA9[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-					case 9:
-						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
-						wPAPA10[1] = wPAPA1[0];		
-						//wPAPA10[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10
-						{ 	if((vPAPA10[i][0] == papas1[j])&&(vPAPA10[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA10[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA10[ff] = [];
-								for (var k = 0; k < vPAPA10[i].length; k++)
-								{	wPAPA10[ff][k] = vPAPA10[i][k];
-								}
-								wPAPA10[ff][1] = ff;
-								ff++;//Siguiente fila
-								if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA10[i][0];//Toma el primer id del string del elemento de la app que encuentre
-								//	papas[j] = vPAPA10[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}
-							}
-						}
-					break;
-				}
+			//var ff;
+			//var go;
+			for (var j1 = ini+1; j1 < 11; j1++)//ini[0-8]  j[1-10]Recorre los wPAPAx restantes y los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
+			{	f0153(j1,1);//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10
 			}
 			//cuando muestra la cartelera local
 			//console.log(' - - - rrrrr f0124 fin A papas=',papas,';\n wPAPA2=',wPAPA2,';\n wPAPA3=',wPAPA3,';\n wPAPA4=',wPAPA4,';\n wPAPA5=',wPAPA5,';\n wPAPA6=',wPAPA6);
@@ -6143,6 +5876,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 									}
 								}
 							}
+							console.error(' - -----------------___________125___ wPAPA2[1]=',wPAPA2[1]); 
 						break;
 						case 2://Papa3
 							for (var j = wPAPA3.length - 1; j >= 1; j--)
@@ -6536,34 +6270,31 @@ las funciones de la function f0128() a la function f0137() estan reservadas en i
 
 function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(138);
-
-
+			
 
 			//nota
 			// pendiente detener proceso cuando papas[x]=0;
 
 
-
-
-			//console.log(' - - - rrr7 A papas=',papas);
+			//=0124
 			for (var i = 6; i <= 14; i++)//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
 			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-				//r002B[4][i]=0;//r002B[4][6-14] Ocultar botones de Ajustes 2 desde el actual (ini)
 				papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
 			}
 
-			console.log(' - - - rrr A papas=',papas,'; rumbo=',rumbo);
+
+
+			console.log(' - - -_________________138______ rrr A papas=',papas,'; rumbo=',rumbo);
 			//Actualizar papas - 
 			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
 			{	papas[i]=parseInt(rumbo[i]);
 			}
-			console.log(' - - - rrr B papas=',papas);
 			
 			
 /*
 quitar???
 
-			//console.log(' - - - rrrrr B papas=',papas);
+			//=0124 (casi por ini)
 			//CREA un arreglo paralelo aparte con la ruta parcial QUE NO SE MODIFICO más el último cambio
 			papas0 = [];//Reset
 			papas1 = [];//Reset
@@ -6572,7 +6303,6 @@ quitar???
 				{	papas0[i] = papas[i];
 				}
 			}
-			//console.log(' - - - rrr C papas0=',papas0);
 			//buscar dentro de rutas sugeridas a papa0 (papas paralelo) y ver si lo encuentra..
 			var siga = 1;
 			for (var i = 0; i < wSug.length; i++)
@@ -6583,12 +6313,10 @@ quitar???
 						{	oks++;//suma un ok
 						}
 					}
-					//console.log(' - - - rrr i=',i,'; oks=',oks,'; papas0.length=',papas0.length);
 					if(oks == papas0.length)//tantos de tantos son iguales!
 					{	siga = 0;//Para y no sigue buscando más
 						//console.log(' - - - rrr BIIIIIIIINNNGOOOOO la ruta sugerida i=',i);
 						//DEBE completar / actualizar la ruta con la ruta sugerida encontrada, con la ultima coinsidencia hasta donde pueda y si quedan hijos sueltos, luego completarla con numeros auto del resto de la ruta 
-						
 						for (var j = 1; j < wSug[i].length; j++)
 						{	papas1[j] = wSug[i][j];//arreglo con el faltante de ruta sugerido
 						}
@@ -6602,281 +6330,18 @@ quitar???
 */
 
 
+			//=0124(casi por ini y go)
 			//Cargar los wPAPAS hijos o dependientes desde 0
-			var ff;
-			var go;
-			for (var j = 1; j < 11; j++)//j[1-10]Recorre los wPAPAx, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DEL 'nuevo' rumbo
-			{	switch(j)
-				{	case 1:
-						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos *
-						
-						
-						
-						
-						
-						wPAPA2[1] = wPAPA1[0];
-						//wPAPA2[0] = wPAPA1[0];
-						/*	go = 1;//Buscando un elemento sugerido
-						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo
-						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-
-
-
-
-
-						ff = 2;
-						//ff = 1;
-						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA2[i][2] == papas[j-1])//si esa fila es un hijo de wPAPA1
-							{	wPAPA2[ff] = [];
-								for (var k = 0; k < vPAPA2[i].length; k++)
-								{	wPAPA2[ff][k] = vPAPA2[i][k];
-								}
-								wPAPA2[ff][1] = ff;
-								ff++;//Siguiente fila
-								/*if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA2[i][0];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 2:
-						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
-						wPAPA3[1] = wPAPA1[0];		
-						//wPAPA3[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3
-						{ 	if((vPAPA3[i][0] == papas1[j])&&(vPAPA3[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA3[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA3[ff] = [];
-								for (var k = 0; k < vPAPA3[i].length; k++)
-								{	wPAPA3[ff][k] = vPAPA3[i][k];
-								}
-								wPAPA3[ff][1] = ff;
-								ff++;//Siguiente fila
-								/*if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA3[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 3:
-						//console.log(' - - - rrrrr case 3 j=',j,'; ini=',ini);	
-						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4		
-						wPAPA4[1] = wPAPA1[0];
-						//Cargar los titulos de wPAPA4..
-						//wPAPA4[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-						//wPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
-						//for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
-						//{	wPAPA4[0][m] = wPapa4[0][m+2];
-						//}
-
-
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA4.length; i++)//recorre las filas de vPAPA4
-						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA4[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA4[ff] = [];
-								for (var k = 0; k < vPAPA4[i].length; k++)
-								{	wPAPA4[ff][k] = vPAPA4[i][k];
-								}
-								wPAPA4[ff][1] = ff;
-								ff++;//Siguiente fila
-								/*if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA4[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 4:
-						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5	
-						wPAPA5[1] = wPAPA1[0];	
-						//wPAPA5[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5
-						{ 	if((vPAPA5[i][0] == papas1[j])&&(vPAPA5[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA5[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA5[ff] = [];
-								for (var k = 0; k < vPAPA5[i].length; k++)
-								{	wPAPA5[ff][k] = vPAPA5[i][k];
-								}
-								wPAPA5[ff][1] = ff;
-								ff++;//Siguiente fila
-							/*	if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA5[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 5:
-						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
-						wPAPA6[1] = wPAPA1[0];		
-						//wPAPA6[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6
-						{ 	if((vPAPA6[i][0] == papas1[j])&&(vPAPA6[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA6[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA6[ff] = [];
-								for (var k = 0; k < vPAPA6[i].length; k++)
-								{	wPAPA6[ff][k] = vPAPA6[i][k];
-								}
-								wPAPA6[ff][1] = ff;
-								ff++;//Siguiente fila
-							/*	if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA6[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 6:
-						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
-						wPAPA7[1] = wPAPA1[0];		
-						//wPAPA7[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7
-						{ 	if((vPAPA7[i][0] == papas1[j])&&(vPAPA7[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA7[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA7[ff] = [];
-								for (var k = 0; k < vPAPA7[i].length; k++)
-								{	wPAPA7[ff][k] = vPAPA7[i][k];
-								}
-								wPAPA7[ff][1] = ff;
-								ff++;//Siguiente fila
-							/*	if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA7[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 7:
-						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
-						wPAPA8[1] = wPAPA1[0];		
-						//wPAPA8[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8
-						{ 	if((vPAPA8[i][0] == papas1[j])&&(vPAPA8[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA8[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA8[ff] = [];
-								for (var k = 0; k < vPAPA8[i].length; k++)
-								{	wPAPA8[ff][k] = vPAPA8[i][k];
-								}
-								wPAPA8[ff][1] = ff;
-								ff++;//Siguiente fila
-							/*	if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA8[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 8:
-						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
-						wPAPA9[1] = wPAPA1[0];		
-						//wPAPA9[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9
-						{ 	if((vPAPA9[i][0] == papas1[j])&&(vPAPA9[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA9[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA9[ff] = [];
-								for (var k = 0; k < vPAPA9[i].length; k++)
-								{	wPAPA9[ff][k] = vPAPA9[i][k];
-								}
-								wPAPA9[ff][1] = ff;
-								ff++;//Siguiente fila
-							/*	if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA9[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-					case 9:
-						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
-						wPAPA10[1] = wPAPA1[0];		
-						//wPAPA10[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
-					/*	go = 1;//Buscando un elemento
-						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10
-						{ 	if((vPAPA10[i][0] == papas1[j])&&(vPAPA10[i][2] == papas[j-1]))
-							{	go = 0;//el elemento sugerido existe y cumple go=1
-								papas[j]=papas1[j];
-							}
-						}*/
-						ff = 2;
-						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA10[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
-							{	wPAPA10[ff] = [];
-								for (var k = 0; k < vPAPA10[i].length; k++)
-								{	wPAPA10[ff][k] = vPAPA10[i][k];
-								}
-								wPAPA10[ff][1] = ff;
-								ff++;//Siguiente fila
-							/*	if(go)
-								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA10[i][2];//Toma el primer id del string del elemento de la app que encuentre
-								}*/
-							}
-						}
-					break;
-				}
+			//var ff;
+			//var go;
+			for (var j2 = 1; j2 < 11; j2++)//j[1-10]Recorre los wPAPAx, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DEL 'nuevo' rumbo
+			{	f0153(j2);//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10
 			}
 			//cuando muestra la cartelera local
 			//console.log(' - - - rrrrr f0124 fin A papas=',papas,';\n wPAPA2=',wPAPA2,';\n wPAPA3=',wPAPA3,';\n wPAPA4=',wPAPA4,';\n wPAPA5=',wPAPA5,';\n wPAPA6=',wPAPA6);
 			//BUSCAR SI HAY ALGUNA RUTA SUGERIDA QUE PASE POR HAY
 			//papas0 = [7, 1, 1, 1, 1]
 
-/**/
 
 		}
 
@@ -7564,6 +7029,338 @@ f0152()//INTERRUMPIR el conteo y DESACTIVAR el display de la interfaz M
 		clearInterval(mTim); //DETENER el temporizador al alcanzar 100 segundos
 		//mMod = 0;//reinicia el modo a off
 	};
+
+function
+f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la variable kk es para activar la parte de go en f0125, y que no trae f0138
+			{	lOL(153);
+				switch(j)
+				{	case 1:
+						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos * 
+						wPAPA2[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 1; a < vPAPA1.length; a++)  
+							{ 	if(vPAPA1[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA2[1][b] = vPAPA1[a][b];//la fila 1 de wPAPA2 se hace igual al padre 
+									}
+									for (var b = 8; b < vPAPA1[a].length; b++)
+									{	wPAPA2[1][b] = 'info ' + vPAPA1[a][b];//la fila 1 de wPAPA2 se hace igual al padre 
+									}
+								} 
+							}
+						}  
+						ff = 2;
+						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA2[i][2] == papas[j-1])//si esa fila es un hijo de wPAPA1
+							{	wPAPA2[ff] = [];
+								for (var k = 0; k < vPAPA2[i].length; k++)
+								{	wPAPA2[ff][k] = vPAPA2[i][k];
+								}
+								wPAPA2[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA2[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+						console.error(' - -----------------___________153___ wPAPA2[1]=',wPAPA2[1]); 
+					break;
+					case 2:
+						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
+						wPAPA3[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA3[i][0] == papas1[j])&&(vPAPA3[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA2.length; a++)  
+							{ 	if(wPAPA2[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA3[1][b] = wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA2[a].length; b++)
+									{	wPAPA3[1][b] = 'info ' + wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA3[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA3[ff] = [];
+								for (var k = 0; k < vPAPA3[i].length; k++)
+								{	wPAPA3[ff][k] = vPAPA3[i][k];
+								}
+								wPAPA3[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA3[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+					case 3:
+						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4
+						wPAPA4[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA4.length; i++)//recorre las filas de vPAPA4, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA3.length; a++)  
+							{ 	if(wPAPA3[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA4[1][b] = wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA3[a].length; b++)
+									{	wPAPA4[1][b] = 'info ' + wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA4[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA4[ff] = [];
+								for (var k = 0; k < vPAPA4[i].length; k++)
+								{	wPAPA4[ff][k] = vPAPA4[i][k];
+								}
+								wPAPA4[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA4[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+					case 4:
+						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5
+						wPAPA5[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA5[i][0] == papas1[j])&&(vPAPA5[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA4.length; a++)  
+							{ 	if(wPAPA4[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA5[1][b] = wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA4[a].length; b++)
+									{	wPAPA5[1][b] = 'info ' + wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA5[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA5[ff] = [];
+								for (var k = 0; k < vPAPA5[i].length; k++)
+								{	wPAPA5[ff][k] = vPAPA5[i][k];
+								}
+								wPAPA5[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA5[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+					case 5:
+						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
+						wPAPA6[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA6[i][0] == papas1[j])&&(vPAPA6[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA5.length; a++)  
+							{ 	if(wPAPA5[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA6[1][b] = wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA5[a].length; b++)
+									{	wPAPA6[1][b] = 'info ' + wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA6[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA6[ff] = [];
+								for (var k = 0; k < vPAPA6[i].length; k++)
+								{	wPAPA6[ff][k] = vPAPA6[i][k];
+								}
+								wPAPA6[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA6[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+					case 6:
+						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
+						wPAPA7[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA7[i][0] == papas1[j])&&(vPAPA7[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA6.length; a++)  
+							{ 	if(wPAPA6[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA7[1][b] = wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA6[a].length; b++)
+									{	wPAPA7[1][b] = 'info ' + wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA7[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA7[ff] = [];
+								for (var k = 0; k < vPAPA7[i].length; k++)
+								{	wPAPA7[ff][k] = vPAPA7[i][k];
+								}
+								wPAPA7[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA7[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+					case 7:
+						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
+						wPAPA8[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA8[i][0] == papas1[j])&&(vPAPA8[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA7.length; a++)  
+							{ 	if(wPAPA7[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA8[1][b] = wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA7[a].length; b++)
+									{	wPAPA8[1][b] = 'info ' + wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA8[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA8[ff] = [];
+								for (var k = 0; k < vPAPA8[i].length; k++)
+								{	wPAPA8[ff][k] = vPAPA8[i][k];
+								}
+								wPAPA8[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA8[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+					case 8:
+						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
+						wPAPA9[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA9[i][0] == papas1[j])&&(vPAPA9[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA8.length; a++)  
+							{ 	if(wPAPA8[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA9[1][b] = wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA8[a].length; b++)
+									{	wPAPA9[1][b] = 'info ' + wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA9[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA9[ff] = [];
+								for (var k = 0; k < vPAPA9[i].length; k++)
+								{	wPAPA9[ff][k] = vPAPA9[i][k];
+								}
+								wPAPA9[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA9[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+					case 9:
+						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
+						wPAPA10[1] = vPAPA1[0];//Entire territory 
+						go = 1;//Buscando un elemento sugerido 
+						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10, mira si coincide con la sugerencia y es un hijo 
+						{ 	if((vPAPA10[i][0] == papas1[j])&&(vPAPA10[i][2] == papas[j-1])) 
+							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
+								papas[j]=papas1[j];//la ruta cambia por la sugerida
+							}
+ 							for (var a = 2; a < wPAPA9.length; a++)  
+							{ 	if(wPAPA9[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 3; b < 8; b++)
+									{	wPAPA10[1][b] = wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+									for (var b = 8; b < wPAPA9[a].length; b++)
+									{	wPAPA10[1][b] = 'info ' + wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+									}
+								} 
+							}
+						}
+						ff = 2;
+						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
+						{	if(vPAPA10[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+							{	wPAPA10[ff] = [];
+								for (var k = 0; k < vPAPA10[i].length; k++)
+								{	wPAPA10[ff][k] = vPAPA10[i][k];
+								}
+								wPAPA10[ff][1] = ff;
+								ff++;//Siguiente fila
+								if(kk && go)
+								{	go = 0;//Deja de buscar un elemento
+									papas[j] = vPAPA10[i][0];//Toma el primer id del string del elemento de la app que encuentre
+								}
+							}
+						}
+					break;
+				}
+			}
 
 //Nuevo..
 var isCapsLockActive = false;

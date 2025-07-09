@@ -2310,6 +2310,7 @@ var copia3 		/**/ = 1;//Drepetición actual de A o anterior de C
 var deltAV = (Math.min(window.outerHeight, window.outerWidth) * 0.065);//6.5%
 var dExt = [0, '', '', '', ''];//Datos Extra del sitio local [1IdColor,,,,] el número de casillas debe ser igual a ext
 var fiLa = [0, 0];//Control de filas que pasan por la marquesina Local[0] Ingles[1]
+var ff; 		//variable para el cambio de fila en los lugares
 var flip 		/**/ = 0;//Cambio estado pulsos "lentos"
 var focBan		/**/ = 0;//Bandera de onfocus
 var focCon 		/**/ = 0;//Contador desborde de onfocus
@@ -2320,6 +2321,7 @@ var gFoco		/**/ = 1;//Localización del cursor/foco, número de la casilla dentr
 var gFoCo		/**/ = 0;//Pasado de gFoco
 var gMemF = 1;//memorizar el Foco principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
 var gMemR = 3;//memorizar la Ruta principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
+var go;			//Variable para indicar o controlar si una ruta cumple con cierta condición
 var gRuta		/**/ = 3;//7 to 3; se toman de g02RUTA: 1Modo, 2Configuración, 3Libro comunitario, 7ACCESO etc......
 var gRuTa		/**/ = 0;//Pasado de gRuTa
 var hFila;//alto de una fila de la marquesina
@@ -5341,16 +5343,20 @@ const wSign = [['0-En ingles(lista ordenada)', '1-Escrito Local(desordenada)', '
 //wPAPAx					 1 2 3 4 5 6 7 8 9 10
 //Rutas sugeridas			 0 1 2 3 4 5 6 7 8 9  (EL TOPE ES 8 O 9?)
 const wSug = [	//[4,3],//4,6   españa
-	[7, 11, 8, 2, 8],//Barrio cataluña en chapinero
-	[7, 11, 8, 4],//Alcaldía puente aranda
-	[7, 11, 8, 2, 2],//Barrio chapinero central
-	//	[7,1,1,1,2,5,2,4,2,2],
-	[4, 3, 6, 5],//4,6   madrid españa
+	[2, 9, 5],
+	[3,5],
+	[4, 3, 6, 6],//4,6   madrid españa
+	[5,4],
+	[6,10],
 	//	[7,11,7,1*,2,5,2,4,2,3],
 	//	[7,11,9,7,2,5,2,4,2,4],
 	//	[7,11,9,1*,2,5,2,4,2],
 	//	[7,11,9,1*,2,5,2,4,8],
-	[2, 9, 5],
+	[7, 11, 8, 2, 8],//Barrio cataluña en chapinero
+	[7, 11, 8, 4],//Alcaldía puente aranda
+	[7, 11, 8, 2, 2],//Barrio chapinero central
+	//	[7,1,1,1,2,5,2,4,2,2],
+	//[8,8]
 ];
 
 

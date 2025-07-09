@@ -5,7 +5,10 @@ ojo con  f0124(ini)
 
 
 
-0124 y 0138, repeti 2 cambios, hacen lo mismo???
+0124 y 0138, repeti 2 cambios, hacen lo mismo??? wSug no se corre en 138 y si corre en 124, 124 y 138 tienen varios elementos similares
+se pueden unir estas dos funciones???? tarea: investigar!!!
+
+OJO no me esta tomando la ruta #/1 directa desde el navegador
 
 
 						wPAPA2[1] = wPAPA1[0];
