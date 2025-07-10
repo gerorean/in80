@@ -2163,6 +2163,9 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 /* inicio interruptor 2 no incluye f0128 a f0137*/
 const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
+
+
+
 //const vPAPA1 = [['0-Id:hijo', 1-id:list, '2-Id:padre', '3-Id:color marco', '4:Id:logo(pres AV)', '5-Id:Imagen', '6-Id:Mapa/Foto boton lugar', '7-ID:QR CODE', '8-En ingles(lista ordenada)', '9-Español', '10-frances', '11-coreano'],
 const vPAPA1 = [
 //  1  2  3   4  5  6   7  8                   9                     10                   11
@@ -2401,6 +2404,7 @@ var visOK		/**/ = [];//ARREGLO con las casillas visibles, entre limite superior 
 var vMul		/**/ = 0;//Variable de ruta que indica si al menos un elemento es multi
 var vSub  		/**/;//Variable de Glosa MAYUSCULA o texto subtitulo de la seña
 var wIDI = [];//Array hijo, se construye desde el array padre wIdi pero solo contiene todos sus elementos visibles (wIdi[x][5]=1  Estado:Visible1)
+var wPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 'ing', 'esp', 'fra', 'kor']];//array lugar actual seleccionado
 var wPAPA1 = [];//Array hijo, se construye desde el array padre wPapa1 pero solo contiene todos sus elementos visibles
 var wPAPA2 = [];//Array hijo, se construye desde el array padre wPapa2 pero solo contiene todos sus elementos visibles
 var wPAPA3 = [];//Array hijo, se construye desde el array padre wPapa3 pero solo contiene todos sus elementos visibles

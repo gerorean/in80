@@ -808,6 +808,11 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				//console.error('|> Flag  -> hh62');
 				mIr003A[1][id][0] = mIkTapaI[25][id] + mIkComun[1][id];// +', '+ kLugar[id][1];
 				mIr003A[1][1][0] = mIkTapaI[25][1] + mIkComun[1][1];// +', '+ kLugar[id][1];
+
+				/*
+				mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][7 + id];
+				mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][8];
+				*/
 			}
 			visON = '0';//AGREGAR casilla 0 de "arriba"
 			vMul = 0;//Variable de ruta que indica si al menos un elemento es multi
@@ -5852,19 +5857,42 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[6][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA1.length; aa++)//recorre las filas de wPAPA1
-												{ 	if((wPAPA1[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA1[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA1.length;
+										{	
+											
+
+											//if(k==1)
+											{
+
+											
+												if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA1.length; aa++)//recorre las filas de wPAPA1
+													{ 	if((wPAPA1[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	
+															for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA1[aa][bb];
+															}
+															
+
+															mIkComun[1][k]=wPAPA1[aa][ext+k+2];
+															//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+															aa = wPAPA1.length;
+														}
 													}
 												}
+												else//Si no es 1
+												{	
+													for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA2[j][bb];
+													}
+
+
+													mIkComun[1][k]=wPAPA2[j][ext+k+2];//selecciona al último elemento hijo
+													//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+												}
+
 											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA2[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
-											}
+
+
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA2[j][l];
 											}
