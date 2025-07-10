@@ -806,13 +806,15 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				mIr003B[1][2][0] = dExt[3];//53;
 				//v9 = '<img src="'+(kTapa0[bus][2]||'files/chapinero.jpg')+'" class="c1x0">';
 				//console.error('|> Flag  -> hh62');
+				/*
 				mIr003A[1][id][0] = mIkTapaI[25][id] + mIkComun[1][id];// +', '+ kLugar[id][1];
 				mIr003A[1][1][0] = mIkTapaI[25][1] + mIkComun[1][1];// +', '+ kLugar[id][1];
+				*/
 
-				/*
+				
 				mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][7 + id];
 				mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][8];
-				*/
+				
 			}
 			visON = '0';//AGREGAR casilla 0 de "arriba"
 			vMul = 0;//Variable de ruta que indica si al menos un elemento es multi
@@ -5103,7 +5105,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			f0121();//ACTUALIZAR el texto del botón señas			
 			// - - - LISTA FIJA visible 1 (wPAPA1): 
 			wPAPA1 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2		
-			wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'Entire territory', 'Todo el territorio', 'Territoire entier', '전체 영토'];
+			wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
 			ee = 1;
 			//ee = 0;
 			for (var i = 1; i < vPAPA1.length; i++)//Recorre el array de continentes
@@ -5857,45 +5859,50 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[6][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	
-											
-
-											//if(k==1)
-											{
-
-											
-												if(papas[i]==1)//Si el elemento actual es 1
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
 												{	for (var aa = 1; aa < wPAPA1.length; aa++)//recorre las filas de wPAPA1
 													{ 	if((wPAPA1[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-														{	
-															for(var bb = 0; bb < wPAPA0[0].length; bb++)
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA1[aa][bb];
 															}
-															
-
-															mIkComun[1][k]=wPAPA1[aa][ext+k+2];
-															//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
 															aa = wPAPA1.length;
 														}
 													}
 												}
 												else//Si no es 1
-												{	
-													for(var bb = 0; bb < wPAPA0[0].length; bb++)
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 													{	wPAPA0[0][bb]=wPAPA2[j][bb];
 													}
-
-
-													mIkComun[1][k]=wPAPA2[j][ext+k+2];//selecciona al último elemento hijo
-													//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
 												}
-
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
 
 
+
+
+											/* * /
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA2[j][l];
 											}
+											/* */
+
+											/* * /
+											for(var l = 0; l < ext; l++)
+											{	dExt[l] = wPAPA0[0][l+3]
+											
+												//dExt[l] = wPAPA2[j][l + 3];
+											}
+											/* */
+
+											/*
+											for(var l = 0; l < ext; l++)
+											{	dExt[l] = wPAPA2[j][l + 3];
+											}
+											*/
+
+
+											
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -5932,28 +5939,31 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[7][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	
-											if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA2.length; aa++)//recorre las filas de wPAPA2
-												{ 	if((wPAPA2[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA2[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA2.length;
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA2.length; aa++)//recorre las filas de wPAPA2
+													{ 	if((wPAPA2[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA2[aa][bb];
+															}
+															aa = wPAPA2.length;
+														}
 													}
 												}
+												else//Si no es 1
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA3[j][bb];
+													}
+												}
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA3[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
-											}
+
 											
-											
-											
-											
-											//mIkComun[1][k]=wPAPA3[j][ext+k+2];
-											for(var l = 3; l < ext + 3; l++)
-											{	dExt[l-3] = wPAPA3[j][l];
-											}
+
+
+											//for(var l = 3; l < ext + 3; l++)
+											//{	dExt[l-3] = wPAPA3[j][l];
+											//}
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -5989,27 +5999,29 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[8][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	
-											
-											if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA3.length; aa++)//recorre las filas de wPAPA3
-												{ 	if((wPAPA3[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA3[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA3.length;
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA3.length; aa++)//recorre las filas de wPAPA3
+													{ 	if((wPAPA3[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA3[aa][bb];
+															}
+															aa = wPAPA3.length;
+														}
 													}
 												}
+												else//Si no es 1
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA4[j][bb];
+													}
+												}
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA4[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
-											}
+											
 
-
-											//mIkComun[1][k]=wPAPA4[j][ext+k+2];
-											for(var l = 3; l < ext + 3; l++)
-											{	dExt[l-3] = wPAPA4[j][l];
-											}
+											//for(var l = 3; l < ext + 3; l++)
+											//{	dExt[l-3] = wPAPA4[j][l];
+											//}
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -6045,27 +6057,29 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[9][k]+=mIkTapaI[5][k]; 
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	
-											if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA4.length; aa++)//recorre las filas de wPAPA4
-												{ 	if((wPAPA4[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA4[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA4.length;
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA4.length; aa++)//recorre las filas de wPAPA4
+													{ 	if((wPAPA4[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA4[aa][bb];
+															}
+															aa = wPAPA4.length;
+														}
 													}
 												}
-											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA5[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+												else//Si no es 1
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA5[j][bb];
+													}
+												}
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
 											
-											
-											
-											//mIkComun[1][k]=wPAPA5[j][ext+k+2];
-											for(var l = 3; l < ext + 3; l++)
-											{	dExt[l-3] = wPAPA5[j][l];
-											}
+
+											//for(var l = 3; l < ext + 3; l++)
+											//{	dExt[l-3] = wPAPA5[j][l];
+											//}
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -6101,28 +6115,28 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[10][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	
-
-											if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA5.length; aa++)//recorre las filas de wPAPA5
-												{ 	if((wPAPA5[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA5[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA5.length;
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA5.length; aa++)//recorre las filas de wPAPA5
+													{ 	if((wPAPA5[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA5[aa][bb];
+															}
+															aa = wPAPA5.length;
+														}
 													}
 												}
-											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA6[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+												else//Si no es 1
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA6[j][bb];
+													}
+												}
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
 											
-											
-											
-											//mIkComun[1][k]=wPAPA6[j][ext+k+2];
-											for(var l = 3; l < ext + 3; l++)
-											{	dExt[l-3] = wPAPA6[j][l];
-											}
+											//for(var l = 3; l < ext + 3; l++)
+											//{	dExt[l-3] = wPAPA6[j][l];
+											//}
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -6158,26 +6172,30 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[11][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	
-											if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA6.length; aa++)//recorre las filas de wPAPA6
-												{ 	if((wPAPA6[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA6[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA6.length;
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA6.length; aa++)//recorre las filas de wPAPA6
+													{ 	if((wPAPA6[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA6[aa][bb];
+															}
+															aa = wPAPA6.length;
+														}
 													}
 												}
-											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA7[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+												else//Si no es 1
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA7[j][bb];
+													}
+												}
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
 											
-											
-											//mIkComun[1][k]=wPAPA7[j][ext+k+2];
-											for(var l = 3; l < ext + 3; l++)
-											{	dExt[l-3] = wPAPA7[j][l];
-											}
+
+
+											//for(var l = 3; l < ext + 3; l++)
+											//{	dExt[l-3] = wPAPA7[j][l];
+											//}
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -6213,28 +6231,28 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[12][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	
-											if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA7.length; aa++)//recorre las filas de wPAPA7
-												{ 	if((wPAPA7[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA7[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA7.length;
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA7.length; aa++)//recorre las filas de wPAPA7
+													{ 	if((wPAPA7[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA7[aa][bb];
+															}
+															aa = wPAPA7.length;
+														}
 													}
 												}
+												else//Si no es 1
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA8[j][bb];
+													}
+												}
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA8[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
-											}
-											
-											
-											
-											
-											//mIkComun[1][k]=wPAPA8[j][ext+k+2];
-											for(var l = 3; l < ext + 3; l++)
-											{	dExt[l-3] = wPAPA8[j][l];
-											}
+
+											//for(var l = 3; l < ext + 3; l++)
+											//{	dExt[l-3] = wPAPA8[j][l];
+											//}
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -6270,25 +6288,27 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[13][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	if(papas[i]==1)//Si el elemento actual es 1
-											{	for (var aa = 1; aa < wPAPA8.length; aa++)//recorre las filas de wPAPA8
-												{ 	if((wPAPA8[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA8[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
-														aa = wPAPA8.length;
+										{	if(k==1)
+											{	if(papas[i]==1)//Si el elemento actual es 1
+												{	for (var aa = 1; aa < wPAPA8.length; aa++)//recorre las filas de wPAPA8
+													{ 	if((wPAPA8[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+															{	wPAPA0[0][bb]=wPAPA8[aa][bb];
+															}
+															aa = wPAPA8.length;
+														}
 													}
 												}
+												else//Si no es 1
+												{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+													{	wPAPA0[0][bb]=wPAPA9[j][bb];
+													}
+												}
+												f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
 											}
-											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA9[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
-											}
-											
-											
-											//mIkComun[1][k]=wPAPA9[j][ext+k+2];
-											for(var l = 3; l < ext + 3; l++)
-											{	dExt[l-3] = wPAPA9[j][l];
-											}
+																						//for(var l = 3; l < ext + 3; l++)
+											//{	dExt[l-3] = wPAPA9[j][l];
+											//}
 											switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 											{	case 0:
 													mIr003A = mIc003A; 
@@ -6323,26 +6343,26 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA10.length > 2)
 										{ 	mIr002A[14][k]+=mIkTapaI[5][k];
 										}
-										
-
-										if(papas[i]==1)//Si el elemento actual es 1
+										if(k==1)
+										{	if(papas[i]==1)//Si el elemento actual es 1
 											{	for (var aa = 1; aa < wPAPA9.length; aa++)//recorre las filas de wPAPA9
 												{ 	if((wPAPA9[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
-													{	mIkComun[1][k]=wPAPA9[aa][ext+k+2];
-														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+													{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+														{	wPAPA0[0][bb]=wPAPA9[aa][bb];
+														}
 														aa = wPAPA9.length;
 													}
 												}
 											}
 											else//Si no es 1
-											{	mIkComun[1][k]=wPAPA10[j][ext+k+2];//selecciona al último elemento hijo
-												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
+												{	wPAPA0[0][bb]=wPAPA10[j][bb];
+												}
 											}
-
-										//mIkComun[1][k]=wPAPA10[j][ext+k+2];
-										for(var l = 3; l < ext + 3; l++)
-										{	dExt[l-3] = wPAPA10[j][l];
-										}
+											f0154();//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
+										}									//for(var l = 3; l < ext + 3; l++)
+										//{	dExt[l-3] = wPAPA10[j][l];
+										//}
 										switch(g00VARS[86][2])//Termino de buscar - 0:hay anuncios 1:No hay anuncios/ satelite
 										{	case 0:
 												mIr003A = mIc003A; 
@@ -7212,23 +7232,25 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 				switch(j)
 				{	case 1:
 						wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2 carga/actualiza los arrays hijos * 
-						wPAPA2[1] = vPAPA1[0];//Entire territory 
+						wPAPA2[1] = vPAPA1[0];//"Entire territory" es extraño porque al final modifica a vPAPA1[0],
+						//si se usa wPAPA1[0] si no pasa eso y habria que repetir el codigo *** varias veces
+						//es como si lo que pase con wPAPA2[1] afectará indirectamente a vPAPA1[0]
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA2.length; i++)//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo 
 						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1])) 
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 1; a < vPAPA1.length; a++)  
-							{ 	if(vPAPA1[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA2[1][b] = vPAPA1[a][b];//la fila 1 de wPAPA2 se hace igual al padre 
+							//codigo ***
+ 							for (var a = 1; a < wPAPA1.length; a++)  
+							{ 	if(wPAPA1[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+								{ 	for (var b = 8; b < wPAPA1[a].length; b++)
+									{	wPAPA2[1][b] = wPAPA0[0][b]+', '+ wPAPA1[0][b];//la fila 1 de wPAPA# se hace igual al padre 
 									}
-									for (var b = 8; b < vPAPA1[a].length; b++)
-									{	wPAPA2[1][b] = 'info ' + vPAPA1[a][b];//la fila 1 de wPAPA2 se hace igual al padre 
-									}
+									a = wPAPA1.length;
 								} 
 							}
+							//fin codigo ***
 						}  
 						ff = 2;
 						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
@@ -7245,7 +7267,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								}
 							}
 						}
-						console.error(' - -----------------___________153___ wPAPA2[1]=',wPAPA2[1]); 
+						//console.error(' - -----------------___________153___ wPAPA2[1]=',wPAPA2[1]); 
 					break;
 					case 2:
 						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
@@ -7256,16 +7278,28 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA2.length; a++)  
+
+							/*
+							//aqui seria el codigo ***:
+							for (var a = 2; a < wPAPA2.length; a++)  
 							{ 	if(wPAPA2[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA3[1][b] = wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+								{ 	for (var b = 8; b < wPAPA2[a].length; b++)
+									{	wPAPA3[1][b] = wPAPA0[0][b]+', '+ wPAPA1[0][b];//la fila 1 de wPAPA# se hace igual al padre 
 									}
-									for (var b = 8; b < wPAPA2[a].length; b++)
-									{	wPAPA3[1][b] = 'info ' + wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
+									a = wPAPA2.length;
 								} 
-							}
+							}*/
+							
+ 							//for (var a = 2; a < wPAPA2.length; a++)  
+							//{ 	if(wPAPA2[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA3[1][b] = wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA2[a].length; b++)
+							//		{	wPAPA3[1][b] = 'info ' + wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
@@ -7292,16 +7326,16 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA3.length; a++)  
-							{ 	if(wPAPA3[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA4[1][b] = wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-									for (var b = 8; b < wPAPA3[a].length; b++)
-									{	wPAPA4[1][b] = 'info ' + wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-								} 
-							}
+ 							//for (var a = 2; a < wPAPA3.length; a++)  
+							//{ 	if(wPAPA3[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA4[1][b] = wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA3[a].length; b++)
+							//		{	wPAPA4[1][b] = 'info ' + wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
@@ -7328,16 +7362,16 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA4.length; a++)  
-							{ 	if(wPAPA4[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA5[1][b] = wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-									for (var b = 8; b < wPAPA4[a].length; b++)
-									{	wPAPA5[1][b] = 'info ' + wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-								} 
-							}
+ 							//for (var a = 2; a < wPAPA4.length; a++)  
+							//{ 	if(wPAPA4[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA5[1][b] = wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA4[a].length; b++)
+							//		{	wPAPA5[1][b] = 'info ' + wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
@@ -7364,16 +7398,16 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA5.length; a++)  
-							{ 	if(wPAPA5[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA6[1][b] = wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-									for (var b = 8; b < wPAPA5[a].length; b++)
-									{	wPAPA6[1][b] = 'info ' + wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-								} 
-							}
+ 							//for (var a = 2; a < wPAPA5.length; a++)  
+							//{ 	if(wPAPA5[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA6[1][b] = wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA5[a].length; b++)
+							//		{	wPAPA6[1][b] = 'info ' + wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
@@ -7400,16 +7434,16 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA6.length; a++)  
-							{ 	if(wPAPA6[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA7[1][b] = wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-									for (var b = 8; b < wPAPA6[a].length; b++)
-									{	wPAPA7[1][b] = 'info ' + wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-								} 
-							}
+ 							//for (var a = 2; a < wPAPA6.length; a++)  
+							//{ 	if(wPAPA6[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA7[1][b] = wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA6[a].length; b++)
+							//		{	wPAPA7[1][b] = 'info ' + wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
@@ -7436,16 +7470,16 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA7.length; a++)  
-							{ 	if(wPAPA7[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA8[1][b] = wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-									for (var b = 8; b < wPAPA7[a].length; b++)
-									{	wPAPA8[1][b] = 'info ' + wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-								} 
-							}
+ 							//for (var a = 2; a < wPAPA7.length; a++)  
+							//{ 	if(wPAPA7[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA8[1][b] = wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA7[a].length; b++)
+							//		{	wPAPA8[1][b] = 'info ' + wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
@@ -7472,16 +7506,16 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA8.length; a++)  
-							{ 	if(wPAPA8[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA9[1][b] = wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-									for (var b = 8; b < wPAPA8[a].length; b++)
-									{	wPAPA9[1][b] = 'info ' + wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-								} 
-							}
+ 							//for (var a = 2; a < wPAPA8.length; a++)  
+							//{ 	if(wPAPA8[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA9[1][b] = wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA8[a].length; b++)
+							//		{	wPAPA9[1][b] = 'info ' + wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
@@ -7508,16 +7542,16 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
 								papas[j]=papas1[j];//la ruta cambia por la sugerida
 							}
- 							for (var a = 2; a < wPAPA9.length; a++)  
-							{ 	if(wPAPA9[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
-								{ 	for (var b = 3; b < 8; b++)
-									{	wPAPA10[1][b] = wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-									for (var b = 8; b < wPAPA9[a].length; b++)
-									{	wPAPA10[1][b] = 'info ' + wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-									}
-								} 
-							}
+ 							//for (var a = 2; a < wPAPA9.length; a++)  
+							//{ 	if(wPAPA9[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//	{ 	for (var b = 3; b < 8; b++)
+							//		{	wPAPA10[1][b] = wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//		for (var b = 8; b < wPAPA9[a].length; b++)
+							//		{	wPAPA10[1][b] = 'info ' + wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
+							//		}
+							//	} 
+							//}
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
@@ -7537,6 +7571,17 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 					break;
 				}
 			}
+
+
+function
+f0154()//ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)
+			{	lOL(154);
+				for(var l = 0; l < ext; l++)
+				{	dExt[l] = wPAPA0[0][l+3]
+				}
+			}
+
+
 
 //Nuevo..
 var isCapsLockActive = false;

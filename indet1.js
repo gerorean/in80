@@ -165,7 +165,7 @@ const		g00LOGS = [	[  	  0		,0/*0 1[1*/	,0			,0			,'I ACTIVAR ambiente: 0-blanco
 						[	151		,0/*0 1[1*/	,0			,0			,''],
 						[	152		,0/*0 1[1*/	,0			,0			,''],
 						[	153		,0/*0 1[1*/	,0			,0			,'	ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10'],
-						[	154		,0/*0 1[1*/	,0			,0			,''],
+						[	154		,0/*0 1[1*/	,0			,0			,'	ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)'],
 						[	155		,0/*0 1[1*/	,0			,0			,''],
 						[	156		,0/*0 1[1*/	,0			,0			,''],
 						[	157		,0/*0 1[1*/	,0			,0			,''],

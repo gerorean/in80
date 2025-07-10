@@ -2169,14 +2169,14 @@ const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se 
 //const vPAPA1 = [['0-Id:hijo', 1-id:list, '2-Id:padre', '3-Id:color marco', '4:Id:logo(pres AV)', '5-Id:Imagen', '6-Id:Mapa/Foto boton lugar', '7-ID:QR CODE', '8-En ingles(lista ordenada)', '9-Español', '10-frances', '11-coreano'],
 const vPAPA1 = [
 //  1  2  3   4  5  6   7  8                   9                     10                   11
-[1, 1, 0, 10, 5, 5, 96, 5, 'Entire territory', 'Todo el territorio', 'Territoire entier', '전체 영토'],
-[8, 1, 0, 10, 5, 5, 20, 5, 'Africa', 'África', 'Afrique', '아프리카'],//1 ->8
-[2, 2, 0, 10, 5, 5, 26, 5, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
-[3, 3, 0, 10, 5, 5, 22, 5, 'Asia', 'Asia', 'Asie', '아시아'],
-[4, 4, 0, 10, 5, 5, 23, 5, 'Europe', 'Europa', "L'Europe", '유럽'],
-[5, 5, 0, 10, 5, 5, 24, 5, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
-[6, 6, 0, 10, 5, 5, 21, 5, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
-[7, 7, 0, 10, 5, 5, 25, 5, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
+[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'],
+[8, 1, 0, 8, 20, 5, 20, 5, 'Africa', 'África', 'Afrique', '아프리카'],//1 ->8
+[2, 2, 0, 7, 26, 5, 26, 5, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
+[3, 3, 0, 6, 22, 5, 22, 5, 'Asia', 'Asia', 'Asie', '아시아'],
+[4, 4, 0, 2, 23, 5, 23, 5, 'Europe', 'Europa', "L'Europe", '유럽'],
+[5, 5, 0, 3, 24, 5, 24, 5, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
+[6, 6, 0, 4, 21, 5, 21, 5, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
+[7, 7, 0, 5, 25, 5, 25, 5, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
 ]
 
 /*
@@ -2217,23 +2217,23 @@ const vPAPA3 = [['2-id:key strings app', 0, '4-IdPapa2', '5-Id color marco', '6-
 ]
 
 const vPAPA4 = [['2-id:key strings app', 0, '4-IdPapa3', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
-[2, 1, 8, 9, 73, 5, 45, 5, 'location Chapinero', 'localidad Chapinero', 'localité Chapinero', '위치 차피네로'],
-[3, 2, 8, 9, 73, 5, 46, 5, 'location Kenedy', 'localidad Kenedy', 'localité Kenedy', '위치 케네디'],
-[4, 3, 8, 3, 73, 5, 47, 5, 'location Puente Aranda', 'localidad Puente Aranda', 'localité Puente Aranda', '위치 푸엔테 아란다'],
-[5, 4, 8, 9, 73, 5, 48, 5, 'location Usaquen', 'localidad Usaquén', 'localité Usaquén', '위치 우사켄'],
-[6, 5, 6, 9, 79, 5, 49, 5, 'Madrid', 'Madrid', 'Madrid', '커뮤니티'],
-[7, 6, 3, 4, 80, 5, 50, 5, 'Medellin', 'Medellín', 'Medellín', '메델린'],
-[8, 7, 2, 12, 81, 5, 51, 5, 'Pasto', 'Pasto', 'Pasto', '파스토']
+[2, 1, 8,  9, 45, 5, 45, 5, 'location Chapinero', 'localidad Chapinero', 'localité Chapinero', '위치 차피네로'],
+[3, 2, 8,  9, 46, 5, 46, 5, 'location Kenedy', 'localidad Kenedy', 'localité Kenedy', '위치 케네디'],
+[4, 3, 8,  3, 47, 5, 47, 5, 'location Puente Aranda', 'localidad Puente Aranda', 'localité Puente Aranda', '위치 푸엔테 아란다'],
+[5, 4, 8,  9, 48, 5, 48, 5, 'location Usaquen', 'localidad Usaquén', 'localité Usaquén', '위치 우사켄'],
+[6, 5, 6,  9, 49, 5, 49, 5, 'Madrid', 'Madrid', 'Madrid', '커뮤니티'],
+[7, 6, 3,  4, 50, 5, 50, 5, 'Medellin', 'Medellín', 'Medellín', '메델린'],
+[8, 7, 2, 12, 51, 5, 51, 5, 'Pasto', 'Pasto', 'Pasto', '파스토']
 ]
 
 const vPAPA5 = [['2-id:key strings app', 0, '4-IdPapa4', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
-[8, 1, 2, 3, 73, 5, 52, 5, 'Catalonia neighborhood', 'barrio Cataluña', 'quartier Catalogne', '카탈로니아 인근'],//1 ->8
-[2, 2, 2, 3, 73, 5, 53, 5, 'Central Chapinero neighborhood', 'barrio Chapinero Central', 'quartier Central de Chapinero', '중앙 차피네로 지역'],
-[3, 3, 2, 3, 73, 5, 54, 5, 'North Chapinero neighborhood', 'barrio Chapinero Norte', 'quartier Nord de Chapinero', '노스 차피네로 인근'],
-[4, 4, 2, 3, 73, 5, 55, 5, 'Marly neighborhood', 'barrio Marly', 'quartier Marneux', '말리 동네'],
-[7, 5, 2, 3, 73, 5, 56, 5, 'Porciuncula neighborhood', 'barrio Porciúncula', 'quartier Porciuncula', '포르시운쿨라 인근'],
-[6, 6, 2, 3, 73, 5, 57, 5, 'Quinta Camacho neighborhood', 'barrio Quinta Camacho', 'quartier Quinta Camacho', '퀸타 카마초 인근'],
-[5, 7, 2, 3, 73, 5, 58, 5, 'Sucre neighborhood', 'barrio Sucre', 'quartier Sucré', '수크레 동네']
+[8, 1, 2, 3, 52, 5, 52, 5, 'Catalonia neighborhood', 'barrio Cataluña', 'quartier Catalogne', '카탈로니아 인근'],//1 ->8
+[2, 2, 2, 3, 53, 5, 53, 5, 'Central Chapinero neighborhood', 'barrio Chapinero Central', 'quartier Central de Chapinero', '중앙 차피네로 지역'],
+[3, 3, 2, 3, 54, 5, 54, 5, 'North Chapinero neighborhood', 'barrio Chapinero Norte', 'quartier Nord de Chapinero', '노스 차피네로 인근'],
+[4, 4, 2, 3, 55, 5, 55, 5, 'Marly neighborhood', 'barrio Marly', 'quartier Marneux', '말리 동네'],
+[7, 5, 2, 3, 56, 5, 56, 5, 'Porciuncula neighborhood', 'barrio Porciúncula', 'quartier Porciuncula', '포르시운쿨라 인근'],
+[6, 6, 2, 3, 57, 5, 57, 5, 'Quinta Camacho neighborhood', 'barrio Quinta Camacho', 'quartier Quinta Camacho', '퀸타 카마초 인근'],
+[5, 7, 2, 3, 58, 5, 58, 5, 'Sucre neighborhood', 'barrio Sucre', 'quartier Sucré', '수크레 동네']
 ]
 
 const vPAPA6 = [['2-id:key strings app', 0, '4-IdPapa5', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
