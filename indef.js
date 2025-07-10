@@ -5824,6 +5824,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 			{	if(papas[i]!=0)//si casilla no es 0 y esta buscando
 				//papas[7,1,8,4,0,0,0,0,0,0,''] Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 				{	var ok = 1;//Buscando los string que se necesitan[1]
+					console.error(' - -----------------______________ f0125 i=',i);
 					switch(i)//7 1 0 0 0 0 0
 					{	case 0://Papa1
 						{	for (var j = wPAPA1.length - 1; j >= 1; j--)
@@ -5851,7 +5852,19 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[6][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA2[j][ext+k+2];
+										{	if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA1.length; aa++)//recorre las filas de wPAPA1
+												{ 	if((wPAPA1[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA1[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA1.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA2[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA2[j][l];
 											}
@@ -5891,7 +5904,25 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[7][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA3[j][ext+k+2];
+										{	
+											if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA2.length; aa++)//recorre las filas de wPAPA2
+												{ 	if((wPAPA2[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA2[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA2.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA3[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+											
+											
+											
+											
+											//mIkComun[1][k]=wPAPA3[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA3[j][l];
 											}
@@ -5930,7 +5961,24 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[8][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA4[j][ext+k+2];
+										{	
+											
+											if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA3.length; aa++)//recorre las filas de wPAPA3
+												{ 	if((wPAPA3[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA3[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA3.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA4[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+
+
+											//mIkComun[1][k]=wPAPA4[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA4[j][l];
 											}
@@ -5969,7 +6017,24 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[9][k]+=mIkTapaI[5][k]; 
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA5[j][ext+k+2];
+										{	
+											if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA4.length; aa++)//recorre las filas de wPAPA4
+												{ 	if((wPAPA4[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA4[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA4.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA5[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+											
+											
+											
+											//mIkComun[1][k]=wPAPA5[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA5[j][l];
 											}
@@ -6008,7 +6073,25 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[10][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA6[j][ext+k+2];
+										{	
+
+											if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA5.length; aa++)//recorre las filas de wPAPA5
+												{ 	if((wPAPA5[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA5[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA5.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA6[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+											
+											
+											
+											//mIkComun[1][k]=wPAPA6[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA6[j][l];
 											}
@@ -6047,7 +6130,23 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[11][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA7[j][ext+k+2];
+										{	
+											if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA6.length; aa++)//recorre las filas de wPAPA6
+												{ 	if((wPAPA6[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA6[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA6.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA7[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+											
+											
+											//mIkComun[1][k]=wPAPA7[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA7[j][l];
 											}
@@ -6086,7 +6185,25 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[12][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA8[j][ext+k+2];
+										{	
+											if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA7.length; aa++)//recorre las filas de wPAPA7
+												{ 	if((wPAPA7[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA7[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA7.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA8[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+											
+											
+											
+											
+											//mIkComun[1][k]=wPAPA8[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA8[j][l];
 											}
@@ -6125,7 +6242,22 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[13][k]+=mIkTapaI[5][k];
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
-										{	mIkComun[1][k]=wPAPA9[j][ext+k+2];
+										{	if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA8.length; aa++)//recorre las filas de wPAPA8
+												{ 	if((wPAPA8[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA8[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA8.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA9[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+											
+											
+											//mIkComun[1][k]=wPAPA9[j][ext+k+2];
 											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA9[j][l];
 											}
@@ -6163,7 +6295,23 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA10.length > 2)
 										{ 	mIr002A[14][k]+=mIkTapaI[5][k];
 										}
-										mIkComun[1][k]=wPAPA10[j][ext+k+2];
+										
+
+										if(papas[i]==1)//Si el elemento actual es 1
+											{	for (var aa = 1; aa < wPAPA9.length; aa++)//recorre las filas de wPAPA9
+												{ 	if((wPAPA9[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{	mIkComun[1][k]=wPAPA9[aa][ext+k+2];
+														//console.error(' - -----------------______________ si es 1 mIkComun[1][k]=',mIkComun[1][k]);
+														aa = wPAPA9.length;
+													}
+												}
+											}
+											else//Si no es 1
+											{	mIkComun[1][k]=wPAPA10[j][ext+k+2];//selecciona al último elemento hijo
+												//console.error(' - -----------------______________ no es 1 mIkComun[1][k]=',mIkComun[1][k]);
+											}
+
+										//mIkComun[1][k]=wPAPA10[j][ext+k+2];
 										for(var l = 3; l < ext + 3; l++)
 										{	dExt[l-3] = wPAPA10[j][l];
 										}

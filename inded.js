@@ -1606,7 +1606,7 @@ const kBoton =[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],//Nota: si usa un teclado fís
 ];
 */
 
-const mIkComun =/**/[[0, 1, 2, 3, 4],
+var mIkComun =/**/[[0, 1, 2, 3, 4],
 ['Comunidades', 'the localidad of Chapinero','la localidad de Chapinero','la localidad de Chapinero','차피네로 마을'],
 [2, 			'TecnoParque Colombia','TecnoParque Colombia','TecnoParque Colombia','TecnoParque Colombia'],
 [3, 			'Sena from Calle 52','Sena de la Calle 52','Sena de Calle 52','Sena de Calle 52']
@@ -2163,8 +2163,9 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 /* inicio interruptor 2 no incluye f0128 a f0137*/
 const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
-//const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
+//const vPAPA1 = [['0-Id:hijo', 1-id:list, '2-Id:padre', '3-Id:color marco', '4:Id:logo(pres AV)', '5-Id:Imagen', '6-Id:Mapa/Foto boton lugar', '7-ID:QR CODE', '8-En ingles(lista ordenada)', '9-Español', '10-frances', '11-coreano'],
 const vPAPA1 = [
+//  1  2  3   4  5  6   7  8                   9                     10                   11
 [1, 1, 0, 10, 5, 5, 96, 5, 'Entire territory', 'Todo el territorio', 'Territoire entier', '전체 영토'],
 [8, 1, 0, 10, 5, 5, 20, 5, 'Africa', 'África', 'Afrique', '아프리카'],//1 ->8
 [2, 2, 0, 10, 5, 5, 26, 5, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
@@ -2188,6 +2189,7 @@ const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id
 */
 
 const vPAPA2 = [['2-id:key strings app', 0, '4-IdPapa1', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
+//  1  2  3   4  5  6   7  8 
 [7, 1, 7, 6, 61, 5, 27, 5, 'Argentina', 'Argentina', 'Argentine', '아르헨티나'],
 [10, 2, 6, 6, 62, 5, 29, 5, 'Australia', 'Australia', 'Australie', '호주'],
 [11, 3, 7, 9, 63, 5, 30, 5, 'Colombia', 'Colombia', 'Colombie', '콜롬비아'],//1 ->11
@@ -2214,7 +2216,7 @@ const vPAPA3 = [['2-id:key strings app', 0, '4-IdPapa2', '5-Id color marco', '6-
 const vPAPA4 = [['2-id:key strings app', 0, '4-IdPapa3', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 [2, 1, 8, 9, 73, 5, 45, 5, 'location Chapinero', 'localidad Chapinero', 'localité Chapinero', '위치 차피네로'],
 [3, 2, 8, 9, 73, 5, 46, 5, 'location Kenedy', 'localidad Kenedy', 'localité Kenedy', '위치 케네디'],
-[4, 3, 8, 9, 73, 5, 47, 5, 'location Puente Aranda', 'localidad Puente Aranda', 'localité Puente Aranda', '위치 푸엔테 아란다'],
+[4, 3, 8, 3, 73, 5, 47, 5, 'location Puente Aranda', 'localidad Puente Aranda', 'localité Puente Aranda', '위치 푸엔테 아란다'],
 [5, 4, 8, 9, 73, 5, 48, 5, 'location Usaquen', 'localidad Usaquén', 'localité Usaquén', '위치 우사켄'],
 [6, 5, 6, 9, 79, 5, 49, 5, 'Madrid', 'Madrid', 'Madrid', '커뮤니티'],
 [7, 6, 3, 4, 80, 5, 50, 5, 'Medellin', 'Medellín', 'Medellín', '메델린'],
