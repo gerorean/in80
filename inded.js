@@ -1313,6 +1313,7 @@ var 	r003Z		=[	['Casillas'	],
 
 //INFORMAR CABEZOTE ANUNCIOS Y BUSCANDO ANUNCIOS..
 //GUION BUSCANDO ANUNCIOS..
+//mIres3 es el texto que sale al dar clic en el cabezote (Primer botón de los anuncios).. "aquí podrás bla,bla,bla", se utiliza tanto para cuando hay anuncios o cuando se ve el satelite de la busqueda de anuncios o no hay anuncios..
 //const res#* aquí__podrás GUION ANUNCIO VACIO 1/3 para cuando hay anuncios, ese texto es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios..
 const mIres3A =/**/[['Casillas', 1, 2, 3, 4],//la D es de default cuando no hay ningun anuncio
 ['Head',['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'],['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'],['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"],['','여기에서 지역 지도자들이 발표한 활동에 대해 알아볼 수 있습니다. ilifebogota@gmail.com으로 문의하세요.', "이 웹사이트에서 7가지 모드를 통해 액세스할 수 있는 정보를 찾을 수 있습니다", "탐색, 탐색을 위해 화면에서 위에서 아래로 이동하는 6개의 탐색 버튼이 있습니다.", "왼쪽에는 사각형 메뉴 버튼, 취소 또는 종료를 위한 대각선 버튼, 위로 또는 뒤로 가기를 위한 위쪽 삼각형 버튼 3개의 버튼이 있습니다.", "오른쪽에는 3개의 다른 버튼이 있습니다. 세로 빠른 정보 표시줄 버튼, 수락 또는 입력을 위한 원형 버튼, 아래로 이동 또는 앞으로 이동을 위한 아래쪽 삼각형 버튼입니다.", "실제 키보드에서 탐색 버튼을 활성화하려면 Caps Lock 버튼을 켜십시오.", "사각형 버튼은 7 또는 N, 대각선 버튼은 4 또는 M, 삼각형 위쪽 버튼은 1 또는 쉼표, 세로 막대 버튼은 9 또는 V, 둥근 버튼은 6 , C 또는 스페이스, 아래쪽 삼각형 버튼은 3, X, 또는 탭"]],
@@ -2329,6 +2330,7 @@ var gMemR = 3;//memorizar la Ruta principal temporalmente mientras pivota, por e
 var go;			//Variable para indicar o controlar si una ruta cumple con cierta condición
 var gRuta		/**/ = 3;//7 to 3; se toman de g02RUTA: 1Modo, 2Configuración, 3Libro comunitario, 7ACCESO etc......
 var gRuTa		/**/ = 0;//Pasado de gRuTa
+var hAs	= false;//Se pone True si el Hash, o Fragmento de la URL, se esta actualizando (isHashUpdating)
 var hFila;//alto de una fila de la marquesina
 var hid = 10;//Sitio con información oculta [2-9]	
 var ii = [0, 0, 0];//Contadores de los indicadores para asignarles colores 0:gris  1:azul 2:naranja 3:violeta 4:verde 5-6-7-8-9:amarillo +10:blanco
@@ -2361,7 +2363,7 @@ var nmarqi = 0;//Número de veces que ha pasado la marquesina internacional
 var nruta;//quita el # ajusta el string ruta y se vuelve array
 var nUm;//Variable del estado de la luz
 var orig = ['', ''];//String original del ingles[0] ASL[1]
-var papas = [7, 1, 8, 2, 1, 0, 0, 0, 0, 0, ''];//7,1,8,2,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
+var papas = [7, 1, 8, 2, 1, 0, 0, 0, 0, 0, ''];//(ruta errada es 7,11,8,2,8,0,0,0... )7,1,8,2,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 //var 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 var papas0 = [];//array limpio de papas y sin ceros.
 var papas1 = [];//array de lo que falta a papas para completar la ruta sugerida
@@ -2374,6 +2376,7 @@ var roto 		/**/ = 0;//1:Cancelar orden reciente de focus sobre un punto - 0:Perm
 var rumba = '';//Pasado de rumbi en el navegador
 var rumbo = [];//Array con el nuevo rumbo que asigna el usuario desde el navegador
 var rumbi = '';//String de rumbo unida con i'es para hacer consultas a la BD
+var rUtA ;	//Guarda el texto del Hash actual de la URL con window.location.hash
 var sale = '';//texto original con espacios en el display de la interfaz M
 var salo = '';//texto modificado de sale para mostrarlo con espacios de color
 var salTO = 1;//Tamaño del salto					
@@ -7433,5 +7436,5 @@ document.addEventListener('keydown', f0098);
 document.addEventListener('keyup', f0100);
 //f0139();//CARGAR el anuncio vacio en r003
 //f0140();//CARGAR anuncios en r003
-window.addEventListener('hashchange', f0141);
+window.addEventListener('hashchange', f0155);//Cada vez que la URL cambia de fragmento (#), se dispara el evento hashchange
 document.onload = f0000();//PREPARAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
