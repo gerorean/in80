@@ -6449,7 +6449,7 @@ las funciones de la function f0128() a la function f0137() estan reservadas en i
 
 function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(138);//simiqlar a f0124() ver cuando corre la una y cuando la otra
-			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0138');	
+			console.error('##### 138 - - - __________________++++++++++++++ +++++++++++++ ++ f0138 ini');	
 
 			//nota
 			// pendiente detener proceso cuando papas[x]=0;
@@ -6522,6 +6522,7 @@ quitar???
 			//console.log(' - - - rrrrr f0124 fin A papas=',papas,';\n wPAPA2=',wPAPA2,';\n wPAPA3=',wPAPA3,';\n wPAPA4=',wPAPA4,';\n wPAPA5=',wPAPA5,';\n wPAPA6=',wPAPA6);
 			//BUSCAR SI HAY ALGUNA RUTA SUGERIDA QUE PASE POR HAY
 			//papas0 = [7, 1, 1, 1, 1]
+			console.error('##### 138 - - - __________________++++++++++++++ +++++++++++++ ++ f0138 fin');
 
 
 		}
@@ -6630,7 +6631,7 @@ function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario c
 /* - - - USANDO MONGO - - - */
 function f0142()//CONSULTAR a la base de datos por cierta collección de una ruta (nueva) que es valida y luego rehubicar el cursor con f0017
 		{	lOG(142);
-			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> INI');	
+			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> INI ################');	
 			
 			//PLANTILLA BÁSICA (mIres3 - la que siempre acompaña a los anuncios)
 			//mIres3 es el texto que sale al dar clic en el cabezote (Primer botón de los anuncios).. "aquí podrás bla,bla,bla", se utiliza tanto para cuando hay anuncios o cuando se ve el satelite de la busqueda de anuncios o no hay anuncios..
@@ -6647,8 +6648,9 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 			rumbi = '';
 			rumbo = nruta.split('/');//array de nruta separada con las barras inclinadas
 
-			console.error('|> Flag  ____________________________ 142 A ...mIres3.. -> 138');
+			console.error('|> Flag  ____________________________rumbo=',rumbo,' rumba=',rumba,' A 142 A ...mIres3.. -> 138 INI 1');
 			f0138();//(*rumbo debe declararse primero) ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+			console.error('|> Flag  ____________________________rumbo=',rumbo,' rumba=',rumba,' B 142 A ...mIres3.. -> 138 FIN 1');
 			
 			
 
@@ -6676,7 +6678,6 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 
 
 
-			console.log(' - - - rumbo=',rumbo);
 			rumbi = rumbo.join('i');//String de nruta separada con i'es
 			console.log(' - - - rumbi=',rumbi);
 			if(rumbi!=rumba)//Si no es igual a su pasado en el navegador
@@ -6684,8 +6685,9 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 				console.log(' - - - consulta ',ncBD,' a la base de datos con rumbi=',rumbi);
 
 				//INICIAR la consulta..
+				console.error(' - - - __________________### ### ### ##################### iniciar - consulta ########## ## ## ##');	
 				setTimeout(function()//Reduce el conteo para activar la presentación
-				{	
+				{	console.error(' - - - __________________### ### ### ##################### procesar - consulta ########## ## ## ##');	
 					console.error(' - - - __________________############################## f0142() >>> A');	
 					naBD = naBD + 1;//Actualiza el pasado de rumbi en la base de datos
 					if(naBD>ncBD)//Si las respuestas resultan mayores que las solicitudes
@@ -6867,11 +6869,12 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 
 
 						//Este bloque esta repetido arriba, es el que se debería dejar y quitar el de arriba???? en 6670????
-						console.error('|> Flag  _______________________- - - - 142 B -> 138()');
+						console.error('|> Flag  _______________________- - - - 142 B -> 138() INI 2 ???');
 						f0138();//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-						console.error('|> Flag  _______________________- - - - 142 -> 125(0)');
+						console.error('|> Flag  _______________________- - - - 142 B -> 138() FIN 2 ???');
+						console.error('|> Flag  _______________________- - - - 142 -> 125(0) INI');
 						f0125(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
-						//Actalizar el frontend con la respuesta de la busqueda
+						console.error('|> Flag  _______________________- - - - 142 -> 125(0) FIN');
 						if(gRuta == 2)
 						{	if(gFoco > rumbo.length + 2)//gFoco es mayor que rumbo + 2
 							{	gFoco = rumbo.length + 2;
@@ -6894,12 +6897,16 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 						console.error(' - - - RESPUESTA NO esperada! naBD=',naBD,' y ncBD=',ncBD);
 					}
 					console.error(' - - - __________________############################## B f0142() >>> B');	
-					console.log(' - - - Fin del Satelite (buscando respuesta de forma asincronica)');	
+					console.log(' - - - Fin del Satelite (buscando respuesta de forma asincronica)');
+					console.error('|> Flag  ____________________________A rumbo=',rumbo,' rumba=',rumba);
+					console.error(' - - - __________________### ### ### ##################### terminar - consulta ########## ## ## ##');	
 				}		
 				,4000);//Demora de la respuesta 4000
 			}
+			console.error('|> Flag  ____________________________ B rumbo=',rumbo,' rumba=',rumba);
 			rumba = rumbi;//Actualiza el pasado de rumbi en el navegador
-			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> FIN');	
+			console.error('|> Flag  ____________________________ C rumbo=',rumbo,' rumba=',rumba);
+			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> FIN  ################');	
 			
 		}
 /***/
