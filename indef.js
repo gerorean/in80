@@ -5051,6 +5051,94 @@ function f0106()//hh16 PAUSAR [PAUSE] el video de YouTube
 			vPlayer.pauseVideo();
 		}
 
+
+
+/*
+La función f0107() tiene varias misiones importantes: es la responsable de configurar el idioma, 
+la lengua de señas, el lugar y los anuncios iniciales. Esto implica que debe trabajar de la mano del
+hash (#) inicial, de la dirección IP del usuario, de la posición GPS del usuario, o de una ruta valida
+por defecto, por ejemplo colombia (7,11,1).
+
+Configuración inicial:
+var PreR;		//Registro de la Pre-Ruta
+var ncBD = 0; 	//número de consulta a la Base de Datos (BD)
+var ok200 = 0;	//llegó respuesta desde la BD
+var InT3 = 0;	//Intentos por conseguir una ruta valida
+var hAs = 0;	//Sin bloqueo del evento hashchange
+//los botones de los lugares 2i, 3i, 4i... deben iniciar ocultos en r002B, 
+
+Tareas:
+(1) Bloquear el evento hashchange (f0155) >> (2):
+
+		hAs = 1 ;
+
+(2) Capturar el hash presente en PreR >> (3):
+
+		PreR = window.location.hash;//Trae el fragmento de la URL (Hash #)
+		
+ 
+(3)	Evaluar que PreR no este vacia
+	[Si esta vacia >> (16) / Si no está vacia >> (4)]:
+
+
+(4) Evaluar PreR y ver si es una ruta valida usando la Lista de rutas validas (Nota: Esta Lista debe estar 
+	actualizada y verificada siempre)
+	[Si es valida >> (5) / Si no es valida e InT3 = 0 >> (16) / InT3 = 1 >> (17) / InT3 = 2 >> (18) / InT3 = 3 >> (19)]:
+
+		nruta = PreR.slice(1);//quita el # ajusta el string de la ruta
+
+
+(5) Si InT3 > 0 >> hash debe cambiar y quedar igual a papas, además InT3 = 0 para que todas las nuevas consultas,
+    las realice con el hash y luego.. Cargar el array de papas con PreR >> (6)
+
+
+(6) Configurar el idioma y la lengua de señas teniendo en cuenta a papas >> (7)
+
+(7) Configurar el satelite buscando (rotando) en r003A, y las wTABLA#'s usando papas (ver nota anexa), 
+	también los strings de r002 y el boton 1 de r003A >> (8)
+
+(8) Guardar en PreR1 el valor de PreR, incrementar en 1 el valor de ncBD, y en ncBD1 guardar el valor incrementado 
+	de ncBD >> (9)
+
+(9) Actualizar el pasado de r003 (por ejemplo en {r300} = {r003}) y Realizar una consulta a la BD de forma asincronica 
+     con el valor de PreR >> (10)
+
+(10) Esperar por la respuesta de la consulta a la BD >> (11)
+
+(11) Recibir la respuesta y guardarla (por ejemplo en {r301}), si la ruta no cambio compararla con la última respuesta
+    del pasado {r300}, hacer PreR2 igual a PreR y ncBD2 igual a ncBD >> (12)
+
+(12) Si ncBD1 == ncBD2 y PreR1 == PreR2 >> (13) / si no >> (14)
+
+(13) Si llegaron avisos carguelos en r003, sino cargue "Aquí, no hay avisos para publicar" en r003, respuesta 
+	ok200 = 1, y cancele la cuenta regresiva sobre el temporizador si sucedio (14) y luego >> (15)
+
+(14) Dispare una nueva solicitud a la BD en 3 minutos, que incluya previamente a (8) y (9), dicha solicitud se vera 
+    cancelada si pasa ok200 = 1 en (13)
+
+(15) Desbloquear el evento Hash con hAs = 0, y ok200 = 0 para permitir nuevos eventos
+
+(16) Hacer InT3 = 1, Capturar la IP del navegador y compararla con la tabla IP - Pais/Lugar - Rutas, la ruta de esa 
+	IP cargarla en PreR >> (4)
+
+(17) Hacer InT3 = 2, Capturar la posición GPS del usuario y buscarla dentro de la lista de coordenadas de cada zona,
+		asociada a una IP  - Pais/Lugar - Rutas, y esa ruta cargarla en PreR >> (4)
+		 
+(18) Hacer InT3 = 3, capturar la ruta cargada en la cokie del navegador del usuario y esa ruta cargarla en PreR >> (4)
+
+(19) Como ultíma opción, asignar la ruta de Colombia (por ejemplo 7,11,1) por defecto a la PreR, y esa ruta cargarla 
+	en PreR >> (4)
+
+Nota anexa punto (7):
+		Para crear las wPAPA# se usa papas.length para hacer que un ciclo que recorra todos los vPAPA# hasta papas.length
+		Si el ID del vPAPA2/3/4... es = a papas[0/1/2...] lo incluye en wPAPA2/3/4... y asi sucesivamente
+		Para el caso de wPAPA1 = vPAPA1, hasta que encuentre ceros en papas o recorra papas.length
+
+
+Crear etiquetas Justo ahora, Hoy, Mañana 
+
+
+*/
 function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
 		{	lOG(107);
 			console.error(' - -----------------______________ f0107() [idioma seña y ruta]  papas=,',papas);
