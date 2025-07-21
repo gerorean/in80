@@ -5054,17 +5054,20 @@ function f0106()//hh16 PAUSAR [PAUSE] el video de YouTube
 
 
 /*
-La función f0107() tiene varias misiones importantes: es la responsable de configurar el idioma, 
-la lengua de señas, el lugar y los anuncios iniciales. Esto implica que debe trabajar de la mano del
-hash (#) inicial, de la dirección IP del usuario, de la posición GPS del usuario, o de una ruta valida
-por defecto, por ejemplo colombia (7,11,1).
+La función f0107() tiene varias misiones importantes: Debe configurar el idioma, 
+la lengua de señas y el lugar y luego cargar los anuncios iniciales. Esto implica 
+que debe trabajar de la mano del hash (#) inicial, de la dirección IP del usuario, 
+de la posición GPS del usuario, o de una ruta valida por defecto, por ejemplo 
+la de colombia (7,11,1).
 
 Configuración inicial:
 var PreR;		//Registro de la Pre-Ruta
 var ncBD = 0; 	//número de consulta a la Base de Datos (BD)
-var ok200 = 0;	//llegó respuesta desde la BD
+var ok200;		//llegó respuesta desde la BD (1) / Inicio de la solicitud, esperando la respuesta (0)
 var InT3 = 0;	//Intentos por conseguir una ruta valida
 var hAs = 0;	//Sin bloqueo del evento hashchange
+var PasaR;		//Almacena la ruta valida cargada que se almacena en papas para recordarla por si tiene que volver a ella
+
 //los botones de los lugares 2i, 3i, 4i... deben iniciar ocultos en r002B, 
 
 Tareas:
@@ -5083,13 +5086,14 @@ Tareas:
 
 (4) Evaluar PreR y ver si es una ruta valida usando la Lista de rutas validas (Nota: Esta Lista debe estar 
 	actualizada y verificada siempre)
-	[Si es valida >> (5) / Si no es valida e InT3 = 0 >> (16) / InT3 = 1 >> (17) / InT3 = 2 >> (18) / InT3 = 3 >> (19)]:
+	[Si es valida >> (5) / Si no es valida e InT3 = 0 >> (16) / InT3 = 1 >> (17) / InT3 = 2 >> (18) 
+	/ InT3 = 3 >> (19) / InT3 = 9 >> (20)]:
 
 		nruta = PreR.slice(1);//quita el # ajusta el string de la ruta
 
 
-(5) Si InT3 > 0 >> hash debe cambiar y quedar igual a papas, además InT3 = 0 para que todas las nuevas consultas,
-    las realice con el hash y luego.. Cargar el array de papas con PreR >> (6)
+(5) Guarde en PasaR el valor de PreR, {Si InT3 > 0 >> hash debe cambiar y quedar igual a papas} InT3 = 9; para que todas las nuevas consultas,
+	sin cambiar el lugar desde r002A, entonces las realice con el hash y luego.. Cargar el array de papas con PreR >> (6)
 
 
 (6) Configurar el idioma y la lengua de señas teniendo en cuenta a papas >> (7)
@@ -5097,8 +5101,8 @@ Tareas:
 (7) Configurar el satelite buscando (rotando) en r003A, y las wTABLA#'s usando papas (ver nota anexa), 
 	también los strings de r002 y el boton 1 de r003A >> (8)
 
-(8) Guardar en PreR1 el valor de PreR, incrementar en 1 el valor de ncBD, y en ncBD1 guardar el valor incrementado 
-	de ncBD >> (9)
+(8) Hacer ok200 = 0; Guardar en PreR1 el valor de PreR, incrementar en 1 el valor de ncBD, 
+	y en ncBD1 guardar el valor incrementado de ncBD >> (9)
 
 (9) Actualizar el pasado de r003 (por ejemplo en {r300} = {r003}) y Realizar una consulta a la BD de forma asincronica 
      con el valor de PreR >> (10)
@@ -5126,8 +5130,10 @@ Tareas:
 		 
 (18) Hacer InT3 = 3, capturar la ruta cargada en la cokie del navegador del usuario y esa ruta cargarla en PreR >> (4)
 
-(19) Como ultíma opción, asignar la ruta de Colombia (por ejemplo 7,11,1) por defecto a la PreR, y esa ruta cargarla 
+(19) Como ultíma opción para iniciar, asignar la ruta de Colombia (por ejemplo 7,11,1) por defecto a la PreR, y esa ruta cargarla 
 	en PreR >> (4)
+
+(20) PreR = PasaR , hacer igual al último papas valido
 
 Nota anexa punto (7):
 		Para crear las wPAPA# se usa papas.length para hacer que un ciclo que recorra todos los vPAPA# hasta papas.length
@@ -5135,8 +5141,83 @@ Nota anexa punto (7):
 		Para el caso de wPAPA1 = vPAPA1, hasta que encuentre ceros en papas o recorra papas.length
 
 
-Crear etiquetas Justo ahora, Hoy, Mañana 
+Ejemplo
+Nuevo										Pasado
+8(+ 1) << no está en Pasado (+)				10
+5(+ 1)										4
+4(= 2) << Está en Nuevo y en Pasado (=)		3
+1(= 2)										50
+3(= 2)										1
+9(+ 1)		
 
+Suma
+8(+ 1)
+5(+ 1)
+4(= 2)
+1(= 2)
+3(= 2)
+9(+ 1)
+10(- 3) << Extras o nuevos que están en Pasado pero que no están en Nuevo (-)
+50(- 3)
+
+Crear 4 etiquetas [Ahora {A 0H + Alertas}, Pronto {X 0-12H}, Espere {v x>12H} (3 Temporales)], [Enterate/Publicaciones (Bandera Permanentes)]  
+
+
+Ejemplo:
+r302 = [] 		Pasado + Presente
+cF = 0			Crear Fila N°
+sE				Si Está
+
+Previo {r300} = {r301} //Se actualizó el pasado
+r301 = {Respuesta recibida de la base de datos}
+
+if(r301.lenght > 0) //La respuesta no está vacia
+{	for( var i=0, i<r301.length, i++)
+	{	sE = 0
+		for( var j=0, j<r300.length, j++)
+		{	if(r301[i] == r300[j])  // Lo encontro en el Pasado
+			{	sE = 1
+				r302[cF] =  r300 [j]
+				r302[cF][0] = 2 	// Continúa igual (=)
+				cF++
+				j=r300.length
+			}
+		}
+		if (sE == 0) 	//Termino y no encontro
+		{	r302[cF] =  r301 [i]
+			r302[cF][0] = 1 	// Se adicionó (+)
+			cF++
+		}
+	}
+}
+else 	// Todos se eliminarón
+{	for( var j=0, j<r300.length, j++)
+	{	r302[j] = r300[i]
+		r302[j][0] = 3 	// Se eliminó (-)
+	}   //Finaliza
+}
+if (cF > 0)    //Aún no termina..
+{	for( var i=0, i<r300.length, i++)
+	{	sE = 0    // Buscando..
+		for( var j=0, j<r301.length, j++)
+		{	if(r300[i] == r301[j])  // Lo encontro en el Pasado
+			{	sE = 1 
+			}
+		}
+		if ( sE == 0)	// No lo encontró
+		{ 	cF++
+			r302[cF] = r300[i]
+			r302[cF][0] = 3 	// Lo incluye pero con (-) de eliminado
+		}
+	}
+}
+{r300} = {r301} //Se actualizó el pasado ver (*)
+
+(*):	r300 = []
+	usando 	for( var i=0, i<r301.length, i++)
+			{	r300[i] = r301[i]
+			}
+	
 
 */
 function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
