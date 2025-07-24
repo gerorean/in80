@@ -5061,19 +5061,343 @@ de la posición GPS del usuario, o de una ruta valida por defecto, por ejemplo
 la de colombia (7,11,1).
 
 Configuración inicial:
-var PreR;		//Registro de la Pre-Ruta
+
+var hLA = 0;	//hashListenerActivo (0false/1true)
+var InT3 = 1;	//Intentos por conseguir una ruta valida
+var j0b;		//Variable JOB (trabajo) extra que hay que realizar por actualizaciones de nuevos contenidos
+
+var nBC;		//número Bajo Control, se alimenta del parámetro pBC
 var ncBD = 0; 	//número de consulta a la Base de Datos (BD)
 var ok200;		//llegó respuesta desde la BD (1) / Inicio de la solicitud, esperando la respuesta (0)
-var InT3 = 0;	//Intentos por conseguir una ruta valida
-var hAs = 0;	//Sin bloqueo del evento hashchange
 var PasaR;		//Almacena la ruta valida cargada que se almacena en papas para recordarla por si tiene que volver a ella
+
+var PreR;		//Registro de la Pre-Ruta
+var Prim3 = 1;	//Primer vez, indica que se debe configurar el idioma y la seña de acuerdo a la primer ruta valida
+var pRuta;		//Preparación de la ruta --- reemplaza a nruta
+var rUMbo;		//Array de la pRuta sin las / --- reemplaza a rumbo
 
 //los botones de los lugares 2i, 3i, 4i... deben iniciar ocultos en r002B, 
 
-Tareas:
-(1) Bloquear el evento hashchange (f0155) >> (2):
+//Tareas:
+function
+f0161(pBC) 		//(1)DESACTIVAR Y ACTIVAR el Enrutador bajo cierta condición y CAPTURAR el hash
+				{	lOG(161);
+					nBC = null;				//Reset del nBC
+					if (pBC != null) 		//pBC: Proceso bajo control N°, si no tiene pBC, sin control, es un cambio directo en el hash
+					{	nBC = pBC;			//Actualización del nBC
+						if(hLA)				//Desactivar el Enrutador (hashchange)
+						{	window.removeEventListener('hashchange', f0161);
+	    					hLA = 0;
+	    									//console.log('Hashchange listener DESACTIVADO');
+						}
+	  				}
+					else
+					{	//console.log('El listener ya estaba desactivado');
+	  				}
+					PreR = 	window.location.hash;//(2)Capturar el hash de la url en PreR
+					if (PreR === '' || PreR === '#')//(3)
+					{	f0180();  //(16)TRABAJAR con la preruta vacia
+					}
+					else
+					{	f0162(); //(4)TRABAJAR con datos en la preruta
+					}
 
-		hAs = 1 ;
+					//...
+
+					if ((pBC != null) && !hLA)//(15)Activar el Enrutador
+					{	window.addEventListener('hashchange', f0161);
+	    				hLA = 1;
+	    				console.log('Hashchange listener ACTIVADO');
+	  				}
+					if (InT3 < 9)//Si ocurrieron algunos intentos por conseguir una ruta valida
+					{	InT3 = 9;//Es suficiente de intentar
+					}
+				}	
+
+function
+f0162() 		//(4)TRABAJAR con datos en la preruta sin verificar, VERIFICAR que la preruta sea valida
+				{	lOG(162);
+					pRuta = PreR.slice(1);//Prepara la ruta: quita el # ajusta el string de la ruta
+		  			var bin = 0;//Alistar el bingo cuando la ruta existe..
+					for (var i = 0; i < rutas.length; i++)//Recorre las rutas validas..
+					{	if (pRuta == rutas[i])//Bingo! la preruta existe!
+						{	pRuta = pRuta.slice(1);//quita el primer/
+		  			  	  	i = rutas.length;//Termina la busqueda
+		  			  	  	bin = 1;//bingo
+		  			  	}
+		  			  	if (pRuta == rutas[i] + '/')//Bingo! la ruta existe!
+						{	pRuta = pRuta.slice(1, -1);//quita el primer y el último/
+		  			  	  	i = rutas.length;//Termina la busqueda
+		  			  	  	bin = 1;//bingo
+		  			  	}
+		  			}
+					if (bin)//La preruta existe...
+					{	f0163();//(5)
+						console.error('La preruta SI existe =', PreR);
+					}
+					else//La preruta no existe...
+					{	console.error('La preruta NO existe =', PreR,'; Intento:',InT3);
+						switch (InT3)
+						{	case 1: f0170();//(16)
+							case 2: f0171();//(17)
+							case 3: f0172();//(18)
+							case 4: f0173();//(19)
+							case 9: f0174();//(20)
+						}
+
+					}	
+				}
+				////f0141()....
+				//////////////if (bin)//Si la ruta existe debe actualizar los lugares automaticamente
+				//////////////{	console.error('FLAG 141 → 142: nruta =', nruta);
+				//////////////  	f0142();//CONSULTAR a la base de datos por cierta collección Valida
+				//////////////}
+				//////////////else
+				//////////////{	console.error('Ruta NO existe: ', rUtA, ' → Error 404');
+				//////////////  	hAs = true;
+				//////////////  	window.location = loC;//Reestablece la última ruta valida
+				//////////////  	hAs = false;
+				//////////////}
+				//////////////loC = window.location.hash;//Actualiza el registro de la ruta actual (valida)
+				//////////////console.error('loC =', loC);
+
+function
+f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (anterior, pasada o antecesora) y que no es la primer vez 
+				{	lOG(163);
+					j0b = 0;//Reset del Job
+					if(PasaR != PreR)						//Si la preruta antecesora no es igual..
+					{	var c = 0;							//Inicio del contador de coincidencias
+						for (var i = 0; i < papas.length; i++)
+						{	if (paSpas[i]==papas[i])
+							{	c++;						//Cuenta las coincidencias seguidas o en serie
+							}
+							else
+							{	i = papas.length			//Interrumpe el proceso por falta de coincidencias
+							}
+						}
+						if (c0n == null)					//Si no viene orden directa
+						{	c0n = c;						//Simula que es una orden directa a partir de las coincidencias
+						}
+						
+						//revizar si se puede reajustar el valor de i con ayuda de c para no tener que quitar todo:
+						// i = 6; i <= 14 por i = 6 + c; i + c <= 14   ... i+c ... i+c-5  ... i+c-5???
+						for (var i = 6; i <= 14; i++)		//cambiar el valor de papas y actualizar paSpas
+						{	mIr002B[i][4]=0;				//Ocultar todos los botones de Ajustes 2 mIr002B[6-14][4] 
+							papas[i - 5]=0;					//Borrar todos los datos de papas
+							paSpas[i - 5]=0;				///Borrar todos los datos de paSpas
+						}
+						rUMbo = pRuta.split('/');			//array de pRuta separada con las barras inclinadas
+						for (var i = 0; i < rUMbo.length; i++)
+						{	papas[i]=parseInt(rUMbo[i]);	//Se actualiza el valor de papas
+							paSpas[i]=papas[i];				//Se actualiza el valor de paSpas, el pasado de papas
+						}
+						j0b = 1;							//Activación del Job extra
+						PasaR = PreR;						//Se actualiza la preruta antecesora
+					}
+					if(Prim3)								//(6) Es la primer vez entonces se debe configurar el idioma y la seña de acuerdo a la primer ruta valida
+					{	// . . .
+						Prim3 = 0; 							//Ya no es la primer vez
+					}
+					if(j0b)									//(7) Configurar el satelite en r003, tablas wPAPA# usando c0n
+					{	// 
+					}
+
+				}
+					
+				///////		function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+				///////		{	lOG(138);//simiqlar a f0124() ver cuando corre la una y cuando la otra
+				///////			console.error('##### 138 - - - __________________++++++++++++++ +++++++++++++ ++ f0138 ini');	
+				///////
+				///////			//nota
+				///////			// pendiente detener proceso cuando papas[x]=0;
+				///////
+				///////
+				///////			//=0124
+				///////			for (var i = 6; i <= 14; i++)		//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
+				///////			{	mIr002B[i][4]=0;				//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
+				///////				papas[i - 5]=0;					//borrar datos a la derecha de papas[ini]
+				///////			}
+				///////
+				///////
+				///////
+				///////			console.log(' - - -_________________138______ rrr A papas=',papas,'; rumbo=',rumbo);
+				///////			//Actualizar papas - 
+				///////			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
+				///////			{	papas[i]=parseInt(rumbo[i]);
+				///////			}
+
+
+
+
+
+				//////			lOG(142);
+				//////			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> INI ################');			
+				//////			//PLANTILLA BÁSICA (mIres3 - la que siempre acompaña a los anuncios)
+				//////			//mIres3 es el texto que sale al dar clic en el cabezote (Primer botón de los anuncios).. "aquí podrás bla,bla,bla", se utiliza tanto para cuando hay anuncios o cuando se ve el satelite de la busqueda de anuncios o no hay anuncios..
+				//////			mIr003A = mIres3A;
+				//////			mIr003Z = mIres3Z;
+				//////			mIr003B = mIres3B;
+				//////
+				//////			//BUSCANDO DATOS
+				//////			g00VARS[86][2]=2;//Buscando anuncios
+				//////
+				//////			//Aquí falta actualizar los strings de mIr003A y de tambien de los botones si esta en menu o ruta!!!
+				//////			//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios y debe quedar esperando por la llegada de los anuncios
+				//////
+				//////			rumbi = '';
+				//////			rumbo = nruta.split('/');//array de nruta separada con las barras inclinadas
+				//////
+				//////			console.error('|> Flag  ____________________________rumbo=',rumbo,' rumba=',rumba,' A 142 A ...mIres3.. -> 138 INI 1');
+				//////			f0138();//(*rumbo debe declararse primero) ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+				//////			console.error('|> Flag  ____________________________rumbo=',rumbo,' rumba=',rumba,' B 142 A ...mIres3.. -> 138 FIN 1');
+				//////
+				//////			/*ini * /
+				//////			//Este bloque no deberia ir al final???????   tiene que ver por la base de datos en mogoDB que esta comentada????:
+				//////			console.log('|> Flag 142 -> 125(0)');
+				//////			f0125(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
+				//////			//Actalizar el frontend con datos de busqueda
+				//////			if(gRuta == 2)
+				//////			{	if(gFoco > rumbo.length + 2)//gFoco es mayor que rumbo + 2
+				//////				{	gFoco = rumbo.length + 2;
+				//////				}
+				//////				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////				//f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////			}
+				//////			if((gRuta == 3)||(gRuta == 4))
+				//////			{	f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////				//f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////			}
+				//////			/*fin *  /
+				//////
+				//////			rumbi = rumbo.join('i');//String de nruta separada con i'es
+				//////			console.log(' - - - rumbi=',rumbi);
+				//////			if(rumbi!=rumba)//Si no es igual a su pasado en el navegador
+				//////			{	ncBD = ncBD + 1;//Nueva consulta a la BD
+				//////				console.log(' - - - consulta ',ncBD,' a la base de datos con rumbi=',rumbi);
+				//////
+				//////				//INICIAR la consulta..
+				//////				console.error(' - - - __________________### ### ### ##################### iniciar - consulta ########## ## ## ##');	
+				//////				setTimeout(function()//Reduce el conteo para activar la presentación
+				//////				{	console.error(' - - - __________________### ### ### ##################### procesar - consulta ########## ## ## ##');	
+				//////					console.error(' - - - __________________############################## f0142() >>> A');	
+				//////					naBD = naBD + 1;//Actualiza el pasado de rumbi en la base de datos
+				//////					if(naBD>ncBD)//Si las respuestas resultan mayores que las solicitudes
+				//////					{  ncBD = naBD;//Iguala los dos valores para corregir ese error por si alguna vez sucede
+				//////					}
+				//////					if(naBD==ncBD)//Si el número de consulta no ha cambiado y es igual al número anterior de consulta a la base de datos entonces..
+				//////					{	console.error(' - - - LA RESPUESTA esperada! son iguales! naBD=',naBD,' Y ncBD=',ncBD);
+				//////
+				//////						/// SWITCH CON LA BASE DE DATOS MONGO mongo
+				//////
+				//////						/// SWITCH SIN LA BASE DE DATOS MONGO mongo
+				//////						//if(nruta == '7/1/8/2/2')//Bingo!
+				//////						//'/7/11/8/2/1','/7/11/8/2/2','/7/11/8/2/3','/7/11/8/2/4','/7/11/8/2/5','/7/11/8/2/6','/7/11/8/2/7','/7/11/8/2/8','/7/11/8/4'
+				//////						if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+				//////						//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+				//////						//if(nruta == '7/1/8/4')//Bingo!
+				//////						{	mIc003A = [];
+				//////							mIc003B = [];
+				//////							mIc003Z = [];
+				//////							if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+				//////							//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+				//////							//if(nruta == '7/1/8/4')//Bingo!
+				//////							{	switch (nruta) {
+				//////								  case '7/11/8/4'://puente aranda
+				//////								  //case '7/1/8/4':
+				//////								    console.log('Ruta A puente aranda');
+				//////									mIc003A = mIc003A0; 
+				//////									mIc003Z = mIc003Z0;
+				//////									mIc003B = mIc003B0;
+				//////								    break;
+				//////								  //case '7/1/8/2/200':
+				//////								  //  console.log('Ruta desconocida');
+				//////								  //  break;
+				//////								  default:
+				//////								    console.log('Ruta B chapineruda');
+				//////									mIc003A = mIc003A1; 
+				//////									mIc003Z = mIc003Z1;
+				//////									mIc003B = mIc003B1;
+				//////								    break;
+				//////								}
+				//////							};
+				//////							switch (nruta) {
+				//////							  	case '/7/11/8/4':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
+				//////								break;
+				//////							 	case '7/11/8/2/2':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-2-2.png' class='cBox'>";
+				//////							  	break;
+				//////								case '7/11/8/2/3':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-2-3.png' class='cBox'>";
+				//////							  	break;
+				//////								case '7/11/8/2/4':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-2-4.png' class='cBox'>";
+				//////							  	break;
+				//////								case '7/11/8/2/5':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-2-5.png' class='cBox'>";
+				//////							  	break;
+				//////								case '7/11/8/2/6':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
+				//////							  	break;
+				//////								case '7/11/8/2/7':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
+				//////							  	break;
+				//////								case '7/11/8/2/8':
+				//////									iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
+				//////							  	break;
+				//////							}
+				//////							g00VARS[86][2]=0;
+				//////							//f0140();//CARGAR anuncios en r003
+				//////							console.error('  - 0 rta SI hay anuncios -');
+				//////						}
+				//////						else// no hay información
+				//////						{	g00VARS[86][2]=1;
+				//////							//f0139();//CARGAR el anuncio vacio en r003
+				//////							console.error(' - 1 rta NO hay anuncios -');
+				//////						}
+				//////
+				//////						//Este bloque esta repetido arriba, es el que se debería dejar y quitar el de arriba???? en 6670????
+				//////						console.error('|> Flag  _______________________- - - - 142 B -> 138() INI 2 ???');
+				//////						f0138();//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+				//////						console.error('|> Flag  _______________________- - - - 142 B -> 138() FIN 2 ???');
+				//////						console.error('|> Flag  _______________________- - - - 142 -> 125(0) INI');
+				//////						f0125(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
+				//////						console.error('|> Flag  _______________________- - - - 142 -> 125(0) FIN');
+				//////						if(gRuta == 2)
+				//////						{	if(gFoco > rumbo.length + 2)//gFoco es mayor que rumbo + 2
+				//////							{	gFoco = rumbo.length + 2;
+				//////							}
+				//////							f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////							//f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////						}
+				//////						if((gRuta == 3)||(gRuta == 4))
+				//////						{	f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////							//f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				//////						}
+				//////					}
+				//////					else//Si la solicitud ha cambiado
+				//////					{	//No hace nada, aquí simplemente espera a que llegue la ultima solicitud donde rumbi = rumbd
+				//////						console.error(' - - - RESPUESTA NO esperada! naBD=',naBD,' y ncBD=',ncBD);
+				//////					}
+				//////					console.error(' - - - __________________############################## B f0142() >>> B');	
+				//////					console.log(' - - - Fin del Satelite (buscando respuesta de forma asincronica)');
+				//////					console.error('|> Flag  ____________________________A rumbo=',rumbo,' rumba=',rumba);
+				//////					console.error(' - - - __________________### ### ### ##################### terminar - consulta ########## ## ## ##');	
+				//////				}		
+				//////				,4000);//Demora de la respuesta 4000
+				//////			}
+				//////			console.error('|> Flag  ____________________________ B rumbo=',rumbo,' rumba=',rumba);
+				//////			rumba = rumbi;//Actualiza el pasado de rumbi en el navegador
+				//////			console.error('|> Flag  ____________________________ C rumbo=',rumbo,' rumba=',rumba);
+				//////			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> FIN  ################');	
+
+
+
+
+
+		///////////Bloquear el evento hashchange (f0155) >> (2):
+		//////////hAs = 1 ;
+	
 
 (2) Capturar el hash presente en PreR >> (3):
 
