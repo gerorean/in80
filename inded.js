@@ -2165,7 +2165,9 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
 
-
+const vPAPA0 = [
+	[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토']
+]
 
 //const vPAPA1 = [['0-Id:hijo', 1-id:list, '2-Id:padre', '3-Id:color marco', '4:Id:logo(pres AV)', '5-Id:Imagen', '6-Id:Mapa/Foto boton lugar', '7-ID:QR CODE', '8-En ingles(lista ordenada)', '9-Español', '10-frances', '11-coreano'],
 const vPAPA1 = [
@@ -7437,5 +7439,11 @@ document.addEventListener('keydown', f0098);
 document.addEventListener('keyup', f0100);
 //f0139();//CARGAR el anuncio vacio en r003
 //f0140();//CARGAR anuncios en r003
-window.addEventListener('hashchange', f0155);//Cada vez que la URL cambia de fragmento (#), se dispara el evento hashchange
+
+
+///Off temporal:
+//window.addEventListener('hashchange', f0155);//Cada vez que la URL cambia de fragmento (#), se dispara el evento hashchange
+
+
+
 document.onload = f0000();//PREPARAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
