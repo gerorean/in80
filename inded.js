@@ -2166,8 +2166,12 @@ const ext = 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se 
 
 
 const vPAPA0 = [
-	[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토']
+	[1, 1, 0, 10, 5, 5, 96, 5, 'published throughout the territory', 'publicado en todo el territorio', 'publié sur tout le territoire', '영토 전체에 게시됨']
 ]
+
+////	const vPAPA0 = [
+////		[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토']
+////	]
 
 //const vPAPA1 = [['0-Id:hijo', 1-id:list, '2-Id:padre', '3-Id:color marco', '4:Id:logo(pres AV)', '5-Id:Imagen', '6-Id:Mapa/Foto boton lugar', '7-ID:QR CODE', '8-En ingles(lista ordenada)', '9-Español', '10-frances', '11-coreano'],
 const vPAPA1 = [

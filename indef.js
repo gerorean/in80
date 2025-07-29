@@ -5604,6 +5604,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			
 			
 			wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
+			//wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
 			
 			
 			
