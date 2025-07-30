@@ -52,7 +52,17 @@ j señas       280             999
 j señas       280             999
 j señas       280             999
 
+En estas en .. adicionar luego del bloque de mayusculas el tipo de salida (interfaz):
+qwerty normal, grande, muy grande, señas, o tutorial morse
 
+y en ajustes, crean un boton luego del de imagenes que sea para la salida (interfaz):
+qwerty normal, grande, muy grande, señas, o tutorial morse
+
+cuando el usuario de un toque en el telefono, siempre se debe mostrar la salida y para apagarla salida (interfaz de comuncaciones), se debe configurar la X para salir de ese estado sin salirse
+de su estado anterior en la navegación, por ejemplo si estaba en ayuda, debe regresar a la ayuda, y si estaba en ajustes del idioma y lugar entonces
+debe regresar a ajustes de idioma y lugar, eso no pasa porque se sale tambien de ese estado anterior, hay que arreglar eso.
+
+Cambiar o modificar los mensajes de llama por contacta, y cuando el usuario de en continuar en un contactar se active el telefono y permita elaborar y recibir mensajes de contacta con la linea 123
 
 0124 y 0138, repeti 2 cambios, hacen lo mismo??? wSug no se corre en 138 y si corre en 124, 124 y 138 tienen varios elementos similares
 se pueden unir estas dos funciones???? tarea: investigar!!!
