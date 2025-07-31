@@ -1,7 +1,7 @@
 ///7/1/8/2/2  (1-7)barrio de chapinero
 ///7/1/8/4 loc puente aranda
 //papas
-// (11) [7, 1, 8, 2, 1, 0, 0, 0, 0, 0, '']
+// (11) ['A','B','C','D','E',7, 1, 8, 2, 1, 0, 0, 0, 0, 0, '']
 
 //mIc003A - B - Z es la variable clave del frontend debido al código r003* = c003*, es decir 
 // r003 es una variable provisional para manejar los ejemplos con JSON
@@ -5167,8 +5167,8 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 					j0b = 0;//Reset del Job
 					if(PasaR != PreR)						//Si la preruta antecesora no es igual..
 					{	var c = 0;							//Inicio del contador de coincidencias
-						for (var i = 0; i < papas.length; i++)
-						{	if (paSpas[i]==papas[i])
+						for (var i = 4; i < papas.length; i++)//__0-4
+						{	if (paSpas[i]==papas[i+5])  //__0
 							{	c++;						//Cuenta las coincidencias seguidas o en serie
 							}
 							else
@@ -5183,13 +5183,13 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 						// i = 6; i <= 14 por i = 6 + c; i + c <= 14   ... i+c ... i+c-5  ... i+c-5???
 						for (var i = 6; i <= 14; i++)		//cambiar el valor de papas y actualizar paSpas
 						{	mIr002B[i][4]=0;				//Ocultar todos los botones de Ajustes 2 mIr002B[6-14][4] 
-							papas[i - 5]=0;					//Borrar todos los datos de papas
-							paSpas[i - 5]=0;				///Borrar todos los datos de paSpas
+							papas[i]=0;					//Borrar todos los datos de papas //__papas[i - 5]=0
+							paSpas[i-5]=0;				///Borrar todos los datos de paSpas
 						}
 						rUMbo = pRuta.split('/');			//array de pRuta separada con las barras inclinadas
 						for (var i = 0; i < rUMbo.length; i++)
-						{	papas[i]=parseInt(rUMbo[i]);	//Se actualiza el valor de papas
-							paSpas[i]=papas[i];				//Se actualiza el valor de paSpas, el pasado de papas
+						{	papas[i+5]=parseInt(rUMbo[i]);	//Se actualiza el valor de papas //__papas[i]=parseInt(rUMbo[i]);
+							paSpas[i]=papas[i+5];				//Se actualiza el valor de paSpas, el pasado de papas //__paSpas[i]=papas[i];	
 						}
 						j0b = 1;							//Activación del Job extra
 						PasaR = PreR;						//Se actualiza la preruta antecesora
@@ -5209,13 +5209,13 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 				///////			console.error('##### 138 - - - __________________++++++++++++++ +++++++++++++ ++ f0138 ini');	
 				///////
 				///////			//nota
-				///////			// pendiente detener proceso cuando papas[x]=0;
+				///////			// pendiente detener proceso cuando papas[x+5]=0;//__papas[x]=0;
 				///////
 				///////
 				///////			//=0124
 				///////			for (var i = 6; i <= 14; i++)		//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
 				///////			{	mIr002B[i][4]=0;				//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-				///////				papas[i - 5]=0;					//borrar datos a la derecha de papas[ini]
+				///////				papas[i]=0;					//borrar datos a la derecha de papas[ini] //__papas[i - 5]=0;
 				///////			}
 				///////
 				///////
@@ -5223,7 +5223,7 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 				///////			console.log(' - - -_________________138______ rrr A papas=',papas,'; rumbo=',rumbo);
 				///////			//Actualizar papas - 
 				///////			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
-				///////			{	papas[i]=parseInt(rumbo[i]);
+				///////			{	papas[i+5]=parseInt(rumbo[i]);//__papas[i]=parseInt(rumbo[i]);
 				///////			}
 
 
@@ -5461,7 +5461,7 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 
 Nota anexa punto (7):
 		Para crear las wPAPA# se usa papas.length para hacer que un ciclo que recorra todos los vPAPA# hasta papas.length
-		Si el ID del vPAPA2/3/4... es = a papas[0/1/2...] lo incluye en wPAPA2/3/4... y asi sucesivamente
+		Si el ID del vPAPA2/3/4... es = a papas[./././././0/1/2...] lo incluye en wPAPA2/3/4... y asi sucesivamente
 		Para el caso de wPAPA1 = vPAPA1, hasta que encuentre ceros en papas o recorra papas.length
 
 
@@ -6168,15 +6168,15 @@ function f0123(busca)//BUSCAR id/Fila que corresponde a cierto id Buscado en kTa
 
 function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(124);
-			console.log(' - - - __________________________________________f0124(ini=',ini,')  [mIr002B[#][4]=0 (invi desde ini) papas[#]=0 wPAPA#]');
+			console.log(' - - - __________________________________________f0124(ini=',ini,')  [mIr002B[#][4]=0 (invi desde ini) papas[#+5]=0 wPAPA#]');//__#
 
 			console.log(' - - - A - mIr002B[6][4]=',mIr002B[6][4],'; papas=',papas,'; papas0=,',papas0,'; papas1=',papas1,' arreglo con el faltante de ruta sugerido');
 
 			//ini no aparece en f0138
-			//OJO!!!! si papas[0] es 1-7, entonces.. sino papas[0]=7 (por defecto para que pueda redirigirlo a hacia una ruta sugerida)
+			//OJO!!!! si papas[5] es 1-7, entonces.. sino papas[5]=7 (por defecto para que pueda redirigirlo a hacia una ruta sugerida)//__0
 			for (var i = 6 + ini; i <= 14; i++)//5-[12-5]13 - 4 = 9 si ini= 0 los oculta todos
 			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-				papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
+				papas[i]=0;//borrar datos a la derecha de papas[ini+5]//__papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
 			}
 			console.log(' - - - B - mIr002B[6]=',mIr002B[6],'; papas=',papas);
 
@@ -6185,7 +6185,7 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 
 			//Aqui va codigo diferente en f0138:
 			/*			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
-			{	papas[i]=parseInt(rumbo[i]);
+			{	papas[i+5]=parseInt(rumbo[i]);//__papas[i]=parseInt(rumbo[i]);
 			}
 			*/
 
@@ -6196,8 +6196,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			papas0 = [];//Reset
 			papas1 = [];//Reset
 			for (var i = 0; i < 10; i++)//la casilla 10 siempre es 0 no se usa
-			{ 	if(papas[i]!=0)
-				{	papas0[i] = papas[i];
+			{ 	if(papas[i+5]!=0)//__if(papas[i]!=0)
+				{	papas0[i] = papas[i+5];//__papas0[i] = papas[i];
 				}
 			}
 			console.log(' - - - C - papas0=',papas0);
@@ -6252,7 +6252,7 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			//si ese cambio es parte de una ruta sugerida completa la ruta sugerida(conocida) sino pone los números auto que se puedan..
 			var sug = [5,2,4,2];//ruta de Tecnoparque, ver si puede llegar a alguna línea y mostrarla en menu
 			for (var i = 0; i < sug.length; i++)//Recorre el array de papas [0-9]
-			{	papas[i + ini + 1] = sug[i];
+			{	papas[i+ini+6] = sug[i];//__papas[i + ini + 1] = sug[i];
 			}
 			*/
 
@@ -6262,19 +6262,19 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 				
 				var go = 1;//Buscando un elemento
 				for (var i = 0; i < wPapa2.length; i++)//recorre las filas de wPapa2
-				{ 	if((wPapa2[i][3] == 1)&&(wPapa2[i][2] == papas1[ini+1])&&(wPapa2[i][4] == papas[0]))
+				{ 	if((wPapa2[i][3] == 1)&&(wPapa2[i][2] == papas1[ini+1])&&(wPapa2[i][4] == papas[5]))//__ == papas[0]))
 					{	go = 0;//el elemento sugerido existe, es visible y cumple go=1
-						papas[1]=papas1[ini+1];
+						papas[6]=papas1[ini+1];//__papas[1]=papas1[ini+1];
 					}
 				}
 				var ff = 1;
 				for (var i = 1; i < wPapa2.length; i++)//Recorre el array de paises - lugares 1 
-				{	if((wPapa2[i][3] == 1)&&(wPapa2[i][4] == papas[0]))//si esa fila es visible y además es un hijo de wPAPA1
+				{	if((wPapa2[i][3] == 1)&&(wPapa2[i][4] == papas[5]))//si esa fila es visible y además es un hijo de wPAPA1//__ == papas[0]))//
 					{	wPAPA2[ff] = [wPapa2[i][2],wPapa2[i][1],wPapa2[i][4],ff+', '+wPapa2[i][0]+kTapaI[1][5],ff+', '+wPapa2[i][5]+kTapaI[2][5],ff+', '+wPapa2[i][6]+kTapaI[3][5],ff+', '+wPapa2[i][7]+kTapaI[4][5]];
 						ff++;//Siguiente fila
 						if(go)
 						{	go = 0;//Deja de buscar un elemento
-							papas[1] = wPapa2[i][2];//Toma el primer id del string del elemento de la app que encuentre
+							papas[6] = wPapa2[i][2];//Toma el primer id del string del elemento de la app que encuentre//__papas[1] = 
 						}
 					}
 				}
@@ -6292,7 +6292,7 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 
 			/*
 
-			cuando termine de actualizar todas las tablas y organizar una ruta nueva para papas[xxxx] entonces debe mirar
+			cuando termine de actualizar todas las tablas y organizar una ruta nueva para papas[xxxx + 5] entonces debe mirar
 			que botones debe mostrar y cargar los strings que correspondan, ejemplo..
 				r002B[4][12]=1;//Si esa fila puede llevar a otro hijo activa el boton de lugar 1 [12]
 						
@@ -6309,14 +6309,14 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 			mIr003A = mIres3A;//RESET CONTENIDOS DE mIr003A con el texto que es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios
 			//console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS[86][2]);			
 			for (var i = ini; i <= 9; i++)//Recorre el array de papas [0-9] desde ini
-			{	if(papas[i]!=0)//si casilla no es 0 y esta buscando
-				//papas[7,1,8,4,0,0,0,0,0,0,''] Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
+			{	if(papas[i+5]!=0)//si casilla no es 0 y esta buscando//__(papas[i]!=0)
+				//papas[A,B,C,D,E,7,1,8,4,0,0,0,0,0,0,''] Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 				{	var ok = 1;//Buscando los string que se necesitan[1]
 					//console.error(' - -----------------______________ f0125 i=',i);
 					switch(i)//7 1 0 0 0 0 0
 					{	case 0://Papa1
 						{	for (var j = wPAPA1.length - 1; j >= 1; j--)
-							{	if(ok&&(papas[0] == wPAPA1[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[10][x]
+							{	if(ok&&(papas[5] == wPAPA1[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[10][x]//__if(ok&&(papas[0] ==
 								{	ok = 0;//deja de buscar el string, ya lo encontro..
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[5][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA1[j][1]+': '+wPAPA1[j][ext+k+2]+mIkTapaI[5][k];//trae el string de los idiomas desde wPAPA2
@@ -6330,7 +6330,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 1://Papa2
 							for (var j = wPAPA2.length - 1; j >= 1; j--)
 							{	mIr002B[6][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA2[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA2[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__if(ok&&(papas[i]
 								{	ok = 0;//deja de buscar el string, ya lo encontro..
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[6][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA2[j][1]+': '+wPAPA2[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6339,11 +6339,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA2.length > 2)
 										{ 	mIr002A[6][k]+=mIkTapaI[5][k];
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 0//__if(papas[i + 1]==0)
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__if(papas[i]==1)
 												{	for (var aa = 1; aa < wPAPA1.length; aa++)//recorre las filas de wPAPA1
-													{ 	if((wPAPA1[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA1[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__== papas[i - 1]))
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA1[aa][bb];
 															}
@@ -6410,7 +6410,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 2://Papa3
 							for (var j = wPAPA3.length - 1; j >= 1; j--)
 							{	mIr002B[7][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA3[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA3[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[7][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA3[j][1]+': '+wPAPA3[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6419,11 +6419,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA3.length > 2)
 										{ 	mIr002A[7][k]+=mIkTapaI[5][k];
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 01//__1
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 												{	for (var aa = 1; aa < wPAPA2.length; aa++)//recorre las filas de wPAPA2
-													{ 	if((wPAPA2[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA2[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA2[aa][bb];
 															}
@@ -6470,7 +6470,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 3://Papa4
 							for (var j = wPAPA4.length - 1; j >= 1; j--)
 							{	mIr002B[8][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA4[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA4[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[8][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA4[j][1]+': '+wPAPA4[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6479,11 +6479,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA4.length > 2)
 										{ 	mIr002A[8][k]+=mIkTapaI[5][k];
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 0//__1
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 												{	for (var aa = 1; aa < wPAPA3.length; aa++)//recorre las filas de wPAPA3
-													{ 	if((wPAPA3[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA3[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA3[aa][bb];
 															}
@@ -6528,7 +6528,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 4://Papa5
 							for (var j = wPAPA5.length - 1; j >= 1; j--)
 							{	mIr002B[9][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA5[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA5[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[9][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA5[j][1]+': '+wPAPA5[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6537,11 +6537,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA5.length > 2)
 										{ 	mIr002A[9][k]+=mIkTapaI[5][k]; 
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 0//__1
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 												{	for (var aa = 1; aa < wPAPA4.length; aa++)//recorre las filas de wPAPA4
-													{ 	if((wPAPA4[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA4[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA4[aa][bb];
 															}
@@ -6586,7 +6586,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 5://Papa6 -Chap
 							for (var j = wPAPA6.length - 1; j >= 1; j--)
 							{	mIr002B[10][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA6[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA6[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[10][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA6[j][1]+': '+wPAPA6[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6595,11 +6595,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA6.length > 2)
 										{ 	mIr002A[10][k]+=mIkTapaI[5][k];
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 0//__1
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 												{	for (var aa = 1; aa < wPAPA5.length; aa++)//recorre las filas de wPAPA5
-													{ 	if((wPAPA5[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA5[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA5[aa][bb];
 															}
@@ -6643,7 +6643,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 6://Papa7  -Chap Cent Barr
 							for (var j = wPAPA7.length - 1; j >= 1; j--)
 							{	mIr002B[11][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA7[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA7[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[11][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA7[j][1]+': '+wPAPA7[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6652,11 +6652,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA7.length > 2)
 										{ 	mIr002A[11][k]+=mIkTapaI[5][k];
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 0//__1
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 												{	for (var aa = 1; aa < wPAPA6.length; aa++)//recorre las filas de wPAPA6
-													{ 	if((wPAPA6[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA6[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA6[aa][bb];
 															}
@@ -6702,7 +6702,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 7://Papa8
 							for (var j = wPAPA8.length - 1; j >= 1; j--)
 							{	mIr002B[12][4]=1;//muestra el sitio	
-								if(ok&&(papas[i] == wPAPA8[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA8[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[12][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA8[j][1]+': '+wPAPA8[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6711,11 +6711,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA8.length > 2)
 										{ 	mIr002A[12][k]+=mIkTapaI[5][k];
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 0//__1
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 												{	for (var aa = 1; aa < wPAPA7.length; aa++)//recorre las filas de wPAPA7
-													{ 	if((wPAPA7[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA7[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA7[aa][bb];
 															}
@@ -6759,7 +6759,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 8://Papa9
 							for (var j = wPAPA9.length - 1; j >= 1; j--)
 							{	mIr002B[13][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA9[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA9[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[13][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA9[j][1]+': '+wPAPA9[j][ext+k+2];//trae el string de los idiomas desde wPAPA2
@@ -6768,11 +6768,11 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										if(wPAPA9.length > 2)
 										{ 	mIr002A[13][k]+=mIkTapaI[5][k];
 										}
-										if(papas[i+1]==0)//Si el siguiente elemento es 0
+										if(papas[i+6]==0)//Si el siguiente elemento es 0//__1
 										{	if(k==1)
-											{	if(papas[i]==1)//Si el elemento actual es 1
+											{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 												{	for (var aa = 1; aa < wPAPA8.length; aa++)//recorre las filas de wPAPA8
-													{ 	if((wPAPA8[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+													{ 	if((wPAPA8[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 															{	wPAPA0[0][bb]=wPAPA8[aa][bb];
 															}
@@ -6815,7 +6815,7 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 						case 9://Papa10
 							for (var j = wPAPA10.length - 1; j >= 1; j--)
 							{	mIr002B[14][4]=1;//muestra el sitio
-								if(ok&&(papas[i] == wPAPA10[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]
+								if(ok&&(papas[i+5] == wPAPA10[j][0]))//buscar a papas[i] y cuando lo encuentre cargar los strings de mIr002A[9][x]//__0
 								{	ok = 0;
 									for (var k = 1; k <= 4; k++)//Recorre todas las filas de idiomas que hay disponibles
 									{	mIr002A[14][k]=mIkTapaI[27][k]+' '+(i+1)+'i'+wPAPA10[j][1]+': '+wPAPA10[j][ext+k+2];//trae el string de los idiomas desde wPAPA10
@@ -6825,9 +6825,9 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 										{ 	mIr002A[14][k]+=mIkTapaI[5][k];
 										}
 										if(k==1)
-										{	if(papas[i]==1)//Si el elemento actual es 1
+										{	if(papas[i+5]==1)//Si el elemento actual es 1//__0
 											{	for (var aa = 1; aa < wPAPA9.length; aa++)//recorre las filas de wPAPA9
-												{ 	if((wPAPA9[aa][0] == papas[i-1]))//encuentra la fila del elemento padre
+												{ 	if((wPAPA9[aa][0] == papas[i+4]))//encuentra la fila del elemento padre//__-1
 													{	for(var bb = 0; bb < wPAPA0[0].length; bb++)
 														{	wPAPA0[0][bb]=wPAPA9[aa][bb];
 														}
@@ -6878,19 +6878,19 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 
 function f0126()//ACTUALIZAR la ruta
 		{	lOG(126);
-			//console.error('|> Flag  126 0. - - - ________f0126() actualizando ruta actual=',window.location.hash,'; papas=',papas);
+			console.error('|> Flag  126 0. - - - ________f0126() actualizando ruta actual=',window.location.hash,'; papas=',papas);
 			var ruta = '';
 			for (var i = 0; i < 11; i++)
 			{		
-				if(papas[i]!=0)//Si no es un cero
-				{	ruta+='/'+papas[i];
+				if(papas[i+5]!=0)//Si no es un cero//__0
+				{	ruta+='/'+papas[i+5];//__0
 				}
 				else
-				{	papas[i] = 0;
+				{	papas[i+5] = 0;//papas[i] = 0//__0
 					i = 11;//Termina el for
 				}			
 			}
-			document.location='#'+ruta;//+'-'+g00VARS[45][2];
+			document.location='#/A/B/C/D/E'+ruta;//+'-'+g00VARS[45][2];//__Sin abcd
 			//console.log('|> Flag  126 1. - - - ________f0126() actualizando ruta nueva=',window.location.hash,'; ncBD=',ncBD,'; iniR=',iniR);
 			if((!ncBD)&&(iniR))// Si (ncBD Numero de consultas a la base de datos) y ( iniR Activar la ruta inicial)
 			{	iniR = 0;//Va a cargar la ruta inicial
@@ -6951,13 +6951,13 @@ function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo des
 			console.log('##### 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 ini');	
 
 			//nota
-			// pendiente detener proceso cuando papas[x]=0;
+			// pendiente detener proceso cuando papas[x+5]=0;//__0
 
 
 			//=0124
 			for (var i = 6; i <= 14; i++)//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
 			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-				papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
+				papas[i]=0;//borrar datos a la derecha de papas[ini]//__-5
 			}
 
 
@@ -6965,7 +6965,7 @@ function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo des
 			//console.log(' - - -_________________138______ rrr A papas=',papas,'; rumbo=',rumbo);
 			//Actualizar papas - 
 			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
-			{	papas[i]=parseInt(rumbo[i]);
+			{	papas[i+5]=parseInt(rumbo[i]);//__0
 			}
 			
 			
@@ -6977,8 +6977,8 @@ quitar???
 			papas0 = [];//Reset
 			papas1 = [];//Reset
 			for (var i = 0; i < 10; i++)//la casilla 10 siempre es 0 no se usa
-			{ 	if(papas[i]!=0)
-				{	papas0[i] = papas[i];
+			{ 	if(papas[i+5]!=0)//___0
+				{	papas0[i] = papas[i+5];//__0
 				}
 			}
 			//buscar dentro de rutas sugeridas a papa0 (papas paralelo) y ver si lo encuentra..
@@ -7060,10 +7060,11 @@ function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario c
 		{	lOG(141);
 		  	rUtA = window.location.hash;//Trae el fragmento de la URL (Hash #)
 		  	nruta = rUtA.slice(1);//quita el # ajusta el string de la ruta
+			console.error(' nruta=',nruta);
 		  	var bin = 0;//Alistar el bingo para verificar que la ruta existe..
 			for (var i = 0; i < rutas.length; i++)
 			{	if (nruta == rutas[i])//Bingo! la ruta /*** existe!
-				{	if (window.location.hash !== '#' + nruta)
+				{	if (window.location.hash !== '#/A/B/C/D/E' + nruta)
 					{	hAs = true;
 		  	  	    	window.location.hash = nruta;//Reafirma la ruta valida
 		  	  	    	hAs = false;
@@ -7073,7 +7074,7 @@ function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario c
 		  	  	  	bin = 1;//bingo
 		  	  	}
 		  	  	if (nruta == rutas[i] + '/')//Bingo! la ruta /***/ existe!
-				{	if (window.location.hash !== '#' + nruta)
+				{	if (window.location.hash !== '#/A/B/C/D/E' + nruta)
 					{	hAs = true;
 		  	  	    	window.location.hash = nruta;//Reafirma la ruta valida
 		  	  	    	hAs = false;
@@ -7794,7 +7795,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						console.error(' __________wPAPA2[1]=',wPAPA2[1],'; vPAPA0[0]=',vPAPA0[0],';  wPAPA1[0]=', wPAPA1[0]);
 						
 						for (var a = 1; a < wPAPA1.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA1[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA1[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -7807,15 +7808,15 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						//es como si lo que pase con wPAPA2[1] afectará indirectamente a vPAPA1[0]
 						go = 1;												//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA2.length; i++)				//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j-1])) 
+						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j+4]))//__-1
 							{ 	go = 0;										//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];							//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];							//la ruta cambia por la sugerida//__0
 							}
 							//codigo ***
 
 							/*
  							for (var a = 1; a < wPAPA1.length; a++)  			//Recorre toda la lista parcial del nivel superior
-							{ 	if(wPAPA1[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA1[#][0]} y mira si es igual al id del padre {papas[#-1]}
+							{ 	if(wPAPA1[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA1[#][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 								{ 	for (var b = 8; b < wPAPA1[a].length; b++)	//
 									{	
 										
@@ -7834,7 +7835,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						console.error(' __________wPAPA2[1]=',wPAPA2[1],'; vPAPA0[0]=',vPAPA0[0]);
 						ff = 2;
 						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA2[i][2] == papas[j-1])//si esa fila es un hijo de wPAPA1
+						{	if(vPAPA2[i][2] == papas[j+4])//si esa fila es un hijo de wPAPA1//__-1
 							{	wPAPA2[ff] = [];
 								for (var k = 0; k < vPAPA2[i].length; k++)
 								{	wPAPA2[ff][k] = vPAPA2[i][k];
@@ -7843,7 +7844,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA2[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA2[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
 								}
 							}
 						}
@@ -7858,7 +7859,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA3[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA2.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA2[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA2[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -7868,15 +7869,15 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA3[i][0] == papas1[j])&&(vPAPA3[i][2] == papas[j-1])) 
+						{ 	if((vPAPA3[i][0] == papas1[j])&&(vPAPA3[i][2] == papas[j+4])) //__-1 
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
 							}
 
 							/*
 							//aqui seria el codigo ***:
 							for (var a = 2; a < wPAPA2.length; a++)  
-							{ 	if(wPAPA2[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							{ 	if(wPAPA2[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
 								{ 	for (var b = 8; b < wPAPA2[a].length; b++)
 									{	wPAPA3[1][b] = wPAPA0[0][b]+', '+ wPAPA1[0][b];//la fila 1 de wPAPA# se hace igual al padre 
 									}
@@ -7885,7 +7886,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							}*/
 							
  							//for (var a = 2; a < wPAPA2.length; a++)  
-							//{ 	if(wPAPA2[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA2[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA3[1][b] = wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -7897,7 +7898,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA3[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA3[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1//__-1
 							{	wPAPA3[ff] = [];
 								for (var k = 0; k < vPAPA3[i].length; k++)
 								{	wPAPA3[ff][k] = vPAPA3[i][k];
@@ -7906,11 +7907,34 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA3[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA3[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
 								}
 							}
 						}
 					break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					case 3:
 						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4
 						//wPAPA4[1] = vPAPA1[0];//Entire territory 
@@ -7920,7 +7944,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA4[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA3.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA3[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA3[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -7930,12 +7954,12 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA4.length; i++)//recorre las filas de vPAPA4, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j-1])) 
+						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j+4])) //-1
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida//__0
 							}
  							//for (var a = 2; a < wPAPA3.length; a++)  
-							//{ 	if(wPAPA3[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA3[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //-1
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA4[1][b] = wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -7947,7 +7971,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA4[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA4[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1//__-1
 							{	wPAPA4[ff] = [];
 								for (var k = 0; k < vPAPA4[i].length; k++)
 								{	wPAPA4[ff][k] = vPAPA4[i][k];
@@ -7956,7 +7980,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA4[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA4[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
 								}
 							}
 						}
@@ -7970,7 +7994,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA5[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA4.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA4[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA4[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -7980,12 +8004,12 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA5[i][0] == papas1[j])&&(vPAPA5[i][2] == papas[j-1])) 
+						{ 	if((vPAPA5[i][0] == papas1[j])&&(vPAPA5[i][2] == papas[j+4])) //__-1
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
 							}
  							//for (var a = 2; a < wPAPA4.length; a++)  
-							//{ 	if(wPAPA4[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA4[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA5[1][b] = wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -7997,7 +8021,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA5[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA5[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
 							{	wPAPA5[ff] = [];
 								for (var k = 0; k < vPAPA5[i].length; k++)
 								{	wPAPA5[ff][k] = vPAPA5[i][k];
@@ -8006,7 +8030,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA5[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA5[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
 								}
 							}
 						}
@@ -8020,7 +8044,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA6[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA5.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA5[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA5[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -8030,12 +8054,12 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA6[i][0] == papas1[j])&&(vPAPA6[i][2] == papas[j-1])) 
+						{ 	if((vPAPA6[i][0] == papas1[j])&&(vPAPA6[i][2] == papas[j+4])) //__-1
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
 							}
  							//for (var a = 2; a < wPAPA5.length; a++)  
-							//{ 	if(wPAPA5[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA5[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA6[1][b] = wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -8047,7 +8071,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA6[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA6[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
 							{	wPAPA6[ff] = [];
 								for (var k = 0; k < vPAPA6[i].length; k++)
 								{	wPAPA6[ff][k] = vPAPA6[i][k];
@@ -8056,7 +8080,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA6[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA6[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
 								}
 							}
 						}
@@ -8070,7 +8094,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA7[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA6.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA6[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA6[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]} //__-1
 							{ 	for (var b = 8; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -8080,12 +8104,12 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA7[i][0] == papas1[j])&&(vPAPA7[i][2] == papas[j-1])) 
+						{ 	if((vPAPA7[i][0] == papas1[j])&&(vPAPA7[i][2] == papas[j+4])) //__-1
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
 							}
  							//for (var a = 2; a < wPAPA6.length; a++)  
-							//{ 	if(wPAPA6[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA6[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA7[1][b] = wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -8097,7 +8121,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA7[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA7[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
 							{	wPAPA7[ff] = [];
 								for (var k = 0; k < vPAPA7[i].length; k++)
 								{	wPAPA7[ff][k] = vPAPA7[i][k];
@@ -8106,7 +8130,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA7[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA7[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
 								}
 							}
 						}
@@ -8120,7 +8144,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA8[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA7.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA7[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA7[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -8130,12 +8154,12 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA8[i][0] == papas1[j])&&(vPAPA8[i][2] == papas[j-1])) 
+						{ 	if((vPAPA8[i][0] == papas1[j])&&(vPAPA8[i][2] == papas[j+4])) //__-1
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
 							}
  							//for (var a = 2; a < wPAPA7.length; a++)  
-							//{ 	if(wPAPA7[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA7[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA8[1][b] = wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -8147,7 +8171,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA8[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA8[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
 							{	wPAPA8[ff] = [];
 								for (var k = 0; k < vPAPA8[i].length; k++)
 								{	wPAPA8[ff][k] = vPAPA8[i][k];
@@ -8156,7 +8180,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA8[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA8[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
 								}
 							}
 						}
@@ -8170,7 +8194,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA9[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA8.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA8[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA8[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -8180,12 +8204,12 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA9[i][0] == papas1[j])&&(vPAPA9[i][2] == papas[j-1])) 
+						{ 	if((vPAPA9[i][0] == papas1[j])&&(vPAPA9[i][2] == papas[j+4])) //__-1
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida  //__0
 							}
  							//for (var a = 2; a < wPAPA8.length; a++)  
-							//{ 	if(wPAPA8[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA8[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1 
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA9[1][b] = wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -8197,7 +8221,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA9[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA9[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
 							{	wPAPA9[ff] = [];
 								for (var k = 0; k < vPAPA9[i].length; k++)
 								{	wPAPA9[ff][k] = vPAPA9[i][k];
@@ -8206,7 +8230,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA9[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA9[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
 								}
 							}
 						}
@@ -8220,7 +8244,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						{	wPAPA10[1][z] = vPAPA0[0][z];
 						}
 						for (var a = 1; a < wPAPA9.length; a++)  			//Recorre toda la lista parcial del nivel superior
-						{ 	if(wPAPA9[a][0] == papas[j-1])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}
+						{ 	if(wPAPA9[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
 							{ 	for (var b = 8; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
@@ -8230,12 +8254,12 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 
 						go = 1;//Buscando un elemento sugerido 
 						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10, mira si coincide con la sugerencia y es un hijo 
-						{ 	if((vPAPA10[i][0] == papas1[j])&&(vPAPA10[i][2] == papas[j-1])) 
+						{ 	if((vPAPA10[i][0] == papas1[j])&&(vPAPA10[i][2] == papas[j+4])) //__-1
 							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-								papas[j]=papas1[j];//la ruta cambia por la sugerida
+								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
 							}
  							//for (var a = 2; a < wPAPA9.length; a++)  
-							//{ 	if(wPAPA9[a][0] == papas[j-1])//Si el id del padre es el mismo del hijo actual 
+							//{ 	if(wPAPA9[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
 							//	{ 	for (var b = 3; b < 8; b++)
 							//		{	wPAPA10[1][b] = wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
 							//		}
@@ -8247,7 +8271,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						ff = 2;
 						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
-						{	if(vPAPA10[i][2] == papas[j-1])//si esa fila es visible y además es un hijo de wPAPA1
+						{	if(vPAPA10[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
 							{	wPAPA10[ff] = [];
 								for (var k = 0; k < vPAPA10[i].length; k++)
 								{	wPAPA10[ff][k] = vPAPA10[i][k];
@@ -8256,7 +8280,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 								ff++;//Siguiente fila
 								if(kk && go)
 								{	go = 0;//Deja de buscar un elemento
-									papas[j] = vPAPA10[i][0];//Toma el primer id del string del elemento de la app que encuentre
+									papas[j+5] = vPAPA10[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
 								}
 							}
 						}
@@ -10063,7 +10087,7 @@ function hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click 
 			var pos;
 			for (var i = 1; i < wPAPA1.length; i++)//Recorrer wPAPA2
 			//for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
-			{	if(wPAPA1[i][0]==papas[0])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2
+			{	if(wPAPA1[i][0]==papas[5])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2 //__0
 				{	pos = i;
 					//guarda en pos cuál es la fila dónde está esa sub-ruta
 					i = wPAPA1.length;
@@ -10074,28 +10098,28 @@ function hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click 
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				//if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[0]=wPAPA1[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[5]=wPAPA1[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista //__0
 						//papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
 					}
 					else
-					{	papas[0]=wPAPA1[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[5]=wPAPA1[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista //__0
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[0]=wPAPA1[wPAPA1.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[5]=wPAPA1[wPAPA1.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición //__0
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA1.length - 1)
 				{	if(salTO>=(wPAPA1.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[0]=wPAPA1[wPAPA1.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[5]=wPAPA1[wPAPA1.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__0
 					}
 					else//Salta adelante
-					{	papas[0]=wPAPA1[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[5]=wPAPA1[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__0
 					}
 				}
 				else
-				{	papas[0]=wPAPA1[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[5]=wPAPA1[1][0];//toma el nuevo id del primer elemento de la lista//__0
 					//papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
 				}
 			}
@@ -10139,7 +10163,7 @@ function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 			
 			for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
 			//for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
-			{	if(wPAPA2[i][0]==papas[1])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2
+			{	if(wPAPA2[i][0]==papas[6])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2 //__1
 				{	pos = i;
 					//guarda en pos cuál es la fila dónde está esa sub-ruta
 					i = wPAPA2.length;
@@ -10160,33 +10184,28 @@ function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 						
 						
 						
-						papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+						papas[6]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista //__1
 						//papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
 					}
 					else
-					{	papas[1]=wPAPA2[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[6]=wPAPA2[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista //__1
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[1]=wPAPA2[wPAPA2.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[6]=wPAPA2[wPAPA2.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición //__1
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA2.length - 1)
 				{	if(salTO>=(wPAPA2.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[1]=wPAPA2[wPAPA2.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[6]=wPAPA2[wPAPA2.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__1
 					}
 					else//Salta adelante
-					{	papas[1]=wPAPA2[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[6]=wPAPA2[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista //__1
 					}
 				}
 				else
-				{	
-					
-					
-					
-					
-					papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[6]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista //__1
 					//papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
 				}
 			}
@@ -10201,7 +10220,7 @@ function hh104(rev)//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la 
 		{	hOU(104);
 			var pos;
 			for (var i = 1; i < wPAPA3.length; i++)
-			{	if(wPAPA3[i][0]==papas[2])//Encuentra posición(fila) de i dentro de wPAPA2
+			{	if(wPAPA3[i][0]==papas[7])//Encuentra posición(fila) de i dentro de wPAPA2 //__2
 				{	pos = i;
 					i = wPAPA3.length;//termina el for
 				}
@@ -10209,27 +10228,27 @@ function hh104(rev)//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la 
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[2]=wPAPA3[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[7]=wPAPA3[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista //__2
 					}
 					else
-					{	papas[2]=wPAPA3[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[7]=wPAPA3[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista //__2
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[2]=wPAPA3[wPAPA3.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[7]=wPAPA3[wPAPA3.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición //__2
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA3.length - 1)
 				{	if(salTO>=(wPAPA3.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[2]=wPAPA3[wPAPA3.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[7]=wPAPA3[wPAPA3.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__2
 					}
 					else//Salta adelante
-					{	papas[2]=wPAPA3[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[7]=wPAPA3[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista //__2
 					}
 				}
 				else
-				{	papas[2]=wPAPA3[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[7]=wPAPA3[1][0];//toma el nuevo id del primer elemento de la lista //__2
 				}
 			}
 			f0124(2);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10242,7 +10261,7 @@ function hh105(rev)//CAMBIAR de lugar 3  sitio(3-9)
 		{	hOU(105);
 			var pos;
 			for (var i = 1; i < wPAPA4.length; i++)
-			{	if(wPAPA4[i][0]==papas[3])//Encuentra cual es la posición de i dentro de wPAPA2
+			{	if(wPAPA4[i][0]==papas[8])//Encuentra cual es la posición de i dentro de wPAPA2 //__3
 				{	pos = i;
 					i = wPAPA4.length;//termina el for
 				}
@@ -10250,27 +10269,27 @@ function hh105(rev)//CAMBIAR de lugar 3  sitio(3-9)
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[3]=wPAPA4[1][0];
+					{ 	papas[8]=wPAPA4[1][0];//__3
 					}
 					else
-					{	papas[3]=wPAPA4[pos + salTO][0];
+					{	papas[8]=wPAPA4[pos + salTO][0];//__3
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[3]=wPAPA4[wPAPA4.length - 1][0];
+				{	papas[8]=wPAPA4[wPAPA4.length - 1][0];//__3
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA4.length - 1)
 				{	if(salTO>=(wPAPA4.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[3]=wPAPA4[wPAPA4.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[8]=wPAPA4[wPAPA4.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__3
 					}
 					else//Salta adelante
-					{	papas[3]=wPAPA4[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[8]=wPAPA4[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista //__3
 					}
 				}
 				else
-				{	papas[3]=wPAPA4[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[8]=wPAPA4[1][0];//toma el nuevo id del primer elemento de la lista //__3
 				}
 			}
 			f0124(3);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10283,7 +10302,7 @@ function hh106(rev)//CAMBIAR de lugar 4  sitio(4-9)
 		{	hOU(106);
 			var pos;
 			for (var i = 1; i < wPAPA5.length; i++)
-			{	if(wPAPA5[i][0]==papas[4])//Encuentra cual es la posición de i dentro de wPAPA2
+			{	if(wPAPA5[i][0]==papas[9])//Encuentra cual es la posición de i dentro de wPAPA2 //__4
 				{	pos = i;
 					i = wPAPA5.length;//termina el for
 				}
@@ -10291,27 +10310,27 @@ function hh106(rev)//CAMBIAR de lugar 4  sitio(4-9)
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[4]=wPAPA5[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[9]=wPAPA5[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__4
 					}
 					else
-					{	papas[4]=wPAPA5[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[9]=wPAPA5[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__4
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[4]=wPAPA5[wPAPA5.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[9]=wPAPA5[wPAPA5.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__4
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA5.length - 1)
 				{	if(salTO>=(wPAPA5.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[4]=wPAPA5[wPAPA5.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[9]=wPAPA5[wPAPA5.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__4
 					}
 					else//Salta adelante
-					{	papas[4]=wPAPA5[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[9]=wPAPA5[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__4
 					}
 				}
 				else
-				{	papas[4]=wPAPA5[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[9]=wPAPA5[1][0];//toma el nuevo id del primer elemento de la lista//__4
 				}
 			}
 			f0124(4);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10324,7 +10343,7 @@ function hh107(rev)//CAMBIAR de lugar 5 sitio(5-9)
 		{	hOU(107);
 			var pos;
 			for (var i = 1; i < wPAPA6.length; i++)
-			{	if(wPAPA6[i][0]==papas[5])//Encuentra cual es la posición de i dentro de wPAPA2
+			{	if(wPAPA6[i][0]==papas[10])//Encuentra cual es la posición de i dentro de wPAPA2//__5
 				{	pos = i;
 					i = wPAPA6.length;//termina el for
 				}
@@ -10332,27 +10351,27 @@ function hh107(rev)//CAMBIAR de lugar 5 sitio(5-9)
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[5]=wPAPA6[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[10]=wPAPA6[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__5
 					}
 					else
-					{	papas[5]=wPAPA6[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[10]=wPAPA6[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__5
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[5]=wPAPA6[wPAPA6.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[10]=wPAPA6[wPAPA6.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__5
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA6.length - 1)
 				{	if(salTO>=(wPAPA6.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[5]=wPAPA6[wPAPA6.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[10]=wPAPA6[wPAPA6.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__5
 					}
 					else//Salta adelante
-					{	papas[5]=wPAPA6[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[10]=wPAPA6[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__5
 					}
 				}
 				else
-				{	papas[5]=wPAPA6[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[10]=wPAPA6[1][0];//toma el nuevo id del primer elemento de la lista//__5
 				}
 			}
 			f0124(5);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10365,7 +10384,7 @@ function hh108(rev)//CAMBIAR de lugar 6  sitio(6-9)
 		{	hOU(108);
 			var pos;
 			for (var i = 1; i < wPAPA7.length; i++)
-			{	if(wPAPA7[i][0]==papas[6])//Encuentra cual es la posición de i dentro de wPAPA2
+			{	if(wPAPA7[i][0]==papas[11])//Encuentra cual es la posición de i dentro de wPAPA2 //__6
 				{	pos = i;
 					i = wPAPA7.length;//termina el for
 				}
@@ -10373,27 +10392,27 @@ function hh108(rev)//CAMBIAR de lugar 6  sitio(6-9)
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[6]=wPAPA7[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[11]=wPAPA7[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__6
 					}
 					else
-					{	papas[6]=wPAPA7[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[11]=wPAPA7[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__6
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[6]=wPAPA7[wPAPA7.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[11]=wPAPA7[wPAPA7.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__6
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA7.length - 1)
 				{	if(salTO>=(wPAPA7.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[6]=wPAPA7[wPAPA7.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[11]=wPAPA7[wPAPA7.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__6
 					}
 					else//Salta adelante
-					{	papas[6]=wPAPA7[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[11]=wPAPA7[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__6
 					}
 				}
 				else
-				{	papas[6]=wPAPA7[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[11]=wPAPA7[1][0];//toma el nuevo id del primer elemento de la lista//__6
 				}
 			}
 			f0124(6);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10406,7 +10425,7 @@ function hh109(rev)//CAMBIAR de lugar 7  sitio(7-9)
 		{	hOU(109);
 			var pos;
 			for (var i = 1; i < wPAPA8.length; i++)
-			{	if(wPAPA8[i][0]==papas[7])//Encuentra cual es la posición de i dentro de wPAPA2
+			{	if(wPAPA8[i][0]==papas[12])//Encuentra cual es la posición de i dentro de wPAPA2//__7
 				{	pos = i;
 					i = wPAPA8.length;//termina el for
 				}
@@ -10414,27 +10433,27 @@ function hh109(rev)//CAMBIAR de lugar 7  sitio(7-9)
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[7]=wPAPA8[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[12]=wPAPA8[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__7
 					}
 					else
-					{	papas[7]=wPAPA8[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[12]=wPAPA8[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__7
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[7]=wPAPA8[wPAPA8.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[12]=wPAPA8[wPAPA8.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__7
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA8.length - 1)
 				{	if(salTO>=(wPAPA8.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[7]=wPAPA8[wPAPA8.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[12]=wPAPA8[wPAPA8.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__7
 					}
 					else//Salta adelante
-					{	papas[7]=wPAPA8[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[12]=wPAPA8[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__7
 					}
 				}
 				else
-				{	papas[7]=wPAPA8[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[12]=wPAPA8[1][0];//toma el nuevo id del primer elemento de la lista//__7
 				}
 			}
 			f0124(7);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10447,7 +10466,7 @@ function hh110(rev)//CAMBIAR de lugar 8  sitio(8-9)
 		{	hOU(110);
 			var pos;
 			for (var i = 1; i < wPAPA9.length; i++)
-			{	if(wPAPA9[i][0]==papas[8])//Encuentra cual es la posición de i dentro de wPAPA2
+			{	if(wPAPA9[i][0]==papas[13])//Encuentra cual es la posición de i dentro de wPAPA2 //__8
 				{	pos = i;
 					i = wPAPA9.length;//termina el for
 				}
@@ -10455,27 +10474,27 @@ function hh110(rev)//CAMBIAR de lugar 8  sitio(8-9)
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[8]=wPAPA9[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[13]=wPAPA9[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__8
 					}
 					else
-					{	papas[8]=wPAPA9[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[13]=wPAPA9[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__8
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[8]=wPAPA9[wPAPA9.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[13]=wPAPA9[wPAPA9.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__8
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA9.length - 1)
 				{	if(salTO>=(wPAPA9.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[8]=wPAPA9[wPAPA9.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[13]=wPAPA9[wPAPA9.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__8
 					}
 					else//Salta adelante
-					{	papas[8]=wPAPA9[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[13]=wPAPA9[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__8
 					}
 				}
 				else
-				{	papas[8]=wPAPA9[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[13]=wPAPA9[1][0];//toma el nuevo id del primer elemento de la lista//__8
 				}
 			}
 			f0124(8);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10488,7 +10507,7 @@ function hh111(rev)//CAMBIAR de lugar 9  sitio(9-9)
 		{	hOU(111);
 			var pos;
 			for (var i = 1; i < wPAPA10.length; i++)
-			{	if(wPAPA10[i][0]==papas[9])//Encuentra cual es la posición de i dentro de wPAPA2
+			{	if(wPAPA10[i][0]==papas[14])//Encuentra cual es la posición de i dentro de wPAPA2 //__9
 				{	pos = i;
 					i = wPAPA10.length;//termina el for
 				}
@@ -10496,27 +10515,27 @@ function hh111(rev)//CAMBIAR de lugar 9  sitio(9-9)
 			if(salTO<0)//rev:5-9 salTO's negativos
 			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
 				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[9]=wPAPA10[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+					{ 	papas[14]=wPAPA10[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__9
 					}
 					else
-					{	papas[9]=wPAPA10[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista
+					{	papas[14]=wPAPA10[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__9
 					}
 				}
 				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[9]=wPAPA10[wPAPA10.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición
+				{	papas[14]=wPAPA10[wPAPA10.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__9
 				}
 			}
 			else//rev:0-4 salTO's positivos
 			{	if(pos<wPAPA10.length - 1)
 				{	if(salTO>=(wPAPA10.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[9]=wPAPA10[wPAPA10.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista
+					{ 	papas[14]=wPAPA10[wPAPA10.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__9
 					}
 					else//Salta adelante
-					{	papas[9]=wPAPA10[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista
+					{	papas[14]=wPAPA10[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__9
 					}
 				}
 				else
-				{	papas[9]=wPAPA10[1][0];//toma el nuevo id del primer elemento de la lista
+				{	papas[14]=wPAPA10[1][0];//toma el nuevo id del primer elemento de la lista//__9
 				}
 			}
 			f0124(9);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -10529,7 +10548,7 @@ function hh112()//CAMBIAR de comunidad
 		{	hOG(112);
 			var col = 0;
 			for (var i = 1; i < 10; i++)
-			{	if(papas[i]!=0)
+			{	if(papas[i+5]!=0)//__0
 				{ 	col++;
 				}
 				else

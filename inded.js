@@ -2369,7 +2369,7 @@ var nmarqi = 0;//Número de veces que ha pasado la marquesina internacional
 var nruta;//quita el # ajusta el string ruta y se vuelve array
 var nUm;//Variable del estado de la luz
 var orig = ['', ''];//String original del ingles[0] ASL[1]
-var papas = [7, 1, 8, 2, 1, 0, 0, 0, 0, 0, ''];//[7, 11, 8, 2, 8, 0, 0, 0, 0, 0, ''](ruta errada es 7,11,8,2,8,0,0,0... )7,1,8,2,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
+var papas = ['A','B','C','D','E',7, 1, 8, 2, 1, 0, 0, 0, 0, 0, ''];//[7, 11, 8, 2, 8, 0, 0, 0, 0, 0, ''](ruta errada es 7,11,8,2,8,0,0,0... )7,1,8,2,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 //var 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 var papas0 = [];//array limpio de papas y sin ceros. [7]
 var papas1 = [];//array de lo que falta a papas para completar la ruta sugerida [empty, 11, 8, 2, 8]
@@ -2383,7 +2383,7 @@ var roto 		/**/ = 0;//1:Cancelar orden reciente de focus sobre un punto - 0:Perm
 var rumba = '';//Pasado de rumbi en el navegador
 var rumbo = [];//Array con el nuevo rumbo que asigna el usuario desde el navegador ['7', '11', '8', '2', '8']
 var rumbi = '';//String de rumbo unida con i'es para hacer consultas a la BD '7i11i8i2i8'
-var rUtA ;	//Guarda el texto del Hash actual de la URL con window.location.hash '#/7/11/8/2/8'
+var rUtA ;	//Guarda el texto del Hash actual de la URL con window.location.hash '#/A/B/C/D/E/7/11/8/2/8'
 var sale = '';//texto original con espacios en el display de la interfaz M
 var salo = '';//texto modificado de sale para mostrarlo con espacios de color
 var salTO = 1;//Tamaño del salto					
