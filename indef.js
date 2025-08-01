@@ -7912,29 +7912,6 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 							}
 						}
 					break;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					case 3:
 						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4
 						//wPAPA4[1] = vPAPA1[0];//Entire territory 

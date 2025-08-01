@@ -1,4 +1,6 @@
-Pendientes linea 7915/37 indef papas[   +5
+Pendientes 
+
+quitar los //__ por el papas[+5]
 
 *****: Publicados en todo el territorio, cambiar
 
