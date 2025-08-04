@@ -813,8 +813,10 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				*/
 
 				
-				mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][7 + id];
-				mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][8];
+				mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][2 + ext + id];
+				mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][3 + ext];
+				//mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][7 + id];
+				//mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][8];
 				
 			}
 			visON = '0';//AGREGAR casilla 0 de "arriba"
@@ -6090,7 +6092,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			wPAPA1 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2
 			
 			
-			wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
+			wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
 			//wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
 			
 			
@@ -8292,7 +8294,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						
 						for (var a = 1; a < wPAPA1.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA1[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA1.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8356,7 +8359,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA2.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA2[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA2.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8418,7 +8422,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA3.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA3[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA3.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8468,7 +8473,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA4.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA4[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA4.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8518,7 +8524,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA5.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA5[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA5.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8568,7 +8575,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA6.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA6[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]} //__-1
-							{ 	for (var b = 8; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA6.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8618,7 +8626,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA7.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA7[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA7.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8668,7 +8677,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA8.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA8[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA8.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8718,7 +8728,8 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA9.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA9[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 8; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3 + ext; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+								//for (var b = 8; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA9.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
