@@ -5546,7 +5546,404 @@ if (cF > 0)    //Aún no termina..
 */
 function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
 		{	lOG(107);
-			//console.error(' - -----------------______________ f0107() [idioma seña y ruta]  papas=,',papas);
+			// Obtener el hash de la URL
+			hAsH=window.location.hash;
+			//Leer el valor del hash y establecer una ruta madre (inicial), si el hash tiene parametros entonces configurar el sitio web con los parametros del hash
+			console.error('|> f0107()________ hash inicial=',hAsH,'; papas=',papas);
+			// Verificar que tenga más de 10 caracteres y  si comienza con "#/A", si es asi posiblemente es un formato valido
+			if ((hAsH.length > 10)&&(hAsH.substring(0, 3) === "#/A")) //Inicia con 'A' de la ruta madre, posiblemente es valida
+			{	// Quitar el # inicial y dividir por "/"
+      			var pArTs = hAsH.substring(2).split("/"); // Eliminar el "#/" con hAsH.substring(2) y crear un array con .split("/") ...['A', 'B', 'C', 'D', 'E', '7', '11', '8', '2', '8']
+				console.log(' pArTs=',pArTs);
+				// Verificar que pArTs[1-4] comienzan con "B,C,D,E" para terminar de ser valida como formato
+				if((pArTs[1].substring(0, 1) === "B")&&(pArTs[2].substring(0, 1) === "C")&&(pArTs[3].substring(0, 1) === "D")&&(pArTs[4].substring(0, 1) === "E"))
+				{	console.log('inicia con A,B,C,D y E!, formato verificado!');
+					// Crear el array sin valores vacíos
+      				ArRay = [];
+      				for (var i = 0; i < pArTs.length; i++)
+					{	if (pArTs[i] !== "")
+						{	// Si el índice es mayor a 3 y es un número válido, conviértelo a número
+        					if (i > 3 && !isNaN(pArTs[i]))// Seleccionar los elementos mayores a 3 y que son números (!"is Not a Number")
+							{	ArRay.push(Number(pArTs[i]));// Si el índice es mayor a 3 y es un número válido, conviértelo a número (Number) y luego adiciónalo (push)
+        					}
+							else
+							{	ArRay.push(pArTs[i]);// Si el índice es menor o igual a 3, adiciónalo (push)
+        					}
+       					}
+      				}
+					// Verificar que pArTs[5,6,7,...] sea una ruta valida
+					// Determinar la cantidad de tablas parciales de la ruta
+					var cTp = ArRay.length - 5;
+					console.log('Cantidad de tablas parciales=',cTp);
+					var o = 0; // Orden de continuar con la siguiente ruta parcial..
+					var v = 0; // Contador de verificaciones
+					var f = 0; // Fin de una verificación con exito
+					//Ciclo para recorrer las tablas parciales
+
+
+
+
+
+					// FALTA ANALIZAR EL 1 como ruta parcial para ser valida debe tener almenos un hermano, es decir debe haber al menos un hijo o lugar en esa misma ruta parcial!!
+					for(var i = 0; i<cTp; i++)
+					{	console.log('Ruta sin verificar i=',i,'; o=',o);
+						switch (i)
+						{	case 0:
+								console.log(i,' ArRay[5]=',ArRay[5]);
+								if(((v + 1)==cTp)&&(ArRay[5]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+								{	f = 1;	
+								}
+								if(!f) // Si no finaliza por ruta parcial 1..
+								{	for(var j = 0; j<(vPAPA1.length); j++)
+									{	console.log(i,' j=',j,'vPAPA1[j][0]=',vPAPA1[j][0]);
+										if(ArRay[5]==vPAPA1[j][0])//El id hijo en la ruta parcial 0 si está
+										{	f = 1; // Validación parcial
+											if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+											{	for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+												{	if(vPAPA2[k][2]==ArRay[5])// Si existe una otra ruta parcial, encontró un elemento cuyo padre es la ruta parcial
+													{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+														// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+														// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+														f = 0; // Cancelar la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+														console.log(' Cancelado por tener hijos f=',f);
+														k = vPAPA2.length; // Termina la busqueda de hijos
+													}
+												}	
+											}
+											j = vPAPA1.length;
+										}
+									}
+								}
+							break;
+							case 1:
+								console.log(i,' ArRay[6]=',ArRay[6]);
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[6]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA2.length); j++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	console.log(i,' j=',j,'vPAPA2[j][0]=',vPAPA2[j][0]);
+											if((ArRay[6]==vPAPA2[j][0])&&(ArRay[5]==vPAPA2[j][2])) // El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA3.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA3[k][2]==ArRay[6])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA3.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA2.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp;//Termina el proceso sin exito
+								};
+							break;
+							case 2:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[7]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA3.length); j++)
+										{	console.log(i,' j=',j,'vPAPA3[j][0]=',vPAPA3[j][0]);
+											if((ArRay[7]==vPAPA3[j][0])&&(ArRay[6]==vPAPA3[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA4.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA4[k][2]==ArRay[7])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA4.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA3.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp;//Termina el proceso sin exito
+								};
+							break;
+							case 3:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[8]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA4.length); j++)
+										{	console.log(i,' j=',j,'vPAPA4[j][0]=',vPAPA4[j][0]);
+											if((ArRay[8]==vPAPA4[j][0])&&(ArRay[7]==vPAPA4[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA5.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA5[k][2]==ArRay[8])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA5.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA4.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp;//Termina el proceso sin exito
+								};
+							break;
+							case 4:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[9]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA5.length); j++)
+										{	console.log(i,' j=',j,'vPAPA5[j][0]=',vPAPA5[j][0]);
+											if((ArRay[9]==vPAPA5[j][0])&&(ArRay[8]==vPAPA5[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA6.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA6[k][2]==ArRay[9])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA6.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA5.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp; // Termina el proceso sin exito
+								};
+							break;
+							case 5:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[10]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA6.length); j++)
+										{	console.log(i,' j=',j,'vPAPA6[j][0]=',vPAPA6[j][0]);
+											if((ArRay[10]==vPAPA6[j][0])&&(ArRay[9]==vPAPA6[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA7.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA7[k][2]==ArRay[10])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA7.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA6.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp; // Termina el proceso sin exito
+								};
+							break;
+							case 6:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[11]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA7.length); j++)
+										{	console.log(i,' j=',j,'vPAPA7[j][0]=',vPAPA7[j][0]);
+											if((ArRay[11]==vPAPA7[j][0])&&(ArRay[10]==vPAPA7[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA8.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA8[k][2]==ArRay[11])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA8.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA7.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp; // Termina el proceso sin exito
+								};
+							break;
+							case 7:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[12]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA8.length); j++)
+										{	console.log(i,' j=',j,'vPAPA8[j][0]=',vPAPA8[j][0]);
+											if((ArRay[12]==vPAPA8[j][0])&&(ArRay[11]==vPAPA8[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA9.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA9[k][2]==ArRay[12])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA9.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA8.length;
+											}
+										}
+									}
+								}	
+								else
+								{	i = cTp; // Termina el proceso sin exito
+								};
+							break;
+							case 8:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[13]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA9.length); j++)
+										{	console.log(i,' j=',j,'vPAPA9[j][0]=',vPAPA9[j][0]);
+											if((ArRay[13]==vPAPA9[j][0])&&(ArRay[12]==vPAPA9[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA10.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA10[k][2]==ArRay[13])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA10.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA9.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp; // Termina el proceso sin exito
+								};
+							break;
+							case 9:
+								if(o == 1)
+								{	o = 0;
+									f = 0;
+									if(((v + 1)==cTp)&&(ArRay[14]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
+									{	f = 1;	
+									}
+									if(!f) // Si no finaliza por ruta parcial 1..
+									{	for(var j = 1; j<(vPAPA10.length); j++)
+										{	console.log(i,' j=',j,'vPAPA10[j][0]=',vPAPA10[j][0]);
+											if((ArRay[14]==vPAPA10[j][0])&&(ArRay[13]==vPAPA10[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
+											{	f = 1; // Validación parcial
+												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+												{	for(var k = 1; k<(vPAPA11.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+													{	if(vPAPA11[k][2]==ArRay[14])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
+															f = 0; // Cancela la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+															console.log(' Cancelado por tener hijos f=',f);
+															k = vPAPA11.length; // Termina la busqueda de hijos
+														}
+													}	
+												}
+												j = vPAPA10.length;
+											}
+										}
+									}
+								}
+								else
+								{	i = cTp; // Termina el proceso sin exito
+								};
+							break;
+						}
+						if(f)
+						{	o = 1;//Verificación de la ruta parcial y orden de continuar con la siguiente ruta parcial
+							v++;
+							console.log('Verificación=',i,'; o=',o);
+						}
+					}
+					console.log(' v=',v);
+					if((o)&&(v==cTp)) // Si es ok y la cantidad de verificaciónes es la que se esperaba ...
+					{	console.log('Ruta verificada, es valida');
+					}
+					else // pArTs[5,6,7,...] no es una ruta valida
+					{	console.log('Ruta no existe, NO es valida');
+						f0156();// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
+					}
+				}
+				else // No continúa con 'B,C,D,E' de la ruta madre, formato no es valido
+				{	f0156();// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
+				}
+			}
+			else // No inicia con 'A' la ruta madre, formato esta vacio o no es valido
+			{	f0156();// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
+			}
+      		// Mostrar el resultado
+      		console.log('|> ArRay inicial=',ArRay);
+			
+
+
+			//
+
+			console.error(' - -----------------______________ f0107() [idioma seña y ruta]  papas=,',papas);
 			/*
 			for (var i = wIdi.length - 1; i >= 1; i--)//Recorre el array de idiomas
 			{	r002A[wIdi[i][3]][1]= i +', '+ wIdi[i][1];//toma el idioma de wIdi;
@@ -6876,26 +7273,31 @@ function f0125(ini)//ESTABLECER el string de los botones de todos los Lugares (s
 			f0126();//ACTUALIZAR la ruta
 		}
 
-function f0126()//ACTUALIZAR la ruta
+function f0126()//ACTUALIZAR la ruta NO?
+				//f0126 debe usarse una sola vez? o es la encargada de modificar la salida del hash con base ey por ende?
 		{	lOG(126);
 			console.error('|> Flag  126 0. - - - ________f0126() actualizando ruta actual=',window.location.hash,'; papas=',papas);
-			var ruta = '';
-			for (var i = 0; i < 11; i++)
-			{		
-				if(papas[i+5]!=0)//Si no es un cero//__0
-				{	ruta+='/'+papas[i+5];//__0
+			var ruta = '';//Borra toda la ruta que va a salir por el hash
+			for (var i = 0; i < 11; i++)//Recorre la parte del papas que maneja la ruta
+			{	if(papas[i+5]!=0)//Si la casilla de ruta no es un cero//__0
+				{	ruta+='/'+papas[i+5];//Adiciona ese valor de papas a la ruta precedido con un separador (/) de barra inclinada... /7/11/8/2/8...  //__0
 				}
-				else
-				{	papas[i+5] = 0;//papas[i] = 0//__0
-					i = 11;//Termina el for
+				else//Termina el proceso
+				{	papas[i+5] = 0;//Está fila creo que sobra y es innecesaria (REVIZAR)          papas[i] = 0//__0
+					i = 11;//Detiene el for para que pare
 				}			
 			}
-			document.location='#/A/B/C/D/E'+ruta;//+'-'+g00VARS[45][2];//__Sin abcd
+			document.location='#/A/B/C/D/E'+ruta;//actualiza el valor del hash adicionando a la parte de los parametros ABCDE la parte de la ruta /7/11/8/2/8   +'-'+g00VARS[45][2];//__Sin abcd
 			//console.log('|> Flag  126 1. - - - ________f0126() actualizando ruta nueva=',window.location.hash,'; ncBD=',ncBD,'; iniR=',iniR);
+			
+			console.error('######################|> Flag  126 0. - - - ________f0126() ruta=',ruta,'; papas=',papas,'; ncBD=',ncBD,'; iniR=',iniR);
+			
+			
 			if((!ncBD)&&(iniR))// Si (ncBD Numero de consultas a la base de datos) y ( iniR Activar la ruta inicial)
 			{	iniR = 0;//Va a cargar la ruta inicial
 				//console.log(' 2. ruta=',ruta);
-				nruta = ruta.slice(1);//quita el # ajusta el string ruta
+				nruta = ruta.slice(1);//nruta quita el prirmer / de la ruta 7/11/8/2/8
+				console.error(' +++++++++++++++++++++++++++++++ ##############3 nruta=',nruta);
 				//console.log(' 3. |> Flag  126 -> 142 *');
 				f0142();//CONSULTAR a la base de datos por cierta collección
 			}
@@ -6948,7 +7350,7 @@ las funciones de la function f0128() a la function f0137() estan reservadas en i
 
 function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(138);//simiqlar a f0124() ver cuando corre la una y cuando la otra
-			console.log('##### 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 ini');	
+			console.log('################################### 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 ini  papas=,',papas,'; nruta(*)=',nruta);	
 
 			//nota
 			// pendiente detener proceso cuando papas[x+5]=0;//__0
@@ -7021,7 +7423,7 @@ quitar???
 			//console.log(' - - - rrrrr f0124 fin A papas=',papas,';\n wPAPA2=',wPAPA2,';\n wPAPA3=',wPAPA3,';\n wPAPA4=',wPAPA4,';\n wPAPA5=',wPAPA5,';\n wPAPA6=',wPAPA6);
 			//BUSCAR SI HAY ALGUNA RUTA SUGERIDA QUE PASE POR HAY
 			//papas0 = [7, 1, 1, 1, 1]
-			console.log('##### 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 fin');
+			console.log('######################## 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 fin   papas=',papas);
 
 
 		}
@@ -7058,9 +7460,10 @@ function f0140()//CARGAR anuncios en r003
 
 function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta actual de la base de datos
 		{	lOG(141);
+			console.error(' f0141()+++++++++++++++++++++++++++++++ #############');
 		  	rUtA = window.location.hash;//Trae el fragmento de la URL (Hash #)
 		  	nruta = rUtA.slice(1);//quita el # ajusta el string de la ruta
-			console.error(' nruta=',nruta);
+			console.error(' +++++++++++++++++++++++++++++++ ##############0 nruta=',nruta);
 		  	var bin = 0;//Alistar el bingo para verificar que la ruta existe..
 			for (var i = 0; i < rutas.length; i++)
 			{	if (nruta == rutas[i])//Bingo! la ruta /*** existe!
@@ -7070,6 +7473,7 @@ function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario c
 		  	  	    	hAs = false;
 		  	  	  	}
 		  	  	  	nruta = nruta.slice(1);//quita el primer/
+					console.error(' +++++++++++++++++++++++++++++++ ##############1 nruta=',nruta);
 		  	  	  	i = rutas.length;//Termina la busqueda
 		  	  	  	bin = 1;//bingo
 		  	  	}
@@ -7080,6 +7484,7 @@ function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario c
 		  	  	    	hAs = false;
 		  	  	  	}
 		  	  	  	nruta = nruta.slice(1, -1);//quita el primer y el último/
+					console.error(' +++++++++++++++++++++++++++++++ ##############2 nruta=',nruta);
 		  	  	  	i = rutas.length;//Termina la busqueda
 		  	  	  	bin = 1;//bingo
 		  	  	}
@@ -7131,7 +7536,8 @@ function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario c
 /* - - - USANDO MONGO - - - */
 function f0142()//CONSULTAR a la base de datos por cierta collección de una ruta (nueva) que es valida y luego rehubicar el cursor con f0017
 		{	lOG(142);
-			//console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> INI ################');	
+			//PREGUNTA Antes de hacer cualquier cosa aquí, nruta, rumbi y rumbo no deberían ser igual a la parte de la ruta en papas???
+			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> INI ################, bumbi=',rumbi,'; rumbo=',rumbo,'; nruta(*)=',nruta);	
 			
 			//PLANTILLA BÁSICA (mIres3 - la que siempre acompaña a los anuncios)
 			//mIres3 es el texto que sale al dar clic en el cabezote (Primer botón de los anuncios).. "aquí podrás bla,bla,bla", se utiliza tanto para cuando hay anuncios o cuando se ve el satelite de la busqueda de anuncios o no hay anuncios..
@@ -7146,7 +7552,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 			//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios y debe quedar esperando por la llegada de los anuncios
 
 			rumbi = '';
-			rumbo = nruta.split('/');//array de nruta separada con las barras inclinadas
+			rumbo = nruta.split('/');//array de nruta separada con las barras inclinadas  ['7', '11', '8', '2', '8']
 
 			//console.error('|> Flag  ____________________________rumbo=',rumbo,' rumba=',rumba,' A 142 A ...mIres3.. -> 138 INI 1');
 			f0138();//(*rumbo debe declararse primero) ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -7178,7 +7584,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 
 
 
-			rumbi = rumbo.join('i');//String de nruta separada con i'es
+			rumbi = rumbo.join('i');//String de nruta separada con i'es  '7i11i8i2i8'
 			//console.log(' - - - rumbi=',rumbi);
 			if(rumbi!=rumba)//Si no es igual a su pasado en el navegador
 			{	ncBD = ncBD + 1;//Nueva consulta a la BD
@@ -8284,6 +8690,15 @@ f0155()//PREVENIR que se dispare el evento onHash Si el Hash se está actualizan
 			}
 
 
+
+function 
+f0156()//ASIGNAR ruta madre (inicial) por defecto en el hash
+			{	lOG(156);
+				console.log('Hash No inicia con A,B,C,D y E, => Ruta por defecto (por ejemplo Colombia)');
+				//Asignar una ruta básica valida por defecto, puede ser por cokie, id del navegador, GPS, etc:
+				window.location = "#/A/B/C/D/E/1/2/3";
+				ArRay = ['A','B','C','D','E',1,2,3];
+			}
 
 //Nuevo..
 var isCapsLockActive = false;

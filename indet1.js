@@ -167,7 +167,7 @@ const		g00LOGS = [	[  	  0		,0/*0 1[1*/	,0			,0			,'I ACTIVAR ambiente: 0-blanco
 						[	153		,0/*0 1[1*/	,0			,0			,'	ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10'],
 						[	154		,0/*0 1[1*/	,0			,0			,'	ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV y al cabezote de la ruta 3 (Anuncios)'],
 						[	155		,0/*0 1[1*/	,0			,0			,'	PREVENIR que se dispare el evento onHash Si el Hash se está actualizando en ese momento'],
-						[	156		,0/*0 1[1*/	,0			,0			,''],
+						[	156		,0/*0 1[1*/	,0			,0			,'  ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash'],
 						[	157		,0/*0 1[1*/	,0			,0			,''],
 						[	158		,0/*0 1[1*/	,0			,0			,''],
 						[	159		,0/*0 1[1*/	,0			,0			,''],

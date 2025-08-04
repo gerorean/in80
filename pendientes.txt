@@ -1,4 +1,4 @@
-Pendientes 
+Pendientes revizar f0141(f0145<hashchange) o f0126(si varias)  -->f0142 chapineruda  ncBD=1?
 
 quitar los //__ por el papas[+5]
 

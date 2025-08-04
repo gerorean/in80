@@ -2297,6 +2297,7 @@ var ambi 		/**/ = 5;//variable memoria de ambiente, inicia en 5 de ENTRADA ACCES
 //var 	ambi5 			= '';//variable memoria HTML del ambiente 5
 var aMBi 		/**/ = 0;//pasado de ambi
 const app 		/**/ = 'iinfo';//'i' R nombre de la app, "feed your mind" "alimenta tu mente" nombre de la fundación infozone / infoline / infoteam
+var ArRay;	//Array completo de la ruta madre (inicial)
 //const   aPulPre			= 50;//50 Cantidad de pulsos que deben superarse para cambiar el anuncio
 var bMin = 0;//Marca de agua por ventana minimizada 1:Activa
 var bMors = 1;//Esta bandera bMors activada sirve para que no se repita el calculo de las constantes de tiempo Morse sino una vez cada vez que a g00VARS[48][2] se le asigne un valor NUEVO o DIFERENTE del anterior
@@ -2337,6 +2338,7 @@ var go;			//Variable para indicar o controlar si una ruta cumple con cierta cond
 var gRuta		/**/ = 3;//7 to 3; se toman de g02RUTA: 1Modo, 2Configuración, 3Libro comunitario, 7ACCESO etc......
 var gRuTa		/**/ = 0;//Pasado de gRuTa
 var hAs	= false;//Se pone True si el Hash, o Fragmento de la URL, se esta actualizando (isHashUpdating)
+var hAsH;//Almacena el valor del hash
 var hFila;//alto de una fila de la marquesina
 var hid = 10;//Sitio con información oculta [2-9]	
 var ii = [0, 0, 0];//Contadores de los indicadores para asignarles colores 0:gris  1:azul 2:naranja 3:violeta 4:verde 5-6-7-8-9:amarillo +10:blanco
@@ -2366,15 +2368,15 @@ var ncBD = 0;//Numero de consultas a la base de datos
 var nFila = [0, 0, 1, 100, 1, 1];//número de filas la marquesina local[0], en ingles[1], capacidad de filas de la marquesina [2], ancho de la marquesina en pixeles[3], capacidad promedio de letras de cada fila de la marquesina [4] y Capacidad teorica de la marquesina para mostrar letras [5], entre más letras necesita más tiempo para cada cambio de texto
 //var 	nmarqe			= 0;//Número de veces que ha pasado la marquesina local
 var nmarqi = 0;//Número de veces que ha pasado la marquesina internacional
-var nruta;//quita el # ajusta el string ruta y se vuelve array
+var nruta;//quita el # ajusta el string ruta y se vuelve array '7/11/8/2/8'
 var nUm;//Variable del estado de la luz
 var orig = ['', ''];//String original del ingles[0] ASL[1]
 //var papas = ['A','B','C','D','E',7, 1, 8, 2, 1, 0, 0, 0, 0, 0, ''];//[7, 11, 8, 2, 8, 0, 0, 0, 0, 0, ''](ruta errada es 7,11,8,2,8,0,0,0... )7,1,8,2,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
-var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',7, 1, 8, 2, 1, 0, 0, 0, 0, 0, ''];
+var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',7, 11, 8, 2, 1, 0, 0, 0, 0, 0, ''];
 //var 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 var papas0 = [];//array limpio de papas y sin ceros. [7]
 var papas1 = [];//array de lo que falta a papas para completar la ruta sugerida [empty, 11, 8, 2, 8]
-var paSpas = [7, 1, 8, 2, 1, 0, 0, 0, 0, 0, ''];//Pasado de papas, debe guardar el último registro de papas antes de un cambio del mismo
+var paSpas = [7, 11, 8, 2, 1, 0, 0, 0, 0, 0, ''];//Pasado de papas, debe guardar el último registro de papas antes de un cambio del mismo
 //var 	per				= [1,1,1,1,1,1,1,1,1,1,1];//Permisos de los sitios (papas) 1:ON 0:OFF(por mostrar carteleras)
 var progresi;//la mitad del ancho del body que debe recorrer la marquesina en ingles, controla el avance de la marquesina en ingles		
 var progreso;//la mitad del ancho del body que debe recorrer la marquesina local, no cambia porque se usa para cambiar los anuncios	
