@@ -5591,7 +5591,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 						{	case 0:
 								console.log(i,' ArRay[5]=',ArRay[5]);
 								if(((v + 1)==cTp)&&(ArRay[5]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-								{	f = 1;	
+								{	f = 1;	// "Validación ruta parcial 1"
 								}
 								if(!f) // Si no finaliza por ruta parcial 1..
 								{	for(var j = 0; j<(vPAPA1.length); j++)
@@ -5608,7 +5608,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 														console.log(' Cancelado por tener hijos f=',f);
 														k = vPAPA2.length; // Termina la busqueda de hijos
 													}
-												}	
+												}
 											}
 											j = vPAPA1.length;
 										}
@@ -5620,8 +5620,18 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								if(o == 1)
 								{	o = 0;
 									f = 0;
-									if(((v + 1)==cTp)&&(ArRay[6]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									if(((v + 1)==cTp)&&(ArRay[6]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA2[k][2]==ArRay[5])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA2.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA2.length); j++) // No arranca desde 0 sino de 1 por el id 1 valido
@@ -5654,7 +5664,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[7]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA3.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA3[k][2]==ArRay[6])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA3.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA3.length); j++)
@@ -5687,7 +5707,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[8]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA4.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA4[k][2]==ArRay[7])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA4.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA4.length); j++)
@@ -5720,7 +5750,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[9]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA5.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA5[k][2]==ArRay[8])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA5.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA5.length); j++)
@@ -5753,7 +5793,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[10]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA6.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA6[k][2]==ArRay[9])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA6.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA6.length); j++)
@@ -5786,7 +5836,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[11]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA7.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA7[k][2]==ArRay[10])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA7.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA7.length); j++)
@@ -5819,7 +5879,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[12]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA8.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA8[k][2]==ArRay[11])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA8.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA8.length); j++)
@@ -5852,7 +5922,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[13]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA9.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA9[k][2]==ArRay[12])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA9.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA9.length); j++)
@@ -5885,7 +5965,17 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[14]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	f = 1;	
+									{	// "Validación ruta parcial 1"
+										for(var k = 1; k<(vPAPA10.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+										{	if(vPAPA10[k][2]==ArRay[13])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
+												// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
+												// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
+												f = 1; // Validación total porque si tiene hermanos
+												console.log('1 Valido por tener hermanos f=',f);
+												k = vPAPA10.length; // Termina la busqueda de hermanos
+											}
+										}
 									}
 									if(!f) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA10.length); j++)
