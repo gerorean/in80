@@ -1,4 +1,9 @@
-Pendientes revizar f0141(f0145<hashchange) o f0126(si varias)  -->f0142 chapineruda  ncBD=1?
+Pendientes:
+
+las tablas vPAPA y wPAPA deben contar con columnas de visibilidad(1=visible,0=privada) / id_Hijo_sugerido* / id_tipo_del_lugar(bosque,desierto,ciudad,panaderia,etc..) / GPS-x / GPS-y / GPS-z(o piso 0(suelo), 1(edificación: primer piso), 2, -1, -2??)* / id_color / id_idioma* / id_seña* / id_imagen / id_bandera* / + 3 columnas libres*, disponibles por si se necesitan en un futuro por ejemplo cantidad de habitantes: tamaño en kms2 del lugar/territorio, etc.
+(*): Opcional
+
+revizar f0141(f0145<hashchange) o f0126(si varias)  -->f0142 chapineruda  ncBD=1?
 
 quitar los //__ por el papas[+5]
 
