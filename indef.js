@@ -5580,6 +5580,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					var o = 0; // Orden de continuar con la siguiente ruta parcial..
 					var v = 0; // Contador de verificaciones
 					var f = 0; // Fin de una verificación con exito
+					var x = 0; // En 1 si termina la verificacíon del caso con ids 1 o 2
 					//Ciclo para recorrer las tablas parciales
 
 
@@ -5593,9 +5594,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 						{	case 0:
 								console.log(i,' ArRay[5]=',ArRay[5]);
 								if(((v + 1)==cTp)&&(ArRay[5]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-								{	//f = 1;	// "Validación ruta parcial 1" cancelada porque no se a escogido ningun territorio y 1 o 2 siempre necesitan de un id de un ligar previo
+								{	console.log("Validación por ruta parcial 1");
+									x = 1; // "Validación ruta parcial 1" cancelada porque no se a escogido ningun territorio y 1 o 2 siempre necesitan de un id de un ligar previo
 								}
-								if(!f) // Si no finaliza por ruta parcial 1..
+								if(!f&&!x) // Si no finaliza por ruta parcial 1..
 								{	for(var j = 1; j<(vPAPA1.length); j++)
 									{	console.log(i,' j=',j,'vPAPA1[j][0]=',vPAPA1[j][0]);
 										if(ArRay[5]==vPAPA1[j][0])//El id hijo en la ruta parcial 0 si está
@@ -5634,8 +5636,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA2.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA2.length); j++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	console.log(i,' j=',j,'vPAPA2[j][0]=',vPAPA2[j][0]);
 											if((ArRay[6]==vPAPA2[j][0])&&(ArRay[5]==vPAPA2[j][2])) // El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5677,8 +5680,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA3.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA3.length); j++)
 										{	console.log(i,' j=',j,'vPAPA3[j][0]=',vPAPA3[j][0]);
 											if((ArRay[7]==vPAPA3[j][0])&&(ArRay[6]==vPAPA3[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5720,8 +5724,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA4.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA4.length); j++)
 										{	console.log(i,' j=',j,'vPAPA4[j][0]=',vPAPA4[j][0]);
 											if((ArRay[8]==vPAPA4[j][0])&&(ArRay[7]==vPAPA4[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5763,8 +5768,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA5.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA5.length); j++)
 										{	console.log(i,' j=',j,'vPAPA5[j][0]=',vPAPA5[j][0]);
 											if((ArRay[9]==vPAPA5[j][0])&&(ArRay[8]==vPAPA5[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5806,8 +5812,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA6.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA6.length); j++)
 										{	console.log(i,' j=',j,'vPAPA6[j][0]=',vPAPA6[j][0]);
 											if((ArRay[10]==vPAPA6[j][0])&&(ArRay[9]==vPAPA6[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5849,8 +5856,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA7.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA7.length); j++)
 										{	console.log(i,' j=',j,'vPAPA7[j][0]=',vPAPA7[j][0]);
 											if((ArRay[11]==vPAPA7[j][0])&&(ArRay[10]==vPAPA7[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5892,8 +5900,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA8.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA8.length); j++)
 										{	console.log(i,' j=',j,'vPAPA8[j][0]=',vPAPA8[j][0]);
 											if((ArRay[12]==vPAPA8[j][0])&&(ArRay[11]==vPAPA8[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5935,8 +5944,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA9.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA9.length); j++)
 										{	console.log(i,' j=',j,'vPAPA9[j][0]=',vPAPA9[j][0]);
 											if((ArRay[13]==vPAPA9[j][0])&&(ArRay[12]==vPAPA9[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
@@ -5978,8 +5988,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												k = vPAPA10.length; // Termina la busqueda de hermanos
 											}
 										}
+										x = 1;
 									}
-									if(!f) // Si no finaliza por ruta parcial 1..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1..
 									{	for(var j = 1; j<(vPAPA10.length); j++)
 										{	console.log(i,' j=',j,'vPAPA10[j][0]=',vPAPA10[j][0]);
 											if((ArRay[14]==vPAPA10[j][0])&&(ArRay[13]==vPAPA10[j][2]))//El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
