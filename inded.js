@@ -2231,7 +2231,7 @@ const vPAPA1 = [
 [4, 1, 0, 2, 23, 5, 23, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Europe', 'Europa', "L'Europe", '유럽'],
 [5, 1, 0, 3, 24, 5, 24, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
 [6, 1, 0, 4, 21, 5, 21, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
-[7, 1, 0, 5, 25, 5, 25, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
+[7, 0, 0, 5, 25, 5, 25, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
 ]
 
 /*
