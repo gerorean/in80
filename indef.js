@@ -1,4 +1,4 @@
-///7/1/8/2/2  (1-7)barrio de chapinero
+///7/1/8/9/9  (1-7)barrio de chapinero
 ///7/1/8/4 loc puente aranda
 //papas
 // (11) ['A','B','C','D','E',7, 1, 8, 2, 1, 0, 0, 0, 0, 0, '']
@@ -5292,16 +5292,16 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 				//////						/// SWITCH CON LA BASE DE DATOS MONGO mongo
 				//////
 				//////						/// SWITCH SIN LA BASE DE DATOS MONGO mongo
-				//////						//if(nruta == '7/1/8/2/2')//Bingo!
-				//////						//'/7/11/8/2/1','/7/11/8/2/2','/7/11/8/2/3','/7/11/8/2/4','/7/11/8/2/5','/7/11/8/2/6','/7/11/8/2/7','/7/11/8/2/8','/7/11/8/4'
-				//////						if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
-				//////						//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+				//////						//if(nruta == '7/1/8/9/9')//Bingo!
+				//////						//'/7/11/8/9/1','/7/11/8/9/9','/7/11/8/9/3','/7/11/8/9/4','/7/11/8/9/5','/7/11/8/9/6','/7/11/8/9/7','/7/11/8/9/8','/7/11/8/4'
+				//////						if(['7/11/8/9/1','7/11/8/9/9','7/11/8/9/3','7/11/8/9/4','7/11/8/9/5','7/11/8/9/6','7/11/8/9/7','7/11/8/9/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+				//////						//if(['7/1/8/4','7/1/8/9/1','7/1/8/9/9','7/1/8/9/3','7/1/8/9/4','7/1/8/9/5','7/1/8/9/6','7/1/8/9/7'].indexOf(nruta) !== -1) //Bingo!
 				//////						//if(nruta == '7/1/8/4')//Bingo!
 				//////						{	mIc003A = [];
 				//////							mIc003B = [];
 				//////							mIc003Z = [];
-				//////							if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
-				//////							//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+				//////							if(['7/11/8/9/1','7/11/8/9/9','7/11/8/9/3','7/11/8/9/4','7/11/8/9/5','7/11/8/9/6','7/11/8/9/7','7/11/8/9/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+				//////							//if(['7/1/8/4','7/1/8/9/1','7/1/8/9/9','7/1/8/9/3','7/1/8/9/4','7/1/8/9/5','7/1/8/9/6','7/1/8/9/7'].indexOf(nruta) !== -1) //Bingo!
 				//////							//if(nruta == '7/1/8/4')//Bingo!
 				//////							{	switch (nruta) {
 				//////								  case '7/11/8/4'://puente aranda
@@ -5311,7 +5311,7 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 				//////									mIc003Z = mIc003Z0;
 				//////									mIc003B = mIc003B0;
 				//////								    break;
-				//////								  //case '7/1/8/2/200':
+				//////								  //case '7/1/8/9/200':
 				//////								  //  console.log('Ruta desconocida');
 				//////								  //  break;
 				//////								  default:
@@ -5326,25 +5326,25 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 				//////							  	case '/7/11/8/4':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
 				//////								break;
-				//////							 	case '7/11/8/2/2':
+				//////							 	case '7/11/8/9/9':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-2-2.png' class='cBox'>";
 				//////							  	break;
-				//////								case '7/11/8/2/3':
+				//////								case '7/11/8/9/3':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-2-3.png' class='cBox'>";
 				//////							  	break;
-				//////								case '7/11/8/2/4':
+				//////								case '7/11/8/9/4':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-2-4.png' class='cBox'>";
 				//////							  	break;
-				//////								case '7/11/8/2/5':
+				//////								case '7/11/8/9/5':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-2-5.png' class='cBox'>";
 				//////							  	break;
-				//////								case '7/11/8/2/6':
+				//////								case '7/11/8/9/6':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
 				//////							  	break;
-				//////								case '7/11/8/2/7':
+				//////								case '7/11/8/9/7':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
 				//////							  	break;
-				//////								case '7/11/8/2/8':
+				//////								case '7/11/8/9/8':
 				//////									iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
 				//////							  	break;
 				//////							}
@@ -5555,7 +5555,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			// Verificar que tenga más de 10 caracteres y  si comienza con "#/A", si es asi posiblemente es un formato valido
 			if ((hAsH.length > 10)&&(hAsH.substring(0, 3) === "#/A")) //Inicia con 'A' de la ruta madre, posiblemente es valida
 			{	// Quitar el # inicial y dividir por "/"
-      			var pArTs = hAsH.substring(2).split("/"); // Eliminar el "#/" con hAsH.substring(2) y crear un array con .split("/") ...['A', 'B', 'C', 'D', 'E', '7', '11', '8', '2', '8']
+      			var pArTs = hAsH.substring(2).split("/"); // Eliminar el "#/" con hAsH.substring(2) y crear un array con .split("/") ...['A', 'B', 'C', 'D', 'E', '7', '11', '8', '9', '8']
 				console.log(' pArTs=',pArTs);
 				// Verificar que pArTs[1-4] comienzan con "B,C,D,E" para terminar de ser valida como formato
 				if((pArTs[1].substring(0, 1) === "B")&&(pArTs[2].substring(0, 1) === "C")&&(pArTs[3].substring(0, 1) === "D")&&(pArTs[4].substring(0, 1) === "E"))
@@ -5593,10 +5593,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 						{	case 0:
 								console.log(i,' ArRay[5]=',ArRay[5]);
 								if(((v + 1)==cTp)&&(ArRay[5]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-								{	f = 1;	// "Validación ruta parcial 1"
+								{	//f = 1;	// "Validación ruta parcial 1" cancelada porque no se a escogido ningun territorio y 1 o 2 siempre necesitan de un id de un ligar previo
 								}
 								if(!f) // Si no finaliza por ruta parcial 1..
-								{	for(var j = 0; j<(vPAPA1.length); j++)
+								{	for(var j = 1; j<(vPAPA1.length); j++)
 									{	console.log(i,' j=',j,'vPAPA1[j][0]=',vPAPA1[j][0]);
 										if(ArRay[5]==vPAPA1[j][0])//El id hijo en la ruta parcial 0 si está
 										{	f = 1; // Validación parcial
@@ -5623,7 +5623,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[6]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA2[k][2]==ArRay[5])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5666,7 +5666,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[7]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA3.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA3[k][2]==ArRay[6])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5709,7 +5709,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[8]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA4.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA4[k][2]==ArRay[7])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5752,7 +5752,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[9]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA5.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA5[k][2]==ArRay[8])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5795,7 +5795,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[10]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA6.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA6[k][2]==ArRay[9])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5838,7 +5838,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[11]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA7.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA7[k][2]==ArRay[10])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5881,7 +5881,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[12]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA8.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA8[k][2]==ArRay[11])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5924,7 +5924,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[13]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA9.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA9[k][2]==ArRay[12])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -5967,7 +5967,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if(((v + 1)==cTp)&&(ArRay[14]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, es una ruta parcial valida!, no hay que verificar más
-									{	// "Validación ruta parcial 1"
+									{	console.log("Validación por ruta parcial 1");
 										for(var k = 1; k<(vPAPA10.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	if(vPAPA10[k][2]==ArRay[13])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 											{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
@@ -7372,14 +7372,14 @@ function f0126()//ACTUALIZAR la ruta NO?
 			var ruta = '';//Borra toda la ruta que va a salir por el hash
 			for (var i = 0; i < 11; i++)//Recorre la parte del papas que maneja la ruta
 			{	if(papas[i+5]!=0)//Si la casilla de ruta no es un cero//__0
-				{	ruta+='/'+papas[i+5];//Adiciona ese valor de papas a la ruta precedido con un separador (/) de barra inclinada... /7/11/8/2/8...  //__0
+				{	ruta+='/'+papas[i+5];//Adiciona ese valor de papas a la ruta precedido con un separador (/) de barra inclinada... /7/11/8/9/8...  //__0
 				}
 				else//Termina el proceso
 				{	papas[i+5] = 0;//Está fila creo que sobra y es innecesaria (REVIZAR)          papas[i] = 0//__0
 					i = 11;//Detiene el for para que pare
 				}			
 			}
-			document.location='#/A/B/C/D/E'+ruta;//actualiza el valor del hash adicionando a la parte de los parametros ABCDE la parte de la ruta /7/11/8/2/8   +'-'+g00VARS[45][2];//__Sin abcd
+			document.location='#/A/B/C/D/E'+ruta;//actualiza el valor del hash adicionando a la parte de los parametros ABCDE la parte de la ruta /7/11/8/9/8   +'-'+g00VARS[45][2];//__Sin abcd
 			//console.log('|> Flag  126 1. - - - ________f0126() actualizando ruta nueva=',window.location.hash,'; ncBD=',ncBD,'; iniR=',iniR);
 			
 			console.error('######################|> Flag  126 0. - - - ________f0126() ruta=',ruta,'; papas=',papas,'; ncBD=',ncBD,'; iniR=',iniR);
@@ -7388,7 +7388,7 @@ function f0126()//ACTUALIZAR la ruta NO?
 			if((!ncBD)&&(iniR))// Si (ncBD Numero de consultas a la base de datos) y ( iniR Activar la ruta inicial)
 			{	iniR = 0;//Va a cargar la ruta inicial
 				//console.log(' 2. ruta=',ruta);
-				nruta = ruta.slice(1);//nruta quita el prirmer / de la ruta 7/11/8/2/8
+				nruta = ruta.slice(1);//nruta quita el prirmer / de la ruta 7/11/8/9/8
 				console.error(' +++++++++++++++++++++++++++++++ ##############3 nruta=',nruta);
 				//console.log(' 3. |> Flag  126 -> 142 *');
 				f0142();//CONSULTAR a la base de datos por cierta collección
@@ -7644,7 +7644,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 			//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios y debe quedar esperando por la llegada de los anuncios
 
 			rumbi = '';
-			rumbo = nruta.split('/');//array de nruta separada con las barras inclinadas  ['7', '11', '8', '2', '8']
+			rumbo = nruta.split('/');//array de nruta separada con las barras inclinadas  ['7', '11', '8', '9', '8']
 
 			//console.error('|> Flag  ____________________________rumbo=',rumbo,' rumba=',rumba,' A 142 A ...mIres3.. -> 138 INI 1');
 			f0138();//(*rumbo debe declararse primero) ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -7798,16 +7798,16 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 
 
 						/* SWITCH SIN LA BASE DE DATOS MONGO mongo*/
-						//if(nruta == '7/1/8/2/2')//Bingo!
-						//'/7/11/8/2/1','/7/11/8/2/2','/7/11/8/2/3','/7/11/8/2/4','/7/11/8/2/5','/7/11/8/2/6','/7/11/8/2/7','/7/11/8/2/8','/7/11/8/4'
-						if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
-						//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+						//if(nruta == '7/1/8/9/9')//Bingo!
+						//'/7/11/8/9/1','/7/11/8/9/9','/7/11/8/9/3','/7/11/8/9/4','/7/11/8/9/5','/7/11/8/9/6','/7/11/8/9/7','/7/11/8/9/8','/7/11/8/4'
+						if(['7/11/8/9/1','7/11/8/9/9','7/11/8/9/3','7/11/8/9/4','7/11/8/9/5','7/11/8/9/6','7/11/8/9/7','7/11/8/9/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+						//if(['7/1/8/4','7/1/8/9/1','7/1/8/9/9','7/1/8/9/3','7/1/8/9/4','7/1/8/9/5','7/1/8/9/6','7/1/8/9/7'].indexOf(nruta) !== -1) //Bingo!
 						//if(nruta == '7/1/8/4')//Bingo!
 						{	mIc003A = [];
 							mIc003B = [];
 							mIc003Z = [];
-							if(['7/11/8/2/1','7/11/8/2/2','7/11/8/2/3','7/11/8/2/4','7/11/8/2/5','7/11/8/2/6','7/11/8/2/7','7/11/8/2/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
-							//if(['7/1/8/4','7/1/8/2/1','7/1/8/2/2','7/1/8/2/3','7/1/8/2/4','7/1/8/2/5','7/1/8/2/6','7/1/8/2/7'].indexOf(nruta) !== -1) //Bingo!
+							if(['7/11/8/9/1','7/11/8/9/9','7/11/8/9/3','7/11/8/9/4','7/11/8/9/5','7/11/8/9/6','7/11/8/9/7','7/11/8/9/8','7/11/8/4'].indexOf(nruta) !== -1) //Bingo!
+							//if(['7/1/8/4','7/1/8/9/1','7/1/8/9/9','7/1/8/9/3','7/1/8/9/4','7/1/8/9/5','7/1/8/9/6','7/1/8/9/7'].indexOf(nruta) !== -1) //Bingo!
 							//if(nruta == '7/1/8/4')//Bingo!
 							{	switch (nruta) {
 								  case '7/11/8/4'://puente aranda
@@ -7817,7 +7817,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 									mIc003Z = mIc003Z0;
 									mIc003B = mIc003B0;
 								    break;
-								  //case '7/1/8/2/200':
+								  //case '7/1/8/9/200':
 								  //  console.log('Ruta desconocida');
 								  //  break;
 								  default:
@@ -7832,25 +7832,25 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 							  	case '/7/11/8/4':
 									iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
 								break;
-							 	case '7/11/8/2/2':
+							 	case '7/11/8/9/9':
 									iCodQ.innerHTML = "<img src='files/711-8-2-2.png' class='cBox'>";
 							  	break;
-								case '7/11/8/2/3':
+								case '7/11/8/9/3':
 									iCodQ.innerHTML = "<img src='files/711-8-2-3.png' class='cBox'>";
 							  	break;
-								case '7/11/8/2/4':
+								case '7/11/8/9/4':
 									iCodQ.innerHTML = "<img src='files/711-8-2-4.png' class='cBox'>";
 							  	break;
-								case '7/11/8/2/5':
+								case '7/11/8/9/5':
 									iCodQ.innerHTML = "<img src='files/711-8-2-5.png' class='cBox'>";
 							  	break;
-								case '7/11/8/2/6':
+								case '7/11/8/9/6':
 									iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
 							  	break;
-								case '7/11/8/2/7':
+								case '7/11/8/9/7':
 									iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
 							  	break;
-								case '7/11/8/2/8':
+								case '7/11/8/9/8':
 									iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
 							  	break;
 							}
@@ -7974,7 +7974,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 						//g00VARS[86][2]=1;
 	
 	
-						if(nruta == '7/1/8/2/2')//Bingo!
+						if(nruta == '7/1/8/9/9')//Bingo!
 						{	g00VARS[86][2]=0;
 							console.error('  - 0 rta SI hay anuncios -');
 						}
@@ -8294,8 +8294,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						
 						for (var a = 1; a < wPAPA1.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA1[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA1.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8359,8 +8358,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA2.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA2[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA2.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8422,8 +8420,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA3.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA3[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA3.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8473,8 +8470,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA4.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA4[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA4.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8524,8 +8520,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA5.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA5[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA5.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8575,8 +8570,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA6.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA6[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]} //__-1
-							{ 	for (var b = 3 + ext; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA6.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8626,8 +8620,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA7.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA7[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA7.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8677,8 +8670,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA8.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA8[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA8.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -8728,8 +8720,7 @@ f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la va
 						}
 						for (var a = 1; a < wPAPA9.length; a++)  			//Recorre toda la lista parcial del nivel superior
 						{ 	if(wPAPA9[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-							{ 	for (var b = 3 + ext; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-								//for (var b = 8; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
+							{ 	for (var b = 3+ext; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
 								{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
 								}
 								a = wPAPA9.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
@@ -10178,25 +10169,25 @@ function hh72()//COLOREAR borde de la presentación AV, cargar el codigo QR, el 
 			  	case '7/11/8/4':
 					iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
 				break;
-			 	case '7/11/8/2/2':
+			 	case '7/11/8/9/9':
 					iCodQ.innerHTML = "<img src='files/711-8-2-2.png' class='cBox'>";
 			  	break;
-				case '7/11/8/2/3':
+				case '7/11/8/9/3':
 					iCodQ.innerHTML = "<img src='files/711-8-2-3.png' class='cBox'>";
 			  	break;
-				case '7/11/8/2/4':
+				case '7/11/8/9/4':
 					iCodQ.innerHTML = "<img src='files/711-8-2-4.png' class='cBox'>";
 			  	break;
-				case '7/11/8/2/5':
+				case '7/11/8/9/5':
 					iCodQ.innerHTML = "<img src='files/711-8-2-5.png' class='cBox'>";
 			  	break;
-				case '7/11/8/2/6':
+				case '7/11/8/9/6':
 					iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
 			  	break;
-				case '7/11/8/2/7':
+				case '7/11/8/9/7':
 					iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
 			  	break;
-				case '7/11/8/2/8':
+				case '7/11/8/9/8':
 					iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
 			  	break;
 			}
