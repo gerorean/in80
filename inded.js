@@ -2241,7 +2241,7 @@ const vPAPA1 = [
 [4, 1, 0, 2, 23, 5, 23, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Europe', 'Europa', "L'Europe", '유럽'],
 [5, 1, 0, 3, 24, 5, 24, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
 [6, 1, 0, 4, 21, 5, 21, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
-[7, 0, 0, 5, 25, 5, 25, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
+[7, 1, 0, 5, 25, 5, 25, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
 ]
 
 /*
@@ -2275,7 +2275,7 @@ const vPAPA2 = [['2-id:key strings app', 0, '4-IdPapa1', '5-Id color marco', '6-
 const vPAPA3 = [['2-id:key strings app', 0, '4-IdPapa2', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 [ 7, 1,  3, 4, 71, 5, 38, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Andalusia', 'Andalucía', 'Andalousie', '안달루시아'],
 [ 3, 1, 11, 4, 72, 5, 39, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Antioquia', 'Antioquia', 'Antioche', '남극 대륙'],
-[ 8, 0, 11, 9, 73, 5, 28, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
+[ 8, 1, 11, 9, 73, 5, 28, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
 [ 4, 1, 11, 4, 74, 5, 40, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Boyaca', 'Boyacá', 'Boyaca', '보야카'],
 [ 9, 1, 11, 3, 75, 5, 41, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Cundinamarca', 'Cundinamarca', 'Cundinamarca', '쿤디나마르카'],//1 ->9
 [ 5, 1,  9, 6, 76, 5, 36, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'Hope Bay', 'Bahía Esperanza', "Baie de l'Espoir", '호프 베이'],
