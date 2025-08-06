@@ -5560,6 +5560,13 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 				// Verificar que pArTs[1-4] comienzan con "B,C,D,E" para terminar de ser valida como formato
 				if((pArTs[1].substring(0, 1) === "B")&&(pArTs[2].substring(0, 1) === "C")&&(pArTs[3].substring(0, 1) === "D")&&(pArTs[4].substring(0, 1) === "E"))
 				{	console.log('inicia con A,B,C,D y E!, formato verificado!');
+					//Verificación del pin privado
+					if(pArTs[2] === "C1")
+					{	aPrO = 1;
+					}
+					else
+					{	pArTs[2] = "C";
+					}
 					// Crear el array sin valores vacíos
       				ArRay = [];
       				for (var i = 0; i < pArTs.length; i++)
@@ -5573,9 +5580,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
         					}
        					}
       				}
+					console.log('Prueba del pin privado aPrO=',aPrO,'; pArTs=',pArTs);
 					// Verificar que pArTs[5,6,7,...] sea una ruta valida
-					// Determinar la cantidad de tablas parciales de la ruta
-					var cTp = ArRay.length - 5;
+					var cTp = ArRay.length - 5;// Determinar la cantidad de tablas parciales de la ruta
 					console.log('Cantidad de tablas parciales=',cTp);
 					var o = 0; // Orden de continuar con la siguiente ruta parcial..
 					var v = 0; // Contador de verificaciones
@@ -5583,32 +5590,8 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					var x = 0; // En 1 si termina la verificacíon del caso con ids 1 o 2
 					var p = 1; // Pin para continuar la siguiente verificación
 					var d = 0; // Pre verificación de un id 2 valido como ruta parcial hija
-
-
-
-
-
-					//###################################################### P I N ###########################
-					var a = 1; // Valor del pin local en el hash para poder continuar.. 0: invalido / 1: valido
-
-
-
-
-
-					// NOTA!!!!
-					//Cuando el continente con id:7 sea invisible..
-					//rutas 7/1 7/2 verificadas con pin a en 1 pero deberia mostrar la ruta 7/como valida pero sin llamar a los hijos
-					//Como si no tuviera hijos por el 0, esa ruta es clave y está faltando!!
-					//Solo he trabajado el case 0 y el case 1, los otros casos faltan por ponerle el código actualizado
-
-
-
-
-
-
-					//Ciclo para recorrer las tablas parciales
-					// FALTA ANALIZAR EL 1 como ruta parcial para ser valida debe tener almenos un hermano, es decir debe haber al menos un hijo o lugar en esa misma ruta parcial!!
-					for(var i = 0; i<cTp; i++)
+					var u = 1; // Anuncio público (1) / privado (0)
+					for(var i = 0; i<cTp; i++) // Ciclo para recorrer las tablas parciales
 					{	console.log('Ruta sin verificar i=',i,'; o=',o);
 						switch (i)
 						{	case 0:
@@ -5621,22 +5604,25 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	for(var j = 1; j<(vPAPA1.length); j++)
 									{	console.log(i,' j=',j,'vPAPA1[j][0]=',vPAPA1[j][0]);
 										if(ArRay[5]==vPAPA1[j][0])//El id hijo en la ruta parcial 0 si está
-										{	
-											
-											// aqui se esta revisando como hijo! ==vPAPA1[j][0]
-											
-											if(!vPAPA1[j][1]) // vPAPA1[j][1] = 0, privada
-											{	console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero para mostrar esta ruta parcial se requiere de un pin de validación por ser una ruta privada! -X-X-X- ');
-												
-												// conmutar el valor !1 valido - !0 invalido
-												if(!a) // Si pin NO es correcto (=0)
-												{	p = 0; // Pin no valido
+										{	if(!vPAPA1[j][1]) // vPAPA1[j][1] = 0, privada
+											{	u = 0; // Ruta privada
+												console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero para mostrar esta ruta parcial se requiere de un pin de validación por ser una ruta privada! -X-X-X- ');
+												if(!aPrO) // Pin a: Si pin a NO es correcto (a=0)
+												{	if((v + 1)==cTp) // Si sólo falta una verificación
+													{	f = 1; // Pre validación de la ruta parcial
+														u = 1; // Ruta pública
+														console.log('Valido porque corto a las rutas parciales hijas f=',f);
+													}
+													else
+													{	console.log('Ruta NO Valida porque NO corta a las rutas parciales hijas f=',f);
+													}
+													p = 0; // Pin no valido
 													console.log(' Pin no valido p=',p);
 													i = cTp; // Termina todo, no hará más validaciones de rutas parciales
 												}
-												else
+												else // Si pin a ES correcto (a=1)
 												{	d = 1; // Pre verificación activada de un id 2 valido como ruta parcial hija
-													console.log(' Pin VALIDO! p=',p,'; Preverificación del 2 d=',d);
+													console.log(' Pin VALIDO! p=',p,'; Pre-Verificación del 2 d=',d);
 												}
 											}
 											if(p) // Si el pin es valido para continuar..
@@ -5644,10 +5630,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 												if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
 												{	for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 													{	if(vPAPA2[k][2]==ArRay[5])// Si existe una otra ruta parcial, encontró un elemento cuyo padre es la ruta parcial
-														{	// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
-															// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
-															// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
-															f = 0; // Cancelar la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+														{	f = 0; // Cancelar la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
 															console.log(' Cancelado por tener hijos f=',f);
 															k = vPAPA2.length; // Termina la busqueda de hijos
 														}
@@ -5665,25 +5648,15 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								{	o = 0;
 									f = 0;
 									if((v + 1)==cTp) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									//if(((v + 1)==cTp)&&(ArRay[6]==1)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
 									{	if(ArRay[6]==1)
-										{	console.log("Validación por ruta parcial 1");
+										{	console.log("Validación por ruta parcial id=1");
 											for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA2[k][2]==ArRay[5])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
-												{	
-													// Este bloque de líneas se cometo porque si llego hasta aqui es porque la ruta padre se verifico previamente (en case 0) que la ruta padre fuera visible para poder llegar hasta aquí (case 1)!!
-													///////////////////////if(!vPAPA2[k][1]) // vPAPA2[k][1] = 0, privada
-													///////////////////////{	console.error(" -X-X-X- Encontró la ruta parcial del padre! pero se requiere pin de validación por ruta privada! -X-X-X- ");
-													///////////////////////	p = 0; // Pin no valido
-													///////////////////////	i = cTp; // Termina todo, no hará más validaciones de rutas parciales
-													///////////////////////}
-													///////////////////////if(p) // Si el pin es valido para continuar..
-													///////////////////////{
-													// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hermanos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
-													// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
-													// ... si existen hermanos pero estos están ocultos estos no deben aprobar la validez de la verificación parcial con un f = 1
-													f = 1; // Validación total porque si tiene hermanos
-													console.log('1 Valido por tener hermanos f=',f);	
+												{	f = 1; // Validación total porque si tiene hermanos
+													console.log('id=1 Valido por tener hermanos f=',f);
+													if(!u) // Si es privado, o está en una ruta pública (no es público, u=0)
+													{ 	u = 1; // En este caso es público, este caso se omite porque para los avisos privados de todos los lugares están reservadas las rutas parciales con el id=2 y con el id=1 está reservada para mostrar los anuncios públicos de todos los lugares aunque esten en rutas privadas
+													}
 													k = vPAPA2.length; // Termina la busqueda de hermanos
 												}
 											}
@@ -5691,60 +5664,44 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										}
 										if(ArRay[6]==2)
 										{	console.log("Validación por ruta parcial id=2");
-											//Nota aunque 2 puede ser una ruta valida, hay que confirmar que su padre es invisible, para eso se necesita la prevalidacion de id=2
-											if(!d) // Si no tiene prevalidación el 2
-											{	console.log("No tiene pre Validación como ruta parcial id=2");
-												p = 0; // Pin no valido
+											if(!d) // Si la ruta parcial id=2 no tiene validación previa
+											{	p = 0; // Pin no valido
+												console.log("No tiene Validación prevía como ruta parcial id=2, p=",p);
 											}
 											else
 											{	f = 1; // Validación total porque si tiene hermanos
 											}
 											i = cTp; // Termina todo, no hará más validaciones de rutas parciales
-											////////for(var j = 1; j<(vPAPA1.length); j++) // No arranca desde 0 sino de 1 por el id 1 valido
-											////////{	console.log(i,' j=',j,'vPAPA1[j][0]=',vPAPA1[j][0]);
-											////////	if(ArRay[5]==vPAPA1[j][0]) // Encontro al padre
-											////////	{	console.log('Encontró a su ruta parcial padre');
-											////////		if(vPAPA1[j][1]==0) // El padre está oculto
-											////////		{ 	console.log(' Su ruta parcial padre es info privada y requiere pin');
-											////////
-											////////		}
-											////////
-											////////	}
-											////////}
 											x = 1;
 										}
 									}
 									if(!f&&!x) // Si no finaliza por ruta parcial 1 o 2..
 									{	for(var j = 1; j<(vPAPA2.length); j++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	console.log(i,' j=',j,'vPAPA2[j][0]=',vPAPA2[j][0]);
-											if((ArRay[6]==vPAPA2[j][0])&&(ArRay[5]==vPAPA2[j][2])) // El id hijo en la ruta parcial 1 si está y El id padre (de ese lugar) es el mismo que la ruta parcial anterior
-											{	// Verificar visibilidad como hijo (vPAPA2[j][0]) y no la del padre (vPAPA2[j][2]) porque ya paso por eso antes..
-												if(!vPAPA2[j][1]) // vPAPA2[j][1] = 0, privada
-												{	console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero se requiere pin de validación por ruta privada! -X-X-X- ');
-													p = 0; // Pin no valido
-													i = cTp; // Termina todo, no hará más validaciones de rutas parciales
-												}
-												if(p) // Si el pin es valido para continuar..
-												{	console.log(' Pin valido para continuar p=',p);
-													f = 1; // Pre Validación parcial
-													if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
-													{	for(var k = 1; k<(vPAPA3.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
-														{	if(vPAPA3[k][2]==ArRay[6])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
-															{	
-
-
-																// ... NOTA IMPORTANTE! aquí falta código para omitir aquellos hijos ocultos por tratarse de rutas parciales PRIVADAS que no se deben mostrar
-																// ... estás rutas privadas u ocultas serán visibles con el pin que se le daría al privado en el hash de la URL para hacerlas visibles
-																// ... si existen hijos pero estos están ocultos estos no deben cancelar la validez de la verificación parcial con un f = 0
-																f = 0; // Cancela la pre-verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
-																console.log(' Cancelado por tener rutas parciales hijas f=',f);
-																k = vPAPA3.length; // Termina la busqueda de hijos
-															}
-														}	
+											if(ArRay[6]==vPAPA2[j][0]) // El id hijo en la ruta parcial 1 si está
+											{	console.log('Encontró la ruta parcial con ese id');
+												if(ArRay[5]==vPAPA2[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
+												{	if(!vPAPA2[j][1]) // vPAPA2[j][1] = 0, privada
+													{	u = 0; // Ruta privada
+														console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero se requiere pin de validación por ruta privada! -X-X-X- ');
+														p = 0; // Pin no valido
+														i = cTp; // Termina todo, no hará más validaciones de rutas parciales
 													}
-													
+													if(p) // Si el pin es valido para continuar..
+													{	console.log(' Pin valido para continuar p=',p);
+														f = 1; // Pre Validación parcial
+														if((v + 1)==cTp) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
+														{	for(var k = 1; k<(vPAPA3.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
+															{	if(vPAPA3[k][2]==ArRay[6])// Si existera una otra ruta parcial, encontro un elemento que tiene un padre y corresponde a la ruta parcial
+																{	f = 0; // Cancela la pre-verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
+																	console.log(' Cancelado por tener rutas parciales hijas f=',f);
+																	k = vPAPA3.length; // Termina la busqueda de hijos
+																}
+															}	
+														}
+													}
 												}
-												j = vPAPA2.length;
+												j = vPAPA2.length; // Detiene el ciclo
 											}
 										}
 									}
@@ -6114,7 +6071,12 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					}
 					console.log(' v=',v);
 					if((o)&&(v==cTp)) // Si es ok y la cantidad de verificaciónes es la que se esperaba ...
-					{	console.log('Ruta verificada, es valida');
+					{	if(u) // ruta pública
+						{	console.log('Ruta pública verificada, es valida!');
+						}
+						else // ruta privada
+						{	console.log('Ruta privada verificada, es valida!');
+						}
 					}
 					else // pArTs[5,6,7,...] no es una ruta valida
 					{	console.log('Ruta no existe, NO es valida');
