@@ -5552,6 +5552,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			hAsH=window.location.hash;
 			//Leer el valor del hash y establecer una ruta madre (inicial), si el hash tiene parametros entonces configurar el sitio web con los parametros del hash
 			console.error('|> f0107()________ hash inicial=',hAsH,'; papas=',papas);
+			var a = 0; //aprobación de la verificación de la ruta en el hash
+			var y = 2; // Id del idioma esp (por def)
+			var z = 2; // Id de la seña lsc (por def)
 			// Verificar que tenga más de 10 caracteres y  si comienza con "#/A", si es asi posiblemente es un formato valido
 			if ((hAsH.length > 10)&&(hAsH.substring(0, 3) === "#/A")) //Inicia con 'A' de la ruta madre, posiblemente es valida
 			{	// Quitar el # inicial y dividir por "/"
@@ -6287,7 +6290,8 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					}
 					console.log(' v=',v);
 					if((o)&&(v==c)) // Si es ok y la cantidad de verificaciónes es la que se esperaba ...
-					{	if(u) // ruta pública
+					{	a = 1; // Verificación completa de la ruta exitosa
+						if(u) // ruta pública
 						{	console.log('Ruta pública verificada, es valida!');
 						}
 						else // ruta privada
@@ -6309,145 +6313,152 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
       		// Mostrar el resultado
       		console.error('|>>>>>>>>>>>>>>>>>>> ArRay inicial=',ArRay);
 
-
-
-			//De la validacíon sacar el idioma y la seña??? no porque si no pasa, entra una ruta por defecto sin pasar por la validación y se desconocería el dato
-
-
-
-			//Cargar las tablas parciales primero y luego si el idioma y la seña o al réves???
-
-
-			
-
-			//quizas no sea bueno cargar las tablas parciales primero porque asi se pueden eliminar algunas columnas sin contenido relevante, por ejemplo los parametros del idioma y la seña que solo se requieren para la parte inicial de preconfiguración
-			//ahorrando data inecesaria y tiempo
-
-			var s = ArRay.length - 1; // número de la tabla final
-			var y = 2; // Id del idioma esp (por def)
-			var z = 2; // Id de la seña lsc (por def)
-			console.log('s=',s);
-			// VERIFICAR que la última ruta parcial no sea ni 1 ni 2, si es asi se debe escoger la ruta parcial anterior
-			if((ArRay[s] === 1)||(ArRay[s] === 2))
-			{	console.log('¡¡¡¡última ruta es igual a 1 o 2!!!!');
-				s--;
-			}
-			console.log('s=',s);
-			switch (s)
-			{ 	case 5:
-					for(var j = 1; j<(vPAPA1.length); j++)
-					{	if(vPAPA1[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA1[j][13];
-							z = vPAPA1[j][14];
-							j = vPAPA1.length;
+			// ASIGNAR el idioma y la seña
+			// AJUSTAR el idioma y la seña del lugar Madre seleccionado en ArRay, para ello usar los ID que
+			// maneja g00VARS[27][2] del idioma 1EN, 2SP, 3FR, 4KO, etc y que corresponden a la columna 13 de vPAPA#
+			//        g00VARS[67][2] de la seña 1INTER, 2LSC, 3ASL, 4LSM ETC y que corresponden a la columna 14 de vPAPA#
+			//Si la validación es exitosa debe analizar si la casilla A viene con datos de idioma y seña, si los trae debe tomarlos (plan A) y saltarse la asignacion por tablas vPAPA (plan B)
+			var b = 0; // Bandera de que se logró conseguir el idioma y la seña (0no - 1si)
+			if(a)
+			{	console.log('¡Plan A!');
+				if(1) // Plan A Verificación de A si trae los parametros del idioma y la seña los toma
+				{
+					// y=
+					// z=
+					//b = 1; // conmutar con //
+				}
+			}	
+			if(!b)// Si el plan A no funciona -> plan B: toma el idioma y la seña directamente de las tablas vPAPA
+			{	console.log('¡Plan B!');
+				// g00VARS[27][2] = vPAPA# [#][13];
+				// g00VARS[67][2] = vPAPA# [#][14]; 
+				var s = ArRay.length - 1; // número de la tabla final
+				console.log('s=',s);
+				// VERIFICAR que la última ruta parcial no sea ni 1 ni 2, si es asi se debe escoger la ruta parcial anterior
+				if((ArRay[s] === 1)||(ArRay[s] === 2))
+				{	console.log('¡¡¡¡última ruta es igual a 1 o 2!!!!');
+					s--;
+				}
+				console.log('s=',s);
+				switch (s)
+				{ 	case 5:
+						for(var j = 1; j<(vPAPA1.length); j++)
+						{	if(vPAPA1[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA1[j][13];
+								z = vPAPA1[j][14];
+								j = vPAPA1.length;
+							}
 						}
-					}
-				break;
-				case 6:
-					for(var j = 1; j<(vPAPA2.length); j++)
-					{	if(vPAPA2[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA2[j][13];
-							z = vPAPA2[j][14];
-							j = vPAPA2.length;
+					break;
+					case 6:
+						for(var j = 1; j<(vPAPA2.length); j++)
+						{	if(vPAPA2[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA2[j][13];
+								z = vPAPA2[j][14];
+								j = vPAPA2.length;
+							}
 						}
-					}
-				break;
-				case 7:
-					for(var j = 1; j<(vPAPA3.length); j++)
-					{	if(vPAPA3[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA3[j][13];
-							z = vPAPA3[j][14];
-							j = vPAPA3.length;
+					break;
+					case 7:
+						for(var j = 1; j<(vPAPA3.length); j++)
+						{	if(vPAPA3[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA3[j][13];
+								z = vPAPA3[j][14];
+								j = vPAPA3.length;
+							}
 						}
-					}
-				break;
-				case 8:
-					for(var j = 1; j<(vPAPA4.length); j++)
-					{	if(vPAPA4[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA4[j][13];
-							z = vPAPA4[j][14];
-							j = vPAPA4.length;
+					break;
+					case 8:
+						for(var j = 1; j<(vPAPA4.length); j++)
+						{	if(vPAPA4[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA4[j][13];
+								z = vPAPA4[j][14];
+								j = vPAPA4.length;
+							}
 						}
-					}
-				break;
-				case 9:
-					for(var j = 1; j<(vPAPA5.length); j++)
-					{	if(vPAPA5[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA5[j][13];
-							z = vPAPA5[j][14];
-							j = vPAPA5.length;
+					break;
+					case 9:
+						for(var j = 1; j<(vPAPA5.length); j++)
+						{	if(vPAPA5[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA5[j][13];
+								z = vPAPA5[j][14];
+								j = vPAPA5.length;
+							}
 						}
-					}
-				break;
-				case 10:
-					for(var j = 1; j<(vPAPA6.length); j++)
-					{	if(vPAPA6[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA6[j][13];
-							z = vPAPA6[j][14];
-							j = vPAPA6.length;
+					break;
+					case 10:
+						for(var j = 1; j<(vPAPA6.length); j++)
+						{	if(vPAPA6[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA6[j][13];
+								z = vPAPA6[j][14];
+								j = vPAPA6.length;
+							}
 						}
-					}
-				break;
-				case 11:
-					for(var j = 1; j<(vPAPA7.length); j++)
-					{	if(vPAPA7[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA7[j][13];
-							z = vPAPA7[j][14];
-							j = vPAPA7.length;
+					break;
+					case 11:
+						for(var j = 1; j<(vPAPA7.length); j++)
+						{	if(vPAPA7[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA7[j][13];
+								z = vPAPA7[j][14];
+								j = vPAPA7.length;
+							}
 						}
-					}
-				break;
-				case 12:
-					for(var j = 1; j<(vPAPA8.length); j++)
-					{	if(vPAPA8[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA8[j][13];
-							z = vPAPA8[j][14];
-							j = vPAPA8.length;
+					break;
+					case 12:
+						for(var j = 1; j<(vPAPA8.length); j++)
+						{	if(vPAPA8[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA8[j][13];
+								z = vPAPA8[j][14];
+								j = vPAPA8.length;
+							}
 						}
-					}
-				break;
-				case 13:
-					for(var j = 1; j<(vPAPA9.length); j++)
-					{	if(vPAPA9[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA9[j][13];
-							z = vPAPA9[j][14];
-							j = vPAPA9.length;
+					break;
+					case 13:
+						for(var j = 1; j<(vPAPA9.length); j++)
+						{	if(vPAPA9[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA9[j][13];
+								z = vPAPA9[j][14];
+								j = vPAPA9.length;
+							}
 						}
-					}
-				break;
-				case 14:
-					for(var j = 1; j<(vPAPA10.length); j++)
-					{	if(vPAPA10[j][0]==ArRay[s])
-						{	console.log('Bingo en s=',s);
-							y = vPAPA10[j][13];
-							z = vPAPA10[j][14];
-							j = vPAPA10.length;
+					break;
+					case 14:
+						for(var j = 1; j<(vPAPA10.length); j++)
+						{	if(vPAPA10[j][0]==ArRay[s])
+							{	console.log('Bingo en s=',s);
+								y = vPAPA10[j][13];
+								z = vPAPA10[j][14];
+								j = vPAPA10.length;
+							}
 						}
-					}
-				break;
+					break;
+				}
 			}
 			console.log('  --y=',y,'; z=',z);
 			g00VARS[27][2] = y;
 			g00VARS[67][2] = z; 
-
-
-			// AJUSTAR el idioma y la seña del lugar Madre seleccionado en ArRay, para ello usar los ID que
-			// maneja g00VARS[27][2] del idioma 1EN, 2SP, 3FR, 4KO, etc y que corresponden a la columna 13 de vPAPA#
-			//        g00VARS[67][2] de la seña 1INTER, 2LSC, 3ASL, 4LSM ETC y que corresponden a la columna 14 de vPAPA#
-			// g00VARS[27][2] = vPAPA# [#][13];
-			// g00VARS[67][2] = vPAPA# [#][14]; 
 			
+			//De la validacíon sacar el idioma y la seña??? no porque si no pasa, entra una ruta por defecto sin pasar por la validación y se desconocería el dato
+			//Cargar las tablas parciales primero y luego si el idioma y la seña o al réves???
+			//quizas no sea bueno cargar las tablas parciales primero porque asi se pueden eliminar algunas columnas sin contenido relevante, por ejemplo los parametros del idioma y la seña que solo se requieren para la parte inicial de preconfiguración
+			//ahorrando data inecesaria y tiempo
 
 
+			//Ahora si a cargar las tablas parciales y los primeros strings???
+
+
+
+
+			
 			//
 
 			console.error(' - -----------------______________ f0107() [idioma seña y ruta]  papas=,',papas);

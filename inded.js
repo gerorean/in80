@@ -2212,16 +2212,16 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 //6		Id - Mapa/Foto boton lugar imagen para mostrar el lugar en el boton del lugar o del cabezote
 //7		Id - QR code lugar
 
-//8		Id - Hijo_sugerido* (auto genera una sub-ruta sugerida)
+//8		Id - NaviLens code (Europa)
 //9		id_tipo_del_lugar(bosque,desierto,ciudad,panaderia,etc..) 
 //10	GPS-x (centro ppal)
 //11	GPS-y (centro ppal)
 //12	GPS-z (o piso 0(suelo), 1(edificación: primer piso), 2, -1, -2, etc
 //13	id - idioma local *
 //14	id - seña local *
-//15	XXDirección?? * población (hab)*??  
-//16	XXPrecio?? *	área (kms2)*??
-//17	XXCantidad?? *  XXcontacto??? XXtelefóno??   XXcorreo???
+//15	Id - Hijo_sugerido* (auto genera una sub-ruta sugerida)
+//16	XXDirección?? * población (hab)*??  
+//17	XXPrecio?? *	área (kms2)* Cantidad?? *  XXcontacto??? XXtelefóno??   XXcorreo?????
 
 //18	Texto en ingles
 //19	Texto en español
