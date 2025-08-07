@@ -6307,7 +6307,144 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			{	f0156();// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
 			}
       		// Mostrar el resultado
-      		console.log('|> ArRay inicial=',ArRay);
+      		console.error('|>>>>>>>>>>>>>>>>>>> ArRay inicial=',ArRay);
+
+
+
+			//De la validacíon sacar el idioma y la seña??? no porque si no pasa, entra una ruta por defecto sin pasar por la validación y se desconocería el dato
+
+
+
+			//Cargar las tablas parciales primero y luego si el idioma y la seña o al réves???
+
+
+			
+
+			//quizas no sea bueno cargar las tablas parciales primero porque asi se pueden eliminar algunas columnas sin contenido relevante, por ejemplo los parametros del idioma y la seña que solo se requieren para la parte inicial de preconfiguración
+			//ahorrando data inecesaria y tiempo
+
+			var s = ArRay.length - 1; // número de la tabla final
+			var y = 2; // Id del idioma esp (por def)
+			var z = 2; // Id de la seña lsc (por def)
+			console.log('s=',s);
+			// VERIFICAR que la última ruta parcial no sea ni 1 ni 2, si es asi se debe escoger la ruta parcial anterior
+			if((ArRay[s] === 1)||(ArRay[s] === 2))
+			{	console.log('¡¡¡¡última ruta es igual a 1 o 2!!!!');
+				s--;
+			}
+			console.log('s=',s);
+			switch (s)
+			{ 	case 5:
+					for(var j = 1; j<(vPAPA1.length); j++)
+					{	if(vPAPA1[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA1[j][13];
+							z = vPAPA1[j][14];
+							j = vPAPA1.length;
+						}
+					}
+				break;
+				case 6:
+					for(var j = 1; j<(vPAPA2.length); j++)
+					{	if(vPAPA2[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA2[j][13];
+							z = vPAPA2[j][14];
+							j = vPAPA2.length;
+						}
+					}
+				break;
+				case 7:
+					for(var j = 1; j<(vPAPA3.length); j++)
+					{	if(vPAPA3[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA3[j][13];
+							z = vPAPA3[j][14];
+							j = vPAPA3.length;
+						}
+					}
+				break;
+				case 8:
+					for(var j = 1; j<(vPAPA4.length); j++)
+					{	if(vPAPA4[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA4[j][13];
+							z = vPAPA4[j][14];
+							j = vPAPA4.length;
+						}
+					}
+				break;
+				case 9:
+					for(var j = 1; j<(vPAPA5.length); j++)
+					{	if(vPAPA5[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA5[j][13];
+							z = vPAPA5[j][14];
+							j = vPAPA5.length;
+						}
+					}
+				break;
+				case 10:
+					for(var j = 1; j<(vPAPA6.length); j++)
+					{	if(vPAPA6[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA6[j][13];
+							z = vPAPA6[j][14];
+							j = vPAPA6.length;
+						}
+					}
+				break;
+				case 11:
+					for(var j = 1; j<(vPAPA7.length); j++)
+					{	if(vPAPA7[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA7[j][13];
+							z = vPAPA7[j][14];
+							j = vPAPA7.length;
+						}
+					}
+				break;
+				case 12:
+					for(var j = 1; j<(vPAPA8.length); j++)
+					{	if(vPAPA8[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA8[j][13];
+							z = vPAPA8[j][14];
+							j = vPAPA8.length;
+						}
+					}
+				break;
+				case 13:
+					for(var j = 1; j<(vPAPA9.length); j++)
+					{	if(vPAPA9[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA9[j][13];
+							z = vPAPA9[j][14];
+							j = vPAPA9.length;
+						}
+					}
+				break;
+				case 14:
+					for(var j = 1; j<(vPAPA10.length); j++)
+					{	if(vPAPA10[j][0]==ArRay[s])
+						{	console.log('Bingo en s=',s);
+							y = vPAPA10[j][13];
+							z = vPAPA10[j][14];
+							j = vPAPA10.length;
+						}
+					}
+				break;
+			}
+			console.log('  --y=',y,'; z=',z);
+			g00VARS[27][2] = y;
+			g00VARS[67][2] = z; 
+
+
+			// AJUSTAR el idioma y la seña del lugar Madre seleccionado en ArRay, para ello usar los ID que
+			// maneja g00VARS[27][2] del idioma 1EN, 2SP, 3FR, 4KO, etc y que corresponden a la columna 13 de vPAPA#
+			//        g00VARS[67][2] de la seña 1INTER, 2LSC, 3ASL, 4LSM ETC y que corresponden a la columna 14 de vPAPA#
+			// g00VARS[27][2] = vPAPA# [#][13];
+			// g00VARS[67][2] = vPAPA# [#][14]; 
 			
 
 
@@ -9067,7 +9204,7 @@ f0156()//ASIGNAR ruta madre (inicial) por defecto en el hash
 				console.log('Hash No inicia con A,B,C,D y E, => Ruta por defecto (por ejemplo Colombia)');
 				//Asignar una ruta básica valida por defecto, puede ser por cokie, id del navegador, GPS, etc:
 				window.location = "#/A/B/C/D/E/1/2/3";
-				ArRay = ['A','B','C','D','E',1,2,3];
+				ArRay = ['A','B','C','D','E',7,11,8,1];
 			}
 
 function 
