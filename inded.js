@@ -2220,8 +2220,8 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 //13	id - idioma local *
 //14	id - seña local *
 //15	Id - Hijo_sugerido* (auto genera una sub-ruta sugerida)
-//16	XXDirección?? * población (hab)*??  
-//17	XXPrecio?? *	área (kms2)* Cantidad?? *  XXcontacto??? XXtelefóno??   XXcorreo?????
+//16	Id- Personalización Territorial - (código especial que personaliza a todos los territorios hijos de una ruta como por ejemplo el dialecto u otras caracteristicas exclusivas de cierto territorio id:1 es para españa: para activar la voz española y el id2: que además de hacer la voz española (el id1) también activa el código de navilens local que es exclusivo de algunos territorios de españa)
+//17	XXPrecio?? *	área (kms2)* Cantidad?? *  XXcontacto??? XXtelefóno??  correo?????XXDirección?? * población (hab)*??  
 
 //18	Texto en ingles
 //19	Texto en español

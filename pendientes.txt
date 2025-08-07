@@ -3,7 +3,10 @@ Pendientes:
 las tablas vPAPA y wPAPA deben contar con columnas de visibilidad(1=visible,0=privada) / id_Hijo_sugerido* / id_tipo_del_lugar(bosque,desierto,ciudad,panaderia,etc..) / GPS-x / GPS-y / GPS-z(o piso 0(suelo), 1(edificación: primer piso), 2, -1, -2??)* / id_color / id_idioma* / id_seña* / id_imagen / id_bandera* / + 3 columnas libres*, disponibles por si se necesitan en un futuro por ejemplo cantidad de habitantes: tamaño en kms2 del lugar/territorio, etc.
 (*): Opcional
 
-adicionar el codigo de navilens para que quede conmutado durante un segundo sobre el qr code, tomar la señal del primer led de la izquierda, similar al "parpadeo" que hace el foco y crear una columna en vPAPA# para ello
+adicionar el código de navilens para que quede conmutado durante un segundo sobre el qr code, tomar la señal del primer led de la izquierda, similar al "parpadeo" que hace el foco y crear una columna en vPAPA# para ello
+para ello cree el archivo navi.html, este archivo html css y js permite que ambas transiciones sucedan en paralelo, ahorrando ese segundo de "pantalla sin código legible". Usa dos imágenes posicionadas en el mismo lugar (position: absolute) dentro de un div contenedor.
+Alterna opacity para lograr el efecto de "fade cruzado". El cambio visual es inmediato: cuando una se va, la otra ya está llegando. QR estará completamente visible 4 segundos.
+NaviLens estará completamente visible 1.5 segundos. El fade in y out ocurren entre ellos sin interrumpir la experiencia. Compatible con navegadores antiguos.
 
 revizar f0141(f0145<hashchange) o f0126(si varias)  -->f0142 chapineruda  ncBD=1?
 
