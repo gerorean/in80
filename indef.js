@@ -5555,6 +5555,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			var a = 0; //aprobación de la verificación de la ruta en el hash
 			var y = 2; // Id del idioma esp (por def)
 			var z = 2; // Id de la seña lsc (por def)
+			var t = 0; // Voces personalizadas (0) si personalizar; (1) activa la voz española de españa; (2) activa la voz española de mejico, etc.. esta variable luego se relaciona con una tabla donde se sabe a que idioma debe asociarse por ej las voces id 1 e id 2 deben asociarse con el idioma español y cambiar la voz que tenga por defecto el idioma español.
 			// Verificar que tenga más de 10 caracteres y  si comienza con "#/A", si es asi posiblemente es un formato valido
 			if ((hAsH.length > 10)&&(hAsH.substring(0, 3) === "#/A")) //Inicia con 'A' de la ruta madre, posiblemente es valida
 			{	// Quitar el # inicial y dividir por "/"
@@ -5606,8 +5607,13 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 								if(!f&&!x) // Si no finaliza por ruta parcial 1 o 2..
 								{	for(var j = 1; j<(vPAPA1.length); j++)
 									{	console.log(i,' j=',j,'vPAPA1[j][0]=',vPAPA1[j][0]);
-										if(ArRay[5]==vPAPA1[j][0])//El id hijo en la ruta parcial 0 si está
-										{	if(!vPAPA1[j][1]) // vPAPA1[j][1] = 0, privada
+										if(ArRay[5]==vPAPA1[j][0]) // El id hijo en la ruta parcial 0 si está
+										{	console.log('Encontró la ruta parcial con ese id');
+											if(vPAPA1[j][16]>0) // Ruta personalizada
+											{	t = vPAPA1[j][16]; // Código de la ruta personalizada
+												console.error('Ruta personalizada t=',t);
+											};
+											if(!vPAPA1[j][1]) // vPAPA1[j][1] = 0, privada
 											{	var rE = f0157(u, i, p, v, f, d, c);
 												u = rE.u;
 												i = rE.i;
@@ -5673,6 +5679,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA2[j][0]=',vPAPA2[j][0]);
 											if(ArRay[6]==vPAPA2[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA2[j][16]>0) // Ruta personalizada
+												{	t = vPAPA2[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};
 												if(ArRay[5]==vPAPA2[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA2[j][1]) // vPAPA2[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -5744,6 +5754,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA3[j][0]=',vPAPA3[j][0]);
 											if(ArRay[7]==vPAPA3[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA3[j][16]>0) // Ruta personalizada
+												{	t = vPAPA3[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};	
 												if(ArRay[6]==vPAPA3[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA3[j][1]) // vPAPA3[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -5815,6 +5829,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA4[j][0]=',vPAPA4[j][0]);
 											if(ArRay[8]==vPAPA4[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA4[j][16]>0) // Ruta personalizada
+												{	t = vPAPA4[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};	
 												if(ArRay[7]==vPAPA4[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA4[j][1]) // vPAPA4[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -5886,6 +5904,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA5[j][0]=',vPAPA5[j][0]);
 											if(ArRay[9]==vPAPA5[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA5[j][16]>0) // Ruta personalizada
+												{	t = vPAPA5[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};												
 												if(ArRay[8]==vPAPA5[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA5[j][1]) // vPAPA5[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -5957,6 +5979,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA6[j][0]=',vPAPA6[j][0]);
 											if(ArRay[10]==vPAPA6[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA6[j][16]>0) // Ruta personalizada
+												{	t = vPAPA6[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};	
 												if(ArRay[9]==vPAPA6[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA6[j][1]) // vPAPA6[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -6028,6 +6054,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA7[j][0]=',vPAPA7[j][0]);
 											if(ArRay[11]==vPAPA7[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA7[j][16]>0) // Ruta personalizada
+												{	t = vPAPA7[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};	
 												if(ArRay[10]==vPAPA7[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA7[j][1]) // vPAPA7[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -6099,6 +6129,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA8[j][0]=',vPAPA8[j][0]);
 											if(ArRay[12]==vPAPA8[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA8[j][16]>0) // Ruta personalizada
+												{	t = vPAPA8[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};	
 												if(ArRay[11]==vPAPA8[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA8[j][1]) // vPAPA8[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -6170,6 +6204,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA9[j][0]=',vPAPA9[j][0]);
 											if(ArRay[13]==vPAPA9[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA9[j][16]>0) // Ruta personalizada
+												{	t = vPAPA9[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};	
 												if(ArRay[12]==vPAPA9[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA9[j][1]) // vPAPA9[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -6241,6 +6279,10 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 										{	console.log(i,' j=',j,'vPAPA10[j][0]=',vPAPA10[j][0]);
 											if(ArRay[14]==vPAPA10[j][0]) // El id hijo en la ruta parcial 1 si está
 											{	console.log('Encontró la ruta parcial con ese id');
+												if(vPAPA10[j][16]>0) // Ruta personalizada
+												{	t = vPAPA10[j][16]; // Código de la ruta personalizada
+													console.error('Ruta personalizada t=',t);
+												};	
 												if(ArRay[13]==vPAPA10[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA10[j][1]) // vPAPA10[j][1] = 0, privada
 													{	var rE = f0157(u, i, p, v, f, d, c);
@@ -6312,6 +6354,12 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			}
       		// Mostrar el resultado
       		console.error('|>>>>>>>>>>>>>>>>>>> ArRay inicial=',ArRay);
+			if(t>0) // Ruta personalizada
+			{	console.error('Voz personalizada para esa Ruta t=',t);
+			}
+			else
+			{	console.log('Voz sin personalizar para esa Ruta t=',t,'; continuará con la voz por defecto de ese idioma');
+			}
 
 			// ASIGNAR el idioma y la seña
 			// AJUSTAR el idioma y la seña del lugar Madre seleccionado en ArRay, para ello usar los ID que
