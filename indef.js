@@ -6369,11 +6369,11 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			var b = 0; // Bandera de que se logró conseguir el idioma y la seña (0no - 1si)
 			if(a)
 			{	console.log('¡Plan A!');
-				if(1) // Plan A Verificación de A si trae los parametros del idioma y la seña los toma
-				{
-					// y=
-					// z=
-					//b = 1; // conmutar con //
+				if(pArTs[0] === "A1") // Plan A Verificación de A si trae los parametros del idioma y la seña los toma
+				{	aPrO = 1;
+					y = 3; // Ejemplo con koreano y
+					z = 1; // ASL
+					b = 1; // Listo funcionó el plan A
 				}
 			}	
 			if(!b)// Si el plan A no funciona -> plan B: toma el idioma y la seña directamente de las tablas vPAPA
