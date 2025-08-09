@@ -2203,7 +2203,7 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 
 //#####################################################################################3
 //xNew 	Función:  (*) opcional
-//0		Id-hijo - Esta columna puede estar desordenada porque elementos nuevos (lugares) pueden llegar y rehubicar a todos los lugares, para asignar el id al próximo id-hijo y que no se repita, puede determinarse con ayuda de vPAPA#.lenght directamente en consola y el siguiente id hijo (nuevo) será id=(vPAPA#.lenght + 2)??
+//0		Id-hijo - Esta columna puede estar desordenada porque elementos nuevos (lugares) pueden llegar y rehubicar a todos los lugares, para asignar el id al próximo id-hijo y que no se repita, puede determinarse con ayuda de vPAPA#.lenght directamente en consola y el siguiente id hijo (nuevo) será id=(vPAPA#.lenght + 2)?? SI!! próximo id = vPAPA#.length + 2!!
 //1		Id-Visible/público=1 Privado/Oculto=0 para poder asignar el próximo id-hijo y que sea unico y no este asignado a otro y garantizar que no se repita
 //2		Id-padre 
 //3		Id - color marco
@@ -2214,20 +2214,21 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 
 //8		Id - NaviLens code (Europa, USA) NOTA: esta columna hay que programarla automaticamente para que cuando exista algún código navilens conmute con el código QR de ese mismo lugar con el de Navilens usando como guía a navi.html
 //9		id_tipo_del_lugar(bosque,desierto,ciudad,panaderia,etc..) 
-//10	GPS-x (centro ppal)
-//11	GPS-y (centro ppal)
-//12	GPS-z (o piso 0(suelo), 1(edificación: primer piso), 2, -1, -2, etc
+//10	GPS-x (centro ppal) * ( * Sugerencia futura?? eliminar estas 5 columnas en bloque 10 a la 14 al generar las tablas parciales wPAPA, porque son datos innecesarios para las mismas, pero el problema puede ser que se generé interferencia con el manejo de los indices al llamar las columnas de wPAPA)
+//11	GPS-y (centro ppal) *
+//12	GPS-z (o piso 0(suelo), 1(edificación: primer piso), 2, -1, -2, etc *
 //13	id - idioma local *
 //14	id - seña local *
-//15	Id - Hijo_sugerido* (auto genera una sub-ruta sugerida)
+//15	Id - Hijo_sugerido (auto genera una sub-ruta sugerida)
 //16	Id- Voz local heredada, dialecto u otras caracteristicas culturales de cierto territorio, que se difunden en todos sus hijos y sólo se activan en el momento de la carga inicial; voces: (1) Español de españa (2) Español de colombia, etc. Cada idioma tiene una voz por defecto por Ejemplo Español : voz español de españa, esta voa se podrá modificar únicamente en el momento de la primer verificacion de la ruta madre, luego de esto esa voz quedará fija para ese idioma!
-//17	XXPrecio?? *	área (kms2)* Cantidad?? *  XXcontacto??? XXtelefóno??  correo?????XXDirección?? * población (hab)*??  
+//17	XXPrecio??	área (kms2) Cantidad??  XXcontacto??? XXtelefóno??  correo?????XXDirección??  población (hab)??  
 
 //18	Texto en ingles
 //19	Texto en español
 //20	Texto en frances
 //21	Texto en coreano
 //22	Texto en ....
+
 
 //NOTA para vPAPA#: El id 1 esta reservado para las rutas públicas generales: "todo el territorio" y el id 2 para las rutas privadas: "información privada"
 
@@ -5406,26 +5407,28 @@ const 	r007B		=[	['Recursos/ Casillas..'							,1								,2	,3	,4	,5	,6	,7	,8	,9
 
 
 //Tomar las abreviaturas de https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-const wIdi = [['0-En ingles(lista ordenada)', '1-Escrito Local(desordenada)', '2-Abreviatura', '3-id:key strings app', '4-Inter(cons)0 Local(vari)1', '5-Estado:Visible1 off0(Ocultar)', '6-idSeñaIniPredet'],
-// - - -
-['english language (US), change', 'english language (US), change', 'en', 1, 0, 1, 3],
-['french language, change ', 'langue française, changer', 'fr', 3, 0, 1, 8],
-['korean language, change', '한국어, 변경', 'ko', 4, 0, 1, 7],
-['spanish language, change', 'idioma español, cambiar', 'es', 2, 0, 1, 2],
-['spanish language (MX), change', 'idioma español (MX), cambiar', 'es-mx', 6, 0, 0, 4],
-['wayuu language (CO), change', 'iiiii iiiii, iiiii', '', 5, 1, 0, 0],
+//'0-En ingles(lista ordenada)', '1-Escrito Local(desordenada)', '2-Abreviatura', '3-id:key strings app', '4-Inter(cons)0 Local(vari)1', 
+// 												'5-Estado:Visible1 off0(Ocultar)', '6-idSeñaIniPredet'
+const wIdi = [[0, 					1,							  		2,			3, 4, 5, 6, 7],
+['english language (US), change', 	'english language (US), change',	'en', 		1, 0, 1, 3],
+['french language, change ', 		'langue française, changer',		'fr', 		3, 0, 1, 8],
+['korean language, change',			'한국어, 변경',						 'ko', 		 4, 0, 1, 7],
+['spanish language, change', 		'idioma español, cambiar',			'es', 		2, 0, 1, 2],
+['spanish language (MX), change', 	'idioma español (MX), cambiar',		'es-mx', 	6, 0, 0, 4],
+['wayuu language (CO), change', 	'iiiii iiiii, iiiii',				'', 		5, 1, 0, 0],
 ];
 
-const wSign = [['0-En ingles(lista ordenada)', '1-Escrito Local(desordenada)', '2-Abreviatura', '3-id:key strings app', '4-Inter(cons)0 Local(vari)1', '5-Estado:Visible1 off0(Ocultar)', '6-país', '7-Idioma(dentro del país[6]) según 3-id:key strings app de wIdi]'],
-['universal sign language', 'universal sign language', 'UNI', 1, 0, 0, 0, 0],
-// - - -
-['american sign language, change', 'american sign language, change', 'ASL', 3, 0, 1, 2, 1],
-['colombian sign language, change', 'lengua de señas colombiana, cambiar', 'LSC', 2, 0, 1, 1, 2],
-['colombian sign language (Cali), change', 'lengua de señas colombiana (Cali), cambiar', 'LSC(cali)', 6, 1, 1, 4, 2],
-['korean sign language, change', '한국어 수화, 변경', 'KSL', 7, 0, 1, 5, 4],
-['mexican sign language, change', 'lengua de señas mexicana, cambiar', 'LSM', 4, 0, 0, 4, 6],
-['spanish sign language, change', 'lengua de señas española, cambiar', 'LSE', 5, 0, 1, 3, 2],
-['french sign language, change', 'langue des signes française, changer', 'LSF', 8, 0, 1, 6, 3],
+//'0-En ingles(lista ordenada)', '1-Escrito Local(desordenada)', '2-Abreviatura', '3-id:key strings app', '4-Inter(cons)0 Local(vari)1', 
+//                             '5-Estado:Visible1 off0(Ocultar)', '6-país', '7-Idioma(dentro del país[6]) según 3-id:key strings app de wIdi]'],
+const wSign = [[0, 							1,												2,    			3, 4, 5, 6, 7],
+['universal sign language', 				'universal sign language', 						'UNI',			1, 0, 0, 0, 0],
+['american sign language, change', 			'american sign language, change', 				'ASL', 			3, 0, 1, 2, 1],
+['colombian sign language, change', 		'lengua de señas colombiana, cambiar', 			'LSC',			2, 0, 1, 1, 2],
+['colombian sign language (Cali), change', 	'lengua de señas colombiana (Cali), cambiar',  	'LSC(cali)',	6, 1, 1, 4, 2],
+['korean sign language, change', 			'한국어 수화, 변경',							 'KSL',			 7, 0, 1, 5, 4],
+['mexican sign language, change', 			'lengua de señas mexicana, cambiar', 			'LSM', 			4, 0, 0, 4, 6],
+['spanish sign language, change', 			'lengua de señas española, cambiar', 			'LSE', 			5, 0, 1, 3, 2],
+['french sign language, change', 			'langue des signes française, changer', 		'LSF',			8, 0, 1, 6, 3],
 ];
 
 //wPAPAx					 1 2 3 4 5 6 7 8 9 10

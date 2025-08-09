@@ -6361,7 +6361,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 			{	console.log('Voz sin personalizar para esa Ruta t=',t,'; continuará con la voz por defecto de ese idioma');
 			}
 
-			// ASIGNAR el idioma y la seña
+			// ASIGNAR el idioma y la seña a la ruta madre (inicial verificada)
 			// AJUSTAR el idioma y la seña del lugar Madre seleccionado en ArRay, para ello usar los ID que
 			// maneja g00VARS[27][2] del idioma 1EN, 2SP, 3FR, 4KO, etc y que corresponden a la columna 13 de vPAPA#
 			//        g00VARS[67][2] de la seña 1INTER, 2LSC, 3ASL, 4LSM ETC y que corresponden a la columna 14 de vPAPA#
@@ -6492,24 +6492,14 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 				}
 			}
 			console.log('  --y=',y,'; z=',z);
-			g00VARS[27][2] = y;
-			g00VARS[67][2] = z; 
+			g00VARS[27][2] = y; // establece el idioma de la ruta madre
+			g00VARS[67][2] = z; // establece la seña de la ruta madre (*** ver nota abajo)
 			
-			//De la validacíon sacar el idioma y la seña??? no porque si no pasa, entra una ruta por defecto sin pasar por la validación y se desconocería el dato
-			//Cargar las tablas parciales primero y luego si el idioma y la seña o al réves???
-			//quizas no sea bueno cargar las tablas parciales primero porque asi se pueden eliminar algunas columnas sin contenido relevante, por ejemplo los parametros del idioma y la seña que solo se requieren para la parte inicial de preconfiguración
-			//ahorrando data inecesaria y tiempo
-
-
-			//Ahora si a cargar las tablas parciales y los primeros strings???
-
-
-
-
-			
-			//
 
 			console.error(' - -----------------______________ f0107() [idioma seña y ruta]  papas=,',papas);
+			
+			
+			// MANEJO del idioma y la seña
 			/*
 			for (var i = wIdi.length - 1; i >= 1; i--)//Recorre el array de idiomas
 			{	r002A[wIdi[i][3]][1]= i +', '+ wIdi[i][1];//toma el idioma de wIdi;
@@ -6518,20 +6508,16 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					//console.log(' - - - rrr bingo! i=',i,'; traer=',traer);
 				}
 			}*/
+			// Establecer la lista de Idiomas visibles en wIDI 
 			var ee = 1;
-			// - - - wIDI:
 			for (var i = 1; i < wIdi.length; i++)//Recorre el array de idiomas
 			{	if(wIdi[i][5] == 1)//si es visible
-				{	//console.log(' - - - rrr bingo! i=',i,'; wIdi[i][1]=',wIdi[i][1],'; ee=',ee);
-					//for (var j = wIdi.length - 1; j >= 1; j--)//Recorre el array de idiomas
-					//{	
-					wIDI[ee] = [wIdi[i][0],wIdi[i][1],wIdi[i][2],wIdi[i][3],wIdi[i][6]];
+				{	wIDI[ee] = [wIdi[i][0],wIdi[i][1],wIdi[i][2],wIdi[i][3],wIdi[i][6]];
 					ee++;
-					//}
 				}
 			}
+			// Establecer la lista de Señas visibles en wSIGN
 			ee = 1;
-			// - - - wSIGN:
 			for (var i = 1; i < wSign.length; i++)//Recorre el array de señas
 			{	if(wSign[i][5] == 1)//si es visible
 				{	//console.log(' - - - rrr bingo! i=',i,'; wSign[i][1]=',wSign[i][1],'; ee=',ee);
@@ -6539,12 +6525,9 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					ee++;
 				}
 			}
-			//console.log(' wIDI=',wIDI,' wSIGN=',wSIGN);
-			// - - - ASIGNAR STRINGS DE LAS SEÑAS PARA CADA IDIOMA
+			// ASIGNAR STRINGS DE LAS SEÑAS PARA CADA IDIOMA
 			for (var i = wIDI.length - 1; i >= 1; i--)//Recorre el array de idiomas
 			{	mIr002A[1][wIDI[i][3]]= i +', '+ wIDI[i][1];//toma el idioma de wIDI;
-				//r002A[wIDI[i][3]][1]= i +', '+ wIDI[i][1];//toma el idioma de wIDI;
-				//console.log(' - - - rrr 10 |> Flag  ->  r002A[wIDI[i][3]][1]=',r002A[wIDI[i][3]][1]);
 				if(wIDI[i][3] == 1)//Bingo es el ingles (ver wIdi)
 				{	orig[0] = i +', '+ wIDI[i][1];//Crea la copia original del idioma ingles
 				}
@@ -6554,41 +6537,42 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					}
 					if(wSIGN[j][3] == wIDI[i][4])//Si el idApp de la seña es igual a la señaIniPred del idioma wIDI[i]
 					{	mIr002A[2][wIDI[i][3]]= j +', '+ wSIGN[j][1];//toma la seña de wSIGN;
-						//r002A[wIDI[i][3]][2]= j +', '+ wSIGN[j][1];//toma la seña de wSIGN;
 					}
 				}
 				if(g00VARS[27][2] == wIDI[i][3])//id clave de ese idioma = id idioma
 				{	g00VARS[67][2] = wIDI[i][4];//idi key de la seña por defecto
+					// NOTA revizar si está parte va o no porque estaría ignorando a var z y a la columna del lugar que maneja la seña (ver var z *** antes)
 				}
 			};
-			f0121();//ACTUALIZAR el texto del botón señas			
-			// - - - LISTA FIJA visible 1 (wPAPA1): 
-			wPAPA1 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2
+			f0121();//ACTUALIZAR el texto del botón señas
 			
 			
+			//wPAPA1 = [];//Borra wPAPA1, hace de nuevo la lista wPAPA1
 			wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
-			//wPAPA1[0]=[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'];
-			
 			
 			
 			ee = 1;
-			//ee = 0;
-			for (var i = 1; i < vPAPA1.length; i++)//Recorre el array de continentes
-			//for (var i = 0; i < wPapa1.length; i++)//Recorre el array de continentes
-			{	//if(wPapa1[i][3] == 1)//si es visible
-				//{	
-
-					wPAPA1[ee] = [];
-					for (var k = 0; k < vPAPA1[i].length; k++)
-					{	wPAPA1[ee][k] = vPAPA1[i][k];
-					}
-					wPAPA1[ee][1] = ee;				
-					ee++;
-				//}
+			for (var i = 1; i < vPAPA1.length; i++)//Recorre el array de continentes sin hacer validaciones de visibilidad, es el único caso donde no se requiere, siempre será público
+			{	wPAPA1[ee] = [];
+				for (var k = 0; k < vPAPA1[i].length; k++)
+				{	wPAPA1[ee][k] = vPAPA1[i][k];
+				}
+				wPAPA1[ee][1] = ee;				
+				ee++;
 			}
-			//console.log(' wPAPA1=',wPAPA1);
+			
 
 
+
+
+
+
+
+
+
+
+
+			
 			//carga inicial de las listas y de papas
 			//console.log('|>>>>>>>>>>>>>>>>>>>				>>>>>>>>>>>>>>>>>>>>>>>> Flag 107      A inicio carga inicial de las listas y de papas -> f0124(0) papas=,',papas);
 			f0124(0);//f0124(0);ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -7004,18 +6988,14 @@ function f0117()//RESETEAR todos los apuntadores
 				for (var i = mIr003B.length - 1; i >= 1; i--)
 				//for (var i = r003B[3].length - 1; i >= 1; i--)
 				{	mIr003B[i][3] = 0;
-					//r003B[3][i] = 0;
 				}
 			}
 			if(gRuta == 7)
 			{	/*r007B[3][1] = 0;*/
 			}
-
 			if(gRuta == 8)
 			{	for (var i = mIr008B.length - 1; i >= 1; i--)
-				//for (var i = r008B[3].length - 1; i >= 1; i--)
 				{	mIr008B[i][3] = 0;
-					//r008B[3][i] = 0;
 				}
 			}
 		}
@@ -7033,15 +7013,11 @@ function f0119(sign)//CONMUTAR el botón seña(1) o idioma visible()
 			{	f0122(1);//Actualizar la seña (ingles)
 				mIr002B[1][4] = 0;
 				mIr002B[2][4] = 1;
-				//r002B[4][1] = 0;
-				//r002B[4][2] = 1;
 			}
 			else//No sign => Idioma
 			{	f0122();//Actualizar el idioma (ingles)
 				mIr002B[1][4] = 1;
 				mIr002B[2][4] = 0;
-				//r002B[4][1] = 1;
-				//r002B[4][2] = 0;
 			}
 		}
 
@@ -7068,10 +7044,7 @@ function f0121()//ACTUALIZAR el texto del botón señas
 				{	ee = 0;//Termina la busqueda
 					var ii = wSIGN[i][6]//captura el idioma de esa seña
 					g00VARS[27][2] = ii;//El idioma se hace igual al idioma padre
-					//console.log(' - - - rrr 10A bingo! i=',i,'; ii=',ii);
 					mIr002A[2][ii]= i +', '+ wSIGN[i][1];//toma la seña local de wSIGN;
-					//r002A[ii][2]= i +', '+ wSIGN[i][1];//toma la seña local de wSIGN;
-					//console.log(' - - - rrr 10B |> Flag  ->  r002A[ii][2]=',r002A[ii][2]);
 				};
 			};
 		}
@@ -7080,28 +7053,21 @@ function f0122(sign)//Actualizar el idioma (ingles)
 		{	lOU(122);
 			var run = 1;//activa el permiso
 			var ss;
-			//console.log(' - - - 99 rrr SIGN |> Flag  -> (sign)=',sign);		
 			if(sign)
 			{	ss = g00VARS[67][2];//Ruta actual de la seña
-				//console.log(' - - - 99 rrr SIGN |> Flag  -> ss=',ss);		
 				for (var i = 1; i < wSIGN.length; i++)//Recorre el array visible de señas
 				{	if((wSIGN[i][3] == ss) && run)//Bingo esa seña tiene el id del key actual, entonces..
 					{	run = 0;//desactiva el permiso de seguir - PARE
 						//Trae la seña ingles a r002A[x][2] donde x debe ser la fila ingles [1]
 						mIr002A[2][1] = i+', '+wSIGN[i][0];//traduccion al ingles de la seña
-						//r002A[1][2] = i+', '+wSIGN[i][0];//traduccion al ingles de la seña
-						//console.log(' - - - 99 rrr SIGN |> Flag  -> i=',i,'; r002A[1][2]=',r002A[1][2]);
 					}
 				}
 			}
 			else
 			{	ss = g00VARS[27][2];//Ruta actual del idioma
-				//console.log(' - - - 99 rrr SIGN |> Flag  -> ss=',ss);
 				if(ss == 1)//Ruta del ingles
 				{	//Trae el idioma original ingles a r002A[x][1] donde x debe ser la fila ingles [1]
 					mIr002A[1][1] = orig[0];//traduccion original en ingles del idioma ingles
-					//r002A[1][1] = orig[0];//traduccion original en ingles del idioma ingles
-					//console.log(' - - - 99 rrr Ingles |> Flag  ->  r002A[1][1]=',r002A[1][1]);
 				}
 				else//Es otro idioma
 				{	for (var i = 1; i < wIDI.length; i++)//Recorre el array visible de idiomas
@@ -7109,13 +7075,10 @@ function f0122(sign)//Actualizar el idioma (ingles)
 						{	run = 0;//desactiva el permiso de seguir - PARE
 							//Trae el idioma ingles a r002A[x][1] donde x debe ser la fila ingles [1]
 							mIr002A[1][1] = i+', '+wIDI[i][0];//traduccion al ingles del idioma
-							//r002A[1][1] = i+', '+wIDI[i][0];//traduccion al ingles del idioma
-							//console.log(' - - - 99 rrr IDI |> Flag  -> i=',i,'; r002A[1][1]=',r002A[1][1]);
 						}
 					}
 				}
 			}
-
 		}
 
 function f0123(busca)//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
@@ -7129,6 +7092,7 @@ function f0123(busca)//BUSCAR id/Fila que corresponde a cierto id Buscado en kTa
 			}
 		}
 
+		
 function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(124);
 			console.log(' - - - __________________________________________f0124(ini=',ini,')  [mIr002B[#][4]=0 (invi desde ini) papas[#+5]=0 wPAPA#]');//__#
