@@ -1,5 +1,20 @@
 Pendientes:
 
+la función 0126 no debería llamar a la BD solo debería cambiar el hash
+
+
+cuando cambio el lugar por otro no esta haciendo el llamado a la BD, revizar esto!!
+
+
+En f0158(a) separar el caso 2 de 0 y 1 porque una cosa es hacer la consulta (caso 2) y ponerse a esperar y otra cosa es responder (casos 0 y 1) eso previene volver a cargar los strings de los lugares sin necesidad
+
+
+
+
+comente f0126 en hh50 revizar eso, el cambio de ruta debe suceder antes del STRING porque luego de hacer la consulta a la BD, el cambio de ruta (f0126) no deberia volverse a llamar pero si cambiar los strings! 
+crear las rutas id=3 para tienda local, adicionar la columna de id pesos en las tablas vPAPA#
+
+
 las tablas vPAPA y wPAPA deben contar con columnas de visibilidad(1=visible,0=privada) / id_Hijo_sugerido* / id_tipo_del_lugar(bosque,desierto,ciudad,panaderia,etc..) / GPS-x / GPS-y / GPS-z(o piso 0(suelo), 1(edificación: primer piso), 2, -1, -2??)* / id_color / id_idioma* / id_seña* / id_imagen / id_bandera* / + 3 columnas libres*, disponibles por si se necesitan en un futuro por ejemplo cantidad de habitantes: tamaño en kms2 del lugar/territorio, etc.
 (*): Opcional
 

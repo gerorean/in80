@@ -2174,9 +2174,9 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 /* inicio interruptor 2 no incluye f0128 a f0137*/
 const ext = 15;//ext = 5; desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
-var 	wPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'ing', 'esp', 'fra', 'kor']];//array lugar actual seleccionado
-const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'published throughout the territory', 'publicado en todo el territorio', 'publié sur tout le territoire', '영토 전체에 게시됨']];
-var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private information', 'información privada', 'informations privées', '개인 정보']];
+var 	wPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'ing', 'esp', 'fra', 'kor']]; // wPAPA0[0] array del lugar actual seleccionado
+const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'published throughout the territory', 'publicado en todo el territorio', 'publié sur tout le territoire', '영토 전체에 게시됨']];
+const	vPAID2 = [[2, 2, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'private information', 'información privada', 'informations privées', '개인 정보']];
 
 ////	const vPAPA0 = [
 ////		[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토']
@@ -2188,7 +2188,7 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 // (*): Opcional
 //xAnt 	Función:
 //0		Id-hijo - Esta columna puede estar desordenada porque elementos nuevos (lugares) pueden llegar y rehubicar a todos los lugares
-//1		Id-Lista - Estos deberían estar siemore ordenados, se usa como referencia pero si los lugares son muchos no tiene sentido, su funcion es saber cuantos elementos van para poder asignar el próximo id-hijo y que este no se repita, podia estar comentado al inicio o determinarse con ayuda de vPAPA1.lenght directamente en consola y el siguiente id hijo (nuevo) tendrá como id (vPAPA1.lenght + 1)??
+//1		Id-Lista - Estos deberían estar siempre ordenados, se usa como referencia pero si los lugares son muchos no tiene sentido, su funcion es saber cuantos elementos van para poder asignar el próximo id-hijo y que este no se repita, podia estar comentado al inicio o determinarse con ayuda de vPAPA1.lenght directamente en consola y el siguiente id hijo (nuevo) tendrá como id (vPAPA1.lenght + 1)??
 //2		Id-padre 
 //3		Id - color marco
 //4		Id - logo para la presentación AV de los titulares
@@ -2203,9 +2203,9 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 
 //#####################################################################################3
 //xNew 	Función:  (*) opcional
-//0		Id-hijo - Esta columna puede estar desordenada porque elementos nuevos (lugares) pueden llegar y rehubicar a todos los lugares, para asignar el id al próximo id-hijo y que no se repita, puede determinarse con ayuda de vPAPA#.lenght directamente en consola y el siguiente id hijo (nuevo) será id=(vPAPA#.lenght + 2)?? SI!! próximo id = vPAPA#.length + 2!!
-//1		Id-Visible/público=1 Privado/Oculto=0 para poder asignar el próximo id-hijo y que sea unico y no este asignado a otro y garantizar que no se repita
-//2		Id-padre 
+//0		Id - hijo - Esta columna puede estar desordenada porque elementos nuevos (lugares) pueden llegar y rehubicar a todos los lugares, para asignar el id al próximo id-hijo y que no se repita, puede determinarse con ayuda de vPAPA#.length directamente en consola y el siguiente id hijo (nuevo) será id=(vPAPA#.length + 5)?? SI!! próximo id = vPAPA#.length + 5!!
+//1	*	Id - númeración relativa "ordenada" de la lista - Esta columna se utiliza para como variable para asignar un id ordenado para cada lugar en cada una las listas parciales wPAPA#, este número será el que el usuario ve directamente cuando esta configurando o cambiando de lugar. En las tablas vPAPA# si los lugares se enumeran de forma ordenada, desde el número 3, puede utilizarse como referencia para saber cuantos elementos van y saber cual sería el próximo id para asignarle a un nuevo lugar
+//2		Id - padre 
 //3		Id - color marco
 //4		Id - logo para la presentación AV de los titulares
 //5		Id - Tipo-imagen para mostrar el lugar en el boton del lugar o del cabezote (5 foto?? 4icono?? 3texto?? Revizar!!!!!!
@@ -2220,8 +2220,11 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 //13	id - idioma local *
 //14	id - seña local *
 //15	Id - Hijo_sugerido (auto genera una sub-ruta sugerida)
-//16	Id- Voz local heredada, dialecto u otras caracteristicas culturales de cierto territorio, que se difunden en todos sus hijos y sólo se activan en el momento de la carga inicial; voces: (1) Español de españa (2) Español de colombia, etc. Cada idioma tiene una voz por defecto por Ejemplo Español : voz español de españa, esta voa se podrá modificar únicamente en el momento de la primer verificacion de la ruta madre, luego de esto esa voz quedará fija para ese idioma!
-//17	XXPrecio??	área (kms2) Cantidad??  XXcontacto??? XXtelefóno??  correo?????XXDirección??  población (hab)??  
+//16	Id- Voz local heredada, dialecto u otras caracteristica cultural de cierto territorio, que se difunden en todos sus hijos y sólo se activan en el momento de la carga inicial; voces: (1) Español de españa (2) Español de colombia, etc. Cada idioma tiene una voz por defecto por Ejemplo Español : voz español de españa, esta voa se podrá modificar únicamente en el momento de la primer verificacion de la ruta madre, luego de esto esa voz quedará fija para ese idioma!
+//17 *	Id-Visible/público=1 Privado/Oculto=0 
+
+//      Id - moneda local 
+//      Id - tipo de producto o servicio que se comercializa localmemte                                                                                                                                      // XXPrecio??	área (kms2) Cantidad??  XXcontacto??? XXtelefóno??  correo?????XXDirección??  población (hab)??  
 
 //18	Texto en ingles
 //19	Texto en español
@@ -2232,17 +2235,17 @@ var		wPAID2 = [[2, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 'private
 
 //NOTA para vPAPA#: El id 1 esta reservado para las rutas públicas generales: "todo el territorio" y el id 2 para las rutas privadas: "información privada"
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA1 = [
-//  1  2  3   4  5  6   7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21..
-[1, 1, 0, 10, 5, 5, 96, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'],
-[8, 1, 0, 8, 20, 5, 20, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Africa', 'África', 'Afrique', '아프리카'],//1 ->8
-[9, 1, 0, 7, 26, 5, 26, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
-[3, 1, 0, 6, 22, 5, 22, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Asia', 'Asia', 'Asie', '아시아'],
-[4, 1, 0, 2, 23, 5, 23, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Europe', 'Europa', "L'Europe", '유럽'],
-[5, 1, 0, 3, 24, 5, 24, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
-[6, 1, 0, 4, 21, 5, 21, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
-[7, 1, 0, 5, 25, 5, 25, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
+//   1  2  3   4  5  6   7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21..
+[ 1, 0, 0, 10, 5, 5, 96, 5, 0, 9, 0, 1, 2, 1, 1, 0, 0, 1, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토'],
+[ 8, 3, 0, 8, 20, 5, 20, 5, 0, 9, 0, 1, 2, 1, 1, 8, 0, 1, 'Africa', 'África', 'Afrique', '아프리카'],//1 ->8
+[ 9, 4, 0, 7, 26, 5, 26, 5, 0, 9, 0, 1, 2, 1, 1, 9, 0, 1, 'Antarctica', 'Antártica', 'Antarctique', '남극 대륙'],
+[10, 5, 0, 6, 22, 5, 22, 5, 0, 9, 0, 1, 2, 1, 1,15, 0, 1, 'Asia', 'Asia', 'Asie', '아시아'],
+[11, 6, 0, 2, 23, 5, 23, 5, 0, 9, 0, 1, 2, 1, 1,13, 0, 1, 'Europe', 'Europa', "L'Europe", '유럽'],
+[12, 7, 0, 3, 24, 5, 24, 5, 0, 9, 0, 1, 2, 1, 1,14, 0, 1, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
+[ 6, 8, 0, 4, 21, 5, 21, 5, 0, 9, 0, 1, 2, 1, 1,10, 0, 1, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
+[ 7, 9, 0, 5, 25, 5, 25, 5, 0, 9, 0, 1, 2, 1, 1,11, 0, 1, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
 ]
 
 /*
@@ -2257,69 +2260,69 @@ const vPAPA1 = [['2-id:key strings app', 0, '4-Vacio', '5-Id color marco', '6-id
 ]
 */
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA2 = [['2-id:key strings app', 0, '4-IdPapa1', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 //   1  2  3   4  5   6  7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21.. 
-[ 7, 1, 7, 6, 61, 5, 27, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Argentina', 'Argentina', 'Argentine', '아르헨티나'],
-[10, 1, 6, 6, 62, 5, 29, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Australia', 'Australia', 'Australie', '호주'],
-[11, 1, 7, 9, 63, 5, 30, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Colombia', 'Colombia', 'Colombie', '콜롬비아'],//1 ->11
-[ 8, 1, 8, 4, 64, 5, 31, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Equatorial Guinea', 'Guinea Ecuatorial', 'Guinée équatoriale', '적도 기니'],
-[ 6, 1, 4, 6, 65, 5, 32, 5, 0, 9, 0, 1, 2, 3, 1, 5, 0, 7, 'France', 'Francia', 'France', '프랑스'],
-[ 4, 1, 5, 4, 66, 5, 33, 5, 0, 9, 0, 1, 2, 2, 2, 5, 1, 7, 'Mexico', 'México', 'Mexique', '멕시코'],
-[ 5, 1, 3, 6, 67, 5, 34, 5, 0, 9, 0, 1, 2, 4, 1, 5, 0, 7, 'South Korea', 'Corea del Sur', 'Corée du Sud', '대한민국'],
-[ 3, 1, 4, 3, 68, 5, 35, 5, 0, 9, 0, 1, 2, 2, 2, 5, 2, 7, 'Spain', 'España', 'Espagne', '스페인'],
-[ 9, 1, 9, 6, 69, 5, 42, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Trinidad Peninsula', 'Península Trinidad', 'Péninsule de Trinidad', '트리니다드 반도'],
-[12, 1, 5, 6, 70, 5, 37, 5, 0, 9, 0, 1, 2, 1, 1, 5, 3, 7, 'United States of America', 'Estados Unidos de América', "les états-unis d'Amérique", '아메리카 합중국']
+[ 7, 3, 7, 6, 61, 5, 27, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Argentina', 'Argentina', 'Argentine', '아르헨티나'],
+[10, 4, 6, 6, 62, 5, 29, 5, 0, 9, 0, 1, 2, 1, 1, 0, 0, 1, 'Australia', 'Australia', 'Australie', '호주'],
+[11, 5, 7, 9, 63, 5, 30, 5, 0, 9, 0, 1, 2, 2, 2, 8, 0, 1, 'Colombia', 'Colombia', 'Colombie', '콜롬비아'],//1 ->11
+[ 8, 6, 8, 4, 64, 5, 31, 5, 0, 9, 0, 1, 2, 1, 1, 0, 0, 1, 'Equatorial Guinea', 'Guinea Ecuatorial', 'Guinée équatoriale', '적도 기니'],
+[ 6, 7,11, 6, 65, 5, 32, 5, 0, 9, 0, 1, 2, 3, 1, 0, 0, 1, 'France', 'Francia', 'France', '프랑스'],
+[14, 8,12, 4, 66, 5, 33, 5, 0, 9, 0, 1, 2, 2, 2, 0, 1, 1, 'Mexico', 'México', 'Mexique', '멕시코'],
+[15, 9,10, 6, 67, 5, 34, 5, 0, 9, 0, 1, 2, 4, 1, 0, 0, 1, 'South Korea', 'Corea del Sur', 'Corée du Sud', '대한민국'],
+[13,10,11, 3, 68, 5, 35, 5, 0, 9, 0, 1, 2, 2, 2, 6, 2, 1, 'Spain', 'España', 'Espagne', '스페인'],
+[ 9,11, 9, 6, 69, 5, 42, 5, 0, 9, 0, 1, 2, 1, 1,13, 0, 1, 'Trinidad Peninsula', 'Península Trinidad', 'Péninsule de Trinidad', '트리니다드 반도'],
+[12,12,12, 6, 70, 5, 37, 5, 0, 9, 0, 1, 2, 1, 1, 0, 3, 1, 'United States of America', 'Estados Unidos de América', "les états-unis d'Amérique", '아메리카 합중국']
 ]
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA3 = [['2-id:key strings app', 0, '4-IdPapa2', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 //   1   2  3   4  5   6  7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21.. 
-[ 7, 1,  3, 4, 71, 5, 38, 5, 1, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Andalusia', 'Andalucía', 'Andalousie', '안달루시아'],
-[ 3, 1, 11, 4, 72, 5, 39, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Antioquia', 'Antioquia', 'Antioche', '남극 대륙'],
-[ 8, 1, 11, 9, 73, 5, 28, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
-[ 4, 1, 11, 4, 74, 5, 40, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Boyaca', 'Boyacá', 'Boyaca', '보야카'],
-[ 9, 1, 11, 3, 75, 5, 41, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Cundinamarca', 'Cundinamarca', 'Cundinamarca', '쿤디나마르카'],//1 ->9
-[ 5, 1,  9, 6, 76, 5, 36, 5, 0, 9, 0, 1, 2, 1, 1, 5, 0, 7, 'Hope Bay', 'Bahía Esperanza', "Baie de l'Espoir", '호프 베이'],
-[ 6, 1,  3, 9, 77, 5, 43, 5, 2, 9, 0, 1, 2, 2, 2, 5, 0, 7, "Madrid's community", 'Comunidad de Madrid', 'La communauté de Madrid', '마드리드의 커뮤니티'],
-[10, 1, 11,12, 78, 5, 44, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Narino', 'Nariño', 'Nariño', '나리노']
+[ 7, 3, 13, 4, 71, 5, 38, 5, 1, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Andalusia', 'Andalucía', 'Andalousie', '안달루시아'],
+[11, 4, 11, 4, 72, 5, 39, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Antioquia', 'Antioquia', 'Antioche', '남극 대륙'],
+[ 8, 5, 11, 9, 73, 5, 28, 5, 0, 9, 0, 1, 2, 2, 2, 9, 0, 1, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
+[12, 6, 11, 4, 74, 5, 40, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Boyaca', 'Boyacá', 'Boyaca', '보야카'],
+[ 9, 7, 11, 3, 75, 5, 41, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Cundinamarca', 'Cundinamarca', 'Cundinamarca', '쿤디나마르카'],//1 ->9
+[13, 8,  9, 6, 76, 5, 36, 5, 0, 9, 0, 1, 2, 1, 1, 0, 0, 1, 'Hope Bay', 'Bahía Esperanza', "Baie de l'Espoir", '호프 베이'],
+[ 6, 9, 13, 9, 77, 5, 43, 5, 2, 9, 0, 1, 2, 2, 2, 6, 0, 1, "Madrid's community", 'Comunidad de Madrid', 'La communauté de Madrid', '마드리드의 커뮤니티'],
+[10,10, 11,12, 78, 5, 44, 5, 0, 9, 0, 1, 2, 2, 2, 8, 0, 1, 'Narino', 'Nariño', 'Nariño', '나리노']
 ]
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA4 = [['2-id:key strings app', 0, '4-IdPapa3', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
-//  1  2   3   4  5   6  7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21.. 
-[9, 0, 8,  9, 45, 5, 45, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'location Chapinero', 'localidad Chapinero', 'localité Chapinero', '위치 차피네로'],
-[3, 1, 8,  9, 46, 5, 46, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'location Kenedy', 'localidad Kenedy', 'localité Kenedy', '위치 케네디'],
-[4, 1, 8,  3, 47, 5, 47, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'location Puente Aranda', 'localidad Puente Aranda', 'localité Puente Aranda', '위치 푸엔테 아란다'],
-[5, 1, 8,  9, 48, 5, 48, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'location Usaquen', 'localidad Usaquén', 'localité Usaquén', '위치 우사켄'],
-[6, 1, 6,  9, 49, 5, 49, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Madrid', 'Madrid', 'Madrid', '커뮤니티'],
-[7, 1, 3,  4, 50, 5, 50, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Medellin', 'Medellín', 'Medellín', '메델린'],
-[8, 1,10, 12, 51, 5, 51, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Pasto', 'Pasto', 'Pasto', '파스토']
+//   1  2   3   4  5   6  7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21.. 
+[ 9, 3, 8,  9, 45, 5, 45, 5, 0, 9, 0, 1, 2, 2, 2, 9, 0, 1, 'location Chapinero', 'localidad Chapinero', 'localité Chapinero', '위치 차피네로'],
+[10, 4, 8,  9, 46, 5, 46, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'location Kennedy', 'localidad Kennedy', 'localité Kennedy', '위치 케네디'],
+[11, 5, 8,  3, 47, 5, 47, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'location Puente Aranda', 'localidad Puente Aranda', 'localité Puente Aranda', '위치 푸엔테 아란다'],
+[12, 6, 8,  9, 48, 5, 48, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'location Usaquen', 'localidad Usaquén', 'localité Usaquén', '위치 우사켄'],
+[ 6, 7, 6,  9, 49, 5, 49, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Madrid', 'Madrid', 'Madrid', '커뮤니티'],
+[ 7, 8,11,  4, 50, 5, 50, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Medellin', 'Medellín', 'Medellín', '메델린'],
+[ 8, 9,10, 12, 51, 5, 51, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Pasto', 'Pasto', 'Pasto', '파스토']
 ]
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA5 = [['2-id:key strings app', 0, '4-IdPapa4', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
-//  1  2  3   4  5   6  7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21.. 
-[8, 1, 9, 3, 52, 5, 52, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Catalonia neighborhood', 'barrio Cataluña', 'quartier Catalogne', '카탈로니아 인근'],//1 ->8
-[9, 1, 9, 3, 53, 5, 53, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Central Chapinero neighborhood', 'barrio Chapinero Central', 'quartier Central de Chapinero', '중앙 차피네로 지역'],
-[3, 1, 9, 3, 54, 5, 54, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'North Chapinero neighborhood', 'barrio Chapinero Norte', 'quartier Nord de Chapinero', '노스 차피네로 인근'],
-[4, 1, 9, 3, 55, 5, 55, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Marly neighborhood', 'barrio Marly', 'quartier Marneux', '말리 동네'],
-[7, 1, 9, 3, 56, 5, 56, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Porciuncula neighborhood', 'barrio Porciúncula', 'quartier Porciuncula', '포르시운쿨라 인근'],
-[6, 1, 9, 3, 57, 5, 57, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Quinta Camacho neighborhood', 'barrio Quinta Camacho', 'quartier Quinta Camacho', '퀸타 카마초 인근'],
-[5, 1, 9, 3, 58, 5, 58, 5, 0, 9, 0, 1, 2, 2, 2, 5, 0, 7, 'Sucre neighborhood', 'barrio Sucre', 'quartier Sucré', '수크레 동네']
+//   1  2  3   4  5   6  7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21.. 
+[ 8, 3, 9, 3, 52, 5, 52, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Catalonia neighborhood', 'barrio Cataluña', 'quartier Catalogne', '카탈로니아 인근'],//1 ->8
+[ 9, 4, 9, 3, 53, 5, 53, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Central Chapinero neighborhood', 'barrio Chapinero Central', 'quartier Central de Chapinero', '중앙 차피네로 지역'],
+[10, 5, 9, 3, 54, 5, 54, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'North Chapinero neighborhood', 'barrio Chapinero Norte', 'quartier Nord de Chapinero', '노스 차피네로 인근'],
+[11, 6, 9, 3, 55, 5, 55, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Marly neighborhood', 'barrio Marly', 'quartier Marneux', '말리 동네'],
+[ 7, 7, 9, 3, 56, 5, 56, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Porciuncula neighborhood', 'barrio Porciúncula', 'quartier Porciuncula', '포르시운쿨라 인근'],
+[ 6, 8, 9, 3, 57, 5, 57, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Quinta Camacho neighborhood', 'barrio Quinta Camacho', 'quartier Quinta Camacho', '퀸타 카마초 인근'],
+[12, 9, 9, 3, 58, 5, 58, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Sucre neighborhood', 'barrio Sucre', 'quartier Sucré', '수크레 동네']
 ]
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA6 = [['2-id:key strings app', 0, '4-IdPapa5', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 []
 ]
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA7 = [['2-id:key strings app', 0, '4-IdPapa6', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 []
 ]
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA8 = [['2-id:key strings app', 0, '4-IdPapa7', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 []
 ]
@@ -2329,7 +2332,7 @@ const vPAPA9 = [['2-id:key strings app', 0, '4-IdPapa8', '5-Id color marco', '6-
 []
 ]
 
-//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 2
+//Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA10 = [['2-id:key strings app', 0, '4-IdPapa9', '5-Id color marco', '6-id logo', '7-idImagen', '8-idMapa', '9-ID QR CODE', '0-En ingles(lista ordenada)', '5/10-Español', '6/11-frances', '7/12-coreano'],
 []
 ]
@@ -2392,7 +2395,7 @@ var copia1 		/**/ = 2;//Bcapacidad de repeticiones de A 1B- Actualzar la capacid
 var copia2 		/**/ = 0;//Cid seña anterior
 var copia3 		/**/ = 1;//Drepetición actual de A o anterior de C
 var deltAV = (Math.min(window.outerHeight, window.outerWidth) * 0.065);//6.5%
-var dExt = [0, '', '', '', ''];//Datos Extra del sitio local [1IdColor,,,,] el número de casillas debe ser igual a ext
+var dExt = [0, '', '', '', '']; // Datos Extra del sitio local [1IdColor,'','','',''] el número de casillas debe ser igual a ext
 var fiLa = [0, 0];//Control de filas que pasan por la marquesina Local[0] Ingles[1]
 var ff; 		//variable para el cambio de fila en los lugares
 var flip 		/**/ = 0;//Cambio estado pulsos "lentos"
@@ -2442,8 +2445,9 @@ var nmarqi = 0;//Número de veces que ha pasado la marquesina internacional
 var nruta;//quita el # ajusta el string ruta y se vuelve array '7/11/8/9/8'
 var nUm;//Variable del estado de la luz
 var orig = ['', ''];//String original del ingles[0] ASL[1]
+var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''];
 //var papas = ['A','B','C','D','E',7, 1, 8, 9, 1, 0, 0, 0, 0, 0, ''];//[7, 11, 8, 9, 8, 0, 0, 0, 0, 0, ''](ruta errada es 7,11,8,9,8,0,0,0... )7,1,8,9,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
-var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',7, 11, 8, 9, 1, 0, 0, 0, 0, 0, ''];
+//var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',7, 11, 8, 9, 1, 0, 0, 0, 0, 0, ''];
 //var 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 var papas0 = [];//array limpio de papas y sin ceros. [7]
 var papas1 = [];//array de lo que falta a papas para completar la ruta sugerida [empty, 11, 8, 9, 8]
@@ -2452,6 +2456,7 @@ var paSpas = [7, 11, 8, 9, 1, 0, 0, 0, 0, 0, ''];//Pasado de papas, debe guardar
 var progresi;//la mitad del ancho del body que debe recorrer la marquesina en ingles, controla el avance de la marquesina en ingles		
 var progreso;//la mitad del ancho del body que debe recorrer la marquesina local, no cambia porque se usa para cambiar los anuncios	
 var progress;//la mitad del ancho del body que debe recorrer la marquesina local, controla el avance de la marquesina local		
+var pUb; // (1)Ruta pública (0)Privada con lugares parciales ocultos
 const reGis = 0;//Mostrar registros[1] o no[0] por consola
 var roto 		/**/ = 0;//1:Cancelar orden reciente de focus sobre un punto - 0:Permitir focus	
 var rumba = '';//Pasado de rumbi en el navegador
