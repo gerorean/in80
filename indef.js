@@ -5000,24 +5000,28 @@ function f0101()//REGRESAR color texto-boton previo
 			{	case 0:
 					g00VARS[34][2] = 3;
 					hh35();//Oscurecer el color del fondo/boton
-					r001B[4][17] = 1;
+					mIr001B[17][4] = 1;
+					//r001B[4][17] = 1;
 				break;
 				case 1:
 					g00VARS[34][2] = 0;
 					hh36();//L ESTILIZAR: texto blanco, botón negro, fondo claro	
-					r001B[4][18] = 1;
+					mIr001B[18][4] = 1;
+					//r001B[4][18] = 1;
 				break;
 				case 2:
 					g00VARS[34][2] = 1;
 					hh35();//L ESTILIZAR: texto negro, botón blanco, fondo oscuro
 					iBody.style.setProperty('--cblwh2','yellow');
-					r001B[4][15] = 1;
+					mIr001B[15][4] = 1;
+					//r001B[4][15] = 1;
 				break;
 				case 3:
 					g00VARS[34][2] = 2;
 					hh36();//L ESTILIZAR: texto blanco, botón negro, fondo claro	
 					iBody.style.setProperty('--cblwh1','yellow');
-					r001B[4][16] = 1;//15     11>18
+					mIr001B[16][4] = 1;//15     11>18
+					//r001B[4][16] = 1;//15     11>18
 				break;
 			}
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
@@ -5053,7 +5057,8 @@ function f0105()//hh88 RESET de velocidad -> 1.0
 			if(g00VARS[44][2] != 1)
 			{	hh76();//OCULTAR velocidades del reproductor
 				g00VARS[44][2] = 1;//velocidad 0 - 3.6
-				r001B[4][5] = 1;
+				mIr001B[5][4] = 1;
+				//r001B[4][5] = 1;
 			}
 		}
 
@@ -5555,7 +5560,7 @@ if (cF > 0)    //Aún no termina..
 	
 
 */
-function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
+function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
 		{	lOG(107);
 			// Obtener el hash de la URL
 			hAsH=window.location.hash;
@@ -6307,6 +6312,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 													{	//console.log(' Pin valido para continuar p=',p,'; i=',i);
 														f = 1; // Pre Validación parcial
 
+
 														//NOTA!! Esta parte se comenta porque aún no existe vPAPA11:
 														/* 
 														if((v + 1)==c) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
@@ -6387,7 +6393,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					b = 1; // Listo funcionó el plan A
 				}
 			}	
-			if(!b)// Si el plan A no funciona -> plan B: toma el idioma y la seña directamente de las tablas vPAPA
+			if(!b) // Si el plan A no funciona -> plan B: toma el idioma y la seña directamente de las tablas vPAPA
 			{	console.log('¡Plan B!');
 				// g00VARS[27][2] = vPAPA# [#][13];
 				// g00VARS[67][2] = vPAPA# [#][14]; 
@@ -6576,51 +6582,20 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 				ee++;
 			}
 			
-
-
-
-
-
-
-
-
-
-
-
-			
 			//carga inicial de las listas y de papas
 			//console.log('|>>>>>>>>>>>>>>>>>>>				>>>>>>>>>>>>>>>>>>>>>>>> Flag 107      A inicio carga inicial de las listas y de papas -> f0124(0) papas=,',papas);
 			
 			
-			
-			
 			f0124(0,1); // f0124(0); ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-			//f0124(0,1);//f0124(0);ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-			//console.log('|> Flag 107 -> 125');
-			//console.log('|>>>>>>>>>>>>>>>>>>>				>>>>>>>>>>>>>>>>>>>>>>>> Flag 107      B -> f0125(0) papas=',papas);
-			
-			
-
-
-			
-			
-			/** */
 			f0125(0); // ESTABLECER el string y la visibilidad correctos para cada uno de los botones de los Lugares (sitios 1i1, 2i7, 3i2, 4i8, etc)
-			/** */
 			
-
-			
-
 
 			// Esto se puede eliminar y solo dejar a f0142????? osea iniR creo que no sirve de nada
 			if((!ncBD)&&(iniR))// Si (ncBD Numero de consultas a la base de datos) y ( iniR Activar la ruta inicial)
 			{	iniR = 0;//Va a cargar la ruta inicial
-				//console.log(' 2. ruta=',ruta);
-				//nruta = ruta.slice(1);//nruta quita el prirmer / de la ruta 7/11/8/9/8
 				console.log(' 3. |> Flag 0 _________ 126 -> 142 * CONSULTAR a la base de datos por cierta collección');
 				f0142();//CONSULTAR a la base de datos por cierta collección
 			}
-
 
 
 			//console.log('|>>>>>>>>>>>>>>>>>>>				>>>>>>>>>>>>>>>>>>>>>>>> Flag 107      C fin carga inicial de las listas y de papas papas=,',papas);
@@ -6661,12 +6636,12 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 
 		}
 
-function f0108()//hh18 DESHABILITAR bordes superior e inferior
+function f0108() // hh18 DESHABILITAR bordes superior e inferior
 		{	lOG(108);
 			if(g00VARS[35][2])//quitar barrera de proteccion   ----botones grandes
 			{	g00VARS[35][2] = 0;
 				iStop.classList.add('cX');
-				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
+				f0017(); // CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 			}
 		}
 
@@ -7141,8 +7116,6 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 		{	lOG(124);
 			console.log(' - - - __________________________________________f0124(n=',n,', a=',a,')  [mIr002B[#][4]=0 (invi desde n) papas[#+5]=0 wPAPA#]');//__#
 			console.log(' - - - A - control de la ruta 2 de idioma [1-5] y lugar [6----] ...  mIr002B[6]=',mIr002B[6]);
-			
-			
 			if(!a) // Si no es la ruta madre
 			{
 				console.log(' - - - __________________________ NO ES la Ruta madre... Se ocultan los botones hijo y se borran las tablas parciales hijas');
@@ -7155,7 +7128,6 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 			else
 			{ 	console.log(' - - - Ruta madre... No se ocultan botones ni se borran tablas???');
 			}
-
 			console.log(' - - - B - mIr002B[6]=',mIr002B[6],'; papas=',papas);
 			// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8}
 			for (var j = n + 1; j < 11; j++)// n {0-8}  j {1-10}  Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
@@ -7169,121 +7141,10 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 					j = 11;
 				}
 			}
-
 			f0126();//ACTUALIZAR la ruta en el hash
-
-			//???????
 			f0142();//CONSULTAR a la base de datos por cierta collección Valida
-			
 		}
 
-
-/////////////////////////////////////function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-/////////////////////////////////////		{	lOG(124);
-/////////////////////////////////////			console.log(' - - - __________________________________________f0124(ini=',ini,')  [mIr002B[#][4]=0 (invi desde ini) papas[#+5]=0 wPAPA#]');//__#
-/////////////////////////////////////			console.log(' - - - A - mIr002B[6][4]=',mIr002B[6][4],'; papas=',papas,'; papas0=,',papas0,'; papas1=',papas1,' arreglo con el faltante de ruta sugerido');
-/////////////////////////////////////			//ini no aparece en f0138
-/////////////////////////////////////			//OJO!!!! si papas[5] es 1-7, entonces.. sino papas[5]=7 (por defecto para que pueda redirigirlo a hacia una ruta sugerida)//__0
-/////////////////////////////////////			for (var i = 6 + ini; i <= 14; i++)//5-[12-5]13 - 4 = 9 si ini= 0 los oculta todos
-/////////////////////////////////////			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-/////////////////////////////////////				papas[i]=0;//borrar datos a la derecha de papas[ini+5]//__papas[i - 5]=0;//borrar datos a la derecha de papas[ini]
-/////////////////////////////////////			}
-/////////////////////////////////////			console.log(' - - - B - mIr002B[6]=',mIr002B[6],'; papas=',papas);
-/////////////////////////////////////			//Aqui va codigo diferente en f0138:
-/////////////////////////////////////			/*			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
-/////////////////////////////////////			{	papas[i+5]=parseInt(rumbo[i]);//__papas[i]=parseInt(rumbo[i]);
-/////////////////////////////////////			}
-/////////////////////////////////////			*/
-/////////////////////////////////////			//Este bloque no aparece en f0138 (esta oculto):
-/////////////////////////////////////			//CREA un arreglo paralelo aparte con la ruta parcial QUE NO SE MODIFICO más el último cambio
-/////////////////////////////////////			papas0 = [];//Reset
-/////////////////////////////////////			papas1 = [];//Reset
-/////////////////////////////////////			for (var i = 0; i < 10; i++)//la casilla 10 siempre es 0 no se usa
-/////////////////////////////////////			{ 	if(papas[i+5]!=0)//__if(papas[i]!=0)
-/////////////////////////////////////				{	papas0[i] = papas[i+5];//__papas0[i] = papas[i];
-/////////////////////////////////////				}
-/////////////////////////////////////			}
-/////////////////////////////////////			console.log(' - - - C - papas0=',papas0);
-/////////////////////////////////////			//buscar dentro de rutas sugeridas a papa0 (papas paralelo) y ver si lo encuentra..
-/////////////////////////////////////			//Ojo no debería buscar primero si es una ruta valida antes de buscar una ruta sugerida para esa ruta???  que pasaria si el continente fuese 9, que haria??? RTA:Error!!!
-/////////////////////////////////////			var siga = 1;
-/////////////////////////////////////			for (var i = 0; i < wSug.length; i++)//busca en todas las sugerencias una por una
-/////////////////////////////////////			{	if(siga)//buscar
-/////////////////////////////////////				{	var oks = 0;
-/////////////////////////////////////					for (var j = 0; j < papas0.length; j++)
-/////////////////////////////////////					{ 	if(wSug[i][j] == papas0[j])//compara la casilla j de la sugerencia i con la casilla j de papas0
-/////////////////////////////////////						{	oks++;//suma un ok
-/////////////////////////////////////						}
-/////////////////////////////////////					}
-/////////////////////////////////////					//console.log(' - - - D - i=',i,'; oks=',oks,'; papas0.length=',papas0.length);
-/////////////////////////////////////					if(oks == papas0.length)//tantos de tantos son iguales!
-/////////////////////////////////////					{	siga = 0;//Parar, no siga buscando más
-/////////////////////////////////////						//console.log(' -  - - rrr BIIIIIIIINNNGOOOOO la ruta sugerida i=',i);
-/////////////////////////////////////						//DEBE completar / actualizar la ruta con la ruta sugerida encontrada, con la ultima coinsidencia hasta donde pueda y si quedan hijos sueltos, luego completarla con numeros auto del resto de la ruta 
-/////////////////////////////////////						for (var j = ini+1; j < wSug[i].length; j++)
-/////////////////////////////////////						{	papas1[j] = wSug[i][j];//arreglo con el faltante de ruta sugerido
-/////////////////////////////////////						}
-/////////////////////////////////////						//console.log(' - - - rrr debe iniciar la actualización de la ruta desde wPAPA',ini + 2,' teniendo en cuenta el array papas1=',papas1);
-/////////////////////////////////////						//no asumir que la ruta sugerida funcione, para ello crear un array paralelo y tenerlo cómo referencia e ir paso a paso verificando cada casilla
-/////////////////////////////////////						//actualizar las listas desde aqui hasta el final teniendo en cuenta la ruta sugerida cuando está exista
-/////////////////////////////////////						//desde aquí debe poner los numeros auto del resto de la ruta que se puedan y falten
-/////////////////////////////////////					}
-/////////////////////////////////////					else//no encontro sugerencias, debe poner los numeros auto del resto de la ruta
-/////////////////////////////////////					{	//actualizar las listas desde aqui poniendo por defecto el primer elemento que encuentre  
-/////////////////////////////////////						//console.log(' - - - rrr debe iniciar la actualización de la ruta desde wPAPA',ini + 2);	
-/////////////////////////////////////					}
-/////////////////////////////////////				}
-/////////////////////////////////////			}
-/////////////////////////////////////			console.log(' - - - D - papas1=',papas1);
-/////////////////////////////////////			//Fin del bloque que no aparece en f0138 (esta oculto)
-/////////////////////////////////////			/*
-/////////////////////////////////////			//ruta sugerida: 7,1,1,1,2,5,2,4,2,2
-/////////////////////////////////////			//si ese cambio es parte de una ruta sugerida completa la ruta sugerida(conocida) sino pone los números auto que se puedan..
-/////////////////////////////////////			var sug = [5,2,4,2];//ruta de Tecnoparque, ver si puede llegar a alguna línea y mostrarla en menu
-/////////////////////////////////////			for (var i = 0; i < sug.length; i++)//Recorre el array de papas [0-9]
-/////////////////////////////////////			{	papas[i+ini+6] = sug[i];//__papas[i + ini + 1] = sug[i];
-/////////////////////////////////////			}
-/////////////////////////////////////			*/
-/////////////////////////////////////			/*
-/////////////////////////////////////			if(ini == 0)//Si el cambio es en lugar 0
-/////////////////////////////////////			{	wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2
-/////////////////////////////////////				
-/////////////////////////////////////				var go = 1;//Buscando un elemento
-/////////////////////////////////////				for (var i = 0; i < wPapa2.length; i++)//recorre las filas de wPapa2
-/////////////////////////////////////				{ 	if((wPapa2[i][3] == 1)&&(wPapa2[i][2] == papas1[ini+1])&&(wPapa2[i][4] == papas[5]))//__ == papas[0]))
-/////////////////////////////////////					{	go = 0;//el elemento sugerido existe, es visible y cumple go=1
-/////////////////////////////////////						papas[6]=papas1[ini+1];//__papas[1]=papas1[ini+1];
-/////////////////////////////////////					}
-/////////////////////////////////////				}
-/////////////////////////////////////				var ff = 1;
-/////////////////////////////////////				for (var i = 1; i < wPapa2.length; i++)//Recorre el array de paises - lugares 1 
-/////////////////////////////////////				{	if((wPapa2[i][3] == 1)&&(wPapa2[i][4] == papas[5]))//si esa fila es visible y además es un hijo de wPAPA1//__ == papas[0]))//
-/////////////////////////////////////					{	wPAPA2[ff] = [wPapa2[i][2],wPapa2[i][1],wPapa2[i][4],ff+', '+wPapa2[i][0]+kTapaI[1][5],ff+', '+wPapa2[i][5]+kTapaI[2][5],ff+', '+wPapa2[i][6]+kTapaI[3][5],ff+', '+wPapa2[i][7]+kTapaI[4][5]];
-/////////////////////////////////////						ff++;//Siguiente fila
-/////////////////////////////////////						if(go)
-/////////////////////////////////////						{	go = 0;//Deja de buscar un elemento
-/////////////////////////////////////							papas[6] = wPapa2[i][2];//Toma el primer id del string del elemento de la app que encuentre//__papas[1] = 
-/////////////////////////////////////						}
-/////////////////////////////////////					}
-/////////////////////////////////////				}
-/////////////////////////////////////			}
-/////////////////////////////////////			*/
-/////////////////////////////////////			//Cargar/actualizar los wPAPAS hijos o dependientes desde ini[0-8]
-/////////////////////////////////////			//var ff;
-/////////////////////////////////////			//var go;
-/////////////////////////////////////			for (var j1 = ini+1; j1 < 11; j1++)//ini[0-8]  j[1-10]Recorre los wPAPAx restantes y los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
-/////////////////////////////////////			{	f0153(j1,1);//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10
-/////////////////////////////////////			}
-/////////////////////////////////////			//cuando muestra la cartelera local
-/////////////////////////////////////			//console.log(' - - - rrrrr f0124 fin A papas=',papas,';\n wPAPA2=',wPAPA2,';\n wPAPA3=',wPAPA3,';\n wPAPA4=',wPAPA4,';\n wPAPA5=',wPAPA5,';\n wPAPA6=',wPAPA6);
-/////////////////////////////////////			/*
-/////////////////////////////////////			cuando termine de actualizar todas las tablas y organizar una ruta nueva para papas[xxxx + 5] entonces debe mirar
-/////////////////////////////////////			que botones debe mostrar y cargar los strings que correspondan, ejemplo..
-/////////////////////////////////////				r002B[4][12]=1;//Si esa fila puede llevar a otro hijo activa el boton de lugar 1 [12]				
-/////////////////////////////////////			*/
-/////////////////////////////////////			//BUSCAR SI HAY ALGUNA RUTA SUGERIDA QUE PASE POR HAY
-/////////////////////////////////////			//papas0 = [7, 1, 1, 1, 1]
-/////////////////////////////////////		}
 
 function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada uno de los botones de los Lugares (sitios 1i1, 2i7, 3i2, 4i8, etc), ACTUALIZAR la presentación AV y el cabezote de la ruta 3, todo desde ini.
 		{	lOG(125);
@@ -8161,40 +8022,42 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 
 
 						/* SWITCH SIN LA BASE DE DATOS MONGO mongo*/
-						//if(nruta == '7/1/8/9/9')//Bingo!
-						//'/7/11/8/9/1','/7/11/8/9/9','/7/11/8/9/3','/7/11/8/9/4','/7/11/8/9/5','/7/11/8/9/6','/7/11/8/9/7','/7/11/8/9/8','/7/11/8/4'
 						if(['7/11/8/9/1','7/11/8/9/9','7/11/8/9/10','7/11/8/9/11','7/11/8/9/12','7/11/8/9/6','7/11/8/9/7','7/11/8/9/8','7/11/8/11'].indexOf(nruta) !== -1) //Bingo!
-						//if(['7/1/8/4','7/1/8/9/1','7/1/8/9/9','7/1/8/9/3','7/1/8/9/4','7/1/8/9/5','7/1/8/9/6','7/1/8/9/7'].indexOf(nruta) !== -1) //Bingo!
-						//if(nruta == '7/1/8/4')//Bingo!
 						{	mIc003A = [];
 							mIc003B = [];
 							mIc003Z = [];
 							if(['7/11/8/9/1','7/11/8/9/9','7/11/8/9/10','7/11/8/9/11','7/11/8/9/12','7/11/8/9/6','7/11/8/9/7','7/11/8/9/8','7/11/8/11'].indexOf(nruta) !== -1) //Bingo!
-							//if(['7/1/8/4','7/1/8/9/1','7/1/8/9/9','7/1/8/9/3','7/1/8/9/4','7/1/8/9/5','7/1/8/9/6','7/1/8/9/7'].indexOf(nruta) !== -1) //Bingo!
-							//if(nruta == '7/1/8/4')//Bingo!
-							{	switch (nruta) {
-								  case '7/11/8/11'://puente aranda
-								  //case '7/1/8/4':
-								    console.log('Ruta A puente aranda');
-									mIc003A = mIc003A0; 
-									mIc003Z = mIc003Z0;
-									mIc003B = mIc003B0;
+							{	switch (nruta)
+								{	case '7/11/8/11'://puente aranda
+								  		console.log('Ruta A puente aranda');
+										mIc003A = mIc003A0; 
+										mIc003Z = mIc003Z0;
+										mIc003B = mIc003B0;
 								    break;
-								  //case '7/1/8/9/200':
+								  //  case '7/1/8/9/200':
 								  //  console.log('Ruta desconocida');
 								  //  break;
-								  default:
-								    console.log('Ruta B chapineruda');
-									mIc003A = mIc003A1; 
-									mIc003Z = mIc003Z1;
-									mIc003B = mIc003B1;
+								  	default:
+								   		console.log('Ruta B chapineruda');
+										mIc003A = mIc003A1; 
+										mIc003Z = mIc003Z1;
+										mIc003B = mIc003B1;
 								    break;
 								}
 							};
-							switch (nruta) {
-							  	case '/7/11/8/11':
+							switch (nruta)
+							{	case '/7/11/8/11':
 									iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
 								break;
+								case '7/11/8/9/6':
+									iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
+							  	break;
+								case '7/11/8/9/7':
+									iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
+							  	break;
+								case '7/11/8/9/8':
+									iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
+							  	break;
 							 	case '7/11/8/9/9':
 									iCodQ.innerHTML = "<img src='files/711-8-2-2.png' class='cBox'>";
 							  	break;
@@ -8207,15 +8070,6 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 								case '7/11/8/9/12':
 									iCodQ.innerHTML = "<img src='files/711-8-2-5.png' class='cBox'>";
 							  	break;
-								case '7/11/8/9/6':
-									iCodQ.innerHTML = "<img src='files/711-8-2-6.png' class='cBox'>";
-							  	break;
-								case '7/11/8/9/7':
-									iCodQ.innerHTML = "<img src='files/711-8-2-7.png' class='cBox'>";
-							  	break;
-								case '7/11/8/9/8':
-									iCodQ.innerHTML = "<img src='files/711-8-2-8.png' class='cBox'>";
-							  	break;
 							}
 							g00VARS[86][2]=0;
 							//f0140();//CARGAR anuncios en r003
@@ -8226,52 +8080,24 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 							//f0139();//CARGAR el anuncio vacio en r003
 							console.error(' - 1 rta NO hay anuncios -');
 						}
-
-						//Este bloque esta repetido arriba, es el que se debería dejar y quitar el de arriba???? en 6670????
-						console.error('|> Flag 2 _______________________- - - - 142 B -> 138() INI 2 ???');
-
-						/* Switch temporal x reingeniería * /
-						f0138();//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-						/** */
-
-						//console.error('|> Flag  _______________________- - - - 142 B -> 138() FIN 2 ???');
-						//console.error('|> Flag  _______________________- - - - 142 -> 125(0) INI');			
-
-						/* * /
-						f0125(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
-						/** */
-						
-						/* */
 						f0159(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
-						/** */
-						
-						
-						//console.error('|> Flag  _______________________- - - - 142 -> 125(0) FIN');
 						if(gRuta == 2)
 						{	if(gFoco > rumbo.length + 2)//gFoco es mayor que rumbo + 2
 							{	gFoco = rumbo.length + 2;
 							}
 							f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
-							//f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 						}
 						if((gRuta == 3)||(gRuta == 4))
 						{	f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
-							//f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 						}
-						/**/
-
-
+						/* fin switch*/
 
 
 					}
-					else//Si la solicitud ha cambiado
+					else // Si la solicitud ha cambiado
 					{	//No hace nada, aquí simplemente espera a que llegue la ultima solicitud donde rumbi = rumbd
 						console.error(' - - - RESPUESTA NO esperada! naBD=',naBD,' y ncBD=',ncBD);
 					}
-					//console.error(' - - - __________________############################## B f0142() >>> B');	
-					//console.log(' - - - Fin del Satelite (buscando respuesta de forma asincronica)');
-					//console.error('|> Flag  ____________________________A rumbo=',rumbo,' rumba=',rumba);
-					//console.error(' - - - __________________### ### ### ##################### terminar - consulta ########## ## ## ##');	
 					console.error('############################## f0142() FIN DE LA RESPUESTA DE LA BD');	
 				}		
 				,4000);//Demora de la respuesta 4000
@@ -8279,7 +8105,6 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 			//console.error('|> Flag  ____________________________ B rumbo=',rumbo,' rumba=',rumba);
 			rumba = rumbi;//Actualiza el pasado de rumbi en el navegador
 			//console.error('|> Flag  ____________________________ C rumbo=',rumbo,' rumba=',rumba);
-			//console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> FIN  ################');	
 			console.error('############################### F I N #####[ BBBBDDDDD ]####### f0142() >>> ################, bumbi=',rumbi,'; rumbo=',rumbo,'; nruta(*)=',nruta);	
 		}
 /***/
@@ -8412,8 +8237,6 @@ function f0143(info)//ENCONTRAR todos los elementos cBrai
 				{	iBrail.classList.add('cX');
 				}
 			}
-						
-			//colTxtL = document.getElementsByClassName("zTxtL");//prueba
 		}
 
 
@@ -10975,6 +10798,11 @@ function hh50()//AJUSTAR estilo texto pequeño
 			//console.error(' - -----hh50-----papas=,',papas);
 			//***g00VARS[45][2] = 1;
 			console.log('|>>>>>>>>>>>>>>>        hh50() AJUSTAR estilo texto pequeño   +++    +++++++++++++ini->    f0126()');
+			
+			
+			
+			
+			
 			//f0126();//ACTUALIZAR la ruta
 			f0119();//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
@@ -11001,7 +10829,14 @@ function hh50()//AJUSTAR estilo texto pequeño
 function hh51()//AJUSTAR estilo vibración
 		{	hOU(51);//mIS(51);
 			//***g00VARS[45][2] = 2;
-			f0126();//ACTUALIZAR la ruta
+			
+			
+			
+			
+			
+			
+			
+			//f0126();//ACTUALIZAR la ruta
 			f0119();//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 		 	hh49();//REGISTRAR la primer selección de ACCESO
@@ -11030,7 +10865,13 @@ function hh52()//b0052()	//AJUSTAR el tamaño del VISOR Y CARGAR los guiones de 
 function hh53()//AJUSTAR estilo texto
 		{	hOU(53);//mIS(53);
 			//g00VARS[45][2] = 4;
-			f0126();//ACTUALIZAR la ruta
+
+
+
+
+
+
+			//f0126();//ACTUALIZAR la ruta
 			f0119();//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 			hh49();//REGISTRAR la primer selección de ACCESO
@@ -11052,7 +10893,14 @@ function hh53()//AJUSTAR estilo texto
 function hh54()//AJUSTAR estilo audio
 		{	hOU(54);//mIS(54);
 			//g00VARS[45][2] = 3;
-			f0126();//ACTUALIZAR la ruta
+
+
+
+
+
+
+
+			//f0126();//ACTUALIZAR la ruta
 			f0119();//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 		 	hh49();//REGISTRAR la primer selección de ACCESO
@@ -11091,7 +10939,13 @@ function hh55()//b0055()	//OCULTAR todos los botones de tamaño
 function hh56()//AJUSTAR estilo texto máximo
 		{	hOU(56);//mIS(56);
 			//***g00VARS[45][2] = 5;
-			f0126();//ACTUALIZAR la ruta
+
+
+
+
+
+
+			//f0126();//ACTUALIZAR la ruta
 			f0119();//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 			hh49();//REGISTRAR la primer selección de ACCESO
@@ -11114,7 +10968,13 @@ function hh56()//AJUSTAR estilo texto máximo
 function hh57()//AJUSTAR estilo fondo negro
 		{	hOU(57);//mIS(57);
 			//g00VARS[45][2] = 6;
-			f0126();//ACTUALIZAR la ruta
+
+
+
+
+
+
+			//f0126();//ACTUALIZAR la ruta
 			f0119();//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 		 	hh49();//REGISTRAR la primer selección de ACCESO
@@ -11136,7 +10996,13 @@ function hh57()//AJUSTAR estilo fondo negro
 function hh58()//AJUSTAR estilo señas
 		{	hOU(58);//mIS(58);
 			//g00VARS[45][2] = 7;
-			f0126();//ACTUALIZAR la ruta
+
+
+
+
+
+
+			//f0126();//ACTUALIZAR la ruta
 			f0119(1);//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 			hh49();//REGISTRAR la primer selección de ACCESO	
@@ -11159,7 +11025,13 @@ function hh58()//AJUSTAR estilo señas
 function hh59()//AJUSTAR estilo braille
 		{	hOU(59);//mIS(59);
 			//g00VARS[45][2] = 8;
-			f0126();//ACTUALIZAR la ruta
+
+
+
+
+
+
+			//f0126();//ACTUALIZAR la ruta
 			f0119();//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 			hh49();//REGISTRAR la primer selección de ACCESO
@@ -11183,7 +11055,13 @@ function hh59()//AJUSTAR estilo braille
 function hh60()//AJUSTAR estilo público
 		{	hOU(60);//mIS(60);
 			//g00VARS[45][2] = 9;
-			f0126();//ACTUALIZAR la ruta
+
+
+
+
+
+
+			//f0126();//ACTUALIZAR la ruta
 			f0119(1);//CONMUTAR el botón seña(1) o idioma visible()
 			f0093();//REGISTRAR primer clic maximizando
 		 	hh49();//REGISTRAR la primer selección de ACCESO
