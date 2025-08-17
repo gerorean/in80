@@ -2337,8 +2337,6 @@ const vPAPA10 = [['2-id:key strings app', 0, '4-IdPapa9', '5-Id color marco', '6
 []
 ]
 
-  const rutas = ['/3/1', '/3/5', '/4/1', '/4/3/1', '/4/3/6/1', '/4/3/6/6', '/4/3/7', '/4/6', '/5/1', '/5/12', '/5/4', '/6/1', '/6/10', '/7/1', '/7/7', '/7/11/1', '/7/11/10/1', '/7/11/10/8', '/7/11/3/1', '/7/11/3/7', '/7/11/4', '/7/11/8/1', '/7/11/8/9/1', '/7/11/8/9/9', '/7/11/8/9/3', '/7/11/8/9/4', '/7/11/8/9/5', '/7/11/8/9/6', '/7/11/8/9/7', '/7/11/8/9/8', '/7/11/8/3', '/7/11/8/4', '/7/11/8/5', '/7/11/9', '/8/1', '/8/8', '/9/1', '/9/9/1', '/9/9/5'];
-//const rutas = ['/7/7', '/6/10', '/1/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7', '/7/1/4', '/7/1/1', '/2/9/5', '/7/1/8/3', '/7/1/8/4', '/7/1/8/5', '/4/3/6/6', '/7/1/3/7', '/7/1/2/8', '/7/1/8/2/1', '/7/1/8/2/2', '/7/1/8/2/3', '/7/1/8/2/4', '/7/1/8/2/7', '/7/1/8/2/6', '/7/1/8/2/5'];
 /*  fin interruptor 2 no incluye f0128 a f0137*/
 
 
@@ -2411,7 +2409,6 @@ var gMemR = 3;//memorizar la Ruta principal temporalmente mientras pivota, por e
 var go;			//Variable para indicar o controlar si una ruta cumple con cierta condición
 var gRuta		/**/ = 3;//7 to 3; se toman de g02RUTA: 1Modo, 2Configuración, 3Libro comunitario, 7ACCESO etc......
 var gRuTa		/**/ = 0;//Pasado de gRuTa
-var hAs	= false;//Se pone True si el Hash, o Fragmento de la URL, se esta actualizando (isHashUpdating)
 var hAsH;//Almacena el valor del hash
 var hFila;//alto de una fila de la marquesina
 var hid = 10;//Sitio con información oculta [2-9]	
@@ -2425,7 +2422,6 @@ var intBan		/**/ = 0;//1:Bandera con interprete /0:Sin interprete
 const kEY = { KCAP: 20, K1: 49, N1: 188, K3: 51, N3: 88, K4: 52, N4: 77, K5:53, K6: 54, N6: 67, K7: 55, N7: 78, K9: 57, N9: 86, K0: 48, N0: 66, KBAC: 8, K11: 97, K22: 98, K33: 99, K44: 100, K55: 101, K66: 102, K77: 103, K88: 104, K99: 105, K00: 96, KTAB: 9, KESP: 32 }//PRE?GUN¿,KTAB:9,KENT:13,KESP:32};
 //const kEY = { KCAP: 20, K1: 49, N1: 188, K3: 51, N3: 88, K4: 52, N4: 77, K6: 54, N6: 67, K7: 55, N7: 78, K9: 57, N9: 86, K0: 48, N0: 66, KBAC: 8, K11: 97, K22: 98, K33: 99, K44: 100, K55: 101, K66: 102, K77: 103, K88: 104, K99: 105, K00: 96, KTAB: 9, KESP: 32 }//PRE?GUN¿,KTAB:9,KENT:13,KESP:32};
 var kmar		/**/ = 0.1;//constante de velocidad de la marquesina
-var loC = '';//Ruta actual de location valida
 var luZ = ['', ''];//String del color de la luz - tinte[0] - temperatura[1]
 var MaMi = 1;//Bandera para verificar si maxi o mini: 1:Bandera activada
 var marquee		/**/;//Coleccion de todas las marquee
@@ -2449,8 +2445,6 @@ var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n
 //var papas = ['A','B','C','D','E',7, 1, 8, 9, 1, 0, 0, 0, 0, 0, ''];//[7, 11, 8, 9, 8, 0, 0, 0, 0, 0, ''](ruta errada es 7,11,8,9,8,0,0,0... )7,1,8,9,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 //var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',7, 11, 8, 9, 1, 0, 0, 0, 0, 0, ''];
 //var 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
-var papas0 = [];//array limpio de papas y sin ceros. [7]
-var papas1 = [];//array de lo que falta a papas para completar la ruta sugerida [empty, 11, 8, 9, 8]
 var paSpas = [7, 11, 8, 9, 1, 0, 0, 0, 0, 0, ''];//Pasado de papas, debe guardar el último registro de papas antes de un cambio del mismo
 //var 	per				= [1,1,1,1,1,1,1,1,1,1,1];//Permisos de los sitios (papas) 1:ON 0:OFF(por mostrar carteleras)
 var progresi;//la mitad del ancho del body que debe recorrer la marquesina en ingles, controla el avance de la marquesina en ingles		
@@ -2462,7 +2456,6 @@ var roto 		/**/ = 0;//1:Cancelar orden reciente de focus sobre un punto - 0:Perm
 var rumba = '';//Pasado de rumbi en el navegador
 var rumbo = [];//Array con el nuevo rumbo que asigna el usuario desde el navegador ['7', '11', '8', '9', '8']
 var rumbi = '';//String de rumbo unida con i'es para hacer consultas a la BD '7i11i8i2i8'
-var rUtA ;	//Guarda el texto del Hash actual de la URL con window.location.hash '#/A/B/C/D/E/7/11/8/9/8'
 var sale = '';//texto original con espacios en el display de la interfaz M
 var salo = '';//texto modificado de sale para mostrarlo con espacios de color
 var salTO = 1;//Tamaño del salto					
@@ -5436,24 +5429,7 @@ const wSign = [[0, 							1,												2,    			3, 4, 5, 6, 7],
 ['french sign language, change', 			'langue des signes française, changer', 		'LSF',			8, 0, 1, 6, 3],
 ];
 
-//wPAPAx					 1 2 3 4 5 6 7 8 9 10
-//Rutas sugeridas			 0 1 2 3 4 5 6 7 8 9  (EL TOPE ES 8 O 9?)
-const wSug = [	//[4,3],//4,6   españa
-	[2, 9, 5],
-	[3,5],
-	[4, 3, 6, 6],//4,6   madrid españa
-	[5,4],
-	[6,10],
-	//	[7,11,7,1*,2,5,2,4,2,3],
-	//	[7,11,9,7,2,5,2,4,2,4],
-	//	[7,11,9,1*,2,5,2,4,2],
-	//	[7,11,9,1*,2,5,2,4,8],
-	[7, 11, 8, 2, 8],//Barrio cataluña en chapinero
-	[7, 11, 8, 4],//Alcaldía puente aranda
-	[7, 11, 8, 2, 2],//Barrio chapinero central
-	//	[7,1,1,1,2,5,2,4,2,2],
-	//[8,8]
-];
+
 
 
 
@@ -7516,8 +7492,6 @@ fBot0.addEventListener('touchstart',eTb8);
 
 //============================================================
 //d9000 EVENTOS TRANSVERSALES
-//window.addEventListener('hashchange',f0141);
-
 document.oncontextmenu = new Function("return false;");//HABILITAR/deshabilitar esta linea para Deshabilitar clic derecho:: https://www.techiedelight.com/es/disabling-text-selection-cut-copy-right-click/
 document.addEventListener('keydown', f0098);
 document.addEventListener('keyup', f0100);

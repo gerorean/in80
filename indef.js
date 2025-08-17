@@ -61,10 +61,6 @@ function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (S
 			console.log('rumbi=',rumbi);
 */
 
-
-			//f0141();//ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta actual de la base de datos
-
-			//loC = window.location.hash;//Carga inicial de la ruta actual
 			console.log('|> Flag 000 -> 107()');
 			f0107();//ACTUALIZAR el idioma, la seña (desde wIdi y wSign), el string de los botones de los sitios y la ruta #
 			switch(tModo)
@@ -5163,19 +5159,7 @@ f0162() 		//(4)TRABAJAR con datos en la preruta sin verificar, VERIFICAR que la 
 
 					}	
 				}
-				////f0141()....
-				//////////////if (bin)//Si la ruta existe debe actualizar los lugares automaticamente
-				//////////////{	console.error('FLAG 141 → 142: nruta =', nruta);
-				//////////////  	f0142();//CONSULTAR a la base de datos por cierta collección Valida
-				//////////////}
-				//////////////else
-				//////////////{	console.error('Ruta NO existe: ', rUtA, ' → Error 404');
-				//////////////  	hAs = true;
-				//////////////  	window.location = loC;//Reestablece la última ruta valida
-				//////////////  	hAs = false;
-				//////////////}
-				//////////////loC = window.location.hash;//Actualiza el registro de la ruta actual (valida)
-				//////////////console.error('loC =', loC);
+
 
 function
 f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (anterior, pasada o antecesora) y que no es la primer vez 
@@ -5220,27 +5204,7 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 
 				}
 					
-				///////		function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-				///////		{	lOG(138);//simiqlar a f0124() ver cuando corre la una y cuando la otra
-				///////			console.error('##### 138 - - - __________________++++++++++++++ +++++++++++++ ++ f0138 ini');	
-				///////
-				///////			//nota
-				///////			// pendiente detener proceso cuando papas[x+5]=0;//__papas[x]=0;
-				///////
-				///////
-				///////			//=0124
-				///////			for (var i = 6; i <= 14; i++)		//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
-				///////			{	mIr002B[i][4]=0;				//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-				///////				papas[i]=0;					//borrar datos a la derecha de papas[ini] //__papas[i - 5]=0;
-				///////			}
-				///////
-				///////
-				///////
-				///////			console.log(' - - -_________________138______ rrr A papas=',papas,'; rumbo=',rumbo);
-				///////			//Actualizar papas - 
-				///////			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
-				///////			{	papas[i+5]=parseInt(rumbo[i]);//__papas[i]=parseInt(rumbo[i]);
-				///////			}
+
 
 
 
@@ -5408,11 +5372,6 @@ f0163() 		//(5)VERIFICAR que la preruta valida sea diferente de la ruta previa (
 				//////			console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0142() >>> FIN  ################');	
 
 
-
-
-
-		///////////Bloquear el evento hashchange (f0155) >> (2):
-		//////////hAs = 1 ;
 	
 
 (2) Capturar el hash presente en PreR >> (3):
@@ -7134,7 +7093,6 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 			{	// console.log('papas[j+4]=',papas[j+4]);
 				if(papas[j+4]>0)
 				{	f0153(j,a);// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8} ... wPAPA2,wPAPA3...wPAPA10
-					//f0153(j,m);// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8} ... wPAPA2,wPAPA3...wPAPA10
 				}
 				else
 				{	console.log('Termina!!! papas[j+4]=',papas[j+4]);
@@ -7148,13 +7106,9 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 
 function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada uno de los botones de los Lugares (sitios 1i1, 2i7, 3i2, 4i8, etc), ACTUALIZAR la presentación AV y el cabezote de la ruta 3, todo desde ini.
 		{	lOG(125);
-			console.error(' SSSSSSSSSSSSSSSSSSS T R I N G S!!!!!!!!!!!!!!!!!!_ f0125(ini=',ini,')  papas=',papas);
-			//console.log('|> Flag string botones lugares SurAmerica/Colombia/Bogota etc... desde papas[i = ini =',ini,'] ;
-			
-		    // mIres3A:GUION BUSCANDO ANUNCIOS.. texto por default del botón 1 de los anuncios cuando no hay ningun anuncio ... en este sitio encontrará bla, bla, bla...
+			console.error(' SSSSSSSSSSSSSSSSSSS T R I N G S DE LUGARES!!!!!!!!!!!!!!!!!!_ f0125(ini=',ini,')  papas=',papas);
+			// mIres3A:GUION BUSCANDO ANUNCIOS.. texto por default del botón 1 de los anuncios cuando no hay ningun anuncio ... en este sitio encontrará bla, bla, bla...
 			mIr003A = mIres3A;//RESET CONTENIDOS DE mIr003A con el texto que es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios
-			
-			
 			//console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS,[86][2]);			
 			for (var i = ini; i <= 9; i++) // Recorrer cada uno de los botones (10) e ir asignado el string que corresponda en cada caso
 			{	//console.error(' - >>>>>>>>>_____f0125  paso i=',i);
@@ -7162,9 +7116,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 				if(papas[i+5]!=0) // Si la ruta parcial no es 0 (papas[5-14] {i[0-9]}) entonces hay que poner STRINGS..  papas 7, 11, 8, 1, 0, 0, 0, 0, 0, 0,..   este paso se repite hasta que encuentre que papas[i] = 0')
 				{	var ok = 1; // Orden de buscar los string que se necesitan	
 					switch(i)	// i{0-9}.. papas[5-14]..
-					{	
-						
-						case 0:	//	papas[5].. 7 : PAPA# {# = i + 1}
+					{	case 0:	//	papas[5].. 7 : PAPA# {# = i + 1}
 						{	//console.error(' - >>f0125 papas[i+5]=',papas[i+5]);
 							for (var j = wPAPA1.length - 1; j >= 1; j--) // Recorre la lista parcial wPAPA# {# = i + 1} iniciando desde el último lugar.. j=7 {suramerica} j=1 {africa}
 							{	if(ok&&(papas[5] == wPAPA1[j][0])) // Buscar a papas[5] dentro de la lista parcial wPAPA#, cuando lo encuentre hay que cargar los strings del lugar 1i*, la presentación AV y el cabezote de la ruta 3..
@@ -7531,23 +7483,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 			};
 			mIr003B[1][2][0] = 53;
 			//console.log('|>>>>>>>>>>>>>>>        Flag  125(ini) ->    f0126() ;  (ini=',ini,').');
-
-
-
-
-
-
-
-			//LA SIGUIENTE LINEA SE DEBE COMENTAR PORQUE NO DEBERIA CORRER LUEGO DE LA REINGENIERIA?????
-			/** * /
-			f0126();//ACTUALIZAR la ruta
-			/** */
-
-
-
 			console.error(' SSSSSSSSSSSSSSSSSSS   F I N   S T R I N G S!!!!_ f0125(ini=',ini,')  papas=',papas);
-			
-
 		}
 
 function f0126()//ACTUALIZAR la ruta NO?
@@ -7575,21 +7511,9 @@ function f0126()//ACTUALIZAR la ruta NO?
 			document.location='#'+ruta;//actualiza el valor del hash adicionando a la parte de los parametros ABCDE la parte de la ruta /7/11/8/9/8   +'-'+g00VARS[45][2];//__Sin abcd
 			console.log('|> - - - ____CAMBIO____ hash actual=',window.location.hash);
 			//console.error('  RESUMEN: hash=',window.location.hash,'; ruta=',ruta,'; papas=',papas,'; ncBD=',ncBD,'; iniR=',iniR);
-
 			nruta = rutd.slice(1);//nruta quita el prirmer / de la ruta 7/11/8/9/8
 			//console.error(' ++++++++++ >nruta=',nruta);
-			
-
-			////// Esto se puede eliminar y solo dejar a f0142????? osea iniR creo que no sirve de nada
-			////if((!ncBD)&&(iniR))// Si (ncBD Numero de consultas a la base de datos) y ( iniR Activar la ruta inicial)
-			////{	iniR = 0;//Va a cargar la ruta inicial
-			////	//console.log(' 2. ruta=',ruta);
-			////	nruta = ruta.slice(1);//nruta quita el prirmer / de la ruta 7/11/8/9/8
-			////	console.error(' ++++++++++ >nruta=',nruta);
-			////	console.log(' 3. |> Flag 0 _________ 126 -> 142 * CONSULTAR a la base de datos por cierta collección');
-			////	f0142();//CONSULTAR a la base de datos por cierta collección
-			////}
-			console.error('########################### FIN CAMBIO  f0126() - - - hash final=',window.location.hash,'; papas=',papas);
+			//console.error('########################### FIN CAMBIO  f0126() - - - hash final=',window.location.hash,'; papas=',papas);
 		}
 
 function f0127()//REGRESAR al tamaño de texto previo
@@ -7637,98 +7561,9 @@ function f0127()//REGRESAR al tamaño de texto previo
 las funciones de la function f0128() a la function f0137() estan reservadas en inded.js para el servidor, aquí no se pueden usar ver tabla de registros en indet.js
 */
 
-function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-		{	lOG(138);//simiqlar a f0124() ver cuando corre la una y cuando la otra
-			console.log('################################### 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 ini  papas=,',papas,'; nruta(*)=',nruta);	
-			console.error(' - -----f0138-----papas=,',papas);
-			//nota
-			// pendiente detener proceso cuando papas[x+5]=0;//__0
-			//=0124
-			for (var i = 6; i <= 14; i++)//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
-			{	mIr002B[i][4]=0; // mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-				papas[i]=0; // borrar datos a la derecha de papas[ini]//__-5
-			}
-			console.error(' - -----f0138--a---papas=,',papas);
-			//console.log(' - - -_________________138______ rrr A papas=',papas,'; rumbo=',rumbo);
-			//Actualizar papas - 
-			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
-			{	papas[i+5]=parseInt(rumbo[i]);//__0
-			}
-			console.error(' - -----f0138--b---papas=,',papas);
-			for (var j2 = 1; j2 < 11; j2++)//j[1-10]Recorre los wPAPAx, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DEL 'nuevo' rumbo
-			{	f0153(j2,1);//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10
-			}
-
-		}
 
 
 
-////////////////////////function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-////////////////////////		{	lOG(138);//simiqlar a f0124() ver cuando corre la una y cuando la otra
-////////////////////////			console.log('################################### 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 ini  papas=,',papas,'; nruta(*)=',nruta);	
-////////////////////////			//nota
-////////////////////////			// pendiente detener proceso cuando papas[x+5]=0;//__0
-////////////////////////			//=0124
-////////////////////////			for (var i = 6; i <= 14; i++)//5-[12-5]13 - 4 = 9, ini= 0 los oculta todos
-////////////////////////			{	mIr002B[i][4]=0;//mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (ini)
-////////////////////////				papas[i]=0;//borrar datos a la derecha de papas[ini]//__-5
-////////////////////////			}
-////////////////////////			//console.log(' - - -_________________138______ rrr A papas=',papas,'; rumbo=',rumbo);
-////////////////////////			//Actualizar papas - 
-////////////////////////			for (var i = 0; i < rumbo.length; i++)//rumbo ['', '7']
-////////////////////////			{	papas[i+5]=parseInt(rumbo[i]);//__0
-////////////////////////			}		
-/////////////////////////*
-////////////////////////quitar???
-////////////////////////			//=0124 (casi por ini)
-////////////////////////			//CREA un arreglo paralelo aparte con la ruta parcial QUE NO SE MODIFICO más el último cambio
-////////////////////////			papas0 = [];//Reset
-////////////////////////			papas1 = [];//Reset
-////////////////////////			for (var i = 0; i < 10; i++)//la casilla 10 siempre es 0 no se usa
-////////////////////////			{ 	if(papas[i+5]!=0)//___0
-////////////////////////				{	papas0[i] = papas[i+5];//__0
-////////////////////////				}
-////////////////////////			}
-////////////////////////			//buscar dentro de rutas sugeridas a papa0 (papas paralelo) y ver si lo encuentra..
-////////////////////////			var siga = 1;
-////////////////////////			for (var i = 0; i < wSug.length; i++)
-////////////////////////			{	if(siga)
-////////////////////////				{	var oks = 0;
-////////////////////////					for (var j = 0; j < papas0.length; j++)
-////////////////////////					{ 	if(wSug[i][j] == papas0[j])//compara la casilla j de la sugerencia i con la casilla j de papas0
-////////////////////////						{	oks++;//suma un ok
-////////////////////////						}
-////////////////////////					}
-////////////////////////					if(oks == papas0.length)//tantos de tantos son iguales!
-////////////////////////					{	siga = 0;//Para y no sigue buscando más
-////////////////////////						//console.log(' - - - rrr BIIIIIIIINNNGOOOOO la ruta sugerida i=',i);
-////////////////////////						//DEBE completar / actualizar la ruta con la ruta sugerida encontrada, con la ultima coinsidencia hasta donde pueda y si quedan hijos sueltos, luego completarla con numeros auto del resto de la ruta 
-////////////////////////						for (var j = 1; j < wSug[i].length; j++)
-////////////////////////						{	papas1[j] = wSug[i][j];//arreglo con el faltante de ruta sugerido
-////////////////////////						}
-////////////////////////					}
-////////////////////////					else//no encontro sugerencias, debe poner los numeros auto del resto de la ruta
-////////////////////////					{	//actualizar las listas desde aqui poniendo por defecto el primer elemento que encuentre
-////////////////////////						//console.log(' - - - rrr debe iniciar la actualización de la ruta desde wPAPA',ini + 2);	
-////////////////////////					}
-////////////////////////				}
-////////////////////////			}
-////////////////////////*/
-////////////////////////			//=0124(casi por ini y go)
-////////////////////////			//Cargar los wPAPAS hijos o dependientes desde 0
-////////////////////////			//var ff;
-////////////////////////			//var go;
-////////////////////////			//console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0138 --INI>>> f0153(j2)');	
-////////////////////////			for (var j2 = 1; j2 < 11; j2++)//j[1-10]Recorre los wPAPAx, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DEL 'nuevo' rumbo
-////////////////////////			{	f0153(j2);//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10
-////////////////////////			}
-////////////////////////			//console.error(' - - - __________________++++++++++++++ +++++++++++++ ++ f0138 --FIN>>> f0153(j2)');	
-////////////////////////			//cuando muestra la cartelera local
-////////////////////////			//console.log(' - - - rrrrr f0124 fin A papas=',papas,';\n wPAPA2=',wPAPA2,';\n wPAPA3=',wPAPA3,';\n wPAPA4=',wPAPA4,';\n wPAPA5=',wPAPA5,';\n wPAPA6=',wPAPA6);
-////////////////////////			//BUSCAR SI HAY ALGUNA RUTA SUGERIDA QUE PASE POR HAY
-////////////////////////			//papas0 = [7, 1, 1, 1, 1]
-////////////////////////			console.log('######################## 138 - - - ++++++++++++++ +++++++++++++ ++ f0138 fin   papas=',papas);
-////////////////////////		}
 
 /*
 function f0139()//CARGAR el anuncio vacio en r003
@@ -7760,80 +7595,6 @@ function f0140()//CARGAR anuncios en r003
 
 */
 
-function f0141()//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta actual de la base de datos
-		{	lOG(141);
-			console.error(' f0141()+++++++++++++++++++++++++++++++ #############');
-			rUtA = window.location.hash;//Trae el fragmento de la URL (Hash #)
-			nruta = rUtA.slice(1);//quita el # ajusta el string de la ruta
-			console.error(' +++++++++++++++++++++++++++++++ ##############0 nruta=',nruta);
-		  	var bin = 0;//Alistar el bingo para verificar que la ruta existe..
-			for (var i = 0; i < rutas.length; i++)
-			{	if (nruta == rutas[i])//Bingo! la ruta /*** existe!
-				{	if (window.location.hash !== '#/A/B/C/D/E' + nruta)
-					{	hAs = true;
-		  	  	    	window.location.hash = nruta;//Reafirma la ruta valida
-		  	  	    	hAs = false;
-		  	  	  	}
-		  	  	  	nruta = nruta.slice(1);//quita el primer/
-					console.error(' +++++++++++++++++++++++++++++++ ##############1 nruta=',nruta);
-		  	  	  	i = rutas.length;//Termina la busqueda
-		  	  	  	bin = 1;//bingo
-		  	  	}
-		  	  	if (nruta == rutas[i] + '/')//Bingo! la ruta /***/ existe!
-				{	if (window.location.hash !== '#/A/B/C/D/E' + nruta)
-					{	hAs = true;
-		  	  	    	window.location.hash = nruta;//Reafirma la ruta valida
-		  	  	    	hAs = false;
-		  	  	  	}
-		  	  	  	nruta = nruta.slice(1, -1);//quita el primer y el último/
-					console.error(' +++++++++++++++++++++++++++++++ ##############2 nruta=',nruta);
-		  	  	  	i = rutas.length;//Termina la busqueda
-		  	  	  	bin = 1;//bingo
-		  	  	}
-		  	}
-			if (bin)//Si la ruta existe debe actualizar los lugares automaticamente
-			{	//console.error('FLAG 141 → 142: nruta =', nruta);
-			  	f0142();//CONSULTAR a la base de datos por cierta collección Valida
-			}
-			else
-			{	//console.error('Ruta NO existe: ', rUtA, ' → Error 404');
-			  	hAs = true;
-			  	window.location = loC;//Reestablece la última ruta valida
-			  	hAs = false;
-			}
-			loC = window.location.hash;//Actualiza el registro de la ruta actual (valida)
-			console.error('loC =', loC);
-		}
-			
-			////		lOG(141);
-			//// 		var ruta = window.location.hash;
-			////		nruta = ruta.slice(1);//quita el # ajusta el string ruta
-			////		var bin = 0;//Desactivar el bingo para verificar que la ruta existe..
-			////		for (var i = 0; i < rutas.length; i++)
-			////		{	if(nruta == rutas[i])//Bingo! la ruta /*** existe!
-			////			{	window.location.hash = nruta;//Reafirma la ruta valida
-			////				nruta = nruta.slice(1);//quita el primer/
-			////				i = rutas.length;//Termina la busqueda
-			////				bin = 1;//bingo
-			////			}
-			////			if(nruta == rutas[i]+'/')//Bingo! la ruta /***/ existe!
-			////			{	window.location.hash = nruta;//Reafirma la ruta valida
-			////				nruta = nruta.slice(1,-1)//quita el primer y último/
-			////				i = rutas.length;//Termina la busqueda
-			////				bin = 1;//bingo
-			////			}
-			////		}
-			////		if(bin)//Si la ruta existe debe actualizar los lugares automaticamente
-			////		{	console.error('- - -------------------|> Flag  141 -> 142 * * *            nruta=',nruta);
-			////			f0142();//CONSULTAR a la base de datos por cierta collección Valida
-			////		}
-			////		else
-			////		{	console.error(' - - - -----------------> La ruta=',ruta,' NO existe; Error 404! cancelando el cambio de rumbo');
-			////			window.location = loC;//Reestablece la última ruta valida
-			////		}
-			////		loC = window.location.hash;//Actualiza la ruta valida
-			////		console.error('- - -------------------__________________loC=',loC);
-			////	}
 
 /* - - - USANDO MONGO - - - */
 function f0142()//CONSULTAR a la base de datos por cierta collección de una ruta (nueva) que es valida y luego rehubicar el cursor con f0017
@@ -7865,9 +7626,6 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 			
 			
 			
-			/* Switch temporal x reingeniería * /
-			f0138();//(*rumbo debe declararse primero) ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-			/** */
 			
 			
 			
@@ -9906,16 +9664,6 @@ f0154() // ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presenta
 				// Con dExt[0,1,3,4].. y hh72() se configuran los colores y las imagenes que van a salir en la presentación AV de los titulares
 				console.log(' -------------------------------   dExt=',dExt);
 			}
-
-/////function
-/////f0155()//PREVENIR que se dispare el evento onHash Si el Hash se está actualizando en ese momento
-/////			{	lOL(155);
-/////				console.error('########################################## # FLAG 155  INI → 141: hAs =', hAs);
-/////				if (hAs) return;
-/////  				f0141();//ACTUALIZAR el Hash (Fragmento de la URL), ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta actual de la base de datos
-/////				console.error('######################################## # # # FLAG 155  FIN  hAs =', hAs);
-/////			}
-
 
 
 function 
