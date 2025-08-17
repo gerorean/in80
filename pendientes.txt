@@ -1,13 +1,9 @@
 Pendientes:
 
-la función 0126 no debería llamar a la BD solo debería cambiar el hash
+la función 0124 no está verificando la ruta parcial para crear o no la tabla parcial se puede tomar como guía parte de la función f0107 que si lo hace
 
 
 cuando cambio el lugar por otro no esta haciendo el llamado a la BD, revizar esto!!
-
-
-En f0158(a) separar el caso 2 de 0 y 1 porque una cosa es hacer la consulta (caso 2) y ponerse a esperar y otra cosa es responder (casos 0 y 1) eso previene volver a cargar los strings de los lugares sin necesidad
-
 
 
 
@@ -23,8 +19,8 @@ para ello cree el archivo navi.html, este archivo html css y js permite que amba
 Alterna opacity para lograr el efecto de "fade cruzado". El cambio visual es inmediato: cuando una se va, la otra ya está llegando. QR estará completamente visible 4 segundos.
 NaviLens estará completamente visible 1.5 segundos. El fade in y out ocurren entre ellos sin interrumpir la experiencia. Compatible con navegadores antiguos.
 
-revizar f0141(f0145<hashchange) o f0126(si varias)  -->f0142 chapineruda  ncBD=1?
-
+revizar f0145 o f0126(si varias)  -->f0142 chapineruda  ncBD=1?
+1
 quitar los //__ por el papas[+5]
 
 *****: Publicados en todo el territorio, cambiar

@@ -147,7 +147,7 @@ function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (S
 			hh35();//L ESTILIZAR: texto negro, botón blanco, fondo oscuro
 			//console.log('[Ending f0000()]');
 			fff();
-			console.log('##################### FIN f0000() ######################');
+			//console.log('##################### FIN f0000() ######################');
 		}
 
 function f0001()//CONSEGUIR la hora local actual
@@ -5557,8 +5557,19 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
         					}
        					}
       				}
-					console.log('Prueba del pin privado aPrO=',aPrO,'; pArTs=',pArTs);
-					// Verificar que pArTs[5,6,7,...] sea una ruta valida
+					
+
+
+
+
+
+
+
+
+
+					// Inicio de la verificación estática de la ruta que está en el hash..
+					console.error('#### Prueba del pin privado aPrO=',aPrO,'; ArRay=',ArRay);
+					// Verificar que ArRay[5,6,7,...] sea una ruta parcial valida
 					var c = ArRay.length - 5;// Determinar la cantidad de tablas parciales de la ruta
 					console.log('Cantidad de tablas parciales=',c);
 					var o = 0; // Orden de continuar con la siguiente ruta parcial..
@@ -5569,9 +5580,9 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 					var d = 0; // Pre verificación de un id 2 valido como ruta parcial hija
 					var u = 1; // Anuncio público (1) / privado (0)
 					for(var i = 0; i<c; i++) // Ciclo para recorrer las tablas parciales
-					{	console.log('Ruta sin verificar i=',i,'; o=',o);
-						switch (i)
-						{	case 0:
+					{	console.log('Ruta parcial i=',i,' sin verificar; Orden de continuar o=',o);
+						switch (i) // i: nivel del lugar a analizar (0) Continentes (1)"Paises" ..
+						{	case 0: // Continentes..
 								console.log(i,' ArRay[5]=',ArRay[5]);
 								if(((v + 1)==c)&&((ArRay[5]==1)||(ArRay[5]==2))) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1 o 2, es una ruta parcial invalida!, no hay que verificar más
 								{	console.log("Invalidación por ruta parcial 1 o 2");
@@ -5587,7 +5598,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												console.error('Ruta personalizada t=',t);
 											};
 											if(!vPAPA1[j][17]) // vPAPA1[j][17] = 0, privada
-											{	var rE = f0157(u, i, p, v, f, d, c);
+											{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
 												u = rE.u;
 												i = rE.i;
 												p = rE.p;
@@ -5614,7 +5625,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 									}
 								}
 							break;
-							case 1:
+							case 1: // "Paises"..
 								console.log(i,' ArRay[6]=',ArRay[6]);
 								if(o == 1)
 								{	o = 0;
@@ -5658,7 +5669,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};
 												if(ArRay[5]==vPAPA2[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA2[j][17]) // vPAPA2[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -5690,7 +5701,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	i = c;//Termina el proceso sin exito
 								};
 							break;
-							case 2:
+							case 2: // "Departamentos"..
 								if(o == 1)
 								{	o = 0;
 									f = 0;
@@ -5733,7 +5744,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[6]==vPAPA3[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA3[j][17]) // vPAPA3[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -5808,7 +5819,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[7]==vPAPA4[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA4[j][17]) // vPAPA4[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -6301,32 +6312,46 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 						if(f) // Verificación completada de la ruta parcial
 						{	o = 1;// Orden de continuar con la siguiente ruta parcial
 							v++;
-							console.log('Verificación=',i,'; o=',o);
+							console.log('Verificación=',i,'; Orden de continuar  o=',o);
 						}
 					}
 					console.log(' v=',v);
 					if((o)&&(v==c)) // Si es ok y la cantidad de verificaciónes es la que se esperaba ...
 					{	a = 1; // Verificación completa de la ruta exitosa
 						if(u) // ruta pública
-						{	console.log('Ruta pública verificada, es valida!');
+						{	console.log('############## Ruta pública del hash verificada, es valida!');
 							pUb = 1;
 						}
 						else // ruta privada
-						{	console.log('Ruta privada verificada, es valida!');
+						{	console.log('############### Ruta privada del hash verificada, es valida!');
 							pUb = 0;
 						}
 					}
-					else // pArTs[5,6,7,...] no es una ruta valida
-					{	console.log('Ruta no existe, NO es valida');
+					else // ArRay[5,6,7,...] no es una ruta valida
+					{	console.log('############## Ruta del hash no existe, NO es valida');
 						f0156();// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
 					}
+					// Fin de la verificación de una ruta parcial.
+
+
+
+
+
+
+
+
+
+
+
 				}
 				else // No continúa con 'B,C,D,E' de la ruta madre, formato no es valido
-				{	f0156();// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
+				{	console.log('############ la ruta no comienza con B,C,D y E pArTs=',pArTs);
+					f0156(1);// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
 				}
 			}
 			else // No inicia con 'A' la ruta madre, formato esta vacio o no es valido
-			{	f0156();// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
+			{	console.log('########## la ruta no tiene más de 10 caracteres o no comienza con #/A pArTs=',pArTs);
+				f0156(1);// ASIGNAR ruta madre (inicial) por defecto (por ejemplo Colombia) en el hash
 			}
       		// Mostrar el resultado
       		console.error('|>>>>>>>>>>>>>>>>>>> ArRay inicial=',ArRay);
@@ -6474,7 +6499,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 
 			// Ajustar el tamaño variable del ArRay al máximo posible que se puede manejar por medio del array papas
 
-			console.error(' - ---------- f0107() [idioma seña y ruta]  papas=,',papas);
+			//console.error(' - ---------- f0107() [idioma seña y ruta]  papas=,',papas);
 			for(var e = 0; e<ArRay.length; e++)
 			{	papas[e]=ArRay[e];
 			};
@@ -6542,7 +6567,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 			}
 			
 			//carga inicial de las listas y de papas
-			//console.log('|>>>>>>>>>>>>>>>>>>>				>>>>>>>>>>>>>>>>>>>>>>>> Flag 107      A inicio carga inicial de las listas y de papas -> f0124(0) papas=,',papas);
+			console.log('|>>>>>>>>>>>>>>>>>>>				>>>>>>>>>>>>>>>>>>>>>>>> Flag 107      A inicio carga inicial de las listas y de papas -> f0124(0) papas=,',papas);
 			
 			
 			f0124(0,1); // f0124(0); ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
@@ -7083,14 +7108,22 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 				{	mIr002B[i][4]=0; // mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (n)
 					papas[i]=0; // borrar datos a la derecha de papas[n+5]//__papas[i - 5]=0;//borrar datos a la derecha de papas[n]
 				}
+
+
+
+				console.log('######################### NOTA! Aqui antes de actualizar las tablas parciales hay que revizar antes si los futuros papas dinamicos, sin revizar, cumplen y son rutas validas, sino cumplen hay que ajustarlas hasta que cumplan! #################################');
+
+
+
 			}
 			else
-			{ 	console.log(' - - - Ruta madre... No se ocultan botones ni se borran tablas???');
+			{ 	console.log('######################### NOTA! - - - Ruta madre... No se ocultan botones ni se borran tablas???');
 			}
 			console.log(' - - - B - mIr002B[6]=',mIr002B[6],'; papas=',papas);
 			// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8}
 			for (var j = n + 1; j < 11; j++)// n {0-8}  j {1-10}  Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
-			{	// console.log('papas[j+4]=',papas[j+4]);
+			{	
+				// console.log('papas[j+4]=',papas[j+4]);
 				if(papas[j+4]>0)
 				{	f0153(j,a);// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8} ... wPAPA2,wPAPA3...wPAPA10
 				}
@@ -7106,7 +7139,7 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 
 function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada uno de los botones de los Lugares (sitios 1i1, 2i7, 3i2, 4i8, etc), ACTUALIZAR la presentación AV y el cabezote de la ruta 3, todo desde ini.
 		{	lOG(125);
-			console.error(' SSSSSSSSSSSSSSSSSSS T R I N G S DE LUGARES!!!!!!!!!!!!!!!!!!_ f0125(ini=',ini,')  papas=',papas);
+			//console.error(' SSSSSSSSSSSSSSSSSSS T R I N G S DE LUGARES!!!!!!!!!!!!!!!!!!_ f0125(ini=',ini,')  papas=',papas);
 			// mIres3A:GUION BUSCANDO ANUNCIOS.. texto por default del botón 1 de los anuncios cuando no hay ningun anuncio ... en este sitio encontrará bla, bla, bla...
 			mIr003A = mIres3A;//RESET CONTENIDOS DE mIr003A con el texto que es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios
 			//console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS,[86][2]);			
@@ -7483,13 +7516,13 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 			};
 			mIr003B[1][2][0] = 53;
 			//console.log('|>>>>>>>>>>>>>>>        Flag  125(ini) ->    f0126() ;  (ini=',ini,').');
-			console.error(' SSSSSSSSSSSSSSSSSSS   F I N   S T R I N G S!!!!_ f0125(ini=',ini,')  papas=',papas);
+			//console.error(' SSSSSSSSSSSSSSSSSSS   F I N   S T R I N G S!!!!_ f0125(ini=',ini,')  papas=',papas);
 		}
 
 function f0126()//ACTUALIZAR la ruta NO?
 				//f0126 debe usarse una sola vez? o es la encargada de modificar la salida del hash con base ey por ende?
 		{	lOG(126);
-			console.error('########################### CAMBIO  f0126() - - - va a actualizar la ruta, hash inicial=',window.location.hash,'; papas=',papas);
+			//console.error('########################### CAMBIO  f0126() - - - va a actualizar la ruta, hash inicial=',window.location.hash,'; papas=',papas);
 			var ruta = ''; // Borra toda la ruta que va a salir por el hash
 			var rutd = ''; // Ruta derecha que va a salir por el hash
 			for(var r = 0; r < 5; r++)
@@ -7509,7 +7542,7 @@ function f0126()//ACTUALIZAR la ruta NO?
 			ruta+=rutd; // Suma las dos partes de la ruta
 			console.log('|> - - - ________ hash actual=',window.location.hash);
 			document.location='#'+ruta;//actualiza el valor del hash adicionando a la parte de los parametros ABCDE la parte de la ruta /7/11/8/9/8   +'-'+g00VARS[45][2];//__Sin abcd
-			console.log('|> - - - ____CAMBIO____ hash actual=',window.location.hash);
+			console.error('|> - - - ____CAMBIO____ hash actual=',window.location.hash);
 			//console.error('  RESUMEN: hash=',window.location.hash,'; ruta=',ruta,'; papas=',papas,'; ncBD=',ncBD,'; iniR=',iniR);
 			nruta = rutd.slice(1);//nruta quita el prirmer / de la ruta 7/11/8/9/8
 			//console.error(' ++++++++++ >nruta=',nruta);
@@ -7600,7 +7633,7 @@ function f0140()//CARGAR anuncios en r003
 function f0142()//CONSULTAR a la base de datos por cierta collección de una ruta (nueva) que es valida y luego rehubicar el cursor con f0017
 		{	lOG(142);
 			//PREGUNTA Antes de hacer cualquier cosa aquí, nruta, rumbi y rumbo no deberían ser igual a la parte de la ruta en papas???
-			console.error('########################################[ BBBBDDDDD ]####### f0142() >>> INI ################, bumbi=',rumbi,'; rumbo=',rumbo,'; nruta(*)=',nruta);	
+			//console.error('########################################[ BBBBDDDDD ]####### f0142() >>> INI ################, bumbi=',rumbi,'; rumbo=',rumbo,'; nruta(*)=',nruta);	
 			
 			//PLANTILLA BÁSICA (mIres3 - la que siempre acompaña a los anuncios)
 			//mIres3 es el texto que sale al dar clic en el cabezote (Primer botón de los anuncios).. "aquí podrás bla,bla,bla", se utiliza tanto para cuando hay anuncios o cuando se ve el satelite de la busqueda de anuncios o no hay anuncios..
@@ -7617,7 +7650,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 			rumbi = '';
 			rumbo = nruta.split('/');//array de nruta separada con las barras inclinadas  ['7', '11', '8', '9', '8']
 
-			console.error('|> Flag 1 ____________________________rumbo=',rumbo,' rumba=',rumba,' A 142 A ...mIres3.. -> 138 INI 1');
+			//console.error('|> Flag 1 ____________________________rumbo=',rumbo,' rumba=',rumba,' A 142 A ...mIres3.. -> 138 INI 1');
 			
 			
 			
@@ -7668,14 +7701,14 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 				//console.error(' - - - __________________### ### ### ##################### iniciar - consulta ########## ## ## ##');	
 				setTimeout(function()//Reduce el conteo para activar la presentación
 				{	//console.error(' - - - __________________### ### ### ##################### procesar - consulta ########## ## ## ##');	
-					console.error('############################## f0142() LLEGO LA RESPUESTA DE LA BD');	
+					//console.error('############################## f0142() LLEGO LA RESPUESTA DE LA BD');	
 					naBD = naBD + 1;//Actualiza el pasado de rumbi en la base de datos
 					if(naBD>ncBD)//Si las respuestas resultan mayores que las solicitudes
 					{  ncBD = naBD;//Iguala los dos valores para corregir ese error por si alguna vez sucede
 					}
 					if(naBD==ncBD)//Si el número de consulta no ha cambiado y es igual al número anterior de consulta a la base de datos entonces..
-					{	console.error(' - - - LA RESPUESTA esperada! son iguales! naBD=',naBD,' Y ncBD=',ncBD);
-						console.error('############################## nruta=',nruta);	
+					{	//console.error(' - - - LA RESPUESTA esperada! son iguales! naBD=',naBD,' Y ncBD=',ncBD);
+						//console.error('############################## nruta=',nruta);	
 					
 
 
@@ -7863,7 +7896,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 			//console.error('|> Flag  ____________________________ B rumbo=',rumbo,' rumba=',rumba);
 			rumba = rumbi;//Actualiza el pasado de rumbi en el navegador
 			//console.error('|> Flag  ____________________________ C rumbo=',rumbo,' rumba=',rumba);
-			console.error('############################### F I N #####[ BBBBDDDDD ]####### f0142() >>> ################, bumbi=',rumbi,'; rumbo=',rumbo,'; nruta(*)=',nruta);	
+			//console.error('############################### F I N #####[ BBBBDDDDD ]####### f0142() >>> ################, bumbi=',rumbi,'; rumbo=',rumbo,'; nruta(*)=',nruta);	
 		}
 /***/
 
@@ -8251,11 +8284,12 @@ f0153(j,f)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 						{ 	if(wPAPA1[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
 							{ 	if(f)// Es la ruta madre
 								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
+									console.log('- - - Es la ruta madre, sigue por la ruta madre s=',s);
 								}
 								else// Si no es la ruta madre, siga la sugerencia
 								{	s = wPAPA1[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
+									console.log('- - - No es la ruta madre.. sigue por ruta hija sugerida s=',s);
+									console.log('- - - Pero antes hay que revizar si la sugerencia cumple, es valida y no requiere pin de privado');
 								}
 								for (var b = 3+ext; b < wPAPA1[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
 								{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
@@ -8400,11 +8434,13 @@ f0153(j,f)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 						{ 	if(wPAPA2[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
 							{ 	if(f)// Es la ruta madre
 								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
+									console.log('- - - Es la ruta madre, sigue por la ruta madre s=',s);
 								}
 								else// Si no es la ruta madre, siga la sugerencia
 								{	s = wPAPA2[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
 									console.log('- - - sigue por ruta hija sugerida s=',s);
+									console.log('- - - No es la ruta madre.. sigue por ruta hija sugerida s=',s);
+									console.log('- - - Pero antes hay que revizar si la sugerencia cumple, es valida y no requiere pin de privado');
 								}
 								for (var b = 3+ext; b < wPAPA2[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
 								{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
@@ -8498,11 +8534,13 @@ f0153(j,f)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 						{ 	if(wPAPA3[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
 							{ 	if(f)// Es la ruta madre
 								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
+									console.log('- - - Es la ruta madre, sigue por la ruta madre s=',s);
 								}
 								else// Si no es la ruta madre, siga la sugerencia
 								{	s = wPAPA3[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
 									console.log('- - - sigue por ruta hija sugerida s=',s);
+									console.log('- - - No es la ruta madre.. sigue por ruta hija sugerida s=',s);
+									console.log('- - - Pero antes hay que revizar si la sugerencia cumple, es valida y no requiere pin de privado');
 								}
 								for (var b = 3+ext; b < wPAPA3[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
 								{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
@@ -9667,16 +9705,22 @@ f0154() // ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presenta
 
 
 function 
-f0156()//ASIGNAR ruta madre (inicial) por defecto en el hash
+f0156(a)//ASIGNAR ruta madre (inicial) por defecto en el hash
 			{	lOG(156);
-				console.log('f0156  Hash No inicia con A,B,C,D y E, => Ruta por defecto (por ejemplo Colombia)');
+				if(a)
+				{	console.log('f0156:  Hash No tiene más de 10 caracteres o no inicia con A,B,C,D y E! => Ruta por defecto (por ejemplo Colombia)');
+				}
+				else
+				{	console.log('f0156:  Hash SI inicia con A,B,C,D y E pero la ruta no es valida o el pin privado no es valido! => Ruta por defecto (por ejemplo Colombia)');
+				}
 				//Asignar una ruta básica valida por defecto, puede ser por cokie, id del navegador, GPS, etc:
 				/** * /
-				window.location = "#/A/B/C/D/E/7/11/8/1";
+				window.location = "#/A/B/C/D/E/7/11/8/";
 				/** */
+				ArRay = ['A','B','C','D','E',7,11,1]; // Colombia
 				//ArRay = ['A','B','C','D','E',7,11,8,1]; // Bogotá
 				//ArRay = ['A','B','C','D','E',7,11,8,11]; // Puente aranda
-				ArRay = ['A','B','C','D','E',7,11,8,9,9]; // Chapinero central
+				//ArRay = ['A','B','C','D','E',7,11,8,9,9]; // Chapinero central
 			}
 
 function 
@@ -9721,7 +9765,7 @@ f0158(a) // GENERAR distintos tipos de strings dependiendo del estado de los anu
 function 
 f0159() // GENERAR distintos tipos de strings dependiendo del estado de los anuncios g00VARS[86][2]    0:hay anuncios 1:No hay anuncios/ satelite
 			{	lOG(159);
-				console.error('################# strings hay/ no hay ########### - >>f0159(); g00VARS[86][2]=',g00VARS[86][2],'; estado de los anuncios');
+				//console.error('################# strings hay/ no hay ########### - >>f0159(); g00VARS[86][2]=',g00VARS[86][2],'; estado de los anuncios');
 				//mIr003A = mIres3A;//RESET CONTENIDOS DE mIr003A con el texto que es el mismo que sale en pantalla apenas se va el satelite de la busqueda de anuncios
 				for (var k = 1; k <= 4; k++) // Recorre todas las filas de idiomas que hay disponibles
 				{
@@ -9745,7 +9789,7 @@ f0159() // GENERAR distintos tipos de strings dependiendo del estado de los anun
 						/** */
 					}
 				}
-				console.error('#################### strings hay/ no hay #### FIN  ->>f0159() ');
+				//console.error('#################### strings hay/ no hay #### FIN  ->>f0159() ');
 				//mIr003B[1][2][0] = 53;//??????
 			}
 
