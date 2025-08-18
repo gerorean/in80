@@ -11621,138 +11621,88 @@ function hh101(rev)//CAMBIAR la seña
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-function hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se deben recalcular las listas 2-10 (wMAPA)
+function hh102(rev) // {hh102() clic directo sobre el botón} CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se deben recalcular las tablas parciales 2-10 (wMAPA) y las rutas parciales 5-14 (papas)
 		{	hOU(102);
-
-
-
-
-			var pos;
-			for (var i = 1; i < wPAPA1.length; i++)//Recorrer wPAPA2
-			//for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
-			{	if(wPAPA1[i][0]==papas[5])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2 //__0
-				{	pos = i;
-					//guarda en pos cuál es la fila dónde está esa sub-ruta
-					i = wPAPA1.length;
-					//termina el ciclo for porque ya encontro la sub-ruta
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA1.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA1[i][0]==papas[5]) // Encuentra la ruta parcial papas[5] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[5]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				//if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[5]=wPAPA1[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista //__0
-						//papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA1[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[5]=wPAPA1[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista //__0
+					{	p=wPAPA1[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[5]=wPAPA1[wPAPA1.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición //__0
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA1[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA1.length - 1)
-				{	if(salTO>=(wPAPA1.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[5]=wPAPA1[wPAPA1.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__0
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA1[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[5]=wPAPA1[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__0
+					else // Salta adelante
+					{	p=wPAPA1[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[5]=wPAPA1[1][0];//toma el nuevo id del primer elemento de la lista//__0
-					//papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
+				{	p=wPAPA1[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
-
-
-
-
-
-			////////if(rev)//si rev - (atajo para ir atras/ retroceder por una raya sobre el botón, SIN clic sencillo)
-			////////{	if(papas[0]==1)//Si dato actual de papas [0] es el PRIMERO del arreglo de wPAPA1..
-			////////	{	papas[0]=wPAPA1.length - 1;//El dato papas[0] cambia al final del arreglo de wPAPA1 para iniciar de nuevo
-			////////	}
-			////////	else//Si no es el primer dato de papas[0] 
-			////////	{	papas[0]--;//El dato papas[0] se decrementa en uno
-			////////	}
-			////////}
-			////////else//si NO hay rev - (SIN atajo para ir atras/ retroceder por una raya sobre el botón, clic sencillo)
-			////////{	if(papas[0]<wPAPA1.length - 1)//Si dato actual de papas [0] no es el final del arreglo de wPAPA1..
-			////////	{	papas[0]++;//El dato papas[0] se incrementa en uno
-			////////	}
-			////////	else//Si no el dato papas[0] se hace igual a 1 para que inicie un nuevo ciclo
-			////////	{	papas[0]=1;//Reinicia conteo desde 1 porque no tiene recepción(fila padre)
-			////////	}
-			////////}
-
-
-			f0124(0);//ACTUALIZAR tablas siguientes a wPAPA1 de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-			console.log('|> Flag hh102 -> 125(0)');
+			papas[5]=p; // Actualiza la ruta parcial con el id que tenga p
+			console.log('############################ Flag hh102 -> 124(0)');
+			f0124(0); // ACTUALIZAR tablas siguientes a wPAPA1 de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+			console.log('############################ Flag hh102 -> 125(0)');
 			f0125(0);//ACTUALIZAR string de los botones de sitios
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
 function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 		{	hOU(103);
-			var pos;
-			
-			
-			
-			
-			
-			
-			for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
-			//for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
-			{	if(wPAPA2[i][0]==papas[6])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2 //__1
-				{	pos = i;
-					//guarda en pos cuál es la fila dónde está esa sub-ruta
-					i = wPAPA2.length;
-					//termina el ciclo for porque ya encontro la sub-ruta
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA2.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA2[i][0]==papas[6]) // Encuentra la ruta parcial papas[6] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[6]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	
-				 
-				
-				
-				   
-				
-				if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				//if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	
-						
-						
-						
-						papas[6]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista //__1
-						//papas[1]=wPAPA2[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA2[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[6]=wPAPA2[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista //__1
+					{	p=wPAPA2[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[6]=wPAPA2[wPAPA2.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición //__1
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA2[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA2.length - 1)
-				{	if(salTO>=(wPAPA2.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[6]=wPAPA2[wPAPA2.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__1
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA2[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[6]=wPAPA2[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista //__1
+					else // Salta adelante
+					{	p=wPAPA2[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[6]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista //__1
-					//papas[1]=wPAPA2[1][0];//toma el nuevo id del primer elemento de la lista
+				{	p=wPAPA2[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
-			f0124(1);//ACTUALIZAR tablas siguientes a wPAPA1 osea extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+			papas[6]=p; // Actualiza la ruta parcial con el id que tenga p
+			f0124(1);//ACTUALIZAR tablas siguientes a wPAPA2 osea extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh103 -> 125(1)');
 			f0125(1);//ESTABLECER O ACTUALIZAR string de botones de sitios.
 			f0017();//CARGAR guiones de ruta y POSICIONAR foco sobre casilla actual (luego de esperar que se maximice la pantalla)
@@ -11761,39 +11711,41 @@ function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 
 function hh104(rev)//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la derecha de papas[2]; lugar 2  sitio(2-9) - DEPTOS
 		{	hOU(104);
-			var pos;
-			for (var i = 1; i < wPAPA3.length; i++)
-			{	if(wPAPA3[i][0]==papas[7])//Encuentra posición(fila) de i dentro de wPAPA2 //__2
-				{	pos = i;
-					i = wPAPA3.length;//termina el for
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA3.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA3[i][0]==papas[7]) // Encuentra la ruta parcial papas[7] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[7]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[7]=wPAPA3[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista //__2
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA3[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[7]=wPAPA3[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista //__2
+					{	p=wPAPA3[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[7]=wPAPA3[wPAPA3.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición //__2
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA3[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA3.length - 1)
-				{	if(salTO>=(wPAPA3.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[7]=wPAPA3[wPAPA3.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__2
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA3[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[7]=wPAPA3[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista //__2
+					else // Salta adelante
+					{	p=wPAPA3[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[7]=wPAPA3[1][0];//toma el nuevo id del primer elemento de la lista //__2
+				{	p=wPAPA3[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[7]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(2);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh104 -> 125(2)');
 			f0125(2);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
@@ -11802,39 +11754,41 @@ function hh104(rev)//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la 
 
 function hh105(rev)//CAMBIAR de lugar 3  sitio(3-9)
 		{	hOU(105);
-			var pos;
-			for (var i = 1; i < wPAPA4.length; i++)
-			{	if(wPAPA4[i][0]==papas[8])//Encuentra cual es la posición de i dentro de wPAPA2 //__3
-				{	pos = i;
-					i = wPAPA4.length;//termina el for
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA4.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA4[i][0]==papas[8]) // Encuentra la ruta parcial papas[8] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[8]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[8]=wPAPA4[1][0];//__3
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA4[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[8]=wPAPA4[pos + salTO][0];//__3
+					{	p=wPAPA4[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[8]=wPAPA4[wPAPA4.length - 1][0];//__3
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA4[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA4.length - 1)
-				{	if(salTO>=(wPAPA4.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[8]=wPAPA4[wPAPA4.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista //__3
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA4[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[8]=wPAPA4[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista //__3
+					else // Salta adelante
+					{	p=wPAPA4[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[8]=wPAPA4[1][0];//toma el nuevo id del primer elemento de la lista //__3
+				{	p=wPAPA4[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[8]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(3);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			f0125(3);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
 			console.log('|> Flag  hh105 -> 125(3)');
@@ -11843,39 +11797,41 @@ function hh105(rev)//CAMBIAR de lugar 3  sitio(3-9)
 
 function hh106(rev)//CAMBIAR de lugar 4  sitio(4-9)
 		{	hOU(106);
-			var pos;
-			for (var i = 1; i < wPAPA5.length; i++)
-			{	if(wPAPA5[i][0]==papas[9])//Encuentra cual es la posición de i dentro de wPAPA2 //__4
-				{	pos = i;
-					i = wPAPA5.length;//termina el for
-				}
-			}/*ORIGINAL..*/
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[9]=wPAPA5[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__4
-					}
-					else
-					{	papas[9]=wPAPA5[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__4
-					}
-				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[9]=wPAPA5[wPAPA5.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__4
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA5.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA5[i][0]==papas[9]) // Encuentra la ruta parcial papas[9] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[9]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA5.length - 1)
-				{	if(salTO>=(wPAPA5.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[9]=wPAPA5[wPAPA5.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__4
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA5[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[9]=wPAPA5[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__4
+					else
+					{	p=wPAPA5[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
+					}
+				}
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA5[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
+				}
+			}
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA5[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
+					}
+					else // Salta adelante
+					{	p=wPAPA5[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[9]=wPAPA5[1][0];//toma el nuevo id del primer elemento de la lista//__4
+				{	p=wPAPA5[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[9]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(4);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh106 -> 125(4)');
 			f0125(4);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
@@ -11884,39 +11840,41 @@ function hh106(rev)//CAMBIAR de lugar 4  sitio(4-9)
 
 function hh107(rev)//CAMBIAR de lugar 5 sitio(5-9)
 		{	hOU(107);
-			var pos;
-			for (var i = 1; i < wPAPA6.length; i++)
-			{	if(wPAPA6[i][0]==papas[10])//Encuentra cual es la posición de i dentro de wPAPA2//__5
-				{	pos = i;
-					i = wPAPA6.length;//termina el for
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA6.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA6[i][0]==papas[10]) // Encuentra la ruta parcial papas[10] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[10]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[10]=wPAPA6[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__5
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA6[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[10]=wPAPA6[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__5
+					{	p=wPAPA6[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[10]=wPAPA6[wPAPA6.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__5
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA6[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA6.length - 1)
-				{	if(salTO>=(wPAPA6.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[10]=wPAPA6[wPAPA6.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__5
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA6[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[10]=wPAPA6[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__5
+					else // Salta adelante
+					{	p=wPAPA6[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[10]=wPAPA6[1][0];//toma el nuevo id del primer elemento de la lista//__5
+				{	p=wPAPA6[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[10]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(5);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh107 -> 125(5)');
 			f0125(5);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
@@ -11925,39 +11883,41 @@ function hh107(rev)//CAMBIAR de lugar 5 sitio(5-9)
 
 function hh108(rev)//CAMBIAR de lugar 6  sitio(6-9)
 		{	hOU(108);
-			var pos;
-			for (var i = 1; i < wPAPA7.length; i++)
-			{	if(wPAPA7[i][0]==papas[11])//Encuentra cual es la posición de i dentro de wPAPA2 //__6
-				{	pos = i;
-					i = wPAPA7.length;//termina el for
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA7.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA7[i][0]==papas[11]) // Encuentra la ruta parcial papas[11] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[11]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[11]=wPAPA7[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__6
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA7[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[11]=wPAPA7[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__6
+					{	p=wPAPA7[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[11]=wPAPA7[wPAPA7.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__6
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA7[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA7.length - 1)
-				{	if(salTO>=(wPAPA7.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[11]=wPAPA7[wPAPA7.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__6
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA7[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[11]=wPAPA7[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__6
+					else // Salta adelante
+					{	p=wPAPA7[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[11]=wPAPA7[1][0];//toma el nuevo id del primer elemento de la lista//__6
+				{	p=wPAPA7[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[11]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(6);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh108 -> 125(6)');
 			f0125(6);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
@@ -11966,39 +11926,41 @@ function hh108(rev)//CAMBIAR de lugar 6  sitio(6-9)
 
 function hh109(rev)//CAMBIAR de lugar 7  sitio(7-9)
 		{	hOU(109);
-			var pos;
-			for (var i = 1; i < wPAPA8.length; i++)
-			{	if(wPAPA8[i][0]==papas[12])//Encuentra cual es la posición de i dentro de wPAPA2//__7
-				{	pos = i;
-					i = wPAPA8.length;//termina el for
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA8.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA8[i][0]==papas[12]) // Encuentra la ruta parcial papas[12] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[12]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[12]=wPAPA8[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__7
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA8[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[12]=wPAPA8[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__7
+					{	p=wPAPA8[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[12]=wPAPA8[wPAPA8.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__7
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA8[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA8.length - 1)
-				{	if(salTO>=(wPAPA8.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[12]=wPAPA8[wPAPA8.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__7
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA8[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[12]=wPAPA8[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__7
+					else // Salta adelante
+					{	p=wPAPA8[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[12]=wPAPA8[1][0];//toma el nuevo id del primer elemento de la lista//__7
+				{	p=wPAPA8[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[12]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(7);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh109 -> 125(7)');
 			f0125(7);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
@@ -12007,39 +11969,41 @@ function hh109(rev)//CAMBIAR de lugar 7  sitio(7-9)
 
 function hh110(rev)//CAMBIAR de lugar 8  sitio(8-9)
 		{	hOU(110);
-			var pos;
-			for (var i = 1; i < wPAPA9.length; i++)
-			{	if(wPAPA9[i][0]==papas[13])//Encuentra cual es la posición de i dentro de wPAPA2 //__8
-				{	pos = i;
-					i = wPAPA9.length;//termina el for
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA9.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA9[i][0]==papas[13]) // Encuentra la ruta parcial papas[13] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[13]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[13]=wPAPA9[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__8
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA9[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[13]=wPAPA9[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__8
+					{	p=wPAPA9[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[13]=wPAPA9[wPAPA9.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__8
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA9[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA9.length - 1)
-				{	if(salTO>=(wPAPA9.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[13]=wPAPA9[wPAPA9.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__8
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA9[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[13]=wPAPA9[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__8
+					else // Salta adelante
+					{	p=wPAPA9[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[13]=wPAPA9[1][0];//toma el nuevo id del primer elemento de la lista//__8
+				{	p=wPAPA9[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[13]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(8);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh110 -> 125(8)');
 			f0125(8);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
@@ -12048,44 +12012,47 @@ function hh110(rev)//CAMBIAR de lugar 8  sitio(8-9)
 
 function hh111(rev)//CAMBIAR de lugar 9  sitio(9-9)
 		{	hOU(111);
-			var pos;
-			for (var i = 1; i < wPAPA10.length; i++)
-			{	if(wPAPA10[i][0]==papas[14])//Encuentra cual es la posición de i dentro de wPAPA2 //__9
-				{	pos = i;
-					i = wPAPA10.length;//termina el for
+			var p; // Primero es la posición del cursor en la lista parcial wPAPA# y luego es el id de cierta posición dentro de la lista parcial wPAPA#
+			var t=wPAPA10.length; // Tamaño de wPAPA#
+			for (var i = 1; i < t; i++) // Recorrer wPAPA#
+			{	if(wPAPA10[i][0]==papas[14]) // Encuentra la ruta parcial papas[14] dentro de wPAPA#
+				{	p = i; // guarda en p la posición dentro de wPAPA# de la ruta parcial papas[14]
+					i = t; // termina el ciclo for porque encontró la ruta parcial
 				}
 			}
-			if(salTO<0)//rev:5-9 salTO's negativos
-			{	if(pos>1)//Si fila [i] no es la PRIMER fila de wPAPA10
-				{	if((salTO*-1)>=pos)//Si tamaño del salto es mayor que pos
-					{ 	papas[14]=wPAPA10[1][0];//Salta a la primer posición y toma el nuevo id de la fila de la lista//__9
+			if(salTO<0) // Si salTO es retrocediendo (por usar el botón redondo)
+			{	if(p>1) // Si fila [i] no es la PRIMER fila de wPAPA#
+				{	if((salTO*-1)>=p) // Si tamaño del salto es mayor que p
+					{ 	p=wPAPA10[1][0]; // Salta a la primer posición y p toma el id de la fila de la tabla parcial
 					}
 					else
-					{	papas[14]=wPAPA10[pos + salTO][0];//Salta atrás y toma el nuevo id de la fila de la lista//__9
+					{	p=wPAPA10[p + salTO][0]; // Salta atrás y p toma el id de la fila de la tabla parcial
 					}
 				}
-				else//1 Si fila [i] es la PRIMER fila de wPAPA10
-				{	papas[14]=wPAPA10[wPAPA10.length - 1][0];//1;//Reinicia conteo de filas desde LA última posición//__9
+				else // p = 1, Si fila [i] es la PRIMER fila de wPAPA#
+				{	p=wPAPA10[t - 1][0]; // Reinicia conteo y p toma el id de la última posición de la tabla parcial
 				}
 			}
-			else//rev:0-4 salTO's positivos
-			{	if(pos<wPAPA10.length - 1)
-				{	if(salTO>=(wPAPA10.length - 1 - pos))//Si tamaño del salto es mayor que lo que falta
-					{ 	papas[14]=wPAPA10[wPAPA10.length - 1][0];//Salta a la última posición y toma el nuevo id de la lista//__9
+			else // salTO es avanzando
+			{	if(p<t - 1)
+				{	if(salTO>=(t - 1 - p)) // Si tamaño del salto es mayor que lo que falta
+					{ 	p=wPAPA10[t - 1][0]; // Salta a la última posición y p toma el id de la última posición de la tabla parcial
 					}
-					else//Salta adelante
-					{	papas[14]=wPAPA10[pos + salTO][0];//toma el nuevo id del siguiente elemento de la lista//__9
+					else // Salta adelante
+					{	p=wPAPA10[p + salTO][0]; // p toma el id del siguiente elemento de la tabla parcial
 					}
 				}
 				else
-				{	papas[14]=wPAPA10[1][0];//toma el nuevo id del primer elemento de la lista//__9
+				{	p=wPAPA10[1][0]; // p toma el id del primer elemento de la tabla parcial
 				}
 			}
+			papas[14]=p; // Actualiza la ruta parcial con el id que tenga p
 			f0124(9);//ACTUALIZAR las tablas siguientes wPAPAx de las ramas a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 			console.log('|> Flag  hh111 -> 125(9)');
 			f0125(9);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
+
 /*
 function hh112()//CAMBIAR de comunidad
 		{	hOG(112);

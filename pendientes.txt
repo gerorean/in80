@@ -1,6 +1,7 @@
 Pendientes:
 
-la función 0124 no está verificando la ruta parcial para crear o no la tabla parcial se puede tomar como guía parte de la función f0107 que si lo hace
+analizar desde hh102()..
+la función f0124 no está verificando la ruta parcial para crear o no la tabla parcial se puede tomar como guía parte de la función f0107 que si lo hace
 
 
 cuando cambio el lugar por otro no esta haciendo el llamado a la BD, revizar esto!!
