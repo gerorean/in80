@@ -7100,35 +7100,36 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 		{	lOG(124);
 			console.log(' - - - __________________________________________f0124(n=',n,', a=',a,')  [mIr002B[#][4]=0 (invi desde n) papas[#+5]=0 wPAPA#]');//__#
 			console.log(' - - - A - control de la ruta 2 de idioma [1-5] y lugar [6----] ...  mIr002B[6]=',mIr002B[6]);
-			if(!a) // Si no es la ruta madre
+			if(!a) // Si no es la ruta madre 
 			{
 				console.log(' - - - __________________________ NO ES la Ruta madre... Se ocultan los botones hijo y se borran las tablas parciales hijas');
 				// OCULTAR los botones de Ajustes 2 desde la ruta parcial (n)
-				for (var i = 6 + n; i <= 14; i++)//5-[12-5]13 - 4 = 9 si n= 0 los oculta todos
+				console.log(' - - - n=',n,' papas[n+5]=',papas[n+5],' esta ruta cambio y tiene un nuevo id');
+				for (var i = 6 + n; i <= 14; i++) // recorre un rango que corresponde a las casillas hijas de los lugares
 				{	mIr002B[i][4]=0; // mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (n)
-					papas[i]=0; // borrar datos a la derecha de papas[n+5]//__papas[i - 5]=0;//borrar datos a la derecha de papas[n]
+					console.log(' - - - i=',i,' papas[i]=',papas[i],' por el cambio en papas[n+5] se va a modificar');
+					papas[i]=0; // borrar datos a la derecha de papas[n+5] (con papas[n+{6-14}]=0)
 				}
+				console.log('######################### NOTA! ... Antes de actualizar las tablas parciales hay que revizar si los futuros papas (dinamicos), sin revizar, cumplen o no y ver si son rutas validas, sino cumplen hay que ajustarlas hasta que cumplan! #################################');
 
 
-
-				console.log('######################### NOTA! Aqui antes de actualizar las tablas parciales hay que revizar antes si los futuros papas dinamicos, sin revizar, cumplen y son rutas validas, sino cumplen hay que ajustarlas hasta que cumplan! #################################');
 
 
 
 			}
 			else
-			{ 	console.log('######################### NOTA! - - - Ruta madre... No se ocultan botones ni se borran tablas???');
+			{ 	console.log('######################### NOTA! - - - Ruta madre... No se ocultan botones ni se borran tablas, por defecto los botones están ocultos y las tablas parciales están vacias');
 			}
 			console.log(' - - - B - mIr002B[6]=',mIr002B[6],'; papas=',papas);
 			// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8}
-			for (var j = n + 1; j < 11; j++)// n {0-8}  j {1-10}  Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
+			for (var j = n + 1; j < 11; j++)// n{0-9}  j{1-10}  Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
 			{	
-				// console.log('papas[j+4]=',papas[j+4]);
-				if(papas[j+4]>0)
+				console.log(',,,,,,, papas[n+5]=',papas[n+5]);
+				if(papas[n+5]>0)
 				{	f0153(j,a);// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8} ... wPAPA2,wPAPA3...wPAPA10
 				}
 				else
-				{	console.log('Termina!!! papas[j+4]=',papas[j+4]);
+				{	console.log(',,,,,, Termina!!! papas[n+5]=',papas[n+5]);
 					j = 11;
 				}
 			}
