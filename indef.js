@@ -7111,7 +7111,31 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 					papas[i]=0; // borrar datos a la derecha de papas[n+5] (con papas[n+{6-14}]=0)
 				}
 				console.log('######################### NOTA! ... Antes de actualizar las tablas parciales hay que revizar si los futuros papas (dinamicos), sin revizar, cumplen o no y ver si son rutas validas, sino cumplen hay que ajustarlas hasta que cumplan! #################################');
+				
+				//var c = ArRay.length - 5;// Determinar la cantidad de tablas parciales de la ruta	
+				var o = 0; // Orden de continuar con la siguiente ruta parcial..
+				var v = 0; // Contador de verificaciones
+				///var f = 0; // 0 = Verificación completada sin exito de la ruta parcial 1=Fin de una verificación con exito
+				///var x = 0; // En 1 si termina la verificacíon del caso con ids 1 o 2
+				///var p = 1; // Pin para continuar la siguiente verificación
+				///var d = 0; // Pre verificación de un id 2 valido como ruta parcial hija
+				///var u = 1; // Anuncio público (1) / privado (0)
+					
+				for(var i = n; i<10; i++) // Ciclo para recorrer las tablas parciales siguientes..
+				{	console.log('$$$$$  Ruta parcial i=',i,' sin verificar; Orden de continuar o=',o);
+					switch (i) // i: nivel del lugar a analizar (0) Continentes (1)"Paises" ..
+					{	case 0: // Continentes..
+							console.log(i,'$$$$$$$ ArRay[5]=',ArRay[5]);
+							if((ArRay[5]==1)||(ArRay[5]==2)) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1 o 2, es una ruta parcial invalida!, no hay que verificar más
+							{	console.log(i,'$$$$$$$ id=1 o =2 ArRay[5]=',ArRay[5]);
+							}
+							else
+							{	console.log(i,'$$$$$$$ x>2  ArRay[5]=',ArRay[5]);
 
+							}
+						break;
+					}
+				}
 
 
 
