@@ -1,4 +1,6 @@
-Pendientes:
+Pendientes: f0124(n,a) f0153(j,f) f0157(u,i,p,v,f,d,c) aPrO
+
+esta casi bien.. con C1 muestra tanto el id=1 como el id=2 en las rutas, sin C1 solo muestra el id=1 en las rutas
 
 analizar desde hh102()..
 la función f0124 no está verificando la ruta parcial para crear o no la tabla parcial se puede tomar como guía parte de la función f0107 que si lo hace

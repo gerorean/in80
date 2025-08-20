@@ -9753,7 +9753,7 @@ f0157(u,i,p,v,f,d,c) // VERIFICAR el pin de las rutas privadas
 				u = 0; // Ruta privada
 				console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero se requiere pin de validación por ruta privada! -X-X-X- u=',u,'; p=',p);
 				console.error('############## u=',u,'; i=',i,' p=',p,' v=',v,' f=',f,' d=',d,' c=',c,'  ############');
-				if(!aPrO) // Pin a: Si pin a NO es correcto (a=0)
+				if(!aPrO) // Pin a: Si pin a NO es correcto (aPrO=0)
 				{	if((v + 1)==c) // Si sólo falta una verificación
 					{	f = 1; // Pre validación de la ruta parcial
 						u = 1; // Ruta pública
@@ -9766,7 +9766,7 @@ f0157(u,i,p,v,f,d,c) // VERIFICAR el pin de las rutas privadas
 					console.log(' Pin no valido p=',p);
 					i = c; // Termina todo, no hará más validaciones de rutas parciales
 				}
-				else // Si pin a ES correcto (a=1)
+				else // Si pin a ES correcto (aPrO=1)
 				{	d = 1; // Pre verificación activada de un id 2 valido como ruta parcial hija
 					console.log(' Pin VALIDO! p=',p,'; Pre-Verificación del 2 d=',d);
 				}
