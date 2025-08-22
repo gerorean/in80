@@ -1,4 +1,5 @@
 //###################################################### P I N aPrO ###########################
+var pArTs; // array tipo string del hash madre ...['A', 'B', 'C', 'D', 'E', '7', '11', '8', '9', '8']
 var aPrO = 0; // Valor del pin local en el hash para poder continuar.. 0: invalido / 1: valido
 					//NOTA EJEMPLO para el manejo del pin aPrO -> para el caso de vPAPA#[*][1] = 1(pública o visible) / 0(privada u oculta):
 					//Cuando el continente con id:7(Sur America) sea invisible..
