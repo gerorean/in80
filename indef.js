@@ -5529,6 +5529,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 			var y = 2; // Id del idioma esp (por def)
 			var z = 2; // Id de la seña lsc (por def)
 			var t = 0; // Voces personalizadas (0) si personalizar; (1) activa la voz española de españa; (2) activa la voz española de mejico, etc.. esta variable luego se relaciona con una tabla donde se sabe a que idioma debe asociarse por ej las voces id 1 e id 2 deben asociarse con el idioma español y cambiar la voz que tenga por defecto el idioma español.
+			//var pArTs = ''; // array tipo string del hash madre ...['A', 'B', 'C', 'D', 'E', '7', '11', '8', '9', '8']
 			// Verificar que tenga más de 10 caracteres y  si comienza con "#/A", si es asi posiblemente es un formato valido
 			if ((hAsH.length > 10)&&(hAsH.substring(0, 3) === "#/A")) //Inicia con 'A' de la ruta madre, posiblemente es valida
 			{	// Quitar el # inicial y dividir por "/"
@@ -5538,11 +5539,12 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 				if((pArTs[1].substring(0, 1) === "B")&&(pArTs[2].substring(0, 1) === "C")&&(pArTs[3].substring(0, 1) === "D")&&(pArTs[4].substring(0, 1) === "E"))
 				{	console.log('inicia con A,B,C,D y E!, formato verificado!');
 					//Verificación del pin privado
-					aPrO = 0;
-					if(pArTs[2] === "C1")
-					{	aPrO = 1;
-					}
-					else
+					vErC = pArTs[2];
+					f0160(); // VERIFICAR el pin privado, responder con aPrO
+					///if(pArTs[2] === "C1")
+					///{	aPrO = 1;
+					///}
+					if(!aPrO)
 					{	pArTs[2] = "C";
 					}
 					// Crear el array sin valores vacíos
@@ -8357,8 +8359,8 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 									{	console.log('%%%%%%%%%%%%%%%%%%%%%%%%% Hijos OCULTOS!!!!!!');
 
 
-
-										f0160(); // VERIFICAR el pin privado aPrO
+										vErC = papas[2]; // Cargar a papas[2] en vErC para verificarlo
+										f0160(); // VERIFICAR el pin privado, responder con aPrO
 										
 
 										/*
@@ -9977,18 +9979,14 @@ f0159() // GENERAR distintos tipos de strings dependiendo del estado de los anun
 
 function
 f0160()  // Verificar el pin y si cumple dar la orden de mostrar la tabla parcial hija con id=1 y id=2 y el id del siguiente papas hacerlo igual a la sugerencia del lugar padre {*} en wPAPA#[*][15] sino toma el id del tercer elemento (luego del id=1 e id=2)
-		 //VERIFICAR el pin privado aPrO	
+		 // VERIFICAR el pin privado, responder con aPrO	
 			{	lOG(160);
-				//Verificación del pin privado
-				aPrO = 0; // Reset de la verificación del pin C
-				if(papas[2] === "C1") //papas o pArTs o ArRay???
+				//Verificación del pin privado C
+				aPrO = 0; // Reset de la verificación del pin privado C
+				if(vErC === "C1") // Si vErC, la cadena de texto, contiene internamente al pin valido de ejemplo "C1" u otro pin que sea privado que corresponde a esa ruta privada
 				{	aPrO = 1;
 				}
-				////else
-				////{	papas[2] = "C"; //papas o pArTs o ArRay???
-				////	f0126(); // ACTUALIZAR la ruta en el hash por el cambio de papas
-				////}
-				console.error('%%%%%%%%%%%%%%%%%%%%%% Verificación del pin: aPrO=',aPrO);
+				console.error('%%%%%%%%%%%%%%%%%%%%%% Resultado de la verificación del pin: aPrO=',aPrO);
 			}
 
 //////////////////////////////////////////////////f0157(u,i,p,v,f,d,c) // VERIFICAR el pin de las rutas privadas
