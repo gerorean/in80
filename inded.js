@@ -5,7 +5,7 @@ var aPrO = 0; // Valor del pin local en el hash para poder continuar.. 0: invali
 					//Cuando el continente con id:7(Sur America) sea invisible..
 					//rutas 7/1 (pública con hermanos) 7/2(privada con hermanos) verificadas con pin (aPrO=1)
 					//Sin pin valido (aPrO=0) la ruta 7 (pública sin hijos) es valida si y solo si es la última ruta parcial; es decir si luego no llama a otras rutas parciales hijas
-var vErC;
+var vErC; 			// Verificación de C en el hash
 
 
 
@@ -2407,7 +2407,7 @@ var gFoco		/**/ = 1;//Localización del cursor/foco, número de la casilla dentr
 var gFoCo		/**/ = 0;//Pasado de gFoco
 var gMemF = 1;//memorizar el Foco principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
 var gMemR = 3;//memorizar la Ruta principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
-var go;			//Variable para indicar o controlar si una ruta cumple con cierta condición
+//var go;			//Variable para indicar o controlar si una ruta cumple con cierta condición
 var gRuta		/**/ = 3;//7 to 3; se toman de g02RUTA: 1Modo, 2Configuración, 3Libro comunitario, 7ACCESO etc......
 var gRuTa		/**/ = 0;//Pasado de gRuTa
 var hAsH;//Almacena el valor del hash

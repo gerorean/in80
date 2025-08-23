@@ -5541,9 +5541,6 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 					//Verificación del pin privado
 					vErC = pArTs[2];
 					f0160(); // VERIFICAR el pin privado, responder con aPrO
-					///if(pArTs[2] === "C1")
-					///{	aPrO = 1;
-					///}
 					if(!aPrO)
 					{	pArTs[2] = "C";
 					}
@@ -7119,11 +7116,13 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 				
 
 				// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8}
-				for (var j = n + 1; j < 10; j++)// n{0-9}  j{1-10}  Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
+				for (var j = n + 1; j < 10; j++)// n{0-9}  j{1-10}  Ciclo para producir todas las tablas parciales wPAPA's descendientes
+				// //Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
 				{	
 					console.log('j=',j,'; papas[j+5]=',papas[j+5]);
 					//if(papas[j+4]>0) // si la ruta parcial es diferente de 0..	
-					{	f0153(j); // ACTUALIZAR la siguiente tabla y ruta parcial ... wPAPA2 y papas[6],wPAPA3 y papas[7]...wPAPA10 y papas[14]
+					{	var r3 = f0153(j); // ACTUALIZAR la siguiente tabla y ruta parcial ... wPAPA2 y papas[6],wPAPA3 y papas[7]...wPAPA10 y papas[14]
+						j = r3.j;
 					}
 					//else
 					//{	console.log('&&&&&&&&&&&&&&&&& Termina!!! j=',j,'; papas[j+5]=',papas[j+5]);
@@ -7139,7 +7138,8 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 				for (var j = 1; j < 10; j++)// n{0}  j{1-9}  crea un ciclo para recorrer las wPAPA# posibles
 				{	console.log('j=',j,'; la siguiente ruta parcial.. papas[j+5]=',papas[j+5]);
 					if(papas[j+5]>0) // si la siguiente ruta parcial {papas[j+5]} no es 0..
-					{	f0153(j,1); // Como la siguiente ruta parcial no es 0 (papas[j+5]>0) GENERAR la tabla parcial siguiente wPAPAx{2-10} a partir de la tabla parcial actual wPAPA<1-9> y de la ruta parcial actual papas[j+4] ... (x = n + 2) wPAPA2,wPAPA3...wPAPA10, la tabla wPAPA1 la creo f0107 antes y es fija 
+					{	var r3 = f0153(j,1); // Como la siguiente ruta parcial no es 0 (papas[j+5]>0) GENERAR la tabla parcial siguiente wPAPAx{2-10} a partir de la tabla parcial actual wPAPA<1-9> y de la ruta parcial actual papas[j+4] ... (x = n + 2) wPAPA2,wPAPA3...wPAPA10, la tabla wPAPA1 la creo f0107 antes y es fija 
+						j = r3.j;
 					}
 					else
 					{	console.log('&&&&&&&&&&&&&&&&& Termina!!! la siguiente ruta parcial es j=',j,'; papas[j+5]=',papas[j+5]);
@@ -8289,323 +8289,90 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 			{	lOL(153);
 				var d = 0;													// (1) DOBLE botón: público(id=1) + privado(id=2) / (0) solo el Botón de público(id=1)   (d = 1;// Incluye el segundo botón de privado con id=2)
 				var s = 0;													// Sugerencia id ruta parcial hija
-				var n;   													// Variable para hacer recorridos en vPAPA#
-				var e = 0;			// Existencia del hijo sugerido (1)
-				
-				
-				/// hay que cambiarle el nombre a la variable i por ejemplo por r ?????
-				var i; 				// OJO la variable i se utiliza aqui para recorrer uno a uno los elementos de la lista vPAPA# y cuando encuentre que es un hijo lo guarda en wPAPA#
-
-				var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;// disponibles: g h l q r t w y
-
-
-
-
-				/***/
-				var u = 1; //var u = 1; // Anuncio público (1) / privado (0)
-				/**/
-				var i;  //**  for(var i = 0; i<c; i++) // Ciclo principal, i indica el nivel que se esta analizando para confirmar si o no que la tabla parcial hija es correcta (inicia desde 0(continentes), si i = c termina el avance al siguiente nivel porque la verificación no paso
-				var p;  //var p = 1; // Pin para continuar la siguiente verificación
-				var v;  //var v = 0; // Contador de verificaciones
-				/***/
-				var f;  //**  var f = 0; // 0 = Verificación completada sin exito de la ruta parcial 1=Fin de una verificación con exito
-				/**/
-				/*** /
-				var d;  //**  var d = 0; // Pre verificación de un id 2 valido como ruta parcial hija  --- PARECE QUE CUMPLE SIN PROBLEMA
-				/**/
-				/***/
-				var c;  //**  var c = ArRay.length - 5;// Determinar la cantidad de tablas parciales de la ruta
-				/**/
-				//////////////////////	var o = 0; // Orden de continuar con la siguiente ruta parcial..
-				/////////////////////	var x = 0; // En 1 si termina la verificacíon del caso con ids 1 o 2
-					
-
-
+				var n;   													// Variable para hacer recorridos en vPAPA#				
+				var t = 0;													//Orden de producir la siguiente ruta parcial(1)			
+				var e = 0;													// Existencia del hijo sugerido (1)
+				//var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;// disponibles: g h l q r t w y
 				console.error('-_____________-____________-___________f0153(j=',j,')');
 				switch(j)
 				{	case 1:				// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA2 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA2[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA2 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA2[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA2[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA2[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]     ///////////// id[1][1]=1
 						}
-						for (var a = 1; a < wPAPA1.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA1[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m) // Es la ruta madre
-								{	s = papas[j+5]; // s Toma la siguiente ruta parcial del papas siguiente papas[j+5]
+						for (var a = 1; a < wPAPA1.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA1[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1; // Orden de producir la tabla parcial wPAPA2
+								d = 0; // Público
+								if(!wPAPA1[a][17]) // Tiene hijos ocultos
+								{	console.log('%%%%%%%%%%%%%%%%%%%%%%%%% Hijos OCULTOS!!!!!!');
+									d = 1; // Privado
+									if(!m) // Si no es la ruta madre, que ya esta verificada, entonces hay que verificar
+									{	vErC = papas[2]; // Cargar a papas[2] en vErC para verificarlo
+										f0160(); // VERIFICAR el pin privado, responder con aPrO
+										if(!aPrO) // Si el pin fue rechazado
+										{	t = 0; // Anula la orden de producir la tabla parcial wPAPA2
+										}
+									}
+								}
+								if(m) // Es la ruta madre
+								{	e = papas[j+5]; // e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
 									console.log('- - - Es la ruta madre, sigue o continua por la ruta madre s=',s,' sin modificar ninguna de las rutas parciales (papas)');
 								}
 								else // Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA1[a][15];	// s Toma el valor del hijo sugerido
-									console.log('- - - No es la ruta madre.. j=',j,'; sigue por ruta hija sugerida s=',s);
-									for(n = 1; n<vPAPA2.length; n++)		// Busca si existe el hijo sugerido
-									{	if(vPAPA2[n][0]==s)
-										{	e = 1;
-											n = vPAPA2.length;
+								{	if(t) // Orden de producir la tabla parcial wPAPA2
+									{	s = 0; // Se alista para encontrar el id de la siguiente ruta parcial (papas[6])
+										e = wPAPA1[a][15]; // Guarda temporalmente al hijo sugerido
+										console.log(' el hijo sugerido e=',e);
+									}
+									console.log('- - - No es la ruta madre.. gguarda la ruta hija sugerida e=',e,'; papas[j+5]=',papas[j+5]);		
+								}
+								if(t)
+								{	for (var b = 3+ext; b < wPAPA1[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)	
+									{	wPAPA2[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
+										{	wPAPA2[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+										}
+										for (var b = 3+ext; b < wPAPA1[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
 										}
 									}
-									if(!e)
-									{	s = 1; // Corrección provisional: Se reasigna el valor de la sugerencia por el primer lugar de la lista
-										console.error('!!!!! No existe esa ruta parcial hija sugerida !!!!!!! corregir de las tablas!!!');
+									if(d) // inicia desde id=3
+									{	ff = 3;					// ID inicial para los lugares de la lista parcial
 									}
-
-									
-									if(wPAPA1[a][17]) // Tiene hijos visibles
-									{	console.log('%%%%%%%%%%%%%%%%%%%%%%%%% Hijos VISIBLES!!!!!!');
-										//s = wPAPA1[a][15];	// Toma el valor del hijo sugerido
-										papas[j+5] = s; // La siguiente ruta parcial toma el valor de la sugerencia o de la corrección
-									}
-									else
-									{	console.log('%%%%%%%%%%%%%%%%%%%%%%%%% Hijos OCULTOS!!!!!!');
-
-
-										vErC = papas[2]; // Cargar a papas[2] en vErC para verificarlo
-										f0160(); // VERIFICAR el pin privado, responder con aPrO
-										
-
-										/*
-											if(!vPAPA1[j][17]) // vPAPA1[j][17] = 0, privada
-											{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
-												u = rE.u;
-												i = rE.i;
-												p = rE.p;
-												v = rE.v;
-												f = rE.f;
-												d = rE.d;
-												c = rE.c;
+									else // inicia desde id=2
+									{	ff = 2;					// ID inicial para los lugares de la lista parcial
+									}		
+									for (n = 1; n < vPAPA2.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA2[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	// Revizar que este bloque no interfiera con m
+											if(n == 1)
+											{ 	s = vPAPA2[n][0]; // Id del primer elemento de la lista parcial
 											}
-											if(p) // Si el pin es valido para continuar..
-											{	//console.log(' Pin valido para continuar p=',p,'; i=',i);
-												f = 1; // Pre validación de la ruta parcial
-												if((v + 1)==c) // Si es la última ruta parcial solo falta verificar que no tenga hijos para ser valida
-												{	for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
-													{	if(vPAPA2[k][2]==ArRay[5])// Si existe una otra ruta parcial, encontró un elemento cuyo padre es la ruta parcial
-														{	f = 0; // Cancelar la verificación porque la ruta parcial tiene más hijos, es una ruta parcial incompleta que debería tener más elementos
-															console.log(' Cancelado por tener hijos f=',f);
-															k = vPAPA2.length; // Termina la busqueda de hijos
-														}
-													}
-												}
+											if(vPAPA2[n][0]==e)
+											{	s = e;	// Id del hijo sugerido guardado temporalmente
 											}
-											j = vPAPA1.length; // Termina la busqueda	
-										*/
-
-/////////////////////i solo es para la ruta madre????? y no sirve para aca??? lo mismo que c???? habria que modificar la funcion que verifica el pin sin i ni c ?????
-
-
-//////////////////////////////////////////////////function 
-//////////////////////////////////////////////////f0157(u,i,p,v,f,d,c) // VERIFICAR el pin de las rutas privadas
-//////////////////////////////////////////////////			{	lOG(157);
-//////////////////////////////////////////////////				u = 0; // Ruta privada
-//////////////////////////////////////////////////				console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero se requiere pin de validación por ruta privada! -X-X-X- u=',u,'; p=',p);
-//////////////////////////////////////////////////				console.error('############## u=',u,'; i=',i,' p=',p,' v=',v,' f=',f,' d=',d,' c=',c,'  ############');
-//////////////////////////////////////////////////				if(!aPrO) // Pin a: Si pin a NO es correcto (aPrO=0)
-//////////////////////////////////////////////////				{	if((v + 1)==c) // Si sólo falta una verificación
-//////////////////////////////////////////////////					{	f = 1; // Pre validación de la ruta parcial
-//////////////////////////////////////////////////						u = 1; // Ruta pública
-//////////////////////////////////////////////////						console.log('Valido porque corto a las rutas parciales hijas f=',f);
-//////////////////////////////////////////////////					}
-//////////////////////////////////////////////////					else
-//////////////////////////////////////////////////					{	console.log('Ruta NO Valida porque NO corta a las rutas parciales hijas f=',f);
-//////////////////////////////////////////////////					}
-//////////////////////////////////////////////////					p = 0; // Pin no valido
-//////////////////////////////////////////////////					console.log(' Pin no valido p=',p);
-//////////////////////////////////////////////////					i = c; // Termina todo, no hará más validaciones de rutas parciales
-//////////////////////////////////////////////////				}
-//////////////////////////////////////////////////				else // Si pin a ES correcto (aPrO=1)
-//////////////////////////////////////////////////				{	d = 1; // Pre verificación activada de un id 2 valido como ruta parcial hija
-//////////////////////////////////////////////////					console.log(' Pin VALIDO! p=',p,'; Pre-Verificación del 2 d=',d);
-//////////////////////////////////////////////////				}
-//////////////////////////////////////////////////				return {u,i,p,v,f,d,c};
-//////////////////////////////////////////////////			}
-
-
-
-
-
-
-										if(aPrO) // Verifica que el pin sea valido y cumple
-										{	//s = wPAPA1[a][15];	// Toma el valor del hijo sugerido
-											papas[j+5] = s; // La siguiente ruta parcial toma el valor de la sugerencia o de la corrección
+											wPAPA2[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA2[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
+											{	wPAPA2[ff][k] = vPAPA2[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
+											}
+											wPAPA2[ff][1] = ff; 						// Genera el número ordenado de la lista
+											ff++;										// Avance a la siguiente fila
 										}
-										else // El pin no es valido
-										{	s = 0; // Cancela la siguiente tabla parcial
-											//papas[j+5] = 0;
-										}	
 									}
-									
-									// Guarda el valor sugerido como hijo para esa ruta parcial
-									////for( n = 1; n<vPAPA2.length; n++)		// Busca el hijo sugerido
-									////{	if(vPAPA2[n][0]==s)
-									////	{	if(!vPAPA2[n][17])				// Si el 
-									////		{
-									////		}
-									////		
-									////	}
-									////}
-
-									console.log('- - - No es la ruta madre.. sigue por ruta hija sugerida s=',s,'; papas[j+5]=',papas[j+5]);
-
-
-
-
-
-
-
-
-									
-									console.log('- - - Pero antes hay que revizar si la sugerencia cumple, es valida y no requiere pin de privado aqui hay que llamar a f0157!!!');
-								}
-								for (var b = 3+ext; b < wPAPA1[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-
-
-
-								// Despues de hacer la verificacion la siguiente linea se podría cambiar por un if(d)????
-								if((!wPAPA1[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								
-								
-								
-								{	
-									
-									
-
-									// Aqui debería ir la verificación del pin y no antes??????
-									//NOTA!! Esta parte de hacer d=1 lo hace internamente f0157(******) luego  hacerla verificacion del pin, posiblemente se podria quitar con if(d)
-									d = 1;			// Incluye el segundo botón de privado con id=2
-
-
-
-
-
-									wPAPA2[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA2[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA1[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+									console.log('1    s=',s,'; papas[j+5]=',papas[j+5]);
+									if(!m && s)
+									{	papas[j+5] = s; 						// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+										console.log('2    s=',s,'; papas[j+5]=',papas[j+5]);
 									}
 								}
 								a = wPAPA1.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la siguiente ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas[j][15] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA2.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA2[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA2[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA2[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA2[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA2[ff][k] = vPAPA2[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA2[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)								// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA2[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-/////// Versión mejorada de **
-/////						for (var i = 1; i < vPAPA2.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-/////						{ 	if(vPAPA2[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-/////							{ 	if(vPAPA2[i][0] == papas1[j])				// (De darse este caso: solo puede haber un único caso de sugerencia: papas1[j])
-/////								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-/////									papas[j+5]=papas1[j];					// La ruta parcial papas[j+5] cambia por:___ la sugerida
-/////								}
-/////								wPAPA2[ff] = []; 							// Crea una fila vacia
-/////								for (var k = 0; k < vPAPA2[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-/////								{	wPAPA2[ff][k] = vPAPA2[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-/////								}
-/////								wPAPA2[ff][1] = ff; 						// Genera el número ordenado de la lista
-/////								ff++;										// Avance a la siguiente fila
-/////								if(m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-/////								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-/////									papas[j+5] = vPAPA2[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-/////								}
-/////							}
-/////							// Aunque haya encontrado a un hijo, la busqueda debe continuar porque hay que encontrar cuales son todos los hijos de vPAPA<#> que tienen como padre a la ruta parcial anterior papas[j+4]
-/////						}
-
-// **
-// // //						for (var i = 1; i < vPAPA2.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>, mira si coincide con la sugerencia y es un hijo 
-// // //						{ 	if((vPAPA2[i][2] == papas[j+4])&&(vPAPA2[i][0] == papas1[j]))
-// // //							{ 	go = 0;										//el elemento sugerido existe y cumple go=1 
-// // //								papas[j+5]=papas1[j];						//la ruta cambia por la sugerida
-// // //							}
-// // //						}
-// // //						for (var i = 1; i < vPAPA2.length; i++) 			// Recorre el array de todos los lugares de vPAPA<#>
-// // //						{	if(vPAPA2[i][2] == papas[j+4]) 					// si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-// // //							{	wPAPA2[ff] = []; 							// Crea una fila vacia
-// // //								for (var k = 0; k < vPAPA2[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-// // //								{	wPAPA2[ff][k] = vPAPA2[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-// // //								}
-// // //								wPAPA2[ff][1] = ff; 						// Genera el número ordenado de la lista
-// // //								ff++;										// Avance a la siguiente fila
-// // //								if(m && go)									// Si viene m tiene que   la ruta media
-// // //								{	go = 0; // Deja de buscar un elemento
-// // //									papas[j+5] = vPAPA2[i][0]; // Toma el primer id del string del elemento de la app que encuentre//__0
-// // //								}
-// // //							}
-// // //						}
-
-						//console.error(' - -----------------___________153___ wPAPA2[1]=',wPAPA2[1]);
-
-
-
-////////////////////						wPAPA2 = [];										//Borra la lista parcial wPAPA<#>, hace de nuevo la lista parcial wPAPA<#> carga/actualiza los arrays hijos * 			
-////////////////////						wPAPA2[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA2[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						//wPAPA2[1] = vPAPA0[0];								//"Entire territory" es extraño porque al final modifica a vPAPA1[0],
-////////////////////						console.error(' __________wPAPA2[1]=',wPAPA2[1],'; vPAPA0[0]=',vPAPA0[0],';  wPAPA1[0]=', wPAPA1[0]);	
-////////////////////						for (var a = 1; a < wPAPA1.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA1[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA1.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-
-////////////////////						go = 1;												//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA2.length; i++)				//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j+4]))//__-1
-////////////////////							{ 	go = 0;										//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];							//la ruta cambia por la sugerida//__0
-////////////////////							}
-////////////////////						}
-////////////////////						console.error(' __________wPAPA2[1]=',wPAPA2[1],'; vPAPA0[0]=',vPAPA0[0]);
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA2[i][2] == papas[j+4])//si esa fila es un hijo de wPAPA1//__-1
-////////////////////							{	wPAPA2[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA2[i].length; k++)
-////////////////////								{	wPAPA2[ff][k] = vPAPA2[i][k];
-////////////////////								}
-////////////////////								wPAPA2[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA2[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-
-////////////////////						//console.error(' - -----------------___________153___ wPAPA2[1]=',wPAPA2[1]); 
 					break;
 					case 2: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA3 = [];										// BORRA wPAPA<#> {# = j + 1}		
@@ -9409,6 +9176,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 //////////						}
 					break;
 				}
+				return {j};
 			}
 
 
@@ -9989,30 +9757,6 @@ f0160()  // Verificar el pin y si cumple dar la orden de mostrar la tabla parcia
 				console.error('%%%%%%%%%%%%%%%%%%%%%% Resultado de la verificación del pin: aPrO=',aPrO);
 			}
 
-//////////////////////////////////////////////////f0157(u,i,p,v,f,d,c) // VERIFICAR el pin de las rutas privadas
-//////////////////////////////////////////////////			{	lOG(157);
-//////////////////////////////////////////////////				u = 0; // Ruta privada
-//////////////////////////////////////////////////				console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero se requiere pin de validación por ruta privada! -X-X-X- u=',u,'; p=',p);
-//////////////////////////////////////////////////				console.error('############## u=',u,'; i=',i,' p=',p,' v=',v,' f=',f,' d=',d,' c=',c,'  ############');
-//////////////////////////////////////////////////				if(!aPrO) // Pin a: Si pin a NO es correcto (aPrO=0)
-//////////////////////////////////////////////////				{	if((v + 1)==c) // Si sólo falta una verificación
-//////////////////////////////////////////////////					{	f = 1; // Pre validación de la ruta parcial
-//////////////////////////////////////////////////						u = 1; // Ruta pública
-//////////////////////////////////////////////////						console.log('Valido porque corto a las rutas parciales hijas f=',f);
-//////////////////////////////////////////////////					}
-//////////////////////////////////////////////////					else
-//////////////////////////////////////////////////					{	console.log('Ruta NO Valida porque NO corta a las rutas parciales hijas f=',f);
-//////////////////////////////////////////////////					}
-//////////////////////////////////////////////////					p = 0; // Pin no valido
-//////////////////////////////////////////////////					console.log(' Pin no valido p=',p);
-//////////////////////////////////////////////////					i = c; // Termina todo, no hará más validaciones de rutas parciales
-//////////////////////////////////////////////////				}
-//////////////////////////////////////////////////				else // Si pin a ES correcto (aPrO=1)
-//////////////////////////////////////////////////				{	d = 1; // Pre verificación activada de un id 2 valido como ruta parcial hija
-//////////////////////////////////////////////////					console.log(' Pin VALIDO! p=',p,'; Pre-Verificación del 2 d=',d);
-//////////////////////////////////////////////////				}
-//////////////////////////////////////////////////				return {u,i,p,v,f,d,c};
-//////////////////////////////////////////////////			}
 
 
 			
