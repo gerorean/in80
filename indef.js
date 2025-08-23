@@ -8285,1364 +8285,674 @@ f0152()//INTERRUMPIR el conteo y DESACTIVAR el display de la interfaz M
 function
 f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 m se usa solo para cargar la ruta madre, la cúal no tiene libertad para escoger un hijo (tanto sugerido como no sugerido) dentro de su lista, lo debe tomar directamente de la ruta
 			// Si m(1) Como la siguiente ruta parcial no es 0 (papas[j+5]>0) GENERAR la tabla parcial siguiente wPAPAx{2-10} a partir de la tabla parcial actual wPAPA<1-9> y de la ruta parcial actual papas[j+4] ... (x = n + 2) wPAPA2,wPAPA3...wPAPA10, la tabla wPAPA1 la creo f0107 antes y es fija 
-			////////////////////////////////////// la variable m es para activar la parte de go en f0125, y que no trae f0138??
 			{	lOL(153);
 				var d = 0;													// (1) DOBLE botón: público(id=1) + privado(id=2) / (0) solo el Botón de público(id=1)   (d = 1;// Incluye el segundo botón de privado con id=2)
 				var s = 0;													// Sugerencia id ruta parcial hija
 				var n;   													// Variable para hacer recorridos en vPAPA#				
 				var t = 0;													//Orden de producir la siguiente ruta parcial(1)			
 				var e = 0;													// Existencia del hijo sugerido (1)
-				//var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;// disponibles: g h l q r t w y
 				console.error('-_____________-____________-___________f0153(j=',j,')');
 				switch(j)
-				{	case 1:				// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+				{	case 1:													// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA2 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA2[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA2[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]     ///////////// id[1][1]=1
+						{	wPAPA2[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
 						for (var a = 1; a < wPAPA1.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA1[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
-							{ 	t = 1; // Orden de producir la tabla parcial wPAPA2
-								d = 0; // Público
-								if(!wPAPA1[a][17]) // Tiene hijos ocultos
-								{	console.log('%%%%%%%%%%%%%%%%%%%%%%%%% Hijos OCULTOS!!!!!!');
-									d = 1; // Privado
-									if(!m) // Si no es la ruta madre, que ya esta verificada, entonces hay que verificar
-									{	vErC = papas[2]; // Cargar a papas[2] en vErC para verificarlo
-										f0160(); // VERIFICAR el pin privado, responder con aPrO
-										if(!aPrO) // Si el pin fue rechazado
-										{	t = 0; // Anula la orden de producir la tabla parcial wPAPA2
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA1[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	console.log('%%% Hijos OCULTOS %%%');
+									d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
 									}
 								}
-								if(m) // Es la ruta madre
-								{	e = papas[j+5]; // e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
-									console.log('- - - Es la ruta madre, sigue o continua por la ruta madre s=',s,' sin modificar ninguna de las rutas parciales (papas)');
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
 								}
-								else // Si no es la ruta madre, siga la sugerencia
-								{	if(t) // Orden de producir la tabla parcial wPAPA2
-									{	s = 0; // Se alista para encontrar el id de la siguiente ruta parcial (papas[6])
-										e = wPAPA1[a][15]; // Guarda temporalmente al hijo sugerido
-										console.log(' el hijo sugerido e=',e);
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA1[a][15]; 					// Guarda temporalmente el hijo sugerido
 									}
-									console.log('- - - No es la ruta madre.. gguarda la ruta hija sugerida e=',e,'; papas[j+5]=',papas[j+5]);		
 								}
-								if(t)
+								console.log(' Hijo sugerido e=',e);
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA1[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
 									}
-									if(d)	
+									if(d)									// Tabla parcial Privada..
 									{	wPAPA2[2] = [];
-										for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-										{	wPAPA2[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA2[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
 										}
-										for (var b = 3+ext; b < wPAPA1[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+										for (var b = 3+ext; b < wPAPA1[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
 									}
-									if(d) // inicia desde id=3
-									{	ff = 3;					// ID inicial para los lugares de la lista parcial
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
 									}
-									else // inicia desde id=2
-									{	ff = 2;					// ID inicial para los lugares de la lista parcial
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA2.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA2[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-										{ 	// Revizar que este bloque no interfiera con m
-											if(n == 1)
-											{ 	s = vPAPA2[n][0]; // Id del primer elemento de la lista parcial
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA2[n][0];						// Id del primer elemento de la lista parcial
 											}
-											if(vPAPA2[n][0]==e)
-											{	s = e;	// Id del hijo sugerido guardado temporalmente
+											if(vPAPA2[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
 											}
 											wPAPA2[ff] = []; 							// Crea una fila vacia
-											for (var k = 0; k < vPAPA2[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-											{	wPAPA2[ff][k] = vPAPA2[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
+											for (var k = 0; k < vPAPA2[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA2[ff][k] = vPAPA2[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
 											}
-											wPAPA2[ff][1] = ff; 						// Genera el número ordenado de la lista
-											ff++;										// Avance a la siguiente fila
+											wPAPA2[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
 										}
 									}
-									console.log('1    s=',s,'; papas[j+5]=',papas[j+5]);
-									if(!m && s)
-									{	papas[j+5] = s; 						// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
-										console.log('2    s=',s,'; papas[j+5]=',papas[j+5]);
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+										console.log('.. papas[j+5]=',papas[j+5]);
 									}
 								}
-								a = wPAPA1.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								a = wPAPA1.length;										// Termina la busqueda
 							} 
 						}
 					break;
-					case 2: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA3 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA3[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 2:													// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA3 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA3[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA3[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA3[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA2.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA2[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - Es la ruta madre, sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA2[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-									console.log('- - - No es la ruta madre.. sigue por ruta hija sugerida s=',s);
-									console.log('- - - Pero antes hay que revizar si la sugerencia cumple, es valida y no requiere pin de privado aqui hay que llamar a f0157!!!');
-								}
-								for (var b = 3+ext; b < wPAPA2[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA2[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA3[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA3[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA2[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA3[2][b] = wPAPA2[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA2.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA2[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA2[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	console.log('%%% Hijos OCULTOS %%%');
+									d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA2.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA2[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								console.log(' Hijo sugerido e=',e);
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA2[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA3[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA3[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA2[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA3[2][b] = wPAPA2[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA3.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA3[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA3[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA3[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA3[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA3[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA3[ff][k] = vPAPA3[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA3[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+										console.log('.. papas[j+5]=',papas[j+5]);
+									}
+								}
+								a = wPAPA2.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA3.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA3[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA3[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA3[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA3[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA3[ff][k] = vPAPA3[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA3[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA3[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-//////////////						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
-//////////////						wPAPA3[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-//////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-//////////////						{	wPAPA3[1][z] = vPAPA0[0][z];
-//////////////						}
-//////////////						for (var a = 1; a < wPAPA2.length; a++)  			//Recorre toda la lista parcial del nivel superior
-//////////////						{ 	if(wPAPA2[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-//////////////							{ 	for (var b = 3+ext; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-//////////////								{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-//////////////								}
-//////////////								a = wPAPA2.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-//////////////							} 
-//////////////						}
-//////////////						go = 1;//Buscando un elemento sugerido "ponerse a...""
-//////////////						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3, mira si coincide con la sugerencia y es un hijo 
-//////////////						{ 	if((vPAPA3[i][0] == papas1[j])&&(vPAPA3[i][2] == papas[j+4])) //__-1 
-//////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-//////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-//////////////							}
-//////////////						}
-//////////////						ff = 2;
-//////////////						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
-//////////////						{	if(vPAPA3[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1//__-1
-//////////////							{	wPAPA3[ff] = [];
-//////////////								for (var k = 0; k < vPAPA3[i].length; k++)
-//////////////								{	wPAPA3[ff][k] = vPAPA3[i][k];
-//////////////								}
-//////////////								wPAPA3[ff][1] = ff;
-//////////////								ff++;//Siguiente fila
-//////////////								if(!m && go)
-//////////////								{	go = 0;//Deja de buscar un elemento
-//////////////									papas[j+5] = vPAPA3[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-//////////////								}
-//////////////							}
-//////////////						}
 					break;
-					case 3: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA4 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA4[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 3: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA4 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA4[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA4[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA4[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA3.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA3[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - Es la ruta madre, sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA3[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-									console.log('- - - No es la ruta madre.. sigue por ruta hija sugerida s=',s);
-									console.log('- - - Pero antes hay que revizar si la sugerencia cumple, es valida y no requiere pin de privado aqui hay que llamar a f0157!!!');
-								}
-								for (var b = 3+ext; b < wPAPA3[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA3[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA4[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA4[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA3[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA4[2][b] = wPAPA3[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA3.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA3[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA3[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	console.log('%%% Hijos OCULTOS %%%');
+									d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA3.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA3[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								console.log(' Hijo sugerido e=',e);
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA3[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA4[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA4[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA3[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA4[2][b] = wPAPA3[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA4.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA4[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA4[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA4[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA4[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA4[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA4[ff][k] = vPAPA4[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA4[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+										console.log('.. papas[j+5]=',papas[j+5]);
+									}
+								}
+								a = wPAPA3.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA4.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA4[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA4[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA4[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA4[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA4[ff][k] = vPAPA4[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA4[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA4[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-/////////////						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4
-/////////////						wPAPA4[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-/////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-/////////////						{	wPAPA4[1][z] = vPAPA0[0][z];
-/////////////						}
-/////////////						for (var a = 1; a < wPAPA3.length; a++)  			//Recorre toda la lista parcial del nivel superior
-/////////////						{ 	if(wPAPA3[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-/////////////							{ 	for (var b = 3+ext; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-/////////////								{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-/////////////								}
-/////////////								a = wPAPA3.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-/////////////							} 
-/////////////						}
-/////////////						go = 1;//Buscando un elemento sugerido 
-/////////////						for (var i = 1; i < vPAPA4.length; i++)//recorre las filas de vPAPA4, mira si coincide con la sugerencia y es un hijo 
-/////////////						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j+4])) //-1
-/////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-/////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida//__0
-/////////////							}
-/////////////						}
-/////////////						ff = 2;
-/////////////						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
-/////////////						{	if(vPAPA4[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1//__-1
-/////////////							{	wPAPA4[ff] = [];
-/////////////								for (var k = 0; k < vPAPA4[i].length; k++)
-/////////////								{	wPAPA4[ff][k] = vPAPA4[i][k];
-/////////////								}
-/////////////								wPAPA4[ff][1] = ff;
-/////////////								ff++;//Siguiente fila
-/////////////								if(!m && go)
-/////////////								{	go = 0;//Deja de buscar un elemento
-/////////////									papas[j+5] = vPAPA4[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-/////////////								}
-/////////////							}
-/////////////						}
 					break;
-					case 4: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA5 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA5[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 4: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA5 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA5[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA5[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA5[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA4.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA4[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA4[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-								}
-								for (var b = 3+ext; b < wPAPA4[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA4[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA5[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA5[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA4[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA5[2][b] = wPAPA4[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA4.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA4[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA4[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA4.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA4[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA4[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA5[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA5[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA4[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA5[2][b] = wPAPA4[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA5.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA5[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA5[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA5[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA5[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA5[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA5[ff][k] = vPAPA5[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA5[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+									}
+								}
+								a = wPAPA4.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA5.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA5[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA5[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA5[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA5[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA5[ff][k] = vPAPA5[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA5[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA5[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-
-
-
-
-//////////						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5
-//////////						wPAPA5[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-//////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-//////////						{	wPAPA5[1][z] = vPAPA0[0][z];
-//////////						}
-//////////						for (var a = 1; a < wPAPA4.length; a++)  			//Recorre toda la lista parcial del nivel superior
-//////////						{ 	if(wPAPA4[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-//////////							{ 	for (var b = 3+ext; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-//////////								{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-//////////								}
-//////////								a = wPAPA4.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-//////////							} 
-//////////						}
-//////////						go = 1;//Buscando un elemento sugerido 
-//////////						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5, mira si coincide con la sugerencia y es un hijo 
-//////////						{ 	if((vPAPA5[i][0] == papas1[j])&&(vPAPA5[i][2] == papas[j+4])) //__-1
-//////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-//////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-//////////							}
-//////////						}
-//////////						ff = 2;
-//////////						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
-//////////						{	if(vPAPA5[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-//////////							{	wPAPA5[ff] = [];
-//////////								for (var k = 0; k < vPAPA5[i].length; k++)
-//////////								{	wPAPA5[ff][k] = vPAPA5[i][k];
-//////////								}
-//////////								wPAPA5[ff][1] = ff;
-//////////								ff++;//Siguiente fila
-//////////								if(!m && go)
-//////////								{	go = 0;//Deja de buscar un elemento
-//////////									papas[j+5] = vPAPA5[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-//////////								}
-//////////							}
-//////////						}
 					break;
-					case 5: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA6 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA6[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 5: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA6 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA6[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA6[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA6[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA5.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA5[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA5[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-								}
-								for (var b = 3+ext; b < wPAPA5[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA5[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA6[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA6[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA5[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA6[2][b] = wPAPA5[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA5.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA5[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA5[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA5.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA5[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA5[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA6[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA6[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA5[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA6[2][b] = wPAPA5[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA6.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA6[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA6[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA6[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA6[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA6[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA6[ff][k] = vPAPA6[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA6[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+									}
+								}
+								a = wPAPA5.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA6.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA6[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA6[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA6[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA6[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA6[ff][k] = vPAPA6[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA6[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA6[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-
-//////////////						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
-//////////////						wPAPA6[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-//////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-//////////////						{	wPAPA6[1][z] = vPAPA0[0][z];
-//////////////						}
-//////////////						for (var a = 1; a < wPAPA5.length; a++)  			//Recorre toda la lista parcial del nivel superior
-//////////////						{ 	if(wPAPA5[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-//////////////							{ 	for (var b = 3+ext; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-//////////////								{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-//////////////								}
-//////////////								a = wPAPA5.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-//////////////							} 
-//////////////						}
-//////////////						go = 1;//Buscando un elemento sugerido 
-//////////////						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6, mira si coincide con la sugerencia y es un hijo 
-//////////////						{ 	if((vPAPA6[i][0] == papas1[j])&&(vPAPA6[i][2] == papas[j+4])) //__-1
-//////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-//////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-//////////////							}
-//////////////						}
-//////////////						ff = 2;
-//////////////						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
-//////////////						{	if(vPAPA6[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-//////////////							{	wPAPA6[ff] = [];
-//////////////								for (var k = 0; k < vPAPA6[i].length; k++)
-//////////////								{	wPAPA6[ff][k] = vPAPA6[i][k];
-//////////////								}
-//////////////								wPAPA6[ff][1] = ff;
-//////////////								ff++;//Siguiente fila
-//////////////								if(!m && go)
-//////////////								{	go = 0;//Deja de buscar un elemento
-//////////////									papas[j+5] = vPAPA6[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-//////////////								}
-//////////////							}
-//////////////						}
 					break;
-					case 6: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA7 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA7[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 6: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA7 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA7[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA7[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA7[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA6.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA6[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA6[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-								}
-								for (var b = 3+ext; b < wPAPA6[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA6[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA7[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA7[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA6[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA7[2][b] = wPAPA6[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA6.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA6[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA6[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA6.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA6[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA6[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA7[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA7[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA6[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA7[2][b] = wPAPA6[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA7.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA7[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA7[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA7[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA7[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA7[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA7[ff][k] = vPAPA7[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA7[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+									}
+								}
+								a = wPAPA6.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA7.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA7[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA7[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA7[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA7[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA7[ff][k] = vPAPA7[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA7[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA7[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-
-
-
-///////////						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
-///////////						wPAPA7[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-///////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-///////////						{	wPAPA7[1][z] = vPAPA0[0][z];
-///////////						}
-///////////						for (var a = 1; a < wPAPA6.length; a++)  			//Recorre toda la lista parcial del nivel superior
-///////////						{ 	if(wPAPA6[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]} //__-1
-///////////							{ 	for (var b = 3+ext; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-///////////								{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-///////////								}
-///////////								a = wPAPA6.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-///////////							} 
-///////////						}
-///////////						go = 1;//Buscando un elemento sugerido 
-///////////						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7, mira si coincide con la sugerencia y es un hijo 
-///////////						{ 	if((vPAPA7[i][0] == papas1[j])&&(vPAPA7[i][2] == papas[j+4])) //__-1
-///////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-///////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-///////////							}
-///////////						}
-///////////						ff = 2;
-///////////						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
-///////////						{	if(vPAPA7[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-///////////							{	wPAPA7[ff] = [];
-///////////								for (var k = 0; k < vPAPA7[i].length; k++)
-///////////								{	wPAPA7[ff][k] = vPAPA7[i][k];
-///////////								}
-///////////								wPAPA7[ff][1] = ff;
-///////////								ff++;//Siguiente fila
-///////////								if(!m && go)
-///////////								{	go = 0;//Deja de buscar un elemento
-///////////									papas[j+5] = vPAPA7[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-///////////								}
-///////////							}
-///////////						}
 					break;
-					case 7: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA8 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA8[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 7: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA8 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA8[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA8[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA8[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA7.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA7[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA7[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-								}
-								for (var b = 3+ext; b < wPAPA7[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA7[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA8[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA8[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA7[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA8[2][b] = wPAPA7[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA7.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA7[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA7[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA7.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA7[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA7[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA8[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA8[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA7[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA8[2][b] = wPAPA7[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA8.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA8[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA8[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA8[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA8[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA8[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA8[ff][k] = vPAPA8[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA8[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+									}
+								}
+								a = wPAPA7.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA8.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA8[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA8[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA8[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA8[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA8[ff][k] = vPAPA8[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA8[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA8[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-
-//////////						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
-//////////						wPAPA8[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-//////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-//////////						{	wPAPA8[1][z] = vPAPA0[0][z];
-//////////						}
-//////////						for (var a = 1; a < wPAPA7.length; a++)  			//Recorre toda la lista parcial del nivel superior
-//////////						{ 	if(wPAPA7[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-//////////							{ 	for (var b = 3+ext; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-//////////								{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-//////////								}
-//////////								a = wPAPA7.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-//////////							} 
-//////////						}
-//////////						go = 1;//Buscando un elemento sugerido 
-//////////						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8, mira si coincide con la sugerencia y es un hijo 
-//////////						{ 	if((vPAPA8[i][0] == papas1[j])&&(vPAPA8[i][2] == papas[j+4])) //__-1
-//////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-//////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-//////////							}
-//////////						}
-//////////						ff = 2;
-//////////						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
-//////////						{	if(vPAPA8[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-//////////							{	wPAPA8[ff] = [];
-//////////								for (var k = 0; k < vPAPA8[i].length; k++)
-//////////								{	wPAPA8[ff][k] = vPAPA8[i][k];
-//////////								}
-//////////								wPAPA8[ff][1] = ff;
-//////////								ff++;//Siguiente fila
-//////////								if(!m && go)
-//////////								{	go = 0;//Deja de buscar un elemento
-//////////									papas[j+5] = vPAPA8[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-//////////								}
-//////////							}
-//////////						}
 					break;
-					case 8: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA9 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA9[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 8: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA9 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA9[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA9[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA9[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA8.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA8[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA8[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-								}
-								for (var b = 3+ext; b < wPAPA8[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA8[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA9[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA9[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA8[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA9[2][b] = wPAPA8[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA8.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA8[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA8[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA8.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA8[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA8[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA9[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA9[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA8[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA9[2][b] = wPAPA8[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA9.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA9[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA9[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA9[n][0]==e)							// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA9[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA9[n].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA9[ff][k] = vPAPA9[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA9[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+									}
+								}
+								a = wPAPA8.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA9.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA9[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA9[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA9[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA9[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA9[ff][k] = vPAPA9[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA9[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA9[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-
-
-////////////						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
-////////////						wPAPA9[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////						{	wPAPA9[1][z] = vPAPA0[0][z];
-////////////						}
-////////////						for (var a = 1; a < wPAPA8.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////						{ 	if(wPAPA8[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////							{ 	for (var b = 3+ext; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////								{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////								}
-////////////								a = wPAPA8.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////							} 
-////////////						}
-////////////						go = 1;//Buscando un elemento sugerido 
-////////////						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9, mira si coincide con la sugerencia y es un hijo 
-////////////						{ 	if((vPAPA9[i][0] == papas1[j])&&(vPAPA9[i][2] == papas[j+4])) //__-1
-////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida  //__0
-////////////							}
-////////////						}
-////////////						ff = 2;
-////////////						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
-////////////						{	if(vPAPA9[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-////////////							{	wPAPA9[ff] = [];
-////////////								for (var k = 0; k < vPAPA9[i].length; k++)
-////////////								{	wPAPA9[ff][k] = vPAPA9[i][k];
-////////////								}
-////////////								wPAPA9[ff][1] = ff;
-////////////								ff++;//Siguiente fila
-////////////								if(!m && go)
-////////////								{	go = 0;//Deja de buscar un elemento
-////////////									papas[j+5] = vPAPA9[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-////////////								}
-////////////							}
-////////////						}
 					break;
-					case 9: // HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
-						wPAPA10 = [];										// BORRA wPAPA<#> {# = j + 1}		
-						wPAPA10[1] = [];										// CREA la primer fila de la lista wPAPA#[1] {# = j + 1} exclusiva para la ruta parcial del padre pero con id[0]=1
+					case 9: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
+						wPAPA10 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
+						wPAPA10[1] = [];									// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-						{	wPAPA10[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
+						{	wPAPA10[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
 						}
-						for (var a = 1; a < wPAPA9.length; a++)  			// Recorre toda la lista parcial del nivel superior {wPAPA<#-1>}
-						{ 	if(wPAPA9[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos del nivel superior {wPAPA<#-1>[*][0]} y detecta aquel que sea igual al id de la ruta parcial del padre {papas[j+4]}
-							{ 	if(m)// Es la ruta madre
-								{	s = papas[j+5];
-									console.log('- - - sigue por la ruta madre s=',s);
-								}
-								else// Si no es la ruta madre, siga la sugerencia
-								{	s = wPAPA9[a][15];							// Guarda el valor sugerido como hijo para esa ruta parcial
-									console.log('- - - sigue por ruta hija sugerida s=',s);
-								}
-								for (var b = 3+ext; b < wPAPA9[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-								{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': publicado en todo el territorio'
-								}
-								if((!wPAPA9[a][17])&&(ArRay[2] === "C1"))				// Si ese lugar es privado (oculto) y tiene su pin correcto entonces debe generar el boton 2 de privado
-								{	d = 1;												// Incluye el segundo botón de privado con id=2
-									wPAPA10[2] = [];
-									for (var z = 0; z < vPAID2[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
-									{	wPAPA10[2][z] = vPAID2[0][z];					// ASIGNA a la primer fila el valor id[1][1]=1
-									}
-									for (var b = 3+ext; b < wPAPA9[a].length; b++)		// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA10[2][b] = wPAPA9[a][b]+': '+vPAID2[0][b]; 	// Cambia todos los strings de la fila 1 de wPAPA<#> por los mismos strings del padre en la lista parcial del nivel superior wPAPA<#-1> y le adiciona el texto de ': información privada'
+						for (var a = 1; a < wPAPA9.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
+						{ 	if(wPAPA9[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
+							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
+								d = 0; 										// Tabla parcial "Pública"
+								if(!wPAPA9[a][17]) 							// Alerta: Tiene hijos ocultos
+								{	d = 1; 									// Tabla parcial Privada!
+									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
+									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
+										f0160(); 							// Buscar el pin privado, responder con aPrO
+										if(!aPrO) 							// El pin no está!
+										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
+										}
 									}
 								}
-								a = wPAPA9.length;							// Termina la busqueda y también de completar la fila 1 de la tabla parcial wPAPA# de *****: publicado en todo el territorio
+								if(m) 										// Es la ruta madre
+								{	e = papas[j+5]; 						// e Toma la siguiente ruta parcial del papas siguiente {papas[j+5]}
+								}
+								else 										// No es la ruta madre => siga la sugerencia
+								{	if(t) 									// Orden de producir la tabla parcial wPAPA<#+1>
+									{	s = 0; 								// Reset id de la siguiente ruta parcial (papas[j+5])
+										e = wPAPA9[a][15]; 					// Guarda temporalmente el hijo sugerido
+									}
+								}
+								if(t)										// Producir la tabla parcial wPAPA<#+1>
+								{	for (var b = 3+ext; b < wPAPA9[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+									{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									}
+									if(d)									// Tabla parcial Privada..
+									{	wPAPA10[2] = [];
+										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
+										{	wPAPA10[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										}
+										for (var b = 3+ext; b < wPAPA9[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
+										{	wPAPA10[2][b] = wPAPA9[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										}
+									}
+									if(d) 									// inicia desde id=3
+									{	ff = 3;								// ID de la siguiente fila
+									}
+									else 									// inicia desde id=2
+									{	ff = 2;								// ID de la siguiente fila
+									}		
+									for (n = 1; n < vPAPA10.length; n++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
+									{ 	if(vPAPA10[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
+										{ 	if(n == 1)									// Primer elemento hijo encontrado
+											{ 	s = vPAPA10[n][0];						// Id del primer elemento de la lista parcial
+											}
+											if(vPAPA10[n][0]==e)						// Este hijo es igual al hijo sugerido!
+											{	s = e;									// Id del hijo sugerido guardado temporalmente
+											}
+											wPAPA10[ff] = []; 							// Crea una fila vacia
+											for (var k = 0; k < vPAPA10[n].length; k++) // Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#+1>[i] {# = j + 1}
+											{	wPAPA10[ff][k] = vPAPA10[n][k];			// Asigna a la fila creada en tabla parcial wPAPA<#+1> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#+1>
+											}
+											wPAPA10[ff][1] = ff; 						// Asigna el número de la fila
+											ff++;										// ID de la siguiente fila
+										}
+									}
+									if(!m && s)											// No es la ruta madre..
+									{	papas[j+5] = s; 								// La siguiente ruta parcial (papas[j+5]) cambia por:__ el id del hijo sugerido o por el primer id del hijo que encuentre
+									}
+								}
+								a = wPAPA9.length;										// Termina la busqueda
 							} 
 						}
-						if(d) // inicia desde id=3
-						{	ff = 3;					// ID inicial para los lugares de la lista parcial
-						}
-						else // inicia desde id=2
-						{	ff = 2;					// ID inicial para los lugares de la lista parcial
-						}
-						go = 1;	// Buscar un lugar para asignarselo a la ruta parcial papas[j+5] este puede ser por defecto (el primer hijo valido que se encuentre) o el sugerido por papas1[j] (tiene prioridad la sug)
-						for (var i = 1; i < vPAPA10.length; i++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
-						{ 	if(vPAPA10[i][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
-							{ 	if(vPAPA10[i][0] == s)						// Sugerencia o ruta parcial Madre encontrada
-								{	go = 0;									// El hijo encontrado es sugerencia de ruta parcial => Va a asignar o a cambiar la ruta parcial a papas[j+5] provisional que este en ese momento por defecto por (*)
-									papas[j+5]=s;							// La ruta parcial papas[j+5] cambia por:___ la sugerida
-								}
-								wPAPA10[ff] = []; 							// Crea una fila vacia
-								for (var k = 0; k < vPAPA10[i].length; k++) 	// Recorre una a una todas las casillas de ese lugar en la tabla vPAPA<#>[i] {# = j + 1}
-								{	wPAPA10[ff][k] = vPAPA10[i][k];			// Asigna a la fila creada en tabla parcial wPAPA<#> cada uno de los valores de ese lugar hijo tomandolos de la tabla vPAPA<#>
-								}
-								wPAPA10[ff][1] = ff; 						// Genera el número ordenado de la lista
-								ff++;										// Avance a la siguiente fila
-								if(!m && go)									// Si viene m y no encontró sugerencia de ruta parcial                 // tiene que la ruta media
-								{	go = 0; 								// (*) Va a asignar ruta parcial a papas[j+5] provisional por defecto (El primer hijo que se encontró)
-									papas[j+5] = vPAPA10[i][0]; 				// La ruta parcial papas[j+5] cambia por:__ el primer id del hijo que encuentre
-								}
-							}
-						}
-
-
-
-
-
-
-
-//////////						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
-//////////						wPAPA10[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-//////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-//////////						{	wPAPA10[1][z] = vPAPA0[0][z];
-//////////						}
-//////////						for (var a = 1; a < wPAPA9.length; a++)  			//Recorre toda la lista parcial del nivel superior
-//////////						{ 	if(wPAPA9[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-//////////							{ 	for (var b = 3+ext; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-//////////								{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-//////////								}
-//////////								a = wPAPA9.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-//////////							} 
-//////////						}
-//////////						go = 1;//Buscando un elemento sugerido 
-//////////						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10, mira si coincide con la sugerencia y es un hijo 
-//////////						{ 	if((vPAPA10[i][0] == papas1[j])&&(vPAPA10[i][2] == papas[j+4])) //__-1
-//////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-//////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-//////////							}
-//////////						}
-//////////						ff = 2;
-//////////						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
-//////////						{	if(vPAPA10[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-//////////							{	wPAPA10[ff] = [];
-//////////								for (var k = 0; k < vPAPA10[i].length; k++)
-//////////								{	wPAPA10[ff][k] = vPAPA10[i][k];
-//////////								}
-//////////								wPAPA10[ff][1] = ff;
-//////////								ff++;//Siguiente fila
-//////////								if(!m && go)
-//////////								{	go = 0;//Deja de buscar un elemento
-//////////									papas[j+5] = vPAPA10[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-//////////								}
-//////////							}
-//////////						}
 					break;
 				}
 				return {j};
 			}
-
-
-
-////////////////////function
-////////////////////f0153(j,kk)//ACTUALIZAR las tablas de los lugares wPAPA2,wPAPA3...wPAPA10, la variable kk es para activar la parte de go en f0125, y que no trae f0138
-////////////////////			{	lOL(153);
-////////////////////				console.error('-_____________-____________-___________f0153(j=',j,',kk=',kk,')');
-////////////////////				switch(j)
-////////////////////				{	case 1:													//<# = j + 1>
-////////////////////						wPAPA2 = [];										//Borra la lista parcial wPAPA<#>, hace de nuevo la lista parcial wPAPA<#> carga/actualiza los arrays hijos * 			
-////////////////////						wPAPA2[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA2[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						//wPAPA2[1] = vPAPA0[0];								//"Entire territory" es extraño porque al final modifica a vPAPA1[0],
-////////////////////						console.error(' __________wPAPA2[1]=',wPAPA2[1],'; vPAPA0[0]=',vPAPA0[0],';  wPAPA1[0]=', wPAPA1[0]);	
-////////////////////						for (var a = 1; a < wPAPA1.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA1[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA1[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA1.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						//wPAPA2[1] = vPAPA1[0];  //si se usa wPAPA1[0] si no pasa eso y habria que repetir el codigo *** varias veces
-////////////////////						//es como si lo que pase con wPAPA2[1] afectará indirectamente a vPAPA1[0]
-////////////////////						go = 1;												//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA2.length; i++)				//recorre las filas de vPAPA2, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA2[i][0] == papas1[j])&&(vPAPA2[i][2] == papas[j+4]))//__-1
-////////////////////							{ 	go = 0;										//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];							//la ruta cambia por la sugerida//__0
-////////////////////							}
-////////////////////							//codigo ***
-////////////////////							/*
-////////////////////							for (var a = 1; a < wPAPA1.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////							{ 	if(wPAPA1[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA1[#][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////								{ 	for (var b = 8; b < wPAPA1[a].length; b++)	//
-////////////////////									{	
-////////////////////										
-////////////////////										//wPAPA2[1][b] = vPAPA0[0][b]+', '+ wPAPA1[0][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							
-////////////////////										wPAPA2[1][b] = wPAPA1[a][b]+', '+vPAPA0[0][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////										//wPAPA2[1][b] = vPAPA0[0][b]+', --- >'+ wPAPA1[0][b]+'< ***';//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////									}
-////////////////////									a = wPAPA1.length;
-////////////////////								} 
-////////////////////							}
-////////////////////							*/
-////////////////////							//fin codigo ***
-////////////////////						}
-////////////////////						console.error(' __________wPAPA2[1]=',wPAPA2[1],'; vPAPA0[0]=',vPAPA0[0]);
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA2.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA2[i][2] == papas[j+4])//si esa fila es un hijo de wPAPA1//__-1
-////////////////////							{	wPAPA2[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA2[i].length; k++)
-////////////////////								{	wPAPA2[ff][k] = vPAPA2[i][k];
-////////////////////								}
-////////////////////								wPAPA2[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA2[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////						//console.error(' - -----------------___________153___ wPAPA2[1]=',wPAPA2[1]); 
-////////////////////					break;
-////////////////////					case 2:
-////////////////////						wPAPA3 = [];//Borra wPAPA3, hace de nuevo la lista wPAPA3
-////////////////////						//wPAPA3[1] = vPAPA1[0];//Entire territory 
-////////////////////						wPAPA3[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA3[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA2.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA2[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA2[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA2.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA3.length; i++)//recorre las filas de vPAPA3, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA3[i][0] == papas1[j])&&(vPAPA3[i][2] == papas[j+4])) //__-1 
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-////////////////////							}
-////////////////////							/*
-////////////////////							//aqui seria el codigo ***:
-////////////////////							for (var a = 2; a < wPAPA2.length; a++)  
-////////////////////							{ 	if(wPAPA2[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
-////////////////////								{ 	for (var b = 8; b < wPAPA2[a].length; b++)
-////////////////////									{	wPAPA3[1][b] = wPAPA0[0][b]+', '+ wPAPA1[0][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////									}
-////////////////////									a = wPAPA2.length;
-////////////////////								} 
-////////////////////							}*/						
-////////////////////							//for (var a = 2; a < wPAPA2.length; a++)  
-////////////////////							//{ 	if(wPAPA2[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA3[1][b] = wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA2[a].length; b++)
-////////////////////							//		{	wPAPA3[1][b] = 'info ' + wPAPA2[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA3.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA3[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1//__-1
-////////////////////							{	wPAPA3[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA3[i].length; k++)
-////////////////////								{	wPAPA3[ff][k] = vPAPA3[i][k];
-////////////////////								}
-////////////////////								wPAPA3[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA3[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////					case 3:
-////////////////////						wPAPA4 = [];//Borra wPAPA4, hace de nuevo la lista wPAPA4
-////////////////////						//wPAPA4[1] = vPAPA1[0];//Entire territory 
-////////////////////						wPAPA4[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA4[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA3.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA3[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA3[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA3.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA4.length; i++)//recorre las filas de vPAPA4, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA4[i][0] == papas1[j])&&(vPAPA4[i][2] == papas[j+4])) //-1
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida//__0
-////////////////////							}
-////////////////////							//for (var a = 2; a < wPAPA3.length; a++)  
-////////////////////							//{ 	if(wPAPA3[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //-1
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA4[1][b] = wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA3[a].length; b++)
-////////////////////							//		{	wPAPA4[1][b] = 'info ' + wPAPA3[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA4.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA4[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1//__-1
-////////////////////							{	wPAPA4[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA4[i].length; k++)
-////////////////////								{	wPAPA4[ff][k] = vPAPA4[i][k];
-////////////////////								}
-////////////////////								wPAPA4[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA4[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////					case 4:
-////////////////////						wPAPA5 = [];//Borra wPAPA5, hace de nuevo la lista wPAPA5
-////////////////////						//wPAPA5[1] = vPAPA1[0];//Entire territory 
-////////////////////						wPAPA5[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA5[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA4.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA4[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA4[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA4.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA5.length; i++)//recorre las filas de vPAPA5, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA5[i][0] == papas1[j])&&(vPAPA5[i][2] == papas[j+4])) //__-1
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-////////////////////							}
-////////////////////							//for (var a = 2; a < wPAPA4.length; a++)  
-////////////////////							//{ 	if(wPAPA4[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA5[1][b] = wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA4[a].length; b++)
-////////////////////							//		{	wPAPA5[1][b] = 'info ' + wPAPA4[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA5.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA5[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-////////////////////							{	wPAPA5[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA5[i].length; k++)
-////////////////////								{	wPAPA5[ff][k] = vPAPA5[i][k];
-////////////////////								}
-////////////////////								wPAPA5[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA5[i][0];//Toma el primer id del string del elemento de la app que encuentre//__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////					case 5:
-////////////////////						wPAPA6 = [];//Borra wPAPA6, hace de nuevo la lista wPAPA6
-////////////////////						//wPAPA6[1] = vPAPA1[0];//Entire territory 
-////////////////////						wPAPA6[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA6[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA5.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA5[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA5[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA5.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA6.length; i++)//recorre las filas de vPAPA6, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA6[i][0] == papas1[j])&&(vPAPA6[i][2] == papas[j+4])) //__-1
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-////////////////////							}
-////////////////////							//for (var a = 2; a < wPAPA5.length; a++)  
-////////////////////							//{ 	if(wPAPA5[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA6[1][b] = wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA5[a].length; b++)
-////////////////////							//		{	wPAPA6[1][b] = 'info ' + wPAPA5[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA6.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA6[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-////////////////////							{	wPAPA6[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA6[i].length; k++)
-////////////////////								{	wPAPA6[ff][k] = vPAPA6[i][k];
-////////////////////								}
-////////////////////								wPAPA6[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA6[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////					case 6:
-////////////////////						wPAPA7 = [];//Borra wPAPA7, hace de nuevo la lista wPAPA7
-////////////////////						//wPAPA7[1] = vPAPA1[0];//Entire territory 
-////////////////////						wPAPA7[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA7[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA6.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA6[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]} //__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA6[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA6.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA7.length; i++)//recorre las filas de vPAPA7, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA7[i][0] == papas1[j])&&(vPAPA7[i][2] == papas[j+4])) //__-1
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-////////////////////							}
-////////////////////							//for (var a = 2; a < wPAPA6.length; a++)  
-////////////////////							//{ 	if(wPAPA6[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA7[1][b] = wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA6[a].length; b++)
-////////////////////							//		{	wPAPA7[1][b] = 'info ' + wPAPA6[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA7.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA7[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-////////////////////							{	wPAPA7[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA7[i].length; k++)
-////////////////////								{	wPAPA7[ff][k] = vPAPA7[i][k];
-////////////////////								}
-////////////////////								wPAPA7[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA7[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////					case 7:
-////////////////////						wPAPA8 = [];//Borra wPAPA8, hace de nuevo la lista wPAPA8
-////////////////////						//wPAPA8[1] = vPAPA1[0];//Entire territory 
-////////////////////						wPAPA8[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA8[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA7.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA7[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA7[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA7.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA8.length; i++)//recorre las filas de vPAPA8, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA8[i][0] == papas1[j])&&(vPAPA8[i][2] == papas[j+4])) //__-1
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-////////////////////							}
-////////////////////							//for (var a = 2; a < wPAPA7.length; a++)  
-////////////////////							//{ 	if(wPAPA7[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA8[1][b] = wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA7[a].length; b++)
-////////////////////							//		{	wPAPA8[1][b] = 'info ' + wPAPA7[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA8.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA8[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-////////////////////							{	wPAPA8[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA8[i].length; k++)
-////////////////////								{	wPAPA8[ff][k] = vPAPA8[i][k];
-////////////////////								}
-////////////////////								wPAPA8[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA8[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////					case 8:
-////////////////////						wPAPA9 = [];//Borra wPAPA9, hace de nuevo la lista wPAPA9
-////////////////////						//wPAPA9[1] = vPAPA1[0];//Entire territory				
-////////////////////						wPAPA9[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA9[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA8.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA8[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA8[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA8.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA9.length; i++)//recorre las filas de vPAPA9, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA9[i][0] == papas1[j])&&(vPAPA9[i][2] == papas[j+4])) //__-1
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida  //__0
-////////////////////							}
-////////////////////							//for (var a = 2; a < wPAPA8.length; a++)  
-////////////////////							//{ 	if(wPAPA8[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1 
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA9[1][b] = wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA8[a].length; b++)
-////////////////////							//		{	wPAPA9[1][b] = 'info ' + wPAPA8[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA9.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA9[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-////////////////////							{	wPAPA9[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA9[i].length; k++)
-////////////////////								{	wPAPA9[ff][k] = vPAPA9[i][k];
-////////////////////								}
-////////////////////								wPAPA9[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA9[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////					case 9:
-////////////////////						wPAPA10 = [];//Borra wPAPA10, hace de nuevo la lista wPAPA10
-////////////////////						//wPAPA10[1] = vPAPA1[0];//Entire territory 
-////////////////////						wPAPA10[1] = [];										//Crea la primer fila para la ruta del padre (con id[0]=1)
-////////////////////						for (var z = 0; z < vPAPA0[0].length; z++)			//Crea un valor por defecto en wPAPA<#>[1] para que tenga el id 1 como hijo de esa lista para asignarselo al padre, a ese luego se le cambiarán los strings por los del padre
-////////////////////						{	wPAPA10[1][z] = vPAPA0[0][z];
-////////////////////						}
-////////////////////						for (var a = 1; a < wPAPA9.length; a++)  			//Recorre toda la lista parcial del nivel superior
-////////////////////						{ 	if(wPAPA9[a][0] == papas[j+4])					//Compara cada uno de los el id hijos del nivel superior {wPAPA<#-1>[*][0]} y mira si es igual al id del padre {papas[#-1]}//__-1
-////////////////////							{ 	for (var b = 3+ext; b < wPAPA9[a].length; b++)	//Recorre la parte de los strings de la lista parcial del nivel superior
-////////////////////								{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b];//Los strings de la fila 1 de wPAPA<#> se hacen igual al del elemento padre en la lista parcial del nivel superior wPAPA<#-1>
-////////////////////								}
-////////////////////								a = wPAPA9.length;							//Termina la busqueda porque encontró la coincidencia del id hijo del nivel superior con el id del padre
-////////////////////							} 
-////////////////////						}
-////////////////////						go = 1;//Buscando un elemento sugerido 
-////////////////////						for (var i = 1; i < vPAPA10.length; i++)//recorre las filas de vPAPA10, mira si coincide con la sugerencia y es un hijo 
-////////////////////						{ 	if((vPAPA10[i][0] == papas1[j])&&(vPAPA10[i][2] == papas[j+4])) //__-1
-////////////////////							{ 	go = 0;//el elemento sugerido existe y cumple go=1 
-////////////////////								papas[j+5]=papas1[j];//la ruta cambia por la sugerida //__0
-////////////////////							}
-////////////////////							//for (var a = 2; a < wPAPA9.length; a++)  
-////////////////////							//{ 	if(wPAPA9[a][0] == papas[j+4])//Si el id del padre es el mismo del hijo actual //__-1
-////////////////////							//	{ 	for (var b = 3; b < 8; b++)
-////////////////////							//		{	wPAPA10[1][b] = wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//		for (var b = 8; b < wPAPA9[a].length; b++)
-////////////////////							//		{	wPAPA10[1][b] = 'info ' + wPAPA9[a][b];//la fila 1 de wPAPA# se hace igual al padre 
-////////////////////							//		}
-////////////////////							//	} 
-////////////////////							//}
-////////////////////						}
-////////////////////						ff = 2;
-////////////////////						for (var i = 1; i < vPAPA10.length; i++)//Recorre el array de paises - lugares 1 
-////////////////////						{	if(vPAPA10[i][2] == papas[j+4])//si esa fila es visible y además es un hijo de wPAPA1 //__-1
-////////////////////							{	wPAPA10[ff] = [];
-////////////////////								for (var k = 0; k < vPAPA10[i].length; k++)
-////////////////////								{	wPAPA10[ff][k] = vPAPA10[i][k];
-////////////////////								}
-////////////////////								wPAPA10[ff][1] = ff;
-////////////////////								ff++;//Siguiente fila
-////////////////////								if(kk && go)
-////////////////////								{	go = 0;//Deja de buscar un elemento
-////////////////////									papas[j+5] = vPAPA10[i][0];//Toma el primer id del string del elemento de la app que encuentre //__0
-////////////////////								}
-////////////////////							}
-////////////////////						}
-////////////////////					break;
-////////////////////				}
-////////////////////			}
-
 
 function
 f0154() // ACTUALIZAR los IDs del lugar seleccionado para pasarlos a la presentacion AV (y al cabezote de la ruta 3 (Anuncios)????)
