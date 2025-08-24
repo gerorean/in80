@@ -7104,40 +7104,43 @@ function f0123(busca)//BUSCAR id/Fila que corresponde a cierto id Buscado en kTa
 
 function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{2-10}, OCULTAR todos los botones de esas tablas parciales y ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8}, m el llamado viene de la ruta madre
 		{	lOG(124);
-			console.log(' - - - __________________________________________f0124(n=',n,', a=',a,')  [mIr002B[#][4]=0 (invi desde n) papas[#+5]=0 wPAPA#]');//__#
+			console.log(' - - - f0124(n=',n,', a=',a,')');
 			console.log(' - - - A - control de la ruta 2 de idioma [1-5] y lugar [6----] ...  mIr002B[6]=',mIr002B[6]);
 			if(!a) // Si no es la ruta madre
-			{
-				console.log(' - - - __________________________ NO ES la Ruta madre... Se ocultan los botones hijo y se borran las tablas parciales hijas');
-				// OCULTAR los botones de Ajustes 2 desde la ruta parcial (n)
+			{	console.log(' - - - NO ES la Ruta madre = Se ocultan los botones hijo y se borran las tablas parciales hijas');
 				console.log(' - - - n=',n,' papas[n+5]=',papas[n+5],' esta ruta cambio y tiene un nuevo id');
 				for (var i = 6 + n; i <= 14; i++) // recorre un rango que corresponde a las casillas hijas de los lugares
 				{	mIr002B[i][4]=0; // mIr002B[6-14][4] Ocultar botones de Ajustes 2 desde el actual (n)
 					console.log(' - - - i=',i,' papas[i]=',papas[i],' por el cambio en papas[n+5] se va a modificar');
 					papas[i]=0; // borrar datos a la derecha de papas[n+5] (con papas[n+{6-14}]=0)
 				}
-				console.log('######################### NOTA! ... Antes de actualizar las tablas parciales hay que revizar si los futuros papas (dinamicos), sin revizar, cumplen o no y ver si son rutas validas, sino cumplen hay que ajustarlas hasta que cumplan! #################################');
-				
-
+				// console.log('#### NOTA! ... Antes de actualizar las tablas parciales hay que revizar si los futuros papas (dinamicos), sin revizar, cumplen o no y ver si son rutas validas, sino cumplen hay que ajustarlas hasta que cumplan! ###');
 				// ACTUALIZAR todas las tablas desde la tabla wPAPAx (x = n + 2){2-10} a partir de la lista parcial n {0-8}
 				for (var j = n + 1; j < 10; j++)// n{0-9}  j{1-10}  Ciclo para producir todas las tablas parciales wPAPA's descendientes
-				// //Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
+				// Recorre todos los wPAPAx restantes, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
 				{	
-					console.log('j=',j,'; papas[j+5]=',papas[j+5]);
-					//if(papas[j+4]>0) // si la ruta parcial es diferente de 0..	
+					console.log('j=',j,'; %%%papas[j+4]=',papas[j+4],'%%%; papas[j+5]=',papas[j+5]);
+					
+					
+					
+					
+					if(papas[j+4]>0) // si la ruta parcial es diferente de 0..	
 					{	var r3 = f0153(j); // ACTUALIZAR la siguiente tabla y ruta parcial ... wPAPA2 y papas[6],wPAPA3 y papas[7]...wPAPA10 y papas[14]
 						j = r3.j;
 					}
-					//else
-					//{	console.log('&&&&&&&&&&&&&&&&& Termina!!! j=',j,'; papas[j+5]=',papas[j+5]);
-					//	j = 11;
-					//}
+					else
+					{	console.log('&&& Termina!!! j=',j,'; papas[j+5]=',papas[j+5]);
+						j = 11;
+					}
+
+
+
+
 				}
-				console.log(' &&&&&&&&&&&&&&&&&&&& fin del bloque por cambio de la ruta parcial papas - mIr002B[6]=',mIr002B[6],'; papas=',papas);
-			
+				console.log(' &&& fin del bloque por cambio de la ruta parcial papas - mIr002B[6]=',mIr002B[6],'; papas=',papas);
 			}
 			else // Es la ruta madre, cargar las tablas parciales wPAPA2, wPAPA3, etc...
-			{ 	console.log('######################### Ruta madre... No se ocultan botones ni se borran tablas, SE CREAN!!! por defecto los botones están ocultos y las tablas parciales están vacias');
+			{ 	console.log('### Ruta madre... No se ocultan botones ni se borran tablas, SE CREAN!!! por defecto los botones están ocultos y las tablas parciales están vacias');
 				// GENERAR todas las tablas parciales siguientes a wPAPA1.. wPAPA#{2-10}  (n=0)
 				for (var j = 1; j < 10; j++)// n{0}  j{1-9}  crea un ciclo para recorrer las wPAPA# posibles
 				{	console.log('j=',j,'; la siguiente ruta parcial.. papas[j+5]=',papas[j+5]);
@@ -7146,11 +7149,11 @@ function f0124(n,a) // BORRAR todas las tablas parciales wPAPAX desde X = n + 2{
 						j = r3.j;
 					}
 					else
-					{	console.log('&&&&&&&&&&&&&&&&& Termina!!! la siguiente ruta parcial es j=',j,'; papas[j+5]=',papas[j+5]);
+					{	console.log('&&&& Termina!!! la siguiente ruta parcial es j=',j,'; papas[j+5]=',papas[j+5]);
 						j = 10;
 					}
 				}
-				console.log(' &&&&&&&&&&&&&&&&&&&& fin del bloque para la ruta madre - mIr002B[6]=',mIr002B[6],'; papas=',papas);
+				console.log(' &&& fin del bloque para la ruta madre - mIr002B[6]=',mIr002B[6],'; papas=',papas);
 			}
 			f0126();//ACTUALIZAR la ruta en el hash
 			f0142();//CONSULTAR a la base de datos por cierta collección Valida
@@ -8295,7 +8298,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 				var n;   													// Variable para hacer recorridos en vPAPA#				
 				var t = 0;													//Orden de producir la siguiente ruta parcial(1)			
 				var e = 0;													// Existencia del hijo sugerido (1)
-				console.error('-_____________-____________-___________f0153(j=',j,')');
+				console.error('-_______ f0153(j='+j+')');
 				switch(j)
 				{	case 1:													// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA2 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
@@ -9120,7 +9123,7 @@ f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla par
 				{	aPrO = 1;
 				}
 				/**/
-				
+
 				console.error('%%%% Resultado del pin: aPrO=',aPrO);
 			}
 
