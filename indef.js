@@ -5538,13 +5538,17 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 				// Verificar que pArTs[1-4] comienzan con "B,C,D,E" para terminar de ser valida como formato
 				if((pArTs[1].substring(0, 1) === "B")&&(pArTs[2].substring(0, 1) === "C")&&(pArTs[3].substring(0, 1) === "D")&&(pArTs[4].substring(0, 1) === "E"))
 				{	console.log('inicia con A,B,C,D y E!, formato verificado!');
-					//Verificación del pin privado
-					vErC = pArTs[2];
-					f0160(); // VERIFICAR el pin privado, responder con aPrO
-					if(!aPrO)
-					{	pArTs[2] = "C";
-					}
+					
+					
+					/////////Verificación del pin privado
+					///////vErC = pArTs[2];
+					///////f0160(); // VERIFICAR el pin privado, responder con aPrO
+					///////if(!aPrO)
+					///////{	pArTs[2] = "C";
+					///////}
 					// Crear el array sin valores vacíos
+
+
       				ArRay = [];
       				for (var i = 0; i < pArTs.length; i++)
 					{	if (pArTs[i] !== "")
@@ -5598,7 +5602,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												console.error('Ruta personalizada t=',t);
 											};
 											if(!vPAPA1[j][17]) // vPAPA1[j][17] = 0, privada
-											{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
+											{	var rE = f0157(u, i, p, v, f, d, c,vPAPA1[j][0]); // VERIFICAR el pin de las rutas privadas
 												u = rE.u;
 												i = rE.i;
 												p = rE.p;
@@ -8308,7 +8312,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 									d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA1[a][0]); 							// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8985,11 +8989,19 @@ f0156(a)//ASIGNAR ruta madre (inicial) por defecto en el hash
 			}
 
 function 
-f0157(u,i,p,v,f,d,c) // VERIFICAR el corte de rutas parciales hijas en rutas privadas que requieren pin de verificación
+f0157(u,i,p,v,f,d,c,z) // VERIFICAR el corte de rutas parciales hijas en rutas privadas que requieren pin de verificación
 			{	lOG(157);
 				u = 0; // Ruta privada
 				console.error(' -X-X-X- Encontró la ruta parcial ',i+2,' pero se requiere validar el CORTE de las rutas parciales hijas por ser una ruta privada! -X-X-X-');
-				console.error('############## u=',u,'; i=',i,' p=',p,' v=',v,' f=',f,' d=',d,' c=',c,'  ############');
+				console.error('############## u=',u,'; i=',i,' p=',p,' v=',v,' f=',f,' d=',d,' c=',c,' z=',z,' ############');
+				//Verificación del pin privado
+
+				vErC = pArTs[2];
+
+				
+				f0160(i+1,z); // VERIFICAR el pin privado, responder con aPrO
+				
+
 				if(!aPrO) // Pin a: Si pin a NO es correcto (aPrO=0)
 				{	if((v + 1)==c) // Si sólo falta una verificación
 					{	f = 1; // Pre validación de la ruta parcial
@@ -9056,15 +9068,20 @@ f0159() // GENERAR distintos tipos de strings dependiendo del estado de los anun
 			}
 
 function
-f0160()  // Verificar el pin y si cumple dar la orden de mostrar la tabla parcial hija con id=1 y id=2 y el id del siguiente papas hacerlo igual a la sugerencia del lugar padre {*} en wPAPA#[*][15] sino toma el id del tercer elemento (luego del id=1 e id=2)
-		 // VERIFICAR el pin privado, responder con aPrO	
+f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla parcial hija con id=1 y id=2 y el id del siguiente papas hacerlo igual a la sugerencia del lugar padre {*} en wPAPA#[*][15] sino toma el id del tercer elemento (luego del id=1 e id=2)
+		 // VERIFICAR el pin privado, responder con aPrO
+		 	// i(m) case 0---vPAPA1[j][17] Continentes..       j case 1---wPAPA1[a][17]
 			{	lOG(160);
+				console.error('%%%%%%%%%%%%%%%%%%%%%% nivel n=',n,'; id i=',i);
 				//Verificación del pin privado C
 				aPrO = 0; // Reset de la verificación del pin privado C
 				if(vErC === "C1") // Si vErC, la cadena de texto, contiene internamente al pin valido de ejemplo "C1" u otro pin que sea privado que corresponde a esa ruta privada
 				{	aPrO = 1;
 				}
 				console.error('%%%%%%%%%%%%%%%%%%%%%% Resultado de la verificación del pin: aPrO=',aPrO);
+				//	if(!aPrO && m)
+				//	{	pArTs[2] = "C";
+				//	}
 			}
 
 
