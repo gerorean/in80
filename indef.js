@@ -9070,9 +9070,8 @@ f0159() // GENERAR distintos tipos de strings dependiendo del estado de los anun
 function
 f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla parcial hija con id=1 y id=2 y el id del siguiente papas hacerlo igual a la sugerencia del lugar padre {*} en wPAPA#[*][15] sino toma el id del tercer elemento (luego del id=1 e id=2)
 		 // VERIFICAR el pin privado, responder con aPrO
-		 	// i(m) case 0---vPAPA1[j][17] Continentes..       j case 1---wPAPA1[a][17]
-			{	lOG(160);
-				console.error('%%%% nivel n=',n,'; id i=',i);
+		 	{	lOG(160);
+				console.error('%% nivel n=',n,'; id i=',i);
 				var z;
 				switch (n)
 				{	case 1: 
@@ -9106,13 +9105,19 @@ f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla par
 				console.log('%%% z =',z);
 				//Verificación del pin privado C
 				aPrO = 0; // Reset de la verificación del pin privado C
-				if(vErC === "C1") // Si vErC, la cadena de texto, contiene internamente al pin valido de ejemplo "C1" u otro pin que sea privado que corresponde a esa ruta privada
-				{	aPrO = 1;
+				var y = vErC.split('.'); // FRACCIONA a C
+				for(var x=0; x<y.length; x++) // Ciclo para recorrer y
+				{	if(y[x]===z) // Bingo con el pin!
+					{	aPrO = 1; // Pin valido!
+						console.log('%%% pin z encontrado!!');
+						x = y.length; // Termina la busqueda
+					}
 				}
+				console.log('%%% y =',y);
+				//if(vErC === "C1") // Si vErC, la cadena de texto, contiene internamente al pin valido de ejemplo "C1" u otro pin que sea privado que corresponde a esa ruta privada
+				//{	aPrO = 1;
+				//}
 				console.error('%%%% Resultado del pin: aPrO=',aPrO);
-				//	if(!aPrO && m)
-				//	{	pArTs[2] = "C";
-				//	}
 			}
 
 
