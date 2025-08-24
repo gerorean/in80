@@ -9114,9 +9114,13 @@ f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla par
 					}
 				}
 				console.log('%%% y =',y);
-				//if(vErC === "C1") // Si vErC, la cadena de texto, contiene internamente al pin valido de ejemplo "C1" u otro pin que sea privado que corresponde a esa ruta privada
-				//{	aPrO = 1;
-				//}
+
+				/***/
+				if(vErC === "C1") // Si vErC, la cadena de texto, contiene internamente al pin valido de ejemplo "C1" u otro pin que sea privado que corresponde a esa ruta privada
+				{	aPrO = 1;
+				}
+				/**/
+				
 				console.error('%%%% Resultado del pin: aPrO=',aPrO);
 			}
 

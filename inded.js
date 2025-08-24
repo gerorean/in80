@@ -2246,7 +2246,7 @@ const vPAPA1 = [
 [11, 6, 0, 2, 23, 5, 23, 5, 0, 9, 0, 1, 2, 1, 1,13, 0, 1, 'Europe', 'Europa', "L'Europe", '유럽'],
 [12, 7, 0, 3, 24, 5, 24, 5, 0, 9, 0, 1, 2, 1, 1,14, 0, 1, 'North America', 'Norte América', 'Amérique du Nord', '북아메리카'],
 [ 6, 8, 0, 4, 21, 5, 21, 5, 0, 9, 0, 1, 2, 1, 1,10, 0, 1, 'Oceania', 'Oceanía', 'Océanie', '오세아니아'],
-[ 7, 9, 0, 5, 25, 5, 25, 5, 0, 9, 0, 1, 2, 1, 1,11, 0, 0, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
+[ 7, 9, 0, 5, 25, 5, 25, 5, 0, 9, 0, 1, 2, 1, 1,11, 0, 1, 'South America', 'Sur América', 'Amérique du Sud', '남아메리카']
 ]
 
 /*
@@ -2281,7 +2281,7 @@ const vPAPA3 = [['2-id:key strings app', 0, '4-IdPapa2', '5-Id color marco', '6-
 //   1   2  3   4  5   6  7  8  9 10 11 12 13 14 15 16 17  18     ..19..  20..  21.. 
 [ 7, 3, 13, 4, 71, 5, 38, 5, 1, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Andalusia', 'Andalucía', 'Andalousie', '안달루시아'],
 [11, 4, 11, 4, 72, 5, 39, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Antioquia', 'Antioquia', 'Antioche', '남극 대륙'],
-[ 8, 5, 11, 9, 73, 5, 28, 5, 0, 9, 0, 1, 2, 2, 2, 9, 0, 0, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
+[ 8, 5, 11, 9, 73, 5, 28, 5, 0, 9, 0, 1, 2, 2, 2, 9, 0, 1, 'Bogota', 'Bogotá', 'Bogota', '보고타'],
 [12, 6, 11, 4, 74, 5, 40, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Boyaca', 'Boyacá', 'Boyaca', '보야카'],
 [ 9, 7, 11, 3, 75, 5, 41, 5, 0, 9, 0, 1, 2, 2, 2, 0, 0, 1, 'Cundinamarca', 'Cundinamarca', 'Cundinamarca', '쿤디나마르카'],//1 ->9
 [13, 8,  9, 6, 76, 5, 36, 5, 0, 9, 0, 1, 2, 1, 1, 0, 0, 1, 'Hope Bay', 'Bahía Esperanza', "Baie de l'Espoir", '호프 베이'],
