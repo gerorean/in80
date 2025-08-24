@@ -5673,7 +5673,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};
 												if(ArRay[5]==vPAPA2[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA2[j][17]) // vPAPA2[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA2[j][0]); // VERIFICAR el pin de las rutas privadas
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -5748,7 +5748,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[6]==vPAPA3[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA3[j][17]) // vPAPA3[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA3[j][0]); // VERIFICAR el pin de las rutas privadas
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -5823,7 +5823,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[7]==vPAPA4[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA4[j][17]) // vPAPA4[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c); // VERIFICAR el pin de las rutas privadas
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA4[j][0]); // VERIFICAR el pin de las rutas privadas
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -5898,7 +5898,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};												
 												if(ArRay[8]==vPAPA5[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA5[j][17]) // vPAPA5[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA5[j][0]);
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -5973,7 +5973,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[9]==vPAPA6[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA6[j][17]) // vPAPA6[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA6[j][0]);
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -6048,7 +6048,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[10]==vPAPA7[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA7[j][17]) // vPAPA7[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA7[j][0]);
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -6123,7 +6123,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[11]==vPAPA8[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA8[j][17]) // vPAPA8[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA8[j][0]);
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -6198,7 +6198,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[12]==vPAPA9[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA9[j][17]) // vPAPA9[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA9[j][0]);
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -6273,7 +6273,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 												};	
 												if(ArRay[13]==vPAPA10[j][2])// Si el id padre (de ese lugar) es el mismo que la ruta parcial anterior
 												{	if(!vPAPA10[j][17]) // vPAPA10[j][17] = 0, privada
-													{	var rE = f0157(u, i, p, v, f, d, c);
+													{	var rE = f0157(u, i, p, v, f, d, c,vPAPA10[j][0]);
 														u = rE.u;
 														i = rE.i;
 														p = rE.p;
@@ -8387,7 +8387,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 									d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA2[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8462,7 +8462,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 									d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA3[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8536,7 +8536,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA4[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8608,7 +8608,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA5[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8680,7 +8680,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA6[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8752,7 +8752,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA7[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8824,7 +8824,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA8[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -8896,7 +8896,7 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
 									{	vErC = papas[2]; 					// Cargar los pines de papas[2] en vErC
-										f0160(); 							// Buscar el pin privado, responder con aPrO
+										f0160(j,wPAPA9[a][0]); 				// Buscar el pin privado, responder con aPrO
 										if(!aPrO) 							// El pin no está!
 										{	t = 0; 							// Anula la orden de producir la tabla parcial wPAPA<#+1>
 										}
@@ -9072,13 +9072,44 @@ f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla par
 		 // VERIFICAR el pin privado, responder con aPrO
 		 	// i(m) case 0---vPAPA1[j][17] Continentes..       j case 1---wPAPA1[a][17]
 			{	lOG(160);
-				console.error('%%%%%%%%%%%%%%%%%%%%%% nivel n=',n,'; id i=',i);
+				console.error('%%%% nivel n=',n,'; id i=',i);
+				var z;
+				switch (n)
+				{	case 1: 
+						z='a'+i;
+					break;
+					case 2: 
+						z='b'+i;
+					break;
+					case 3: 
+						z='c'+i;
+					break;
+					case 4: 
+						z='d'+i;
+					break;
+					case 5: 
+						z='e'+i;
+					break;
+					case 6: 
+						z='f'+i;
+					break;
+					case 7: 
+						z='g'+i;
+					break;
+					case 8: 
+						z='h'+i;
+					break;
+					case 9: 
+						z='i'+i;
+					break;
+				}
+				console.log('%%% z =',z);
 				//Verificación del pin privado C
 				aPrO = 0; // Reset de la verificación del pin privado C
 				if(vErC === "C1") // Si vErC, la cadena de texto, contiene internamente al pin valido de ejemplo "C1" u otro pin que sea privado que corresponde a esa ruta privada
 				{	aPrO = 1;
 				}
-				console.error('%%%%%%%%%%%%%%%%%%%%%% Resultado de la verificación del pin: aPrO=',aPrO);
+				console.error('%%%% Resultado del pin: aPrO=',aPrO);
 				//	if(!aPrO && m)
 				//	{	pArTs[2] = "C";
 				//	}
