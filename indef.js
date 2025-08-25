@@ -8985,10 +8985,10 @@ f0156(a)//ASIGNAR ruta madre (inicial) por defecto en el hash
 				/** * /
 				window.location = "#/A/B/C/D/E/7/11/8/";
 				/** */
-				ArRay = ['A','B','C','D','E',7,11,1]; // Colombia
+				//ArRay = ['A','B','C','D','E',7,11,1]; // Colombia
 				//ArRay = ['A','B','C','D','E',7,11,8,1]; // Bogotá
 				//ArRay = ['A','B','C','D','E',7,11,8,11]; // Puente aranda
-				//ArRay = ['A','B','C','D','E',7,11,8,9,9]; // Chapinero central
+				ArRay = ['A','B','C','D','E',7,11,8,9,9]; // Chapinero central
 			}
 
 function 

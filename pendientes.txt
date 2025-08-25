@@ -1,21 +1,13 @@
-Pendientes: f0124(n,a) f0153(j,f) f0157(u,i,p,v,f,d,c) aPrO
+Pendientes: 
 
-esta casi bien.. con C1 muestra tanto el id=1 como el id=2 en las rutas, sin C1 solo muestra el id=1 en las rutas
-
-analizar desde hh102()..
-la función f0124 no está verificando la ruta parcial para crear o no la tabla parcial se puede tomar como guía parte de la función f0107 que si lo hace
-
-
-cuando cambio el lugar por otro no esta haciendo el llamado a la BD, revizar esto!!
-
+Revizar como funciona con JSON.. e ir alistando mongoDB
+jAds = //*colección 7i1i8i4 de los anuncios JSON
 
 
 comente f0126 en hh50 revizar eso, el cambio de ruta debe suceder antes del STRING porque luego de hacer la consulta a la BD, el cambio de ruta (f0126) no deberia volverse a llamar pero si cambiar los strings! 
 crear las rutas id=3 para tienda local, adicionar la columna de id pesos en las tablas vPAPA#
 
 
-las tablas vPAPA y wPAPA deben contar con columnas de visibilidad(1=visible,0=privada) / id_Hijo_sugerido* / id_tipo_del_lugar(bosque,desierto,ciudad,panaderia,etc..) / GPS-x / GPS-y / GPS-z(o piso 0(suelo), 1(edificación: primer piso), 2, -1, -2??)* / id_color / id_idioma* / id_seña* / id_imagen / id_bandera* / + 3 columnas libres*, disponibles por si se necesitan en un futuro por ejemplo cantidad de habitantes: tamaño en kms2 del lugar/territorio, etc.
-(*): Opcional
 
 adicionar el código de navilens para que quede conmutado durante un segundo sobre el qr code, tomar la señal del primer led de la izquierda, similar al "parpadeo" que hace el foco y crear una columna en vPAPA# para ello
 para ello cree el archivo navi.html, este archivo html css y js permite que ambas transiciones sucedan en paralelo, ahorrando ese segundo de "pantalla sin código legible". Usa dos imágenes posicionadas en el mismo lugar (position: absolute) dentro de un div contenedor.
@@ -36,7 +28,7 @@ ojo con  f0124(ini)
 
 A:
 por defecto: A101034hazca   (config personalizada dependiendo de la posicion indica un parametro ver abajo en ***, la ultima letra indica el modo, y el primer número el estado de i0 o i1)
-#/A1010.34hazca/B18.4/C/D/E/7/11/8/2/8
+#/A1010.34hazca/B18.4/C/D/E/7/11/8/9/9
 
 
 #/A1010.34hazca/B18.4/C/D/E/7/11/8/2/8
