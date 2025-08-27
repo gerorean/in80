@@ -2,6 +2,19 @@ Pendientes:
 
 Revizar como funciona con JSON.. e ir alistando mongoDB
 jAds = //*colección 7i1i8i4 de los anuncios JSON
+const jsAds = JSON.parse(jAds);
+
+
+
+
+Revizar...
+/*NOTA!
+las funciones de la function f0128() a la function f0137() estan reservadas en inded.js para el servidor, aquí no se pueden usar ver tabla de registros en indet.js
+*/
+
+
+
+
 
 
 comente f0126 en hh50 revizar eso, el cambio de ruta debe suceder antes del STRING porque luego de hacer la consulta a la BD, el cambio de ruta (f0126) no deberia volverse a llamar pero si cambiar los strings! 

@@ -5440,6 +5440,9 @@ Nota anexa punto (7):
 		Para el caso de wPAPA1 = vPAPA1, hasta que encuentre ceros en papas o recorra papas.length
 
 
+
+control de anuncios para irlos ordenando???...
+
 Ejemplo
 Nuevo										Pasado
 8(+ 1) << no está en Pasado (+)				10
@@ -7735,6 +7738,11 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 					
 
 
+
+
+
+
+
 						/* SWITCH CON LA BASE DE DATOS MONGO mongo* /
 						//INICIAR consulta a la base de datos y buscar si la ruta existe traer los anuncios para cargar r003 
 						var xhr = new XMLHttpRequest();//AJAX
@@ -7808,8 +7816,13 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 								{	g00VARS[86][2]=1;
 									console.error('- rta NO hay anuncios  -');
 								}
-								f0138();//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
-								f0125(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
+								////////BLOQUE QUE CAMBIO 27AGO2025
+								////////oculte estas 2 lineas y traje a cambio la nueva funcion a ver si sirve aqui con JSON: f0159() * /
+								///////f0138();//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+								///////f0125(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
+								///////
+								f0159(0);//ESTABLECER O ACTUALIZAR el string de los botones de los sitios.
+								//////// FIN BLOQUE QUE CAMBIO 27AGO2025
 								//Actalizar el frontend con la respuesta de la busqueda
 								if(gRuta == 2)
 								{	if(gFoco > rumbo.length + 2)//gFoco es mayor que rumbo + 2
@@ -7831,8 +7844,21 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 						xhr.open("GET",'http://localhost:3000/'+nruta);
 						//xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
 						console.log('- send the query to the server...');
+						/////////////////   27AGO2025????
+						/////////////////CONSOLE: GET http://localhost:3000/7/11/8/9/9 net::ERR_CONNECTION_REFUSED          ---7848---
+						/////////////////xhr.send();//Envía la solicitud al servidor								  		   ---7848---
+						/////////////////
 						xhr.send();//Envía la solicitud al servidor
 						/***/
+
+
+
+
+
+
+
+
+
 
 
 						/* SWITCH SIN LA BASE DE DATOS MONGO mongo*/
@@ -7905,6 +7931,11 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 						{	f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 						}
 						/* fin switch*/
+
+
+
+
+
 
 
 					}
