@@ -1511,11 +1511,11 @@ const jAds = //*colección 7i1i8i4 de los anuncios JSON
 	}
 ]`;
 //Detectar el tipo de dato y su tamaño
-console.log(' typeof iads =', typeof jAds);//string
+console.log(' typeof jAds =', typeof jAds);//string
 //Convertir una cadena del JSON en un objeto, para ello se usa el metodo parse: 
 const jsAds = JSON.parse(jAds); 
-console.log(' typeof iadsJS =', typeof jsAds);//object
-console.log(' .. typeof iadsJS.length =', jsAds.length);//234
+console.log(' typeof jsAds =', typeof jsAds);//object
+console.log(' .. typeof jsAds.length =', jsAds.length);//234
 console.log('jsAds.length===',jsAds.length);
 //Convertir el objeto JS en 3 arrays
 for (var i = 0; i < jsAds.length; i++) {

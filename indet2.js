@@ -159,7 +159,8 @@ function hLL(id)//Incrementar en uno el contador y si es un botón ver si Maximi
 			{	//if(g00VARS[55][2]&&MaMi&&bMin)//Si ya ocurrio la primer interacción y (bandera de verificar si maxi o mini esta activa) y (la capa de pantalla minimizada esta activa) entonces
 				if(MaMi&&bMin)//Si (bandera de verificar si maxi o mini esta activa) y (la capa de pantalla minimizada esta activa) entonces
 				{	MaMi = 0;//Desactivar la bandera verificar si maxi o mini
-					if ((document.fullscreen == false)||(document.fullscreenElement == null))
+					if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement)	
+					//if ((document.fullscreen == false)||(document.fullscreenElement == null))
 					{	f0022();//Maximizar
 						console.log('Se minimizo con esc o conmuto el estado booleano del navegador y se volvio false y null=> maximizar ventana');
 					}

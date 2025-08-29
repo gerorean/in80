@@ -1,5 +1,7 @@
 Pendientes: 
 
+REVIZAR mIr003A/B/Z con el fin de quitar las filas que no se necesiten y ver donde poner la ruta iads? con valores a7/c8/ etc
+
 Revizar como funciona con JSON.. e ir alistando mongoDB
 jAds = //*colección 7i1i8i4 de los anuncios JSON
 const jsAds = JSON.parse(jAds);
