@@ -1,5 +1,15 @@
 Pendientes: 
 
+1- Crear la ruta 3 para Publicidad (anuncios comerciales) y cambiar "publicados en todo el territorio cambiar" por "anuncios públicos"
+  es decir deben quedar tres tipos de anuncios (Id´s finales):
+  0-1- Información Pública
+  2- Información Privada
+  3- Información Comercial (Publicidad)
+
+2- Crear un formulario tipo web para subir los anuncios con verificacion de fecha y hora del lugar
+
+3- Crear mIr00I para guardar el id del o los lugares y otros datos claves como el tipo de anuncio y la fecha y hora de terminacion del anuncio
+
 REVIZAR mIr003A/B/Z con el fin de quitar las filas que no se necesiten y ver donde poner la ruta iads? con valores a7/c8/ etc
 
 Revizar como funciona con JSON.. e ir alistando mongoDB

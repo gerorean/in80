@@ -1252,6 +1252,30 @@ var r003B = [['Recursos/ Casillas..', 'Head', 'Others'],
 ['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -', [0, 0, 0, 0, 0, 0, 0, 0], [0]]
 ];
 */
+
+
+
+
+/* 
+mIc003I: contiene un array con los siguientes campos
+0	publicación en un solo lugar 0, en varios lugares 1
+1   dato del lugar o array de varios lugares (separados por puntos) del lugar o de los lugares donde se va a publicar el anuncio (Depende de 0) ejemplos [a13.b7.c9], d34
+2	Anunció informativo de la aplicacación 0, anuncio público 1, anuncio comercial 2 (privado con animó de lucro), los comerciales salen luego de los públicos y no se deben mostrar en la presentación AV de los titulares ¿solamente los anuncios publicos y los informativos?
+3	
+4
+5
+6
+7
+8
+*/
+var mIc003I = [
+[ 0, 'b13', 0],
+[ 1, ['b13.c7.d82'] , 1]
+];
+
+
+
+
 /*
 const 	r003B		=[	['Recursos/ Casillas..'										,1			,2			,3		,4			,5],
 							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[3,1,3]	,[3,1,3] 	,[1]	,[1,1,1]	,[3]],
@@ -1280,7 +1304,7 @@ var 	r003B		=[		['Recursos/ Casillas..'										],
 							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
 						];
 */
-//QUITAR?? QUE ES PARA LOS TIEMPOS, SI NO SERIA PARA EL/LOS ID'S∫ DE LAS IMAGENES QUE INTERVIENEN
+//QUITAR?? QUE ES PARA LOS TIEMPOS, SI NO SERIA PARA EL/LOS ID'S DE LAS IMAGENES QUE INTERVIENEN
 //VER r003C y r003D
 /*
 const 	r003C 		=	[	[0		,1		,2		],
@@ -1295,6 +1319,10 @@ const 	r003D 		=	[	[0		,1		,2		],
 							[3		,1		,2		]
 						];
 */
+
+
+
+
 /*DESCRIBIR TITULARES E INFO LOCAL texto alternativo para imagen*/
 //IMAGENES DE ANUNCIOS
 var mIr003Z =/**/[['Casillas', 1, 2, 3, 4],
@@ -2234,7 +2262,7 @@ const	vPAID2 = [[2, 2, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'privat
 //22	Texto en ....
 
 
-//NOTA para vPAPA#: El id 1 esta reservado para las rutas públicas generales: "todo el territorio" y el id 2 para las rutas privadas: "información privada"
+//NOTA para vPAPA#: El id 1 esta reservado para las rutas públicas: "información pública", el id 2 para las rutas privadas: "información privada" y el id 3 para las rutas comerciales: "información comercial"
 
 //Prohibidos id 1 y 2, próximo id = vPAPA#.length + 5
 const vPAPA1 = [
