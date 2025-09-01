@@ -8466,19 +8466,7 @@ function
 f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 m se usa solo para cargar la ruta madre, la cúal no tiene libertad para escoger un hijo (tanto sugerido como no sugerido) dentro de su lista, lo debe tomar directamente de la ruta
 			// Si m(1) Como la siguiente ruta parcial no es 0 (papas[j+5]>0) GENERAR la tabla parcial siguiente wPAPAx{2-10} a partir de la tabla parcial actual wPAPA<1-9> y de la ruta parcial actual papas[j+4] ... (x = n + 2) wPAPA2,wPAPA3...wPAPA10, la tabla wPAPA1 la creo f0107 antes y es fija 
 			{	lOL(153);
-				
-				
-
-
-
-				//id3..
 				var d = 0;													// (1) TRIPLE botón: público(id=1) + comercial(id=3) + privado(id=2)    / (0) DOBLE Botón de público(id=1) y comercial(id=3)   (d = 1;// Incluye el tercer botón de privado con id=2)
-				//var d = 0;													// (1) DOBLE botón: público(id=1) + privado(id=2) / (0) solo el Botón de público(id=1)   (d = 1;// Incluye el segundo botón de privado con id=2)
-				
-
-
-				
-				
 				var s = 0;													// Sugerencia id ruta parcial hija
 				var n;   													// Variable para hacer recorridos en vPAPA#				
 				var t = 0;													//Orden de producir la siguiente ruta parcial(1)			
@@ -8487,27 +8475,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 				switch(j)
 				{	case 1:													// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA2 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
-						wPAPA2[1] = [];									// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
-						wPAPA2[2] = [];									// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA2[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA2[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA2[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
-						
-						
-						
-						
-							wPAPA2[2][z] = vPAPAC[0][z];					// ASIGNA a la primer fila el valor de vPAPAC[0]
-						
-						
-						
-						
+							wPAPA2[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA1.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA1[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								
-								
-								
-								
 								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA1[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	console.log('%%% Hijos OCULTOS %%%');
@@ -8532,64 +8508,20 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								console.log(' Hijo sugerido e=',e);
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA1[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
-										
-										
-										
-										
-										
-										//id3..
-										wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAPAC[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
-									
-									
-									
-									
-									
-									
-									
+									{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	
-										
-										
-										
-										
-										//id3..
-										wPAPA2[3] = [];
-
-
-
-
-
-
+									{	wPAPA2[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	
-											
-											
-											
-											wPAPA2[3][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA2[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA1[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	
-											
-											
-											
-											
-											wPAPA2[3][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA2[3][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
-									}
-									if(d) 									// inicia desde id=4
-									
-									
-									
-									{	ff = 4;								// ID de la siguiente fila
+										ff = 4;								// ID de la siguiente fila
 									}
 									else 									// inicia desde id=3
-									
-									
-									
-									
-									
 									{	ff = 3;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA2.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
@@ -8616,37 +8548,19 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								a = wPAPA1.length;										// Termina la busqueda
 							} 
 						}
-					break;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
+					break;	
 					case 2:													// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA3 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA3[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA3[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA3[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA3[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA2.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA2[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA2[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	console.log('%%% Hijos OCULTOS %%%');
 									d = 1; 									// Tabla parcial Privada!
@@ -8670,22 +8584,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								console.log(' Hijo sugerido e=',e);
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA2[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA3[1][b] = wPAPA2[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA3[2][b] = wPAPA2[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA3[2] = [];
+									{	wPAPA3[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA3[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA3[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA2[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA3[2][b] = wPAPA2[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA3[3][b] = wPAPA2[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA3.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA3[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -8715,13 +8628,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 					case 3: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA4 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA4[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA4[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA4[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA4[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA3.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA3[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA3[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	console.log('%%% Hijos OCULTOS %%%');
 									d = 1; 									// Tabla parcial Privada!
@@ -8745,22 +8660,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								console.log(' Hijo sugerido e=',e);
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA3[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA4[1][b] = wPAPA3[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA4[2][b] = wPAPA3[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA4[2] = [];
+									{	wPAPA4[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA4[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA4[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA3[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA4[2][b] = wPAPA3[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA4[3][b] = wPAPA3[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA4.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA4[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -8790,13 +8704,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 					case 4: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA5 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA5[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA5[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA5[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA5[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA4.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA4[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA4[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
@@ -8818,22 +8734,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								}
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA4[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA5[1][b] = wPAPA4[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA5[2][b] = wPAPA4[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA5[2] = [];
+									{	wPAPA5[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA5[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA5[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA4[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA5[2][b] = wPAPA4[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA5[3][b] = wPAPA4[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA5.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA5[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -8862,13 +8777,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 					case 5: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA6 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA6[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA6[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA6[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA6[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA5.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA5[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA5[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
@@ -8890,22 +8807,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								}
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA5[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA6[1][b] = wPAPA5[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA6[2][b] = wPAPA5[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA6[2] = [];
+									{	wPAPA6[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA6[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA6[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA5[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA6[2][b] = wPAPA5[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA6[3][b] = wPAPA5[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA6.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA6[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -8934,13 +8850,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 					case 6: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA7 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA7[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA7[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA7[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA7[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA6.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA6[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA6[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
@@ -8962,22 +8880,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								}
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA6[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA7[1][b] = wPAPA6[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA7[2][b] = wPAPA6[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA7[2] = [];
+									{	wPAPA7[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA7[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA7[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA6[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA7[2][b] = wPAPA6[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA7[3][b] = wPAPA6[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA7.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA7[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -9006,13 +8923,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 					case 7: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA8 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA8[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA8[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA8[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA8[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA7.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA7[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA7[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
@@ -9034,22 +8953,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								}
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA7[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA8[1][b] = wPAPA7[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA8[2][b] = wPAPA7[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA8[2] = [];
+									{	wPAPA8[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA8[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA8[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA7[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA8[2][b] = wPAPA7[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA8[3][b] = wPAPA7[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA8.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA8[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -9078,13 +8996,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 					case 8: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA9 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA9[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA9[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA9[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA9[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA8.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA8[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA8[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
@@ -9106,22 +9026,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								}
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA8[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA9[1][b] = wPAPA8[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA9[2][b] = wPAPA8[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA9[2] = [];
+									{	wPAPA9[3] = [];						// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA9[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA9[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA8[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA9[2][b] = wPAPA8[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA9[3][b] = wPAPA8[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA9.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA9[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -9150,13 +9069,15 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 					case 9: 												// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA10 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA10[1] = [];									// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA10[2] = [];										// CREA la segunda fila de la tabla parcial hija wPAPA<#+1>[2] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=3
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA10[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+							wPAPA10[2][z] = vPAPAC[0][z];					// ASIGNA a la segunda fila el valor de vPAPAC[0]
 						}
 						for (var a = 1; a < wPAPA9.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA9[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA9[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	d = 1; 									// Tabla parcial Privada!
 									if(!m) 									// Si no es la ruta madre (que ya esta previamente verificada), entonces hay que verificar el pin
@@ -9178,22 +9099,21 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								}
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA9[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-									{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									{	wPAPA10[1][b] = wPAPA9[a][b]+': '+vPAPA0[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información pública'
+										wPAPA10[2][b] = wPAPA9[a][b]+': '+vPAPAC[0][b]; // Cambia los strings de la fila 2 de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información comercial'
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA10[2] = [];
+									{	wPAPA10[3] = [];					// CREA la tercer fila
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA10[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	wPAPA10[3][z] = vPAID2[0][z];	// ASIGNA a la tercer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA9[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA10[2][b] = wPAPA9[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	wPAPA10[3][b] = wPAPA9[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la tercer fila de wPAPA<#+1> por los strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
+										ff = 4;								// ID de la siguiente fila
 									}
-									if(d) 									// inicia desde id=3
+									else 									// inicia desde id=3
 									{	ff = 3;								// ID de la siguiente fila
-									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA10.length; n++)				// Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA10[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])

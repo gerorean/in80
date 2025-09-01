@@ -1,5 +1,9 @@
 Pendientes: 
 
+Arreglar el cabezote de los anuncios comerciales "Información: Bogotá: Información comercial, continuar"
+
+Cambiar "Aquí, no hay notas para publicar" por  "Aquí, no hay información para publicar"
+
 
 falta terminar de cuadrar los anuncios comerciales en f0153(j,m)
 
