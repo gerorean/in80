@@ -1,5 +1,7 @@
 Pendientes: 
 
+
+Arreglar la ruta padre de Información en mIr004A[10] debe cambiar a Informacion comercial si cOm esta en 1
 Arreglar el cabezote de los anuncios comerciales/privados "Información: Bogotá, cambiar" por "Información comercial/privada: Bogotá, cambiar"
 
 Cambiar "Aquí, no hay notas para publicar" por  "Aquí, no hay información para publicar"

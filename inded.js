@@ -6,7 +6,7 @@ var aPrO = 0; // Valor del pin local en el hash para poder continuar.. 0: invali
 					//rutas 7/1 (pública con hermanos) 7/2(privada con hermanos) verificadas con pin (aPrO=1)
 					//Sin pin valido (aPrO=0) la ruta 7 (pública sin hijos) es valida si y solo si es la última ruta parcial; es decir si luego no llama a otras rutas parciales hijas
 var vErC; 			// Verificación de C en el hash
-
+var cOm = 0;			// Ruta parcial comercial (1)
 
 
 //mI: matriz Inversa
@@ -1753,7 +1753,8 @@ const mIkTapaI =/**/[['Casillas', 1, 2, 3, 4],
 [28, 'announcements, place ', 'anuncios, lugar ', 'annonces, lieu ', '광고, 장소 '],
 [29, ': To know the local announcements', ': Para conocer los anuncios locales', ': Pour connaître les annonces locales', ': 지역 공지 사항에 대해 알고 싶습니다.'],
 [30, 'Here, there are no notes to publish', 'Aquí, no hay notas para publicar', "Ici, il n'y a aucune note à poster", '여기에는 게시할 메모가 없습니다.'],
-[31, 'Looking for information...', 'Buscando información...', "À la recherche d'informations...", '정보를 찾는 중...']
+[31, 'Looking for information...', 'Buscando información...', "À la recherche d'informations...", '정보를 찾는 중...'],
+[32, 'Commercial information: ', 'Información comercial: ', 'Informations commerciales: ', '상업 정보: ']
 ];
 /*
 const kTapaI =[[0, 'h', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
@@ -5272,7 +5273,7 @@ const kTapa0 =/**/[['idImagen', 'Nombre', 'LISTA imagenes', 'fuente /marca o aut
 [93, 'Impulso Local', 'files/wifi11.jpg'],//,'https://lh3.googleusercontent.com/d/1igOvmaALBD2c261HGQe5MEK6ZlkHBcNo'	,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],//'https://bogota.gov.co/sites/default/files/styles/1050px/public/2023-04/impulso-local-nota_0.jpg'			,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [94, 'Taller residuos chapinero', 'files/chapiResid.png'],
 [95, 'Taller baile chapinero', 'files/bailechapi.png'],
-[96, 'Informacion comercial fas fa-street-view', 'files/sin-divi-terr.png'],
+[96, 'Informacion pública fas fa-street-view', 'files/sin-divi-terr.png'],
 [97, 'Información comercial far fa-handshake', 'files/negocio.png'],
 [98, 'Información privada fas fa-key', 'files/privada.png'],
 [99, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
