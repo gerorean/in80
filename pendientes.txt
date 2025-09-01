@@ -1,5 +1,9 @@
 Pendientes: 
 
+
+falta terminar de cuadrar los anuncios comerciales en f0153(j,m)
+
+
 1- Crear la ruta 3 para Publicidad (anuncios comerciales) y cambiar "publicados en todo el territorio cambiar" por "anuncios públicos"
   es decir deben quedar tres tipos de anuncios (Id´s finales):
   0-1- Información Pública

@@ -2204,8 +2204,10 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 const ext = 15;//ext = 5; desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
 
 var 	wPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'ing', 'esp', 'fra', 'kor']]; // wPAPA0[0] array del lugar actual seleccionado
-const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'published throughout the territory', 'publicado en todo el territorio', 'publié sur tout le territoire', '영토 전체에 게시됨']];
-const	vPAID2 = [[2, 2, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'private information', 'información privada', 'informations privées', '개인 정보']];
+const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'public information', 'información pública', 'informations publiques', '공공 정보']];
+//const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'published throughout the territory', 'publicada en todo el territorio', 'publié sur tout le territoire', '영토 전체에 게시됨']];
+const 	vPAPAC = [[3, 2, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'commercial information', 'información comercial', 'informations commerciales', '상업 정보']];
+const	vPAID2 = [[2, 3, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'private information', 'información privada', 'informations privées', '개인 정보']];
 
 ////	const vPAPA0 = [
 ////		[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토']

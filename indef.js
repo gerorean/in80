@@ -5582,18 +5582,42 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 					var o = 0; // Orden de continuar con la siguiente ruta parcial..
 					var v = 0; // Contador de verificaciones
 					var f = 0; // 0 = Verificación completada sin exito de la ruta parcial 1=Fin de una verificación con exito
-					var x = 0; // En 1 si termina la verificacíon del caso con ids 1 o 2
+					var x = 0; // En 1 si termina la verificacíon del caso con ids 1 o 2 o 3
 					var p = 1; // Pin para continuar la siguiente verificación
 					var d = 0; // Pre verificación de un id 2 valido como ruta parcial hija
-					var u = 1; // Anuncio público (1) / privado (0)
+					
+					
+
+
+					//id3..
+					var u = 1; // Anuncio público o comercial (1) / privado (0) 
+					//var u = 1; // Anuncio público (1) / privado (0)
+
+
+
+
+
 					for(var i = 0; i<c; i++) // Ciclo principal, i indica el nivel que se esta analizando para confirmar si o no que la tabla parcial hija es correcta (inicia desde 0(continentes), si i = c termina el avance al siguiente nivel porque la verificación no paso
 					{	console.log('Ruta parcial i=',i,' sin verificar; Orden de continuar o=',o);
 						switch (i) // i: nivel del lugar a analizar (0) Continentes (1)"Paises" ..
 						{	case 0: // Continentes..
 								console.log(i,' ArRay[5]=',ArRay[5]);
-								if(((v + 1)==c)&&((ArRay[5]==1)||(ArRay[5]==2))) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1 o 2, es una ruta parcial invalida!, no hay que verificar más
-								{	console.log("Invalidación por ruta parcial 1 o 2");
-									x = 1; // "Validación ruta parcial cancelada porque no se ha escogido algún territorio, ni 1 ni 2 no corresponden a id's de lugares y 1 o 2 para ser validos siempre necesitan de un id de un lugar previo
+
+
+
+
+
+								//id3..
+								if(((v + 1)==c)&&((ArRay[5]==1)||(ArRay[5]==2)||(ArRay[5]==3))) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1 o 2, es una ruta parcial invalida!, no hay que verificar más	
+								//if(((v + 1)==c)&&((ArRay[5]==1)||(ArRay[5]==2))) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1 o 2, es una ruta parcial invalida!, no hay que verificar más
+								{	console.log("Invalidación por ruta parcial 1 o 2 o 3");
+									
+									
+									
+									
+									
+									
+									x = 1; // "Validación ruta parcial cancelada porque no se ha escogido algún territorio, ni 1 ni 2 ni 3 no corresponden a id's de lugares y 1 o 2 o 3 para ser validos siempre necesitan de un id de un lugar previo
 								}
 								if(!f&&!x) // Si no finaliza por ruta parcial 1 o 2..
 								{	for(var j = 1; j<(vPAPA1.length); j++)
@@ -5637,8 +5661,18 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								if(o == 1)
 								{	o = 0;
 									f = 0;
-									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[6]==1)
+
+
+
+
+									//id3..
+									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1 o 3, posiblemente es una ruta parcial valida!, hay que confirmar
+									{	
+										
+										
+										
+										
+										if(ArRay[6]==1)
 										{	console.log("Validación por ruta parcial id=1");
 											for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA2[k][2]==ArRay[5])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
@@ -5664,8 +5698,48 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 											i = c; // Termina todo, no hará más validaciones de rutas parciales
 											x = 1;
 										}
+
+
+
+
+
+										// Id3..   ¿se puede unir con Id1?.. if((ArRay[6]==1)||(ArRay[6]==3)) ???
+										if(ArRay[6]==3)
+										{	console.log("Validación por ruta parcial id=3");
+											for(var k = 1; k<(vPAPA2.length); k++) // No arranca desde 0 sino de 1 por el id 3 valido
+											{	if(vPAPA2[k][2]==ArRay[5])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
+												{	f = 1; // Validación total porque si tiene hermanos
+													console.log('id=3 Valido por tener hermanos f=',f);
+													if(!u) // Si es privado, o está en una ruta pública (no es público, u=0)
+													{ 	u = 1; // En este caso es comercial, este caso se omite porque para los avisos privados de todos los lugares están reservadas las rutas parciales con el id=2 y con el id=3 está reservada para mostrar los anuncios comerciales de todos los lugares aunque esten en rutas privadas
+													}
+													k = vPAPA2.length; // Termina la busqueda de hermanos
+												}
+											}
+											x = 1;
+										}
+
+
+
+
+
+										
 									}
-									if(!f&&!x) // Si no finaliza por ruta parcial 1 o 2..
+									
+									
+									
+									
+									
+									
+									//id3..
+									if(!f&&!x) // Si no finaliza por ruta parcial 1 o 2 o 3..
+
+
+
+
+
+
+
 									{	for(var j = 1; j<(vPAPA2.length); j++) // No arranca desde 0 sino de 1 por el id 1 valido
 										{	//console.log(i,' j=',j,'vPAPA2[j][0]=',vPAPA2[j][0]);
 											if(ArRay[6]==vPAPA2[j][0]) // El id hijo en la ruta parcial 1 si está
@@ -5713,8 +5787,15 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[7]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+
+
+										//id3..
+										if((ArRay[7]==1)||(ArRay[7]==3))
+										//if(ArRay[7]==1)
+										{	console.log("Validación por ruta parcial id=1 o id=3");
 											for(var k = 1; k<(vPAPA3.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA3[k][2]==ArRay[6])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -5788,8 +5869,14 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[8]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+										
+										//id3..
+										if((ArRay[8]==1)||(ArRay[8]==3))
+										//if(ArRay[8]==1)
+										{	console.log("Validación por ruta parcial id=1 o 3");
 											for(var k = 1; k<(vPAPA4.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA4[k][2]==ArRay[7])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -5863,8 +5950,14 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[9]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+										
+										//id3..
+										if((ArRay[9]==1)||(ArRay[9]==3))
+										//if(ArRay[9]==1)
+										{	console.log("Validación por ruta parcial id=1 o 3");
 											for(var k = 1; k<(vPAPA5.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA5[k][2]==ArRay[8])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -5938,8 +6031,14 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[10]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+										
+										//id3..
+										if((ArRay[10]==1)||(ArRay[10]==3))
+										//if(ArRay[10]==1)
+										{	console.log("Validación por ruta parcial id=1 o 3");
 											for(var k = 1; k<(vPAPA6.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA6[k][2]==ArRay[9])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -6013,8 +6112,14 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[11]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+										
+										//id3..
+										if((ArRay[11]==1)||(ArRay[11]==3))
+										//if(ArRay[11]==1)
+										{	console.log("Validación por ruta parcial id=1 o 3");
 											for(var k = 1; k<(vPAPA7.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA7[k][2]==ArRay[10])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -6088,8 +6193,13 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[12]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+										//id3..
+										if((ArRay[12]==1)||(ArRay[12]==3))
+										//if(ArRay[12]==1)
+										{	console.log("Validación por ruta parcial id=1 o 3");
 											for(var k = 1; k<(vPAPA8.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA8[k][2]==ArRay[11])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -6163,8 +6273,15 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[13]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+										
+										
+										//id3..
+										if((ArRay[13]==1)||(ArRay[13]==3))
+										//if(ArRay[13]==1)
+										{	console.log("Validación por ruta parcial id=1 o 3");
 											for(var k = 1; k<(vPAPA9.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA9[k][2]==ArRay[12])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -6238,8 +6355,15 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 								{	o = 0;
 									f = 0;
 									if((v + 1)==c) // Si sólo falta una verificación, es la última ruta parcial y la ruta parcial es 1, posiblemente es una ruta parcial valida!, hay que confirmar
-									{	if(ArRay[14]==1)
-										{	console.log("Validación por ruta parcial id=1");
+									{	
+										
+										
+										
+										
+										//id3..
+										if((ArRay[14]==1)||(ArRay[14]==3))
+										//if(ArRay[14]==1)
+										{	console.log("Validación por ruta parcial id=1 o 3");
 											for(var k = 1; k<(vPAPA10.length); k++) // No arranca desde 0 sino de 1 por el id 1 valido
 											{	if(vPAPA10[k][2]==ArRay[13])// Si para hacer la tabla parcial, existe al menos un elemento cuyo padre es la ruta parcial anterior
 												{	f = 1; // Validación total porque si tiene hermanos
@@ -6325,8 +6449,19 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 					console.log(' v=',v);
 					if((o)&&(v==c)) // Si es ok y la cantidad de verificaciónes es la que se esperaba ...
 					{	a = 1; // Verificación completa de la ruta exitosa
-						if(u) // ruta pública
-						{	console.log('############## Ruta pública del hash verificada, es valida!');
+						
+						
+						
+						
+						
+						if(u) // ruta pública o comercial
+						{	console.log('############## Ruta pública o comercial del hash verificada, es valida!');
+
+
+
+
+							
+
 							pUb = 1;
 						}
 						else // ruta privada
@@ -6393,8 +6528,15 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 				var s = ArRay.length - 1; // número de la tabla final
 				console.log('s=',s);
 				// VERIFICAR que la última ruta parcial no sea ni 1 ni 2, si es asi se debe escoger la ruta parcial anterior
-				if((ArRay[s] === 1)||(ArRay[s] === 2))
-				{	console.log('¡¡¡¡última ruta es igual a 1 o 2!!!!');
+				
+				
+
+
+
+				
+				//id3..
+				if((ArRay[s] === 1)||(ArRay[s] === 2)||(ArRay[s] === 3))
+				{	console.log('¡¡¡¡última ruta es igual a 1 o 2 o 3!!!!');
 					s--;
 				}
 				console.log('s=',s);
@@ -8324,7 +8466,19 @@ function
 f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 m se usa solo para cargar la ruta madre, la cúal no tiene libertad para escoger un hijo (tanto sugerido como no sugerido) dentro de su lista, lo debe tomar directamente de la ruta
 			// Si m(1) Como la siguiente ruta parcial no es 0 (papas[j+5]>0) GENERAR la tabla parcial siguiente wPAPAx{2-10} a partir de la tabla parcial actual wPAPA<1-9> y de la ruta parcial actual papas[j+4] ... (x = n + 2) wPAPA2,wPAPA3...wPAPA10, la tabla wPAPA1 la creo f0107 antes y es fija 
 			{	lOL(153);
-				var d = 0;													// (1) DOBLE botón: público(id=1) + privado(id=2) / (0) solo el Botón de público(id=1)   (d = 1;// Incluye el segundo botón de privado con id=2)
+				
+				
+
+
+
+				//id3..
+				var d = 0;													// (1) TRIPLE botón: público(id=1) + comercial(id=3) + privado(id=2)    / (0) DOBLE Botón de público(id=1) y comercial(id=3)   (d = 1;// Incluye el tercer botón de privado con id=2)
+				//var d = 0;													// (1) DOBLE botón: público(id=1) + privado(id=2) / (0) solo el Botón de público(id=1)   (d = 1;// Incluye el segundo botón de privado con id=2)
+				
+
+
+				
+				
 				var s = 0;													// Sugerencia id ruta parcial hija
 				var n;   													// Variable para hacer recorridos en vPAPA#				
 				var t = 0;													//Orden de producir la siguiente ruta parcial(1)			
@@ -8333,14 +8487,28 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 				switch(j)
 				{	case 1:													// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA2 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
-						wPAPA2[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA2[1] = [];									// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
+						wPAPA2[2] = [];									// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
 						for (var z = 0; z < vPAPA0[0].length; z++)			// RECORRE vPAPA0[0] que tiene un valor constante por defecto
 						{	wPAPA2[1][z] = vPAPA0[0][z];					// ASIGNA a la primer fila el valor de vPAPA0[0]
+						
+						
+						
+						
+							wPAPA2[2][z] = vPAPAC[0][z];					// ASIGNA a la primer fila el valor de vPAPAC[0]
+						
+						
+						
+						
 						}
 						for (var a = 1; a < wPAPA1.length; a++)  			// Recorre toda la lista parcial {wPAPA<#>}
 						{ 	if(wPAPA1[a][0] == papas[j+4])					// Recorre el id de cada uno de hijos {wPAPA<#>[*][0]} y detecta aquel que sea igual al id de la ruta parcial {papas[j+4]}
 							{ 	t = 1;										// Orden de producir la tabla parcial wPAPA<#+1>
-								d = 0; 										// Tabla parcial "Pública"
+								
+								
+								
+								
+								d = 0; 										// Tabla parcial "Pública" o "Comercial"
 								if(!wPAPA1[a][17]) 							// Alerta: Tiene hijos ocultos
 								{	console.log('%%% Hijos OCULTOS %%%');
 									d = 1; 									// Tabla parcial Privada!
@@ -8365,21 +8533,64 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 								if(t)										// Producir la tabla parcial wPAPA<#+1>
 								{	for (var b = 3+ext; b < wPAPA1[a].length; b++)	// Recorre desde los strings (3+ext) de la lista parcial del nivel superior
 									{	wPAPA2[1][b] = wPAPA1[a][b]+': '+vPAPA0[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+										
+										
+										
+										
+										
+										//id3..
+										wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAPAC[0][b]; // Cambia todos los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': publicado en todo el territorio'
+									
+									
+									
+									
+									
+									
+									
 									}
 									if(d)									// Tabla parcial Privada..
-									{	wPAPA2[2] = [];
+									{	
+										
+										
+										
+										
+										//id3..
+										wPAPA2[3] = [];
+
+
+
+
+
+
 										for (var z = 0; z < vPAID2[0].length; z++)	// RECORRE vPAID2[0] que tiene un valor Privado por defecto
-										{	wPAPA2[2][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
+										{	
+											
+											
+											
+											wPAPA2[3][z] = vPAID2[0][z];	// ASIGNA a la primer fila el valor vPAID2[0]
 										}
 										for (var b = 3+ext; b < wPAPA1[a].length; b++) // Recorre desde los strings (3+ext) de la lista parcial del nivel superior
-										{	wPAPA2[2][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
+										{	
+											
+											
+											
+											
+											wPAPA2[3][b] = wPAPA1[a][b]+': '+vPAID2[0][b]; // Cambia los strings de la fila 1 de wPAPA<#+1> por los mismos strings de la lista parcial del nivel superior wPAPA<#> y le adiciona el texto de ': información privada'
 										}
 									}
-									if(d) 									// inicia desde id=3
-									{	ff = 3;								// ID de la siguiente fila
+									if(d) 									// inicia desde id=4
+									
+									
+									
+									{	ff = 4;								// ID de la siguiente fila
 									}
-									else 									// inicia desde id=2
-									{	ff = 2;								// ID de la siguiente fila
+									else 									// inicia desde id=3
+									
+									
+									
+									
+									
+									{	ff = 3;								// ID de la siguiente fila
 									}		
 									for (n = 1; n < vPAPA2.length; n++)				    // Recorre el array de todos los lugares de vPAPA<#>  // mira si coincide con la sugerencia y es un hijo 
 									{ 	if(vPAPA2[n][2] == papas[j+4])					// Si ese lugar es un hijo de la ruta parcial anterior (papas[j+4])
@@ -8406,6 +8617,26 @@ f0153(j,m)// BORRAR y ACTUALIZAR wPAPA# {# = j + 1} ... wPAPA2,wPAPA3...wPAPA10 
 							} 
 						}
 					break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
 					case 2:													// HUBO movimiento en un hijo del nivel anterior wPAPA<#->, o ES la ruta madre que se va a cargar por primer vez, la ruta parcial wPAPA<#> cambia o se crea por primer vez											
 						wPAPA3 = [];										// BORRA la tabla parcial hija wPAPA<#+1> {j + 2}		
 						wPAPA3[1] = [];										// CREA la primer fila de la tabla parcial hija wPAPA<#+1>[1] {j + 2} exclusiva para la ruta parcial del padre pero con id[0]=1
@@ -9039,7 +9270,16 @@ f0157(u,i,p,v,f,d,c,z) // VERIFICAR el corte de rutas parciales hijas en rutas p
 				if(!aPrO) // Pin a: Si pin a NO es correcto (aPrO=0)
 				{	if((v + 1)==c) // Si sólo falta una verificación
 					{	f = 1; // Pre validación de la ruta parcial
-						u = 1; // Ruta pública
+
+
+
+
+						//id3..
+						u = 1; // Ruta pública o comercial
+
+
+
+
 						console.log('Valido porque corto a las rutas parciales hijas f=',f);
 					}
 					else
