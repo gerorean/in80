@@ -7355,7 +7355,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
 											{	// Para la presentación AV asigna a la fila 0 de wPAPA0[0] una copia de toda la fila actual del lugar hijo o de toda la fila del padre
-												if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+												if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	 // Se requiere del string del padre para la presentación AV..
 													for (var aa = 1; aa < wPAPA1.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA1[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
@@ -7366,7 +7366,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA2[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7394,7 +7394,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA2.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA2[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7404,7 +7404,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA3[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7431,7 +7431,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA3.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA3[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7441,7 +7441,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA4[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7468,7 +7468,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA4.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA4[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7478,7 +7478,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA5[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7505,7 +7505,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA5.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA5[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7515,7 +7515,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA6[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7542,7 +7542,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA6.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA6[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7552,7 +7552,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA7[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7579,7 +7579,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA7.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA7[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7589,7 +7589,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA8[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7616,7 +7616,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA8.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA8[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7626,7 +7626,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA9[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}
@@ -7653,7 +7653,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 										} 
 										if(papas[i+6]==0) // Si la siguiente ruta parcial es 0..  7 11 [0] 0 0 0
 										{	if(k==1) // Si k es 1..  Procedimiento que solo se hace 1 vez..
-											{	if((papas[i+5]==1)||(papas[i+5]==2)) // Si la ruta parcial actual es igual a id=1 o a 2..  7 [1-2] 0 0 0 0   
+											{	if((papas[i+5]==1)||(papas[i+5]==2)||(papas[i+5]==3)) // Si la ruta parcial actual es igual a id=1 o a 2 o a 3..  7 [1-2-3] 0 0 0 0   
 												{	for (var aa = 1; aa < wPAPA9.length; aa++) // Recorre la tabla parcial del padre wPAPA<#-1>
 													{ 	if((wPAPA9[aa][0] == papas[i+4])) // Encuentra el lugar del padre en la fila aa..  7
 														{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]  
@@ -7663,7 +7663,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 														}
 													}
 												}
-												else // Si la ruta parcial actual no es igual a id=1 ni 2..   7 [11] 0 0 0 0
+												else // Si la ruta parcial actual no es igual a id=1 ni 2 ni 3..   7 [11] 0 0 0 0
 												{	for(var bb = 0; bb < wPAPA0[0].length; bb++) // Recorre la fila 0 de wPAPA0[0]
 													{	wPAPA0[0][bb]=wPAPA10[j][bb]; // La fila 0 de wPAPA0[0] toma los valores y strings de la fila del lugar encontrado que corresponde con el id de la ruta parcial
 													}

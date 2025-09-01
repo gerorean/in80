@@ -2206,8 +2206,8 @@ const ext = 15;//ext = 5; desde la columna 3 wPapax[x][3,4,5- ene extras] casill
 var 	wPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'ing', 'esp', 'fra', 'kor']]; // wPAPA0[0] array del lugar actual seleccionado
 const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'public information', 'información pública', 'informations publiques', '공공 정보']];
 //const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'published throughout the territory', 'publicada en todo el territorio', 'publié sur tout le territoire', '영토 전체에 게시됨']];
-const 	vPAPAC = [[3, 2, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'commercial information', 'información comercial', 'informations commerciales', '상업 정보']];
-const	vPAID2 = [[2, 3, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'private information', 'información privada', 'informations privées', '개인 정보']];
+const 	vPAPAC = [[3, 2, 0, 10, 5, 5, 97, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'commercial information', 'información comercial', 'informations commerciales', '상업 정보']];
+const	vPAID2 = [[2, 3, 0, 10, 5, 5, 98, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'private information', 'información privada', 'informations privées', '개인 정보']];
 
 ////	const vPAPA0 = [
 ////		[1, 1, 0, 10, 5, 5, 96, 5, 'entire territory', 'todo el territorio', 'territoire entier', '전체 영토']
@@ -5272,9 +5272,9 @@ const kTapa0 =/**/[['idImagen', 'Nombre', 'LISTA imagenes', 'fuente /marca o aut
 [93, 'Impulso Local', 'files/wifi11.jpg'],//,'https://lh3.googleusercontent.com/d/1igOvmaALBD2c261HGQe5MEK6ZlkHBcNo'	,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],//'https://bogota.gov.co/sites/default/files/styles/1050px/public/2023-04/impulso-local-nota_0.jpg'			,'pixabay.com' 		,'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [94, 'Taller residuos chapinero', 'files/chapiResid.png'],
 [95, 'Taller baile chapinero', 'files/bailechapi.png'],
-[96, 'Todo el territotio fas fa-street-view', 'files/sin-divi-terr.png'],
-[97, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
-[98, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
+[96, 'Informacion comercial fas fa-street-view', 'files/sin-divi-terr.png'],
+[97, 'Información comercial far fa-handshake', 'files/negocio.png'],
+[98, 'Información privada fas fa-key', 'files/privada.png'],
 [99, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [100, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
 [101, 'Africa', 'https://lh3.googleusercontent.com/d/HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', 'pixabay.com', 'https://pixabay.com/es/photos/agente-negocio-llamada-centrar-18762/'],
