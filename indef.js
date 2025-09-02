@@ -822,10 +822,16 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				if(cOm)
 				{	a=mIkTapaI[32][id];
 					b=mIkTapaI[32][1];
+					for(v1 = 1; v1 < 5; v1++)
+					{	mIr004A[10][v1]=rcOm[1][v1];
+					}
 				}
 				else
 				{	a=mIkTapaI[25][id];
-					b=mIkTapaI[25][1];	
+					b=mIkTapaI[25][1];
+					for(v1 = 1; v1 < 5; v1++)
+					{	mIr004A[10][v1]=rcOm[0][v1];
+					}
 				}
 				mIr003A[1][id][0] = a + wPAPA0[0][2 + ext + id];
 				mIr003A[1][1][0] = b + wPAPA0[0][3 + ext];
@@ -3309,6 +3315,7 @@ function f0046()//L CARGAR las variables s00EXIT con los STRINGS HTML INTERNACIO
 
 function f0047(reg)//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta secundaria o principal anterior
 		{	lOG(47);
+			console.error('%%%%%%%%% 1 gRuta=',gRuta);
 			f0148(99);//DESACTIVAR la interfaz de Salida M					
 			if(reg)
 			{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
@@ -3323,14 +3330,45 @@ function f0047(reg)//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta sec
 						f0048();
 					}
 					else//tiene padre
-					{	console.log('47cambia a la ruta padre');
+					{	
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						console.log('47 NO ES PPAL y cambia a la ruta padre');
 						gFoco = 1;
+						if(gRuta == 2)
+						{	console.log('R2 -> 4 Aquí hay que hacer el arreglo!!!');
+						}
 						gRuta = g02RUTA[gRuta][8];
+						//////////////if(gRuta == 4)
+						//////////////{	console.log('R4 Aquí hay que hacer el arreglo?????');
+						//////////////}
 					}
 				}
 				else//es principal
 				{	if(g02RUTA[gRuta][8])//tiene padre
-					{	console.log('47cambia a la ruta padre');
+					{	console.log('47 ES PPAL y cambia a la ruta padre');
 						gFoco = 1;
 						gRuta = g02RUTA[gRuta][8];
 					}
@@ -3340,6 +3378,7 @@ function f0047(reg)//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta sec
 				}
 				f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 			}
+			console.error('%%%%%%%%% 2 gRuta=',gRuta);
 		}
 
 function f0048()//RETORNAR a la ruta principal

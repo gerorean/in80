@@ -1747,7 +1747,7 @@ const mIkTapaI =/**/[['Casillas', 1, 2, 3, 4],
 [22, 'Reading ', 'Lectura ', 'Lecture ', '독서 '],
 [23, 'In the picture: ', 'En la imagen: ', 'Dans l\'image: ', '사진 속에: '],
 [24, 'welcome to ', 'Bienvenidos a ', 'Bienvenue à', '에 오신 것을 환영합니다 '],
-[25, 'Information: ', 'Información: ', 'Information: ', '정보: '],
+[25, 'Public information: ', 'Información pública: ', 'Information publique: ', '공공 정보: '],
 [26, 'Offers: to find out about local offers', 'Ofertas: para conocer las ofertas locales', 'Offres : pour connaître les offres locales', '제안: 지역 제안에 대해 알아보기'],
 [27, 'Place', 'Lugar', 'Lieu', '장소'],
 [28, 'announcements, place ', 'anuncios, lugar ', 'annonces, lieu ', '광고, 장소 '],
@@ -1768,7 +1768,7 @@ const kTapaI =[[0, 'h', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 
 
 //RUTA 4 MENÚ PRINCIPAL
 //INFORMAR MENÚ
-const mIr004A =/**/[['Casillas', 1, 2, 3, 4],
+var mIr004A =/**/[['Casillas', 1, 2, 3, 4],
 [1, '','','',''],
 [2, 'settings: to adjust the mode','ajustes: para ajustar el modo','réglages: pour ajuster le mode','설정: 모드 조정'],
 [3, 'maximized window, change','ventana maximizada, cambiar','fenêtre maximisée, changer','korean'],
@@ -1791,6 +1791,11 @@ const mIr004A =/**/[['Casillas', 1, 2, 3, 4],
 [20,'i bogota QR code','código QR de i bogota','i bogota QR code','i 스캔할 보고타 QR'],
 [21,'frequently asked questions: to find answers','preguntas frecuentes: para encontrar respuestas','Questions fréquemment posées: pour trouver des réponses','자주 묻는 질문: 답변 찾기'],
 [22,'action, restart to exit and reload the application','acción, reiniciar para salir y volver a cargar la aplicación','action, redémarrer pour quitter et recharger l\'application','작업, 다시 시작 응용 프로그램을 종료하고 다시 로드합니다.']
+];
+
+const rcOm = [
+[0,'Public information: to learn about local activities, services and opportunities','Información pública: Para conocer las actividades, servicios y oportunidades locales','Information publique : pour connaître les activités, les services et les opportunités locales','공공 정보: 지역 활동, 서비스 및 기회에 대해 알아보세요'],
+[1,'Commercial information: to learn about products, prices, and business opportunities','Información comercial: para conocer productos, precios y oportunidades de negocio','Informations commerciales : pour connaître les produits, les prix et les opportunités commerciales','상업 정보: 제품, 가격, 사업 기회에 대해 알아보세요'],
 ];
 /*
 const r004A =[['Casillas', 1,    2,                          3,                          4,              5,                                        6,                              7,                                      8,      9,                                                                 10,                                      11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
