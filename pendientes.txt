@@ -1,6 +1,9 @@
 Pendientes: 
 
 
+Crear un boton adicional en menu para información comercial y que permita cambiar al id=3 cuando sea posible???
+o quitar el boton de Información de Menú???????
+
 Arreglar la ruta padre de Información en mIr004A[10] debe cambiar a Informacion comercial si cOm esta en 1
 Arreglar el cabezote de los anuncios comerciales/privados "Información: Bogotá, cambiar" por "Información comercial/privada: Bogotá, cambiar"
 

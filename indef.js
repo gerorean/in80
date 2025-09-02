@@ -3358,12 +3358,13 @@ function f0047(reg)//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta sec
 						console.log('47 NO ES PPAL y cambia a la ruta padre');
 						gFoco = 1;
 						if(gRuta == 2)
-						{	console.log('R2 -> 4 Aquí hay que hacer el arreglo!!!');
+						{	console.log('R2 -> 4 Aquí hay que hacer el arreglo???');
+
+							//f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
+				
+							//f0015();//Clic sobre el boton 7 [] menu
 						}
 						gRuta = g02RUTA[gRuta][8];
-						//////////////if(gRuta == 4)
-						//////////////{	console.log('R4 Aquí hay que hacer el arreglo?????');
-						//////////////}
 					}
 				}
 				else//es principal
