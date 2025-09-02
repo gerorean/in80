@@ -822,6 +822,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				if(cOm)
 				{	a=mIkTapaI[32][id];
 					b=mIkTapaI[32][1];
+					iTiP0.classList.add('cX');//DESACTIVAR el icono público
+					iTiP1.classList.remove('cX');//ACTIVAR el icono comercial
 					for(v1 = 1; v1 < 5; v1++)
 					{	mIr004A[10][v1]=rcOm[1][v1];
 					}
@@ -829,6 +831,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				else
 				{	a=mIkTapaI[25][id];
 					b=mIkTapaI[25][1];
+					iTiP1.classList.add('cX');//DESACTIVAR el icono comercial
+					iTiP0.classList.remove('cX');//ACTIVAR el icono público
 					for(v1 = 1; v1 < 5; v1++)
 					{	mIr004A[10][v1]=rcOm[0][v1];
 					}
@@ -3847,10 +3851,9 @@ function f0076(scr)//PASAR de la capa TAPA a la capa RUTA porque estando en Tapa
 		 	//	if(g00VARS[26][2])//si la tapa esta ON, esta en una tapa - implicito en ambi????
 			{	//f0090();//REINICIAR animación
 				f0111(1);//CANCELAR salida de audio y vibraciones	
-				f0050();
+				f0050();//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y BORRAR guíon del interprete
 				f0017(scr);//Volver a la RUTA (scr)poner foco en la RUTA
 			}
-
 		}
 
 /*

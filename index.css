@@ -111,12 +111,12 @@
 ,.cChico
 ,.c--Ent
 ,.cFlex
+,.cIcn
 ,.c--Menu
 ,.c--Info
 ,.c--Trin
 ,.cTOB
 ,.cZIn
-,#i--I
 ,#iMenu
 ,#iSoni
 ,.keY{			align-items:center}
@@ -409,13 +409,13 @@
 ,.cFleB
 ,.cFleT
 ,.cFlex
+,.cIcn
 ,.c--Menu
 ,.c--Reloj
 ,.cTOB
 ,.c--Trin
 ,.cZIn
 ,.i--nner
-,#i--I
 ,#iMenu
 ,#iSoni
 ,.keY{			display:flex}
@@ -484,10 +484,8 @@
 
  .cFanta{		font-size:min(50vh,50vw)}/*calc(var(--chico)*0.7)*/
 
-  
- #i--I{			font-size:min(calc(0.7*(max(var(--z),5vh))),6vw)}/*,min(calc((max(var(--z),5vh))),8vw)}*/
-
- #iMenu
+ .cIcn
+,#iMenu
 ,#iSoni
 ,#iHora{		font-size:min(calc((max(var(--z),5vh))*0.5),5vw)}/*calc((max(var(--z),5vh))*0.4)}/*min(calc((max(var(--z),5vh))*0.5),7vw)}*/
 
@@ -638,6 +636,7 @@
 ,.cFleB
 ,.cFleT
 ,.cFlex
+,.cIcn
 ,.c--Menu
 ,.cObj
 ,.cTOB
@@ -646,8 +645,7 @@
 ,#iSoni
 ,.keY{			justify-content:center}
 
- #i--I
-,#iMenu{		justify-content:flex-end}
+ #iMenu{		justify-content:flex-end}
 
  .cBota
 ,.cLen
@@ -961,9 +959,6 @@
 ,td
 ,th{			text-align:left}
 
-
- #i--I{			text-align:right!important}
-
  .c--Infi
 ,.cInfo
 ,.yProsaL
@@ -1054,25 +1049,26 @@
 ,.c--Reloj
 ,#i--Hora{		width:10vw}
 
-#i--I
-,#iMenu
-,#iSoni{		width:11vw}
-
  .cBof{			width:12.5%}
 
  .cGre{			width:12.66%}/*calc(16.6666666% - 2px)}/*16.66 - 4 18%}/*23%*/
 
+ .cIcn{		    width:14vw}
+
  .cBloK{		width:14.6666666%}/*18%}/*23%*/
 
  #iGol{			width:17vh}
+ 
+ #iMenu
+,#iSoni{		width:18vw}/*11*/
 
- #iHora{		width:22vw}
+ #iHora{		width:22vw}/*22*/
 
  .cHori
 ,.cLR
 ,.cVert{		width:33.3333333%}
 
- #iLeft{		width:64vw}
+ #iLeft{		width:94vw}/*64vw*/
 
  .c1570{		width:70%}
 
