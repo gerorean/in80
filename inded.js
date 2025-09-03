@@ -2478,7 +2478,7 @@ var nmarqi = 0;//Número de veces que ha pasado la marquesina internacional
 var nruta;//quita el # ajusta el string ruta y se vuelve array '7/11/8/9/8'
 var nUm;//Variable del estado de la luz
 var orig = ['', ''];//String original del ingles[0] ASL[1]
-var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''];
+var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''];
 //var papas = ['A','B','C','D','E',7, 1, 8, 9, 1, 0, 0, 0, 0, 0, ''];//[7, 11, 8, 9, 8, 0, 0, 0, 0, 0, ''](ruta errada es 7,11,8,9,8,0,0,0... )7,1,8,9,1,0,0,0,0,0,''//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
 //var papas = ['A1010.34hazca','B18.4' ,'C.e2566.f56732','D79643151.hola','E3h2c5n7l88',7, 11, 8, 9, 1, 0, 0, 0, 0, 0, ''];
 //var 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
