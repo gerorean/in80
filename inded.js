@@ -2213,7 +2213,10 @@ const ext = 15;//ext = 5; desde la columna 3 wPapax[x][3,4,5- ene extras] casill
 
 var 	wPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'ing', 'esp', 'fra', 'kor']]; // wPAPA0[0] array del lugar actual seleccionado
 const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'published throughout the territory', 'publicada en todo el territorio', 'publié sur tout le territoire', '영토 전체에 게시됨']];
-//const 	vPAPA0 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'public information', 'información pública', 'informations publiques', '공공 정보']];
+
+
+//revisar..
+const 	vPAID1 = [[1, 1, 0, 10, 5, 5, 96, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'public information', 'información pública', 'informations publiques', '공공 정보']];
 const 	vPAPAC = [[3, 2, 0, 10, 5, 5, 97, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'commercial information', 'información comercial', 'informations commerciales', '상업 정보']];
 const	vPAID2 = [[2, 3, 0, 10, 5, 5, 98, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'private information', 'información privada', 'informations privées', '개인 정보']];
 
@@ -2247,7 +2250,7 @@ const	vPAID2 = [[2, 3, 0, 10, 5, 5, 98, 5, 8, 9, 0, 1, 2, 3, 4, 5, 6, 1, 'privat
 //2		Id - padre 
 //3		Id - color marco
 //4		Id - logo para la presentación AV de los titulares
-//5		Id - Tipo-imagen para mostrar el lugar en el boton del lugar o del cabezote (5 foto?? 4icono?? 3texto?? Revizar!!!!!!
+//5		Id - Tipo-imagen para mostrar el lugar en el boton del lugar o del cabezote (5 foto?? 4icono?? 3texto?? Revisar !!!!!!
 //6		Id - Mapa/Foto boton lugar imagen para mostrar el lugar en el boton del lugar o del cabezote
 //7		Id - QR code lugar
 
@@ -6213,7 +6216,7 @@ function		//AL SUBIR EL MOUSE..
 
 //ooojooo con esta función al parecer es especial porque 
 //las otras funciones eTb3, eTb4, etc la llaman!
-//revizar la parte del pw
+//revisar  la parte del pw
 function		//AL TOCAR EL TOUCH EN CUALQUIE PARTE..   --l4539
 	eTb0(ev) {
 	console.log('_____@- eTb0()');
@@ -6386,7 +6389,7 @@ function
 
 //ooojooo con esta función al parecer es especial porque 
 //las otras funciones eTs3, eTs4, etc la llaman!
-//revizar la parte del pw
+//revisar  la parte del pw
 function		//AL SOLTAR EL TOUCH EN CUALQUIER PARTE..     --l4676
 	eTs0() {
 	console.log('_____@- eTs0()');
