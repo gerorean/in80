@@ -729,6 +729,8 @@
 
  .cAsk{			margin-bottom:calc(var(--chico) * -0.3)}
 
+  .cIi{			margin-left:1vw}
+
  .cTexM{		margin-left:5vw}
 
  .cCR{			margin-left:calc(var(--chico) * -0.2)}
@@ -1053,22 +1055,22 @@
 
  .cGre{			width:12.66%}/*calc(16.6666666% - 2px)}/*16.66 - 4 18%}/*23%*/
 
- .cIcn{		    width:20vw}/*14 -- 17/20*/
+ .cIcn{		    width:10vw}/*14 -- 17/20/10*/
 
  .cBloK{		width:14.6666666%}/*18%}/*23%*/
 
- #iGol{			width:17vh}
+ #iGol{			width:15vh}
  
  #iMenu
-,#iSoni{		width:25vw}/*11 - 18 -- 21/25*/
+,#iSoni{		width:15vw}/*11 - 18 -- 21/25/17*/
 
- #iHora{		width:30vw}/*22 -- 25/30*/
+ #iHora{		width:20vw}/*22 -- 25/30/20*/
+
+ #iLeft{		width:30vw}/*64vw/30*/
 
  .cHori
 ,.cLR
 ,.cVert{		width:33.3333333%}
-
- #iLeft{		width:94vw}/*64vw*/
 
  .c1570{		width:70%}
 
