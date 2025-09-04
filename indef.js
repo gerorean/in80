@@ -7391,7 +7391,7 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 		{	lOG(125);
 			console.error(' SSSSSSSSSSSSSSSSSSS T R I N G S DE LUGARES!!!!!!!!!!!!!!!!!!_ f0125(ini=',ini,')  papas=',papas);
 			// cOm = 0; // ruta parcial pública o privada
-			mIr003A = mIres3A; // RESET CONTENIDOS DE mIr003A... mIres3A:GUION BUSCANDO ANUNCIOS.. tiene el texto por defecto del botón 1 que sale en pantalla apenas se va el satelite girando de la busqueda de anuncios, y se detiene porque no encintro ningun anuncio.. en este sitio encontrará bla, bla, bla...
+			mIr003A = mIres3A; // RESET CONTENIDOS DE mIr003A... mIres3A:GUION BUSCANDO ANUNCIOS.. tiene el texto por defecto del botón 1 que sale en pantalla apenas se va el satelite girando de la busqueda de anuncios, y se detiene porque no encontro ningun anuncio.. en este sitio encontrará bla, bla, bla...
 			// console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS,[86][2]);			
 			for (var i = ini; i <= 9; i++) // Recorrer cada uno de los botones (10) e ir asignado el string que corresponda en cada caso
 			{	console.log(' - >>f0125   paso i=',i,'; papas[i+6]=',papas[i+6]);
@@ -8113,6 +8113,18 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 								    break;
 								}
 							};
+
+							//Traer mIres3A[2] para mIc003A..
+							for (var a = 1; a < mIc003A[2].length; a++) // Recorre la tabla parcial del padre wPAPA<#-1>
+							{	mIc003A[2][a]=mIres3A[2][a];
+								//mIc003Z[2][a]=mIres3Z[2][a];
+							}
+							/*
+							for (var a = 1; a < mIc003B[2].length; a++) // Recorre la tabla parcial del padre wPAPA<#-1>
+							{	mIc003B[2][a]=mIres3B[2][a];
+							}
+							*/
+
 							switch (nruta)
 							{	case '/7/11/8/11':
 									iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
@@ -9281,7 +9293,11 @@ f0158(a) // GENERAR distintos tipos de strings dependiendo del estado de los anu
 				//console.error('*****#####*****##### - >>f0158(a=',a,'); g00VARS[86][2]=',g00VARS[86][2],'; estado buscando anuncios');
 				//switch(g00VARS[86][2]) // g00VARS[86]    Estado de los anuncios 
 				//{	case 2: 
-						mIr003A[2][a][0] =mIkTapaI[31][a]; // 'Looking for information...'
+
+
+					    //...  2->3
+						mIr003A[3][a][0] =mIkTapaI[31][a]; // 'Looking for information...'
+						//mIr003A[2][a][0] =mIkTapaI[31][a]; // 'Looking for information...'
 						mIr003Z = mIres3Z;
 						mIr003B = mIres3B;
 				//	break;
@@ -9303,8 +9319,14 @@ f0159() // GENERAR distintos tipos de strings dependiendo del estado de los anun
 							mIr003B = mIc003B;
 						break;
 						case 1:
-							mIr003A[2][k][0] =mIkTapaI[30][k]; // 'Here, there are no notes to publish'
+							
+
+							//... 2->
+							mIr003A[3][k][0] =mIkTapaI[30][k]; // 'Here, there are no notes to publish'
+							//mIr003A[2][k][0] =mIkTapaI[30][k]; // 'Here, there are no notes to publish'
 							mIr003Z = mIo003Z;
+
+							//Este elemento es clave!!..
 							mIr003B = mIo003B;
 						break;
 						/** * /
@@ -9314,7 +9336,25 @@ f0159() // GENERAR distintos tipos de strings dependiendo del estado de los anun
 							mIr003B = mIres3B;
 						break;
 						/** */
+
+
+
+
+
+
+
+
+
+
 					}
+				}
+
+				for (var a = 1; a < mIr003Z[2].length; a++) // Recorre la tabla parcial del padre wPAPA<#-1>
+				{	mIr003Z[2][a]=mIres3Z[2][a];
+				}
+
+				for (var a = 1; a < mIr003B[2].length; a++) // Recorre la tabla parcial del padre wPAPA<#-1>
+				{	mIr003B[2][a]=mIres3B[2][a];
 				}
 				//console.error('#################### strings hay/ no hay #### FIN  ->>f0159() ');
 				//mIr003B[1][2][0] = 53;//??????
