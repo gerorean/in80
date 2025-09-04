@@ -1444,7 +1444,8 @@ const mIres3A =/**/[['Casillas', 1, 2, 3, 4],//la D es de default cuando no hay 
 
 
 //... OJO!! Llevar esta linea a r003A!..   'public information', 'información pública', 'informations publiques', '공공 정보'
-[2, ['Section: public information'],['Sección: información pública'],['Section :informations publiques'],['섹션: 공공 정보']],
+[2, ['Section: community information'],['Sección: información comunitaria'],['Section :informations communautaires'],['섹션: 커뮤니티 정보']],
+//[2, ['Section: public information'],['Sección: información pública'],['Section :informations publiques'],['섹션: 공공 정보']],
 
 //[2, ['8inga','ingb','ingc'],['8espa','espb','espc'],['8fraa','frab','frac'],['8cora','corb','corc']],
 ['Others',['Vacio'],['Vacio'],['Vacio'],['Vacio']]
@@ -1461,8 +1462,8 @@ const mIres3B =/**/[['Recursos/Casillas', '1 0:Imag,1:Icon,2:Texto,3ImagenA,4Vid
 
 
 //... SWITCH PARA OCULTAR EL SEGUNDO BOTON de sección!!! {[4]=0}
-['2' 		,[1],[54],0,0,[0],[0],[0],[0],[0],[0]],
-//['2' 		,[1],[54],0,1,[0],[0],[0],[0],[0],[0]],
+['2' 		,[1],[54],0,1  ,[0],[0],[0],[0],[0],[0]],
+//['2' 		,[1],[54],0,0-1,[0],[0],[0],[0],[0],[0]],
 
 
 
@@ -1870,8 +1871,19 @@ const mIkTapaI =/**/[['Casillas', 1, 2, 3, 4],
 [29, ': To know the local announcements', ': Para conocer los anuncios locales', ': Pour connaître les annonces locales', ': 지역 공지 사항에 대해 알고 싶습니다.'],
 [30, 'Here, there are no notes to publish', 'Aquí, no hay notas para publicar', "Ici, il n'y a aucune note à poster", '여기에는 게시할 메모가 없습니다.'],
 [31, 'Looking for information...', 'Buscando información...', "À la recherche d'informations...", '정보를 찾는 중...'],
-[32, 'Commercial information: ', 'Información comercial: ', 'Informations commerciales: ', '상업 정보: ']
+[32, 'commercial information', 'información comercial', 'informations commerciales', '상업 정보'],
+[33, 'Section: ', 'Sección: ', 'Section :', '섹션: '],
+[34, 'community information', 'información comunitaria', 'informations communautaires', '커뮤니티 정보'],
+[35, '', '', '', ''],
+[36, '', '', '', ''],
+[37, '', '', '', ''],
+[38, '', '', '', ''],
+[39, '', '', '', '']
 ];
+//[2, ['Section: community information'],['Sección: información comunitaria'],['Section :informations communautaires'],['섹션: 커뮤니티 정보']],
+
+
+
 /*
 const kTapaI =[[0, 'h', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
 [1, 'Hour: ', 'Parent path: ', '. ', ', go back', ', change'		, 'You are on: ', 'selected', 'with out select', '', 'up', 'down', 'video', 'image', 'writing', 'input', 'exit', 'Element:', 'of', 'menu', 'attention, maximize the window', ', continue', 'Reading ', 'In the picture: ', 'welcome to '								, 'Information: ', 'Offers: to find out about local offers', 'Place', 'announcements, place ', ': To know the local announcements', 'Here, there are no notes to publish', 'Looking for information...'],
@@ -2854,7 +2866,7 @@ const kTapa1 =/**/[['idIcon', 'Nombre', 'LOGOs tipo ICON'],
 [84, 'Esperando respuesta', 'fas fa-satellite fa-spin'],//fas fa-spinner fa-pulse'],//fas fa-satellite fa-spin'],
 [85, 'pocillo', 'fas fa-coffee'],//far fa-clock'],
 [86, 'manos saludando', 'far fa-handshake'],
-[87, '', ''],
+[87, 'trato con las manos', 'fa fa-handshake-o'],
 [88, '', ''],
 [89, '', ''],
 [90, '', ''],

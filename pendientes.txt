@@ -1,4 +1,6 @@
 Pendientes: 
+Revisar la function hh6(id,rev) porque puede ser clave para los botones
+
 
 
 Crear un boton adicional en menu para información comercial y que permita cambiar al id=3 cuando sea posible???

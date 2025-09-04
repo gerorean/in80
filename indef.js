@@ -816,11 +816,11 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				mIr003A[1][1][0] = mIkTapaI[25][1] + mIkComun[1][1];// +', '+ kLugar[id][1];
 				*/
 				// Informacion publica/privada(/0-1-2) o información comercial (/3)...
-				var a;
-				var b;
+				//var a;
+				//var b;
 				if(cOm)
-				{	a=mIkTapaI[32][id];
-					b=mIkTapaI[32][1];
+				{	//a=mIkTapaI[32][id];
+					//b=mIkTapaI[32][1];
 					iTiP0.classList.add('cX');//DESACTIVAR el icono público
 					iTiP1.classList.remove('cX');//ACTIVAR el icono comercial
 					///for(v1 = 1; v1 < 5; v1++)
@@ -828,18 +828,18 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					///}
 				}
 				else
-				{	a=mIkTapaI[25][id];
-					b=mIkTapaI[25][1];
+				{	//a=mIkTapaI[25][id];
+					//b=mIkTapaI[25][1];
 					iTiP1.classList.add('cX');//DESACTIVAR el icono comercial
 					iTiP0.classList.remove('cX');//ACTIVAR el icono público
 					///for(v1 = 1; v1 < 5; v1++)
 					///{	mIr004A[10][v1]=rcOm[0][v1];
 					///}
 				}
-				mIr003A[1][id][0] = a + wPAPA0[0][2 + ext + id];
-				mIr003A[1][1][0] = b + wPAPA0[0][3 + ext];
-				//mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][7 + id];
-				//mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][8];
+				//mIr003A[1][id][0] = a + wPAPA0[0][2 + ext + id];
+				//mIr003A[1][1][0] = b + wPAPA0[0][3 + ext];
+				mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][2 + ext + id];
+				mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][3 + ext];
 				
 			}
 			visON = '0';//AGREGAR casilla 0 de "arriba"
@@ -8125,6 +8125,12 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 							}
 							*/
 
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+
 							switch (nruta)
 							{	case '/7/11/8/11':
 									iCodQ.innerHTML = "<img src='files/711-8-4.png' class='cBox'>";
@@ -9668,6 +9674,7 @@ function hh5(get,rev)//CAMBIAR o TRAER el modo actual
 
 function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actual y (id)CONTROLAR el cambio de páginas, se trata de una casilla informativa
 		{	hOG(6);
+			console.error('%%%%%%%%%%%%%%%%+++ id=',id);
 			if(id > 0)//Si viene con indice se trata de un anuncio/ preguntas frecuente o hola! , muestra el número del anuncio(id) y dependiendo de su logitud, cambia el apuntador
 			{	console.log('+++ id=',id);
 				var tam = 0;//tamaño de la lectura
@@ -9678,48 +9685,75 @@ function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actu
 				//(Si el id es igual al id anterior no hace nada deja que los apuntadores coninuen como están)
 				memAnt = id;//actualiza el valor de la memoria del id del aviso anterior
 				if(gRuta == 3)
-				{	tam = mIr003B[id][2].length;
-					//tam = r003B[2][id].length;
-					if(tam>1)
-					{	if(salTO<0)//salTO's negativos (quitar rev?? sobra??)
-						{	if(mIr003B[id][3]>0)//Si apuntador no es el inicio de la lectura
-							//if(r003B[3][id]>0)//Si apuntador no es el inicio de la lectura
-							{	if((salTO*-1)>=mIr003B[id][3])//Si tamaño del salto es mayor o igual que el apuntador
-								//if((salTO*-1)>=r003B[3][id])//Si tamaño del salto es mayor o igual que el apuntador
-								{ 	mIr003B[id][3]=0;//Salta al inicio de la lectura
-									//r003B[3][id]=0;//Salta al inicio de la lectura
-								}
-								else
-								{	mIr003B[id][3]=mIr003B[id][3]+salTO;//Salta atrás tantas lecturas
-									//r003B[3][id]=r003B[3][id]+salTO;//Salta atrás tantas lecturas
-								}
+				{	if(id == 2)
+					{	console.error('%%%%%%%%%%%%%%%%%%%%%%HOLA MUNDO ESTE ES EL CAMBIO! cOm=',cOm);
+						if(cOm)
+						{	cOm=0;
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
 							}
-							else//0 Si apuntador es el inicio de la lectura
-							{	mIr003B[id][3]=tam - 1;//Salta a LA última lectura
-								//r003B[3][id]=tam - 1;//Salta a LA última lectura
-							}
+							mIr003B[2][2]=[54];
+							papas[5]=0;
 						}
-						else//salTO's positivos
-						{	if(mIr003B[id][3]<tam - 1)
-							//if(r003B[3][id]<tam - 1)
-							{	if(salTO>=(tam - 1 - mIr003B[id][3]))//Si tamaño del salto es mayor o igual que lo que falta por leer
-								//if(salTO>=(tam - 1 - r003B[3][id]))//Si tamaño del salto es mayor o igual que lo que falta por leer
-								{ 	mIr003B[id][3]=tam - 1;//Salta a la última lectura
-									//r003B[3][id]=tam - 1;//Salta a la última lectura
-								}
-								else//Salta adelante
-								{	mIr003B[id][3]=mIr003B[id][3]+salTO;//salta tantas lecturas
-									//r003B[3][id]=r003B[3][id]+salTO;//salta tantas lecturas
-								}
+						else
+						{	cOm=1;
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
 							}
-							else//mIr003A[id][1].length - 1 Si apuntador es el final de la lectura
-							{	mIr003B[id][3]=0;//salta al inicio de la lectura
-								//r003B[3][id]=0;//salta al inicio de la lectura
-							}
+							mIr003B[2][2]=[87];
+							papas[5]=1;
 						}
+
 					}
 					else
-					{	//console.log('+++ sólo tiene un elemento');
+					{
+						tam = mIr003B[id][2].length;
+						//tam = r003B[2][id].length;
+						if(tam>1)
+						{	if(salTO<0)//salTO's negativos (quitar rev?? sobra??)
+							{	if(mIr003B[id][3]>0)//Si apuntador no es el inicio de la lectura
+								//if(r003B[3][id]>0)//Si apuntador no es el inicio de la lectura
+								{	if((salTO*-1)>=mIr003B[id][3])//Si tamaño del salto es mayor o igual que el apuntador
+									//if((salTO*-1)>=r003B[3][id])//Si tamaño del salto es mayor o igual que el apuntador
+									{ 	mIr003B[id][3]=0;//Salta al inicio de la lectura
+										//r003B[3][id]=0;//Salta al inicio de la lectura
+									}
+									else
+									{	mIr003B[id][3]=mIr003B[id][3]+salTO;//Salta atrás tantas lecturas
+										//r003B[3][id]=r003B[3][id]+salTO;//Salta atrás tantas lecturas
+									}
+								}
+								else//0 Si apuntador es el inicio de la lectura
+								{	mIr003B[id][3]=tam - 1;//Salta a LA última lectura
+									//r003B[3][id]=tam - 1;//Salta a LA última lectura
+								}
+							}
+							else//salTO's positivos
+							{	if(mIr003B[id][3]<tam - 1)
+								//if(r003B[3][id]<tam - 1)
+								{	if(salTO>=(tam - 1 - mIr003B[id][3]))//Si tamaño del salto es mayor o igual que lo que falta por leer
+									//if(salTO>=(tam - 1 - r003B[3][id]))//Si tamaño del salto es mayor o igual que lo que falta por leer
+									{ 	mIr003B[id][3]=tam - 1;//Salta a la última lectura
+										//r003B[3][id]=tam - 1;//Salta a la última lectura
+									}
+									else//Salta adelante
+									{	mIr003B[id][3]=mIr003B[id][3]+salTO;//salta tantas lecturas
+										//r003B[3][id]=r003B[3][id]+salTO;//salta tantas lecturas
+									}
+								}
+								else//mIr003A[id][1].length - 1 Si apuntador es el final de la lectura
+								{	mIr003B[id][3]=0;//salta al inicio de la lectura
+									//r003B[3][id]=0;//salta al inicio de la lectura
+								}
+							}
+						}
+						else
+						{	//console.log('+++ sólo tiene un elemento');
+						}
 					}
 				}
 				if(gRuta == 7 && gFoco == 1)
