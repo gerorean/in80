@@ -21,6 +21,8 @@ falta terminar de cuadrar los anuncios comerciales en f0153(j,m)
   2- Información Privada
   3- Información Comercial (Publicidad)
 
+Un anuncio es una comunicación o aviso público que busca dar a conocer algo a un público amplio, ya sea un producto, un servicio, un evento, un hecho, o una información oficial. Puede ser un mensaje visual, auditivo o audiovisual, con el objetivo de informar, persuadir o recordar a las personas sobre algo específico, y así generar una acción. 
+
 2- Crear un formulario tipo web para subir los anuncios con verificacion de fecha y hora del lugar
 
 3- Crear mIr00I para guardar el id del o los lugares y otros datos claves como el tipo de anuncio y la fecha y hora de terminacion del anuncio
