@@ -1875,7 +1875,7 @@ const mIkTapaI =/**/[['Casillas', 1, 2, 3, 4],
 [33, 'Type: ', 'Tipo: ', 'Type :', '유형: '],
 [34, 'Events', 'Eventos', 'Événements', '이벤트'],
 [35, 'Products', 'Productos', 'Produits', '제품'],
-[36, '', '', '', ''],
+[36, '', ', cambiar', '', ''],
 [37, 'News', 'Noticias', 'Nouvelles', '소식'],
 [38, 'Services', 'Servicios', 'Services', '서비스'],
 [39, 'Contacts', 'Contactos', 'Contacts', '콘택트 렌즈']
