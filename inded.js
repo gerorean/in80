@@ -1052,7 +1052,7 @@ var mIc003A1 =[['Casillas', 1, 2, 3, 4]
 
 
 //...  Traer esta linea de mIres3A!:
-,[2, [''],[''],[''],['']]
+,[2, ['1a'],['1b'],['1c'],['1d']]
 //,[2, ['1inga','ingb','ingc'],['1espa','espb','espc'],['1fraa','frab','frac'],['1cora','corb','corc']]
 ,[2, ['Come dance salsa, merengue and bachata!', "Idartes invites you to have fun in the dance halls of the Felicidad Chapinero Center. We'll dance, move, and take care of our health.", 'Dates: June 13, 20, and 27. Time: 5 to 7 p.m. Location: Dance Classroom, Felicidad Chapinero Center. Calle 82 número 10-69'],['¡Ven a bailar salsa, merengue y bachata!', 'Idartes te invita a divertirte en los salones de baile del Centro Felicidad Chapinero. Bailamos, nos movemos y cuidamos nuestra salud.', 'Fechas: 13, 20 y 27 de junio. Hora: de 5 a 7 de la tarde. Lugar: Aula de Danza, Centro Felicidad Chapinero. Calle 82 número 10-69'],['Venez danser la salsa, le merengue et la bachata !', 'Idartes vous invite à vous amuser dans les salles de danse du Centre Felicidad Chapinero. Dansons, bougeons et prenons soin de notre santé.', 'Dates : 13, 20 et 27 juin. Heure : 17 h à 19 h. Lieu : Salle de danse, Centre Felicidad Chapinero. Calle 82 número 10-69'],['살사, 메렝게, 바차타를 즐겨보세요!', '이다르테스가 펠리시다드 차피네로 센터의 댄스홀에서 즐거운 시간을 보내도록 초대합니다. 춤추고, 움직이고, 건강도 챙기세요.', '날짜: 6월 13일, 20일, 27일. 시간: 오후 5시~7시. 장소: 펠리시다드 차피네로 센터 댄스 교실. Calle 82 número 10-69']]
 ,[3, ['Learn to take care of your neighborhood! Educational Workshop: Waste Disposal in Chapinero', 'We invite you to an educational talk to learn how to properly dispose of waste and avoid problems in the community.', 'Date: June 25, 2025. Time: 2:00 p.m. Location: Community Hall of the El Paraíso neighborhood. Address: Transversal 1 Bis Este # 40D - 11, Chapinero'],['¡Aprende a cuidar tu barrio!  Taller Educativo: Disposición de Residuos en Chapinero', 'Te invitamos a una charla educativa para conocer cómo disponer correctamente los residuos y evitar problemas en la comunidad.', 'Fecha: 25 de junio de 2025. Hora: 2:00 p.m. Lugar: Salón Comunal del barrio El Paraíso. Dirección: Transversal 1 Bis Este # 40D - 11, Chapinero'],['Apprenez à prendre soin de votre quartier ! Atelier pédagogique : Élimination des déchets à Chapinero', 'Nous vous invitons à une conférence éducative pour apprendre à éliminer correctement les déchets et éviter les problèmes dans la communauté.', 'Date : 25 juin 2025. Heure : 14 h. Lieu : Salle communautaire du quartier El Paraíso. Adresse : Transversal 1 Bis Este # 40D - 11, Chapinero.'],['이웃을 돌보는 법을 배우세요! 교육 워크숍: 차피네로의 폐기물 처리', '지역 사회에서 발생하는 문제를 피하고 폐기물을 올바르게 처리하는 방법을 배울 수 있는 교육 강연에 여러분을 초대합니다.', '날짜: 2025년 6월 25일. 시간: 오후 2시. 장소: 엘 파라이소 지역 커뮤니티 홀. 주소: Transversal 1 Bis Este # 40D - 11, Chapinero']]
@@ -2871,7 +2871,7 @@ const kTapa1 =/**/[['idIcon', 'Nombre', 'LOGOs tipo ICON'],
 [89, 'carrito compras', 'fa fa-shopping-cart'],
 [90, 'noticias', 'fa fa-newspaper-o c10Rot'],
 [91, 'marcador', 'fas fa-map-marker-alt'],
-[92, '', ''],
+[92, 'lapiz', 'fas fa-pen'],
 [93, '', ''],
 [94, '', ''],
 [95, '', ''],

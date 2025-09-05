@@ -806,38 +806,46 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				//f0123(dExt[3]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 				//f0123(dExt[3]);//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 				
-
+				//Control Imagen del cabezote..
 				//r003B[2][1][0] = bus;
 				mIr003B[1][2][0] = dExt[3];//53;
+
+
 				//v9 = '<img src="'+(kTapa0[bus][2]||'files/chapinero.jpg')+'" class="c1x0">';
 				//console.error('|> Flag  -> hh62');
 				/*
 				mIr003A[1][id][0] = mIkTapaI[25][id] + mIkComun[1][id];// +', '+ kLugar[id][1];
 				mIr003A[1][1][0] = mIkTapaI[25][1] + mIkComun[1][1];// +', '+ kLugar[id][1];
 				*/
-				// Informacion publica/privada(/0-1-2) o información comercial (/3)...
-				//var a;
-				//var b;
-				if(cOm)
-				{	//a=mIkTapaI[32][id];
-					//b=mIkTapaI[32][1];
-					iTiP0.classList.add('cX');//DESACTIVAR el icono público
-					iTiP1.classList.remove('cX');//ACTIVAR el icono comercial
-					///for(v1 = 1; v1 < 5; v1++)
-					///{	mIr004A[10][v1]=rcOm[1][v1];
-					///}
+
+
+
+
+
+
+
+				switch(cOm)
+				{	case 0: // Eventos
+						iTiP0.innerHTML = "<i class='"+kTapa1[16][2]+"'></i>";
+					break;
+					case 1: // Servicios
+						iTiP0.innerHTML = "<i class='"+kTapa1[80][2]+"'></i>";
+					break;
+					case 2: // Comercial
+						iTiP0.innerHTML = "<i class='"+kTapa1[89][2]+"'></i>";
+					break;
+					case 3: // Noticias
+						iTiP0.innerHTML = "<i class='"+kTapa1[90][2]+"'></i>";
+					break;
+					case 4: // Contactos
+						iTiP0.innerHTML = "<i class='"+kTapa1[91][2]+"'></i>";
+					break;
 				}
-				else
-				{	//a=mIkTapaI[25][id];
-					//b=mIkTapaI[25][1];
-					iTiP1.classList.add('cX');//DESACTIVAR el icono comercial
-					iTiP0.classList.remove('cX');//ACTIVAR el icono público
-					///for(v1 = 1; v1 < 5; v1++)
-					///{	mIr004A[10][v1]=rcOm[0][v1];
-					///}
-				}
+
 				//mIr003A[1][id][0] = a + wPAPA0[0][2 + ext + id];
 				//mIr003A[1][1][0] = b + wPAPA0[0][3 + ext];
+
+				//Control Strings del cabezote..
 				mIr003A[1][id][0] = mIkTapaI[25][id] + wPAPA0[0][2 + ext + id];
 				mIr003A[1][1][0] = mIkTapaI[25][1] + wPAPA0[0][3 + ext];
 				
@@ -8128,7 +8136,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección de una rut
 							////////////////}
 							////////////////*/
 
-							f0161(); // Cuadrar el string del tipo de info deacuerdo a cOm
+							f0161(1); // Cuadrar el string del tipo de info deacuerdo a cOm
 
 							switch (nruta)
 							{	case '/7/11/8/11':
@@ -9425,49 +9433,95 @@ f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla par
 
 
 function
-f0161()  // Cuadrar el string del tipo de info deacuerdo a cOm
+f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc003A}
 		 	{	lOG(161);
-				switch(cOm)
-				{	case 0: // Eventos
-						for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
-						{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
-							//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
-							//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
-						}
-						mIr003B[2][2]=[16];
-					break;
-					case 1: // Servicios
-						for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
-						{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
-							//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
-							//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
-						}
-						mIr003B[2][2]=[80];
-					break;
-					case 2: // Comercial
-						for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
-						{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
-							//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
-							//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
-						}
-						mIr003B[2][2]=[89];
-					break;
-					case 3: // Noticias
-						for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
-						{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
-							//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
-							//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
-						}
-						mIr003B[2][2]=[90];
-					break;
-					case 4: // Contactos
-						for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
-						{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
-							//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
-							//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
-						}
-						mIr003B[2][2]=[91];
-					break;
+				if(m) // m{mIc003A}
+				{	switch(cOm)
+					{	case 0: // Eventos
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIc003B[2][2]=[16];
+						break;
+						case 1: // Servicios
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIc003B[2][2]=[80];
+						break;
+						case 2: // Comercial
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIc003B[2][2]=[89];
+						break;
+						case 3: // Noticias
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIc003B[2][2]=[90];
+						break;
+						case 4: // Contactos
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIc003B[2][2]=[91];
+						break;
+					}
+				}
+				else // {mIr003A}
+				{	switch(cOm)
+					{	case 0: // Eventos
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIr003B[2][2]=[16];
+						break;
+						case 1: // Servicios
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIr003B[2][2]=[80];
+						break;
+						case 2: // Comercial
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIr003B[2][2]=[89];
+						break;
+						case 3: // Noticias
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIr003B[2][2]=[90];
+						break;
+						case 4: // Contactos
+							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+							}
+							mIr003B[2][2]=[91];
+						break;
+					}
 				}
 			}	
 

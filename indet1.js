@@ -172,7 +172,7 @@ const		g00LOGS = [	[  	  0		,0/*0 1[1*/	,0			,0			,'I ACTIVAR ambiente: 0-blanco
 						[	158		,0/*0 1[1*/	,0			,0			,'  GENERAR distintos tipos de strings dependiendo del estado de los anuncios g00VARS[86][2]    0:hay anuncios 1:No hay anuncios/ satelite 2:Buscando anuncios'],
 						[	159		,0/*0 1[1*/	,0			,0			,''],
 						[	160		,0/*0 1[1*/	,0			,0			,'	VERIFICAR el pin privado aPrO'],
-						[	161		,0/*0 1[1*/	,0			,0			,'   funcion reservada para el hash (1)???  aparece comentada junto con 162 y 163 en f0106???'],
+						[	161		,0/*0 1[1*/	,0			,0			,'  Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc003A} --- funcion reservada para el hash (1)???  aparece comentada junto con 162 y 163 en f0106???'],
 						[	162		,0/*0 1[1*/	,0			,0			,''],
 						[	163		,0/*0 1[1*/	,0			,0			,''],
 						[	164		,0/*0 1[1*/	,0			,0			,''],

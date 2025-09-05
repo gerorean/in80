@@ -910,7 +910,9 @@
 
  .cBote
 ,.cDer
+,.cLogo
 ,#iFaro
+,#iGol
 ,#i--Hora
 ,#iNegro
 ,#iPos2{		right:0}
@@ -1039,7 +1041,7 @@
 ,.zProsa
 ,.i--nner{		white-space:nowrap}
 
- .cPace {		width: 0.5em}
+ .cPace {		width:0.5em}
 
  .c--Menu
 ,#i--Menu{		width:8vw}
