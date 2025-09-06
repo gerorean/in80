@@ -1120,6 +1120,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								s00EXIT[1][2] += mIr003A[v4][id][mIr003B[v4][3]].charAt(0).toUpperCase() + mIr003A[v4][id][mIr003B[v4][3]].slice(1);//carga el guión local: haz clic para entrar
 								s00EXIT[2][2] += mIr003A[v4][1][mIr003B[v4][3]].charAt(0).toUpperCase() + mIr003A[v4][1][mIr003B[v4][3]].slice(1);//carga el guión internacional: click to enter
 								
+								console.log(' %%%%%%%%% visOK%%%%%%%%%% 1a s00EXIT[1][2]=',s00EXIT[1][2]);
+								
 								
 								
 								
@@ -1132,6 +1134,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								if(v4==2)
 								{	s00EXIT[1][2] += mIkTapaI[5][id];//cambiar
 									s00EXIT[2][2] += mIkTapaI[5][1];//change
+									console.log(' %%%%%%%%% visOK%%%%%%%%%% 1b s00EXIT[1][2]=',s00EXIT[1][2]);
 								}
 								//else
 								//{
@@ -1149,6 +1152,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 										{	s00EXIT[1][2] += mIkTapaI[4][id];//Fin, reiniciar
 											s00EXIT[2][2] += mIkTapaI[4][1];//End, restart
 										}
+										console.log(' %%%%%%%%% visOK%%%%%%%%%% 1c s00EXIT[1][2]=',s00EXIT[1][2]);
+								
 									}
 								}
 
@@ -1191,6 +1196,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 								v02 += '<div class="cLR cFlex"><div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 							}//Termina los interpretes señas
 							f0072(id);//ADICIONAR HTML para terminar los botones/hojas de la Ruta
+							console.log(' %%%%%%%%% visOK%%%%%%%%%% 1d s00EXIT[1][2]=',s00EXIT[1][2]);
+								
 						}
 					break;
 					case 4:
@@ -1548,6 +1555,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				//PRECARGAR textos
 	  			s00EXIT[1][2] = mIkTapaI[11][id].charAt(0).toUpperCase() + mIkTapaI[11][id].slice(1);//carga el guión local: abajo
 				s00EXIT[2][2] = 'i1, '+mIkTapaI[11][1];//carga el guión internacional: down
+				console.log(' %%%%%%%%% visOK%%%%%%%%%% 1e s00EXIT[1][2]=',s00EXIT[1][2]);
+								
 				//console.log('46<12I');
 				f0046();//CARGAR las variables s00EXIT
 				v02 = '<div class="cNada"><button class="cButton cLDown" onclick="hh6(0)" onfocus="f0029('+(visOK.length - 1)+')"><div aria-hidden="true" class="cCero cPicI"><span class="cObj cPic1 cCero"><div class="cBox cFon"><div class="c1x1 cZIn"><i class="'+kTapa1[14][2]+' cAjust8"></i></div></div></span>';		
@@ -1562,6 +1571,8 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					v02 += '<div class="cLR cFlex"><div class="cPic2"><img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div></div></div>';
 				}
 				f0072(id);//ADICIONAR HTML para terminar los botones/hojas de la Ruta
+				console.log(' %%%%%%%%% visOK%%%%%%%%%% 1f s00EXIT[1][2]=',s00EXIT[1][2]);
+								
 				g00HTML[27][2] = v03;
 				lLINES.innerHTML = v03;//Hacer esto mismo para lMULTI???
 			}
@@ -2344,8 +2355,7 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 			
 
 
-
-			console.log(' %%%%%%%%%%%%%%%1%%%% vFocoL=',vFocoL);	
+			console.log(' %%%%%%%%%%%%%%%  -1-  %%%% vFocoL=',vFocoL);	
 			//console.log(' - - - - - - -_________________ v2=',v2);
 			//LOCAL..
 			if(gFoco == 0)//ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
@@ -2354,27 +2364,20 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 			}
 
 
-			console.log(' %%%%%%%%%%%%%%2%%%%% vFocoL=',vFocoL);	
+			console.log(' %%%%%%%%%%%%%% 2%%%%% vFocoL=',vFocoL);	
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+/*
 			if((gFoco == 2)&&(gRuta==3))// Si es la casilla 2 de la ruta 3 ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
 			{	vFocoL += mIkTapaI[5][v1];//cambiar
-				console.log(' %%%%%%%%%%%%%3%%%%%% vFocoL=',vFocoL);								
+				console.log(' %%%%%%%%%%%%% 3%%%%%% vFocoL=',vFocoL);								
 			
 			}
+*/
 
+
+			// Si el foco no está en la primer ni útima casilla..
 			if((gFoco > 0)&&(gFoco < (visOK.length - 1)))
 			{	switch (gRuta)
 				{	case 1:
@@ -2391,20 +2394,32 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 						{	vFocoL = '';
 							//console.log(' - - - - - - mIr003B=',mIr003B);
 							if(( 0 < mIr003B[v2][3])&&(1 < mIr003B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-							{	vFocoL += (mIr003B[v2][3] + 1) + '. ';//r003B[3][v2] + ', ';
+							{	vFocoL = (mIr003B[v2][3] + 1) + '. ';//r003B[3][v2] + ', ';
+								//vFocoL += (mIr003B[v2][3] + 1) + '. ';//r003B[3][v2] + ', ';
+								console.log(' %%%%%%%%%%%%% 10 %%%%%% vFocoL=',vFocoL);	
 							}
 							vFocoL += mIr003A[v2][v1][mIr003B[v2][3]];
 							//console.log(' - - - - - - mIr003Z=',mIr003Z,'; - - - - - - v2=',v2);
 							vFocoLz = mIr003Z[v2][v1][mIr003B[v2][3]];
 
 
+							console.log(' %%%%%%%%%%%%% 11 %%%%%% vFocoL=',vFocoL);	
 
+
+/*
+			if((gFoco == 2)&&(gRuta==3))// Si es la casilla 2 de la ruta 3 ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
+			{	vFocoL += mIkTapaI[5][v1];//cambiar
+				console.log(' %%%%%%%%%%%%% 3%%%%%% vFocoL=',vFocoL);								
+			
+			}
+*/
 
 
 							console.log(' %%%%%%%%%%%%%%%%%%% 2 v2=',v2);								
 							//contexto.. if(mIr003B[v2][3] < mIr003B[v2][2].length)	
 							if(v2==2)
 							{	vFocoL += mIkTapaI[5][v1];//cambiar
+								console.log(' %%%%%%%%%%%%% 12 %%%%%% vFocoL=',vFocoL);
 							}
 							//else
 							//{
@@ -2431,7 +2446,7 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 									{	vFocoL += mIkTapaI[4][v1];//Fin, reiniciar
 									}
 
-
+									console.log(' %%%%%%%%%%%%% 13 %%%%%% vFocoL=',vFocoL);	
 
 
 
@@ -2540,25 +2555,26 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 						case 3:
 							{	vFocoT = '';
 								if((0 < mIr003B[v2][3])&&(1 < mIr003B[v2][2].length))//Si no es la primer casilla(0) y la longitud es mayor a 1 
-								{	vFocoT += (mIr003B[v2][3] + 1) + '. ';//mIr003B[v2][3] + ', ';
+								{	vFocoT = (mIr003B[v2][3] + 1) + '. ';//mIr003B[v2][3] + ', ';
+									console.log(' %%%%%%%%%%%%% 10 %%%%%% vFocoT=',vFocoT);	
+									//vFocoT += (mIr003B[v2][3] + 1) + '. ';//mIr003B[v2][3] + ', ';
 								}
 								vFocoT += mIr003A[v2][1][mIr003B[v2][3]];
 								vFocoTz = mIr003Z[v2][1][mIr003B[v2][3]];
 
-
+								console.log(' %%%%%%%%%%%%% 11 %%%%%% vFocoT=',vFocoT);	
+									
 
 								console.log(' %%%%%%%%%%%%%%%%%%% 3 v2=',v2);
 								//contexto.. if(mIr003B[v2][3] < mIr003B[v2][2].length)	
 								if(v2==2)
-								{	console.log(' %%%%%%%%%%%%%%%%%%% 3 vFocoT=',vFocoT);
-									vFocoT += mIkTapaI[5][1];//change
-									console.log(' %%%%%%%%%%%%%%%%%%% 3B vFocoT=',vFocoT);
+								{	vFocoT += mIkTapaI[5][1];//change
+									console.log(' %%%%%%%%%%%%% 12 %%%%%% vFocoT=',vFocoT);	
+									
 								}
 								//else
 								//{
 								//}
-
-
 
 
 

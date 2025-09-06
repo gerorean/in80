@@ -1,5 +1,6 @@
 Pendientes: 
-rev f0030()
+
+cuadrar el texto de las imagenes que deben salir en "Tipo", el audioo en ingles de change en f0030() no lo está diciendo revisar
 
 
 
