@@ -1,4 +1,7 @@
 Pendientes: 
+rev f0030()
+
+
 
 revisar mIres3Z para cargar la descripción de los iconos que cambian del tipo de info
 

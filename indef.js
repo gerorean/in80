@@ -834,12 +834,13 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					case 2: // Comercial
 						iTiP0.innerHTML = "<i class='"+kTapa1[89][2]+"'></i>";
 					break;
-					case 3: // Noticias
-						iTiP0.innerHTML = "<i class='"+kTapa1[90][2]+"'></i>";
-					break;
-					case 4: // Contactos
+					case 3: // Contactos
 						iTiP0.innerHTML = "<i class='"+kTapa1[91][2]+"'></i>";
 					break;
+					////case 4: // Noticias
+					////	iTiP0.innerHTML = "<i class='"+kTapa1[90][2]+"'></i>";
+					////break;
+
 				}
 
 				//mIr003A[1][id][0] = a + wPAPA0[0][2 + ext + id];
@@ -1117,16 +1118,27 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 									s00EXIT[2][2] += (mIr003B[v4][3] + 1) + '. ';
 								}
 								s00EXIT[1][2] += mIr003A[v4][id][mIr003B[v4][3]].charAt(0).toUpperCase() + mIr003A[v4][id][mIr003B[v4][3]].slice(1);//carga el guión local: haz clic para entrar
-								s00EXIT[2][2] += mIr003A[v4][1][mIr003B[v4][3]].charAt(0).toUpperCase() + mIr003A[v4][1][mIr003B[v4][3]].slice(1);//carga el guión internacional:click to enter
+								s00EXIT[2][2] += mIr003A[v4][1][mIr003B[v4][3]].charAt(0).toUpperCase() + mIr003A[v4][1][mIr003B[v4][3]].slice(1);//carga el guión internacional: click to enter
 								
 								
 								
 								
+
+								//___
+
+								console.log(' %%%%%%%%%visOK%%%%%%%%%% 1 v4=',v4);
+								
+								//contexto.. if(mIr003B[v4][3] < mIr003B[v4][2].length)	
+								if(v4==2)
+								{	s00EXIT[1][2] += mIkTapaI[5][id];//cambiar
+									s00EXIT[2][2] += mIkTapaI[5][1];//change
+								}
+								//else
+								//{
+								//}
 								
 								
 								
-								
-								console.log(' %%%%%%%%%%%%%%%%%%% 1 v4=',v4);
 								if(mIr003B[v4][3] < mIr003B[v4][2].length)	
 								{	if(1 < mIr003B[v4][2].length)//si la lonjitud es mayor que 1
 									{	if(mIr003B[v4][3] < (mIr003B[v4][2].length - 1))
@@ -2328,12 +2340,41 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 		{	lOC(30);
 			var v1 = g00VARS[27][2];//idioma
 			var v2 = visOK[gFoco];//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
+			console.log(' %%%%%%%%%%%%%%%%%%% f0030 v2=',v2,'; gFoco=',gFoco);								
+			
+
+
+
+			console.log(' %%%%%%%%%%%%%%%1%%%% vFocoL=',vFocoL);	
 			//console.log(' - - - - - - -_________________ v2=',v2);
 			//LOCAL..
 			if(gFoco == 0)//ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
 			{	vFocoL = mIkTapaI[10][v1];//"arriba"
 				vFocoLz = vFocoL;//"arriba"
 			}
+
+
+			console.log(' %%%%%%%%%%%%%%2%%%%% vFocoL=',vFocoL);	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			if((gFoco == 2)&&(gRuta==3))// Si es la casilla 2 de la ruta 3 ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
+			{	vFocoL += mIkTapaI[5][v1];//cambiar
+				console.log(' %%%%%%%%%%%%%3%%%%%% vFocoL=',vFocoL);								
+			
+			}
+
 			if((gFoco > 0)&&(gFoco < (visOK.length - 1)))
 			{	switch (gRuta)
 				{	case 1:
@@ -2355,6 +2396,23 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 							vFocoL += mIr003A[v2][v1][mIr003B[v2][3]];
 							//console.log(' - - - - - - mIr003Z=',mIr003Z,'; - - - - - - v2=',v2);
 							vFocoLz = mIr003Z[v2][v1][mIr003B[v2][3]];
+
+
+
+
+
+							console.log(' %%%%%%%%%%%%%%%%%%% 2 v2=',v2);								
+							//contexto.. if(mIr003B[v2][3] < mIr003B[v2][2].length)	
+							if(v2==2)
+							{	vFocoL += mIkTapaI[5][v1];//cambiar
+							}
+							//else
+							//{
+							//}
+								
+
+
+
 							if(mIr003B[v2][3] < mIr003B[v2][2].length)	
 							{	if(1 < mIr003B[v2][2].length)//si la lonjitud es mayor que 1
 								{	
@@ -2365,7 +2423,7 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 									
 									
 									
-									console.log(' %%%%%%%%%%%%%%%%%%% 2 v2=',v2);
+									
 									if(mIr003B[v2][3] < (mIr003B[v2][2].length - 1))
 									{	vFocoL += mIkTapaI[21][v1];//continuar
 									}
@@ -2486,18 +2544,33 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 								}
 								vFocoT += mIr003A[v2][1][mIr003B[v2][3]];
 								vFocoTz = mIr003Z[v2][1][mIr003B[v2][3]];
+
+
+
+								console.log(' %%%%%%%%%%%%%%%%%%% 3 v2=',v2);
+								//contexto.. if(mIr003B[v2][3] < mIr003B[v2][2].length)	
+								if(v2==2)
+								{	console.log(' %%%%%%%%%%%%%%%%%%% 3 vFocoT=',vFocoT);
+									vFocoT += mIkTapaI[5][1];//change
+									console.log(' %%%%%%%%%%%%%%%%%%% 3B vFocoT=',vFocoT);
+								}
+								//else
+								//{
+								//}
+
+
+
+
+
 								if(mIr003B[v2][3] < mIr003B[v2][2].length)	
 								{	
 									
-									
-									
-									
-									
-									
-									
-									console.log(' %%%%%%%%%%%%%%%%%%% 3 v2=',v2);
+		
 									if(1 < mIr003B[v2][2].length)//si la lonjitud es mayor que 1
-									{	if(mIr003B[v2][3] < (mIr003B[v2][2].length - 1))
+									{	
+										
+										console.log(' %%%%%%%%%%%%%%%%%%% 4 v2=',v2);
+										if(mIr003B[v2][3] < (mIr003B[v2][2].length - 1))
 										{	vFocoT += mIkTapaI[21][1];//continue
 										}
 										if(mIr003B[v2][3] == (mIr003B[v2][2].length - 1))
@@ -9501,10 +9574,11 @@ f0160(n,i)  // Verificar el pin y si cumple dar la orden de mostrar la tabla par
 function
 f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc003A}
 		 	{	lOG(161);
+				var a = 3;
 				if(m) // m{mIc003A}
 				{	switch(cOm)
 					{	case 0: // Eventos
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]]; // trae el string de los idiomas
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9513,7 +9587,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							mIc003B[2][2]=[16];
 						break;
 						case 1: // Servicios
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]]; // trae el string de los idiomas
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9522,7 +9596,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							mIc003B[2][2]=[80];
 						break;
 						case 2: // Comercial
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]]; // trae el string de los idiomas
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9530,17 +9604,8 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							}
 							mIc003B[2][2]=[89];
 						break;
-						case 3: // Noticias
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
-							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]]; // trae el string de los idiomas
-								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
-								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
-								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
-							}
-							mIc003B[2][2]=[90];
-						break;
-						case 4: // Contactos
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+						case 3: // Contactos
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]]; // trae el string de los idiomas
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9548,12 +9613,21 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							}
 							mIc003B[2][2]=[91];
 						break;
+						//case 4: // Noticias
+						//	for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
+						//	{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]]; // trae el string de los idiomas
+						//		//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+						//		//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+						//		//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+						//	}
+						//	mIc003B[2][2]=[90];
+						//break;
 					}
 				}
 				else // {mIr003A}
 				{	switch(cOm)
 					{	case 0: // Eventos
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]]; // trae el string de los idiomas
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9562,7 +9636,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							mIr003B[2][2]=[16];
 						break;
 						case 1: // Servicios
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]]; // trae el string de los idiomas
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9571,7 +9645,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							mIr003B[2][2]=[80];
 						break;
 						case 2: // Comercial
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]]; // trae el string de los idiomas
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9579,17 +9653,8 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							}
 							mIr003B[2][2]=[89];
 						break;
-						case 3: // Noticias
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
-							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]]; // trae el string de los idiomas
-								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
-								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
-								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
-							}
-							mIr003B[2][2]=[90];
-						break;
-						case 4: // Contactos
-							for (var k = 1; k <= 4; k++) // Recorre las filas de idiomas
+						case 3: // Contactos
+							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]]; // trae el string de los idiomas
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
@@ -9597,6 +9662,15 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 							}
 							mIr003B[2][2]=[91];
 						break;
+						//case 4: // Noticias
+						//	for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
+						//	{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]]; // trae el string de los idiomas
+						//		//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[37][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
+						//		//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
+						//		//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
+						//	}
+						//	mIr003B[2][2]=[90];
+						//break;
 					}
 				}
 			}	
@@ -9860,7 +9934,7 @@ function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actu
 				memAnt = id;//actualiza el valor de la memoria del id del aviso anterior
 				if(gRuta == 3)
 				{	if(id == 2)
-					{	tam = 5; //=5 0-4 5saltos!!!
+					{	tam = 4; //=5 0-4 5saltos!!!
 						if(salTO<0)//salTO's negativos
 						{	if(cOm>0)//Si apuntador no es el inicio
 							{	if((salTO*-1)>=cOm)//Si tamaño del salto es mayor o igual que el apuntador
