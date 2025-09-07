@@ -1,35 +1,28 @@
 Pendientes: 
 
-cuadrar el texto de las imagenes que deben salir en "Tipo", el audioo en ingles de change en f0030() no lo está diciendo revisar
+revisar con lupa si hay que independicar la parte del texto del audio en f0030() porque al parecer cada cez que el cursor cambia
+y a si sea cambio del foco se vuelve a generar texto y no debería ser así o si revisar si vFocoI no se puede hacer igaul a 
+vFocoT para no repetir líneas
 
 
-
-revisar mIres3Z para cargar la descripción de los iconos que cambian del tipo de info
-
-
+revisar si quedo bien la descripción de los iconos que cambian del tipo de info..
+usando solo mIc/r003Z[2][k]=mIr3Z[1][k]; sin usar mIres3Z 
 
 
-Revisar la function hh6(id,rev) porque puede ser clave para los botones
+ajustar el hash para que se actualice con el cambio de tipo y lo cargue auto si viene en la ruta madre
 
-
-
-Crear un boton adicional en menu para información comercial y que permita cambiar al id=3 cuando sea posible???
-o quitar el boton de Información de Menú???????
 
 Arreglar la ruta padre de Información en mIr004A[10] debe cambiar a Informacion comercial si cOm esta en 1
 Arreglar el cabezote de los anuncios comerciales/privados "Información: Bogotá, cambiar" por "Información comercial/privada: Bogotá, cambiar"
 
-Cambiar "Aquí, no hay notas para publicar" por  "Aquí, no hay información para publicar"
+
+Buscar un icono para comunicación que no sea telefono
 
 
-falta terminar de cuadrar los anuncios comerciales en f0153(j,m)
 
 
-1- Crear la ruta 3 para Publicidad (anuncios comerciales) y cambiar "publicados en todo el territorio cambiar" por "anuncios públicos"
-  es decir deben quedar tres tipos de anuncios (Id´s finales):
-  0-1- Información Pública
-  2- Información Privada
-  3- Información Comercial (Publicidad)
+
+
 
 Un anuncio es una comunicación o aviso público que busca dar a conocer algo a un público amplio, ya sea un producto, un servicio, un evento, un hecho, o una información oficial. Puede ser un mensaje visual, auditivo o audiovisual, con el objetivo de informar, persuadir o recordar a las personas sobre algo específico, y así generar una acción. 
 
