@@ -9474,6 +9474,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 					{	case 0: // Eventos
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]]; // trae el string de los idiomas
+								mIc003Z[2][k]=mIr3Z[1][k];
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
@@ -9483,6 +9484,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 						case 1: // Servicios
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]]; // trae el string de los idiomas
+								mIc003Z[2][k]=mIr3Z[2][k];
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
@@ -9492,6 +9494,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 						case 2: // Comercial
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]]; // trae el string de los idiomas
+								mIc003Z[2][k]=mIr3Z[3][k];
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
@@ -9501,6 +9504,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 						case 3: // Contactos
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]]; // trae el string de los idiomas
+								mIc003Z[2][k]=mIr3Z[4][k];
 								//mIc003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIc002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIc002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
@@ -9523,6 +9527,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 					{	case 0: // Eventos
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]]; // trae el string de los idiomas
+								mIr003Z[2][k]=mIr3Z[1][k];
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[34][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
@@ -9532,6 +9537,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 						case 1: // Servicios
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]]; // trae el string de los idiomas
+								mIr003Z[2][k]=mIr3Z[2][k];
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[38][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
@@ -9541,6 +9547,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 						case 2: // Comercial
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]]; // trae el string de los idiomas
+								mIr003Z[2][k]=mIr3Z[3][k];
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[32][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]
@@ -9550,6 +9557,7 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 						case 3: // Contactos
 							for (var k = 1; k <= a; k++) // Recorre las filas de idiomas
 							{	mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]]; // trae el string de los idiomas
+								mIr003Z[2][k]=mIr3Z[4][k];
 								//mIr003A[2][k]=[mIkTapaI[33][k]+' '+mIkTapaI[39][k]+mIkTapaI[5][k]]; // trae el string de los idiomas
 								//mIr002Z[5][k]=wPAPA1[j][ext+k+2]; // trae el string de los idiomas desde wPAPA#
 								//mIr002B[5][2]=vPAPA1[j][6]; // vPAPA#[j][6]

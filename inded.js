@@ -1500,6 +1500,18 @@ const 	res3B		=[		['Recursos/ Casillas..'										],//la D es de default cuando
 							['10 Capa3 Estado 0: 1:/ 2:_ 3: ? 4: -'						,[0]]
 						];
 */
+
+// Descripcion del Tipo..
+const mIr3Z = [['Casillas', 1, 2, 3, 4],
+[1,['Icon of a loudspeaker'],['Icono de un altoparlante'],["Icône d'un haut-parleur"],['라우드스피커 아이콘']],
+[2,['Icon of an umbrella'],['Icono de un paraguas'],["Icône d'un parapluie"],['우산 아이콘']],
+[3,['Icon of a shopping cart'],['Icono de un carrito de compras'],["Icône d'un panier d'achat"],['쇼핑 카트 아이콘']],
+[4,['Icon of a map marker'],['Icono de un marcador de mapa'],["Icône d'un marqueur de carte"],['지도 마커 아이콘']],
+[5,[''],[''],[''],['']],
+];
+
+
+
 //DESCRIBIR CABEZOTE ANUNCIOS Y BUSCANDO ANUNCIOS - texto alternativo para imagen
 //IMAGEN BUSCANDO ANUNCIOS
 const mIres3Z =/**/[['Casillas', 1, 2, 3, 4],
