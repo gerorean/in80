@@ -1,6 +1,6 @@
 Pendientes: 
 
-1. cambiar el teléfono por un rombo cuadrado
+1. OK - cambiar el teléfono por un rombo cuadrado - OK
 
 2. adicionar el tipo al oprimir el botón de ayuda
 
@@ -12,7 +12,10 @@ debe incluir el tutorial del morse, el tutorial del morse solo debe salir al toc
  para apagar el teclado (con otro sonido B, diferente de A, si es va a apagar el teclado para ciegos)
 de salida.
 
-5. acondicionar el rombo para que al hacer doble clic o raya suene el sonido A, salte y vaya directo al teclado preconfigurado para 
+
+
+
+5. acondicionar el rombo (mMod?? y f0148(98)????) para que al hacer doble clic o raya suene el sonido A, salte y vaya directo al teclado preconfigurado para 
 los ciegos (con soltar el boton y teclas pequeñas para usuarios normales)
 
 6. Hacer que con una raya larga o triple clic sobre el rombo vaya modifique por debajo el boton menu de cambiar la configuración 

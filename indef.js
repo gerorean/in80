@@ -6417,14 +6417,6 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 						{	console.log('############### Ruta privada del hash verificada, es valida!');
 							pUb = 0;
 						}
-
-
-
-
-
-
-						
-						//console.error('############### A hash es correcto!! aqui mirar papas[5] y seleccionar el tipo??');
 					}
 					else // ArRay[5,6,7,...] no es una ruta valida
 					{	console.log('############## Ruta del hash no existe, NO es valida');
@@ -6467,14 +6459,9 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 				}
 				else
 				{	//pArTs[5]='0';
-					//Aquí debe intentar corregir el tipo
-				}	
-				
+					//Aquí debe intentar corregir el tipo en el hash
+				}
 				f0161(); // Cuadrar el string del tipo de info deacuerdo a cOm
-				
-
-
-
 				if(pArTs[0] === "A1") // Plan A Verificación de A si trae los parametros del idioma y la seña los toma
 				{	
 					console.error('---- A1  - aPrO=',aPrO);
