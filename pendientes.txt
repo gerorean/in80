@@ -1,5 +1,24 @@
 Pendientes: 
 
+1. cambiar el teléfono por un rombo cuadrado
+
+2. adicionar el tipo al oprimir el botón de ayuda
+
+3. crear un boton nuevo en el menu para cambiar el teclado de salida y permita cambiar el teclado por medio de clics 
+sobre ese botón y no debe generar lista debe funcionar de forma similar a cambiar el tipo de info, este modo no 
+debe incluir el tutorial del morse, el tutorial del morse solo debe salir al tocar el boton del morse.
+
+4. acondicionar el rombo con un gesto de clic (con sonido A si va a mostrar el teclado para ciegos) para encender y con otro clic 
+ para apagar el teclado (con otro sonido B, diferente de A, si es va a apagar el teclado para ciegos)
+de salida.
+
+5. acondicionar el rombo para que al hacer doble clic o raya suene el sonido A, salte y vaya directo al teclado preconfigurado para 
+los ciegos (con soltar el boton y teclas pequeñas para usuarios normales)
+
+6. Hacer que con una raya larga o triple clic sobre el rombo vaya modifique por debajo el boton menu de cambiar la configuración 
+del teclado de salida y cabmbie el modo de salida sin tener que ir al menu y darle al botón de cambiar
+
+
 revisar con lupa si hay que independisar la parte del texto del audio en f0030() porque al parecer cada vez que el cursor cambia
 y asi sea cambio del foco se vuelve a generar texto y no debería ser así o si revisar si vFocoI no se puede hacer igual a 
 vFocoT para no repetir líneas

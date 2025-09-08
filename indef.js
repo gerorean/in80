@@ -6473,8 +6473,6 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 				f0161(); // Cuadrar el string del tipo de info deacuerdo a cOm
 				
 
-				
-
 
 
 				if(pArTs[0] === "A1") // Plan A Verificación de A si trae los parametros del idioma y la seña los toma
