@@ -1,7 +1,7 @@
 Pendientes: 
 
-revisar con lupa si hay que independicar la parte del texto del audio en f0030() porque al parecer cada cez que el cursor cambia
-y a si sea cambio del foco se vuelve a generar texto y no debería ser así o si revisar si vFocoI no se puede hacer igaul a 
+revisar con lupa si hay que independisar la parte del texto del audio en f0030() porque al parecer cada vez que el cursor cambia
+y asi sea cambio del foco se vuelve a generar texto y no debería ser así o si revisar si vFocoI no se puede hacer igual a 
 vFocoT para no repetir líneas
 
 

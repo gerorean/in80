@@ -7259,8 +7259,19 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 			console.error(' SSSSSSSSSSSSSSSSSSS T R I N G S DE LUGARES!!!!!!!!!!!!!!!!!!_ f0125(ini=',ini,')  papas=',papas);
 			// cOm = 0; // ruta parcial pública o privada
 			mIr003A = mIres3A; // RESET CONTENIDOS DE mIr003A... mIres3A:GUION BUSCANDO ANUNCIOS.. tiene el texto por defecto del botón 1 que sale en pantalla apenas se va el satelite girando de la busqueda de anuncios, y se detiene porque no encontro ningun anuncio.. en este sitio encontrará bla, bla, bla...
-			
 			f0161(); // Cuadrar el string del tipo de info deacuerdo a cOm
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			//___?
+			f0126();//ACTUALIZAR la ruta en el hash
+			console.log('%%%% papas[5]=',papas[5]);
 
 			// console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS,[86][2]);			
 			for (var i = ini; i <= 9; i++) // Recorrer cada uno de los botones (10) e ir asignado el string que corresponda en cada caso
@@ -9695,6 +9706,11 @@ function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actu
 						//console.error('%%%%%%%%%%%%%%%%%%%% CAMBIO!.. cOm=',cOm);
 						papas[5]=cOm;
 						f0161(); // Cuadrar el string del tipo de info deacuerdo a cOm
+
+
+						//___?
+						f0126();//ACTUALIZAR la ruta en el hash
+						console.error('%%%% 2 %%%%%%%%%%%%%%%%%%%%% OJO papas[5]=',papas[5]);
 					}
 					else
 					{
