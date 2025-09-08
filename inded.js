@@ -6,7 +6,7 @@ var aPrO = 0; // Valor del pin local en el hash para poder continuar.. 0: invali
 					//rutas 7/1 (pública con hermanos) 7/2(privada con hermanos) verificadas con pin (aPrO=1)
 					//Sin pin valido (aPrO=0) la ruta 7 (pública sin hijos) es valida si y solo si es la última ruta parcial; es decir si luego no llama a otras rutas parciales hijas
 var vErC; 			// Verificación de C en el hash
-var cOm = 0;			// Ruta parcial comercial (1)
+var cOm = 0;		// Ruta parcial comercial (1)
 
 
 //mI: matriz Inversa

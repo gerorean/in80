@@ -6417,6 +6417,14 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 						{	console.log('############### Ruta privada del hash verificada, es valida!');
 							pUb = 0;
 						}
+
+
+
+
+
+
+						
+						//console.error('############### A hash es correcto!! aqui mirar papas[5] y seleccionar el tipo??');
 					}
 					else // ArRay[5,6,7,...] no es una ruta valida
 					{	console.log('############## Ruta del hash no existe, NO es valida');
@@ -6450,6 +6458,25 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 			var b = 0; // Bandera de que se logró conseguir el idioma y la seña (0no - 1si)
 			if(a)
 			{	console.log('¡Plan A!');
+				//console.error('############### B hash es correcto!! aqui mirar papas[5] y seleccionar el tipo?? pArTs[5]=',pArTs[5]);
+				var w = Number(pArTs[5]);
+				console.log('2 w=',w);
+				if(0<=w&&w<4)
+				{	cOm=w;
+					//console.log('1 cOm=',cOm);
+				}
+				else
+				{	//pArTs[5]='0';
+					//Aquí debe intentar corregir el tipo
+				}	
+				
+				f0161(); // Cuadrar el string del tipo de info deacuerdo a cOm
+				
+
+				
+
+
+
 				if(pArTs[0] === "A1") // Plan A Verificación de A si trae los parametros del idioma y la seña los toma
 				{	
 					console.error('---- A1  - aPrO=',aPrO);
@@ -6460,7 +6487,7 @@ function f0107() // ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la rut
 				}
 			}	
 			if(!b) // Si el plan A no funciona -> plan B: toma el idioma y la seña directamente de las tablas vPAPA
-			{	console.log('¡Plan B!');
+			{	console.log('¡Plan B! cOm=',cOm);
 				// g00VARS[27][2] = vPAPA# [#][13];
 				// g00VARS[67][2] = vPAPA# [#][14]; 
 				var s = ArRay.length - 2; //9 número de la tabla final
@@ -7271,7 +7298,19 @@ function f0125(ini) // ESTABLECER el string y la visibilidad correctos para cada
 			
 			//___?
 			f0126();//ACTUALIZAR la ruta en el hash
-			console.log('%%%% papas[5]=',papas[5]);
+
+
+
+
+
+
+
+
+
+
+
+
+			console.log('%%%% papas[5]=',papas[5]);//????
 
 			// console.error(' - - - mIr003A=',mIr003A,'; g00VARS[86][2]=',g00VARS,[86][2]);			
 			for (var i = ini; i <= 9; i++) // Recorrer cada uno de los botones (10) e ir asignado el string que corresponda en cada caso
@@ -9704,13 +9743,41 @@ function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actu
 							}
 						}
 						//console.error('%%%%%%%%%%%%%%%%%%%% CAMBIO!.. cOm=',cOm);
+
+
+
+
+
+
+
+
+
+						//????? porque????
 						papas[5]=cOm;
+
+
+
+
+
+
+
+
 						f0161(); // Cuadrar el string del tipo de info deacuerdo a cOm
-
-
 						//___?
 						f0126();//ACTUALIZAR la ruta en el hash
-						console.error('%%%% 2 %%%%%%%%%%%%%%%%%%%%% OJO papas[5]=',papas[5]);
+
+
+
+
+
+
+
+
+
+
+
+
+						console.error('%%%% 2 %%%%%%%%%%%%%%%%%%%%% OJO papas[5]=',papas[5]);//?????
 					}
 					else
 					{
