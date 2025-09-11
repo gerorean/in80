@@ -109,7 +109,7 @@
 
  .cBOT
 ,.cChico
-,.c--Ent
+,.cEnt
 ,.cFlex
 ,.cIcn
 ,.c--Menu
@@ -117,8 +117,6 @@
 ,.c--Trin
 ,.cTOB
 ,.cZIn
-,#iMenu
-,#iSoni
 ,.keY{			align-items:center}
 
  .cFleB{		align-items:flex-end}
@@ -362,6 +360,7 @@
 ,.cInfo
 ,.cIng
 ,.c--Reloj
+,#iEnt
 ,#iInfo
 ,#i--Hora
 ,.yProsaL
@@ -405,7 +404,7 @@
 
  .cBOT
 ,.c--Chico
-,.c--Ent
+,.cEnt
 ,.cFleB
 ,.cFleT
 ,.cFlex
@@ -416,8 +415,6 @@
 ,.c--Trin
 ,.cZIn
 ,.i--nner
-,#iMenu
-,#iSoni
 ,.keY{			display:flex}
 
  .cKRow
@@ -484,9 +481,8 @@
 
  .cFanta{		font-size:min(50vh,50vw)}/*calc(var(--chico)*0.7)*/
 
- .cIcn
-,#iMenu
-,#iSoni
+ .cEnt
+,.cIcn
 ,#iHora{		font-size:min(calc((max(var(--z),5vh))*0.5),5vw)}/*calc((max(var(--z),5vh))*0.4)}/*min(calc((max(var(--z),5vh))*0.5),7vw)}*/
 
  #iLeft{		font-size:min(calc((max(var(--z),5vh))*0.7),6.7vw)}/*calc((max(var(--z),5vh))*0.77)}/*min(calc((max(var(--z),5vh))*0.5),7vw)}*/
@@ -630,7 +626,7 @@
 
  .cBOT
 ,.cChico
-,.c--Ent
+,.cEnt
 ,.cPic2
 ,.cFleB
 ,.cFleT
@@ -641,8 +637,6 @@
 ,.cTOB
 ,.c--Trin
 ,.cZIn
-,#iMenu
-,#iSoni
 ,.keY{			justify-content:center}
 
  #i--Menu{		justify-content:flex-end}
@@ -1043,8 +1037,7 @@
 
  .cPace {		width:0.5em}
 
- .c--Menu
-,#i--Menu{		width:8vw}
+ #iEnt{			width:4vw}
 
  .cBota
 ,.cBote
@@ -1059,10 +1052,10 @@
 
  .cBloK{		width:14.6666666%}/*18%}/*23%*/
 
- #iGol{			width:15vh}
+ #iGol{			width:10vh}/*15vh*/
  
  #iMenu
-,#iSoni{		width:15vw}/*11 - 18 -- 21/25/17*/
+,#iSoni{		width:13vw}/*15 11 - 18 -- 21/25/17*/
 
  #iHora{		width:20vw}/*22 -- 25/30/20*/
 

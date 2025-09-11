@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Accesibilidad Voz a Texto</title>
+  <style>
+    body {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    button, select, textarea {
+      font-size: 1.5rem;
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 10px;
+    }
+    textarea {
+      width: 90%;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Página Accesible Voz ↔ Texto</h2>
+
+  <!-- Selector de idioma -->
+  <label for="idioma">Idioma:</label>
+  <select id="idioma">
+    <option value="es-ES">Español</option>
+    <option value="en-US">English</option>
+  </select>
+
+  <!-- Botón A -->
+  <button id="botonA">🎤 Botón A (Hablar)</button>
+  
+  <!-- Botón B ya es el selector de idioma -->
+  
+  <!-- Cuadro de texto -->
+  <textarea id="texto" placeholder="Aquí aparecerá el texto..."></textarea>
+
+  <script>
+    const botonA = document.getElementById("botonA");
+    const idioma = document.getElementById("idioma");
+    const textarea = document.getElementById("texto");
+
+    // Reconocimiento de voz
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    let escuchando = false;
+
+    // Cuando se presiona botón A o barra espaciadora → empezar a escuchar
+    function iniciarEscucha() {
+      if (escuchando) return;
+      recognition.lang = idioma.value;
+      recognition.start();
+      escuchando = true;
+    }
+
+    // Cuando se suelta botón A o barra espaciadora → parar y procesar
+    function detenerEscucha() {
+      if (!escuchando) return;
+      recognition.stop();
+      escuchando = false;
+    }
+
+    // Cuando reconoce algo → escribir y leer
+    recognition.onresult = (event) => {
+      const texto = event.results[0][0].transcript;
+      textarea.value = texto;
+      hablarTexto(texto, idioma.value);
+    };
+
+    // Función para hablar
+    function hablarTexto(texto, lang) {
+      const utterance = new SpeechSynthesisUtterance(texto);
+      utterance.lang = lang;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Eventos en botón A
+    botonA.addEventListener("mousedown", iniciarEscucha);
+    botonA.addEventListener("mouseup", detenerEscucha);
+    botonA.addEventListener("touchstart", iniciarEscucha);
+    botonA.addEventListener("touchend", detenerEscucha);
+
+    // Eventos en teclado (barra espaciadora = Botón A)
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault(); // evitar scroll
+        iniciarEscucha();
+      }
+    });
+    document.addEventListener("keyup", (e) => {
+      if (e.code === "Space") {
+        detenerEscucha();
+      }
+    });
+  </script>
+</body>
+</html-->
+
+
+
+<!--DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Accesibilidad Voz</title>
+  <style>
+    body {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f4f4f4;
+    }
+    button, select {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      margin: 1rem;
+    }
+    textarea {
+      font-size: 1.2rem;
+      width: 90%;
+      height: 150px;
+      margin-top: 1rem;
+    }
+    #tiempo {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Página accesible</h1>
+  
+  <!-- Botón A - ->
+  <button id="btnA">Botón A (hablar)</button>
+  
+  <!-- Botón B (selector idioma) - ->
+  <label for="idioma">Idioma:</label>
+  <select id="idioma">
+    <option value="es-ES">Español</option>
+    <option value="en-US">Inglés</option>
+  </select>
+  
+  <!-- Cuadro de texto - ->
+  <textarea id="texto" readonly></textarea>
+  
+  <!-- Duración - ->
+  <div id="tiempo">Duración: 0 s</div>
+  
+  <script>
+    const btnA = document.getElementById("btnA");
+    const idioma = document.getElementById("idioma");
+    const texto = document.getElementById("texto");
+    const tiempoDiv = document.getElementById("tiempo");
+
+    let reconocimiento;
+    let startTime;
+
+    // Verificar soporte de API de reconocimiento
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const synth = window.speechSynthesis;
+
+    if (!SpeechRecognition) {
+      alert("Tu navegador no soporta reconocimiento de voz.");
+    } else {
+      reconocimiento = new SpeechRecognition();
+      reconocimiento.continuous = false;
+      reconocimiento.interimResults = false;
+
+      // Cuando se obtiene el resultado de la voz
+      reconocimiento.onresult = (event) => {
+        const result = event.results[0][0].transcript;
+        texto.value = result;
+
+        // Leer el texto en voz alta
+        const utter = new SpeechSynthesisUtterance(result);
+        utter.lang = idioma.value;
+        synth.speak(utter);
+      };
+    }
+
+    // Función para iniciar reconocimiento
+    function startRecognition() {
+      if (reconocimiento) {
+        reconocimiento.lang = idioma.value;
+        reconocimiento.start();
+        startTime = Date.now();
+      }
+    }
+
+    // Función para detener reconocimiento
+    function stopRecognition() {
+      if (reconocimiento) {
+        reconocimiento.stop();
+        const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+        tiempoDiv.textContent = "Duración: " + duration + " s";
+      }
+    }
+
+    // Eventos para el botón A
+    btnA.addEventListener("mousedown", startRecognition);
+    btnA.addEventListener("mouseup", stopRecognition);
+
+    // Eventos para barra espaciadora
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault(); // Evita scroll
+        if (!startTime) startRecognition();
+      }
+    });
+
+    document.addEventListener("keyup", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        stopRecognition();
+        startTime = null;
+      }
+    });
+  </script>
+</body>
+</html-->
+
+
+
+
+
+<!--!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Accesibilidad Voz a Texto</title>
+  <style>
+    body {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    button, select, textarea {
+      font-size: 1.5rem;
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 10px;
+    }
+    textarea {
+      width: 90%;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Página Accesible Voz ↔ Texto</h2>
+
+  <!-- Selector de idioma - ->
+  <label for="idioma">Idioma:</label>
+  <select id="idioma">
+    <option value="es-ES">Español</option>
+    <option value="en-US">English</option>
+  </select>
+
+  <!-- Botón A - ->
+  <button id="botonA">🎤 Botón A (Hablar)</button>
+  
+  <!-- Botón B ya es el selector de idioma - ->
+  
+  <!-- Cuadro de texto - ->
+  <textarea id="texto" placeholder="Aquí aparecerá el texto..."></textarea>
+
+  <script>
+    const botonA = document.getElementById("botonA");
+    const idioma = document.getElementById("idioma");
+    const textarea = document.getElementById("texto");
+
+    // Reconocimiento de voz
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    let escuchando = false;
+
+    // Cuando se presiona botón A o barra espaciadora → empezar a escuchar
+    function iniciarEscucha() {
+      if (escuchando) return;
+      recognition.lang = idioma.value;
+      recognition.start();
+      escuchando = true;
+    }
+
+    // Cuando se suelta botón A o barra espaciadora → parar y procesar
+    function detenerEscucha() {
+      if (!escuchando) return;
+      recognition.stop();
+      escuchando = false;
+    }
+
+    // Cuando reconoce algo → escribir y leer
+    recognition.onresult = (event) => {
+      const texto = event.results[0][0].transcript;
+      textarea.value = texto;
+      hablarTexto(texto, idioma.value);
+    };
+
+    // Función para hablar
+    function hablarTexto(texto, lang) {
+      const utterance = new SpeechSynthesisUtterance(texto);
+      utterance.lang = lang;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Eventos en botón A
+    botonA.addEventListener("mousedown", iniciarEscucha);
+    botonA.addEventListener("mouseup", detenerEscucha);
+    botonA.addEventListener("touchstart", iniciarEscucha);
+    botonA.addEventListener("touchend", detenerEscucha);
+
+    // Eventos en teclado (barra espaciadora = Botón A)
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault(); // evitar scroll
+        iniciarEscucha();
+      }
+    });
+    document.addEventListener("keyup", (e) => {
+      if (e.code === "Space") {
+        detenerEscucha();
+      }
+    });
+  </script>
+</body>
+</html-->
+
+
+
+<!--DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Voz a Texto Accesible</title>
+  <style>
+    body {
+      font-size: 1.5em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    button {
+      font-size: 2em;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 15px;
+      border: none;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    input {
+      font-size: 1.5em;
+      width: 80%;
+      padding: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button id="btnA">A</button>
+  <input type="text" id="texto" aria-label="Texto reconocido" readonly>
+
+  <script>
+    const btnA = document.getElementById('btnA');
+    const inputTexto = document.getElementById('texto');
+
+    // Configuración del reconocimiento de voz
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = "es-ES"; // Español
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    // Cuando termina de reconocer, escribe en el cuadro de texto y lo lee
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      inputTexto.value = transcript;
+      // Texto a voz
+      const utterance = new SpeechSynthesisUtterance(transcript);
+      utterance.lang = "es-ES";
+      speechSynthesis.speak(utterance);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Error en reconocimiento de voz:", event.error);
+    };
+
+    // Presionar y mantener botón → iniciar micrófono
+    btnA.addEventListener('mousedown', () => {
+      recognition.start();
+    });
+
+    // Soltar botón → detener y procesar
+    btnA.addEventListener('mouseup', () => {
+      recognition.stop();
+    });
+  </script>
+</body>
+</html-->
+
+
+
+
+
+<!--!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Accesibilidad con Voz</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f0f0f0;
+      font-size: 1.5em;
+    }
+    #texto {
+      width: 90%;
+      height: 100px;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    #botonA {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      font-size: 2em;
+      font-weight: bold;
+      background: #007bff;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="botonA">A</button>
+  <textarea id="texto" placeholder="Aquí aparecerá el texto"></textarea>
+
+  <script>
+    // Síntesis de voz (lector en voz alta)
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "es-ES";
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Reconocimiento de voz
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition = new SpeechRecognition();
+    recognition.lang = "es-ES";
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    let boton = document.getElementById("botonA");
+    let cuadro = document.getElementById("texto");
+
+    // Cuando el dedo toca el botón
+    boton.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      speak("Botón A"); // anunciar botón
+      recognition.start(); // iniciar micro
+    });
+
+    // Cuando el dedo se levanta
+    boton.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      recognition.stop(); // parar micro
+    });
+
+    // Resultado del reconocimiento de voz
+    recognition.onresult = function(event) {
+      let texto = event.results[0][0].transcript;
+      cuadro.value = texto;
+      speak("Se escribió: " + texto);
+    };
+
+    recognition.onerror = function(event) {
+      speak("Error en reconocimiento de voz");
+    };
+  </script>
+
+</body>
+</html-->

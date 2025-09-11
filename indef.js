@@ -8393,11 +8393,12 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 					switch(mMod)
 					{	
 						case 1:
+							// Qwerty normal
 							iKeyB.style.height = '100%';
 							iKeyB.classList.remove('cX');
 						break;
 						case 2:
-							// Iterar y cambiar el tamaño de la fuente
+							// Qwerty medio - Iterar y cambiar el tamaño de la fuente
 							keYs.forEach(button =>
 							{	button.style.fontSize = 'min(10vh,10vw)';
 							});
@@ -8405,8 +8406,8 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 							iKeyB.style.width = '200vw';
 							iKeyB.classList.remove('cX');
 						break;
-						case 3:
-							// Iterar y cambiar el tamaño de la fuente
+						case 3: Qwerty
+							// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
 							keYs.forEach(button =>
 							{	button.style.fontSize = 'min(15vh,15vw)';
 							});
@@ -8414,10 +8415,12 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 							iKeyB.style.width = '300vw';
 							iKeyB.classList.remove('cX');
 						break;
-						case 4:
+						case 4: 
+							// Señas - Sign Chat
 							iKeyS.classList.remove('cX');
 						break;
 						case 5:
+							// Clave Morse - Tutorial
 							//iTaco.style.opacity='0.8';
 							iTaco.classList.remove('cX');
 						break;

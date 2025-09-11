@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teclado táctil accesible — Vocales</title>
+  <style>
+    :root{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    html,body{height:100%;margin:0;background:#111;color:#fff}
+    .app{display:flex;flex-direction:column;gap:12px;align-items:stretch;height:100%;padding:12px;box-sizing:border-box}
+    header{display:flex;align-items:center;justify-content:space-between}
+    h1{font-size:1.2rem;margin:0}
+    #keyboard{display:flex;gap:8px;justify-content:center;align-items:stretch;flex:1}
+    .key{flex:1;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#1e1e1e;box-shadow:0 6px 14px rgba(0,0,0,.6);font-size:2.6rem;font-weight:700;touch-action:none;user-select:none;padding:18px}
+    .key.active{outline:4px solid #ffd54f}
+    textarea{width:100%;min-height:84px;font-size:1.3rem;padding:12px;border-radius:8px;border:2px solid #222;background:#0b0b0b;color:#fff;resize:none}
+    .controls{display:flex;gap:8px}
+    button{padding:10px 14px;border-radius:10px;border:0;background:#2b6cff;color:#fff;font-weight:600}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    footer{font-size:.85rem;opacity:.8}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Teclado táctil accesible — Vocales</h1>
+      <div class="controls">
+        <button id="leer">Leer todo</button>
+        <button id="borrar">Borrar</button>
+      </div>
+    </header>
+
+    <div id="keyboard" aria-label="Teclado de vocales" role="application">
+      <!-- teclas se generan por JS -->
+    </div>
+
+    <label for="out" class="visually-hidden">Texto escrito</label>
+    <textarea id="out" aria-label="Texto escrito" readonly></textarea>
+
+    <div id="status" aria-live="polite" class="visually-hidden"></div>
+
+    <footer>Toque y arrastre el dedo sobre las teclas. Al levantar el dedo se insertará la vocal sobre la que estaba. Se usan avisos de voz y vibración.</footer>
+  </div>
+
+  <script>
+    // Vocales y configuración
+    const KEYS = ['a','e','i','o','u'];
+    const keyboard = document.getElementById('keyboard');
+    const out = document.getElementById('out');
+    const status = document.getElementById('status');
+    const leerBtn = document.getElementById('leer');
+    const borrarBtn = document.getElementById('borrar');
+
+    // Crear teclas grandes y accesibles
+    const keyEls = [];
+    for (const k of KEYS){
+      const el = document.createElement('div');
+      el.className = 'key';
+      el.textContent = k;
+      el.setAttribute('role','button');
+      el.setAttribute('aria-label', 'Tecla ' + k);
+      el.setAttribute('tabindex','0');
+      keyboard.appendChild(el);
+      keyEls.push({letter:k,el});
+    }
+
+    // Voz (SpeechSynthesis)
+    function speak(text, opts={}){
+      try{
+        if (!('speechSynthesis' in window)) return;
+        const u = new SpeechSynthesisUtterance(String(text));
+        if (opts.rate) u.rate = opts.rate;
+        if (opts.pitch) u.pitch = opts.pitch;
+        if (opts.lang) u.lang = opts.lang;
+        // cancel current short prompts so final voice reads are not interrupted? keep brief prompts
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(u);
+      }catch(e){console.warn('Voice error',e)}
+    }
+
+    function vibrate(ms=30){ if (navigator.vibrate) try{ navigator.vibrate(ms) }catch(e){} }
+
+    // Detectar cuál tecla contiene el punto x,y
+    function keyAtPoint(x,y){
+      for (const k of keyEls){
+        const r = k.el.getBoundingClientRect();
+        if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return k;
+      }
+      return null;
+    }
+
+    // Estado de puntero
+    let activePointer = null; // pointerId
+    let currentKey = null; // objeto {letter,el}
+
+    // Usar pointer events para seguir el dedo independientemente del scroll
+    keyboard.addEventListener('pointerdown', (ev)=>{
+      ev.preventDefault();
+      keyboard.setPointerCapture(ev.pointerId);
+      activePointer = ev.pointerId;
+      const k = keyAtPoint(ev.clientX, ev.clientY);
+      setCurrentKey(k, 'enter');
+    }, {passive:false});
+
+    keyboard.addEventListener('pointermove', (ev)=>{
+      if (activePointer !== ev.pointerId) return;
+      ev.preventDefault();
+      const k = keyAtPoint(ev.clientX, ev.clientY);
+      setCurrentKey(k, 'move');
+    }, {passive:false});
+
+    keyboard.addEventListener('pointerup', (ev)=>{
+      if (activePointer !== ev.pointerId) return;
+      ev.preventDefault();
+      const k = keyAtPoint(ev.clientX, ev.clientY);
+      // si está sobre una tecla, insertar la letra
+      if (k){
+        appendLetter(k.letter);
+      } else {
+        // opcional: indicar que no soltó sobre tecla
+        speak('No hay tecla');
+      }
+      clearCurrentKey();
+      try{ keyboard.releasePointerCapture(ev.pointerId) }catch(e){}
+      activePointer = null;
+    }, {passive:false});
+
+    keyboard.addEventListener('pointercancel', (ev)=>{
+      if (activePointer !== ev.pointerId) return;
+      clearCurrentKey();
+      activePointer = null;
+    });
+
+    // Para usuarios que usan teclado físico o lectores: also support click/keyboard
+    keyEls.forEach(k=>{
+      k.el.addEventListener('click',(e)=>{ appendLetter(k.letter); });
+      k.el.addEventListener('keydown',(e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); appendLetter(k.letter); } });
+    });
+
+    function setCurrentKey(k, reason){
+      if (currentKey && currentKey !== k){
+        currentKey.el.classList.remove('active');
+      }
+      if (k && currentKey !== k){
+        // hemos entrado en nueva tecla
+        k.el.classList.add('active');
+        // anunciar vocal
+        speak(k.letter, {rate:1.1});
+        vibrate(20);
+        status.textContent = 'Sobre ' + k.letter;
+        currentKey = k;
+      } else if (!k){
+        // fuera de teclas
+        status.textContent = '';
+        currentKey = null;
+      }
+    }
+
+    function clearCurrentKey(){
+      if (currentKey){
+        currentKey.el.classList.remove('active');
+        currentKey = null;
+      }
+    }
+
+    function appendLetter(letter){
+      out.value = out.value + letter;
+      // anunciar la inserción y el texto actual (corto)
+      speak(letter + ' añadida');
+      // actualización para lectores
+      status.textContent = 'Añadida ' + letter + '. Texto: ' + out.value;
+    }
+
+    // Botones
+    leerBtn.addEventListener('click', ()=>{
+      const text = out.value || 'vacío';
+      speak(text, {rate:0.95});
+    });
+
+    borrarBtn.addEventListener('click', ()=>{
+      out.value = '';
+      speak('Texto borrado');
+    });
+
+    // Al cargar, dar una instrucción corta
+    window.addEventListener('load', ()=>{
+      speak('Teclado listo. Toque y arrastre sobre las teclas para seleccionar una vocal. Al levantar el dedo se insertará. Presione leer todo para que sea leído.');
+    });
+
+    // Evitar el comportamiento de desplazamiento mientras se usa el teclado (opcional)
+    document.body.addEventListener('touchmove', function(e){
+      if (activePointer !== null) e.preventDefault();
+    }, {passive:false});
+
+    // Compatibilidad: si el navegador tiene lector de pantalla, la voz puede sonar duplicada.
+    // La implementación usa SpeechSynthesis para avisos y aria-live (status) para compatibilidad.
+
+  </script>
+</body>
+</html>
