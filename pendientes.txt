@@ -2,6 +2,21 @@ Pendientes:
 
 1. OK - cambiar el teléfono por un rombo cuadrado - OK
 
+lograr que el rombo a penas se pulsa debe detectar la hora local e iniciar a escuchar la voz, al terminar 
+la pulsación debe leer de nuevo la hora y ver es menor o igual a una raya, ej 2 segundos, si es mayor o ugual
+debe convertir la voz a texto y mostrarlo y luego leerlo. si es un clic debe encender el teclado que este 
+configurado como Entrada:
+1. qwerty peq con voz en las tedk
+2. qwerty peq sin voz
+3. qwerty mws sin voz
+4. qwerty grande sin voz
+5. señas a texto
+
+
+
+
+
+
 2. adicionar el tipo al oprimir el botón de ayuda
 
 3. crear un boton nuevo en el menu para cambiar el teclado de salida y permita cambiar el teclado por medio de clics 

@@ -8374,7 +8374,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 				//if h = 98 => NO PASA NADA, solo se usa para activar el display si esta desactivado
 				if(h==97)
 				{	//CAMBIAR el modo del intercomunicador
-					console.error(' -- h= 99');
+					console.error(' -- h= 99  mMod=',mMod);
 					var i = mMod + 1;
 					if(i>=6)
 					{	i = 1;//Reinicia al modo 1
@@ -8383,8 +8383,8 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 					h = i;//cambia el valor de h por el nuevo modo
 					//console.error(' -- 1 h=',h);
 				}
-				//console.error(' -- 2 h=',h);
-				//console.error(' -- 4 mMod=',mMod);
+				console.error(' -- 2 h=',h);
+				console.error(' -- 4 mMod=',mMod);
 				if((h<=96)&&(h!=mMod))//si no son comandos y viene valor de h, entonces ajustar el modo que corresponda a h
 				{ 	//console.error(' -- 3 h=',h);
 					mMod = h;//se actualiza el modo
@@ -8406,7 +8406,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 							iKeyB.style.width = '200vw';
 							iKeyB.classList.remove('cX');
 						break;
-						case 3: Qwerty
+						case 3:
 							// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
 							keYs.forEach(button =>
 							{	button.style.fontSize = 'min(15vh,15vw)';

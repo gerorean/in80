@@ -429,7 +429,7 @@
 ,.cScroll::-webkit-scrollbar
 ,.cTexM::-webkit-scrollbar
 ,.cTpres::-webkit-scrollbar
-,#intM::-webkit-scrollbar{
+,#i--ntM::-webkit-scrollbar{
 				display: none}/* Chrome, Safari */
 
  .sepia{		filter:sepia(30%)}
@@ -937,7 +937,7 @@
 ,.cScroll
 ,.cTexM
 ,.cTpres
-,#intM{			scrollbar-width: none}/* Firefox */
+,#intM{		scrollbar-width: none}/* Firefox */
 
  .cAltu
 ,.cPic2
