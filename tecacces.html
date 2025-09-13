@@ -3,6 +3,376 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teclado táctil accesible completo</title>
+  <style>
+    html,body{height:100%;margin:0;background:#111;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial}
+    .app{display:flex;flex-direction:column;height:100%;padding:8px;box-sizing:border-box}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+    button{padding:8px 12px;border:0;border-radius:8px;background:#2b6cff;color:#fff;font-weight:600}
+    textarea{width:100%;min-height:80px;margin-top:8px;padding:10px;font-size:1.2rem;border-radius:8px;border:2px solid #222;background:#0b0b0b;color:#fff;resize:none}
+
+    #iKeyB{width:100vw;box-sizing:border-box;display:grid;grid-gap:0;grid-template-rows: repeat(5, 1fr);padding:0}
+    .cKRow{display:grid;gap:0;grid-template-columns: repeat(10, 1fr)}
+    .keY{align-items:center;cursor:pointer;display:flex;font-size:min(5vh,5vw);justify-content:center;text-align:center;background:#1e1e1e;border:1px solid #333;user-select:none;touch-action:none}
+    .keY.active{outline:3px solid #ffd54f}
+    .doble{grid-column: span 2}
+
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1 style="font-size:1rem">Teclado táctil accesible completo</h1>
+      <div>
+        <button id="leer">Leer todo</button>
+        <button id="borrar">Borrar</button>
+      </div>
+    </header>
+
+    <div id='iKeyB'>
+      <div class='cKRow'>
+        <div class='keY'>1</div><div class='keY'>2</div><div class='keY'>3</div><div class='keY'>4</div><div class='keY'>5</div><div class='keY'>6</div><div class='keY'>7</div><div class='keY'>8</div><div class='keY'>9</div><div class='keY'>0</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY'>q</div><div class='keY'>w</div><div class='keY'>e</div><div class='keY'>r</div><div class='keY'>t</div><div class='keY'>y</div><div class='keY'>u</div><div class='keY'>i</div><div class='keY'>o</div><div class='keY'>p</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY'>a</div><div class='keY'>s</div><div class='keY'>d</div><div class='keY'>f</div><div class='keY'>g</div><div class='keY'>h</div><div class='keY'>j</div><div class='keY'>k</div><div class='keY'>l</div><div class='keY'>ñ</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY' id='shift'>Shift</div><div class='keY'>z</div><div class='keY'>x</div><div class='keY'>c</div><div class='keY'>v</div><div class='keY'>b</div><div class='keY'>n</div><div class='keY'>m</div><div class='keY'>,</div><div class='keY'>?</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY'>!</div><div class='keY'>/</div><div class='keY'>-</div><div class='keY' id='tilde'>´</div><div class='keY doble' id='space'></div><div class='keY'>.</div><div class='keY'>:</div><div class='keY'>@</div><div class='keY' id='del'>Del</div>
+      </div>
+    </div>
+
+    <label for="out" class="visually-hidden">Texto escrito</label>
+    <textarea id="out" readonly></textarea>
+
+    <div id="status" aria-live="polite" class="visually-hidden"></div>
+  </div>
+
+  <script>
+    const out = document.getElementById('out');
+    const status = document.getElementById('status');
+    const leerBtn = document.getElementById('leer');
+    const borrarBtn = document.getElementById('borrar');
+
+    let shiftActive = false;
+
+    function speak(text, opts={}){
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(String(text));
+      u.lang = 'es-ES';
+      window.speechSynthesis.speak(u);
+    }
+
+    function vibrate(ms=30){ if (navigator.vibrate) navigator.vibrate(ms); }
+
+    const keys = [...document.querySelectorAll('.keY')];
+
+    function keyAtPoint(x,y){
+      for(const el of keys){
+        const r = el.getBoundingClientRect();
+        if(x>=r.left && x<=r.right && y>=r.top && y<=r.bottom) return el;
+      }
+      return null;
+    }
+
+    let activePointer=null;
+    let currentKey=null;
+
+    document.getElementById('iKeyB').addEventListener('pointerdown',ev=>{
+      ev.preventDefault();
+      activePointer=ev.pointerId;
+      ev.currentTarget.setPointerCapture(ev.pointerId);
+      setCurrentKey(keyAtPoint(ev.clientX,ev.clientY));
+    },{passive:false});
+
+    document.getElementById('iKeyB').addEventListener('pointermove',ev=>{
+      if(activePointer!==ev.pointerId)return;
+      ev.preventDefault();
+      setCurrentKey(keyAtPoint(ev.clientX,ev.clientY));
+    },{passive:false});
+
+    document.getElementById('iKeyB').addEventListener('pointerup',ev=>{
+      if(activePointer!==ev.pointerId)return;
+      ev.preventDefault();
+      const k=keyAtPoint(ev.clientX,ev.clientY);
+      if(k)pressKey(k);
+      clearCurrentKey();
+      activePointer=null;
+    },{passive:false});
+
+
+
+
+
+
+
+// Diccionario de nombres hablados
+const spokenNames = {
+  ',': 'coma',
+  '.': 'punto',
+  '?': 'signo de interrogación',
+  ':': 'dos puntos',
+  '!': 'signo de exclamación',
+  '/': 'barra',
+  '-': 'guion',
+  '´': 'tilde',
+  '@': 'arroba',
+  'Shift': 'shift',
+  'Del': 'borrar',
+  ' ': 'espacio'
+};
+
+function getSpokenName(val) {
+  return spokenNames[val] || val;
+}
+
+function setCurrentKey(k){
+  if(currentKey && currentKey!==k) currentKey.classList.remove('active');
+  if(k && currentKey!==k){
+    k.classList.add('active');
+    const val = k.textContent.trim() || k.id;
+    speak(getSpokenName(val));
+    vibrate(20);
+    currentKey=k;
+  }
+}
+
+function pressKey(k){
+  let val = k.textContent.trim();
+  if(k.id==='shift'){
+    shiftActive=!shiftActive;
+    speak('Shift '+(shiftActive?'activado':'desactivado'));
+    return;
+  }
+  if(k.id==='space'){ out.value+=' '; speak('espacio'); return; }
+  if(k.id==='del'){ out.value=out.value.slice(0,-1); speak('borrar'); return; }
+  if(k.id==='tilde'){ out.value+='´'; speak('tilde'); return; }
+
+  let toAdd = val;
+  if(shiftActive) toAdd = val.toUpperCase();
+
+  out.value += toAdd;
+  speak(getSpokenName(toAdd));
+  status.textContent = 'Añadida '+toAdd+'. Texto: '+out.value;
+}
+
+
+
+   
+    
+
+    function clearCurrentKey(){
+      if(currentKey){currentKey.classList.remove('active');currentKey=null;}
+    }
+
+
+
+
+
+    leerBtn.addEventListener('click',()=>{
+      speak(out.value||'vacío');
+    });
+    borrarBtn.addEventListener('click',()=>{out.value='';speak('Texto borrado');});
+
+    window.addEventListener('load',()=>{
+      speak('Teclado completo listo. Toque y arrastre para seleccionar teclas. Levante el dedo para insertar.');
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teclado táctil accesible completo</title>
+  <style>
+    html,body{height:100%;margin:0;background:#111;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial}
+    .app{display:flex;flex-direction:column;height:100%;padding:8px;box-sizing:border-box}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+    button{padding:8px 12px;border:0;border-radius:8px;background:#2b6cff;color:#fff;font-weight:600}
+    textarea{width:100%;min-height:80px;margin-top:8px;padding:10px;font-size:1.2rem;border-radius:8px;border:2px solid #222;background:#0b0b0b;color:#fff;resize:none}
+
+    #iKeyB{width:100vw;box-sizing:border-box;display:grid;grid-gap:0;grid-template-rows: repeat(5, 1fr);padding:0}
+    .cKRow{display:grid;gap:0;grid-template-columns: repeat(10, 1fr)}
+    .keY{align-items:center;cursor:pointer;display:flex;font-size:min(5vh,5vw);justify-content:center;text-align:center;background:#1e1e1e;border:1px solid #333;user-select:none;touch-action:none}
+    .keY.active{outline:3px solid #ffd54f}
+    .doble{grid-column: span 2}
+
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1 style="font-size:1rem">Teclado táctil accesible completo</h1>
+      <div>
+        <button id="leer">Leer todo</button>
+        <button id="borrar">Borrar</button>
+      </div>
+    </header>
+
+    <div id='iKeyB'>
+      <div class='cKRow'>
+        <div class='keY'>1</div><div class='keY'>2</div><div class='keY'>3</div><div class='keY'>4</div><div class='keY'>5</div><div class='keY'>6</div><div class='keY'>7</div><div class='keY'>8</div><div class='keY'>9</div><div class='keY'>0</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY'>q</div><div class='keY'>w</div><div class='keY'>e</div><div class='keY'>r</div><div class='keY'>t</div><div class='keY'>y</div><div class='keY'>u</div><div class='keY'>i</div><div class='keY'>o</div><div class='keY'>p</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY'>a</div><div class='keY'>s</div><div class='keY'>d</div><div class='keY'>f</div><div class='keY'>g</div><div class='keY'>h</div><div class='keY'>j</div><div class='keY'>k</div><div class='keY'>l</div><div class='keY'>ñ</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY' id='shift'>Shift</div><div class='keY'>z</div><div class='keY'>x</div><div class='keY'>c</div><div class='keY'>v</div><div class='keY'>b</div><div class='keY'>n</div><div class='keY'>m</div><div class='keY'>,</div><div class='keY'>?</div>
+      </div>
+      <div class='cKRow'>
+        <div class='keY'>!</div><div class='keY'>/</div><div class='keY'>-</div><div class='keY' id='tilde'>´</div><div class='keY doble' id='space'></div><div class='keY'>.</div><div class='keY'>:</div><div class='keY'>@</div><div class='keY' id='del'>Del</div>
+      </div>
+    </div>
+
+    <label for="out" class="visually-hidden">Texto escrito</label>
+    <textarea id="out" readonly></textarea>
+
+    <div id="status" aria-live="polite" class="visually-hidden"></div>
+  </div>
+
+  <script>
+    const out = document.getElementById('out');
+    const status = document.getElementById('status');
+    const leerBtn = document.getElementById('leer');
+    const borrarBtn = document.getElementById('borrar');
+
+    let shiftActive = false;
+
+    function speak(text, opts={}){
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(String(text));
+      u.lang = 'es-ES';
+      window.speechSynthesis.speak(u);
+    }
+
+    function vibrate(ms=30){ if (navigator.vibrate) navigator.vibrate(ms); }
+
+    const keys = [...document.querySelectorAll('.keY')];
+
+    function keyAtPoint(x,y){
+      for(const el of keys){
+        const r = el.getBoundingClientRect();
+        if(x>=r.left && x<=r.right && y>=r.top && y<=r.bottom) return el;
+      }
+      return null;
+    }
+
+    let activePointer=null;
+    let currentKey=null;
+
+    document.getElementById('iKeyB').addEventListener('pointerdown',ev=>{
+      ev.preventDefault();
+      activePointer=ev.pointerId;
+      ev.currentTarget.setPointerCapture(ev.pointerId);
+      setCurrentKey(keyAtPoint(ev.clientX,ev.clientY));
+    },{passive:false});
+
+    document.getElementById('iKeyB').addEventListener('pointermove',ev=>{
+      if(activePointer!==ev.pointerId)return;
+      ev.preventDefault();
+      setCurrentKey(keyAtPoint(ev.clientX,ev.clientY));
+    },{passive:false});
+
+    document.getElementById('iKeyB').addEventListener('pointerup',ev=>{
+      if(activePointer!==ev.pointerId)return;
+      ev.preventDefault();
+      const k=keyAtPoint(ev.clientX,ev.clientY);
+      if(k)pressKey(k);
+      clearCurrentKey();
+      activePointer=null;
+    },{passive:false});
+
+    function setCurrentKey(k){
+      if(currentKey&&currentKey!==k)currentKey.classList.remove('active');
+      if(k&&currentKey!==k){
+        k.classList.add('active');
+        speak(k.textContent||k.id);
+        vibrate(20);
+        currentKey=k;
+      }
+    }
+
+    function clearCurrentKey(){
+      if(currentKey){currentKey.classList.remove('active');currentKey=null;}
+    }
+
+    function pressKey(k){
+      const val=k.textContent.trim();
+      if(k.id==='shift'){shiftActive=!shiftActive;speak('Shift '+(shiftActive?'activado':'desactivado'));return;}
+      if(k.id==='space'){out.value+=' ';speak('espacio');return;}
+      if(k.id==='del'){out.value=out.value.slice(0,-1);speak('borrar');return;}
+      if(k.id==='tilde'){out.value+='´';speak('tilde');return;}
+      let toAdd=val;
+      if(shiftActive)toAdd=val.toUpperCase();
+      out.value+=toAdd;
+      speak(toAdd);
+      status.textContent='Añadida '+toAdd+'. Texto: '+out.value;
+    }
+
+    leerBtn.addEventListener('click',()=>{
+      speak(out.value||'vacío');
+    });
+    borrarBtn.addEventListener('click',()=>{out.value='';speak('Texto borrado');});
+
+    window.addEventListener('load',()=>{
+      speak('Teclado completo listo. Toque y arrastre para seleccionar teclas. Levante el dedo para insertar.');
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Teclado táctil accesible — Vocales</title>
   <style>
     :root{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
@@ -31,7 +401,7 @@
     </header>
 
     <div id="keyboard" aria-label="Teclado de vocales" role="application">
-      <!-- teclas se generan por JS -->
+      <!-- teclas se generan por JS -- >
     </div>
 
     <label for="out" class="visually-hidden">Texto escrito</label>
