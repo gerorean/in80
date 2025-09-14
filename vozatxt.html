@@ -74,6 +74,7 @@
     // Cuando reconoce algo → escribir y leer
     recognition.onresult = (event) => {
       const texto = event.results[0][0].transcript;
+      console.log('texto=',texto);
       textarea.value = texto;
       hablarTexto(texto, idioma.value);
     };
@@ -93,13 +94,13 @@
 
     // Eventos en teclado (barra espaciadora = Botón A)
     document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
+      if (e.code === "Enter") {//"Space") {
         e.preventDefault(); // evitar scroll
         iniciarEscucha();
       }
     });
     document.addEventListener("keyup", (e) => {
-      if (e.code === "Space") {
+      if (e.code === "Enter") {//"Space") {
         detenerEscucha();
       }
     });
