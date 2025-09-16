@@ -1,40 +1,63 @@
 Pendientes: 
 
-1. OK - cambiar el teléfono por un rombo cuadrado - OK
-
-lograr que el rombo a penas se pulsa debe detectar la hora local e iniciar a escuchar la voz, al terminar 
-la pulsación debe leer de nuevo la hora y ver es menor o igual a una raya, ej 2 segundos, si es mayor o ugual
-debe convertir la voz a texto y mostrarlo y luego leerlo. si es un clic debe encender el teclado que este 
+1. lograr que el rombo apenas se pulsa debe detectar la hora local e iniciar a escuchar la voz, al terminar 
+la pulsación debe leer de nuevo la hora y ver si es menor o igual a una raya, ej 2 segundos, si es así debe mirar si el 
+usuario NO envío ningún mensaje con la voz durante ese tiempo y por ende debe tomarlo como una pulsación en clave morse
+y debe ser procesada como tal, en caso contrario si el usuario dijo algo lo debe poner en el editor de salida central, 
+es decir debe convertir la voz a texto y mostrarlo y luego leerlo. si es un clic debe encender o apagar el teclado que este 
 configurado como Entrada:
-1. qwerty peq con voz en las tedk
-2. qwerty peq sin voz
-3. qwerty mws sin voz
-4. qwerty grande sin voz
-5. señas a texto
+1> qwerty pequeño con voz al deslizar el dedo sobre las teclas, al soltar escribe la misma en el editor
+2> qwerty mediano con voz al deslizar el dedo sobre las teclas, al soltar escribe la misma en el editor
+3> qwerty grande con voz al deslizar el dedo sobre las teclas, al soltar escribe la misma en el editor
+4> señas (pequeño) a texto 
+5> señas mediano a texto 
+6> señas grande a texto 
 
 
-
-
-
-
-2. adicionar el tipo al oprimir el botón de ayuda
+2. adicionar el texto relacionado al "tipo de entrada:" ejemplo "qwerty pequeño" al oprimir el botón de ayuda
 
 3. crear un boton nuevo en el menu para cambiar el teclado de salida y permita cambiar el teclado por medio de clics 
-sobre ese botón y no debe generar lista debe funcionar de forma similar a cambiar el tipo de info, este modo no 
+sobre ese botón, no debe generar lista debe funcionar de forma similar a cambiar el tipo de info, este modo no 
 debe incluir el tutorial del morse, el tutorial del morse solo debe salir al tocar el boton del morse.
 
-4. acondicionar el rombo con un gesto de clic (con sonido A si va a mostrar el teclado para ciegos) para encender y con otro clic 
- para apagar el teclado (con otro sonido B, diferente de A, si es va a apagar el teclado para ciegos)
-de salida.
+4. acondicionar el rombo con un gesto de clic (con sonido A y vibración de 1s egundo si va a mostrar el teclado 
+para ciegos) para encender y con otro clic para apagar el teclado de salida (igual al sonido de A pero el doble de largo 
+y vibración de 2 segundos, si es va a apagar el teclado para ciegos).
+
+5. Acondicionar el rombo (mMod?? y f0148(98)????) para que al hacer que con una raya o dos o tres etc sobre el rombo 
+modifique por debajo el boton menu de cambiar la configuración del teclado de salida y cambie el modo de salida sin 
+tener que ir al menu y darle al botón de cambiar: 
+1 raya equivale al modo 1(qwerty pequeño), 2 rayas al modo 2(qwerty mediano), 3 rayas al modo 3, etc..
 
 
+6. Quitar el modo de braile virtual y dejarlo como una servicio paralelo opcional de antepenultimas en el menu de ajustes,
+antes de la serie de señas.
 
+7. Aplicar una barra negra horizontal en la parte inferior del mismo ancho de la barra negra superior, achicando el 
+teclado de entrada y esplazando el braille virtual a esa zona, si el usuario lo activa, sera visible, de lo contrario no.
 
-5. acondicionar el rombo (mMod?? y f0148(98)????) para que al hacer doble clic o raya suene el sonido A, salte y vaya directo al teclado preconfigurado para 
-los ciegos (con soltar el boton y teclas pequeñas para usuarios normales)
+8. Ajustar el largo del editor, si el modo es el 6 del interprete, el largo del editor sera solo de una tercera parte
+con el fin de que exista espacio para mostrar a los dos interpretes que hacen parte de la conversacion:
+El de la izquierda seña el texto que el usuario reciba del "el otro" y el de la derecha el texto señado que el usuario
+genere, justo encima del editor central, con un largo de una sexta parte deben estar las imagenes de las dos personas que 
+interactuan como "la otra persona" y la del "usuario", encima de las dos imagenes debe estar el texto de entrada de la otra 
+persona. Cuando el uusuario de clic al triangulo de abajo, debe leer el texto del editor, cuando el usuario de clic en El
+triangulo de arriba, debe leer los mensajes de la otra persona, cadabez que alguien usa el editor, el comunicado debe ir 
+con un numero 0, 1, 1+, 2 o 2+ dependiendo de el orden de la comunicación:
+0> aún no ha escrito nada
+1> Primer mensaje o mensaje previo
+2> Ultimo mensaje o mensaje actual
+1+> igual a 1>pero el usuario, que lo genero, está adicionando algo o lo va a cambiar por uno nuevo
+2+> igual a 2>pero el usuario, que lo genero, está adicionando algo o lo va a cambiar por uno nuevo
+Nota: cuando el modo 6 de señas este activo , el texto debe salir en texto mediano o pequeño, dado que el largo del editor
+se reduce, el resto de los modos debe ser con letra grande.
+Para terminar o colgar una comunicación, el usuario debe dar clic en el botón X de salir y enviar un mensaje al otro usuario 
+informando de que colgo ´para que haga lo mismo. Si un usuario escribe o dice SOS o "ayuda" debe conectarlo con un agente de la 
+linea de emergencia. de lo contrario siempre será entre cuidadores y personas con discapacidad.
 
-6. Hacer que con una raya larga o triple clic sobre el rombo vaya modifique por debajo el boton menu de cambiar la configuración 
-del teclado de salida y cabmbie el modo de salida sin tener que ir al menu y darle al botón de cambiar
+9. crear un formulario para el registro de pares de intercomunicacion, con codigos id unicos y cada usuario debe contar con
+ una imagen, este id del usuario debera ingresarse en las celas D y E del hash, D con el id del usuario y
+en E: el id de la persona con discapacidad.
 
 
 revisar con lupa si hay que independisar la parte del texto del audio en f0030() porque al parecer cada vez que el cursor cambia
