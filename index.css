@@ -101,7 +101,7 @@
 					/*	/*--pilO:calc(var(--pelo)*-74);/*SOMBRA - DE LA CANAL*/
 					/*	/*--pilA:calc(var(--pelo)*74);/*SOMBRA + DE LA CANAL*/
 				/*--radio:3vh;/*3vh;/*RADIO LABEL Y BUTTON*/
-				--rmin:3px;/*5px;/*RADIO minimo LABEL Y BUTTON*/
+				--rmin:5px;/*5px;/*RADIO minimo LABEL Y BUTTON*/
 					/*	--sina:67%;/*ANCHO DE LA MARQUEsina LOCAL*/
 					/*	--sky:rgb(0,172,238);/*COLOR DE FONDO DEL LOGO AZUL*/
 				--z:10px;/*--z:15px altura del borde negro superior*/
@@ -221,20 +221,24 @@
 
  .cGre{			border-radius:0 0 var(--kdot) var(--kdot)}
 
+
+
+
+
  #y--Bot0r
  ,#yBot6
  ,#yBot3
  ,#yBot9
- ,#yBoto{		border-radius:0 7.5% 7.5% 0}/*{		border-radius:0 7.5vh 7.5vh 0}11.25vh 0 0 11.25vh}*/
+ ,#yBoto{		border-radius:0 calc(var(--rmin)*2) calc(var(--rmin)*2) 0}/*{		border-radius:0 7.5vh 7.5vh 0}11.25vh 0 0 11.25vh}*/
 
  #boT0
  ,#y--Bot0l
  ,#yBot4
  ,#yBot1
  ,#yBot7
- ,#y--Bot5{		border-radius:7.5% 0 0 7.5%}/*{		border-radius:7.5vh 0 0 7.5vh}11.25vh 0 0 11.25vh}*/
+ ,#y--Bot5{		border-radius:calc(var(--rmin)*2) 0 0 calc(var(--rmin)*2)}/*{		border-radius:7.5vh 0 0 7.5vh}11.25vh 0 0 11.25vh}*/
 
- .cTexM{		border-radius:7.5%}/*{		border-radius:7.5vh}*/
+ .cTexM{		border-radius:calc(var(--rmin)*2)}/*{		border-radius:7.5vh}*/
 
  .c--Ame
 ,.c--Ask

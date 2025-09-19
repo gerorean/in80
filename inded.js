@@ -7186,18 +7186,14 @@ morse(q) {
 					{
 						outX[q] = ' -';//RAYA..
 						//sos(q,0);
-
-
 						if (q == 3)//boton . [3] raya onclick='f0096(1,1,1) morse 3 MI REVERSA FIJA 2023 IBOGOTA!!!! 	
 						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
 							f0096(1, 1, 1);//Aplicar reversa al clic(botón 3) salTO -1
 						};
-
 						/////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
 						/////{	console.log(' - - - arrow down! ');
 						/////	f0095(1);// arrow down
 						/////};
-
 						//////if (q == 7)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
 						//////{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
 						//////	f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
@@ -7211,11 +7207,9 @@ morse(q) {
 							f0015(1);//Clic o raya sobre el boton 7 [] menu
 							//sos(q,7);
 						};
-
-
 						if (q == 8)//boton / [0] Activar el display 
-						{	
-							f0148(98);//MOSTRAR la interfaz de Salida M
+						{	//f0148(98);//MOSTRAR la interfaz de Salida M
+							f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
 							/* mMod = 4;
 							console.log(' - - - borrar la ultima letra del display M');
 							sale = sale.slice(0, -1);
@@ -7224,25 +7218,12 @@ morse(q) {
 							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 							*/
 						};
-
-
-					
-
 						//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
 						/*
 						if (q == 6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
-						{
-							console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
+						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
 							f0096(1, 1, 1);//Aplicar reversa al clic(botón 6) salTO -1
 						};*/
-						/*if(q==6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
-						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
-							console.log('|> Flag  -> F96 ');
-							f0096(1,1,1);//aplicar reversa
-						};*/
-
-						//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-					
 					}
 					////       --l//if (regY[q][0] == 3)
 					////       --l//{	console.error('  --raya muy larga--');
@@ -7284,7 +7265,7 @@ morse(q) {
 					{	outX[q] = ' -*';//RAYA + PUNTO..
 
 						if (q == 3)//avanzar +(1*KTE) 
-						{	f0148(99);//DESACTIVAR la interfaz de Salida M
+						{	//f0148(99);//DESACTIVAR la interfaz de Salida M
 							f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 3) salTO5
 						}
 
@@ -7295,26 +7276,22 @@ morse(q) {
 						}*/
 						console.error(' aqui voy 1');
 						if (q == 8)
-						{	f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
+						{	//f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
+							f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
 							console.error(' aqui voy 2');
 						}
 					}
 					if ((regY[q][0] == 2) && (regY[q][2] == 2)) {
 						outX[q] = ' --';//DOS RAYAS..
-
-
-
 						if (q == 3)//regresar -(1*KTE)
-						{	f0148(99);//DESACTIVAR la interfaz de Salida M
+						{	//f0148(99);//DESACTIVAR la interfaz de Salida M
 							f0096(1, 1, 3);//Aplicar -5 avances al clic(botón 3) salTO-5
 						}
-
 						/*
 						if (q == 6)//regresar -(1*KTE)
 						{
 							f(1, 1, 3);//Aplicar -5 avances al clic(botón 6) salTO-5
 						}*/
-
 						if (q == 7)//boton [menu] [7] BORRAR todo el texto de salida actual
 						{	console.log(' - - - boton [Menu] [7] borrar la ultima letra del display M');
 							sale = sale.slice(0, -1);
@@ -7323,27 +7300,23 @@ morse(q) {
 								//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
 							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 						};
-
 						if (q == 8)
-						{	f0148(99);//OCULTAR la interfaz de Salida M
+						{	//f0148(99);//OCULTAR la interfaz de Salida M
+							f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
 						}
 					}
 					break;
 				case 5:
 						if ((regY[q][0] == 1) && (regY[q][2] == 1) && (regY[q][4] == 1)) {
 						outX[q] = ' ***';//tres puntos..
-
-						
 						if (q == 3)//avanzar +(2*KTE)
 						{
 							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
 						}
-
 						////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
 						////{	console.log(' - - - arrow down x 3! ');
 						////	f0095(1);// arrow down
 						////};
-
 						if (q == 7)//Reset del display M 	
 						{	f0150();//BORRAR todo el texto de salida actual
 							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
@@ -7355,19 +7328,15 @@ morse(q) {
 							//f0148(99);//OCULTAR la interfaz de Salida M
 						};
 					}
-
 					if ((regY[q][0] == 2) && (regY[q][2] == 1) && (regY[q][4] == 1))
-					{	outX[q] = ' -**';//raya y dos puntos..
-
-						if (q == 8)
-						{	f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
-						}
+					{	outX[q] = ' -**';//una raya y dos puntos..
+						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0!!!! ');
+							f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
+						};
 					}
-
 					if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) 
-					{
-						outX[q] = ' --*';//dos rayas punto..
-
+					{	outX[q] = ' --*';//dos rayas punto..
 						if (q == 3)//avanzar +(2*KTE)
 						{
 							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
@@ -7377,12 +7346,9 @@ morse(q) {
 						{
 							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 6)
 						}*/
-
 					}
 					if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 2))
-					{
-						outX[q] = ' ---';//tres rayas..
-
+					{	outX[q] = ' ---';//tres rayas..
 						if (q == 3)//regresar -(2*KTE)
 						{
 							f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 3)
@@ -7392,19 +7358,19 @@ morse(q) {
 						{
 							f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 6)
 						}*/
-
-
 						if (q == 7)//Reset del display M 	
 						{	f0150();//BORRAR todo el texto de salida actual
 							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 						};
-
-						if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-						{	f0148(97);//CAMBIAR la interfaz M
-							//console.log(' - - - boton / [0] Apagar el intecomunicador M');
-							//f0148(99);//OCULTAR la interfaz de Salida M
+						//if (q == 8)//boton [] [7]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						//{	f0148(97);//CAMBIAR la interfaz M
+						//	//console.log(' - - - boton / [0] Apagar el intecomunicador M');
+						//	//f0148(99);//OCULTAR la interfaz de Salida M
+						//};
+						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0!!!! ');
+							f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
 						};
-
 					}
 					break;
 				case 7:
@@ -7422,27 +7388,28 @@ morse(q) {
 						{	f0096(1,1,6);//Aplicar 20 avances al clic(botón 6)
 						}
 					}
+					*/
 					if((regY[q][0]==2)&&(regY[q][2]==2)&&(regY[q][4]==2)&&(regY[q][6]==2))
 					{	outX[q] = ' ----';//cuatro rayas..
-						if(q==6)//regresar -(3*KTE)
-						{	f0096(1,1,7);//Aplicar -20 avances al clic(botón 6)
-						}
-					}*/
+						////if(q==6)//regresar -(3*KTE)
+						////{	f0096(1,1,7);//Aplicar -20 avances al clic(botón 6)
+						////}
+						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
+						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0!!!! ');
+							f0148(4);//MOSTRAR la interfaz de Salida M de señas
+						};
+					}
 					if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
 					{	outX[q] = ' -***';//raya y tres puntos..
 						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-							f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
+						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0!!!! ');
+							f0148(4);//MOSTRAR la interfaz de Salida M de señas
 						};
 					}
 				break;
 				case 9:
 					if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1))
 					{	outX[q] = ' -****';//raya y cuatro puntos..
-						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
-							f0148(4);//MOSTRAR la interfaz de Salida M de señas
-						};
 					}
 				break;
 
