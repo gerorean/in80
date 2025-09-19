@@ -1819,25 +1819,25 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 						g00VARS[65][2] = window.outerHeight;//.innerHeight;//ventana actual con navegador , outerHeight;navegador completo
 						
 						if(g00VARS[65][2] < 1500)//Si alto menor de 2000px (pantalla pequeña o normal) OCULTAR la fila de botones inferior (Filbo)
-						{ 	intM.style.height = 'calc(35vh - var(--kdot) - 0.5vh)';//- 0.5vh - max(var(--z),5vh) - var(--kdot))
+						{ 	iNt.style.height = 'calc(35% - calc(min(var(--cBrai),5vh)))';//'calc(35% - var(--kdot) - 0.5vh)';//intM.style.height = 'calc(35vh - var(--kdot) - 0.5vh)'; -- --- 0.5vh - max(var(--z),5vh) - var(--kdot))
 							iFilbo.classList.add('cX');
 							iCelu.classList.remove('cCel1');
 							iCelu.classList.add('cCel0');
-							iTia.classList.remove('cTi1');
-							iTia.classList.add('cTi0');
-							iTio.classList.remove('cTi1');
-							iTio.classList.add('cTi0');
+							//iTia.classList.remove('cTi1');
+							//iTia.classList.add('cTi0');
+							//iTio.classList.remove('cTi1');
+							//iTio.classList.add('cTi0');
 							iV6b.style.backgroundColor = 'blue';
 						}
 						else//Si es igual o mayor de 2000px (pantalla muy alta) MOSTRAR la fila de botones inferior (Filbo)
-						{	intM.style.height = 'calc(35vh - max(var(--z),5vh))';
+						{	iNt.style.height = 'calc(35% - calc(min(var(--cBrai),5vh)) - 5vh)';//calc(35% - max(var(--z),5vh))';//calc(35vh - max(var(--z),5vh))
 							iFilbo.classList.remove('cX');
 							iCelu.classList.remove('cCel0');
 							iCelu.classList.add('cCel1');
-							iTia.classList.remove('cTi0');
-							iTia.classList.add('cTi1');
-							iTio.classList.remove('cTi0');
-							iTio.classList.add('cTi1');
+							//iTia.classList.remove('cTi0');
+							//iTia.classList.add('cTi1');
+							//iTio.classList.remove('cTi0');
+							//iTio.classList.add('cTi1');
 							iV6b.style.backgroundColor = 'yellow';
 						}
 						
@@ -3497,7 +3497,7 @@ function f0050()//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y
 			}
 			if(ambi == 5)//RUTA X
 			{	lLINES.innerHTML = '';
-				intM.classList.add('cX');//Oculta la interfaz M
+				iNt.classList.add('cX');//Oculta la interfaz M
 				iIntM0.classList.add('cX');//Oculta el display de la interfaz M
 				iRUTA.classList.add('cX');
 			}
@@ -6746,10 +6746,15 @@ function f0109()//hh89 QUITAR la presentación
 			//iCodQ.classList.add('cX');
 			iPos1.classList.remove('cX');
 			iPos2.classList.remove('cX');
-			iStop.classList.remove('cX');//muestre la barrera
-			if((g00VARS[45][2] == 1)||(g00VARS[45][2] == 7))//si es modo texto pequeño o señas
-			{	iStop.classList.add('cX');//oculte de nuevo la barrera
-			}
+			
+			
+			//___
+			//iStop.classList.remove('cX');//muestre la barrera
+			/////if((g00VARS[45][2] == 1)||(g00VARS[45][2] == 7))//si es modo texto pequeño o señas
+			/////{	
+			/////	//__
+			/////	//iStop.classList.add('cX');//oculte de nuevo la barrera
+			/////}
 		}
 
 function f0110()//hh90 PERMITIR el sonido despues de un tiempo
@@ -8290,7 +8295,7 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 			}
 			if(!mViS)//si el display esta apagado.. 
 			{	//ACTIVAR la salida de la interfaz M
-				intM.classList.remove('cX');
+				iNt.classList.remove('cX');
 				iIntM0.classList.remove('cX');//Enciende el display de la interfaz M
 				mViS = 1;//Se prendio el display
 				//mMod = 0;//Reinicia al modo Morse
@@ -8298,7 +8303,7 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 			}
 			//else//El display M esta prendido
 			//{	if(mMod == 0)//si el modo 0
-			//	{	intM.classList.add('cX');
+			//	{	iNt.classList.add('cX');
 			//		iIntM0.classList.add('cX');//apaga el display de la interfaz M	
 			//		mViS = 0;//Se apago el display		
 			//	}
@@ -8336,7 +8341,7 @@ f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apag
 			{	//DESACTIVAR el display y Resetear los estilos de la intefaz M
 				mViS = 0;//Visibilidad de la salida M 0-Off
 				mCon = 0;//Reset clics Morse
-				intM.classList.add('cX');//Apaga la interfaz M
+				iNt.classList.add('cX');//Apaga la interfaz M
 				iIntM0.classList.add('cX');//Apaga el display de la interfaz M
 				//f0149();//   --l RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
 				//iTaco.classList.remove('cX');//Muestra la tabla Morse translucida.
@@ -8354,7 +8359,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 				//f0148(0);
 				if(mViS)//Si el display esta activado lo desactiva
 				{	iIntM0.classList.add('cX');//Apaga el display de la interfaz M
-					intM.classList.add('cX');
+					iNt.classList.add('cX');
 					mViS = 0;
 					mCon = 60;//Termina el conteo
 					f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
@@ -8364,7 +8369,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 			else//h es diferente de 99..
 			{	if(!mViS)//Si el display esta apagado lo activa
 				{	iIntM0.classList.remove('cX');
-					intM.classList.remove('cX');
+					iNt.classList.remove('cX');
 					mViS = 1;
 				}
 				
@@ -10330,7 +10335,9 @@ function hh50()//AJUSTAR estilo texto pequeño
 		 	hh84();//HABILITAR texto negro / blanco
 			hh19();//HABILITAR tamaño 2
 			//hh20();//texto pequeño
-			f0108();//DESHABILITAR bordes superior e inferior
+
+
+			//f0108();//DESHABILITAR bordes superior e inferior
 			hh21(6);//APLICAR color azul		
 			f0118();//HABILITAR la luz
 			//console.log('|>>>>>>>>>>>>>>>        hh50()  +++    ++++++++++++++++fin (AJUSTAR estilo texto pequeño)');
@@ -10362,7 +10369,10 @@ function hh51()//AJUSTAR estilo vibración
 		 	hh84();//HABILITAR texto negro / blanco
 			hh19();//HABILITAR tamaño 2
 			//hh20();//texto pequeño
-			f0092();//HABILITAR bordes superior e inferior
+			
+			
+			//__
+			//f0092();//HABILITAR bordes superior e inferior
 			hh21(6);//APLICAR color azul
 			f0118();//HABILITAR la luz
 		}
@@ -10397,7 +10407,11 @@ function hh53()//AJUSTAR estilo texto
 		 	hh84();//HABILITAR texto negro / blanco
 			hh30();//HABILITAR tamaño 4 mediano
 			hh21(3);//APLICAR color amarillo
-			f0092();//HABILITAR bordes superior e inferior
+
+
+
+			//__
+			//f0092();//HABILITAR bordes superior e inferior
 			f0118();//HABILITAR la luz	
 		}		
 
@@ -10424,7 +10438,10 @@ function hh54()//AJUSTAR estilo audio
 			hh24();//HABILITAR lector de pantalla (sonido)
 		 	hh84();//HABILITAR texto negro / blanco	
 			hh30();//HABILITAR tamaño 4 mediano
-			f0092();//HABILITAR bordes superior e inferior
+
+
+			//___
+			//f0092();//HABILITAR bordes superior e inferior
 		 	hh21(3);//APLICAR color amarillo
 		 	f0118();//HABILITAR la luz
 		}
@@ -10472,7 +10489,10 @@ function hh56()//AJUSTAR estilo texto máximo
 		 	hh28();//HABILITAR texto negro, botón amarillo
 		 	hh33();//HABILITAR tamaño 7
 			hh21(13);//APLICAR color violeta
-			f0092();//HABILITAR bordes superior e inferior
+
+
+			//___
+			//f0092();//HABILITAR bordes superior e inferior
 			f0118();//HABILITAR la luz
 		}
 
@@ -10500,7 +10520,10 @@ function hh57()//AJUSTAR estilo fondo negro
 			hh83();//HABILITAR texto amarillo boton negro simil hh27()
 			hh21(5);//APLICAR color turquesa
 			hh30();//HABILITAR tamaño 4 mediano
-			f0092();//HABILITAR bordes superior e inferior
+
+
+			//__
+			//f0092();//HABILITAR bordes superior e inferior
 			f0118();//HABILITAR la luz
 		}
 
@@ -10528,7 +10551,11 @@ function hh58()//AJUSTAR estilo señas
 			hh84();//HABILITAR texto negro / blanco
 			hh19();//HABILITAR tamaño 2
 			//hh20();//texto pequeño
-		 	f0108();//DESHABILITAR bordes superior e inferior
+
+
+
+			//__
+		 	//f0108();//DESHABILITAR bordes superior e inferior
 			hh21(6);//APLICAR color azul
 			f0118();//HABILITAR la luz
 		}
@@ -10557,7 +10584,10 @@ function hh59()//AJUSTAR estilo braille
 		 	hh84();//HABILITAR texto negro / blanco
 			hh19();//HABILITAR tamaño 2
 			//hh20();//texto pequeño
-			f0092();//HABILITAR bordes superior e inferior
+
+
+			//___
+			//f0092();//HABILITAR bordes superior e inferior
 			hh21(6);//APLICAR color azul
 			f0118();//HABILITAR la luz
 
@@ -10586,7 +10616,10 @@ function hh60()//AJUSTAR estilo público
 			hh24();//HABILITAR lector de pantalla (sonido)
 			hh84();//HABILITAR texto negro / blanco
 			hh30();//HABILITAR tamaño 4
-			f0092();//HABILITAR bordes superior e inferior
+
+
+			//___
+			//f0092();//HABILITAR bordes superior e inferior
 			hh21(6);//APLICAR color azul
 			f0118();//HABILITAR la luz
 		}
@@ -10648,7 +10681,14 @@ function hh61()//CARGAR la presentación AV de anuncios de la ruta 3 //b0061()	/
 			//iCodQ.classList.remove('cX');
 			iPos1.classList.add('cX');
 			iPos2.classList.add('cX');
-			iStop.classList.add('cX');
+			
+			
+			//__
+			//iStop.classList.add('cX');
+
+
+
+
 			ambi = 4;//PRESENTACION AV
 			iMenu.innerHTML = '<i class="'+kTapa1[69][2]+'"></i>';//<i class="'+kTapa1[16   -   51][2]+'"></i>';
 			f0067();//ORGANIZAR 1 pulso limpio de resize //OBTENER la constante del tamaño de la ventana

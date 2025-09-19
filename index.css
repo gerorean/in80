@@ -1,5 +1,5 @@
 /*!IMPORTANTS SHORT NAMES*/
- .cB{			background:blue!important}
+ . B{			background:blue!important}
 
  .cG{			background:green!important}
 
@@ -42,7 +42,7 @@
 					/*	--ancho:850px;/* 850px 1000px 1150px 1300px 1450px --------ANCHO MAX DE LA PANTALLA WEB*/
 					/*	--aGap:calc(var(--a)*0.4);/*0.4);/*MARGEN SUPERIOR E INFERIOR DE SEPARACION ENTRE CADA CASILLA*/
 				--b:5%;/*ANCHO EN % DE LA BARRERA DE PROTECCION entre a y b*/
-				--bh:5vh;/*ALTO EN vh DE LA BARRERA DE PROTECCION entre a y b*/
+				--bh:5vh;/*5vh;/*ALTO EN vh DE LA BARRERA DE PROTECCION entre a y b*/
 					/*	/* /*--bb:5vw;/*ANCHO EN vw DE LA BARRERA DE PROTECCION entre a y b*/
 					/*	/* /*--bbpp:calc(100vw - (var(--bb)*2));/*DISTANCIA EN vw ENTRE b y p*/
 					/*	--bp:calc(100% - (var(--b)*2));/*DISTANCIA EN % ENTRE b y p*/
@@ -50,7 +50,7 @@
 					/*	
 					/*	/* /*--cc:calc((var(--bbpp)/9) + var(--bb));/*DISTANCIA EN vw ENTRE a y c*/
 				/*--cABok:white;/*color texto acceso abOK*/
-				--cAlt:10vh;/*altura del icono de los 6 botones*/
+				--cAlt:10vh;/*vh;/*altura del icono de los 6 botones*/
 				--cBeige:rgb(26,144,255);/*COLOR del fondo inicial -> Nota este valor se trae desde wColor en inded.js debe ser igual al valor por defecto que tenga la variable g00VARS[31][2], por ejemplo i=6 y este numero i se busca luego en wColor[i][2] es decir en wColor[6][2] y de alli se trae el string del color FUERTE*/
 				/*--cblwh1 	SE PROGRAMA DESDE JS :rgb(30,30,30);/*black;/*SE PROGRAMA DESDE JS*/
 				/*--cblwh2 	SE PROGRAMA DESDE JS :white;/*white;/*amarilla:rgb(255,255,204);SE PROGRAMA DESDE JS*/
@@ -73,7 +73,7 @@
 					/*	--cJPG:30vh;/*ALTURA DE LAS IMAGENES Y O ICONOS CENTRALES*/
 				/*--cHGlo:30;/*30 ALTURA DE LA GLOSA es adimencional se calcula desde js*/
 						/*--cHIcA:calc(100vh - (2*(var(--bh))));/*20vh - 100vh - ALTURA ICONOS calc(100vh - (2*(var(--bh))))*/
-				--chico:90vh;/*90vh //calc(50vh - (2*(var(--bh))));/*20vh - 100vh - ALTURA ICONOS (VISOR???) calc(100vh - (2*(var(--bh))))*/
+				--chico:90%;/*vh;/*90vh //calc(50vh - (2*(var(--bh))));/*20vh - 100vh - ALTURA ICONOS (VISOR???) calc(100vh - (2*(var(--bh))))*/
 						/*--cHInt:calc((var(--chico)*0.7*var(--cWH)));/*ALTURA MAXIMA INTERPRETE --cHInt:calc((var(--chico)*0.7*var(--cWH)));*/
 						/*---cHQrc:150px;/*ALTURA CODIGO QR*/
 				/*--cHSen:210;/*210 ALTURA DE LA SEÑA es adimencional se calcula desde js*/
@@ -90,7 +90,7 @@
 				--cWH:1;/*RELACION ANCHO/ALTO DE LA PANTALLA*/
 				--cYel:transparent;/*COLOR DE LA LUZ -rgba(255,255,0,0.1);*/
 				--kdot:2px;/*altura barra puntos o leds de colores inferiores sobre fondo negro*/
-				--marH:0.5vh;/*0.5vh;/*margen superior e inferior de la presentación AV*/
+				--marH:0.5%;/*vh;/*0.5vh;/*margen superior e inferior de la presentación AV*/
 					/*	--mJPG:calc(var(--cJPG)*1.2);/*MARGEN PARA LAS IMAGENES Y O ICONOS CENTRALES*/
 				--palo:10px;/*10px ---- separador delgado para botones, mensajes y iLine*/
 						/*--pali:calc(var(--palo)/2);/*separador delgado borde lateral*/
@@ -129,7 +129,7 @@
 ,.c--Ame
 ,.cAME
 ,.cBack
-,#iBody
+,#i--Body
 ,#iFaro{		background:black}
 
  .cGre{			background:grey}
@@ -141,7 +141,7 @@
  #y--Bot0l
 ,#y--Bot0r{		background:rgba(0,0,0,0.05)}
 
- .cGrey{		background:rgba(0,0,0,0.1)}
+ .c--Grey{		background:rgba(0,0,0,0.1)}
 
  .cSom
 ,.cTexU{		background:rgba(0,0,0,0.2)}
@@ -165,7 +165,8 @@
  .cIng
 ,.cNeg
 ,.yProsaL
-,.zProsa{		background:var(--cblwh1)}
+,.zProsa
+,#iBody{		background:var(--cblwh1)}
 
  .cButton
 ,.cTapa
@@ -175,7 +176,7 @@
 ,#iTaco{		background:var(--cblwh2)}
 
  .cHR
- ,#iBrAi{		background:var(--cbw1)}
+ ,#i--BrAi{		background:var(--cbw1)}
 
  #iDia{			background:var(--cDia)}
 
@@ -206,7 +207,7 @@
  .cTexM
 ,.d--oble
 ,td
-,th{			border:min(0.5vh,0.5vw) solid var(--cblwh1)}
+,th{			border:min(0.5%,0.5vw) solid var(--cblwh1)}/*{			border:min(0.5vh,0.5vw) solid var(--cblwh1)}*/
 
   .c--Stop{		border:3px groove rgba(168,168,168,0.3)}
 
@@ -224,16 +225,16 @@
  ,#yBot6
  ,#yBot3
  ,#yBot9
- ,#yBoto{		border-radius:0 7.5vh 7.5vh 0}/*11.25vh 0 0 11.25vh}*/
+ ,#yBoto{		border-radius:0 7.5% 7.5% 0}/*{		border-radius:0 7.5vh 7.5vh 0}11.25vh 0 0 11.25vh}*/
 
  #boT0
  ,#y--Bot0l
  ,#yBot4
  ,#yBot1
  ,#yBot7
- ,#y--Bot5{		border-radius:7.5vh 0 0 7.5vh}/*11.25vh 0 0 11.25vh}*/
+ ,#y--Bot5{		border-radius:7.5% 0 0 7.5%}/*{		border-radius:7.5vh 0 0 7.5vh}11.25vh 0 0 11.25vh}*/
 
- .cTexM{		border-radius:7.5vh}
+ .cTexM{		border-radius:7.5%}/*{		border-radius:7.5vh}*/
 
  .c--Ame
 ,.c--Ask
@@ -243,7 +244,7 @@
  .cBof
 ,.cLen{			border-radius:calc(var(--rmin)*2)}/* 5px var(--bh) 5px}*/
 
- .keY{			border-radius:min(0.5vh,0.5vw)}
+ .keY{			border-radius:min(0.5vh,0.5vw)}/*{			border-radius:min(0.5vh,0.5vw)}*/
 
  .cAma
 ,.cLuz{			border-radius:var(--rmin) var(--rmin) 0 0}
@@ -261,12 +262,13 @@
  .cLUp{			border-radius:calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) var(--rmin) var(--rmin)!important}/*border-radius:var(--radio) var(--radio) var(--rmin) var(--rmin)!important}*/
 
  .cBott
-,.cChico
+,.c--Chico
 ,.cPic2
 ,.cPunto
 ,.c--Reloj
 ,#iGol{			bottom:0}
 
+ .cChico{		bottom:var(--cBrai)}/*calc(max(var(--z),5vh))}/*5vh*/
 
  #i--Dice
 ,#i--Faro{		bottom:12.5%}
@@ -274,7 +276,7 @@
 /* .c--Menu{		bottom:0}*/
 
  .c--Menu
-,#iBrail{		bottom:calc(var(--b) + 0px)}
+,#iBrail{		bottom:0}/*calc(var(--b) + 0px)*/
 
   #iNot2{		bottom:var(--pelo)}/*calc(19.5vh - var(--pelo))}/*19.5vh - 9.75vh  16vh  8vh   se toma 10vh menos .25vh(x2) del borde inferior*/
 
@@ -303,7 +305,7 @@
 ,.cLuz
 ,.cTitul{		box-shadow:inset 0 0 0 var(--pelo) var(--cblwh1)}
 
-.cLen{			box-shadow:inset 0 0 1px var(--cBeige)}
+ .cLen{			box-shadow:inset 0 0 1px var(--cBeige)}
 
  /*
  #--iCAPA{		box-shadow:inset 0 0 min(35vh,35vw) min(7vh,7vw) black}
@@ -324,7 +326,8 @@
  .cFon{			box-shadow:inset 0 max(-1px,-0.7vh) var(--cbw1)}
 */
 
- .cBof{			box-shadow:inset 1px 1px 5px lightgray,inset -1px -1px 5px lightgray}/*var(--cYel) var(--cGreyT)*/
+ .cBof
+ ,#iBrAi{		box-shadow:inset 1px 1px 5px lightgray,inset -1px -1px 5px lightgray}/*var(--cYel) var(--cGreyT)*/
 
  .cStop{		box-shadow:none!important}
 
@@ -445,7 +448,7 @@
  .cCero
 ,.cFs0{			font-size:0}
 
- .cTexM{		font-size:10vh}
+ .cTexM{		font-size:10vh}/*{		font-size:10vh}*/
 
  .c--Marqu{		font-size:32px}/*32px es tomado de f0028, switch aux case 4 = 32px tamaño mediano  13vh}/*13vh 9vh  42px}/*8vh}*/
 
@@ -509,7 +512,9 @@
 ,.cBraI
 ,.cBraI1
 ,.cBraIl
-,.cTec{			font-size:var(--cBrai)}
+,.cTec{			font-size:calc(min(var(--cBrai),5vh))}/*var(--cBrai)}*/
+
+ .cBraI{		font-size:calc(min(var(--cBrai),5vh))}
 
  .cMax{			font-size:var(--chico)}/*calc(var(--chico)*0.7)*/
 
@@ -538,9 +543,9 @@
 ,.cBote
 ,#i--Menu{		height:10vw}
 
- .cImKe{		height:13vh}/*9vh  42px}/*8vh}*/
+ .cImKe{		height:13%}/*13vh}*/
 
- .cTexM{		height:15vh}
+ .cTexM{		height:15%}/*13vh}*/
 
  .cBOT
 ,.c--Ent
@@ -549,11 +554,16 @@
 
  #i--KeyB{		height:100%}/*35vh}*/
 
- .cTexU{		height:45vh}
 
-.cVpres{		height:70vh}/*calc(50vh - (var(--marH) * 2) - (var(--pelo)*2) - var(--kdot))}/*80vh - 1vh de los 2 margenes arriba y abajo,  84vh  80vh menos 0.5vh del borde superior y otros 0.5vh del borde inferior*/
+ /*terminar de ajustar iApp*******/
+ #iApp{			height:calc(100% - (max(var(--z),5vh)) - (calc(min(var(--cBrai),5vh))))}/*var(--cBrai))}*/
 
- .cTones{		height:90vh}/*67.5vh}/*si --bh = 5vh calc((100vh - (2*var(--bh)))*0.75)}/*si --bh vale 5vh :: 67,5vh 56.25vh}/*(antes 18.75% x 3)  PORQUE VALE ESE VALOR de dónde sale???*/ 
+
+ .cTexU{		height:45%}/*45vh}*/
+
+ .cVpres{		height:70%}/*70vh    -- -- calc(50vh - (var(--marH) * 2) - (var(--pelo)*2) - var(--kdot))}/*80vh - 1vh de los 2 margenes arriba y abajo,  84vh  80vh menos 0.5vh del borde superior y otros 0.5vh del borde inferior*/
+
+ .cTones{		height:90%}/*90vh     -- -- 67.5vh}/*si --bh = 5vh calc((100vh - (2*var(--bh)))*0.75)}/*si --bh vale 5vh :: 67,5vh 56.25vh}/*(antes 18.75% x 3)  PORQUE VALE ESE VALOR de dónde sale???*/ 
 
  .z70{			height:95%}/*calc(1px * var(--cHSen))}*/
 
@@ -571,28 +581,38 @@
 ,.cVert
 ,.yProsaL
 ,.zProsa
+,#intM
 ,#iRUTA
 ,#iTAPA{		height:100%}
 
- .cTpres{		height:calc(11vh - var(--pelo))}/*17vh}/*calc(17vh - var(--pelo))}/*calc(19.5vh - var(--pelo))}/*19.5vh - 9.75vh  16vh  8vh   se toma 10vh menos .25vh(x2) del borde inferior*/
+ .cTpres{		height:calc(11% - var(--pelo))}/*calc(11vh - var(--pelo))}    -- -- 17vh}/*calc(17vh - var(--pelo))}/*calc(19.5vh - var(--pelo))}/*19.5vh - 9.75vh  16vh  8vh   se toma 10vh menos .25vh(x2) del borde inferior*/
 
- #intM{			height:calc(35vh - var(--kdot) - 0.5vh)}/*calc(30vh - var(--kdot) - 0.5vh   - 50px)*/
+ #iNt{			height:calc(35% - calc(min(var(--cBrai),5vh)))}/*calc(35% - var(--kdot) - 0.5vh)}     -- -- calc(30vh - var(--kdot) - 0.5vh   - 50px)*/
 
- .cCel0{		height:calc(100vh - 0.5vh - max(var(--z),5vh) - var(--kdot))}/*var(--kdot) - (max(var(--z),5vh)) - (max(var(--z),5vh)))}/*calc(100% - var(--kdot) - (max(var(--z),5vh)))}*/
+ .c--Cel0
+,#i--TAPA
+,#i--PRESE{		height:calc(80% - 0.5vh - max(var(--z),5vh) - var(--kdot))}/*calc(80vh - 0.5vh - max(var(--z),5vh) - var(--kdot))}  -- -- var(--kdot) - (max(var(--z),5vh)) - (max(var(--z),5vh)))}/*calc(100% - var(--kdot) - (max(var(--z),5vh)))}*/
+
+ .cCel0{		height:100%}/*calc(100% - 0.5vh - max(var(--z),5vh) - var(--kdot))}*/
 					           /*  linea h - info loc         -  leds   */
 
- .cTi0{			height:calc(100vh - 0.5vh - max(var(--z),5vh) - (var(--marH) * 2) - (var(--kdot)))}/*parte oscura y central de los titulares*/
+ .c--Ti0{		height:calc(30% - (var(--marH) * 2))}
+
+ .c--Ti0{		height:calc(100% - 0.5vh - max(var(--z),5vh) - (var(--marH) * 2) - (var(--kdot)))}/*calc(100vh - 0.5vh - max(var(--z),5vh) - (var(--marH) * 2) - (var(--kdot)))}    --- -- parte oscura y central de los titulares*/
 							   /*  linea h - info loc         -  margen sup/inf   -  leds       */
 						   
- .cCel1{		height:calc(100vh - 2*(max(var(--z),5vh)))}/*var(--kdot) - (max(var(--z),5vh)) - (max(var(--z),5vh)))}/*calc(100% - var(--kdot) - (max(var(--z),5vh)))}*/
+ .cCel1{		height:calc(100% - max(var(--z),5vh))}/*calc(100% - 2*(max(var(--z),5vh)))}      -- --*/
 								/*   info loc y filbo(incluye ya los leds) */
 
- .cTi1{			height:calc(100vh - 2*(max(var(--z),5vh)) - (var(--marH) * 2))}/*parte oscura y central de los titulares*/
+ .c--Ti1{		height:calc(100% - (var(--marH) * 2))}/*parte oscura y central de los titulares*/
+								/*  info loc y filbo(incluye ya los leds)  -  margen sup/inf  */
+								
+ .cTi1{			height:calc(100% - (var(--marH) * 2))}/*calc(100% - 2*(max(var(--z),5vh)) - (var(--marH) * 2))}     -- -- parte oscura y central de los titulares*/
 								/*  info loc y filbo(incluye ya los leds)  -  margen sup/inf  */
 
- .c--Vert{		height:calc(100vh - var(--z))}
+ .c--Vert{		height:calc(100% - var(--z))}/*calc(100vh - var(--z))}*/
 
- .cBof{			height:calc(100% - var(--kdot))}
+ .cBof{			height:calc(100% - var(--kdot))}/*calc(100% - var(--kdot))}*/
 
  #iGol{			height:calc(var(--bh)*2)}/*calc(var(--cWH) * 65vh)*/
 
@@ -605,14 +625,15 @@
 
  .cCua{			height:min(13vh,13vw)}
 
- .cChico
-,.cHori
+ .cChico{		height:calc(max(var(--z),5vh))}
+
+ .cHori
 ,.c--Menu
 ,.c--Reloj{		height:var(--b)}
 
  .cPunto{		height:var(--bh)}
 
- #iBrail{		height:var(--cBrai)}
+ #iBrail{		height:calc(min(var(--cBrai),5vh))}/*var(--cBrai)}*/
 
  .cPicI{		height:var(--chico)}
 
@@ -692,7 +713,7 @@
 ,.cBrai
 ,.cBraI
 ,.cBraI1
-,.cBraIl{		line-height:var(--cBrai)}
+,.cBraIl{		line-height:calc(min(var(--cBrai),5vh))}/*var(--cBrai)}*/
 
  .cMors{		line-height:var(--cMors)}
 
@@ -773,9 +794,11 @@
 ,.c--Neg
 ,.cTitul
 ,.cRiel
+,#iApp
 ,#iBrail
 ,#iCelu
-,#iFonde{		overflow:hidden}
+,#iFonde
+,#intM{		 	overflow:hidden}
 
  .cButton
 ,.cTapa{		overflow-x:hidden}
@@ -794,7 +817,7 @@
  #iKeyB
 ,#iKeyS{		padding:0}
 
- .cTapa{		padding:0 0 calc(50vh - var(--bh) - (var(--a)*0.5)) 0}
+ .cTapa{		padding:0 0 calc(50% - var(--bh) - (var(--a)*0.5)) 0}/*0 0 calc(50vh - var(--bh) - (var(--a)*0.5)) 0}*/
 
  .cButton{		padding:0 0 calc(var(--chico)*0.14) 0}
 
@@ -809,13 +832,14 @@
  .inner>*{		padding:0}/*8.5vh 0}/*604/2 la otra mitad del ancho!!*/
 
  td
-,th{			padding: 10px}
+,th{			padding:10px}
 
  #iTaco{		padding:20px 0/* Añade un margen superior para evitar recortes */}
 
  .c--Paddi{		padding:calc(50vh - var(--bh) - (var(--a)*0.5)) max(var(--pila),0.5vw) calc(100vh - 45px - var(--a)) max(var(--pila),0.5vw)}
 
- .cPaddi{		padding:calc((90vh*0.75) + var(--bh)) max(var(--pila),0.5vw)}/*0.5vw)}*/
+ .cPaddi{		padding:50vh max(var(--pila),0.5vw)}/*calc((90vh*0.75) + var(--bh)) max(var(--pila),0.5vw)}/**/
+
 
  .cTela{		padding:calc(var(--palo)/2) var(--palo)}
 
@@ -884,18 +908,21 @@
 ,.cVert
 ,.cVpres
 ,.cZIn
+,#iApp
 ,#iBrail
 ,#iCelu
 ,#iGol
 ,#i--Hora
 ,#i--Menu
 ,#intM
+,#iNt
 ,#iPRESE{		position:absolute}
 
  #iBody{		position:fixed}
 
  .cAltu
 ,.cPicI
+,.c--Titul
 ,.inner
 ,#iBr--Ai
 ,#i--Celu
@@ -937,7 +964,7 @@
 ,.cScroll
 ,.cTexM
 ,.cTpres
-,#intM{		scrollbar-width: none}/* Firefox */
+,#intM{			scrollbar-width: none}/* Firefox */
 
  .cAltu
 ,.cPic2
@@ -986,7 +1013,7 @@
  h1
 ,th{			text-transform:uppercase}
 
- .cGrey
+ .c--Grey
 ,.cLen
 ,.cLR
 ,.cNeg
@@ -995,6 +1022,7 @@
 ,.cZIn
 ,#iCodQ
 ,#iFaro
+,#intM
 ,#iRUTA
 ,#iTAPA{		top:0}
 
@@ -1010,7 +1038,7 @@
 
  .cTexM{		top:50vh}
 
- #intM{			top:65vh}
+ #iNt{			top:65vh}
 
  .c--Vpres{		top:calc(10.5vh + var(--pelo) - (var(--kdot)* 0.5))}/*84vh  80vh menos 0.5vh del borde superior el pelo es el grosor de la linea negra del borde*/
 
@@ -1026,7 +1054,7 @@
 
  #iNoti{		top:var(--pelo)}/*top:var(--pelo)    calc(19.5vh - var(--pelo))}/*19.5vh - 9.75vh  16vh  8vh   se toma 10vh menos .25vh(x2) del borde inferior*/
 
- #iCelu{		top:max(var(--z),5vh)}
+ #iApp{		 	top:max(var(--z),5vh)}/*max(var(--z),5vh)}*/
 
  .cGlosD
 ,.c--Infi
@@ -1087,10 +1115,12 @@
 ,.cTexU
 ,.cTones
 ,.inner
+,#iApp
 ,#iB--rail
 ,#iCelu
 ,#i--NEG
 ,#intM
+,#iNt
 ,table {		width:100%}
 
  #iKeyB

@@ -1,5 +1,10 @@
 Pendientes: 
 
+ojo con cCel0, cCel1, cTi0, cTi1 en f0018()   revisar porque cuadra con .c--Ti1{		height:calc(100% - (var(--marH) * 2))}
+
+0. ver si quitar las funciones f0092() y f0108() y el div iStop junto con sus estilos ya que por el nuevo 
+borde inferior y que el borde superior queda oculto por el cabezote dichos elementos ya no hacen nada?
+
 1. lograr que el rombo apenas se pulsa debe detectar la hora local e iniciar a escuchar la voz, al terminar 
 la pulsación debe leer de nuevo la hora y ver si es menor o igual a una raya, ej 2 segundos, si es así debe mirar si el 
 usuario NO envío ningún mensaje con la voz durante ese tiempo y por ende debe tomarlo como una pulsación en clave morse
