@@ -1828,6 +1828,8 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 							iFilbo.classList.add('cX');
 							iCelu.classList.remove('cCel1');
 							iCelu.classList.add('cCel0');
+							iCeLu.classList.remove('cCel1');
+							iCeLu.classList.add('cCel0');
 							//iTia.classList.remove('cTi1');
 							//iTia.classList.add('cTi0');
 							//iTio.classList.remove('cTi1');
@@ -1839,6 +1841,8 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 							iFilbo.classList.remove('cX');
 							iCelu.classList.remove('cCel0');
 							iCelu.classList.add('cCel1');
+							iCeLu.classList.remove('cCel0');
+							iCeLu.classList.add('cCel1');
 							//iTia.classList.remove('cTi0');
 							//iTia.classList.add('cTi1');
 							//iTio.classList.remove('cTi0');
@@ -2639,7 +2643,8 @@ function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para t
 			}
 		}
 
-function f0031(scr)//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cursor) sobre la casilla/hoja actual (gFoco) dentro de una RUTA (forms[0])//o0016B()
+function 
+f0031(scr)//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cursor) sobre la casilla/hoja actual (gFoco) dentro de una RUTA (forms[0])//o0016B()
 		{	lOL(31);
 			f0030();//Si el foco cambio, C ACTUALIZAR variables locales e internacionales del FOCO vFocoL, vFocoLe(multimedia), vFocoI, vFocoIe(multimedia) y vFocoT dependiendo de RUTA y posición actual del FOCO, trabaja de la mano de f0012() y f0016()
 			document.forms[0].elements[gFoco].focus();
@@ -2687,7 +2692,8 @@ function f0031(scr)//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cu
 		}
 
 
-function f0032()//I PREPARAR la lectura de la casilla, o Tapa Informativa donde esta el foco (el usuario)
+function 
+f0032()//I PREPARAR la lectura de la casilla, o Tapa Informativa donde esta el foco (el usuario)
 		{	lOI(32);		
 			if(g00VARS[55][2])//Si ya ocurrio el primer clic
 			{ 	var v1 = '';
@@ -2720,7 +2726,8 @@ function f0033(textLoc,textInt)//25Decir() PREPARAR los anuncios local e interna
 			f0034(textLoc,textInt);//LEER los anuncios local e internacional de la RUTA
 		}
 
-function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
+function 
+f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 		{	lOG(34);
 			hh82();//AJUSTAR velocidad DEL USUARIO
 			//iV3e.style.backgroundColor = 'white';
@@ -2824,7 +2831,8 @@ function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 			}
 		}
 
-function f0035(textInt)//27Enunc2() DAR el anuncio internacional de la RUTA
+function 
+f0035(textInt)//27Enunc2() DAR el anuncio internacional de la RUTA
 		{	lOU(35);
 			hh82();//AJUSTAR velocidad DEL USUARIO
 			var toSpeak2 = new SpeechSynthesisUtterance();//es el nombre del 'enunciado' que se van a 'decir'
@@ -3337,73 +3345,56 @@ function f0046()//L CARGAR las variables s00EXIT con los STRINGS HTML INTERNACIO
 			s00EXIT[7][2] = g00HTML[19][2];//braille Local
 		}
 
-function f0047(reg)//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta secundaria o principal anterior
+function f0047(reg)//"UNDO CANCEL X" - click en botón 1 | REGRESAR a una ruta secundaria o principal anterior
 		{	lOG(47);
-			console.error('%%%%%%%%% 1 gRuta=',gRuta);
-			f0148(99);//DESACTIVAR la interfaz de Salida M					
-			if(reg)
-			{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
-			}
-			f0078();//L SONAR Clic
-			if(yKEYS[2][8]&&yKEYS[2][3])//SI AMBAS SE CUMPLEN..
-			{	f0076();//SI LA TAPA INFORMATIVA esta activa PASAR de TAPA a RUTA porque hay clic sobre algun boton "informativo" 
-				if(!g02RUTA[gRuta][5])//no es principal
-				{	if(!g02RUTA[gRuta][8])//no tiene padre
-					{	console.log('47vuelve a la ruta principal');
-						console.error('|> Flag');
-						f0048();
-					}
-					else//tiene padre
-					{	
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						console.log('47 NO ES PPAL y cambia a la ruta padre');
-						gFoco = 1;
-						if(gRuta == 2)
-						{	console.log('R2 -> 4 Aquí hay que hacer el arreglo???');
+			if(uViS||mViS)
+			{	f0148(99);//DESACTIVAR la interfaz de Salida M	
 
-							//f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
-				
-							//f0015();//Clic sobre el boton 7 [] menu
-						}
-						gRuta = g02RUTA[gRuta][8];
-					}
-				}
-				else//es principal
-				{	if(g02RUTA[gRuta][8])//tiene padre
-					{	console.log('47 ES PPAL y cambia a la ruta padre');
-						gFoco = 1;
-						gRuta = g02RUTA[gRuta][8];
-					}
-					else//no tiene padre
-					{	console.log('47no hace nada');
-					}
-				}
-				f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 			}
-			console.error('%%%%%%%%% 2 gRuta=',gRuta);
+			else
+			{	console.error('%%%%%%%%% 1 gRuta=',gRuta);
+				//f0148(99);//DESACTIVAR la interfaz de Salida M					
+				if(reg)
+				{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
+				}
+				f0078();//L SONAR Clic
+				if(yKEYS[2][8]&&yKEYS[2][3])//SI AMBAS SE CUMPLEN..
+				{	f0076();//SI LA TAPA INFORMATIVA esta activa PASAR de TAPA a RUTA porque hay clic sobre algun boton "informativo" 
+					if(!g02RUTA[gRuta][5])//no es principal
+					{	if(!g02RUTA[gRuta][8])//no tiene padre
+						{	console.log('47vuelve a la ruta principal');
+							console.error('|> Flag');
+							f0048(); //RETORNAR a la ruta principal
+						}
+						else//tiene padre
+						{	
+							console.log('47 NO ES PPAL y cambia a la ruta padre');
+							gFoco = 1;
+							if(gRuta == 2)
+							{	console.log('R2 -> 4 Aquí hay que hacer el arreglo???');
+
+								//f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
+							
+								//f0015();//Clic sobre el boton 7 [] menu
+							}
+							gRuta = g02RUTA[gRuta][8];
+						}
+					}
+					else//es principal
+					{	if(g02RUTA[gRuta][8])//tiene padre
+						{	console.log('47 ES PPAL y cambia a la ruta padre');
+							gFoco = 1;
+							gRuta = g02RUTA[gRuta][8];
+						}
+						else//no tiene padre
+						{	console.log('47no hace nada');
+						}
+					}
+					f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+				}
+				console.error('%%%%%%%%% 2 gRuta=',gRuta);
+			}
+			f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 		}
 
 function f0048()//RETORNAR a la ruta principal
@@ -3414,27 +3405,42 @@ function f0048()//RETORNAR a la ruta principal
 
 function f0049()//OCULTAR botón 1 de deshacer (x UNDO) y 7 de menu cuando no se necesiten
 		{	lOL(49);
-			if((g02RUTA[gRuta][5])&&(!g02RUTA[gRuta][8]))//ruta es principal y no tiene padre
-			{	//ocultar el icono de botón undo
-				yBot1.classList.add('cStop');
-				yBB1.classList.add('cOff');
-				fBot1.classList.add('cStop');
-				fBB1.classList.add('cOff');
-				//yBot1.classList.add('cX');
-				yKEYS[2][3] = 0;//4X OFF
+			var a = 1; // Mostrar el boton X
+			if(uViS||mViS)
+			{ 	//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
 			}
 			else
-			{	//mostrar el icono de botón undo
-				if(g00VARS[76][2])
-				{	yBot1.classList.remove('cStop');
+			{	if((g02RUTA[gRuta][5])&&(!g02RUTA[gRuta][8]))//ruta es principal y no tiene padre
+				{	//ocultar el icono de botón undo
+					a = 0;
+					yKEYS[2][3] = 0;//4X OFF
+				}
+				else
+				{	//mostrar el icono de botón undo (X)
+					if(g00VARS[76][2])
+					{	
+						yKEYS[2][3] = 1;//4X ON
+					}
+				}
+				//ocultar menu si no se necesita..
+			}
+
+			if(a) //Mostrar [X]
+			{		yBot1.classList.remove('cStop');
 					yBB1.classList.remove('cOff');
 					fBot1.classList.remove('cStop');
 					fBB1.classList.remove('cOff');
 					//yBot1.classList.remove('cX');
-					yKEYS[2][3] = 1;//4X ON
-				}
+
 			}
-			//ocultar menu si no se necesita..
+			else //Ocultar [X]
+			{	yBot1.classList.add('cStop');
+				yBB1.classList.add('cOff');
+				fBot1.classList.add('cStop');
+				fBB1.classList.add('cOff');
+				//yBot1.classList.add('cX');
+
+			}
 
 
 			/*
@@ -3480,7 +3486,9 @@ function f0050()//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y
 				iNt.classList.add('cX');//Oculta la interfaz M
 				iIntM0.classList.add('cX');//Oculta el display de la interfaz M
 				iIntMo.classList.add('cX');//Oculta el texto superior
+				iApp.classList.remove('cX');//Muestra la app
 				iRUTA.classList.add('cX');
+				f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 			}
 			//yBTNS.classList.add('cX');//ocultar los botones
 			yKEYS[2][8] = 0;//ocultar los botones 1 3 Y 4
@@ -8287,15 +8295,18 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 				}
 				
 				//ACTIVAR la salida de la interfaz M
+				iApp.classList.add('cX');//Oculta la app
 				iNt.classList.remove('cX');//Se activa la interfaz Inferior
 				iIntM0.classList.remove('cX');//Enciende el editor de la interfaz
 				iIntMo.classList.remove('cX');//Enciende el texto superior
+				iApp.classList.add('cX');//Oculta la app
 
 				iTaco.classList.remove('cX');//Activa el display del morse (tutorial)
 				mViS = 1;//Se prendio el display Morse (Tutorial)
 				//mMod = 0;//Reinicia al modo Morse
 				//iTaco.style.opacity='0.8';
 			}
+			f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 			//else//El display M esta prendido
 			//{	if(mMod == 0)//si el modo 0
 			//	{	iNt.classList.add('cX');
@@ -8322,6 +8333,7 @@ f0146()//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 				console.log('mCon=',mCon);
                 if (mCon >= 60) {
 					f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
+					f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
                     //console.log("60 segundos");
 					//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
                     //clearInterval(mTim); // Detener el temporizador al alcanzar 100 segundos
@@ -8351,8 +8363,10 @@ f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apag
 				mCon = 0;//Reset clics Morse
 				iNt.classList.add('cX');//Apaga la interfaz M
 				iIntM0.classList.add('cX');//Apaga el editor
-				iIntMo.classList.add('cX');//Apaga el texto superior	
+				iIntMo.classList.add('cX');//Apaga el texto superior
+				iApp.classList.remove('cX');//Muestrsa la app
 			}
+			f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 		};
 
 function
@@ -9549,7 +9563,7 @@ f0164(p)	//ASIGNAR voces según el idioma si (p) viene de f0026  si no viene de 
 
 
 function
-f0165()	//ACTIVAR o DESACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
+f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 			{	lOG(165);
 				/*console.log(' - - - Espacio Morse en el display M');
 				mMod = 4;
@@ -9564,36 +9578,27 @@ f0165()	//ACTIVAR o DESACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 				console.log(' - - - Activar o desactivar rl intercomunicador porque se oprimio <ROMBO> 0 !!!! ');	
 				var a = 0;
 				if(uViS) // Si el teclado universal esta encendido
-				{	iUni.classList.add('cX');//Oculta la interfaz universal
-					uViS = 0; // El display universal esta apagado
-					a = 1; // Orden de Apagar!
+				{	
 				}
 				else // Si el teclado universal esta apagado
-				{	if(mViS) // Si el tutorial morse esta prendido
+				{	a = 2; // Orden de Encender!
+					if(mViS) // Si el tutorial morse esta prendido
 					{	iTaco.classList.add('cX');//Oculta el tutorial
 						mViS = 0; // El tutorial se apaga
-						a = 1; // Orden de Apagar!
+						a = 0; // Cancelar la orden de encender
 					}
-					else // Si el tutorial morse esta apagado
-					{	iUni.classList.remove('cX');//Muestra la interfaz universal
-						uViS = 1; // El display universal esta encendido
-						a = 2; // Orden de Encender!
-					}
-				}
-				if(a==1)//Si hay orden de apagar el intercomunicador
-				{	console.error('############# DesActivando el intercomunicador');
-					iIntM0.classList.add('cX');//Oculta el editor
-					iIntMo.classList.add('cX');//Oculta el cuadro de entrada superior
-					iNt.classList.add('cX');//Oculta la interfaz inferior
-					mCon=59;
+					iUni.classList.remove('cX');//Muestra la interfaz universal
+					uViS = 1; // El display universal esta encendido
 				}
 				if(a==2)//Si hay orden de encender el intercomunicador
 				{	console.error('############# Activando el intercomunicador');				
 					iIntM0.classList.remove('cX');//Muestra el editor
 					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
+					iApp.classList.add('cX');//Oculta la app
 					f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon
 				}
+				f0049();//L OCULTAR el botón de deshacer (UNDO X) cuando no se necesite
 			}
 
 function
@@ -9604,6 +9609,7 @@ f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activ
 					iIntM0.classList.remove('cX');//Muestra el editor
 					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
+					iApp.classList.add('cX');//Oculta la app
 				}
 				//En este punto el intercomunicador es visible con morse o con universal
 				console.error(' -_-  (morse o universal ON) mViS=',mViS,' uViS=',uViS);
@@ -9615,6 +9621,7 @@ f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activ
 					iUni.classList.remove('cX');//Muestra la interfaz universal
 					uViS = 1; // El display universal esta encendido
 				}
+				f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 				//En este punto el intercomunicador es visible solo el con universal
 			}
 

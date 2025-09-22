@@ -562,7 +562,8 @@
 
 
  /*terminar de ajustar iApp*******/
- #iApp{			height:calc(100% - (max(var(--z),5vh)) - (calc(min(var(--cBrai),5vh))))}/*var(--cBrai))}*/
+ #iApp
+,#iInCom{		height:calc(100% - (max(var(--z),5vh)) - (calc(min(var(--cBrai),5vh))))}/*var(--cBrai))}*/
 
 
  .cTexU{		height:45%}/*45vh}*/
@@ -919,12 +920,14 @@
 ,#iApp
 ,#iBrail
 ,#iCelu
+,#iCeLu
 ,#iGol
 ,#i--Hora
 ,#i--Menu
+,#iInCom
 ,#intM
 ,#iNt
-,#iPRESE{			position:absolute}
+,#iPRESE{		position:absolute}
 
  #iBody{		position:fixed}
 
@@ -1063,7 +1066,8 @@
 
  #iNoti{		top:var(--pelo)}/*top:var(--pelo)    calc(19.5vh - var(--pelo))}/*19.5vh - 9.75vh  16vh  8vh   se toma 10vh menos .25vh(x2) del borde inferior*/
 
- #iApp{		 	top:max(var(--z),5vh)}/*max(var(--z),5vh)}*/
+ #iApp
+,#iInCom{		 top:max(var(--z),5vh)}/*max(var(--z),5vh)}*/
 
  .cGlosD
 ,.c--Infi
@@ -1127,6 +1131,8 @@
 ,#iApp
 ,#iB--rail
 ,#iCelu
+,#iCeLu
+,#iInCom
 ,#i--NEG
 ,#intM
 ,#iNt

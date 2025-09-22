@@ -1,5 +1,8 @@
 Pendientes: 6860 inded   6922
 
+f0165 y f0166 son iguales???? quitar una??? en que se diferencian???
+
+
 ojo con cCel0, cCel1, cTi0, cTi1 en f0018()   revisar porque cuadra con .c--Ti1{		height:calc(100% - (var(--marH) * 2))}
 
 0. ver si quitar las funciones f0092() y f0108() y el div iStop junto con sus estilos ya que por el nuevo 
