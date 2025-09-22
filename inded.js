@@ -44,7 +44,7 @@ recognition.onresult = function(event)
 				const texto = event.results[0][0].transcript;
 				console.log('texto=',texto);
 				toText = texto;
-				sale = sale + ' ' + toText;
+				sale = sale + ' ' + toText + ' ';
 				colSale(); //COLOREAR los espacios del display M
 				console.error('################# toText=',toText);
 				hablarTexto(texto,toLang);//(texto, idioma.value);//(texto,toLang) 
