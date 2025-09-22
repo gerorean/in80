@@ -7128,7 +7128,12 @@ morse(q) {
 			{	console.error('#################### toText=',toText);
 				w=0;
 				sale += toText;
-				colSale();//COLOREAR los espacios del display M
+				colSale(); //COLOREAR los espacios del display M
+				f0166(); //ACTIVAR el intercomunicador universal, si el tutorial Morse esta activado lo desactiva
+				//Resetear el conteo??
+				f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon
+				
+				
 				////Aciciona el texto generado por la voz al editor..
 				//if (iIntM0.textContent !== undefined)
 				//{	iIntM0.textContent += toText;

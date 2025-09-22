@@ -8384,35 +8384,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 				console.error(' -99-  mViS=',mViS,' uViS=',uViS);
 			}
 			else//h es diferente de 99..
-			{				
-				
-
-
-				if(!uViS&&!mViS)//Si ambas interfaces están apagadas > intercomunicador está apagado
-				{	
-					console.error('############# Activando el intercomunicador');
-					iIntM0.classList.remove('cX');//Muestra el editor
-					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
-					iNt.classList.remove('cX');//Muestra la interfaz inferior
-					//NOTA: En este punto no está definido el tipo de uViS, ese es el siguiente paso
-				}
-
-				//En este punto el intercomunicador es visible con morse o con universal
-
-				console.error(' -3-  (morse o universal ON) mViS=',mViS,' uViS=',uViS);
-
-				if(!uViS) // Si el display universal esta apagado
-				//if(!mViS)//Si el display esta apagado lo activa
-				{	if(mViS) // Si el tutorial morse esta prendido
-					{	iTaco.classList.add('cX');//Oculta el tutorial
-						mViS = 0; // El tutorial se apaga
-					}
-
-					iUni.classList.remove('cX');//Muestra la interfaz universal
-					uViS = 1; // El display universal esta encendido
-				}
-				//En este punto el intercomunicador es visible solo el con universal, esperando por definir con h el valor de la interfaz
-
+			{	f0166(); //ACTIVAR el intercomunicador universal, si el tutorial Morse esta activado lo desactiva
 				console.error(' -4- (sólo universal ON) mViS=',mViS,' uViS=',uViS);
 
 
@@ -9613,15 +9585,40 @@ f0165()	//ACTIVAR o DESACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 					iIntM0.classList.add('cX');//Oculta el editor
 					iIntMo.classList.add('cX');//Oculta el cuadro de entrada superior
 					iNt.classList.add('cX');//Oculta la interfaz inferior
+					mCon=59;
 				}
 				if(a==2)//Si hay orden de encender el intercomunicador
 				{	console.error('############# Activando el intercomunicador');				
 					iIntM0.classList.remove('cX');//Muestra el editor
 					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
+					f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon
 				}
-
 			}
+
+function
+f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activado lo desactiva
+			{	lOG(166);
+				if(!uViS&&!mViS)//Si ambas interfaces están apagadas > intercomunicador está apagado
+				{	console.error('############# Activando el intercomunicador');
+					iIntM0.classList.remove('cX');//Muestra el editor
+					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
+					iNt.classList.remove('cX');//Muestra la interfaz inferior
+				}
+				//En este punto el intercomunicador es visible con morse o con universal
+				console.error(' -_-  (morse o universal ON) mViS=',mViS,' uViS=',uViS);
+				if(!uViS) // Si el display universal esta apagado
+				{	if(mViS) // Si el tutorial morse esta prendido
+					{	iTaco.classList.add('cX');//Oculta el tutorial
+						mViS = 0; // El tutorial se apaga
+					}
+					iUni.classList.remove('cX');//Muestra la interfaz universal
+					uViS = 1; // El display universal esta encendido
+				}
+				//En este punto el intercomunicador es visible solo el con universal
+			}
+
+
 //Nuevo..
 var isCapsLockActive = false;
 
