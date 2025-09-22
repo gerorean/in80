@@ -9,6 +9,52 @@ var vErC; 			// Verificación de C en el hash
 var cOm = 0;		// Ruta parcial comercial (1)
 
 
+
+// Reconocimiento de voz
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.continuous = false;
+recognition.interimResults = false;
+
+var escuchando = false;
+
+ // Cuando se presiona botón A o barra espaciadora → empezar a escuchar
+function iniciarEscucha() {
+  if (escuchando) return;
+  recognition.lang = toLang;//= idioma.value;//=toLang - - - - = tLanPAIS[11][2];g00VARS[27][2]  --- var tVoces[*16/31/53][1]-- 'es-ES' //tLanPAIS[14][2]-- 'es-ES':g00VARS[27][2]
+  recognition.start();
+  escuchando = true;
+}
+
+// Cuando se suelta botón A o barra espaciadora → parar y procesar
+function detenerEscucha() {
+  if (!escuchando) return;
+  recognition.stop();
+  escuchando = false;
+}
+
+// Cuando reconoce algo → escribir y leer
+recognition.onresult = function(event) {
+  const texto = event.results[0][0].transcript;
+  console.log('texto=',texto);
+  toText = texto;
+  //console.log('1- textarea.value=',textarea.value);
+  //textarea.value = texto;
+  //console.log('2- textarea.value=',textarea.value);
+  hablarTexto(texto,toLang);//(texto, idioma.value);//(texto,toLang) 
+};
+
+// Función para hablar
+function hablarTexto(texto, lang) {
+  const utterance = new SpeechSynthesisUtterance(texto);
+  utterance.lang = lang;//=toLang
+  window.speechSynthesis.speak(utterance);
+}
+
+
+
+
+
 //mI: matriz Inversa
 
 /*
@@ -5911,6 +5957,14 @@ ciclo8(){		//console.log('_____@- ciclo8()');
 					{	cycle[8] = 10;console.log('cycle[8]='+cycle[8]);
 					}
 					hora();
+
+
+
+					//si se ha tocado el rombo (8) entonces pongase a escuchar??
+	
+
+
+
 					nn[8] = m;console.log('nn[8]='+ nn[8]);
 					if((libre[8])&&(nn[8] > max[8]))
 					{	morse(8);
@@ -6668,10 +6722,10 @@ eTs9(){ 	console.log('_____@- eTs9()');
 		}
 
 function		//REGISTRA LA HORA ACTUAL EN MILISEGUNDOS
-	hora() { 		//console.log('_____@- hora()');
-	hd = new Date();
-	m = hd.getTime();//console.log('m=' + m)
-}
+hora() { 		//console.log('_____@- hora()');
+				hd = new Date();
+				m = hd.getTime();//console.log('m=' + m)
+		}
 
 //morse() ver al final
 
@@ -6846,6 +6900,14 @@ punto8(){     console.log('_____@- punto8()');
               { pare[8] = false;console.log('pare[8]=' + pare[8]);
               }
               hora();
+
+
+			  //???aquí??? inicia???
+			  iniciarEscucha();
+
+
+
+
               nm[8] = m;console.log('nm[8]='+ nm[8]);
               min[8] = m + cut*2;//m + tM;console.log('min[8]='+ min[8]);//EN EL CASO DE 6 NO SE toma cut sino tM para que los puntos sigan como puntos, las rayas sean como puntos y los sostenidos como las rayas    
               if(cycle[8] > 0)
@@ -6899,6 +6961,24 @@ function      //terminacion general de un punto o una raya: RESETEA LOS COLORES 
 	lin[v] = false; console.log('lin[v]=' + lin[v]);//RESET DE RAYAS/LINEAS
 	tran();//quita los colores de fondo tipo 'RESET' usando una capa transparente
 	hora();
+
+
+
+
+
+	//si se ha soltado el rombo (8) v=8? entonces termine de escuchar
+	//toText guarda lo que escucho
+	if(v==8)
+	{	detenerEscucha();
+
+	}
+	
+
+
+
+
+
+
 	mn[v] = m; console.log('mn[v]=' + mn[v]);//registra el momento que se soltó el botón y actualiza HORA/DIA FINAL EN MILISEGUNDOS DESDE EL 1ERO DE ENERO DE 1970     	
 	regX[v][cycle[v]] = mn[v] - nm[v]; console.log('regX[v]=' + regX[v]);//registra en REGISTRO1 5/6 los CAMBIOS DE ESTADO del botón/TECLA
 	//REGLA * En las siguientes linea se puede quitar v==0 y v!=0 para que aplique para cualquier botón y quede igual que en la hoja a lapíz..

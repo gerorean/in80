@@ -1,4 +1,4 @@
-Pendientes: 
+Pendientes: 6860 inded   6922
 
 ojo con cCel0, cCel1, cTi0, cTi1 en f0018()   revisar porque cuadra con .c--Ti1{		height:calc(100% - (var(--marH) * 2))}
 
