@@ -12,18 +12,42 @@ var cOm = 0;		// Ruta parcial comercial (1)
 
 // Reconocimiento de voz
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
-recognition.continuous = false;
-recognition.interimResults = false;
-
+var recognition = null;//new SpeechRecognition();
 var escuchando = false;
+
+if (SpeechRecognition) 
+{	recognition = new SpeechRecognition();
+	recognition.continuous = false;
+	recognition.interimResults = false;
+	// Cuando reconoce algo → escribir y leer
+	recognition.onresult = function(event)
+	{
+		const texto = event.results[0][0].transcript;
+		console.log('texto=',texto);
+		toText = texto;
+		sale = sale + ' ' + toText + ' ';
+		colSale(); //COLOREAR los espacios del display M
+		console.error('################# toText=',toText);
+		hablarTexto(texto,toLang);//(texto, idioma.value);//(texto,toLang) 
+	};
+}
+else
+{	alert("Este navegador no soporta reconocimiento de voz. Usa Google Chrome para esta funcionalidad.");
+};
+
+
+
 
  // Cuando se presiona botón A o barra espaciadora → empezar a escuchar
 function 
 iniciarEscucha()
-			{
+			{	if(!recognition) 
+				{	return;
+				}
 				toText = ''; //Reset de la variable voz a texto
-			  	if (escuchando) return;
+			  	if(escuchando)
+				{	return;
+				}
 				recognition.lang = toLang;//= idioma.value;//=toLang - - - - = tLanPAIS[11][2];g00VARS[27][2]  --- var tVoces[*16/31/53][1]-- 'es-ES' //tLanPAIS[14][2]-- 'es-ES':g00VARS[27][2]
 				recognition.start();
 				escuchando = true;
@@ -32,23 +56,17 @@ iniciarEscucha()
 // Cuando se suelta botón A o barra espaciadora → parar y procesar
 function 
 detenerEscucha()
-			{
-				if (!escuchando) return;
+			{	if (!recognition)
+				{	return;
+				}
+				if (!escuchando)
+				{	return;
+				}
 				recognition.stop();
 				escuchando = false;
 			}
 
-// Cuando reconoce algo → escribir y leer
-recognition.onresult = function(event)
-			{
-				const texto = event.results[0][0].transcript;
-				console.log('texto=',texto);
-				toText = texto;
-				sale = sale + ' ' + toText + ' ';
-				colSale(); //COLOREAR los espacios del display M
-				console.error('################# toText=',toText);
-				hablarTexto(texto,toLang);//(texto, idioma.value);//(texto,toLang) 
-			};
+
 
 // Función para hablar
 function
