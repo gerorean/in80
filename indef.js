@@ -41,7 +41,12 @@
 	hh1() 	... hh111()
 */
 
-var secuenciaIntervalo = null;//almacena la secuencia de la vibracion del vibrador en intervalos de 500ms
+var secuenciaIntervalo = null;//almacena la secuencia de la vibracion del vibrador en intervalos de 500ms;
+var toText =''; //se usa para guardar el texto emitido por la voz reciibida
+var toLang; //Se usa para guardar el Lang de la voz
+var toSpeak1; //se usa para el sintetizador de voz
+var selectedVoiceName1 = '';//se usa para el sintetizador de voz
+
 
 //============================================================
 function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
@@ -1819,7 +1824,7 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 						g00VARS[65][2] = window.outerHeight;//.innerHeight;//ventana actual con navegador , outerHeight;navegador completo
 						
 						if(g00VARS[65][2] < 1500)//Si alto menor de 2000px (pantalla pequeña o normal) OCULTAR la fila de botones inferior (Filbo)
-						{ 	iNt.style.height = 'calc(35% - calc(min(var(--cBrai),5vh)))';//'calc(35% - var(--kdot) - 0.5vh)';//intM.style.height = 'calc(35vh - var(--kdot) - 0.5vh)'; -- --- 0.5vh - max(var(--z),5vh) - var(--kdot))
+						{ 	iNt.style.height = 'calc(35% - calc(min(var(--cBrai),5vh)))';//'calc(35% - var(--kdot) - 0.5vh)';//iTaco.style.height = 'calc(35vh - var(--kdot) - 0.5vh)'; -- --- 0.5vh - max(var(--z),5vh) - var(--kdot))
 							iFilbo.classList.add('cX');
 							iCelu.classList.remove('cCel1');
 							iCelu.classList.add('cCel0');
@@ -2121,30 +2126,36 @@ function f0026(textLoc,textInt)//Enunc1() DECIR el anuncio uno (local) y darle e
 			hh82(1);//AJUSTAR velocidad por defecto
 			if(textLoc !== '')//Si - no esta vacio
 			{	iV1l.style.backgroundColor = 'yellow';
-				var toSpeak1 = new SpeechSynthesisUtterance();
+
+				toSpeak1 = new SpeechSynthesisUtterance();
 				toSpeak1.text = textLoc;//(variable con el texto que va a leer)//Prueba
+
+				//--
+				//ANALIZAR SI SE PUEDE CORRER BIEN f0164(1) para no repetir el código que está entre //-- y //--	
 			  	toSpeak1.rate = speed;//velocidad 0 - 3.6	
 				toSpeak1.volume = 1;//g00VARS[45][2];
 				toSpeak1.pitch = g00VARS[46][2];
-				//if(g00VARS[5][2])//si i1..
-				{	
-					var selectedVoiceName1 = '';
+				{	selectedVoiceName1 = '';
 					switch (g00VARS[27][2])//consigue el nombre de la voz y el lang dependiendo del idioma que tenga configurado el usuario
 					{	case 1://ingles
 							selectedVoiceName1 = 'Samantha';//tVoces[51][2];
 							toSpeak1.lang = 'en-US';//tLanPAIS[8][1];
+							toLang = tLanPAIS[11][2];
 						break;
 						case 2://Español colombia?
 							selectedVoiceName1 = tVoces[1][2];//'Paulina' para colombia
 							toSpeak1.lang = tLanPAIS[15][1];//'es-MX' para colombia
+							toLang = tLanPAIS[15][2];
 						break;
 						case 3://Frances
 							selectedVoiceName1 = tVoces[5][2];//,'fr-CA'	,'Amelie'],
 							toSpeak1.lang = tLanPAIS[18][1];//,'fr'		,'fr-CA'	],
+							toLang = tLanPAIS[18][2];
 						break;
 						case 4://korean
 							selectedVoiceName1 = tVoces[45][2];//,'ko-KR'	,'Yuna'],
 							toSpeak1.lang = tLanPAIS[26][1];//,'ko'		,'kr-KR'	],
+							toLang = tLanPAIS[26][2];
 						break;
 						case 5:
 						break;
@@ -2153,27 +2164,6 @@ function f0026(textLoc,textInt)//Enunc1() DECIR el anuncio uno (local) y darle e
 						case 7:
 						break;
 					}
-					/*switch (g00VARS[29][2])//consigue el nombre de la voz y el lang dependiendo del pais que tenga configurado el usuario
-					{	case 1:
-						break;
-						case 2:
-							selectedVoiceName1 = tVoces[t2Propi[4][g00VARS[29][3]]][2];//tVoces[51][2]=Google UK English Female
-							toSpeak1.lang = tLanPAIS[t2Propi[5][g00VARS[29][3]]][1];//tLanPAIS[8][1]=en
-						break;
-						case 3:
-						break;
-						case 4:
-						break;
-						case 5:
-						break;
-						case 6:
-						break;
-						case 7:
-							selectedVoiceName1 = tVoces[t7Propi[4][g00VARS[29][3]]][2];//'Paulina' para colombia
-							toSpeak1.lang = tLanPAIS[t7Propi[5][g00VARS[29][3]]][2];//es[1] 'es-MX'[2] para colombia
-							//toSpeak1.lang = tLanPAIS[t7Propi[5][g00VARS[29][3]]][1];//es[1] 'es-MX'[2] para colombia
-						break;
-					}*/
 					voices.forEach(function(voice)
 					{	if(voice.name === selectedVoiceName1)
 						{	toSpeak1.voice = voice;
@@ -2184,6 +2174,9 @@ function f0026(textLoc,textInt)//Enunc1() DECIR el anuncio uno (local) y darle e
 						}
 					});
 				}
+				//--
+
+
 				//se activo la tapa -> lee la tapa y si o si vibra!  NOTA: VIBRACION LOCAL falta UNIRLA CON LA VIBRACION INTERNACIONAL
 				g00VARS[28][2] = 0;
 				g00VARS[47][2] = 1;//Inicia a dar el anuncio 1 TAPA (local)
@@ -2734,31 +2727,36 @@ function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 		    iVol.style.backgroundColor = 'purple';
 			if(textLoc !== '')
 			{	//iV3d.style.backgroundColor = 'green';
-				var toSpeak1 = new SpeechSynthesisUtterance();
-			//++iVol.style.backgroundColor = 'yellow';
+
+				toSpeak1 = new SpeechSynthesisUtterance();
 				toSpeak1.text = textLoc;//(variable con el texto que va a leer)//Prueba
+
+				//--
+				//ANALIZAR SI SE PUEDE CORRER BIEN f0164() para no repetir el código que está entre //-- y //--
 				toSpeak1.rate = speed;//velocidad 0 - 3.6	
 				toSpeak1.volume = 1;//g00VARS[45][2];
 				toSpeak1.pitch = g00VARS[46][2];
-				//if(g00VARS[5][2])//si i1..
-				{	
-					var selectedVoiceName1 = '';
+				{	selectedVoiceName1 = '';
 					switch (g00VARS[27][2])//consigue el nombre de la voz y el lang dependiendo del idioma que tenga configurado el usuario
 					{	case 1://ingles
 							selectedVoiceName1 = 'Samantha';//tVoces[51][2];
 							toSpeak1.lang = 'en-US';//tLanPAIS[8][1];
+							toLang = tLanPAIS[11][2];
 						break;
 						case 2://Español colombia?
 							selectedVoiceName1 = tVoces[1][2];//'Paulina' para colombia
 							toSpeak1.lang = tLanPAIS[15][1];//'es-MX' para colombia
+							toLang = tLanPAIS[15][2];
 						break;
 						case 3://Frances
 							selectedVoiceName1 = tVoces[5][2];//,'fr-CA'	,'Amelie'],
 							toSpeak1.lang = tLanPAIS[18][1];//,'fr'		,'fr-CA'	],
+							toLang = tLanPAIS[18][2];
 						break;
 						case 4://korean
 							selectedVoiceName1 = tVoces[45][2];//,'ko-KR'	,'Yuna'],
 							toSpeak1.lang = tLanPAIS[26][1];//,'ko'		,'kr-KR'	],
+							toLang = tLanPAIS[26][2];
 						break;
 						case 5:
 						break;
@@ -2767,27 +2765,6 @@ function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 						case 7:
 						break;
 					}
-					/*switch (g00VARS[29][2])//consigue el nombre de la voz y el lang dependiendo del pais que tenga configurado el usuario
-					{	case 1:
-						break;
-						case 2:
-							selectedVoiceName1 = tVoces[t2Propi[4][g00VARS[29][3]]][2];
-							toSpeak1.lang = tLanPAIS[t2Propi[5][g00VARS[29][3]]][1];
-						break;
-						case 3:
-						break;
-						case 4:
-						break;
-						case 5:
-						break;
-						case 6:
-						break;
-						case 7:
-							selectedVoiceName1 = tVoces[t7Propi[4][g00VARS[29][3]]][2];//'Paulina' para colombia
-							toSpeak1.lang = tLanPAIS[t7Propi[5][g00VARS[29][3]]][1];//'es-MX' para colombia
-						break;
-					}
-					*/
 					voices.forEach(function(voice)
 					{	if(voice.name === selectedVoiceName1)
 						{	toSpeak1.voice = voice;
@@ -2798,6 +2775,9 @@ function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 						}
 					});
 				}
+				//--
+
+
 				f0045();//L DETENER vibraciones parpadeos e intervalos pendientes
 				//console.log('<<<<<<< D E T E N I D O  1 ____________________D E T E N I D O____________ ____________________D E T E N I D O____________>>>>>>>');
 				//cierta casilla de una ruta recibio el foco -> lee la casilla
@@ -3499,6 +3479,7 @@ function f0050()//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y
 			{	lLINES.innerHTML = '';
 				iNt.classList.add('cX');//Oculta la interfaz M
 				iIntM0.classList.add('cX');//Oculta el display de la interfaz M
+				iIntMo.classList.add('cX');//Oculta el texto superior
 				iRUTA.classList.add('cX');
 			}
 			//yBTNS.classList.add('cX');//ocultar los botones
@@ -8276,28 +8257,42 @@ keYs.forEach(key => {
 
 var isShiftActive = false;
 var lastKeyPressed = '';
-var mViS = 0;//Visibilidad de la salida M 0-Off 1-On
-var mMod = 4;//Modo de la salida M: 1 querty, 2 querty doble, 3 in signs, 4 morse(tutorial)
-var mCon = 0;// Contador de segundos
+var mViS = 0; // Visibilidad de la salida Morse(tuto) - - - M 0-Off 1-On
+var uViS = 0; // Visibilidad de la salida Universal(teclado qwerty / señas)
+var mMod = 1;//Modo de la salida M: 1 querty, 2 querty doble, 3 in signs, 4 morse(tutorial)
+var mCon = 0;// Contador de segundos para desactivar el intercomunicador
 var mTim = 0;// Variable para almacenar el temporizador
 
 function
 f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 		{	lOL(145);
-			if(m)//AJUSTAR el modo Morse en el display M
-			{	if(mMod!=5)//El ultimo modo
-				{	mMod = 5;//Modo Morse
-					f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
-					f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
-					iTaco.classList.remove('cX');
-					//f0145();//Vuelve a inicar el proceso sin m
-				}
+			if(m)//AJUSTAR el modo Morse en el display M, porque ocurrio un sostenido que puede ser un espacio ' ' o una alerta 'S.O.S'
+			{	
+
+				///////////////////Nota el mMod 5 del Morse hay que quitarlo!!!
+				/////////////////if(mMod!=5)//El ultimo modo
+				/////////////////{	
+				/////////////////	
+				/////////////////	//mMod = 5;//Modo Morse
+				/////////////////	f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
+				/////////////////	f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
+				/////////////////	iTaco.classList.remove('cX');
+				/////////////////	//f0145();//Vuelve a inicar el proceso sin m
+				/////////////////}
 			}
-			if(!mViS)//si el display esta apagado.. 
-			{	//ACTIVAR la salida de la interfaz M
-				iNt.classList.remove('cX');
-				iIntM0.classList.remove('cX');//Enciende el display de la interfaz M
-				mViS = 1;//Se prendio el display
+			if(!mViS)//si el display Morse (tutorial) esta apagado.. 
+			{	if(uViS)
+				{	iUni.classList.add('cX'); // Oculta la interfaz universal
+					uViS=0;
+				}
+				
+				//ACTIVAR la salida de la interfaz M
+				iNt.classList.remove('cX');//Se activa la interfaz Inferior
+				iIntM0.classList.remove('cX');//Enciende el editor de la interfaz
+				iIntMo.classList.remove('cX');//Enciende el texto superior
+
+				iTaco.classList.remove('cX');//Activa el display del morse (tutorial)
+				mViS = 1;//Se prendio el display Morse (Tutorial)
 				//mMod = 0;//Reinicia al modo Morse
 				//iTaco.style.opacity='0.8';
 			}
@@ -8337,14 +8332,26 @@ f0146()//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 function
 f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
 		{	lOL(147);
-			if(mViS)
-			{	//DESACTIVAR el display y Resetear los estilos de la intefaz M
-				mViS = 0;//Visibilidad de la salida M 0-Off
+			console.log('mViS=',mViS,'uViS=',uViS);
+			if(mViS||uViS)
+			{	if(mViS)
+				{	//DESACTIVAR el display morse
+					mViS = 0;//Visibilidad de la salida morse(tutorial)--- M 0-Off
+					iTaco.classList.add('cX');//Apaga la interfaz M
+					//f0149();//   --l RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
+					//iTaco.classList.remove('cX');//Muestra la tabla Morse translucida.
+				}
+				if(uViS)
+				{	//DESACTIVAR el display universal
+					uViS = 0;//Visibilidad de la salida universal(qwerty/señas)
+					iUni.classList.add('cX');//Apaga la interfaz Universal
+					//f0149();//   --l RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
+					//iTaco.classList.remove('cX');//Muestra la tabla Morse translucida.
+				}
 				mCon = 0;//Reset clics Morse
 				iNt.classList.add('cX');//Apaga la interfaz M
-				iIntM0.classList.add('cX');//Apaga el display de la interfaz M
-				//f0149();//   --l RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
-				//iTaco.classList.remove('cX');//Muestra la tabla Morse translucida.
+				iIntM0.classList.add('cX');//Apaga el editor
+				iIntMo.classList.add('cX');//Apaga el texto superior	
 			}
 		};
 
@@ -8352,86 +8359,145 @@ function
 f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 		//si h existe y es diferente de 0, mMod no avanza ni cambia porque se hace igual que h. Si h = 99 apaga el display y la interfaz de entrada.
 		{	lOL(148);
+			console.error(' -1-  h=',h,'; mViS=',mViS,' uViS=',uViS);
 			//console.error(' -- 1 mMod=',mMod);
 			f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
+
+			console.error(' -2-  mViS=',mViS,' uViS=',uViS);
+			
+			
+			
 			if(h==99)//h = 99 => desactivar el display
 			{	//mMod = 4;
 				//f0148(0);
-				if(mViS)//Si el display esta activado lo desactiva
-				{	iIntM0.classList.add('cX');//Apaga el display de la interfaz M
-					iNt.classList.add('cX');
-					mViS = 0;
+				if(mViS||uViS)//Si el display morse o el universal esta activado lo desactiva
+				{	//iIntM0.classList.add('cX');//Apaga el display de la interfaz M
+					//iIntMo.classList.add('cX');//Apaga el texto superior
+					//iNt.classList.add('cX');
+					
+					//iTaco.classList.add('cX');//Oculta el tutorial
+					//mViS = 0;
+					
 					mCon = 60;//Termina el conteo
 					f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
 				}
-				console.error(' -- h= 99');
+				console.error(' -99-  mViS=',mViS,' uViS=',uViS);
 			}
 			else//h es diferente de 99..
-			{	if(!mViS)//Si el display esta apagado lo activa
-				{	iIntM0.classList.remove('cX');
-					iNt.classList.remove('cX');
-					mViS = 1;
-				}
+			{				
 				
-				//mMod = h;
-				//console.error(' -- 2 mMod=',mMod);
 
-				//if h = 98 => NO PASA NADA, solo se usa para activar el display si esta desactivado
-				if(h==97)
-				{	//CAMBIAR el modo del intercomunicador
-					console.error(' -- h= 99  mMod=',mMod);
-					var i = mMod + 1;
-					if(i>=6)
-					{	i = 1;//Reinicia al modo 1
-					}
-					//console.error(' -- 3 mMod=',mMod);
-					h = i;//cambia el valor de h por el nuevo modo
-					//console.error(' -- 1 h=',h);
+
+				if(!uViS&&!mViS)//Si ambas interfaces están apagadas > intercomunicador está apagado
+				{	
+					console.error('############# Activando el intercomunicador');
+					iIntM0.classList.remove('cX');//Muestra el editor
+					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
+					iNt.classList.remove('cX');//Muestra la interfaz inferior
+					//NOTA: En este punto no está definido el tipo de uViS, ese es el siguiente paso
 				}
-				console.error(' -- 2 h=',h);
-				console.error(' -- 4 mMod=',mMod);
-				if((h<=96)&&(h!=mMod))//si no son comandos y viene valor de h, entonces ajustar el modo que corresponda a h
-				{ 	//console.error(' -- 3 h=',h);
+
+				//En este punto el intercomunicador es visible con morse o con universal
+
+				console.error(' -3-  (morse o universal ON) mViS=',mViS,' uViS=',uViS);
+
+				if(!uViS) // Si el display universal esta apagado
+				//if(!mViS)//Si el display esta apagado lo activa
+				{	if(mViS) // Si el tutorial morse esta prendido
+					{	iTaco.classList.add('cX');//Oculta el tutorial
+						mViS = 0; // El tutorial se apaga
+					}
+
+					iUni.classList.remove('cX');//Muestra la interfaz universal
+					uViS = 1; // El display universal esta encendido
+				}
+				//En este punto el intercomunicador es visible solo el con universal, esperando por definir con h el valor de la interfaz
+
+				console.error(' -4- (sólo universal ON) mViS=',mViS,' uViS=',uViS);
+
+
+
+
+					//mMod = h;
+					//console.error(' -- 2 mMod=',mMod);
+
+						/////////				//if h = 98 => NO PASA NADA, solo se usa para activar el display si esta desactivado
+						/////////				if(h==97)
+						/////////				{	//CAMBIAR el modo del intercomunicador
+						/////////					console.error(' -- h= 99  mMod=',mMod);
+						/////////					var i = mMod + 1;
+										/////////
+						/////////					//if(i>=6)
+						/////////					if(i>=5)
+						/////////					{	i = 1;//Reinicia al modo 1
+						/////////					}
+						/////////					//console.error(' -- 3 mMod=',mMod);
+						/////////					h = i;//cambia el valor de h por el nuevo modo
+						/////////					//console.error(' -- 1 h=',h);
+						/////////				}
+						/////////				console.error(' -- 2 h=',h);
+						/////////				console.error(' -- 4 mMod=',mMod);
+
+
+
+				if(h!=mMod)//si viene valor de h, entonces ajustar el modo que corresponda a h
+				//if((h<=96)&&(h!=mMod))//si no son comandos y viene valor de h, entonces ajustar el modo que corresponda a h
+				{ 	
+
+
+
+
+
+
+					//console.error(' -- 3 h=',h);
 					mMod = h;//se actualiza el modo
-					//console.error(' -- 5 mMod=',mMod);
+					console.error('############# -- 5 mMod=',mMod);
 					f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
 					switch(mMod)
-					{	
-						case 1:
-							// Qwerty normal
-							iKeyB.style.height = '100%';
-							iKeyB.classList.remove('cX');
-						break;
-						case 2:
-							// Qwerty medio - Iterar y cambiar el tamaño de la fuente
-							keYs.forEach(button =>
-							{	button.style.fontSize = 'min(10vh,10vw)';
-							});
-							iKeyB.style.height = '200%';//'70vh';
-							iKeyB.style.width = '200vw';
-							iKeyB.classList.remove('cX');
-						break;
-						case 3:
-							// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
-							keYs.forEach(button =>
-							{	button.style.fontSize = 'min(15vh,15vw)';
-							});
-							iKeyB.style.height = '300%';//'70vh';
-							iKeyB.style.width = '300vw';
-							iKeyB.classList.remove('cX');
-						break;
-						case 4: 
-							// Señas - Sign Chat
-							iKeyS.classList.remove('cX');
-						break;
-						case 5:
-							// Clave Morse - Tutorial
-							//iTaco.style.opacity='0.8';
-							iTaco.classList.remove('cX');
-						break;
-					}	
+				{	
+					case 1:
+						// Qwerty normal
+						iKeyB.style.height = '100%';
+						iKeyB.classList.remove('cX');
+						iEnt.innerHTML = 1;
+					break;
+					case 2:
+						// Qwerty medio - Iterar y cambiar el tamaño de la fuente
+						keYs.forEach(button =>
+						{	button.style.fontSize = 'min(10vh,10vw)';
+						});
+						iKeyB.style.height = '200%';//'70vh';
+						iKeyB.style.width = '200vw';
+						iKeyB.classList.remove('cX');
+						iEnt.innerHTML = 2;
+					break;
+					case 3:
+						// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
+						keYs.forEach(button =>
+						{	button.style.fontSize = 'min(15vh,15vw)';
+						});
+						iKeyB.style.height = '300%';//'70vh';
+						iKeyB.style.width = '300vw';
+						iKeyB.classList.remove('cX');
+						iEnt.innerHTML = 3;
+					break;
+					case 4: 
+						// Señas - Sign Chat
+						iKeyS.classList.remove('cX');
+						iEnt.innerHTML = 4;
+					break;
+					////case 5:
+					////	// Clave Morse - Tutorial
+					////	//iTaco.style.opacity='0.8';
+					////	iTaco.classList.remove('cX');
+					////break;
+					}
+					console.error(' -5- (nueva salida Universal) mMod=',mMod,'; mViS=',mViS,' uViS=',uViS);
 				}
+
 			}
+
+
 		
 		};
 
@@ -9447,7 +9513,67 @@ f0161(m)  // Cuadrar el string del tipo de info deacuerdo a cOm {mIr003A}  m{mIc
 						//break;
 					}
 				}
-			}	
+			}
+
+function
+f0164(p)	//ASIGNAR voces según el idioma si (p) viene de f0026  si no viene de f f0034
+			{	lOG(164);
+				//toSpeak1 = new SpeechSynthesisUtterance();
+				//toSpeak1.text = textLoc;//(variable con el texto que va a leer)//Prueba
+
+				toSpeak1.rate = speed;//velocidad 0 - 3.6	
+				toSpeak1.volume = 1;//g00VARS[45][2];
+				toSpeak1.pitch = g00VARS[46][2];
+				{	selectedVoiceName1 = '';
+					switch (g00VARS[27][2])//consigue el nombre de la voz y el lang dependiendo del idioma que tenga configurado el usuario
+					{	case 1://ingles
+							selectedVoiceName1 = 'Samantha';//tVoces[51][2];
+							toSpeak1.lang = 'en-US';//tLanPAIS[8][1];
+							toLang = tLanPAIS[11][2];
+						break;
+						case 2://Español colombia?
+							selectedVoiceName1 = tVoces[1][2];//'Paulina' para colombia
+							toSpeak1.lang = tLanPAIS[15][1];//'es-MX' para colombia
+							toLang = tLanPAIS[15][2];
+						break;
+						case 3://Frances
+							selectedVoiceName1 = tVoces[5][2];//,'fr-CA'	,'Amelie'],
+							toSpeak1.lang = tLanPAIS[18][1];//,'fr'		,'fr-CA'	],
+							toLang = tLanPAIS[18][2];
+						break;
+						case 4://korean
+							selectedVoiceName1 = tVoces[45][2];//,'ko-KR'	,'Yuna'],
+							toSpeak1.lang = tLanPAIS[26][1];//,'ko'		,'kr-KR'	],
+							toLang = tLanPAIS[26][2];
+						break;
+						case 5:
+						break;
+						case 6:
+						break;
+						case 7:
+						break;
+					}
+					voices.forEach(function(voice)
+					{	if(voice.name === selectedVoiceName1)
+						{	toSpeak1.voice = voice;
+							if(p)
+							{	iV1L.style.backgroundColor = 'lightgreen';
+							}
+							else
+							{	iVoL.style.backgroundColor = 'lightgreen';  
+							}
+						}
+						else
+						{	if(p)
+							{	iV1L.style.backgroundColor = 'red';
+							}
+							else
+							{	iVoL.style.backgroundColor = 'red';
+							}
+						}
+					});
+				}
+			}
 
 //Nuevo..
 var isCapsLockActive = false;

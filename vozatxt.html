@@ -59,7 +59,7 @@
     // Cuando se presiona botón A o barra espaciadora → empezar a escuchar
     function iniciarEscucha() {
       if (escuchando) return;
-      recognition.lang = idioma.value;
+      recognition.lang = idioma.value;//=toLang - - - - = tLanPAIS[11][2];g00VARS[27][2]  --- var tVoces[*16/31/53][1]-- 'es-ES' //tLanPAIS[14][2]-- 'es-ES':g00VARS[27][2]
       recognition.start();
       escuchando = true;
     }
@@ -75,14 +75,16 @@
     recognition.onresult = (event) => {
       const texto = event.results[0][0].transcript;
       console.log('texto=',texto);
+      console.log('1- textarea.value=',textarea.value);
       textarea.value = texto;
-      hablarTexto(texto, idioma.value);
+      console.log('2- textarea.value=',textarea.value);
+      hablarTexto(texto, idioma.value);//(texto,toLang) 
     };
 
     // Función para hablar
     function hablarTexto(texto, lang) {
       const utterance = new SpeechSynthesisUtterance(texto);
-      utterance.lang = lang;
+      utterance.lang = lang;//=toLang
       window.speechSynthesis.speak(utterance);
     }
 

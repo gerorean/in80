@@ -1,5 +1,5 @@
 /*!IMPORTANTS SHORT NAMES*/
- . B{			background:blue!important}
+ .cB{			background:blue!important}
 
  .cG{			background:green!important}
 
@@ -144,7 +144,7 @@
  .c--Grey{		background:rgba(0,0,0,0.1)}
 
  .cSom
-,.cTexU{		background:rgba(0,0,0,0.2)}
+,.c--TexU{		background:rgba(0,0,0,0.2)}
 
  .cIwhi
 ,.cIyel
@@ -171,6 +171,7 @@
  .cButton
 ,.cTapa
 ,.cTexM
+,#iIntMo
 ,#iKeyB
 ,#i--Negro
 ,#iTaco{		background:var(--cblwh2)}
@@ -358,6 +359,7 @@
 ,.cTapa
 ,.cTexM
 ,#iBrAi
+,#iIntMo
 ,#iKeyB
 ,#iEnt
 ,#iTaco{		color:var(--cblwh1)}
@@ -585,9 +587,11 @@
 ,.cVert
 ,.yProsaL
 ,.zProsa
+,#iKeyB
 ,#intM
 ,#iRUTA
-,#iTAPA{		height:100%}
+,#iTAPA
+,#iUni{			height:100%}
 
  .cTpres{		height:calc(11% - var(--pelo))}/*calc(11vh - var(--pelo))}    -- -- 17vh}/*calc(17vh - var(--pelo))}/*calc(19.5vh - var(--pelo))}/*19.5vh - 9.75vh  16vh  8vh   se toma 10vh menos .25vh(x2) del borde inferior*/
 
@@ -920,7 +924,7 @@
 ,#i--Menu
 ,#intM
 ,#iNt
-,#iPRESE{		position:absolute}
+,#iPRESE{			position:absolute}
 
  #iBody{		position:fixed}
 
@@ -974,6 +978,7 @@
 ,.cPic2
 ,.cTela
 ,.cTexM
+,.cTexU
 ,.cTpres
 ,#iTaco
 ,.keY{			text-align:center}
@@ -1028,7 +1033,7 @@
 ,#iFaro
 ,#intM
 ,#iRUTA
-,#iTAPA{		top:0}
+,#iTAPA{			top:0}
 
  .c--Vpres{		top:1px}/*calc(10.5vh + var(--pelo))}/*Se calculo 100vh menos el alto de la imagen - la mitad del borde inferior: calc(10.5vh + var(--pelo) + (var(--kdot)* 0.5)) [- (var(--kdot)* 0.5)) menos la mitad del borde inferior]   84vh  10.5vh menos 0.5vh del borde superior*/
 
