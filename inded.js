@@ -7121,24 +7121,21 @@ morse(q) {
 			//+ + +		}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 			//Cambio para la voz...
 			var w=1;
 			//toText='12345';//Variable de prueba de voz a texto
 			if(toText!='')
 			{	console.error('#################### toText=',toText);
 				w=0;
+				sale += toText;
+				colSale();//COLOREAR los espacios del display M
+				////Aciciona el texto generado por la voz al editor..
+				//if (iIntM0.textContent !== undefined)
+				//{	iIntM0.textContent += toText;
+				//}
+				//else
+				//{	iIntM0.innerText += toText;
+				//}
 			}
 			switch (cycle[q])//switch que depende del ciclo en que termino/salio la tecla q
 			{
@@ -7185,86 +7182,11 @@ morse(q) {
 							f0015(1);//Clic sobre el boton 7 [] menu
 						};
 
-						if (q == 8)//boton / [0] Ventana de comunicaciones ON <-|-> OFF
-						{	/*console.log(' - - - Espacio Morse en el display M');
-							mMod = 4;
-							f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
-							sale += ' ';
-							colSale();
-							//iIntM0.textContent = salo;
-							f0151();// Desplaza hacia el final el Display M
-							f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
-	    					*/
-							//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-							console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio <ROMBO> 0 !!!! ');
-							
-							var a = 0;
-							if(uViS) // Si el teclado universal esta encendido
-							{	iUni.classList.add('cX');//Oculta la interfaz universal
-								uViS = 0; // El display universal esta apagado
-								a = 1; // Orden de Apagar!
+						if (q == 8) //boton / [0] Ventana de comunicaciones ON <-|-> OFF
+						{	if(w)
+							{	f0165(); //ACTIVAR o DESACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 							}
-							else // Si el teclado universal esta apagado
-							{	if(mViS) // Si el tutorial morse esta prendido
-								{	iTaco.classList.add('cX');//Oculta el tutorial
-									mViS = 0; // El tutorial se apaga
-									a = 1; // Orden de Apagar!
-								}
-								else // Si el tutorial morse esta apagado
-								{	iUni.classList.remove('cX');//Muestra la interfaz universal
-									uViS = 1; // El display universal esta encendido
-									a = 2; // Orden de Encender!
-								}
-							}
-
-
-							if(a==1)//Si hay orden de apagar el intercomunicador
-							{	console.error('############# DesActivando el intercomunicador');
-								iIntM0.classList.add('cX');//Oculta el editor
-								iIntMo.classList.add('cX');//Oculta el cuadro de entrada superior
-								iNt.classList.add('cX');//Oculta la interfaz inferior
-							}
-							if(a==2)//Si hay orden de encender el intercomunicador
-							{	console.error('############# Activando el intercomunicador');				
-								iIntM0.classList.remove('cX');//Muestra el editor
-								iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
-								iNt.classList.remove('cX');//Muestra la interfaz inferior
-							}
-							
-
-
-
-
-
-/*							
-							if(!uViS&&!mViS)//Si ambas interfaces están apagadas > intercomunicador está apagado
-							{	console.error('############# Activando el intercomunicador');
-								iIntM0.classList.remove('cX');//Muestra el editor
-								iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
-								iNt.classList.remove('cX');//Muestra la interfaz inferior
-							}
-							else//Intercomunicador encendido!!
-							{	console.error('############# DesActivando el intercomunicador');
-								iIntM0.classList.add('cX');//Oculta el editor
-								iIntMo.classList.add('cX');//Oculta el cuadro de entrada superior
-								iNt.classList.add('cX');//Oculta la interfaz inferior
-							}
-							if(!uViS) // Si el display universal esta apagado
-							//if(!mViS)//Si el display esta apagado lo activa
-							{	if(mViS) // Si el tutorial morse esta prendido
-								{	iTaco.classList.add('cX');//Oculta el tutorial
-									mViS = 0; // El tutorial se apaga
-								}
-								iUni.classList.remove('cX');//Muestra la interfaz universal
-								uViS = 1; // El display universal esta encendido
-							}
-							else
-							{	iUni.classList.add('cX');//Oculta la interfaz universal
-								uViS = 0; // El display universal esta apagado
-							}
-*/
-
-						};
+						}
 
 					}
 					if (regY[q][0] == 2)//MI RAYA 2023 IBOGOTA!!!!!!!  
@@ -7283,6 +7205,13 @@ morse(q) {
 						//////{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 ([])!!!! ');
 						//////	f0148();//MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 7 menu
 						//////};
+						
+						//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
+						/*
+						if (q == 6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
+						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
+							f0096(1, 1, 1);//Aplicar reversa al clic(botón 6) salTO -1
+						};*/
 						if (q == 7)// 	
 						{	//f0148(99);//DESACTIVAR la interfaz de Salida M
 						 	//console.log(' - - - Menu (7) ');
@@ -7292,13 +7221,11 @@ morse(q) {
 							f0015(1);//Clic o raya sobre el boton 7 [] menu
 							//sos(q,7);
 						};
-						
-						//Nota: no le tengo funciones al 5, es decir el boton 0 de la barra inclinada, el 8 esta libre por eso lo tome prestado!
-						/*
-						if (q == 6)//MI REVERSA FIJA 2023 IBOGOTA!!!! 	
-						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
-							f0096(1, 1, 1);//Aplicar reversa al clic(botón 6) salTO -1
-						};*/
+						if (q == 8) //boton / [0] Ventana de comunicaciones ON <-|-> OFF
+						{	if(w)
+							{	f0165(); //ACTIVAR o DESACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
+							}
+						}
 					}
 					////       --l//if (regY[q][0] == 3)
 					////       --l//{	console.error('  --raya muy larga--');
@@ -7347,8 +7274,9 @@ morse(q) {
 							f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 6) salTO5
 						}*/
 						if (q == 8)//boton / [0] Activar el display 
-						{	//f0148(98);//MOSTRAR la interfaz de Salida M
-							f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
+						{	if(w)
+							{	f0148(1);//MOSTRAR la interfaz de Salida M de qwerty normal
+							}
 						};
 					}
 					if ((regY[q][0] == 2) && (regY[q][2] == 2))
@@ -7389,49 +7317,51 @@ morse(q) {
 							f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 						};
 						if (q == 8)
-						{	if(uViS)//Si la interfaz universal está activada..
-							{	// Cambiar el modo de la interfaz universal:
-								mMod++;
-								if(mMod>=5)
-								{	mMod = 1;//Reinicia al modo 1
-								}
-								iEnt.innerHTML = mMod;
-								console.error('############# -- 5 mMod=',mMod);
-								f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
-								switch(mMod)
-								{	
-									case 1:
-										// Qwerty normal
-										iKeyB.style.height = '100%';
-										iKeyB.classList.remove('cX');
-									break;
-									case 2:
-										// Qwerty medio - Iterar y cambiar el tamaño de la fuente
-										keYs.forEach(button =>
-										{	button.style.fontSize = 'min(10vh,10vw)';
-										});
-										iKeyB.style.height = '200%';//'70vh';
-										iKeyB.style.width = '200vw';
-										iKeyB.classList.remove('cX');
-									break;
-									case 3:
-										// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
-										keYs.forEach(button =>
-										{	button.style.fontSize = 'min(15vh,15vw)';
-										});
-										iKeyB.style.height = '300%';//'70vh';
-										iKeyB.style.width = '300vw';
-										iKeyB.classList.remove('cX');
-									break;
-									case 4: 
-										// Señas - Sign Chat
-										iKeyS.classList.remove('cX');
-									break;	
-									////case 5:
-									////	// Clave Morse - Tutorial
-									////	//iTaco.style.opacity='0.8';
-									////	iTaco.classList.remove('cX');
-									////break;
+						{	if(w)
+							{	if(uViS)//Si la interfaz universal está activada..
+								{	// Cambiar el modo de la interfaz universal:
+									mMod++;
+									if(mMod>=5)
+									{	mMod = 1;//Reinicia al modo 1
+									}
+									iEnt.innerHTML = mMod;
+									console.error('############# -- 5 mMod=',mMod);
+									f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
+									switch(mMod)
+									{	
+										case 1:
+											// Qwerty normal
+											iKeyB.style.height = '100%';
+											iKeyB.classList.remove('cX');
+										break;
+										case 2:
+											// Qwerty medio - Iterar y cambiar el tamaño de la fuente
+											keYs.forEach(button =>
+											{	button.style.fontSize = 'min(10vh,10vw)';
+											});
+											iKeyB.style.height = '200%';//'70vh';
+											iKeyB.style.width = '200vw';
+											iKeyB.classList.remove('cX');
+										break;
+										case 3:
+											// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
+											keYs.forEach(button =>
+											{	button.style.fontSize = 'min(15vh,15vw)';
+											});
+											iKeyB.style.height = '300%';//'70vh';
+											iKeyB.style.width = '300vw';
+											iKeyB.classList.remove('cX');
+										break;
+										case 4: 
+											// Señas - Sign Chat
+											iKeyS.classList.remove('cX');
+										break;	
+										////case 5:
+										////	// Clave Morse - Tutorial
+										////	//iTaco.style.opacity='0.8';
+										////	iTaco.classList.remove('cX');
+										////break;
+									}
 								}
 							}	
 						}
@@ -7439,8 +7369,9 @@ morse(q) {
 					if ((regY[q][0] == 2) && (regY[q][2] == 1) && (regY[q][4] == 1))
 					{	outX[q] = ' -**';//una raya y dos puntos..
 						if (q == 8)
-						{	//f0148(99);//OCULTAR la interfaz de Salida M
-							f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
+						{	if(w)
+							{	f0148(2);//MOSTRAR la interfaz de Salida M de qwerty grande
+							}
 						}
 					}
 					if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) 
@@ -7503,8 +7434,9 @@ morse(q) {
 					if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1))
 					{	outX[q] = ' -***';//raya y tres puntos..
 						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0!!!! ');
-							f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
+						{	if(w)
+							{	f0148(3);//MOSTRAR la interfaz de Salida M qwerty gigante
+							}
 						};
 					}
 				break;
@@ -7512,8 +7444,9 @@ morse(q) {
 					if((regY[q][0]==2)&&(regY[q][2]==1)&&(regY[q][4]==1)&&(regY[q][6]==1)&&(regY[q][8]==1))
 					{	outX[q] = ' -****';//raya y cuatro puntos..
 						if (q == 8)//boton / [0]  cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ morse 8 Espacio Morse	
-						{	console.log(' - - - rrrrr MOSTRAR la interfaz de Salida M que corresponda porque se oprimio 0!!!! ');
-							f0148(4);//MOSTRAR la interfaz de Salida M de señas
+						{	if(w)
+							{	f0148(4);//MOSTRAR la interfaz de Salida M de señas
+							}
 						};
 					}
 				break;

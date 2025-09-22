@@ -9575,6 +9575,53 @@ f0164(p)	//ASIGNAR voces según el idioma si (p) viene de f0026  si no viene de 
 				}
 			}
 
+
+function
+f0165()	//ACTIVAR o DESACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
+			{	lOG(165);
+				/*console.log(' - - - Espacio Morse en el display M');
+				mMod = 4;
+				f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
+				sale += ' ';
+				colSale();
+				//iIntM0.textContent = salo;
+				f0151();// Desplaza hacia el final el Display M
+				f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
+				*/
+				//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
+				console.log(' - - - Activar o desactivar rl intercomunicador porque se oprimio <ROMBO> 0 !!!! ');	
+				var a = 0;
+				if(uViS) // Si el teclado universal esta encendido
+				{	iUni.classList.add('cX');//Oculta la interfaz universal
+					uViS = 0; // El display universal esta apagado
+					a = 1; // Orden de Apagar!
+				}
+				else // Si el teclado universal esta apagado
+				{	if(mViS) // Si el tutorial morse esta prendido
+					{	iTaco.classList.add('cX');//Oculta el tutorial
+						mViS = 0; // El tutorial se apaga
+						a = 1; // Orden de Apagar!
+					}
+					else // Si el tutorial morse esta apagado
+					{	iUni.classList.remove('cX');//Muestra la interfaz universal
+						uViS = 1; // El display universal esta encendido
+						a = 2; // Orden de Encender!
+					}
+				}
+				if(a==1)//Si hay orden de apagar el intercomunicador
+				{	console.error('############# DesActivando el intercomunicador');
+					iIntM0.classList.add('cX');//Oculta el editor
+					iIntMo.classList.add('cX');//Oculta el cuadro de entrada superior
+					iNt.classList.add('cX');//Oculta la interfaz inferior
+				}
+				if(a==2)//Si hay orden de encender el intercomunicador
+				{	console.error('############# Activando el intercomunicador');				
+					iIntM0.classList.remove('cX');//Muestra el editor
+					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
+					iNt.classList.remove('cX');//Muestra la interfaz inferior
+				}
+
+			}
 //Nuevo..
 var isCapsLockActive = false;
 
