@@ -19,37 +19,45 @@ recognition.interimResults = false;
 var escuchando = false;
 
  // Cuando se presiona botón A o barra espaciadora → empezar a escuchar
-function iniciarEscucha() {
-  if (escuchando) return;
-  recognition.lang = toLang;//= idioma.value;//=toLang - - - - = tLanPAIS[11][2];g00VARS[27][2]  --- var tVoces[*16/31/53][1]-- 'es-ES' //tLanPAIS[14][2]-- 'es-ES':g00VARS[27][2]
-  recognition.start();
-  escuchando = true;
-}
+function 
+iniciarEscucha()
+			{
+				toText = ''; //Reset de la variable voz a texto
+			  	if (escuchando) return;
+				recognition.lang = toLang;//= idioma.value;//=toLang - - - - = tLanPAIS[11][2];g00VARS[27][2]  --- var tVoces[*16/31/53][1]-- 'es-ES' //tLanPAIS[14][2]-- 'es-ES':g00VARS[27][2]
+				recognition.start();
+				escuchando = true;
+			}
 
 // Cuando se suelta botón A o barra espaciadora → parar y procesar
-function detenerEscucha() {
-  if (!escuchando) return;
-  recognition.stop();
-  escuchando = false;
-}
+function 
+detenerEscucha()
+			{
+				if (!escuchando) return;
+				recognition.stop();
+				escuchando = false;
+			}
 
 // Cuando reconoce algo → escribir y leer
-recognition.onresult = function(event) {
-  const texto = event.results[0][0].transcript;
-  console.log('texto=',texto);
-  toText = texto;
-  //console.log('1- textarea.value=',textarea.value);
-  //textarea.value = texto;
-  //console.log('2- textarea.value=',textarea.value);
-  hablarTexto(texto,toLang);//(texto, idioma.value);//(texto,toLang) 
-};
+recognition.onresult = function(event)
+			{
+				const texto = event.results[0][0].transcript;
+				console.log('texto=',texto);
+				toText = texto;
+				sale = sale + ' ' + toText;
+				colSale(); //COLOREAR los espacios del display M
+				console.error('################# toText=',toText);
+				hablarTexto(texto,toLang);//(texto, idioma.value);//(texto,toLang) 
+			};
 
 // Función para hablar
-function hablarTexto(texto, lang) {
-  const utterance = new SpeechSynthesisUtterance(texto);
-  utterance.lang = lang;//=toLang
-  window.speechSynthesis.speak(utterance);
-}
+function
+hablarTexto(texto,lang)
+			{
+				var utterance = new SpeechSynthesisUtterance(texto);
+				utterance.lang = lang;//(toLang)
+				canTts.speak(utterance);
+			}
 
 
 
@@ -5824,7 +5832,7 @@ function		//ACTIVACION O ACTUALIZACION DEL CICLO      --l3866
 					{	lin[0] = true;//console.log('lin[0]=' + lin[0]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						audiRay();//ACTIVA EL SONIDO RAYA - o sostenido
-						regY[0][cycle[0]] = 4;//sostenido tipo alerta (4) o de otro tipo (3)
+						regY[0][cycle[0]] = 4;//sostenido tipo alerta (4) o de otro tipo (3) sobre Morse (-) barra espaciadora o 5
 					}
 					setTimeout(ciclo0, vT);
 				}}//ciclo0()
@@ -5945,7 +5953,7 @@ ciclo7(){		//console.log('_____@- ciclo7()');
 					{	lin[7] = true;console.log('lin[7]=' + lin[7]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						//audiRay();//ACTIVA EL SONIDO RAYA
-						regY[7][cycle[7]] = 4;//3;//sostenido corto o largo
+						regY[7][cycle[7]] = 4;//3;//sostenido corto o largo sobre MENU o 7
 					}
 					setTimeout(ciclo7, vT);
 				}}//ciclo7()
@@ -5957,14 +5965,6 @@ ciclo8(){		//console.log('_____@- ciclo8()');
 					{	cycle[8] = 10;console.log('cycle[8]='+cycle[8]);
 					}
 					hora();
-
-
-
-					//si se ha tocado el rombo (8) entonces pongase a escuchar??
-	
-
-
-
 					nn[8] = m;console.log('nn[8]='+ nn[8]);
 					if((libre[8])&&(nn[8] > max[8]))
 					{	morse(8);
@@ -5973,7 +5973,7 @@ ciclo8(){		//console.log('_____@- ciclo8()');
 					{	lin[8] = true;console.log('lin[8]=' + lin[8]);//SE ACTIVO LA LINEA/RAYA
 						oscu();
 						//audiRay();//ACTIVA EL SONIDO RAYA
-						regY[8][cycle[8]] = 4;//3;//sostenido corto o largo
+						regY[8][cycle[8]] = 2;//--4;//3;//sostenido corto o largo sobre ROMBO O 0
 					}
 					setTimeout(ciclo8, vT);
 				}}//ciclo8()//
@@ -6902,10 +6902,9 @@ punto8(){     console.log('_____@- punto8()');
               hora();
 
 
-			  //???aquí??? inicia???
+			  //Aquí inicia la parte A de pasar voz a texto
 			  iniciarEscucha();
-
-
+			  //Aquí finaliza la parte A de pasar voz a texto
 
 
               nm[8] = m;console.log('nm[8]='+ nm[8]);
@@ -6966,13 +6965,12 @@ function      //terminacion general de un punto o una raya: RESETEA LOS COLORES 
 
 
 
-	//si se ha soltado el rombo (8) v=8? entonces termine de escuchar
-	//toText guarda lo que escucho
-	if(v==8)
-	{	detenerEscucha();
-
-	}
 	
+	//Aquí inicia la parte B de pasar voz a texto
+	if(v==8) //si se ha soltado el rombo (8) v=8 entonces termine de escuchar
+	{	detenerEscucha();
+	}
+	//Aquí finaliza la parte B de pasar voz a texto
 
 
 
@@ -7207,8 +7205,6 @@ morse(q) {
 			if(toText!='')
 			{	console.error('#################### toText=',toText);
 				w=0;
-				sale += toText;
-				colSale(); //COLOREAR los espacios del display M
 				f0166(); //ACTIVAR el intercomunicador universal, si el tutorial Morse esta activado lo desactiva
 				//Resetear el conteo??
 				f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon
