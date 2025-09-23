@@ -7358,8 +7358,8 @@ morse(q) {
 								colSale();//COLOREAR los espacios del display M
 								//output.textContent = salo;//output.textContent.slice(0, -1);
 								//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-								f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
-						
+								//f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+								f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 							};
 						}
 						////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
@@ -7400,7 +7400,8 @@ morse(q) {
 								colSale();//COLOREAR los espacios del display M
 								//output.textContent = salo;//output.textContent.slice(0, -1);
 								//f0150();//APAGAR la interfaz de Salida M, el Dsiplay M y Borra todo el texto de salida actual
-								f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]	
+								//f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]	
+								f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 							};
 						}
 						if (q == 3)//regresar -(1*KTE)
@@ -7422,7 +7423,8 @@ morse(q) {
 						if (q == 1)//Reset del display M 	
 						{	if(uViS||mViS)
 							{	f0150();//BORRAR todo el texto de salida actual
-								f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+								//f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+								f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 							}
 						};
 						if (q == 3)//avanzar +(2*KTE)
@@ -7510,7 +7512,8 @@ morse(q) {
 						if (q == 1)//Reset del display M 	
 						{	if(uViS||mViS)
 							{	f0150();//BORRAR todo el texto de salida actual
-								f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+								//f0145();//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
+								f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 							}
 						};
 						if (q == 3)//regresar -(2*KTE)

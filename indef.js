@@ -8450,7 +8450,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 					case 2:
 						// Qwerty medio - Iterar y cambiar el tamaño de la fuente
 						keYs.forEach(button =>
-						{	button.style.fontSize = 'min(10vh,10vw)';
+						{	button.style.fontSize = 'min(15vh,15vw)';
 						});
 						iKeyB.style.height = '200%';//'70vh';
 						iKeyB.style.width = '200vw';
@@ -8460,7 +8460,7 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 					case 3:
 						// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
 						keYs.forEach(button =>
-						{	button.style.fontSize = 'min(15vh,15vw)';
+						{	button.style.fontSize = 'min(25vh,25vw)';
 						});
 						iKeyB.style.height = '300%';//'70vh';
 						iKeyB.style.width = '300vw';

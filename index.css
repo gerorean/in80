@@ -551,7 +551,7 @@
 
  .cImKe{		height:13%}/*13vh}*/
 
- .cTexM{		height:15%}/*13vh}*/
+ .cTexM{		height:30%}/*15%}/*13vh}*/
 
  .cBOT
 ,.c--Ent
@@ -566,7 +566,7 @@
 ,#iInCom{		height:calc(100% - (max(var(--z),5vh)) - (calc(min(var(--cBrai),5vh))))}/*var(--cBrai))}*/
 
 
- .cTexU{		height:45%}/*45vh}*/
+ .cTexU{		height:30%}/*45%}/*45vh}*/
 
  .cVpres{		height:70%}/*70vh    -- -- calc(50vh - (var(--marH) * 2) - (var(--pelo)*2) - var(--kdot))}/*80vh - 1vh de los 2 margenes arriba y abajo,  84vh  80vh menos 0.5vh del borde superior y otros 0.5vh del borde inferior*/
 
@@ -1048,7 +1048,7 @@
 
  .cH0{			top:50%}
 
- .cTexM{		top:50vh}
+ .cTexM{		top:35vh}/*50vh}*/
 
  #iNt{			top:65vh}
 
