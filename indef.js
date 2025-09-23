@@ -8274,6 +8274,11 @@ var mTim = 0;// Variable para almacenar el temporizador
 function
 f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomunicador M; si m es true (1) indica que el sostenido viene del boton - [5] del morse o del [menu]
 		{	lOL(145);
+
+			//Prueba de tamaño!!...
+			f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
+
+
 			if(m)//AJUSTAR el modo Morse en el display M, porque ocurrio un sostenido que puede ser un espacio ' ' o una alerta 'S.O.S'
 			{	
 
@@ -8345,6 +8350,7 @@ function
 f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
 		{	lOL(147);
 			console.log('mViS=',mViS,'uViS=',uViS);
+			f0028();//ACTUALIZAR el tamaño del texto
 			if(mViS||uViS)
 			{	if(mViS)
 				{	//DESACTIVAR el display morse
@@ -8370,10 +8376,13 @@ f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apag
 		};
 
 function
-f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
+f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun h y mMod
 		//si h existe y es diferente de 0, mMod no avanza ni cambia porque se hace igual que h. Si h = 99 apaga el display y la interfaz de entrada.
 		{	lOL(148);
 			console.error(' -1-  h=',h,'; mViS=',mViS,' uViS=',uViS);
+
+			
+
 			//console.error(' -- 1 mMod=',mMod);
 			f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 
@@ -8384,6 +8393,10 @@ f0148(h)//MOSTRAR la interfaz de Salida M que corresponda segun h y mMod
 			if(h==99)//h = 99 => desactivar el display
 			{	//mMod = 4;
 				//f0148(0);
+
+				//Prueba tamaño..
+				f0028();//ACTUALIZAR el tamaño del texto
+				
 				if(mViS||uViS)//Si el display morse o el universal esta activado lo desactiva
 				{	//iIntM0.classList.add('cX');//Apaga el display de la interfaz M
 					//iIntMo.classList.add('cX');//Apaga el texto superior
@@ -9565,6 +9578,8 @@ f0164(p)	//ASIGNAR voces según el idioma si (p) viene de f0026  si no viene de 
 function
 f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 			{	lOG(165);
+
+
 				/*console.log(' - - - Espacio Morse en el display M');
 				mMod = 4;
 				f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
@@ -9591,12 +9606,17 @@ f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 					uViS = 1; // El display universal esta encendido
 				}
 				if(a==2)//Si hay orden de encender el intercomunicador
-				{	console.error('############# Activando el intercomunicador');				
+				{	console.error('############# Activando el intercomunicador');
+					
+					//Prueba tamaño..
+					f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
+				
 					iIntM0.classList.remove('cX');//Muestra el editor
 					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
 					iApp.classList.add('cX');//Oculta la app
 					f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon
+				
 				}
 				f0049();//L OCULTAR el botón de deshacer (UNDO X) cuando no se necesite
 			}
@@ -9606,6 +9626,10 @@ f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activ
 			{	lOG(166);
 				if(!uViS&&!mViS)//Si ambas interfaces están apagadas > intercomunicador está apagado
 				{	console.error('############# Activando el intercomunicador');
+
+					//Prueba tamaño..
+					f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
+				
 					iIntM0.classList.remove('cX');//Muestra el editor
 					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior

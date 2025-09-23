@@ -2,6 +2,9 @@ Pendientes: 6860 inded   6922
 
 f0165 y f0166 son iguales???? quitar una??? en que se diferencian???
 
+utilizar la  f0028(def) para ajustar automaticamente el tamaño de la interfaz universal (texto/señas) 
+si va a ser 100%-200% o 300% jugando con style.setProperty('--a') y f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
+
 
 ojo con cCel0, cCel1, cTi0, cTi1 en f0018()   revisar porque cuadra con .c--Ti1{		height:calc(100% - (var(--marH) * 2))}
 
