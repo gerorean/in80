@@ -8481,69 +8481,61 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 */
 
 
+
+				//-- Desde aqui se debe quitar el codigo--
+				//-- Además no se deben pasara f0148  valores de h = 1 al 5
 				if(h!=mMod)//si viene valor de h, entonces ajustar el modo que corresponda a h
 				//if((h<=96)&&(h!=mMod))//si no son comandos y viene valor de h, entonces ajustar el modo que corresponda a h
-				{ 	
-
-
-
-
-
-
-
-					//Aqui??
-
-
-					//console.error(' -- 3 h=',h);
+				{ 	//console.error(' -- 3 h=',h);
 					mMod = h;//se actualiza el modo
 					console.error('############# -- 5 mMod=',mMod);
 					f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
 					switch(mMod)
-				{	
-					case 1:
-						// Qwerty normal
-						iKeyB.style.height = '100%';
-						iKeyB.classList.remove('cX');
-						iEnt.innerHTML = 1;
-					break;
-					case 2:
-						// Qwerty medio - Iterar y cambiar el tamaño de la fuente
-						keYs.forEach(button =>
-						{	button.style.fontSize = 'min(15vh,15vw)';
-						});
-						iKeyB.style.height = '200%';//'70vh';
-						iKeyB.style.width = '200vw';
-						iKeyB.classList.remove('cX');
-						iEnt.innerHTML = 2;
-					break;
-					case 3:
-						// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
-						keYs.forEach(button =>
-						{	button.style.fontSize = 'min(25vh,25vw)';
-						});
-						iKeyB.style.height = '300%';//'70vh';
-						iKeyB.style.width = '300vw';
-						iKeyB.classList.remove('cX');
-						iEnt.innerHTML = 3;
-					break;
-					case 4: 
-						// Señas - Sign Chat
-						iKeyS.classList.remove('cX');
-						iEnt.innerHTML = 4;
-					break;
-					////case 5:
-					////	// Clave Morse - Tutorial
-					////	//iTaco.style.opacity='0.8';
-					////	iTaco.classList.remove('cX');
-					////break;
+					{	case 1:
+							// Qwerty normal
+							iKeyB.style.height = '100%';
+							iKeyB.classList.remove('cX');
+							iEnt.innerHTML = 1;
+						break;
+						case 2:
+							// Qwerty medio - Iterar y cambiar el tamaño de la fuente
+							keYs.forEach(button =>
+							{	button.style.fontSize = 'min(15vh,15vw)';
+							});
+							iKeyB.style.height = '200%';//'70vh';
+							iKeyB.style.width = '200vw';
+							iKeyB.classList.remove('cX');
+							iEnt.innerHTML = 2;
+						break;
+						case 3:
+							// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
+							keYs.forEach(button =>
+							{	button.style.fontSize = 'min(25vh,25vw)';
+							});
+							iKeyB.style.height = '300%';//'70vh';
+							iKeyB.style.width = '300vw';
+							iKeyB.classList.remove('cX');
+							iEnt.innerHTML = 3;
+						break;
+						case 4: 
+							// Señas - Sign Chat
+							iKeyS.classList.remove('cX');
+							iEnt.innerHTML = 4;
+						break;
+						////case 5:
+						////	// Clave Morse - Tutorial
+						////	//iTaco.style.opacity='0.8';
+						////	iTaco.classList.remove('cX');
+						////break;
 					}
 					console.error(' -5- (nueva salida Universal) mMod=',mMod,'; mViS=',mViS,' uViS=',uViS);
 				}
+				//-- Hasta aqui se debe quitar el codigo--
+				
 
-			}
 
 
-		
+			}		
 		};
 
 function
@@ -8554,7 +8546,7 @@ f0149()//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod 
 			{	button.style.fontSize = 'min(5vh,5vw)';
 			});
 			//iTaco.style.opacity='0.3';
-			iKeyB.style.height = 'auto';
+			iKeyB.style.height = 'auto';//auto=100%??
 			iKeyB.style.width = '100vw';
 			iTaco.classList.add('cX');//Resetea (apaga) todas las ventanas M
 			iKeyB.classList.add('cX');
@@ -9715,11 +9707,14 @@ f0167()	//ACTUALIZAR el tamaño del teclado universal
 					vaRW = q; // Actualiza el valor del ancho
 					console.log("Valor actualizado de vaRA=", a,'; y de vaRH=',p);
 					var m = a*8; // Altura mínima en pixeles del teclado
-					var l = 2.5*m; // Ancho minimo del teclado - ajustar que sea proporcional a la altura!
+					var l = 1.5*m; // Ancho minimo del teclado - ajustar que sea proporcional a la altura!
 					console.error('Altura de la pantalla=',p+'px * ancho=',q+'px (q) altura del teclado (m)=', m+'px');
 					var p = 0.3*p; // 30% del alto de la ventana
 					console.error('(p) 30% de la Altura de la pantalla=',p+'px');
-					console.error('Ancho mínimo l del teclado=',l+'px');		
+					console.error('Ancho mínimo l del teclado=',l+'px');
+					
+					var k = 1; // Orden de aumentar el tamaño de la tecla
+					
 					if(a>14) // Si a es mayor al tamaño pequeño de 14.. (ver f0028() en aux 2)
 					{	if(p<m) //Si el teclado no cabe bien en la pantalla
 						{	console.error('OJO! Se requiere Hueco! Altura asignada al teclado (m) =',m,'px (p < m= H mínima )');
@@ -9732,17 +9727,34 @@ f0167()	//ACTUALIZAR el tamaño del teclado universal
 						{ 	m = p; //Conserva el alto					
 							console.error('NO Se requiere Hueco! Altura asignada al teclado (p) =',m,'px');
 							//if()
+							k = 0;
 
 						}
 						if(q<l)
 						{ 	q = l; //Amplie el ancho de la ventana!
 						}
+						
 					}
 					else // Si a es menor o igual al tamaño pequeño de 14.. (ver f0028() en aux 2)
 					{	m = p; //Conserva el alto
 						console.error('NO Se requiere Hueco! Altura asignada al teclado (p) =',m,'px');
+						k = 0;
 					}
 					console.error('RESULTADO: Ancho (q) final asignado al teclado=',q+'px y altura (m) =',m+'px');
+					if(k)
+					{	// Iterar y aumentar el tamaño de la fuente
+						keYs.forEach(button =>
+						{	button.style.fontSize = a+'px';
+						});
+					}
+					else
+					{	// Iterar y dejar en mínimo el tamaño de la fuente
+						keYs.forEach(button =>
+						{	button.style.fontSize = 'min(5vh,10vw)';
+						});
+					}
+					iKeyB.style.height = m+'px';
+					iKeyB.style.width = q+'px';
 				}
 			}
 
