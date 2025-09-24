@@ -47,6 +47,13 @@ var toLang; //Se usa para guardar el Lang de la voz
 var toSpeak1; //se usa para el sintetizador de voz
 var selectedVoiceName1 = '';//se usa para el sintetizador de voz
 
+//const eBody = document.querySelector("#iBody");
+//var aCss;// Leer la variable a en CSS
+var varA; // variable que almacena el valor actual de la variable a en CSS (--a)
+var vaRA = 0; // variable que almacena el valor anterior de la variable a en CSS (--a)
+var vaRH = 0; // variable que almacena el valor anterior de la altura de la pantalla
+var vaRW = 0; // variable que almacena el valor anterior del ancho de la pantalla
+
 
 //============================================================
 function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
@@ -1852,9 +1859,14 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 						
 						g00VARS[65][3] = window.outerWidth;//.innerWidth;//ventana actual con navegador , outerWidth;navegador completo
 						g00VARS[65][4] = window.innerHeight;//Altura ventana actual sin el navegador - "más pequeño"
+						console.log('-- g00VARS[65][4]=',g00VARS[65][4]);
 						deltAV = (Math.min(g00VARS[65][2],g00VARS[65][3]) * 0.065);
 						var q = g00VARS[65][3]/g00VARS[65][2];
 						
+						f0167();//ACTUALIZAR el tamaño del teclado universal
+
+
+
 						if(g00VARS[65][3] < 400)//Si ancho menor de 400 px AJUSTAR altura de los iconos según ancho de la pantalla
 						{	if(g00VARS[65][3] < 200)//ancho menor de 200 px
 							{	iBody.style.setProperty('--cAlt','5vh');
@@ -2268,31 +2280,40 @@ function f0028(def)//ACTUALIZAR el tamaño/altura del texto:: standar o por defe
 			else
 			{	aux = g00VARS[33][2];//valor ajustado por el usuario
 			}
-			var aa;
+
+			f0168(aux); //CONVERTIR a pixekes el tamaño de la altura de g00VARS[33] y regresarlo por varA
+/*
+			var a;
 			switch (aux)//ajusta el tamaño del texto
 			{	case 1:
-					aa = 12;//15px 1 + 1
+					a = 12;//15px 1 + 1  "mínima"
 				break;
 				case 2:
-					aa = 14;//19.5px 4 + 2  14
+					a = 14;//19.5px 4 + 2  14 ""pequeña"
 				break;
 				case 3:
-					aa = 20;//28.5px 9 + 3 23
+					a = 20;//28.5px 9 + 3 23
 				break;
 				case 4:
-					aa = 32;//42 16 + 4  39
+					a = 32;//42 16 + 4  39
 				break;
 				case 5:
-					aa = 52;//60 25 + 5  64
+					a = 52;//60 25 + 5  64
 				break;
 				case 6:
-					aa = 82;//82.5px 36 + 6  90
+					a = 82;//82.5px 36 + 6  90
 				break;
 				case 7:
-					aa = 124;//109.5px 49   139
+					a = 124;//109.5px 49   139
 				break;
 			}
-			iBody.style.setProperty('--a',aa+'px');//109.5px 49   139
+*/
+			iBody.style.setProperty('--a',varA+'px');//109.5px 49   139
+			//varA = a; //ACTUALIZA el valor de la variable 'a'
+			
+			
+			//lo quito?
+			f0167(); //ACTUALIZAR el tamaño del teclado universal
 		}
 
 function f0029(val)//ORGANIZAR 1 pulso limpio de onfocus, ACTUALIZAR variable del foco <= La casilla (val) de la RUTA acaba de recibir el foco
@@ -8439,6 +8460,27 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 
 
 
+/*				
+				
+				aCss = getComputedStyle(eBody).getPropertyValue('--a').trim(); // Leer la variable a en CSS
+				console.log("Valor con unidad:",aCss); // "45px"
+				var n = parseFloat(aCss); // Convertir a número (remover "px")
+				console.log("Valor numérico:", n); // 45
+				if(n!=10)//Si n no es el tamaño minimo
+				{	var m = n*10; //Altura mínima en pixeles del teclado
+					var p = 0.3*g00VARS[65][4]; //30% del alto de la ventana
+					console.error('30% de la Altura de la pantalla=',p,'px');
+					if(p<m) //Si el teclado no cabe bien en la pantalla
+					{	console.error('Altura minima del teclado=',m,'px');
+						//Genere un hueco con más altura es decir m
+					}
+
+				}
+
+				console.error('Altura de la pantalla=',g00VARS[65][4],'px; ancho=',g00VARS[65][3],'px');
+*/
+
+
 				if(h!=mMod)//si viene valor de h, entonces ajustar el modo que corresponda a h
 				//if((h<=96)&&(h!=mMod))//si no son comandos y viene valor de h, entonces ajustar el modo que corresponda a h
 				{ 	
@@ -8446,6 +8488,10 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 
 
 
+
+
+
+					//Aqui??
 
 
 					//console.error(' -- 3 h=',h);
@@ -9648,6 +9694,91 @@ f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activ
 				f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 				//En este punto el intercomunicador es visible solo el con universal
 			}
+
+function
+f0167()	//ACTUALIZAR el tamaño del teclado universal
+			{	lOG(167);
+
+				//OJO el valor de a (varA) debe ser el programado por el usuario, no el real de a en ese momento!!
+				f0168(g00VARS[33][2]); //CONVERTIR a pixekes el tamaño de la altura de g00VARS[33] y regresarlo por varA
+
+				//varA = g00VARS[33][2]; // Valor ajustado por el usuario!!
+				var a = varA; // Leer la variable a en CSS
+				var p = g00VARS[65][4]; //valor actual del alto de la ventana
+				var q = g00VARS[65][3]; // Ancho de la ventana asignado al teclado
+					
+				console.log(" Valor actual de varA=", a+', de vaRA=',vaRA,' y de g00VARS[65][4]=',p);
+				
+				if((vaRA!=a)||(vaRH!=p)||(vaRW!=q)) // Valor anterior a o H es diferente del actual..
+				{	vaRA = a; // Actualiza el valor de a	
+					vaRH = p; // Actualiza el valor del alto
+					vaRW = q; // Actualiza el valor del ancho
+					console.log("Valor actualizado de vaRA=", a,'; y de vaRH=',p);
+					var m = a*8; // Altura mínima en pixeles del teclado
+					var l = 2.5*m; // Ancho minimo del teclado - ajustar que sea proporcional a la altura!
+					console.error('Altura de la pantalla=',p+'px * ancho=',q+'px (q) altura del teclado (m)=', m+'px');
+					var p = 0.3*p; // 30% del alto de la ventana
+					console.error('(p) 30% de la Altura de la pantalla=',p+'px');
+					console.error('Ancho mínimo l del teclado=',l+'px');		
+					if(a>14) // Si a es mayor al tamaño pequeño de 14.. (ver f0028() en aux 2)
+					{	if(p<m) //Si el teclado no cabe bien en la pantalla
+						{	console.error('OJO! Se requiere Hueco! Altura asignada al teclado (m) =',m,'px (p < m= H mínima )');
+							//Genere un hueco con más altura es decir m
+							//if(q<l)
+							//{ 	q = l; //Amplie el ancho de la ventana!
+							//}
+						}
+						else // El teclado cabe bien de altura, mira si lo puede anchar..
+						{ 	m = p; //Conserva el alto					
+							console.error('NO Se requiere Hueco! Altura asignada al teclado (p) =',m,'px');
+							//if()
+
+						}
+						if(q<l)
+						{ 	q = l; //Amplie el ancho de la ventana!
+						}
+					}
+					else // Si a es menor o igual al tamaño pequeño de 14.. (ver f0028() en aux 2)
+					{	m = p; //Conserva el alto
+						console.error('NO Se requiere Hueco! Altura asignada al teclado (p) =',m,'px');
+					}
+					console.error('RESULTADO: Ancho (q) final asignado al teclado=',q+'px y altura (m) =',m+'px');
+				}
+			}
+
+
+function
+f0168(au)	//CONVERTIR a pixekes el tamaño de la altura de g00VARS[33] y regresarlo por varA
+			{	lOG(168);			
+				var a;
+				switch (au)//ajusta el tamaño del texto
+				{	case 1:
+						a = 12;//15px 1 + 1  "mínima"
+					break;
+					case 2:
+						a = 14;//19.5px 4 + 2  14 ""pequeña"
+					break;
+					case 3:
+						a = 20;//28.5px 9 + 3 23
+					break;
+					case 4:
+						a = 32;//42 16 + 4  39
+					break;
+					case 5:
+						a = 52;//60 25 + 5  64
+					break;
+					case 6:
+						a = 82;//82.5px 36 + 6  90
+					break;
+					case 7:
+						a = 124;//109.5px 49   139
+					break;
+				}
+				varA = a;
+			}
+
+
+
 
 
 //Nuevo..

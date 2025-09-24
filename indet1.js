@@ -613,7 +613,7 @@ const 		g00VARS =[	[],//0	--1--RESERVADO para f0090() -> Memoria imagenNúmero/s
 						[63		,'--1--contador de señas animadas de las tapas'		,[]],
 						[64		,'----TAMAÑO VISOR (ICONOS):/1min,2Pe,3me,4Gr,5max/ default 3',4,4],//0,4 4 4 5 
 						//[64		,'----TAMAÑO VISOR (ICONOS):/0min,1Pe,2me,3Gr,4max/ default 3',3,3],//0,4 4 4 5 
-						[65		,'----ALTURA DEL NAVEGADOR EN PX / ANCHO DEL NAVEGADOR EN PX / Altura ventana actual sin el navegador',500,500,450],//65		,'Libre'		],
+						[65		,'----ALTURA DEL NAVEGADOR EN PX / ANCHO DEL NAVEGADOR EN PX / Altura ventana actual sin el navegador',100,100,100],//65		,'Libre'		],
 						[66		,'----ALTURA EN % DE UNA BARRERA DE PROTECCION HORIZONTAL = A ',5],//66		,'Libre'		],
 						[67		,'     Legua de Señas:1INTER, 2LSC, 3ASL, 4LSM ETC - NO DEBE ESTAR CONMUTANDO ES CASI FIJA',2],//
 						[68		,'----ALTURA EN px DE LAS IMAGENES/VIDEOS',450],//68		,'Libre'		],
