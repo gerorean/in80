@@ -448,9 +448,10 @@
 ,.c--Info{		float:left}
 
  #i--Taco
-,.keY{			font-family: Arial, sans-serif}
+,.k--eY{		font-family: Arial, sans-serif}
 
-  *{			font-family:Roboto,Century Gothic,Monaco,Verdana,Tahoma,Arial,sans-serif}/*        'Monaco','Verdana','Arial',sans-serif}*/
+ *
+,.keY{			font-family:Roboto,Century Gothic,Monaco,Verdana,Tahoma,Arial,sans-serif}/*        'Monaco','Verdana','Arial',sans-serif}*/
 
  .cCero
 ,.cFs0{			font-size:0}
@@ -479,10 +480,14 @@
 
  .cMaX{			font-size:calc(var(--chico) * 3)}/*calc(var(--chico)*0.7)*/
 
+/*
  td
 ,th{			font-size:max(5vw,5vh)}
+*/
 
- .keY{			font-size:min(5vh,5vw)}
+ .keY
+,td
+,th{			font-size:min(7vh,10vw)}/*ver nota en f0167*/
 
  .cMarqu{		font-size:min(4vh,4vw)}/*min(6.5vh,6.5vw)}/*min(8vh,8vw) o 32px*/
 
@@ -530,7 +535,10 @@
  .c--Iwhi
 ,.c--Iyel{		font-weight:200}
 
- td:first-child{font-weight:bold}
+/*
+ td:first-child
+,.keY{font-weight:bold}
+*/
 
  .cKRow{		gap:0}
 

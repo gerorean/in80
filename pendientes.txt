@@ -1,5 +1,11 @@
 Pendientes: 6860 inded   6922
 
+poner una imagen luego de los textos del intercomunicador si no es el modo 1 ni 6, en caso contrario la imagen deberia ir antes de los textos!!!
+
+el tutorial morse debería salir en letra gigante también!! revisar eso!!!
+
+falta quitar el cambio de modo 2 y 3 de f0148() dejar solo 1, 4, y 99
+
 f0165 y f0166 son iguales???? quitar una??? en que se diferencian???
 
 utilizar la  f0028(def) para ajustar automaticamente el tamaño de la interfaz universal (texto/señas) 

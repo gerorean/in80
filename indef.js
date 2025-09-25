@@ -9706,8 +9706,8 @@ f0167()	//ACTUALIZAR el tamaño del teclado universal
 					vaRH = p; // Actualiza el valor del alto
 					vaRW = q; // Actualiza el valor del ancho
 					console.log("Valor actualizado de vaRA=", a,'; y de vaRH=',p);
-					var m = a*8; // Altura mínima en pixeles del teclado
-					var l = 1.5*m; // Ancho minimo del teclado - ajustar que sea proporcional a la altura!
+					var m = a*7; //a*8 Altura mínima en pixeles del teclado
+					var l = 1.7*m; //1.5*m Ancho minimo del teclado - ajustar que sea proporcional a la altura!
 					console.error('Altura de la pantalla=',p+'px * ancho=',q+'px (q) altura del teclado (m)=', m+'px');
 					var p = 0.3*p; // 30% del alto de la ventana
 					console.error('(p) 30% de la Altura de la pantalla=',p+'px');
@@ -9730,8 +9730,11 @@ f0167()	//ACTUALIZAR el tamaño del teclado universal
 							k = 0;
 
 						}
-						if(q<l)
+						if(q<l) //mira si lo puede anchar..
 						{ 	q = l; //Amplie el ancho de la ventana!
+							if(!k)
+							{	k = 1; //Recupera la orden
+							}
 						}
 						
 					}
@@ -9750,7 +9753,7 @@ f0167()	//ACTUALIZAR el tamaño del teclado universal
 					else
 					{	// Iterar y dejar en mínimo el tamaño de la fuente
 						keYs.forEach(button =>
-						{	button.style.fontSize = 'min(5vh,10vw)';
+						{	button.style.fontSize = 'min(7vh,10vw)';// pasar a css!!
 						});
 					}
 					iKeyB.style.height = m+'px';
