@@ -55,6 +55,8 @@ var vaRH = 0; // variable que almacena el valor anterior de la altura de la pant
 var vaRW = 0; // variable que almacena el valor anterior del ancho de la pantalla
 
 
+
+
 //============================================================
 function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
 		{	//console.timeEnd('tiempoDeCarga');//:/SwitchS0//INFORMAR cuánto tiempo demoró en cargar
@@ -8265,7 +8267,7 @@ permiten que el usuario elija un modo para el envío de información ya sea en c
 Audio, teclado, señas, etc.*/
 
 //inicio funciones del teclado de la interfaz M:
-//const output = document.getElementById('iIntM0');//const output = document.getElementById('iIntM0');
+//const output = document.getElementById('m1Txt');//const output = document.getElementById('m1Txt');
 const keYs = document.querySelectorAll('.keY');//Teclado Virtual - Seleccionar todos los elementos con la clase "keY"
 
 // Listener para registrar eventos de clics en las teclas virtuales
@@ -8558,7 +8560,7 @@ f0150()//BORRAR todo el texto de salida actual
 		{	lOL(150);
 			console.log(' - - - Reset del display M');
 			sale = '';
-			iIntM0.innerHTML = '';//output.textContent = '';//Borra el texto de salida
+			m1Txt.innerHTML = '';//output.textContent = '';//Borra el texto de salida
 			//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display					
 		};
 
@@ -9623,7 +9625,7 @@ f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 				f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 				sale += ' ';
 				colSale();
-				//iIntM0.textContent = salo;
+				//m1Txt.textContent = salo;
 				f0151();// Desplaza hacia el final el Display M
 				f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
 				*/
@@ -9878,7 +9880,7 @@ function handleKeyPress(keyValue)
 	            //output.textContent = salo;//+= keyValue;
 	        }
 	    }
-		f0151();// Desplaza hacia el final el Display M
+		//f0151();// Desplaza hacia el final el Display M
 	}
 }
 

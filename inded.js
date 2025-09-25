@@ -7095,7 +7095,7 @@ morse(q) {
 			f0145(1);//CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 			sale += '.        ¡S.O.S.Alert! ';
 			colSale();//COLOREAR los espacios del display M 
-			//iIntM0.textContent = salo;
+			//m1Txt.textContent = salo;
 			f0151();// Desplaza hacia el final el Display M
 			f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
 			zGuiIn(q);//GENERAR el guion de la letra ingresada
@@ -7112,7 +7112,7 @@ morse(q) {
 						f0145(1);//CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 						sale += ' ';
 						colSale();//COLOREAR los espacios del display M 
-						//iIntM0.textContent = salo;
+						//m1Txt.textContent = salo;
 						f0151();// Desplaza hacia el final el Display M
 						f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
 						zGuiIn(0);//GENERAR el guion de la letra ingresada
@@ -7213,7 +7213,7 @@ morse(q) {
 
 					sale += outX[0];
 					colSale();
-					//iIntM0.textContent = salo;
+					//m1Txt.textContent = salo;
 					f0151();// Desplaza hacia el final el Display M
 
 					}
@@ -7237,11 +7237,11 @@ morse(q) {
 				//Resetear el conteo??
 				f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon	
 				////Aciciona el texto generado por la voz al editor..
-				//if (iIntM0.textContent !== undefined)
-				//{	iIntM0.textContent += toText;
+				//if (m1Txt.textContent !== undefined)
+				//{	m1Txt.textContent += toText;
 				//}
 				//else
-				//{	iIntM0.innerText += toText;
+				//{	m1Txt.innerText += toText;
 				//}
 			}
 */
@@ -7595,7 +7595,7 @@ morse(q) {
 		//sale += outX[0];
 		//colSale();
 		//output.textContent = salo;//+= outX[0];
-		//iIntM0.textContent = salo;//+= outX[0];
+		//m1Txt.textContent = salo;//+= outX[0];
 
 
 		}//fin del morse
@@ -7665,7 +7665,8 @@ function
 							  	salo += "<span>" + c + "</span>";
 							}
 						}
-						iIntM0.innerHTML = salo;//
+						m1Txt.innerHTML = salo;//
+						m1Txt.scrollTo(0, 0); // vuelve arriba cada vez que cambia el texto
 						//output.innerHTML = salo;
 				}
 

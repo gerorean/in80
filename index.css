@@ -419,6 +419,7 @@
 ,.cFleT
 ,.cFlex
 ,.cIcn
+,.p2rs
 ,.c--Menu
 ,.c--Reloj
 ,.cTOB
@@ -431,7 +432,6 @@
 ,#iKeyB{		display:grid}
 
  .cAltu
-,.cPace
 ,.cPic2
 ,.cObj{			display:inline-block}
 
@@ -634,7 +634,9 @@
 
  #iGol{			height:calc(var(--bh)*2)}/*calc(var(--cWH) * 65vh)*/
 
- .cPic2{		height:calc(var(--chico) * 0.5 *var(--cWH))}/*calc(var(--chico) * 0.5 *var(--cWH))   calc(var(--cWH) * 65vh)*/
+ .cPic2
+,.p2rs
+,.pErs{			height:calc(var(--chico) * 0.5 *var(--cWH))}/*calc(var(--chico) * 0.5 *var(--cWH))   calc(var(--cWH) * 65vh)*/
 
  .c--Ame{		height:calc(var(--chico) * 0.8)}
 
@@ -676,6 +678,7 @@
 ,.cTOB
 ,.c--Trin
 ,.cZIn
+,.pErs
 ,.keY{			justify-content:center}
 
  #i--Menu{		justify-content:flex-end}
@@ -1115,6 +1118,8 @@
 ,.cLR
 ,.cVert{		width:33.3333333%}
 
+ .pErs{			width:50%}
+
  .c1570{		width:70%}
 
  .cChico{		width:80vw}/*calc(100% - 3.4*(var(--cAlt)))}/*min(17vh,17vw)))}*/
@@ -1137,6 +1142,7 @@
 ,.cTexU
 ,.cTones
 ,.inner
+,.p2rs
 ,#iApp
 ,#iB--rail
 ,#iCelu
