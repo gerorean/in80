@@ -171,7 +171,7 @@
  .cButton
 ,.cTapa
 ,.cTexM
-,#iIntMo
+,#i--IntMo
 ,#iKeyB
 ,#i--Negro
 ,#intM
@@ -240,7 +240,7 @@
  ,#yBot7
  ,#y--Bot5{		border-radius:calc(var(--rmin)*2) 0 0 calc(var(--rmin)*2)}/*{		border-radius:7.5vh 0 0 7.5vh}11.25vh 0 0 11.25vh}*/
 
- .cTexM{		border-radius:calc(var(--rmin)*2)}/*{		border-radius:7.5vh}*/
+ #iIntM0{		border-radius:calc(var(--rmin)*2)}/*{		border-radius:7.5vh}*/
 
  .c--Ame
 ,.c--Ask
@@ -298,7 +298,6 @@
 
  .cBOT
 ,.cTexM
-,.cTexU
 ,#iNegro{		box-shadow:inset 0 0 0 0.5px var(--cbw1), 0 0 0 0.3px var(--cbw2), inset 0 0 0 calc(var(--palo)/2) var(--cYel),inset 1px 1px 1px calc(var(--palo)/2) var(--cYel)}/*var(--cYel) var(--cGreyT)*/
 
  .cEsqi{		box-shadow:inset 0 0 0 calc(var(--palo)*0.25) var(--cblwh2), inset 0 0 0 calc(var(--palo)*2) var(--cBeige)}
@@ -360,7 +359,6 @@
 ,.cTapa
 ,.cTexM
 ,#iBrAi
-,#iIntMo
 ,#iKeyB
 ,#iEnt
 ,#iTaco{		color:var(--cblwh1)}
@@ -419,7 +417,6 @@
 ,.cFleT
 ,.cFlex
 ,.cIcn
-,.p2rs
 ,.c--Menu
 ,.c--Reloj
 ,.cTOB
@@ -634,9 +631,7 @@
 
  #iGol{			height:calc(var(--bh)*2)}/*calc(var(--cWH) * 65vh)*/
 
- .cPic2
-,.p2rs
-,.pErs{			height:calc(var(--chico) * 0.5 *var(--cWH))}/*calc(var(--chico) * 0.5 *var(--cWH))   calc(var(--cWH) * 65vh)*/
+ .cPic2{			height:calc(var(--chico) * 0.5 *var(--cWH))}/*calc(var(--chico) * 0.5 *var(--cWH))   calc(var(--cWH) * 65vh)*/
 
  .c--Ame{		height:calc(var(--chico) * 0.8)}
 
@@ -678,7 +673,6 @@
 ,.cTOB
 ,.c--Trin
 ,.cZIn
-,.pErs
 ,.keY{			justify-content:center}
 
  #i--Menu{		justify-content:flex-end}
@@ -805,7 +799,7 @@
 ,#i--KeyS
 ,#i--Taco{		opacity:0.8}
 
- .cTexM{		opacity:0.9}
+ #iIntM0{		opacity:0.9}
 
  .c1570
 ,.c1x1
@@ -869,7 +863,6 @@
  ,.cGrey
  ,.c--Neg
  ,.cTexM
- ,.cTexU
  ,#iFilbo
  ,#iMarco
  ,#intM
@@ -921,7 +914,6 @@
 ,.cRiel
 ,.cSom
 ,.cTexM
-,.cTexU
 ,.cTitul
 ,.c--TOB
 ,.cTones
@@ -949,7 +941,8 @@
 ,.inner
 ,#iBr--Ai
 ,#i--Celu
-,#i--PRESE{		position:relative}
+,#i--PRESE
+,.p--Ers{		position:relative}
 
 
  .cBote
@@ -993,7 +986,6 @@
 ,.cPic2
 ,.cTela
 ,.cTexM
-,.cTexU
 ,.cTpres
 ,#iTaco
 ,.keY{			text-align:center}
@@ -1052,7 +1044,7 @@
 
  .c--Vpres{		top:1px}/*calc(10.5vh + var(--pelo))}/*Se calculo 100vh menos el alto de la imagen - la mitad del borde inferior: calc(10.5vh + var(--pelo) + (var(--kdot)* 0.5)) [- (var(--kdot)* 0.5)) menos la mitad del borde inferior]   84vh  10.5vh menos 0.5vh del borde superior*/
 
- .cTexU{		top:5vh}
+ #iIntMo{		top:5vh}
 
  .c46{			top:16.666666666%}/*top:20%}25%}/*33.33333333%}*/
 
@@ -1060,7 +1052,7 @@
 
  .cH0{			top:50%}
 
- .cTexM{		top:35vh}/*50vh}*/
+ #iIntM0{		top:35vh}/*50vh}*/
 
  #iNt{			top:65vh}
 
@@ -1118,8 +1110,6 @@
 ,.cLR
 ,.cVert{		width:33.3333333%}
 
- .pErs{			width:50%}
-
  .c1570{		width:70%}
 
  .cChico{		width:80vw}/*calc(100% - 3.4*(var(--cAlt)))}/*min(17vh,17vw)))}*/
@@ -1142,7 +1132,6 @@
 ,.cTexU
 ,.cTones
 ,.inner
-,.p2rs
 ,#iApp
 ,#iB--rail
 ,#iCelu

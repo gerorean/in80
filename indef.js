@@ -8267,7 +8267,7 @@ permiten que el usuario elija un modo para el envío de información ya sea en c
 Audio, teclado, señas, etc.*/
 
 //inicio funciones del teclado de la interfaz M:
-//const output = document.getElementById('m1Txt');//const output = document.getElementById('m1Txt');
+//const output = document.getElementById('iIntM0');//const output = document.getElementById('iIntM0');
 const keYs = document.querySelectorAll('.keY');//Teclado Virtual - Seleccionar todos los elementos con la clase "keY"
 
 // Listener para registrar eventos de clics en las teclas virtuales
@@ -8560,14 +8560,30 @@ f0150()//BORRAR todo el texto de salida actual
 		{	lOL(150);
 			console.log(' - - - Reset del display M');
 			sale = '';
-			m1Txt.innerHTML = '';//output.textContent = '';//Borra el texto de salida
+			iIntM0.innerHTML = '';//output.textContent = '';//Borra el texto de salida
 			//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display					
 		};
+
+
+//const iIntM0 = document.getElementById('iIntM0');
 
 function
 f0151()// Desplaza hacia el final el Display M
 	{	lOL(151);
-		iIntM0.scrollTop = iIntM0.scrollHeight;
+		console.error('###### desplazando');
+		iIntM0.scrollTop = iIntM0.scrollHeight;//Muestra lo más reciente en pantalla del usuario
+		iIntMo.scrollTop = iIntMo.scrollHeight;//Muestra lo más reciente en pantalla del otro
+		//iIntM0.scrollTop = 0;
+		//iIntM0.scrollTop = iIntM0.scrollHeight;
+		//iIntM0.scrollTop = iIntM0.scrollHeight;
+		// esperar 1 segundo
+		/*
+		setTimeout(function()
+		{	//iIntM0.scrollTo = iIntM0.scrollHeight; //(0, 0);
+			console.error('###### ahora..');
+			iIntM0.scrollTop = iIntM0.scrollHeight;
+		}, 2000);
+		*/
 	};
 
 
@@ -9619,13 +9635,14 @@ function
 f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 			{	lOG(165);
 
-
+				console.error('######## RESETEANDO!!')
+				
 				/*console.log(' - - - Espacio Morse en el display M');
 				mMod = 4;
 				f0145();////CONTROLAR la salida de la interfaz M y la opacidad segun el estado (st) 1:ACTIVAR la salida de la interfaz M y quitar la opacidad y 0:Hace todo lo contrario
 				sale += ' ';
 				colSale();
-				//m1Txt.textContent = salo;
+				//iIntM0.textContent = salo;
 				f0151();// Desplaza hacia el final el Display M
 				f0146();//DETECTAR los eventos, si es el último evento sobre el botón 5 o la interfaz M resetea la interfaz M
 				*/
@@ -9658,6 +9675,8 @@ f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 					f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon
 				
 				}
+				iIntM0.scrollTop = iIntM0.scrollHeight;//Muestra lo más reciente en pantalla del usuario
+				iIntMo.scrollTop = 0;//Muestra el inicio del último mensaje del otro
 				f0049();//L OCULTAR el botón de deshacer (UNDO X) cuando no se necesite
 			}
 
