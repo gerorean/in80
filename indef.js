@@ -9815,6 +9815,31 @@ f0168(au)	//CONVERTIR a pixekes el tamaño de la altura de g00VARS[33] y regresa
 
 
 
+var varZ = 0;//Informa arriba o abajo
+
+
+function alterna1() //Muestra la salida
+			{	if(!varZ)
+				{	iIntMo.classList.remove('cUp');//Muestra la salida
+	      			iIntMo.classList.add("cDo");
+	   	   			iIntM0.classList.remove("cDo");
+	  	    		iIntM0.classList.add("cUp");
+					varZ = 1
+				}
+    		}
+
+function alterna2() //Muestra la entrada
+			{	if(varZ)
+				{	iIntMo.classList.remove('cDo');//Muestra la entrada
+	      			iIntMo.classList.add("cUp");
+	   	   			iIntM0.classList.remove("cUp");
+	  	    		iIntM0.classList.add("cDo");
+					varZ = 0;
+				}
+    		}
+
+iIntMo.addEventListener("click", alterna2);
+iIntM0.addEventListener("click", alterna1);
 
 
 //Nuevo..

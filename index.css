@@ -13,7 +13,9 @@
 
  .c0{			z-index:11111111!important}/*ACTIVAR cuando el servidor sea 000webhostapp.com (8unos), el del sena es 2000000000 (2 y 9ceros)*/
 
+ .cDo{			z-index:11111101!important}
 
+ .cUp{			z-index:11111102!important}
 
 
 /* Animación CSS para iOS a* /
@@ -252,7 +254,7 @@
  .cBof
 ,.cLen{			border-radius:calc(var(--rmin)*2)}/* 5px var(--bh) 5px}*/
 
- .k--eY{			border-radius:min(0.5vh,0.5vw)}/*{			border-radius:min(0.5vh,0.5vw)}*/
+ .k--eY{		border-radius:min(0.5vh,0.5vw)}/*{			border-radius:min(0.5vh,0.5vw)}*/
 
  .cAma
 ,.cLuz{			border-radius:var(--rmin) var(--rmin) 0 0}
@@ -810,7 +812,9 @@
 ,#i--KeyS
 ,#i--Taco{		opacity:0.8}
 
- #iIntMo{		opacity:0.9}
+ .cUp{			opacity:1}
+
+ .cDo{			opacity:0.9}
 
  .c1570
 ,.c1x1

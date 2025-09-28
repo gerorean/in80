@@ -7659,6 +7659,7 @@ function
 							  	salo += "<span>" + c + "</span>";
 							}
 						}
+						alterna1(); //Muestra la salida
 						iIntM0.innerHTML = salo;//
 						f0151();// Desplaza hacia el final el Display M
 						//iIntM0.scrollTo(0, 0); // vuelve arriba cada vez que cambia el texto
