@@ -1833,7 +1833,7 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 						g00VARS[65][2] = window.outerHeight;//.innerHeight;//ventana actual con navegador , outerHeight;navegador completo
 						
 						if(g00VARS[65][2] < 1500)//Si alto menor de 2000px (pantalla pequeña o normal) OCULTAR la fila de botones inferior (Filbo)
-						{ 	iNt.style.height = 'calc(35% - calc(min(var(--cBrai),5vh)))';//'calc(35% - var(--kdot) - 0.5vh)';//iTaco.style.height = 'calc(35vh - var(--kdot) - 0.5vh)'; -- --- 0.5vh - max(var(--z),5vh) - var(--kdot))
+						{ 	iNt.style.height = 'calc(35% - calc(min(var(--cBrai),5vh)))';//'calc(35% - var(--kdot) - 0.5vh)';//intM.style.height = 'calc(35vh - var(--kdot) - 0.5vh)'; -- --- 0.5vh - max(var(--z),5vh) - var(--kdot))
 							iFilbo.classList.add('cX');
 							iCelu.classList.remove('cCel1');
 							iCelu.classList.add('cCel0');
@@ -8312,13 +8312,13 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 				/////////////////	//mMod = 5;//Modo Morse
 				/////////////////	f0149();//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
 				/////////////////	f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
-				/////////////////	iTaco.classList.remove('cX');
+				/////////////////	intM.classList.remove('cX');
 				/////////////////	//f0145();//Vuelve a inicar el proceso sin m
 				/////////////////}
 			}
 			if(!mViS)//si el display Morse (tutorial) esta apagado.. 
 			{	if(uViS)
-				{	iUni.classList.add('cX'); // Oculta la interfaz universal
+				{	iUnI.classList.add('cX'); // Oculta la interfaz universal
 					uViS=0;
 				}
 				
@@ -8329,10 +8329,10 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 				iIntMo.classList.remove('cX');//Enciende el texto superior
 				iApp.classList.add('cX');//Oculta la app
 
-				iTaco.classList.remove('cX');//Activa el display del morse (tutorial)
+				intM.classList.remove('cX');//Activa el display del morse (tutorial)
 				mViS = 1;//Se prendio el display Morse (Tutorial)
 				//mMod = 0;//Reinicia al modo Morse
-				//iTaco.style.opacity='0.8';
+				//intM.style.opacity='0.8';
 			}
 			f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 			//else//El display M esta prendido
@@ -8378,16 +8378,16 @@ f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apag
 			{	if(mViS)
 				{	//DESACTIVAR el display morse
 					mViS = 0;//Visibilidad de la salida morse(tutorial)--- M 0-Off
-					iTaco.classList.add('cX');//Apaga la interfaz M
+					intM.classList.add('cX');//Apaga la interfaz M
 					//f0149();//   --l RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
-					//iTaco.classList.remove('cX');//Muestra la tabla Morse translucida.
+					//intM.classList.remove('cX');//Muestra la tabla Morse translucida.
 				}
 				if(uViS)
 				{	//DESACTIVAR el display universal
 					uViS = 0;//Visibilidad de la salida universal(qwerty/señas)
-					iUni.classList.add('cX');//Apaga la interfaz Universal
+					iUnI.classList.add('cX');//Apaga la interfaz Universal
 					//f0149();//   --l RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
-					//iTaco.classList.remove('cX');//Muestra la tabla Morse translucida.
+					//intM.classList.remove('cX');//Muestra la tabla Morse translucida.
 				}
 				mCon = 0;//Reset clics Morse
 				iNt.classList.add('cX');//Apaga la interfaz M
@@ -8425,7 +8425,7 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 					//iIntMo.classList.add('cX');//Apaga el texto superior
 					//iNt.classList.add('cX');
 					
-					//iTaco.classList.add('cX');//Oculta el tutorial
+					//intM.classList.add('cX');//Oculta el tutorial
 					//mViS = 0;
 					
 					mCon = 60;//Termina el conteo
@@ -8505,7 +8505,7 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 							{	button.style.fontSize = 'min(15vh,15vw)';
 							});
 							iKeyB.style.height = '200%';//'70vh';
-							iKeyB.style.width = '200vw';
+							iKeyB.style.width = '200%';//'200vw';
 							iKeyB.classList.remove('cX');
 							iEnt.innerHTML = 2;
 						break;
@@ -8515,7 +8515,7 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 							{	button.style.fontSize = 'min(25vh,25vw)';
 							});
 							iKeyB.style.height = '300%';//'70vh';
-							iKeyB.style.width = '300vw';
+							iKeyB.style.width = '300%';// '300vw';
 							iKeyB.classList.remove('cX');
 							iEnt.innerHTML = 3;
 						break;
@@ -8526,8 +8526,8 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 						break;
 						////case 5:
 						////	// Clave Morse - Tutorial
-						////	//iTaco.style.opacity='0.8';
-						////	iTaco.classList.remove('cX');
+						////	//intM.style.opacity='0.8';
+						////	intM.classList.remove('cX');
 						////break;
 					}
 					console.error(' -5- (nueva salida Universal) mMod=',mMod,'; mViS=',mViS,' uViS=',uViS);
@@ -8547,10 +8547,10 @@ f0149()//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod 
 			keYs.forEach(button =>
 			{	button.style.fontSize = 'min(5vh,5vw)';
 			});
-			//iTaco.style.opacity='0.3';
+			//intM.style.opacity='0.3';
 			iKeyB.style.height = 'auto';//auto=100%??
-			iKeyB.style.width = '100vw';
-			iTaco.classList.add('cX');//Resetea (apaga) todas las ventanas M
+			iKeyB.style.width = 'calc(100vw - min(13vh,13vw))!important';//'100%';//'100vw';
+			intM.classList.add('cX');//Resetea (apaga) todas las ventanas M
 			iKeyB.classList.add('cX');
 			iKeyS.classList.add('cX');
 		};
@@ -9655,11 +9655,11 @@ f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 				else // Si el teclado universal esta apagado
 				{	a = 2; // Orden de Encender!
 					if(mViS) // Si el tutorial morse esta prendido
-					{	iTaco.classList.add('cX');//Oculta el tutorial
+					{	intM.classList.add('cX');//Oculta el tutorial
 						mViS = 0; // El tutorial se apaga
 						a = 0; // Cancelar la orden de encender
 					}
-					iUni.classList.remove('cX');//Muestra la interfaz universal
+					iUnI.classList.remove('cX');//Muestra la interfaz universal
 					uViS = 1; // El display universal esta encendido
 				}
 				if(a==2)//Si hay orden de encender el intercomunicador
@@ -9698,10 +9698,10 @@ f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activ
 				console.error(' -_-  (morse o universal ON) mViS=',mViS,' uViS=',uViS);
 				if(!uViS) // Si el display universal esta apagado
 				{	if(mViS) // Si el tutorial morse esta prendido
-					{	iTaco.classList.add('cX');//Oculta el tutorial
+					{	intM.classList.add('cX');//Oculta el tutorial
 						mViS = 0; // El tutorial se apaga
 					}
-					iUni.classList.remove('cX');//Muestra la interfaz universal
+					iUnI.classList.remove('cX');//Muestra la interfaz universal
 					uViS = 1; // El display universal esta encendido
 				}
 				f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
@@ -9774,7 +9774,7 @@ f0167()	//ACTUALIZAR el tamaño del teclado universal
 					else
 					{	// Iterar y dejar en mínimo el tamaño de la fuente
 						keYs.forEach(button =>
-						{	button.style.fontSize = 'min(7vh,10vw)';// pasar a css!!
+						{	button.style.fontSize = 'min(4vh,10vw)';//7vh,10vw) pasar a css!!
 						});
 					}
 					iKeyB.style.height = m+'px';

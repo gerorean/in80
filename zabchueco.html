@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado ABC</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Contenedor del teclado */
+#divB {
+  width: calc(100vw - 100px)  ;/*700px;*/
+  height: 700px  ;
+  display: grid  ;
+  grid-template-rows: repeat(5, 1fr)  ; /* 5 filas iguales */
+  background: blue; /* solo para visualizar */
+}
+
+/* Cada fila */
+.fila {
+  display: grid  ;
+  grid-template-columns: repeat(5, 1fr);  /* 5 columnas iguales */
+}
+
+/* Cada tecla */
+.fila > div {
+  display: flex  ;
+  align-items: center  ;
+  justify-content: center  ;
+  background: green;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer  ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+/* verson sin grid!!!! no funciona tambien cuando se estrecha!!* /
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Contenedor del teclado * /
+#divB {
+  width: calc(100vw - 100px);/*75vw;/*700px;* /
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  background: blue; /* solo para que veas el área * /
+}
+
+/* Cada fila * /
+.fila {
+  display: flex;
+  flex: 1;  /* reparte el alto de forma igual (700 / 5 = 140px) * /
+}
+
+/* Cada tecla * /
+.fila > div {
+  flex: 1;                  /* reparte el ancho igual (700 / 5 = 140px) * /
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: green;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+}
+*/
+
+
+
+
+
+
+
+    
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Div C */
+    #divC {
+      width: 100px;
+      height: 100px;
+      margin-right: 100px;
+      margin-top: 10px;
+      position: absolute;
+      right: 0;
+      top: 10px;
+      background: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      font-weight: bold;
+      border: 2px solid #333;
+      border-radius: 10px;
+    }
+
+    /* Div A (hueco central) */
+    #divA {
+      width: calc(100vw - 100px)  ;/*200px;*/
+      height: 250px  ;
+      background: blue;
+      margin-right: 100px;
+      position: absolute  ;
+      top: 50%;
+      right: 0;
+      /*transform: translateY(-50%);*/
+      overflow: scroll  ;
+      -ms-overflow-style: none; /* IE/Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    #divA::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    /* Div B (contenedor del teclado) * /
+    #divB {
+      width: 700px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Filas de teclas * /
+    .fila {
+      display: flex;
+      gap: 10px;
+    }
+
+    .fila div {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #4CAF50;
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+      */
+
+    .fila div:hover {
+      background: #388E3C;
+    }*/
+  </style>
+</head>
+<body>
+  <!-- Div C (letra seleccionada) -->
+  <div id="divC">-</div>
+
+  <!-- Div A (hueco central con scroll oculto) -->
+  <div id="divA">
+    <div id="divB">
+      <div class="fila">
+        <div>A</div><div>B</div><div>C</div><div>D</div><div>E</div>
+      </div>
+      <div class="fila">
+        <div>F</div><div>G</div><div>H</div><div>I</div><div>J</div>
+      </div>
+      <div class="fila">
+        <div>K</div><div>L</div><div>M</div><div>N</div><div>O</div>
+      </div>
+      <div class="fila">
+        <div>P</div><div>Q</div><div>R</div><div>S</div><div>T</div>
+      </div>
+      <div class="fila">
+        <div>U</div><div>V</div><div>W</div><div>X</div><div>Y</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const teclas = document.querySelectorAll('.fila div');
+    const divC = document.getElementById('divC');
+
+    teclas.forEach(tecla => {
+      tecla.addEventListener('click', () => {
+        divC.textContent = tecla.textContent;
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+<!--DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado ABC Scroll</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+    }
+
+    /* Div C: muestra la letra seleccionada */
+    #divC {
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: bold;
+
+      /* Posición fija */
+      position: fixed;
+      top: 10px;
+      right: 100px;
+    }
+
+    /* Div A: hueco fijo en el "ombligo", con margen derecho */
+    #divA {
+      width: 200px;
+      height: 250px;
+      position: absolute;/*fixed;*/
+      top: 50%;
+      right: 100px;
+      /*transform: translateY(-50%); /* solo centrado vertical */
+      border: 3px solid red;
+      overflow: scroll; /* permite scroll */
+      scrollbar-width: none;       /* Firefox */
+      -ms-overflow-style: none;    /* IE y Edge */
+    }
+    #divA::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+    /* Div B: teclado grande */
+    #divB {
+      width: 75vw;   /* ancho dinámico width: 700px;*/
+      height: 700px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 0px;
+      background: #f0f0f0;
+    }
+
+    #divB button {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="divC">-</div>
+
+  <div id="divA">
+    <div id="divB"></div>
+  </div>
+
+  <script>
+    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXY".split("");
+    const divB = document.getElementById("divB");
+    const divC = document.getElementById("divC");
+
+    // Crear botones de letras
+    letras.forEach(letra => {
+      const btn = document.createElement("button");
+      btn.textContent = letra;
+      btn.onclick = () => {
+        divC.textContent = letra;
+      };
+      divB.appendChild(btn);
+    });
+  </script>
+
+</body>
+</html-->
+
+
+
+<!--DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado ABC Scroll</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Div C: muestra la letra seleccionada */
+    #divC {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    /* Div A: hueco fijo en el "ombligo" */
+    #divA {
+      width: 200px;
+      height: 250px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid red;
+      overflow: scroll; /* permite scroll */
+      scrollbar-width: none;       /* Firefox */
+      -ms-overflow-style: none;    /* IE y Edge */
+    }
+    #divA::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+    /* Div B: teclado grande */
+    #divB {
+      width: 700px;
+      height: 700px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 0px;
+      background: #f0f0f0;
+    }
+
+    #divB button {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="divC">-</div>
+
+  <div id="divA">
+    <div id="divB"></div>
+  </div>
+
+  <script>
+    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXY".split("");
+    const divB = document.getElementById("divB");
+    const divC = document.getElementById("divC");
+
+    // Crear botones de letras
+    letras.forEach(letra => {
+      const btn = document.createElement("button");
+      btn.textContent = letra;
+      btn.onclick = () => {
+        divC.textContent = letra;
+      };
+      divB.appendChild(btn);
+    });
+  </script>
+
+</body>
+</html-->
+
+
+<!--DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado ABC Arrastrable</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Div C: muestra la letra seleccionada */
+    #divC {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    /* Div A: hueco fijo en el "ombligo" */
+    #divA {
+      width: 200px;
+      height: 250px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid red;
+      overflow: hidden; /* no se ven barras */
+      cursor: grab;
+    }
+
+    /* Div B: teclado grande */
+    #divB {
+      width: 700px;
+      height: 700px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 0px;
+      background: #f0f0f0;
+    }
+
+    #divB button {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="divC">-</div>
+
+  <div id="divA">
+    <div id="divB"></div>
+  </div>
+
+  <script>
+    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXY".split("");
+    const divB = document.getElementById("divB");
+    const divC = document.getElementById("divC");
+    const divA = document.getElementById("divA");
+
+    // Crear botones de letras
+    letras.forEach(letra => {
+      const btn = document.createElement("button");
+      btn.textContent = letra;
+      btn.onclick = () => {
+        divC.textContent = letra;
+      };
+      divB.appendChild(btn);
+    });
+
+    // --- Lógica de arrastre (drag scroll) ---
+    let isDown = false;
+    let startX, startY, scrollLeft, scrollTop;
+
+    divA.addEventListener("mousedown", e => {
+      isDown = true;
+      divA.style.cursor = "grabbing";
+      startX = e.pageX - divA.offsetLeft;
+      startY = e.pageY - divA.offsetTop;
+      scrollLeft = divA.scrollLeft;
+      scrollTop = divA.scrollTop;
+    });
+
+    divA.addEventListener("mouseleave", () => {
+      isDown = false;
+      divA.style.cursor = "grab";
+    });
+
+    divA.addEventListener("mouseup", () => {
+      isDown = false;
+      divA.style.cursor = "grab";
+    });
+
+    divA.addEventListener("mousemove", e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - divA.offsetLeft;
+      const y = e.pageY - divA.offsetTop;
+      const walkX = (x - startX);
+      const walkY = (y - startY);
+      divA.scrollLeft = scrollLeft - walkX;
+      divA.scrollTop = scrollTop - walkY;
+    });
+  </script>
+
+</body>
+</html-->
+
+
+
+<!--DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado ABC</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    /* Div C (pantalla de letra seleccionada) */
+    #divC {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    /* Div A (ventana centrada) */
+    #divA {
+      width: 500px;
+      height: 200px;
+      margin: 50% auto 0 auto; /* margen superior 50% y centrado horizontal */
+      border: 3px solid red;
+      overflow: hidden; /* hace que solo se vea un "hueco" */
+      position: relative;
+    }
+
+    /* Div B (teclado completo dentro de A) */
+    #divB {
+      width: 700px;
+      height: 700px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #divB button {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <div id="divC">-</div>
+
+  
+  <div id="divA">
+    
+    <div id="divB"></div>
+  </div>
+
+  <script>
+    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXY".split("");
+    const divB = document.getElementById("divB");
+    const divC = document.getElementById("divC");
+
+    // Crear los botones de letras
+    letras.forEach(letra => {
+      const btn = document.createElement("button");
+      btn.textContent = letra;
+      btn.onclick = () => {
+        divC.textContent = letra;
+      };
+      divB.appendChild(btn);
+    });
+  </script>
+
+</body>
+</html-->

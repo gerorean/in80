@@ -7473,8 +7473,8 @@ morse(q) {
 										break;	
 										////case 5:
 										////	// Clave Morse - Tutorial
-										////	//iTaco.style.opacity='0.8';
-										////	iTaco.classList.remove('cX');
+										////	//intM.style.opacity='0.8';
+										////	intM.classList.remove('cX');
 										////break;
 									}
 								}

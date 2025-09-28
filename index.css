@@ -166,16 +166,18 @@
 ,.cNeg
 ,.yProsaL
 ,.zProsa
-,#iBody{		background:var(--cblwh1)}
+,#iBody
+,#iUn2{			background:var(--cblwh1)}
 
  .cButton
+,.cHue
 ,.cTapa
 ,.cTexM
 ,#i--IntMo
-,#iKeyB
+,#iUn1
 ,#i--Negro
-,#intM
-,#iTaco{		background:var(--cblwh2)}
+,#iTaco
+,#i--Un1{		background:var(--cblwh2)}
 
  .cHR
  ,#i--BrAi{		background:var(--cbw1)}
@@ -250,7 +252,7 @@
  .cBof
 ,.cLen{			border-radius:calc(var(--rmin)*2)}/* 5px var(--bh) 5px}*/
 
- .keY{			border-radius:min(0.5vh,0.5vw)}/*{			border-radius:min(0.5vh,0.5vw)}*/
+ .k--eY{			border-radius:min(0.5vh,0.5vw)}/*{			border-radius:min(0.5vh,0.5vw)}*/
 
  .cAma
 ,.cLuz{			border-radius:var(--rmin) var(--rmin) 0 0}
@@ -341,7 +343,7 @@
 ,.c--Reloj
 ,.cTec
 ,.cTexM
-,#iKeyB
+,#i--KeyB
 ,#iKeyS
 ,#iNegro{		box-sizing:border-box}
 
@@ -404,9 +406,11 @@
 ,.cBof
 ,.cButton
 ,.cDedo
+,.cKRow
 ,.cTapa
 ,.cTexM
-,.keY{			cursor:pointer}/*!important usar para que funcione click en iphone????*/
+,.keY
+,#iKeyB{		cursor:pointer}/*!important usar para que funcione click en iphone????*/
 
  .yProsaL{		display:block}
 
@@ -484,7 +488,7 @@
 
  .keY
 ,td
-,th{			font-size:min(7vh,10vw)}/*ver nota en f0167*/
+,th{			font-size:min(4vh,10vw)}/*7vh,10vw)  ver nota en f0167*/
 
  .cMarqu{		font-size:min(4vh,4vw)}/*min(6.5vh,6.5vw)}/*min(8vh,8vw) o 32px*/
 
@@ -537,13 +541,13 @@
 ,.keY{font-weight:bold}
 */
 
- .cKRow{		gap:0}
+ .c--KRow{		gap:0}
 
  .doble{		grid-column: span 2}
 
- #iKeyB{		grid-gap:0}
+ #i--KeyB{		grid-gap:0}
 
- .cKRow{		grid-template-columns: repeat(10, 1fr)}
+ .cKRow{		grid-template-columns: repeat(10, 1fr)}/* repeat(10, 1fr)}*/
 
  #iKeyB{		grid-template-rows: repeat(5, 1fr)}
 
@@ -557,7 +561,7 @@
 
  .cImKe{		height:13%}/*13vh}*/
 
- .cTexM{		height:30%}/*15%}/*13vh}*/
+ .cTexM{		height:45%}/*15%}/*13vh}*/
 
  .cBOT
 ,.c--Ent
@@ -585,6 +589,7 @@
 ,.c1x1
 ,.c--Bof
 ,.cBox
+,.cHue
 ,.cInfo
 ,.cLogo
 ,.cLR
@@ -594,15 +599,18 @@
 ,.cVert
 ,.yProsaL
 ,.zProsa
-,#iKeyB
-,#intM
+,#i--KeyB
 ,#iRUTA
 ,#iTAPA
-,#iUni{			height:100%}
+,#i--Uni
+,#iUn1
+,#iUn2
+,#iUnI{			height:100%}
 
  .cTpres{		height:calc(11% - var(--pelo))}/*calc(11vh - var(--pelo))}    -- -- 17vh}/*calc(17vh - var(--pelo))}/*calc(19.5vh - var(--pelo))}/*19.5vh - 9.75vh  16vh  8vh   se toma 10vh menos .25vh(x2) del borde inferior*/
 
- #iNt{			height:calc(35% - calc(min(var(--cBrai),5vh)))}/*calc(35% - var(--kdot) - 0.5vh)}     -- -- calc(30vh - var(--kdot) - 0.5vh   - 50px)*/
+ #iKeyB
+,#iNt{			height:calc(35% - calc(min(var(--cBrai),5vh)))}/*calc(35% - var(--kdot) - 0.5vh)}     -- -- calc(30vh - var(--kdot) - 0.5vh   - 50px)*/
 
  .c--Cel0
 ,#i--TAPA
@@ -631,7 +639,7 @@
 
  #iGol{			height:calc(var(--bh)*2)}/*calc(var(--cWH) * 65vh)*/
 
- .cPic2{			height:calc(var(--chico) * 0.5 *var(--cWH))}/*calc(var(--chico) * 0.5 *var(--cWH))   calc(var(--cWH) * 65vh)*/
+ .cPic2{		height:calc(var(--chico) * 0.5 *var(--cWH))}/*calc(var(--chico) * 0.5 *var(--cWH))   calc(var(--cWH) * 65vh)*/
 
  .c--Ame{		height:calc(var(--chico) * 0.8)}
 
@@ -682,6 +690,7 @@
 ,.c--Menu
 ,.cSom
 ,#iCodQ
+,#i--KeyB
 ,#i--Left
 ,#i--Menu{		left:0}
 
@@ -692,6 +701,8 @@
  .c1570{		left:15%}
 
  .cHori{		left:33.3333333%}
+
+ #iIntM0{		right:5vw}
 
  /*.c--Band{		left:min(17vh,17vw)}/*calc(min(8.5vh,8.5vw) - 0.5vw)}*/
 
@@ -759,7 +770,7 @@
 
  .cAsk{			margin-bottom:calc(var(--chico) * -0.3)}
 
- .cTexM{		margin-left:5vw}
+ .c--TexM{		margin-left:5vw}
 
  .cCR{			margin-left:calc(var(--chico) * -0.2)}
 
@@ -799,12 +810,13 @@
 ,#i--KeyS
 ,#i--Taco{		opacity:0.8}
 
- #iIntM0{		opacity:0.9}
+ #iIntMo{		opacity:0.9}
 
  .c1570
 ,.c1x1
 ,.cBof
 ,.cGlosD
+,.cHue
 ,.cLen
 ,.c--Neg
 ,.cTitul
@@ -813,23 +825,27 @@
 ,#iBrail
 ,#iCelu
 ,#iFonde
-,#intM{		 	overflow:hidden}
+,#i--Un1
+,#i--UnI{		 overflow:hidden}
+
+ #iUn1{		 	overflow:scroll}
 
  .cButton
-,.cTapa{		overflow-x:hidden}
+,.cTapa
+,#i--Uni{		overflow-x:hidden}
 
- #intM{			overflow-x:scroll}
+ .cHue{			overflow-x:scroll}
 
-.cScroll{		overflow-y:auto}
+ .cScroll{		overflow-y:auto}
 
  .c--Infi
 ,.cInfo
 ,.cTpres{		overflow-y:hidden}
 
- .cTexM
-,#intM{			overflow-y:scroll}
+ .cHue
+,.cTexM{		overflow-y:scroll}
 
- #iKeyB
+ #i--KeyB
 ,#iKeyS{		padding:0}
 
  .cTapa{		padding:0 0 calc(50% - var(--bh) - (var(--a)*0.5)) 0}/*0 0 calc(50vh - var(--bh) - (var(--a)*0.5)) 0}*/
@@ -840,7 +856,10 @@
 ,.zProsa{		padding:0 1vw}
 
  .cPadd4A
-,.cTexM{		padding:0 15%}
+,.c--TexM
+,#iIntMo{		padding:0 15%}
+
+ #iIntM0{		padding:0 10%}
 
  .i--nner>*{	padding:0 var(--cDelta)}/*604/2 la otra mitad del ancho!!*/
 
@@ -859,22 +878,24 @@
  .cTela{		padding:calc(var(--palo)/2) var(--palo)}
 
  #boT0
- ,.cDedo
- ,.cGrey
- ,.c--Neg
- ,.cTexM
- ,#iFilbo
- ,#iMarco
- ,#intM
- ,#yBTNS
- ,#y--Bot0l
- ,#y--Bot0r
- ,#yBot3
- ,#yBot7
- ,#yBot9
- ,#y--Bot5
- ,#yBoto
- ,#iBody{		pointer-events:auto}
+,.cDedo
+,.cGrey
+,.cHue
+,.c--Neg
+,.cTexM
+,#iFilbo
+,#iMarco
+,#yBTNS
+,#y--Bot0l
+,#y--Bot0r
+,#yBot3
+,#yBot7
+,#yBot9
+,#y--Bot5
+,#yBoto
+,#iBody
+,.keY
+,#i--KeyB{		pointer-events:auto}
 
  .cBota
 ,.cBote
@@ -902,6 +923,7 @@
 ,.c--Ent
 ,.cGrey
 ,.cHori
+,.c--Hue
 ,.cLen
 ,.cLogo
 ,.cLR
@@ -926,17 +948,21 @@
 ,#iCelu
 ,#iCeLu
 ,#iGol
+,#i--KeyB
 ,#i--Hora
 ,#i--Menu
 ,#iInCom
-,#intM
 ,#iNt
-,#iPRESE{		position:absolute}
+,#iPRESE
+,#iUnI
+,#iUn1
+,#iUn2{			position:absolute}
 
  #iBody{		position:fixed}
 
  .cAltu
 ,.cPicI
+,.cHue
 ,.c--Titul
 ,.inner
 ,#iBr--Ai
@@ -952,7 +978,8 @@
 ,#iGol
 ,#i--Hora
 ,#iNegro
-,#iPos2{		right:0}
+,#iPos2
+,#iUn2{			right:0}
 
  .c--Flag{		right:25vw}
 
@@ -976,25 +1003,27 @@
  #i--Menu
 ,#iVol{			right:var(--kdot)}
 
- .cInfo
+ .cHue
+,.cInfo
 ,.cScroll
 ,.cTexM
 ,.cTpres
-,#intM{			scrollbar-width: none}/* Firefox */
+,#iUn1{			scrollbar-width: none}/* Firefox */
 
  .cAltu
 ,.cPic2
 ,.cTela
-,.cTexM
+,.c--TexM
 ,.cTpres
 ,#iTaco
-,.keY{			text-align:center}
+,.k--eY{		text-align:center}
 
  .cBra1
 ,.cBrai
 ,.cBraI
 ,.cBraI1
 ,.cBraIl
+,.cTexM
 ,td
 ,th{			text-align:left}
 
@@ -1030,6 +1059,7 @@
 ,th{			text-transform:uppercase}
 
  .c--Grey
+,.cHue
 ,.cLen
 ,.cLR
 ,.cNeg
@@ -1038,7 +1068,6 @@
 ,.cZIn
 ,#iCodQ
 ,#iFaro
-,#intM
 ,#iRUTA
 ,#iTAPA{		top:0}
 
@@ -1050,9 +1079,9 @@
 
  .c13{			top:33.333333333%}/*top:40%}50%}/*33.33333333%}*/
 
- .cH0{			top:50%}
+  #iIntM0{		top:20vh}
 
- #iIntM0{		top:35vh}/*50vh}*/
+ .cH0{			top:50%}
 
  #iNt{			top:65vh}
 
@@ -1114,7 +1143,7 @@
 
  .cChico{		width:80vw}/*calc(100% - 3.4*(var(--cAlt)))}/*min(17vh,17vw)))}*/
 
- .cTexM{		width:90vw}
+ #iIntM0{		width:90%}
 
  .c1x1
 ,.cBack
@@ -1123,6 +1152,8 @@
 ,.cButton
 ,.c--Ent
 ,.cGrey
+,.cHue
+,.c--KRow
 ,.cLen
 ,.cNeg
 ,.cSom
@@ -1137,13 +1168,26 @@
 ,#iCelu
 ,#iCeLu
 ,#iInCom
+,#iIntMo
+,#i--KeyB
+,#i--KeyS
 ,#i--NEG
-,#intM
 ,#iNt
+,#iUnI
 ,table {		width:100%}
 
- #iKeyB
-,#iKeyS{		width:100vw}
+ #i--KeyB
+,#i--KeyS{		width:100vw}
+
+ .c--KRow
+,#iKeyB
+,#iKeyS
+,#iUn1{			width:calc(100vw - min(13vh,13vw))!important}
+
+.c--KRow{		width:inherit!important}
+
+#i--KeyB{		width:100%}
+
 
  .cBOT
 ,.c--TOB{		width:calc(33.3333333% - var(--b))}
@@ -1164,7 +1208,8 @@
 
  #iTaco{		width:max(100vw,100vh)}
 
- .cCua{			width:min(13vh,13vw)}
+ .cCua
+,#iUn2{			width:min(13vh,13vw)}
 
  .cTec
 ,#iNegro{		width:var(--b)}
@@ -1237,10 +1282,11 @@
 					transform:scaleX(			-1)/* CSS3 */
 					}
 
- .cInfo
+ .cHue
+,.cInfo
 ,.cScroll
 ,.cTpres
-,#intM{			-ms-overflow-style: none}/* IE y Edge */
+,#iUn1{		  	-ms-overflow-style: none}/* IE y Edge */
 
  .c--Ask
 ,.cAsK

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola Mundo Toggle</title>
+  <style>
+    body, html {
+        background-color: black;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .contenedor {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .mensaje {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      top: 25%; /* centrado vertical */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.5s ease;
+    }
+
+    .rojo {
+      background-color: rgba(255, 0, 0, 0.6);
+    }
+
+    .verde {
+      background-color: rgba(255, 0, 0, 0.6);
+    }
+
+    /* colores dinámicos de texto */
+    .arriba {
+      color: white;
+      z-index: 2;
+    }
+
+    .abajo {
+      color: black;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <div id="rojo" class="mensaje rojo arriba">Hola</div>
+    <div id="verde" class="mensaje verde abajo">Mundo</div>
+  </div>
+
+  <script>
+    const rojo = document.getElementById("rojo");
+    const verde = document.getElementById("verde");
+
+    function alternar() {
+      rojo.classList.toggle("arriba");
+      rojo.classList.toggle("abajo");
+      verde.classList.toggle("arriba");
+      verde.classList.toggle("abajo");
+    }
+
+    rojo.addEventListener("click", alternar);
+    verde.addEventListener("click", alternar);
+  </script>
+</body>
+</html>
+
+
+
+
+<!--DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola Mundo Toggle</title>
+  <style>
+    body, html {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .contenedor {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .mensaje {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      top: 25%; /* centrado vertical */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.5s ease;
+    }
+
+    .rojo {
+      background-color: rgba(255, 0, 0, 0.6);
+      color: white;
+      z-index: 2; /* visible arriba al inicio */
+    }
+
+    .verde {
+      background-color: rgba(255, 0, 0, 0.6);
+      color: green;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <div id="rojo" class="mensaje rojo">Hola</div>
+    <div id="verde" class="mensaje verde">Mundo</div>
+  </div>
+
+  <script>
+    const rojo = document.getElementById("rojo");
+    const verde = document.getElementById("verde");
+
+    let arribaRojo = true; // estado inicial: rojo arriba
+
+    function alternar() {
+      if (arribaRojo) {
+        rojo.style.zIndex = "1";
+        verde.style.zIndex = "2";
+      } else {
+        rojo.style.zIndex = "2";
+        verde.style.zIndex = "1";
+      }
+      arribaRojo = !arribaRojo; // alternar estado
+    }
+
+    // basta con escuchar clic en toda la zona del contenedor
+    rojo.addEventListener("click", alternar);
+    verde.addEventListener("click", alternar);
+  </script>
+</body>
+</html-->
