@@ -119,13 +119,15 @@
 ,.c--Trin
 ,.cTOB
 ,.cZIn
+,.keR
 ,.keY{			align-items:center}
 
  .cFleB{		align-items:flex-end}
 
  .cFleT{		align-items:flex-start}
 
- .keY:active{	background: #888}
+  .keR:active
+ ,.keY:active{	background: #888}
 
  .cAltu
 ,.c--Ame
@@ -169,7 +171,7 @@
 ,.yProsaL
 ,.zProsa
 ,#iBody
-,#iUn2{			background:var(--cblwh1)}
+,#i--Un2{			background:var(--cblwh1)}
 
  .cButton
 ,.cHue
@@ -177,6 +179,7 @@
 ,.cTexM
 ,#i--IntMo
 ,#iUn1
+,#iUn2
 ,#i--Negro
 ,#iTaco
 ,#i--Un1{		background:var(--cblwh2)}
@@ -345,8 +348,9 @@
 ,.c--Reloj
 ,.cTec
 ,.cTexM
+,.cUSe
 ,#i--KeyB
-,#iKeyS
+,#i--KeyS
 ,#iNegro{		box-sizing:border-box}
 
  .cAma
@@ -411,6 +415,7 @@
 ,.cKRow
 ,.cTapa
 ,.cTexM
+,.keR
 ,.keY
 ,#iKeyB{		cursor:pointer}/*!important usar para que funcione click en iphone????*/
 
@@ -429,6 +434,7 @@
 ,.c--Trin
 ,.cZIn
 ,.i--nner
+,.keR
 ,.keY{			display:flex}
 
  .cKRow
@@ -493,6 +499,8 @@
 ,th{			font-size:min(4vh,10vw)}/*7vh,10vw)  ver nota en f0167*/
 
  .cMarqu{		font-size:min(4vh,4vw)}/*min(6.5vh,6.5vw)}/*min(8vh,8vw) o 32px*/
+
+ .keR{			font-size:min(4vh,10vw)}
 
  .cNoV
 ,.cSiV{			font-size:min(13vh,13vw)}
@@ -579,6 +587,8 @@
 
 
  .cTexU{		height:30%}/*45%}/*45vh}*/
+
+ .keR{			height:33.3333%}
 
  .cVpres{		height:70%}/*70vh    -- -- calc(50vh - (var(--marH) * 2) - (var(--pelo)*2) - var(--kdot))}/*80vh - 1vh de los 2 margenes arriba y abajo,  84vh  80vh menos 0.5vh del borde superior y otros 0.5vh del borde inferior*/
 
@@ -683,6 +693,7 @@
 ,.cTOB
 ,.c--Trin
 ,.cZIn
+,.keR
 ,.keY{			justify-content:center}
 
  #i--Menu{		justify-content:flex-end}
@@ -849,8 +860,9 @@
  .cHue
 ,.cTexM{		overflow-y:scroll}
 
- #i--KeyB
-,#iKeyS{		padding:0}
+ .cUSe
+,#i--KeyB
+,#i--KeyS{		padding:0}
 
  .cTapa{		padding:0 0 calc(50% - var(--bh) - (var(--a)*0.5)) 0}/*0 0 calc(50vh - var(--bh) - (var(--a)*0.5)) 0}*/
 
@@ -898,6 +910,7 @@
 ,#y--Bot5
 ,#yBoto
 ,#iBody
+,.keR
 ,.keY
 ,#i--KeyB{		pointer-events:auto}
 
@@ -1184,8 +1197,9 @@
 ,#i--KeyS{		width:100vw}
 
  .c--KRow
+,.cUSe
 ,#iKeyB
-,#iKeyS
+,#i--KeyS
 ,#iUn1{			width:calc(100vw - min(13vh,13vw))!important}
 
 .c--KRow{		width:inherit!important}

@@ -9813,6 +9813,52 @@ f0168(au)	//CONVERTIR a pixekes el tamaño de la altura de g00VARS[33] y regresa
 				varA = a;
 			}
 
+function 
+f0169(m)	//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
+				{	lOG(169);
+					console.error('###### m=',m);	
+					iKeyB.classList.add('cX');
+					iKeyS.classList.add('cX');
+					iKeyA.classList.add('cX');
+					switch(m)
+					{	case 1:
+							// Qwerty
+							//iKeyB.style.height = '100%';
+							iKeyB.classList.remove('cX');
+							iEnt.innerHTML = 1;
+						break;
+						case 2:
+							//// Qwerty medio - Iterar y cambiar el tamaño de la fuente
+							//keYs.forEach(button =>
+							//{	button.style.fontSize = 'min(15vh,15vw)';
+							//});
+							//iKeyB.style.height = '200%';//'70vh';
+							//iKeyB.style.width = '200%';//'200vw';
+							iKeyS.classList.remove('cX');
+							iEnt.innerHTML = 2;
+						break;
+						case 3:
+							//// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
+							//keYs.forEach(button =>
+							//{	button.style.fontSize = 'min(25vh,25vw)';
+							//});
+							//iKeyB.style.height = '300%';//'70vh';
+							//iKeyB.style.width = '300%';// '300vw';
+							iKeyA.classList.remove('cX');
+							iEnt.innerHTML = 3;
+						break;
+						case 4: 
+							// Señas - Sign Chat
+							//iKeyS.classList.remove('cX');
+							iEnt.innerHTML = 4;
+						break;
+						////case 5:
+						////	// Clave Morse - Tutorial
+						////	//intM.style.opacity='0.8';
+						////	intM.classList.remove('cX');
+						////break;
+					}
+				}
 
 
 var varZ = 0;//Informa arriba o abajo
@@ -9840,6 +9886,11 @@ function alterna2() //Muestra la entrada
 
 iIntMo.addEventListener("click", alterna2);
 iIntM0.addEventListener("click", alterna1);
+////iKeyB.addEventListener("click", f0169(1));
+////iKeyS.addEventListener("click", f0169(2));
+////iKeyA.addEventListener("click", f0169(3));
+
+
 
 
 //Nuevo..

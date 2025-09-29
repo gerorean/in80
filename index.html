@@ -119,7 +119,7 @@
 
 
 		<!--2. APLICACION i Information-->
-		<div id='iApp' class=''><!--Marco de apoyo con separaciones fijas arriba y abajo para posicionar el contenido central en la pantalla-->
+		<div id='iApp' class='c0'><!--Marco de apoyo con separaciones fijas arriba y abajo para posicionar el contenido central en la pantalla-->
 			<!--CONTENIDO CENTRAL, ventana con altura dinamica dentro del marco de apoyo, su la altura es variable dependiendo de la altura de la pantalla-->
 			<div id='iCelu' class='cTop cCel0 cR'>
 				<div class='cBox cTop cB'><!--MARQUESINA oculta para conseguir el alto de 1a fila de la marquesina-->
@@ -961,7 +961,7 @@
 
 
 		<!--3. INTERFAZ CON BOTONES GRANDES Y FIJOS-->
-		<div id='iFonde' class='cBox cTop'><!--FONDE para mostrar la capa con la interfaz con botones grandes y fijos del usuario-->
+		<div id='iFonde' class='cBox cTop c0'><!--FONDE para mostrar la capa con la interfaz con botones grandes y fijos del usuario-->
 			<div id='iMarco c0'><!--MARCO para activar las 4 barreras invisibles de bloqueo-->
 				<div id='iPos1' class='cVert c0' onclick='f0074()'><!--bloqueo vertical izquierdo-->
 				</div>
@@ -1129,13 +1129,24 @@
 								<div class='keY special' id='del'>Del</div>
 							</div>
 						</div>
-						<!--div id='iKeyS' class='cX9 cG'-->
-						<img id='iKeyS' src="files/signchat.png" alt='teclado en señas' class='cX'>
-						<!--/div-->
+
+
+						<div id='iKeyS' class='cHue cX cR'>
+							<img id='' src="files/signchat.png" alt='teclado en señas' class='cUSe'>
+						</div>
+
+
+						<div id='iKeyA' class='cHue cX cG'>
+							<img id='' src="files/tautista.png" alt='teclado autista' class='cUSe'>
+						</div>
+
 
 					</div>
 
 					<div id='iUn2' class=''><!--Recuadro de los botones laterales del teclado universal-->
+						<div class='keR fas fa-keyboard' onclick="f0169(1)"></div>
+						<div class='keR fas fa-sign-language' onclick="f0169(2)"></div>
+						<div class='keR fas fa-puzzle-piece' onclick="f0169(3)"></div>
 					</div>
 
 				</div>
@@ -1273,7 +1284,7 @@
 
 
 		<!--4. CAPA SUPERIOR: ELEMENTOS FINALES VISUALES DE APOYO-->
-		<div id='iCAPA' class='cBox cTop cFlex'><!--Capa de encima (última), sin acción alguna: muestra elementos visuales de apoyo por ejemplo marca de agua en el centro y los mini indicadores-->
+		<div id='iCAPA' class='cBox cTop cFlex c0'><!--Capa de encima (última), sin acción alguna: muestra elementos visuales de apoyo por ejemplo marca de agua en el centro y los mini indicadores-->
 			<!--div class='cNeg cFlex cR'>
 			</div-->
 			<div class='cLen cFlex' aria-hidden='true'><!--cabezote de la aplicación-->
