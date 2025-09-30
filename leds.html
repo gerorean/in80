@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Selector de LEDs</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    /* Estilo de los LEDs */
+    .leds {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .led {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #444;
+      box-shadow: 0 0 5px #000 inset;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .led.on {
+      background-color: limegreen;
+      box-shadow: 0 0 15px limegreen;
+    }
+
+    .selector-wrapper {
+  position: relative;
+  width: 100px;
+  height: 200px;
+}
+
+.selector-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  border: 3px solid #333;
+}
+
+/* Líneas fijas (fuera del scroll) */
+.hole {
+  position: absolute;
+  top: 0;/*75px;*/
+  width: 100%;
+  height: 200px;/*50px;*/
+  border-top: 2px dashed red;
+  border-bottom: 2px dashed red;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+
+
+
+
+
+
+
+    /* Contenedor del selector * /
+    .selector-container {
+      width: 100px;
+      height: 200px;
+      overflow-y: scroll;
+      border: 3px solid #333;
+      position: relative;
+    }
+
+    .hole {
+      position: absolute;
+      top: 75px; /* Para que quede centrado entre 75px y 125px * /
+      width: 100%;
+      height: 50px;
+      border-top: 2px dashed red;
+      border-bottom: 2px dashed red;
+      pointer-events: none;
+      background: transparent;
+      z-index: 10; /* Asegura que esté por encima * /
+    }
+      /**/
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 40px;
+      padding-top: 0; /*75px; para centrar mejor */
+    }
+
+    .option {
+      height: 200px;
+      width: 100%;
+      background-color: yellow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LEDs -->
+  <div class="leds">
+    <div class="led" id="led-A"></div>
+    <div class="led" id="led-B"></div>
+    <div class="led" id="led-C"></div>
+    <div class="led" id="led-D"></div>
+  </div>
+
+
+  <div class="selector-wrapper">
+  <div class="selector-container" id="selector">
+    <div class="options">
+      <div class="option">A</div>
+      <div class="option">B</div>
+      <div class="option">C</div>
+      <div class="option">D</div>
+    </div>
+  </div>
+  <div class="hole"></div> <!-- Ahora está fuera del scroll -->
+</div>
+
+  <script>
+    const selector = document.getElementById('selector');
+    const options = document.querySelectorAll('.option');
+    const leds = {
+      A: document.getElementById('led-A'),
+      B: document.getElementById('led-B'),
+      C: document.getElementById('led-C'),
+      D: document.getElementById('led-D')
+    };
+
+    var scrollTimeout;
+
+    selector.addEventListener('scroll', function()
+    { // Espera a que el scroll se detenga
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function()
+      { // Determinar cuál letra está en el centro del hueco
+        const containerRect = selector.getBoundingClientRect();
+
+        options.forEach(function(option)
+        { const rect = option.getBoundingClientRect();
+          const optionCenter = rect.top + rect.height / 2;
+
+          if (optionCenter > containerRect.top && optionCenter < containerRect.top + 200)
+          //if (optionCenter > containerRect.top + 75 && optionCenter < containerRect.top + 125) 
+          { const letra = option.textContent.trim();
+            activarLED(letra);
+          }
+        });
+      }, 100); // 100ms de espera para detectar el "stop"
+    });
+
+    function activarLED(letra)
+    {   for (var key in leds) 
+        {   if (leds.hasOwnProperty(key))
+            {   var led = leds[key];
+                if (typeof led.classList !== 'undefined')
+                {   // Navegadores modernos
+                    if (key === letra)
+                    {   led.classList.add('on');
+                    }
+                    else
+                    {   led.classList.remove('on');
+                    }
+                }
+                else
+                {   // Fallback para navegadores antiguos
+                    if (key === letra)
+                    {   led.className += ' on';
+                    }
+                    else
+                    {   led.className = led.className.replace(/\bon\b/, '').trim();
+                    }
+                }
+            }
+        }
+
+
+    
+        ////  for (let key in leds) {
+        ////    if (key === letra) {
+        ////      leds[key].classList.add('on');
+        ////    } else {
+        ////      leds[key].classList.remove('on');
+        ////    }
+        ////  }
+    }
+
+    // Activar inicialmente
+    activarLED('A');
+  </script>
+
+</body>
+</html>

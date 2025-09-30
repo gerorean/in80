@@ -5086,7 +5086,8 @@ const g02RUTA =/**/[['0idRuta', '1Descrip/(3..)RAMAS+secs>ppal', '2RutaText', '3
 
 //1Permitir,0Bloquear teclas del teclado [2]1B,[3]3C,[4]4,[5]6,[6]7,[7]9,[8]0,[9]ZXNM+ESPACIO
 var yKEYS =/**/[[0, 1, 2, 3, 4, 5, 6, 7, 8],
-[1, '1^', '3v', '4x', '6Clic', '7Menú', '9i', '0Inputs o HuecoTapa', '4x, 3v, 1^ y 6Clic'],
+[1, '4^', '6v', '1x', '3Clic', '7Menú', '9i', '0Inputs o HuecoTapa', '1x, 6v, 4^ y 3Clic'],
+//[1, '1^', '3v', '4x', '6Clic', '7Menú', '9i', '0Inputs o HuecoTapa', '4x, 3v, 1^ y 6Clic'],
 [2, 1, 1, 0, 1, 0, 1, 0, 1]
 ];
 
@@ -7255,13 +7256,16 @@ morse(q) {
 						};
 
 						if (q == 2)// 	
-						{	console.log(' - - - Espacio (2) ');
-							f0096(1, 1);//Clic sobre el boton 2
+						{	//console.log(' - - - Espacio (2) ');
+							//f0096(1, 1);//Clic sobre el boton 2
 						};
 
 						if (q == 3)//boton . [3] clic o enter onclick='f0096(1,1) morse 3 MI CLIC FIJO 2023 IBOGOTA!!!! 	
-						{	console.error('############## - - - MI CLIC FIJO 2023 IBOGOTA!!!! ');
-							f0096(1, 1);//Clic sobre el boton 3
+						{	if(!uViS&&!mViS)
+							{
+								console.error('############## - - - MI CLIC FIJO 2023 IBOGOTA!!!! ');
+								f0096(1, 1);//Clic sobre el boton 3
+							}
 						};
 
 						/*if(q==4)//MI CLIC FIJO 2023 IBOGOTA!!!! 	
@@ -7277,12 +7281,14 @@ morse(q) {
 						///};
 
 						if (q == 7)// 	
-						{	console.log(' - - - Menu (7) ');
-							//f0148(99);//DESACTIVAR la interfaz de Salida M
-							//if(mMod > 0)//Si el modo no es 0
-							//{	f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
-							//}
-							f0015(1);//Clic sobre el boton 7 [] menu
+						{	if(!uViS&&!mViS)
+							{	console.log(' - - - Menu (7) ');
+								//f0148(99);//DESACTIVAR la interfaz de Salida M
+								//if(mMod > 0)//Si el modo no es 0
+								//{	f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
+								//}
+								f0015(1);//Clic sobre el boton 7 [] menu
+							}
 						};
 
 						if (q == 8) //boton / [0] Ventana de comunicaciones ON <-|-> OFF
@@ -7302,8 +7308,10 @@ morse(q) {
 
 						//sos(q,0);
 						if (q == 3)//boton . [3] raya onclick='f0096(1,1,1) morse 3 MI REVERSA FIJA 2023 IBOGOTA!!!! 	
-						{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
-							f0096(1, 1, 1);//Aplicar reversa al clic(botón 3) salTO -1
+						{	if(!uViS&&!mViS)
+							{	console.log(' - - - MI REVERSA FIJA 2023 IBOGOTA!!!! ');
+								f0096(1, 1, 1);//Aplicar reversa al clic(botón 3) salTO -1
+							}
 						};
 						/////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
 						/////{	console.log(' - - - arrow down! ');
@@ -7321,13 +7329,15 @@ morse(q) {
 							f0096(1, 1, 1);//Aplicar reversa al clic(botón 6) salTO -1
 						};*/
 						if (q == 7)// 	
-						{	//f0148(99);//DESACTIVAR la interfaz de Salida M
-						 	//console.log(' - - - Menu (7) ');
-							//if(mMod > 0)//Si el modo no es 0
-							//{	f0152();//Termina el conteo y oculta el display de la interfaz M
-							//}
-							f0015(1);//Clic o raya sobre el boton 7 [] menu
-							//sos(q,7);
+						{	if(!uViS&&!mViS)
+							{	//f0148(99);//DESACTIVAR la interfaz de Salida M
+						 		//console.log(' - - - Menu (7) ');
+								//if(mMod > 0)//Si el modo no es 0
+								//{	f0152();//Termina el conteo y oculta el display de la interfaz M
+								//}
+								f0015(1);//Clic o raya sobre el boton 7 [] menu
+								//sos(q,7);
+							}
 						};
 						if (q == 8) //boton / [0] Ventana de comunicaciones ON <-|-> OFF
 						{	///if(w)
@@ -7374,8 +7384,10 @@ morse(q) {
 						};
 
 						if (q == 3)//avanzar +(1*KTE) 
-						{	//f0148(99);//DESACTIVAR la interfaz de Salida M
-							f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 3) salTO5
+						{	if(!uViS&&!mViS)
+							{	//f0148(99);//DESACTIVAR la interfaz de Salida M
+								f0096(1, 1, 2);//Aplicar 5 avances al clic(botón 3) salTO5
+							}
 						};
 
 						/*
@@ -7399,8 +7411,10 @@ morse(q) {
 							};
 						}
 						if (q == 3)//regresar -(1*KTE)
-						{	//f0148(99);//DESACTIVAR la interfaz de Salida M
-							f0096(1, 1, 3);//Aplicar -5 avances al clic(botón 3) salTO-5
+						{	if(!uViS&&!mViS)
+							{	//f0148(99);//DESACTIVAR la interfaz de Salida M
+								f0096(1, 1, 3);//Aplicar -5 avances al clic(botón 3) salTO-5
+							}
 						}
 						/*
 						if (q == 6)//regresar -(1*KTE)
@@ -7422,8 +7436,9 @@ morse(q) {
 							}
 						};
 						if (q == 3)//avanzar +(2*KTE)
-						{
-							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
+						{	if(!uViS&&!mViS)
+							{	f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
+							}
 						}
 						////if (q == 6)//boton V [6] avanzar adelante un item (+1) morse 6 arrow down	
 						////{	console.log(' - - - arrow down x 3! ');
@@ -7492,8 +7507,9 @@ morse(q) {
 					if ((regY[q][0] == 2) && (regY[q][2] == 2) && (regY[q][4] == 1)) 
 					{	outX[q] = ' --*';//dos rayas punto..
 						if (q == 3)//avanzar +(2*KTE)
-						{
-							f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
+						{	if(!uViS&&!mViS)
+							{	f0096(1, 1, 4);//Aplicar 25 avances al clic(botón 3)
+							}
 						}
 						/*
 						if (q == 6)//avanzar +(2*KTE)
@@ -7511,8 +7527,10 @@ morse(q) {
 							}
 						};
 						if (q == 3)//regresar -(2*KTE)
-						{
-							f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 3)
+						{	if(!uViS&&!mViS)
+							{
+								f0096(1, 1, 5);//Aplicar -25 avances al clic(botón 3)
+							}
 						}
 						/*
 						if (q == 6)//regresar -(2*KTE)
@@ -7645,7 +7663,7 @@ const 	kL0=[			['Tutorial de puntos y rayas',													'icon far fa-comment-d
 
 
 function 
-	colSale() {			//COLOREAR los espacios del display M 
+colSale() 	{			//COLOREAR los espacios del display M 
 						//if (yaColoreado) return; // evita que se ejecute de nuevo
 						//var pprrafo = document.getElementById("texto-original");
 						//var texto = parrafo.textContent.trim(); // elimina espacios al inicio y final
@@ -7664,7 +7682,7 @@ function
 						f0151();// Desplaza hacia el final el Display M
 						//iIntM0.scrollTo(0, 0); // vuelve arriba cada vez que cambia el texto
 						//output.innerHTML = salo;
-				}
+			}
 
 
 				/*
@@ -7719,6 +7737,13 @@ fBot5.addEventListener('mouseleave',eMs0);
 fBot5.addEventListener('mouseup',eMs0);
 fBot5.addEventListener('touchend',eTs0);
 fBot5.addEventListener('touchstart',eTb0);
+
+
+
+
+
+
+
 
 //1479 - 5036(0836)
 //boton x [1] salir o cancelar onclick='f0047(1)' morse 1
@@ -7778,6 +7803,10 @@ fBot7.addEventListener('mouseleave', eMs7);
 fBot7.addEventListener('mouseup', eMs7);
 fBot7.addEventListener('touchend', eTs7);
 fBot7.addEventListener('touchstart', eTb7);
+
+
+
+
 
 
 

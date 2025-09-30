@@ -53,7 +53,7 @@ var varA; // variable que almacena el valor actual de la variable a en CSS (--a)
 var vaRA = 0; // variable que almacena el valor anterior de la variable a en CSS (--a)
 var vaRH = 0; // variable que almacena el valor anterior de la altura de la pantalla
 var vaRW = 0; // variable que almacena el valor anterior del ancho de la pantalla
-
+var varT = 1; // Variable para contar segundos y terminar un proceso
 
 
 
@@ -273,104 +273,97 @@ function f0003()//PRODUCIR pulsaciones
 				else//SI NO está dando un anuncio
 				{	iDice.classList.add('cX');//DESACTIVAR el "parlante" óptico
 				}
-			}			
-			if(g00VARS[76][2] && g00VARS[55][3])//SI YA SE SELECCIONO TIPO DE persona Y NO HAY ALERTA
-			{	
-
-
-				//console.log('conteo[1]=',conteo[1]);
-				if(conteo[1])//SI la presentación esta desactivada, el conteo esta activado
-				{	//falta reiniciar el conteo cuando ocurre scroll o clic sobre el "hueco"
-					conteo[0] -= 1;//DECREMENTAR EL CONTEO
-					//console.log('conteo[0]=',conteo[0]);
-					if((conteo[0] < 1)||(conteo[3]))//SI SE TERMINO LA CUENTA DE LOS PULSOS o hay orden desde la ventana i
-					{ 	conteo[1] = 0;//inhabilita el conteo porque se activa la presentación
-						conteo[3] = 0;//desactiva orden del tablón desde el menú
-						accion = 0;//no han transcurrido alertas ni eventos durante el conteo
-						console.log('se activa la presentación');
-						
-
-
-
-						//console.log('f3 g00VARS[64][3]=',g00VARS[64][3],'; g00VARS[64][2]=',g00VARS[64][2],'\n\n');
-						//g00VARS[64][2] = 4;//icono grande
-						
-
-			//aqui pasa la primer vez..
-						hh61();//CARGAR la ruta 3 con la presentación de anuncios
-						f0087();//REINICIAR los contadores de señas
-					}
-				}
-				else//la presentación esta activada, el conteo esta desactivado...
-				{	/*if(contPre[0] > 0)//Controlar el cambio de cada anuncio
-					{	contPre[0] -= 1;//DECREMENTAR EL conteo de la presentación
-						//console.log('contPre[0]=',contPre[0]);
-					}
-					else
-					{	contPre[0] = aPulPre;//Reinicia el conteo de la duración del anuncio
-						if(contPre[1] < (vis3.length - 2))//Cantidad de anuncios comunitarios visibles
-						{	contPre[1] += 1;//Avanza al siguiente anuncio visible
-							console.log('contPre[1]=',contPre[1]);
-						}
-						else
-						{	contPre[1] = 0;//Reinicia al anuncio 0 de Portada
-							//contPre[1] = 1;//Reinicia al anuncio 1 visible
-							console.log('contPre[1]=',contPre[1]);
-						}
-						//si contPre[1] = 0 => mostrar una aviso extra de "Bienvenido a [NOMBRE DE LA COMUNIDAD]"
-						f0090();//REINICIAR animación incluido g00VARS[3]
-						hh62(contPre[1]);//reiniciar las marquesinas y reiniciar el guion de señas, CARGAR los guiones del anuncio contPre[1] de la presentación AV Audio Visual
-					}*/
-
-					if(contPre[0])//Controlar el cambio de cada anuncio
-					{	contPre[0] = 0;//Desactivar orden de pasar al siguiente anuncio
-						iBody.style.setProperty('--cOL','transparent');//
-						iBody.style.setProperty('--cOI','transparent');//
-						iBody.style.setProperty('--cOy','transparent');//
-						iBody.style.setProperty('--cOw','transparent');//
-						if(contPre[1] < (vis3.length - 2))//Cantidad de anuncios comunitarios visibles
-						{	contPre[1] += 1;//Avanza al siguiente anuncio visible
-							//console.log('... 1 contPre[0]=',contPre[0],'; contPre[1]=',contPre[1]);
-						}
-						else
-						{	contPre[1] = 0;//Reinicia al anuncio 0 de Portada
-							//contPre[1] = 1;//Reinicia al anuncio 1 visible
-							//console.log('... 2 contPre[0]=',contPre[0],'; contPre[1]=',contPre[1]);
-						}
-						//si contPre[1] = 0 => mostrar una aviso extra de "Bienvenido a [NOMBRE DE LA COMUNIDAD]"
-						f0090();//REINICIAR animación incluido g00VARS[3]
-						hh62(contPre[1]);//reiniciar las marquesinas y reiniciar el guion de señas, CARGAR los guiones del anuncio contPre[1] de la presentación AV Audio Visual
-					}
-				}
-			}
-			if(((!g00VARS[55][3])||(accion))&&(!conteo[1]))//funcion de restablecer por detectar actividad o está activa alguna alerta, si hay alerta o ocurrio un evento y el conteo no esta activo porque se activo la presentación
-			{	
-				hh74();//DESACTIVAR la presentación AV
-				iRUTA.classList.remove('cX');//Muestra LA RUTA
-				hh8();//CARGAR la ruta 3 en pantalla
-
-			/*	conteo[1] = 1;//se habilita el conteo porque se desactiva la presentación
-				conteo[0] = aaini;//se reinicia el conteo
-				accion = 0;//reset de eventos para dar inicio al conteo
-				if(g00VARS[5][2])//Si esta i1..
-				{	inteL.innerHTML = '';
-				}
-				inteR.innerHTML = '';//Error?
-				console.log(' ::::: se DESactiva la presentación');
-				iPRESE.classList.add('cX');
-				iCodQ.classList.add('cX');
-				iRUTA.classList.remove('cX');//OCULTA LA RUTA por dar info
-				hh8();//CARGAR la ruta 3 en pantalla
-			*/
-
 			}
 			
+			if(varT) //Si el contador del tiempo esta activo..
+			{	if(g00VARS[76][2] && g00VARS[55][3])//SI YA SE SELECCIONO TIPO DE persona Y NO HAY ALERTA
+				{	//console.log('conteo[1]=',conteo[1]);
+					if(conteo[1])//SI la presentación esta desactivada, el conteo esta activado
+					{	//falta reiniciar el conteo cuando ocurre scroll o clic sobre el "hueco"
+						conteo[0] -= 1;//DECREMENTAR EL CONTEO
+
+						//console.log('conteo[0]=',conteo[0]);
+						if((conteo[0] < 1)||(conteo[3]))//SI SE TERMINO LA CUENTA DE LOS PULSOS o hay orden desde la ventana i
+						{ 	conteo[1] = 0;//inhabilita el conteo porque se activa la presentación
+							conteo[3] = 0;//desactiva orden del tablón desde el menú
+							accion = 0;//no han transcurrido alertas ni eventos durante el conteo
+							console.log('se activa la presentación');
 
 
 
 
+							//console.log('f3 g00VARS[64][3]=',g00VARS[64][3],'; g00VARS[64][2]=',g00VARS[64][2],'\n\n');
+							//g00VARS[64][2] = 4;//icono grande
 
 
+							//aqui pasa la primer vez..
+							hh61();//CARGAR la ruta 3 con la presentación de anuncios
+							f0087();//REINICIAR los contadores de señas
+						}
+					}
+					else//la presentación esta activada, el conteo esta desactivado...
+					{	/*if(contPre[0] > 0)//Controlar el cambio de cada anuncio
+						{	contPre[0] -= 1;//DECREMENTAR EL conteo de la presentación
+							//console.log('contPre[0]=',contPre[0]);
+						}
+						else
+						{	contPre[0] = aPulPre;//Reinicia el conteo de la duración del anuncio
+							if(contPre[1] < (vis3.length - 2))//Cantidad de anuncios comunitarios visibles
+							{	contPre[1] += 1;//Avanza al siguiente anuncio visible
+								console.log('contPre[1]=',contPre[1]);
+							}
+							else
+							{	contPre[1] = 0;//Reinicia al anuncio 0 de Portada
+								//contPre[1] = 1;//Reinicia al anuncio 1 visible
+								console.log('contPre[1]=',contPre[1]);
+							}
+							//si contPre[1] = 0 => mostrar una aviso extra de "Bienvenido a [NOMBRE DE LA COMUNIDAD]"
+							f0090();//REINICIAR animación incluido g00VARS[3]
+							hh62(contPre[1]);//reiniciar las marquesinas y reiniciar el guion de señas, CARGAR los guiones del anuncio contPre[1] de la presentación AV Audio Visual
+						}*/
+
+						if(contPre[0])//Controlar el cambio de cada anuncio
+						{	contPre[0] = 0;//Desactivar orden de pasar al siguiente anuncio
+							iBody.style.setProperty('--cOL','transparent');//
+							iBody.style.setProperty('--cOI','transparent');//
+							iBody.style.setProperty('--cOy','transparent');//
+							iBody.style.setProperty('--cOw','transparent');//
+							if(contPre[1] < (vis3.length - 2))//Cantidad de anuncios comunitarios visibles
+							{	contPre[1] += 1;//Avanza al siguiente anuncio visible
+								//console.log('... 1 contPre[0]=',contPre[0],'; contPre[1]=',contPre[1]);
+							}
+							else
+							{	contPre[1] = 0;//Reinicia al anuncio 0 de Portada
+								//contPre[1] = 1;//Reinicia al anuncio 1 visible
+								//console.log('... 2 contPre[0]=',contPre[0],'; contPre[1]=',contPre[1]);
+							}
+							//si contPre[1] = 0 => mostrar una aviso extra de "Bienvenido a [NOMBRE DE LA COMUNIDAD]"
+							f0090();//REINICIAR animación incluido g00VARS[3]
+							hh62(contPre[1]);//reiniciar las marquesinas y reiniciar el guion de señas, CARGAR los guiones del anuncio contPre[1] de la presentación AV Audio Visual
+						}
+					}
+				}
+				if(((!g00VARS[55][3])||(accion))&&(!conteo[1]))//funcion de restablecer por detectar actividad o está activa alguna alerta, si hay alerta o ocurrio un evento y el conteo no esta activo porque se activo la presentación
+				{	
+					hh74();//DESACTIVAR la presentación AV
+					iRUTA.classList.remove('cX');//Muestra LA RUTA
+					hh8();//CARGAR la ruta 3 en pantalla
+
+				/*	conteo[1] = 1;//se habilita el conteo porque se desactiva la presentación
+					conteo[0] = aaini;//se reinicia el conteo
+					accion = 0;//reset de eventos para dar inicio al conteo
+					if(g00VARS[5][2])//Si esta i1..
+					{	inteL.innerHTML = '';
+					}
+					inteR.innerHTML = '';//Error?
+					console.log(' ::::: se DESactiva la presentación');
+					iPRESE.classList.add('cX');
+					iCodQ.classList.add('cX');
+					iRUTA.classList.remove('cX');//OCULTA LA RUTA por dar info
+					hh8();//CARGAR la ruta 3 en pantalla
+				*/
+				}			
+			}
 		}
 
 function f0007()	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT g00HTML[19][2] pro7
@@ -2095,32 +2088,34 @@ function f0023()//ACTIVAR capa de alerta
 
 function f0024(reg)//i - Clic en botón 9 Tapa Info | REINICIAR animación, OCULTAR la ruta actual, MOSTRAR Tapa Informativa X e INFORMAR en que ruta se encuentra el usuario (reg: interacción tipo click sobre la pantalla FrontEnd)
 		{	lOG(24);
-			f0148(99);//DESACTIVAR la interfaz de Salida M
-			//hh88(1);//Luz blanca por info
-			hh88(4);//Luz blanca por info
-			if(reg)//si viene de interacción tipo click sobre la pantalla FrontEnd)
-			{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
+			if(!uViS&&!mViS)
+			{	f0148(99);//DESACTIVAR la interfaz de Salida M
+				//hh88(1);//Luz blanca por info
+				hh88(4);//Luz blanca por info
+				if(reg)//si viene de interacción tipo click sobre la pantalla FrontEnd)
+				{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
+				}
+				f0078();//L SONAR Clic
+				if(ambi == 4)//Presentacion AV
+				{	//detener la presentación AV, de forma indirecta debe ir a RUTA 3 (info com) y ambi=5
+					hh74();//DESACTIVAR la presentación AV - su efecto debe hacer ambi = 5 en Ruta 3 (com)				
+
+					//VER CÓMO MEJORAR LA SIGUIENTE LINEA LUEGO DE DESACTIVARSE LA PRESENTACION..
+					f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
+					//ambi = 5;//Vuelve a la "Ruta x"
+				}
+				console.log('Vacia');
+				f0050();//f0023();//QUITAR capa RUTA y GUARDAR contenido de lLINES
+				iTAPA.classList.remove('cX');
+				f0016();//CARGAR el guion de la Tapa Informativa X y posicionar el cursor
+				f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
+				f0068(1);//AJUSTAR el tamaño estandar del visor e interpretes
+				f0051();//L MOSTRAR botones de RUTA
+				ambi = 2;//Capa de TAPA INFORMATIVA X
+				f0089();//ENFOCAR y DECIR la Tapa o la Alerta	
+				//Prueba de f0143..
+				f0143(1);//ENCONTRAR todos los elementos cBrai
 			}
-			f0078();//L SONAR Clic
-			if(ambi == 4)//Presentacion AV
-			{	//detener la presentación AV, de forma indirecta debe ir a RUTA 3 (info com) y ambi=5
-				hh74();//DESACTIVAR la presentación AV - su efecto debe hacer ambi = 5 en Ruta 3 (com)				
-				
-				//VER CÓMO MEJORAR LA SIGUIENTE LINEA LUEGO DE DESACTIVARSE LA PRESENTACION..
-				f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
-				//ambi = 5;//Vuelve a la "Ruta x"
-			}
-			console.log('Vacia');
-			f0050();//f0023();//QUITAR capa RUTA y GUARDAR contenido de lLINES
-			iTAPA.classList.remove('cX');
-			f0016();//CARGAR el guion de la Tapa Informativa X y posicionar el cursor
-			f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
-			f0068(1);//AJUSTAR el tamaño estandar del visor e interpretes
-			f0051();//L MOSTRAR botones de RUTA
-			ambi = 2;//Capa de TAPA INFORMATIVA X
-			f0089();//ENFOCAR y DECIR la Tapa o la Alerta	
-			//Prueba de f0143..
-			f0143(1);//ENCONTRAR todos los elementos cBrai
 		}
 
 function f0025(textLoc,textInt)//Decir() PREPARAR los anuncios local e internacional de la TAPA
@@ -3431,9 +3426,16 @@ function f0049()//OCULTAR botón 1 de deshacer (x UNDO) y 7 de menu cuando no se
 			var a = 1; // Mostrar el boton X
 			if(uViS||mViS)
 			{ 	//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
+				if(!varT)
+				{	a = 0;
+				}
 			}
 			else
-			{	if((g02RUTA[gRuta][5])&&(!g02RUTA[gRuta][8]))//ruta es principal y no tiene padre
+			{	
+				
+				
+				
+				if((g02RUTA[gRuta][5])&&(!g02RUTA[gRuta][8]))//ruta es principal y no tiene padre
 				{	//ocultar el icono de botón undo
 					a = 0;
 					yKEYS[2][3] = 0;//4X OFF
@@ -3510,51 +3512,53 @@ function f0050()//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y
 				iIntM0.classList.add('cX');//Oculta el display de la interfaz M
 				iIntMo.classList.add('cX');//Oculta el texto superior
 				iApp.classList.remove('cX');//Muestra la app
+				f0171();//ACTIVAR los botones 1,3,4,6 y 7
 				iRUTA.classList.add('cX');
 				f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 			}
 			//yBTNS.classList.add('cX');//ocultar los botones
 			yKEYS[2][8] = 0;//ocultar los botones 1 3 Y 4
-			//yBot0l.classList.add('cStop');
-			//yBot0r.classList.add('cStop');
-			//yBB0.classList.add('cOff');
-			//yBBO.classList.add('cOff');
-			boT0.classList.add('cStop');
-			//yBot5.classList.add('cStop');
-			yBB5.classList.add('cOff');
-			//yBB5.classList.add('cOff');
-			yBoto.classList.add('cStop');
-			//yBoto.classList.add('cStop');
-			yBBo.classList.add('cOff');
-			//yBBo.classList.add('cOff');
-			yBot4.classList.add('cStop');
-			yBB4.classList.add('cOff');
-			yBot6.classList.add('cStop');
-			yBB6.classList.add('cOff');
+			
+
+			f0170(); //APAGAR los botones 1,3,4,6 y 7
+			/*
 			yBot1.classList.add('cStop');
 			yBB1.classList.add('cOff');
+			fBot1.classList.add('cStop');
+			fBB1.classList.add('cOff');
 			yBot3.classList.add('cStop');
 			yBB3.classList.add('cOff');
-			yBot7.classList.add('cStop');
-			yBB7.classList.add('cOff');
-			yBot9.classList.add('cStop');
-			yBB9.classList.add('cOff');
+			fBot3.classList.add('cStop');
+			fBB3.classList.add('cOff');
+			yBot4.classList.add('cStop');
+			yBB4.classList.add('cOff');
 			fBot4.classList.add('cStop');
 			fBB4.classList.add('cOff');
 			fBot6.classList.add('cStop');
 			fBB6.classList.add('cOff');
-			fBot1.classList.add('cStop');
-			fBB1.classList.add('cOff');
-			fBot3.classList.add('cStop');
-			fBB3.classList.add('cOff');
+			yBot6.classList.add('cStop');
+			yBB6.classList.add('cOff');
+			yBot7.classList.add('cStop');
+			yBB7.classList.add('cOff');
 			fBot7.classList.add('cStop');
 			fBB7.classList.add('cOff');
+			*/
+
+
 			fBot9.classList.add('cStop');
 			fBB9.classList.add('cOff');
+			yBot9.classList.add('cStop');
+			yBB9.classList.add('cOff');
+
+
 			fBot0.classList.add('cStop');
 			fBB0.classList.add('cOff');
+			boT0.classList.add('cStop');
+			yBoto.classList.add('cStop');
+			yBBo.classList.add('cOff');
 			fBot5.classList.add('cStop');
 			fBB5.classList.add('cOff');
+			yBB5.classList.add('cOff');
 			g00VARS[26][4] = 0;//Botones ocultos 
 		}
 
@@ -3564,18 +3568,8 @@ function f0051()//HABILITAR botones de RUTA (1,3,4 y 7)
 			{	g00VARS[26][4] = 1;//BOTONES visibles
 				//yBTNS.classList.remove('cX');//muestra los botones
 				yKEYS[2][8] = 1;//muestra los botones 1 3 Y 4
-				if(yKEYS[2][1])
-				{	yBot4.classList.remove('cStop');
-					yBB4.classList.remove('cOff');
-					fBot4.classList.remove('cStop');
-					fBB4.classList.remove('cOff');
-				}
-				if(yKEYS[2][2])
-				{	yBot6.classList.remove('cStop');
-					yBB6.classList.remove('cOff');
-					fBot6.classList.remove('cStop');
-					fBB6.classList.remove('cOff');
-				}
+				f0171();//ACTIVAR los botones 1,3,4,6 y 7
+				/*
 				if(yKEYS[2][3])
 				{	yBot1.classList.remove('cStop');
 					yBB1.classList.remove('cOff');
@@ -3588,12 +3582,27 @@ function f0051()//HABILITAR botones de RUTA (1,3,4 y 7)
 					fBot3.classList.remove('cStop');
 					fBB3.classList.remove('cOff');
 				}
+				if(yKEYS[2][1])
+				{	yBot4.classList.remove('cStop');
+					yBB4.classList.remove('cOff');
+					fBot4.classList.remove('cStop');
+					fBB4.classList.remove('cOff');
+				}
+				if(yKEYS[2][2])
+				{	yBot6.classList.remove('cStop');
+					yBB6.classList.remove('cOff');
+					fBot6.classList.remove('cStop');
+					fBB6.classList.remove('cOff');
+				}
+				
 				if(yKEYS[2][5])
 				{	yBot7.classList.remove('cStop');
 					yBB7.classList.remove('cOff');
 					fBot7.classList.remove('cStop');
 					fBB7.classList.remove('cOff');
 				}
+				*/
+
 				//yBot0l.classList.remove('cStop');
 				//yBot0r.classList.remove('cStop');
 				//yBB0.classList.remove('cOff');
@@ -4396,56 +4405,60 @@ function f0093(reg)//Registrar primer click o interacción tipo toque (reg: inte
 
 function f0094(reg)//Arrow Up
 		{	lOG(94);
-			f0148(99);//DESACTIVAR la interfaz de Salida M
-			if(reg)
-			{	f0093(reg);//REGISTRAR el primer clic
-			}
-			f0078();//L SONAR Clic
-			f0076();//SI LA TAPA INFORMATIVA esta activa PASAR de TAPA a RUTA porque hay clic sobre algun boton "informativo" 
-			if(gRuta == 3 || gRuta == 7 || gRuta == 8)
-			{	f0117();//RESETEAR todos los apuntadores
-				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
-			}
-			if(gFoco > 0)
-			{	gFoco -= 1;
-			}
-			if(reg)
-			{	f0031(1);//posiciona el foco en la posición actual del cursor
-			}
-			else
-			{	f0031();//posiciona el foco en la posición actual del cursor	
+			if(!uViS&&!mViS)
+			{	f0148(99);//DESACTIVAR la interfaz de Salida M
+				if(reg)
+				{	f0093(reg);//REGISTRAR el primer clic
+				}
+				f0078();//L SONAR Clic
+				f0076();//SI LA TAPA INFORMATIVA esta activa PASAR de TAPA a RUTA porque hay clic sobre algun boton "informativo" 
+				if(gRuta == 3 || gRuta == 7 || gRuta == 8)
+				{	f0117();//RESETEAR todos los apuntadores
+					f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
+				}
+				if(gFoco > 0)
+				{	gFoco -= 1;
+				}
+				if(reg)
+				{	f0031(1);//posiciona el foco en la posición actual del cursor
+				}
+				else
+				{	f0031();//posiciona el foco en la posición actual del cursor	
+				}
 			}
 		}
 
 function f0095(reg)//Arrow Down
 		{	lOG(95);
-			f0148(99);//DESACTIVAR la interfaz de Salida M
-			if(reg)
-			{	f0093(reg);//REGISTRAR el primer clic
-			}
-			f0078();//L SONAR Clic	
-			f0076();//SI LA TAPA INFORMATIVA esta activa PASAR de TAPA a RUTA porque hay clic sobre algun boton "informativo" 
-			if(gRuta == 3 || gRuta == 7 || gRuta == 8)
-			{	f0117();//RESETEAR todos los apuntadores
-				f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
-			}
-			///////if(gFoco < (visOK.length - n))
-			///////{	gFoco += n;
-			///////}
-			///////else
-			///////{	gFoco = (visOK.length - 1);
-			///////}
-			if(gFoco < (visOK.length - 1))
-			{	gFoco += 1;
-			}
-			else
-			{	gFoco = (visOK.length - 1);
-			}
-			if(reg)
-			{	f0031(1);//posiciona el foco en la posición actual del cursor y se enfoca
-			}
-			else
-			{	f0031();//posiciona el foco en la posición actual del cursor sin enfocarse
+			if(!uViS&&!mViS)
+			{	f0148(99);//DESACTIVAR la interfaz de Salida M
+				if(reg)
+				{	f0093(reg);//REGISTRAR el primer clic
+				}
+				f0078();//L SONAR Clic	
+				f0076();//SI LA TAPA INFORMATIVA esta activa PASAR de TAPA a RUTA porque hay clic sobre algun boton "informativo" 
+				if(gRuta == 3 || gRuta == 7 || gRuta == 8)
+				{	f0117();//RESETEAR todos los apuntadores
+					f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
+				}
+				///////if(gFoco < (visOK.length - n))
+				///////{	gFoco += n;
+				///////}
+				///////else
+				///////{	gFoco = (visOK.length - 1);
+				///////}
+				if(gFoco < (visOK.length - 1))
+				{	gFoco += 1;
+				}
+				else
+				{	gFoco = (visOK.length - 1);
+				}
+				if(reg)
+				{	f0031(1);//posiciona el foco en la posición actual del cursor y se enfoca
+				}
+				else
+				{	f0031();//posiciona el foco en la posición actual del cursor sin enfocarse
+				}
 			}
 		}
 
@@ -8324,10 +8337,11 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 				
 				//ACTIVAR la salida de la interfaz M
 				iApp.classList.add('cX');//Oculta la app
+				f0170();	//APAGAR los botones 1,3,4,6 y 7
 				iNt.classList.remove('cX');//Se activa la interfaz Inferior
 				iIntM0.classList.remove('cX');//Enciende el editor de la interfaz
 				iIntMo.classList.remove('cX');//Enciende el texto superior
-				iApp.classList.add('cX');//Oculta la app
+				//iApp.classList.add('cX');//Oculta la app
 
 				intM.classList.remove('cX');//Activa el display del morse (tutorial)
 				mViS = 1;//Se prendio el display Morse (Tutorial)
@@ -8349,24 +8363,28 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 			f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 		}
 
+
+
 function
 f0146()//ACTIVAR la desactivación temporizada de la interfaz M con mCon
 		{	lOL(146);
-			// Reiniciar el contador y el temporizador
-			clearInterval(mTim);
-			mCon = 0;
-			// Iniciar un nuevo temporizador
-			mTim = setInterval(() =>
-			{	mCon++;
-				console.log('mCon=',mCon);
-                if (mCon >= 60) {
-					f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
-					f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
-                    //console.log("60 segundos");
-					//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
-                    //clearInterval(mTim); // Detener el temporizador al alcanzar 100 segundos
-                }
-            }, 1000); // Incrementar cada 1 segundo
+			if(varT)
+			{	// Reiniciar el contador y el temporizador
+				clearInterval(mTim);
+				mCon = 0;
+				// Iniciar un nuevo temporizador
+				mTim = setInterval(() =>
+				{	mCon++;
+					console.log('mCon=',mCon);
+	                if (mCon >= 60) {
+						f0152();//INTERRUMPIR del conteo y DESACTIVAR el display de la interfaz M
+						f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
+	                    //console.log("60 segundos");
+						//f0147();//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apagar el display
+	                    //clearInterval(mTim); // Detener el temporizador al alcanzar 100 segundos
+	                }
+	            }, 1000); // Incrementar cada 1 segundo
+			}
 		};
 
 function
@@ -8394,6 +8412,7 @@ f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apag
 				iIntM0.classList.add('cX');//Apaga el editor
 				iIntMo.classList.add('cX');//Apaga el texto superior
 				iApp.classList.remove('cX');//Muestrsa la app
+				f0171();//ACTIVAR los botones 1,3,4,6 y 7
 			}
 			f0049();//L OCULTAR el botón de deshacer (UNDO) cuando no se necesite
 		};
@@ -8435,7 +8454,9 @@ f0148(h)//MOSTRAR o DESACTIVAR(99) la interfaz de Salida M que corresponda segun
 			}
 			else//h es diferente de 99..
 			{	f0166(); //ACTIVAR el intercomunicador universal, si el tutorial Morse esta activado lo desactiva
-				console.error(' -4- (sólo universal ON) mViS=',mViS,' uViS=',uViS);
+				console.error('###########ojo -4- (sólo universal ON) mViS=',mViS,' uViS=',uViS);
+				//f0170(); //APAGAR los botones 1,3,4,6 y 7
+				
 
 
 
@@ -9664,6 +9685,8 @@ f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 				}
 				if(a==2)//Si hay orden de encender el intercomunicador
 				{	console.error('############# Activando el intercomunicador');
+					//f0170();	//APAGAR los botones 1,3,4,6 y 7
+
 					
 					//Prueba tamaño..
 					f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
@@ -9672,6 +9695,7 @@ f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
 					iApp.classList.add('cX');//Oculta la app
+					f0170();	//APAGAR los botones 1,3,4,6 y 7
 					f0146(); //ACTIVAR la desactivación temporizada de la interfaz M con mCon
 				
 				}
@@ -9684,8 +9708,7 @@ function
 f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activado lo desactiva
 			{	lOG(166);
 				if(!uViS&&!mViS)//Si ambas interfaces están apagadas > intercomunicador está apagado
-				{	console.error('############# Activando el intercomunicador');
-
+				{	console.error('############# Activando el intercomunicador y apagando 3 al 7');
 					//Prueba tamaño..
 					f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
 				
@@ -9693,6 +9716,9 @@ f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activ
 					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
 					iApp.classList.add('cX');//Oculta la app
+					f0170(); //APAGAR los botones 1,3,4,6 y 7
+				
+					
 				}
 				//En este punto el intercomunicador es visible con morse o con universal
 				console.error(' -_-  (morse o universal ON) mViS=',mViS,' uViS=',uViS);
@@ -9816,47 +9842,138 @@ f0168(au)	//CONVERTIR a pixekes el tamaño de la altura de g00VARS[33] y regresa
 function 
 f0169(m)	//RESETEAR los estilos de la interfaz de Salida M (por defecto, sin mMod ni mViS)
 				{	lOG(169);
-					console.error('###### m=',m);	
-					iKeyB.classList.add('cX');
-					iKeyS.classList.add('cX');
-					iKeyA.classList.add('cX');
-					switch(m)
-					{	case 1:
-							// Qwerty
-							//iKeyB.style.height = '100%';
-							iKeyB.classList.remove('cX');
-							iEnt.innerHTML = 1;
-						break;
-						case 2:
-							//// Qwerty medio - Iterar y cambiar el tamaño de la fuente
-							//keYs.forEach(button =>
-							//{	button.style.fontSize = 'min(15vh,15vw)';
-							//});
-							//iKeyB.style.height = '200%';//'70vh';
-							//iKeyB.style.width = '200%';//'200vw';
-							iKeyS.classList.remove('cX');
-							iEnt.innerHTML = 2;
-						break;
-						case 3:
-							//// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
-							//keYs.forEach(button =>
-							//{	button.style.fontSize = 'min(25vh,25vw)';
-							//});
-							//iKeyB.style.height = '300%';//'70vh';
-							//iKeyB.style.width = '300%';// '300vw';
-							iKeyA.classList.remove('cX');
-							iEnt.innerHTML = 3;
-						break;
-						case 4: 
-							// Señas - Sign Chat
-							//iKeyS.classList.remove('cX');
-							iEnt.innerHTML = 4;
-						break;
-						////case 5:
-						////	// Clave Morse - Tutorial
-						////	//intM.style.opacity='0.8';
-						////	intM.classList.remove('cX');
-						////break;
+					console.error('###### m=',m);
+					if(m<4)
+					{	if(!varT)
+						{	varT = 1; //Reactiva el conteo del Tiempo en segundos
+							f0146();//ACTIVAR la desactivación temporizada de la interfaz M con mCon
+						}
+						iKeyB.classList.add('cX');
+						iKeyS.classList.add('cX');
+						iKeyA.classList.add('cX');
+
+						//Este codigo esta repetido en otro lado..
+						yBot1.classList.remove('cStop');
+						yBB1.classList.remove('cOff');
+						fBot1.classList.remove('cStop');
+						fBB1.classList.remove('cOff');
+
+						switch(m)
+						{	case 1:
+								// Qwerty
+								//iKeyB.style.height = '100%';
+								iKeyB.classList.remove('cX');
+								iEnt.innerHTML = 1;
+							break;
+							case 2:
+								//// Qwerty medio - Iterar y cambiar el tamaño de la fuente
+								//keYs.forEach(button =>
+								//{	button.style.fontSize = 'min(15vh,15vw)';
+								//});
+								//iKeyB.style.height = '200%';//'70vh';
+								//iKeyB.style.width = '200%';//'200vw';
+								iKeyS.classList.remove('cX');
+								iEnt.innerHTML = 2;
+							break;
+							case 3:
+								//// Qwerty Grande - Iterar y cambiar el tamaño de la fuente
+								//keYs.forEach(button =>
+								//{	button.style.fontSize = 'min(25vh,25vw)';
+								//});
+								//iKeyB.style.height = '300%';//'70vh';
+								//iKeyB.style.width = '300%';// '300vw';
+								iKeyA.classList.remove('cX');
+								iEnt.innerHTML = 3;
+							break;
+							//case 4: 
+							//	// Señas - Sign Chat
+							//	//iKeyS.classList.remove('cX');
+							//	iEnt.innerHTML = 4;
+							//break;
+							////case 5:
+							////	// Clave Morse - Tutorial
+							////	//intM.style.opacity='0.8';
+							////	intM.classList.remove('cX');
+							////break;
+						}
+				}
+				else
+				{	iEnt.innerHTML = 4;
+					// Reiniciar el contador y el temporizador
+					clearInterval(mTim);
+					mCon = 0;
+					varT = 0; //Interrumpe el conteo del Tiempo en segundos
+
+					//Este codigo esta repetido en otro lado..
+					yBot1.classList.add('cStop');
+					yBB1.classList.add('cOff');
+					fBot1.classList.add('cStop');
+					fBB1.classList.add('cOff');
+					//yBot1.classList.add('cX');
+
+
+
+				}
+			}
+
+function 
+f0170()	//APAGAR los botones 1,3,4,6 y 7
+				{	lOG(170);
+					yBot1.classList.add('cStop');
+					yBB1.classList.add('cOff');
+					fBot1.classList.add('cStop');
+					fBB1.classList.add('cOff');
+					yBot3.classList.add('cStop');
+					yBB3.classList.add('cOff');
+					fBot3.classList.add('cStop');
+					fBB3.classList.add('cOff');
+					yBot4.classList.add('cStop');
+					yBB4.classList.add('cOff');
+					fBot4.classList.add('cStop');
+					fBB4.classList.add('cOff');
+					fBot6.classList.add('cStop');
+					fBB6.classList.add('cOff');
+					yBot6.classList.add('cStop');
+					yBB6.classList.add('cOff');
+					yBot7.classList.add('cStop');
+					yBB7.classList.add('cOff');
+					fBot7.classList.add('cStop');
+					fBB7.classList.add('cOff');
+				}
+
+
+function 
+f0171()	//ACTIVAR los botones 1,3,4,6 y 7
+				{	lOG(171);
+					if(yKEYS[2][3])
+					{	yBot1.classList.remove('cStop');
+						yBB1.classList.remove('cOff');
+						fBot1.classList.remove('cStop');
+						fBB1.classList.remove('cOff');
+					}
+					if(yKEYS[2][4])
+					{	yBot3.classList.remove('cStop');
+						yBB3.classList.remove('cOff');
+						fBot3.classList.remove('cStop');
+						fBB3.classList.remove('cOff');
+					}
+					if(yKEYS[2][1])
+					{	yBot4.classList.remove('cStop');
+						yBB4.classList.remove('cOff');
+						fBot4.classList.remove('cStop');
+						fBB4.classList.remove('cOff');
+					}
+					if(yKEYS[2][2])
+					{	yBot6.classList.remove('cStop');
+						yBB6.classList.remove('cOff');
+						fBot6.classList.remove('cStop');
+						fBB6.classList.remove('cOff');
+					}
+					if(yKEYS[2][5])
+					{	yBot7.classList.remove('cStop');
+						yBB7.classList.remove('cOff');
+						fBot7.classList.remove('cStop');
+						fBB7.classList.remove('cOff');
 					}
 				}
 
@@ -9874,7 +9991,7 @@ function alterna1() //Muestra la salida
 				}
     		}
 
-function alterna2() //Muestra la entrada
+function alterna2() //Muestra la entrada y la salida de forma alternada
 			{	if(varZ)
 				{	iIntMo.classList.remove('cDo');//Muestra la entrada
 	      			iIntMo.classList.add("cUp");
@@ -9882,10 +9999,13 @@ function alterna2() //Muestra la entrada
 	  	    		iIntM0.classList.add("cDo");
 					varZ = 0;
 				}
+				else
+				{	alterna1(); //Muestra la salida
+				}
     		}
 
 iIntMo.addEventListener("click", alterna2);
-iIntM0.addEventListener("click", alterna1);
+iIntM0.addEventListener("click", alterna2);//1);
 ////iKeyB.addEventListener("click", f0169(1));
 ////iKeyS.addEventListener("click", f0169(2));
 ////iKeyA.addEventListener("click", f0169(3));

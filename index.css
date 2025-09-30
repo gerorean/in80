@@ -588,7 +588,7 @@
 
  .cTexU{		height:30%}/*45%}/*45vh}*/
 
- .keR{			height:33.3333%}
+ .keR{			height:100%}/*33.3333%}*/
 
  .cVpres{		height:70%}/*70vh    -- -- calc(50vh - (var(--marH) * 2) - (var(--pelo)*2) - var(--kdot))}/*80vh - 1vh de los 2 margenes arriba y abajo,  84vh  80vh menos 0.5vh del borde superior y otros 0.5vh del borde inferior*/
 
@@ -858,7 +858,8 @@
 ,.cTpres{		overflow-y:hidden}
 
  .cHue
-,.cTexM{		overflow-y:scroll}
+,.cTexM
+,#iUn2{		    overflow-y:scroll}
 
  .cUSe
 ,#i--KeyB
@@ -1025,7 +1026,8 @@
 ,.cScroll
 ,.cTexM
 ,.cTpres
-,#iUn1{			scrollbar-width: none}/* Firefox */
+,#iUn1
+,#iUn2{			scrollbar-width: none}/* Firefox */
 
  .cAltu
 ,.cPic2
