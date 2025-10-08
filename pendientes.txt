@@ -1,4 +1,13 @@
-Pendientes: 6860 inded   6922
+Pendientes:
+
+El boton de ayuda en el modo intercomunicador no esta funcionando, crear el texto para que funcione
+cuando esta en el modo intercomunicador y falta revizar el tiempo de salirse auto del intercomunicador y 
+adicionar en preguntas frecuentes la parte del intercomunicador, los botones arriba y 
+abajo deberían estar habilitados para cambiar al globo del usuario dando Abajo y en 
+Arriba mostrar el globo del otro, de tal forma que no hay necesidad de dar clic sobre el centro
+de los globos para cambiar de globo!
+
+ 6860 inded   6922
  tabindex="0"
 poner una imagen luego de los textos del intercomunicador si no es el modo 1 ni 6, en caso contrario la imagen deberia ir antes de los textos!!!
 
