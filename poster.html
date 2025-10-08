@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vota ComuniAlerta 2.0 - Cartel</title>
+  <style>
+    /* Page setup for printing full-bleed letter (8.5 x 11 in) */
+    @page { size: 8.5in 11in; margin: 0; }
+    html,body{height:100%;margin:0;padding:0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;}
+
+    /* Background and container */
+    .sheet{
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding: 28px; /* safe inner margin for text readability */
+      background: linear-gradient(180deg,#E6FBF6 0%, #DFF7F0 45%, #FFFFFF 100%);
+      color: #0b3a2e;
+      -webkit-print-color-adjust: exact; /* try to force color printing */
+    }
+
+    header{display:flex;align-items:center;gap:18px}
+    .logo-circle{
+      width:84px;height:84px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:34px;background:#0b8b6c;color:white;font-weight:700;box-shadow:0 6px 18px rgba(11,139,108,0.18)
+    }
+
+    h1{font-size:34px;margin:0;line-height:1.05}
+    h2{font-size:18px;margin:6px 0 12px;color:#135a4a}
+
+    .highlight{background:#0b8b6c;color:white;padding:6px 10px;border-radius:8px;display:inline-block;font-weight:600}
+
+    .two-col{display:flex;gap:22px;margin-top:18px}
+    .left{flex:2}
+    .right{flex:1;display:flex;flex-direction:column;gap:14px}
+
+    .card{background:rgba(255,255,255,0.9);padding:14px;border-radius:12px;box-shadow:0 6px 14px rgba(0,0,0,0.06)}
+    ul{margin:8px 0 0 18px;padding:0}
+    li{margin:8px 0;font-size:15px}
+
+    .vote-step{font-size:15px;margin:6px 0}
+    .code{font-weight:800;font-size:20px;color:#0b8b6c}
+
+    .contact{font-size:14px}
+
+    /* Call-to-action big button style (for screen, will print as box) */
+    .cta{display:inline-block;background:#0b8b6c;color:white;padding:12px 16px;border-radius:10px;font-weight:700;text-decoration:none;margin-top:6px}
+
+    footer{position:absolute;left:28px;right:28px;bottom:28px;display:flex;justify-content:space-between;align-items:center}
+
+    .places{font-size:14px}
+
+    /* Print adjustments */
+    @media print{
+      .sheet{padding:20px}
+      footer{position:fixed}
+    }
+
+    /* Accessibility tweaks */
+    .big-emoji{font-size:36px;margin-right:8px}
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <div class="logo-circle">CA</div>
+      <div>
+        <h1>🌈 VOTA POR LA INCLUSIÓN EN CHAPINERO</h1>
+        <h2>Presupuestos Participativos 2025 · <span class="highlight">ComuniAlerta 2.0 (VOTA 48218)</span></h2>
+      </div>
+    </header>
+
+    <div class="two-col">
+      <div class="left">
+        <section class="card">
+          <h3 style="margin:0 0 8px 0">¿Por qué apoyar ComuniAlerta 2.0?</h3>
+          <p style="margin:0 0 8px 0">Un proyecto para que <strong>adultos mayores y personas con discapacidad</strong> accedan a la información comunitaria con igualdad y autonomía.</p>
+
+          <h4 style="margin:8px 0">Incluye:</h4>
+          <ul>
+            <li>✅ Vibraciones en clave Morse para personas sordociegas</li>
+            <li>✅ Intérprete en Lengua de Señas Colombiana</li>
+            <li>✅ Audio y navegación para personas ciegas</li>
+            <li>✅ Botones grandes, fijos y con relieve</li>
+            <li>✅ Talleres de alfabetización digital</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <h3 style="margin:0 0 8px 0">Cómo votar (¡toma 1 minuto!)</h3>
+          <div class="vote-step">💻 <strong>Votación virtual (recomendada):</strong></div>
+          <p style="margin:0">Abre WhatsApp y escribe a <strong>Chatico</strong> usando el enlace o guardando el número.</p>
+          <p style="margin:6px 0"><a class="cta" href="https://api.whatsapp.com/send/?phone=573160231524" target="_blank">Votar por WhatsApp → Chatico</a></p>
+
+          <div style="margin-top:8px">
+            <div class="vote-step">Sigue estos pasos dentro de Chatico:</div>
+            <ol style="margin:6px 0 0 18px">
+              <li>Escribe "Votar" o "Presupuestos Participativos"</li>
+              <li>Registra tus datos</li>
+              <li>Localidad: <strong>2 Chapinero</strong></li>
+              <li>Categoría: <strong>10 Participación Ciudadana</strong></li>
+              <li>Código: <span class="code">48218</span></li>
+            </ol>
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="right">
+        <div class="card">
+          <h4 style="margin:0 0 8px 0">¿Prefieres votar en físico?</h4>
+          <p class="places" style="margin:0 0 8px 0">🏛️ <strong>Alcaldía Local de Chapinero</strong><br> Carrera 13 #54-74</p>
+          <p class="places" style="margin:0">📍 <strong>Punto Centro Felicidad Chapinero</strong><br> Calle 82 #10-69</p>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px 0">¿Quiénes pueden votar?</h4>
+          <p style="margin:0">Personas desde los <strong>14 años</strong> en adelante.</p>
+          <p style="margin:8px 0 0 0">⏰ <strong>Plazo:</strong> Hasta el <strong>26 de octubre</strong></p>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px 0">Contacto</h4>
+          <p class="contact" style="margin:0">Rodrigo Reyes<br>📱 315 245 4168</p>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer>
+      <div style="font-size:13px;color:#0b6b53">🙏 Tu voto ayuda a que nadie se quede atrás en la inclusión digital.</div>
+      <div style="font-size:13px;color:#0b6b53">Código: <strong>48218</strong></div>
+    </footer>
+  </div>
+</body>
+</html>

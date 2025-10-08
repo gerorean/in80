@@ -119,9 +119,9 @@
 
 
 		<!--2. APLICACION i Information-->
-		<div id='iApp' class='c0'><!--Marco de apoyo con separaciones fijas arriba y abajo para posicionar el contenido central en la pantalla-->
+		<div id='iApp' class=''><!--Marco de apoyo con separaciones fijas arriba y abajo para posicionar el contenido central en la pantalla-->
 			<!--CONTENIDO CENTRAL, ventana con altura dinamica dentro del marco de apoyo, su la altura es variable dependiendo de la altura de la pantalla-->
-			<div id='iCelu' class='cTop cCel0 cR'>
+			<div id='iCelu' class='cTop cCel0 cR' tabindex='-2'>
 				<div class='cBox cTop cB'><!--MARQUESINA oculta para conseguir el alto de 1a fila de la marquesina-->
 					<div id='iTia' class='cTitul cTi1' aria-hidden='true'>
 						<div id='iFila' class='cTpres'>
@@ -148,7 +148,7 @@
 				<!--FONDO COLOR OSCURO IGUAL A RAYAS SEÑAL MORSE-->
 				<div id='doorOscu' class='cBox cTop'><!--VELO claro u oscuro para aclarar u oscurecer el fondo "Morse"-->
 				</div>
-				<div id='iRUTA' class='cRiel cX' tabindex='0'><!--RUTA para mostrar listas con diferentes opciones-->
+				<div id='iRUTA' class='cRiel cX'><!--RUTA para mostrar listas con diferentes opciones-->
 					<div id='aRUTA' class='cScroll'><!--DESLIZAMIENTO vertical-->
 						<form id='lLINES' class='cPaddi'>
 
@@ -763,7 +763,7 @@
 				</div>
 				<div id='iTAPA' class='cRiel cX'><!--TAPA para mostrar una notificación temporal o información del botón info-->
 					<div id='aTAPA' class='cScroll'>
-						<button id='line' class="cTapa cEsqi cSiza" tabindex="0" role="button" onclick="f0075(1)">
+						<button id='line' class="cTapa cEsqi cSiza" role="button" onclick="f0075(1)">
 							<div id="aFoco" aria-hidden="true" class="cCero cPicI">
 								<span id='iTP' class="cObj cPic1 cCero">
 									<div class="cBox cFon">
@@ -956,16 +956,66 @@
 				<div class='cBott cSom'>
 				</div>
 			</div>
+
+
+
+
+
+
+
+			
+
+
+
+
+
 		</div>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<!--3. INTERFAZ CON BOTONES GRANDES Y FIJOS-->
-		<div id='iFonde' class='cBox cTop c0'><!--FONDE para mostrar la capa con la interfaz con botones grandes y fijos del usuario-->
-			<div id='iMarco c0'><!--MARCO para activar las 4 barreras invisibles de bloqueo-->
-				<div id='iPos1' class='cVert c0' onclick='f0074()'><!--bloqueo vertical izquierdo-->
+		<div id='iFonde' class='cBox cTop'><!--FONDE para mostrar la capa con la interfaz con botones grandes y fijos del usuario-->
+			
+			
+
+			<!--GLOBOS DE ENTRADA Y SALIDA DEL INTERCOMUNICADOR-->
+			<div id='iGlob' class='cX'>
+				<!--Recuadro oculto superior para todos los textos de entrada que sean para el intercomunicador por ejemplo provenientes de la linea 123 hacia el usuario-->
+				<div id='iIntMo' class='cDo cTexM cSiza'>
+					i dice: Hola! 
+					<!--div>
+					mundo, hola mundo, hol MUNDO, hola , mundo. hola mundo,hola mundo, hol MUNDO, hola , mundo. hola mundo, hola mundo, hol MUNDO, hola , mundo. hola mundo
+					</div-->
 				</div>
-				<div id='iPos2' class='cVert c0' onclick='f0074()'><!--bloqueo vertical derecho-->
+				<!--Recuadro con el Texto de Salida-->
+				<div id='iIntM0' class='cUp cTexM cSiza'>
+				</div>
+			</div>
+
+
+			
+			
+			
+			
+			
+			<div id='iMarco'><!--MARCO para activar las 4 barreras invisibles de bloqueo-->
+				<div id='iPos1' class='cVert' onclick='f0074()'><!--bloqueo vertical izquierdo-->
+				</div>
+				<div id='iPos2' class='cVert' onclick='f0074()'><!--bloqueo vertical derecho-->
 				</div>
 				<!--div id='iStop'><!--bloqueos horizontales-- >
 					<div class='cHori cBott cR' onclick='f0074()'>
@@ -986,22 +1036,153 @@
 				<i class='fas fa-comment-dots cInvert cTalk'></i>
 			</div-->
 
-			<!--Recuadro oculto superior para todos los textos de entrada que sean para el intercomunicador por ejemplo provenientes de la linea 123 hacia el usuario-->
-			<div id='iIntMo' class='cDo cTexM cSiza cX'>
-				i dice: Hola! 
-				<!--div>
-				mundo, hola mundo, hol MUNDO, hola , mundo. hola mundo,hola mundo, hol MUNDO, hola , mundo. hola mundo, hola mundo, hol MUNDO, hola , mundo. hola mundo
+			
+
+
+
+			<!--div id='mBoTS' class='cBotSOS cX'>
+				<div id='mBotS' class='fas fa-square cTran c45Rot'></div>
+			</div-->
+			<!--div id='mBoTR' class='cBotRED'>
+				<div id='mBotR' class='fa fa-minus cGran'></div>
+			</div-->
+			<div class='cTones'><!--para ajustar el espacio de los 8 botones grandes-->
+				<div id='iNegro' class='cMark cDedo cFJ cFlex' onclick='f0024(1)'>
+					<!--i id='iInfo' class='fas fa-info c25Rot'></i--><!--iNEGRO para mostrar la muesca de info-->
+				</div>
+				<div id='numbers' class='cX'><!--NUMBERS para mostrar los números de las teclas físicas-->
+					<div class='cMark cTec cDer cFleB'>9
+					</div>
+					<div class='cMark cTec cFleB'>7
+					</div>
+					<div class='c46 cMark cTec cDer cFleB'>6
+					</div>
+					<div class='c46 cMark cTec cFleB'>4
+					</div>
+					<div class='c13 cMark cTec cDer cFleB'>3
+					</div>
+					<div class='c13 cMark cTec cFleB'>1
+					</div>
+					<div class='cH0 cMark cTec cFleB'>5
+					</div>
+					<div class='cH0 cMark cTec cDer cFleB'>0
+					</div>
+				</div>
+				<!--boton | [9] ayuda-->
+				<div id='yBot9' class='cTop cBOT' onclick='f0024(1)'>
+					<div class='cBote cFlex c X'>
+						<i id='yBB9' class='fa fa-minus cGran c90Rot'></i>
+					</div>
+					<!--div class='cBote cFlex cX'>
+						<i class='fas fa-info c25Rot cTran'></i>
+					</div-->
+				</div>
+				<!--boton . [3] clic o enter onclick='f0096(1,1)'-->
+				<div id='yBot3' class='c13 cBOT'>
+					<div class='cBote cFlex'>
+						<i id='yBB3' class='fas fa-circle cTran'></i>
+						<i class='fas fa-caret-right cTran cX'></i>
+						<i class='fas fa-hand-pointer c10RoT cX'></i>
+					</div>
+				</div>
+				<!--boton - [5] entrada morse onclick='f0145()'-->
+				<div id='boT0' class='cH0 cBOT cX9'>
+					<div class='cBota cFlex'>
+						<i id='yBB5' class='fa fa-minus cGran'></i>
+					</div>
+				</div>
+				<!--boton / [0] cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ onclick='f0148()'-->
+				<div id='yBoto' class='cH0 cBOT cX9'>
+					<div class='cBote cFlex'>
+						<i id='yBBo' class='fas fa-square c45RoT cTran'></i><!--fa fa-minus cGran c45RoT'></i-->
+					</div>
+				</div>
+				<!--boton [] [7] menu-->
+				<div id='yBot7' class='cTop cBOT cX9 cStop'>
+					<div class='cBota cFlex'>
+						<i id='yBB7' class='fas fa-square cTran cOff'></i>
+					</div>
+				</div>
+				<div id='yBTNS' class='cX9'>
+					<!--boton X [1] salir o cancelar-->
+					<div id='yBot1' class='c13 cBOT cX9 cStop'>
+						<div class='cBota cFlex'>
+							<i id='yBB1' class='fas fa-times cGran cOff'></i>
+						</div>
+					</div>
+					<!--boton V [6] avanzar adelante un item (+1)-->
+					<div id='yBot6' class='c46 cBOT cX9' onclick='f0095(1)'>
+					<!--div id='yBot6' class='c46 cBOT cX9' onclick='f0095(1)'-->		
+						<div class='cBote cFlex'>
+							<i class='fas fa-eraser cX'></i>
+							<i id='yBB6' class='fas fa-caret-down cGran'></i>
+						</div>
+					</div>
+					<!--boton ^ [4] retroceder atrás un item (-1)-->
+					<div id='yBot4' class='c46 cBOT cX9' onclick='f0094(1)'>
+						<div class='cBota cFlex'>
+							<i class='fas fa-backspace cX'></i>
+							<i id='yBB4' class='fas fa-caret-up cGran c X'></i>
+						</div>
+					</div>
+				</div>
+				<!--div id='iDice' class='cX cTOB'--><!--iDICE para mostrar presencia de señal de sonido-->
+				<!--div class='cBota cFleT'>
+						<i class='fas fa-comment-dots cNube'></i>
+					</div>
+				</div-->
+				<!--div id='yBot00' class='cBott cEnt cX'>
+					<div id='yBB00' class=''>
+						<div id='iEnt' class='c X'>Arriba</div>
+					</div>
+				</div-->
+				<!--div id='yBot0r' class='cBott cBOT cX cR' onclick='f0095(1)'>
+					<div id='yBBO' class='cX cBote cFlex cGran'>·
+						<i class='cX fas fa-microphone-alt-slash cNube'></i>
+						<i class='fas fa-microphone-alt cX cNube'></i>
+					</div>
+				</div>
+				<div id='yBot0l' class='cBott cBOT cX cB' onclick='f0094(1)'>
+					<div id='yBB0' class='cX cBota cFlex cGran'>·
+						<i class='cX fas fa-microphone-alt-slash cNube'></i>
+						<i class='fas fa-microphone-alt cX cNube'></i>
+					</div>
 				</div-->
 			</div>
-			<!--Recuadro con el Texto de Salida-->
-			<div id='iIntM0' class='cUp cTexM cSiza cX'>
+			<!--div id='iFaro' class='cX cTOB cCua'><!- -iFARO para mostrar el faro morse- ->
+				<div class='c--Bote cFleT'>
+					<i id='yHear2' class='fas fa-heartbeat cSiV cX'></i>
+					<i id='yHear' class='fas fa-circle cSiV'></i>
+				</div>
 			</div>
+			<div id='iCodQ' class='c X cDer cCua' aria-hidden='true'>
+				<img src='files/qrcode.png' class='cBox'>
+			</div-->
+			<!--div class='cMenu'>
+				<div id='iMenu' class='cFlex'>
+					<i class='fas fa-universal-access cTrin'></i>
+				</div>
+			</div-->
+			<!--div class='cReloj' aria-hidden='true'>
+				<div id='iHora' class='cBott cFlex'>05:30
+				</div>
+			</div-->
+		</div>
 
+
+
+
+
+
+
+
+		
+			
 			<!--Recuadro con la Interfaz de Salida-->
 			<div id='iNt' class='cX c B'>
 
 				<!--Scroll y para iTaco-->
-				<div id='intM' class='cHue cX'>
+				<div id='intM' class='cHue cX' >
 					<!--img src='files/imorse.png' class=''-->
 					<div id='iTaco' class='c X'>
 						<h1>Morse Code, letters or functions on <i class='fas fa-times'></i><i class='fas fa-circle'></i><i class='fas fa-square'></i> buttons</h1>
@@ -1153,139 +1334,20 @@
 				</div>
 
 			</div>
-			<!--div id='mBoTS' class='cBotSOS cX'>
-				<div id='mBotS' class='fas fa-square cTran c45Rot'></div>
-			</div-->
-			<!--div id='mBoTR' class='cBotRED'>
-				<div id='mBotR' class='fa fa-minus cGran'></div>
-			</div-->
-			<div class='cTones c0'><!--para ajustar el espacio de los 8 botones grandes-->
-				<div id='iNegro' class='cMark cDedo cFJ cFlex' onclick='f0024(1)'>
-					<!--i id='iInfo' class='fas fa-info c25Rot'></i--><!--iNEGRO para mostrar la muesca de info-->
-				</div>
-				<div id='numbers' class='cX'><!--NUMBERS para mostrar los números de las teclas físicas-->
-					<div class='cMark cTec cDer cFleB'>9
-					</div>
-					<div class='cMark cTec cFleB'>7
-					</div>
-					<div class='c46 cMark cTec cDer cFleB'>6
-					</div>
-					<div class='c46 cMark cTec cFleB'>4
-					</div>
-					<div class='c13 cMark cTec cDer cFleB'>3
-					</div>
-					<div class='c13 cMark cTec cFleB'>1
-					</div>
-					<div class='cH0 cMark cTec cFleB'>5
-					</div>
-					<div class='cH0 cMark cTec cDer cFleB'>0
-					</div>
-				</div>
-				<!--boton | [9] ayuda-->
-				<div id='yBot9' class='cTop cBOT' onclick='f0024(1)'>
-					<div class='cBote cFlex c X'>
-						<i id='yBB9' class='fa fa-minus cGran c90Rot'></i>
-					</div>
-					<!--div class='cBote cFlex cX'>
-						<i class='fas fa-info c25Rot cTran'></i>
-					</div-->
-				</div>
-				<!--boton . [3] clic o enter onclick='f0096(1,1)'-->
-				<div id='yBot3' class='c13 cBOT'>
-					<div class='cBote cFlex'>
-						<i id='yBB3' class='fas fa-circle cTran'></i>
-						<i class='fas fa-caret-right cTran cX'></i>
-						<i class='fas fa-hand-pointer c10RoT cX'></i>
-					</div>
-				</div>
-				<!--boton - [5] entrada morse onclick='f0145()'-->
-				<div id='boT0' class='cH0 cBOT cX9'>
-					<div class='cBota cFlex'>
-						<i id='yBB5' class='fa fa-minus cGran'></i>
-					</div>
-				</div>
-				<!--boton / [0] cambio de entrada -> /morse/teclado normal/teclado gigante/señas/off/ onclick='f0148()'-->
-				<div id='yBoto' class='cH0 cBOT cX9'>
-					<div class='cBote cFlex'>
-						<i id='yBBo' class='fas fa-square c45RoT cTran'></i><!--fa fa-minus cGran c45RoT'></i-->
-					</div>
-				</div>
-				<!--boton [] [7] menu-->
-				<div id='yBot7' class='cTop cBOT cX9 cStop'>
-					<div class='cBota cFlex'>
-						<i id='yBB7' class='fas fa-square cTran cOff'></i>
-					</div>
-				</div>
-				<div id='yBTNS' class='cX9'>
-					<!--boton X [1] salir o cancelar-->
-					<div id='yBot1' class='c13 cBOT cX9 cStop'>
-						<div class='cBota cFlex'>
-							<i id='yBB1' class='fas fa-times cGran cOff'></i>
-						</div>
-					</div>
-					<!--boton V [6] avanzar adelante un item (+1)-->
-					<div id='yBot6' class='c46 cBOT cX9' onclick='f0095(1)'>
-					<!--div id='yBot6' class='c46 cBOT cX9' onclick='f0095(1)'-->		
-						<div class='cBote cFlex'>
-							<i class='fas fa-eraser cX'></i>
-							<i id='yBB6' class='fas fa-caret-down cGran'></i>
-						</div>
-					</div>
-					<!--boton ^ [4] retroceder atrás un item (-1)-->
-					<div id='yBot4' class='c46 cBOT cX9' onclick='f0094(1)'>
-						<div class='cBota cFlex'>
-							<i class='fas fa-backspace cX'></i>
-							<i id='yBB4' class='fas fa-caret-up cGran c X'></i>
-						</div>
-					</div>
-				</div>
-				<!--div id='iDice' class='cX cTOB'--><!--iDICE para mostrar presencia de señal de sonido-->
-				<!--div class='cBota cFleT'>
-						<i class='fas fa-comment-dots cNube'></i>
-					</div>
-				</div-->
-				<!--div id='yBot00' class='cBott cEnt cX'>
-					<div id='yBB00' class=''>
-						<div id='iEnt' class='c X'>Arriba</div>
-					</div>
-				</div-->
-				<!--div id='yBot0r' class='cBott cBOT cX cR' onclick='f0095(1)'>
-					<div id='yBBO' class='cX cBote cFlex cGran'>·
-						<i class='cX fas fa-microphone-alt-slash cNube'></i>
-						<i class='fas fa-microphone-alt cX cNube'></i>
-					</div>
-				</div>
-				<div id='yBot0l' class='cBott cBOT cX cB' onclick='f0094(1)'>
-					<div id='yBB0' class='cX cBota cFlex cGran'>·
-						<i class='cX fas fa-microphone-alt-slash cNube'></i>
-						<i class='fas fa-microphone-alt cX cNube'></i>
-					</div>
-				</div-->
-			</div>
-			<!--div id='iFaro' class='cX cTOB cCua'><!- -iFARO para mostrar el faro morse- ->
-				<div class='c--Bote cFleT'>
-					<i id='yHear2' class='fas fa-heartbeat cSiV cX'></i>
-					<i id='yHear' class='fas fa-circle cSiV'></i>
-				</div>
-			</div>
-			<div id='iCodQ' class='c X cDer cCua' aria-hidden='true'>
-				<img src='files/qrcode.png' class='cBox'>
-			</div-->
-			<!--div class='cMenu'>
-				<div id='iMenu' class='cFlex'>
-					<i class='fas fa-universal-access cTrin'></i>
-				</div>
-			</div-->
-			<!--div class='cReloj' aria-hidden='true'>
-				<div id='iHora' class='cBott cFlex'>05:30
-				</div>
-			</div-->
-		</div>
+
+
+
+
+
+
+
+
+
 
 
 
 		<!--4. CAPA SUPERIOR: ELEMENTOS FINALES VISUALES DE APOYO-->
-		<div id='iCAPA' class='cBox cTop cFlex c0'><!--Capa de encima (última), sin acción alguna: muestra elementos visuales de apoyo por ejemplo marca de agua en el centro y los mini indicadores-->
+		<div id='iCAPA' class='cBox cTop cFlex'><!--Capa de encima (última), sin acción alguna: muestra elementos visuales de apoyo por ejemplo marca de agua en el centro y los mini indicadores-->
 			<!--div class='cNeg cFlex cR'>
 			</div-->
 			<div class='cLen cFlex' aria-hidden='true'><!--cabezote de la aplicación-->

@@ -13,9 +13,20 @@
 
  .c0{			z-index:11111111!important}/*ACTIVAR cuando el servidor sea 000webhostapp.com (8unos), el del sena es 2000000000 (2 y 9ceros)*/
 
- .cDo{			z-index:11111101!important}
 
- .cUp{			z-index:11111102!important}
+ .c--Do{		z-index:11111101!important}
+
+ .cCel0
+,#iApp
+,#iInCom{		z-index:-2}
+
+ .cDo{			z-index:-1}
+
+ .c--Up{		z-index:11111102!important}
+
+  .cUp{			z-index:0}
+
+
 
 
 /* Animación CSS para iOS a* /
@@ -825,7 +836,7 @@
 
  .cUp{			opacity:1}
 
- .cDo{			opacity:0.9}
+ .cDo{			opacity:0.3}
 
  .c1570
 ,.c1x1

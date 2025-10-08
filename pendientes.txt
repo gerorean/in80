@@ -1,5 +1,5 @@
 Pendientes: 6860 inded   6922
-
+ tabindex="0"
 poner una imagen luego de los textos del intercomunicador si no es el modo 1 ni 6, en caso contrario la imagen deberia ir antes de los textos!!!
 
 el tutorial morse debería salir en letra gigante también!! revisar eso!!!

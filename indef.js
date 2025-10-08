@@ -3509,8 +3509,7 @@ function f0050()//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y
 			if(ambi == 5)//RUTA X
 			{	lLINES.innerHTML = '';
 				iNt.classList.add('cX');//Oculta la interfaz M
-				iIntM0.classList.add('cX');//Oculta el display de la interfaz M
-				iIntMo.classList.add('cX');//Oculta el texto superior
+				iGlob.classList.add('cX');//Oculta los globos superior e inferior de la interfaz M
 				iApp.classList.remove('cX');//Muestra la app
 				f0171();//ACTIVAR los botones 1,3,4,6 y 7
 				iRUTA.classList.add('cX');
@@ -8339,8 +8338,8 @@ f0145(m)//CONTROLAR la activación y la desacticacion temporizada del intercomun
 				iApp.classList.add('cX');//Oculta la app
 				f0170();	//APAGAR los botones 1,3,4,6 y 7
 				iNt.classList.remove('cX');//Se activa la interfaz Inferior
-				iIntM0.classList.remove('cX');//Enciende el editor de la interfaz
-				iIntMo.classList.remove('cX');//Enciende el texto superior
+				iGlob.classList.remove('cX');//Enciende los globos superior e inferior del intercomunicador
+				//iIntMo.classList.remove('cX');//Enciende el texto superior
 				//iApp.classList.add('cX');//Oculta la app
 
 				intM.classList.remove('cX');//Activa el display del morse (tutorial)
@@ -8409,8 +8408,8 @@ f0147()//RESETEAR la interfaz de Salida M (por defecto, sin mMod ni mViS) y apag
 				}
 				mCon = 0;//Reset clics Morse
 				iNt.classList.add('cX');//Apaga la interfaz M
-				iIntM0.classList.add('cX');//Apaga el editor
-				iIntMo.classList.add('cX');//Apaga el texto superior
+				iGlob.classList.add('cX');//Apaga los globos superior e inferior del intercomunicador
+				//iIntMo.classList.add('cX');//Apaga el texto superior
 				iApp.classList.remove('cX');//Muestrsa la app
 				f0171();//ACTIVAR los botones 1,3,4,6 y 7
 			}
@@ -9691,8 +9690,8 @@ f0165()	//ACTIVAR el intercomunicador porque se oprimio <ROMBO> [0]
 					//Prueba tamaño..
 					f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
 				
-					iIntM0.classList.remove('cX');//Muestra el editor
-					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
+					iGlob.classList.remove('cX');//Muestra los globos superior e inferior del intercomunicador
+					//iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
 					iApp.classList.add('cX');//Oculta la app
 					f0170();	//APAGAR los botones 1,3,4,6 y 7
@@ -9712,8 +9711,8 @@ f0166()	//ACTIVAR el intercomunicador universal, si el tutorial Morse esta activ
 					//Prueba tamaño..
 					f0028(1);//ACTUALIZAR el tamaño del texto por defecto(1)
 				
-					iIntM0.classList.remove('cX');//Muestra el editor
-					iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
+					iGlob.classList.remove('cX');//Muestra los globos superior e inferior del editor
+					//iIntMo.classList.remove('cX');//Muestra el cuadro de entrada superior
 					iNt.classList.remove('cX');//Muestra la interfaz inferior
 					iApp.classList.add('cX');//Oculta la app
 					f0170(); //APAGAR los botones 1,3,4,6 y 7
@@ -9984,9 +9983,9 @@ var varZ = 0;//Informa arriba o abajo
 function alterna1() //Muestra la salida
 			{	if(!varZ)
 				{	iIntMo.classList.remove('cUp');//Muestra la salida
-	      			iIntMo.classList.add("cDo");
-	   	   			iIntM0.classList.remove("cDo");
-	  	    		iIntM0.classList.add("cUp");
+	      			iIntMo.classList.add('cDo');
+	   	   			iIntM0.classList.remove('cDo');
+	  	    		iIntM0.classList.add('cUp');
 					varZ = 1
 				}
     		}
@@ -9994,9 +9993,9 @@ function alterna1() //Muestra la salida
 function alterna2() //Muestra la entrada y la salida de forma alternada
 			{	if(varZ)
 				{	iIntMo.classList.remove('cDo');//Muestra la entrada
-	      			iIntMo.classList.add("cUp");
-	   	   			iIntM0.classList.remove("cUp");
-	  	    		iIntM0.classList.add("cDo");
+	      			iIntMo.classList.add('cUp');
+	   	   			iIntM0.classList.remove('cUp');
+	  	    		iIntM0.classList.add('cDo');
 					varZ = 0;
 				}
 				else
@@ -10004,8 +10003,8 @@ function alterna2() //Muestra la entrada y la salida de forma alternada
 				}
     		}
 
-iIntMo.addEventListener("click", alterna2);
-iIntM0.addEventListener("click", alterna2);//1);
+iIntMo.addEventListener('click', alterna2);
+iIntM0.addEventListener('click', alterna2);//1);
 ////iKeyB.addEventListener("click", f0169(1));
 ////iKeyS.addEventListener("click", f0169(2));
 ////iKeyA.addEventListener("click", f0169(3));
