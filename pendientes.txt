@@ -1,5 +1,8 @@
 Pendientes:
 
+Cambiar el texto del boton del cabezote por " Informador: barrio Chapinero Central, abrir intercomunicador" y en el modo 
+intercomunicador poner "Intercomunicador, volver al informador"
+
 El boton de ayuda en el modo intercomunicador no esta funcionando, crear el texto para que funcione
 cuando esta en el modo intercomunicador y falta revizar el tiempo de salirse auto del intercomunicador y 
 adicionar en preguntas frecuentes la parte del intercomunicador, los botones arriba y 
