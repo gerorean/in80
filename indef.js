@@ -50,6 +50,9 @@ var selectedVoiceName1 = '';//se usa para el sintetizador de voz
 //const eBody = document.querySelector("#iBody");
 //var aCss;// Leer la variable a en CSS
 var varA; // variable que almacena el valor actual de la variable a en CSS (--a)
+var varE; // variable que almacena el valor actual de la variable e en CSS (--e)
+var varH; // variable que almacena el valor actual de la variable h en CSS (--h)
+var varW; // variable que almacena el valor actual de la variable w en CSS (--w)
 var vaRA = 0; // variable que almacena el valor anterior de la variable a en CSS (--a)
 var vaRH = 0; // variable que almacena el valor anterior de la altura de la pantalla
 var vaRW = 0; // variable que almacena el valor anterior del ancho de la pantalla
@@ -2306,6 +2309,9 @@ function f0028(def)//ACTUALIZAR el tamaño/altura del texto:: standar o por defe
 			}
 */
 			iBody.style.setProperty('--a',varA+'px');//109.5px 49   139
+			iBody.style.setProperty('--h',varH+'px');//
+			iBody.style.setProperty('--e',varE+'px');//
+			iBody.style.setProperty('--w',varW);//
 			//varA = a; //ACTUALIZA el valor de la variable 'a'
 			
 			
@@ -9812,30 +9818,57 @@ function
 f0168(au)	//CONVERTIR a pixekes el tamaño de la altura de g00VARS[33] y regresarlo por varA
 			{	lOG(168);			
 				var a;
+				var w;
+				var h;
+				var e;
 				switch (au)//ajusta el tamaño del texto
 				{	case 1:
-						a = 12;//15px 1 + 1  "mínima"
+						a = 12;//12   12     12 15px 1 + 1  "mínima"
+						w = 300;
+						h = 19;//19 1.6em
+						e = 0.36;
 					break;
 					case 2:
-						a = 14;//19.5px 4 + 2  14 ""pequeña"
+						a = 19;//18   14    19   19.5px 4 + 2  14 ""pequeña"
+						w = 350;
+						h = 29;//29 1.55em
+						e = 0.30;
 					break;
 					case 3:
-						a = 20;//28.5px 9 + 3 23
+						a = 31;//26   20     31  28.5px 9 + 3 23
+						w = 420;
+						h = 46;//46 1.5em
+						e = 0.25;
 					break;
 					case 4:
-						a = 32;//42 16 + 4  39
+						a = 50;//39   32    50   42 16 + 4  39
+						w = 500;
+						h = 70;//70 1.4em
+						e = 0.20;
 					break;
 					case 5:
-						a = 52;//60 25 + 5  64
+						a = 81;//57    52     81   60 25 + 5  64
+						w = 590;
+						h = 105;//105 1.3em
+						e = 0.10;
 					break;
 					case 6:
-						a = 82;//82.5px 36 + 6  90
+						a = 130;//84    82   130  82.5px 36 + 6  90
+						w = 700;
+						h = 162;//162 1.25em
+						e = 0;
 					break;
 					case 7:
-						a = 124;//109.5px 49   139
+						a = 210;//124     124     210   109.5px 49   139
+						w = 820;
+						h = 252;//252 1.2em
+						e = -0.2;
 					break;
 				}
 				varA = a;
+				varW = w;
+				varH = h;
+				varE = e;
 			}
 
 function 

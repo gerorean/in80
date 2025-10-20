@@ -47,7 +47,7 @@
 
 
 /*VARIABLES*/
- #iBody{		--a:45px;/*45px;/*28.5px;/*  15px 19.5px 28.5px   42px   60px ------100px 20px - 100px ALTURA OFICIAL DEL TEXTO*/
+ #iBody{		--a:19px;/*45px;/*45px;/*28.5px;/*  15px 19.5px 28.5px   42px   60px ------100px 20px - 100px ALTURA OFICIAL DEL TEXTO*/
 					/*	/*--aAlto:calc(var(--a)*1.05);/*1.6 1.5 ALTO DE LA CASILLA DEL BOTON MAGNIFICADO 200px GRANDE*/
 					/*	--alto:calc(var(--a)*2);/*ALTURA DE LOS ICONOS GENERALES*/
 						/*--altO:calc(var(--a)*1);/*var(--a)*0.7);/*ALTURA DE LAS GLOSAS EN FILA*/
@@ -102,6 +102,8 @@
 						/*	--cW:1vw;/*ANCHO DE LA PANTALLA x 50*/
 				--cWH:1;/*RELACION ANCHO/ALTO DE LA PANTALLA*/
 				--cYel:transparent;/*COLOR DE LA LUZ -rgba(255,255,0,0.1);*/
+				--e:0.3px;/*espacio entre letras del texto*/
+				--h:29px;/*altura de la línea de texto*/
 				--kdot:2px;/*altura barra puntos o leds de colores inferiores sobre fondo negro*/
 				--marH:0.5%;/*vh;/*0.5vh;/*margen superior e inferior de la presentación AV*/
 					/*	--mJPG:calc(var(--cJPG)*1.2);/*MARGEN PARA LAS IMAGENES Y O ICONOS CENTRALES*/
@@ -117,6 +119,7 @@
 				--rmin:5px;/*5px;/*RADIO minimo LABEL Y BUTTON*/
 					/*	--sina:67%;/*ANCHO DE LA MARQUEsina LOCAL*/
 					/*	--sky:rgb(0,172,238);/*COLOR DE FONDO DEL LOGO AZUL*/
+				--w:350;/*ancho de la letra*/
 				--z:10px;/*--z:15px altura del borde negro superior*/
 				}
 
@@ -182,7 +185,7 @@
 ,.yProsaL
 ,.zProsa
 ,#iBody
-,#i--Un2{			background:var(--cblwh1)}
+,#i--Un2{		background:var(--cblwh1)}
 
  .cButton
 ,.cHue
@@ -273,17 +276,17 @@
  .cAma
 ,.cLuz{			border-radius:var(--rmin) var(--rmin) 0 0}
 
- .cLDown{		border-radius:var(--rmin) var(--rmin) calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) !important} /*var(--radio) var(--radio)!important}*/
+ .cLDown{		border-radius:calc(var(--palo)*2) calc(var(--palo)*2) calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) !important} /*var(--rmin) var(--rmin) calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) !important*/
 
  .c1570
 ,.cButton
-,.cTitul{		border-radius:var(--rmin)}/* 5px var(--bh) 5px}*/
+,.cTitul{		border-radius:calc(var(--palo)*2)}/*var(--rmin)*/
 
- #iNegro{		border-radius:var(--rmin) 0 0 var(--rmin)}
+ #iNegro{		border-radius:var(--rmin) 0 0 var(--rmin)}/*var(--rmin) 0 0 var(--rmin)}  var(--rmin)*/
 
- .z70{			border-radius:var(--rmin) var(--rmin) 0 0}/*calc(var(--cHGlo)*1px) calc(var(--cHGlo)*1px) 0 0}*/
+ .z70{			border-radius:var(--rmin) var(--rmin) 0 0}/*var(--rmin) var(--rmin) 0 0} calc(var(--cHGlo)*1px) calc(var(--cHGlo)*1px) 0 0}*/
 
- .cLUp{			border-radius:calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) var(--rmin) var(--rmin)!important}/*border-radius:var(--radio) var(--radio) var(--rmin) var(--rmin)!important}*/
+ .cLUp{			border-radius:calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) calc(var(--palo)*2) calc(var(--palo)*2) !important}/*calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) var(--rmin) var(--rmin)!important*/
 
  .cBott
 ,.c--Chico
@@ -554,6 +557,16 @@
 
  .cMors{		font-size:var(--cMors)}
 
+
+
+
+ .c--Nada
+,.cPadd4
+,.cTapa{		font-variation-settings: 'wght' var(--w)}/**/
+
+
+
+
  .c--Iwhi
 ,.c--Iyel{		font-weight:200}
 
@@ -743,8 +756,12 @@
 
  .c--Vpres{		left:var(--pelo)}
 
+ .c--Nada
+,.cPadd4
+,.cTapa{		letter-spacing: var(--e, 0.2px)}
+
  .cCero
-,.cNada{		line-height:0}
+,.c--Nada{		line-height:0}
 
  .yProsaL
 ,.zProsa{		line-height:100%}/*calc(1px * var(--cHGlo))}/*min(calc(var(--cWH) * 10vh),19vh)}*/
@@ -755,7 +772,9 @@
 
  .cMarqu{		line-height:min(6vh,6vw)}/*:min(9vh,9vw)}*/
 
- .cTapa{		line-height:var(--a)}
+ .c--Nada
+,.cPadd4
+,.cTapa{		line-height:var(--h)}/**/
 
  .cTalk{		line-height:var(--bh)}
 
