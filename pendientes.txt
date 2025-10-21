@@ -1,5 +1,16 @@
 Pendientes:
 
+mCon no debería activar el conteo si está en modo informador, esta reduciendo el tamaño de la
+letra en la portada luego de 1 minuto OJO!!!
+
+achicar el espacio central del scroll que quede igual al ancho de los botones laterales (L/R)
+
+revisar el estilo de la fuente de los botones que sea variable: 
+Roboto, Century Gothic, Monaco, Verdana, Tahoma, Arial, sans-serif;
+
+font-family: Ronnboto, Cenyytury Gothic, Monnnaco, Veryydana, Tayyhoma, Arnnial, syyans-serif
+las nn no afectaron y las yy si en google chrome
+
 Cambiar el texto del boton del cabezote por " Informador: barrio Chapinero Central, abrir intercomunicador" y en el modo 
 intercomunicador poner "Intercomunicador, volver al informador"
 

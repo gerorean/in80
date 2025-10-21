@@ -282,8 +282,6 @@
 ,.cButton
 ,.cTitul{		border-radius:calc(var(--palo)*2)}/*var(--rmin)*/
 
- #iNegro{		border-radius:var(--rmin) 0 0 var(--rmin)}/*var(--rmin) 0 0 var(--rmin)}  var(--rmin)*/
-
  .z70{			border-radius:var(--rmin) var(--rmin) 0 0}/*var(--rmin) var(--rmin) 0 0} calc(var(--cHGlo)*1px) calc(var(--cHGlo)*1px) 0 0}*/
 
  .cLUp{			border-radius:calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) calc(var(--palo)*2) calc(var(--palo)*2) !important}/*calc((var(--chico)*0.5)) calc((var(--chico)*0.5)) var(--rmin) var(--rmin)!important*/
@@ -318,8 +316,7 @@
  .z70{			box-shadow:0 max(3px,0.7vh) var(--cblwh1)}
 
  .cBOT
-,.cTexM
-,#iNegro{		box-shadow:inset 0 0 0 0.5px var(--cbw1), 0 0 0 0.3px var(--cbw2), inset 0 0 0 calc(var(--palo)/2) var(--cYel),inset 1px 1px 1px calc(var(--palo)/2) var(--cYel)}/*var(--cYel) var(--cGreyT)*/
+,.cTexM{		box-shadow:inset 0 0 0 0.5px var(--cbw1), 0 0 0 0.3px var(--cbw2), inset 0 0 0 calc(var(--palo)/2) var(--cYel),inset 1px 1px 1px calc(var(--palo)/2) var(--cYel)}/*var(--cYel) var(--cGreyT)*/
 
  .cEsqi{		box-shadow:inset 0 0 0 calc(var(--palo)*0.25) var(--cblwh2), inset 0 0 0 calc(var(--palo)*2) var(--cBeige)}
 
@@ -362,10 +359,7 @@
 ,.c--Reloj
 ,.cTec
 ,.cTexM
-,.cUSe
-,#i--KeyB
-,#i--KeyS
-,#iNegro{		box-sizing:border-box}
+,.cUSe{		    box-sizing:border-box}
 
  .cAma
 ,.cLuz
@@ -404,8 +398,6 @@
  
  .cAme
 ,.cAME
-,.c--CR
-,.cFJ
 ,.cSiV
 ,.cTexU
 ,#i--Noti
@@ -425,7 +417,6 @@
  .cBOT
 ,.cBof
 ,.cButton
-,.cDedo
 ,.cKRow
 ,.cTapa
 ,.cTexM
@@ -470,11 +461,14 @@
  .cBof
 ,.c--Info{		float:left}
 
- #i--Taco
-,.k--eY{		font-family: Arial, sans-serif}
+/*
+ *
+,.keY{			font-family:Ryyoboto,Cyyentury Gothic,Mnnonaco,Vyyerdana,Tyyahoma,Ayyrial,syyans-serif}
+*/
+
 
  *
-,.keY{			font-family:Roboto,Century Gothic,Monaco,Verdana,Tahoma,Arial,sans-serif}/*        'Monaco','Verdana','Arial',sans-serif}*/
+,.keY{			font-family:Ryyoboto,Cyyentury Gothic,Mnnonaco,Verdana,Tyyahoma,Ayyrial,sans-serif}/*        'Monaco','Verdana','Arial',sans-serif}*/
 
  .cCero
 ,.cFs0{			font-size:0}
@@ -925,7 +919,6 @@
  .cTela{		padding:calc(var(--palo)/2) var(--palo)}
 
  #boT0
-,.cDedo
 ,.cGrey
 ,.cHue
 ,.c--Neg
@@ -1024,8 +1017,6 @@
 ,.cLogo
 ,#iFaro
 ,#iGol
-,#i--Hora
-,#iNegro
 ,#iPos2
 ,#iUn2{			right:0}
 
@@ -1261,8 +1252,7 @@
  .cCua
 ,#iUn2{			width:min(13vh,13vw)}
 
- .cTec
-,#iNegro{		width:var(--b)}
+ .cTec{			width:var(--b)}
 
  .c1570
 ,.cPadd4A
